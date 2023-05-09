@@ -19,6 +19,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
         'types': d({
             "MapParameters": type(group({
                 "library": member(ref(externalTypeReference("in", "Type Library", {}))),
+                "atom mappings": member(ref(typeReference("Atom Mappings"))),
                 "mapping settings": member(ref(typeReference("Mapping Settings"))),
             })),
             "Atom Mappings": type(dictionary(taggedUnion({
@@ -28,7 +29,6 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
             }))),
             "Mapping Settings": type(group({
                 "create annotations": member(boolean()),
-                "atom mappings": member(ref(typeReference("Atom Mappings"))),
                 "constraints mapping": member(group({
                     "terminal values": member(boolean()),
                     "constraints": member(optional(taggedUnion({

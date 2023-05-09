@@ -28,6 +28,8 @@ export const $: g_project.T.ModuleDefinition<pd.SourceLocation> = {
         'imports': d({
             "main": main(),
             "resolve": submodule("resolve"),
+            "2glossary": submodule("2glossary"),
+            "2submodules": submodule("2submodules"),
         }),
     },
 

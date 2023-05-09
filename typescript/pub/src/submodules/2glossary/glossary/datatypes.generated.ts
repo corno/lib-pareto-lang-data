@@ -33,19 +33,20 @@ export namespace T {
     
     export namespace MapParameters {
         
+        export type atom__mappings = T.Atom__Mappings
+        
         export type library = g_in.T.Type__Library
         
         export type mapping__settings = T.Mapping__Settings
     }
     
     export type MapParameters = {
+        readonly 'atom mappings': T.Atom__Mappings
         readonly 'library': g_in.T.Type__Library
         readonly 'mapping settings': T.Mapping__Settings
     }
     
     export namespace Mapping__Settings {
-        
-        export type atom__mappings = T.Atom__Mappings
         
         export namespace constraints__mapping {
             
@@ -87,7 +88,6 @@ export namespace T {
     }
     
     export type Mapping__Settings = {
-        readonly 'atom mappings': T.Atom__Mappings
         readonly 'constraints mapping': {
             readonly 'constraints': [ false ] | [ true, 
                 | ['optional', null]

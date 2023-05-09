@@ -15,6 +15,7 @@ import { $ as d_resolve } from "./submodules/resolve/module.data"
 import { $ as d_serialize } from "./submodules/serialize/module.data"
 import { $ as d_2prototypesystem } from "./submodules/2prototypesystem/module.data"
 import { $ as d_2glossary } from "./submodules/2glossary/module.data"
+import { $ as d_2submodules } from "./submodules/2submodules/module.data"
 
 import { external, submodule, tempSubmodule, this_ } from "lib-pareto-typescript-project/dist/submodules/project/shorthands"
 
@@ -30,6 +31,7 @@ export const $: g_project.T.Project<pd.SourceLocation> = {
         "res-pareto-dictionary": null,
         "lib-proto-typesystem": null,
         "lib-pareto-typescript-project": null,
+        "lib-fountain-pen": null,
     }),
     'type': ['library', {
         'main': d_main,
@@ -40,6 +42,7 @@ export const $: g_project.T.Project<pd.SourceLocation> = {
             "serialize": d_serialize,
             "2prototypesystem": d_2prototypesystem,
             "2glossary": d_2glossary,
+            "2submodules": d_2submodules,
             "possiblyresolved": d_possiblyresolved,
         }),
         'bindings': [true, {
@@ -50,6 +53,8 @@ export const $: g_project.T.Project<pd.SourceLocation> = {
         'test': {
             'dependencies': d({
                 "res-pareto-resolve": null,
+                "lib-pareto-typescript-project": null,
+                "lib-fountain-pen": null,
             }),
             'definition': {
                 'glossary': {

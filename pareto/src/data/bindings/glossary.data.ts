@@ -9,6 +9,7 @@ import {
     imp,
     procedure,
     sInterfaceReference,
+    sfunction,
     typeReference
 } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
 
@@ -18,7 +19,6 @@ const d = pd.d
 
 export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
     'imports': d({
-        "common": imp(),
     }),
 
     'glossary parameters': d({

@@ -4,12 +4,15 @@ import * as pd from 'pareto-core-data'
 import * as pv from 'pareto-core-dev'
 import * as pl from 'pareto-core-lib'
 
-import * as g_pub from "../../../../../pub"
+import * as a_pub from "../../../../../pub"
 import * as a_resolve from "res-pareto-resolve"
+import * as a_glossary from "lib-pareto-typescript-project"
 
 import { $ as d_pareto_lang_data } from "../../../data/pareto-lang-data.data"
 
-import * as g_pareto_lang_data_resolve from "../../../../../pub/dist/submodules/resolve"
+import * as a_fp from "lib-fountain-pen"
+import * as a_2glossary from "../../../../../pub/dist/submodules/2glossary"
+import * as a_pareto_lang_data_resolve from "../../../../../pub/dist/submodules/resolve"
 import * as g_resolved from "../../../../../pub/dist/submodules/resolved"
 
 
@@ -17,7 +20,7 @@ import { A } from "../api.generated"
 
 export const $$: A.getTestSet = ($) => {
 
-    const resolve = g_pareto_lang_data_resolve.$a.resolve<pd.SourceLocation>(
+    const resolve = a_pareto_lang_data_resolve.$a.resolve<pd.SourceLocation>(
         {
             'resolveDictionary': a_resolve.$r.safeResolveDictionary({
                 'onError': ($) => {
@@ -57,6 +60,36 @@ export const $$: A.getTestSet = ($) => {
             }
         },
     })
+
+    const glossary = a_pub.$b.map2Glossary()({
+        'library': resolved['type library'],
+        'atom mappings': pd.d({
+            "text": ['string', null],
+            "identifier": ['string', null],
+        }),
+        'mapping settings': {
+            'constraints mapping': {
+                'constraints': [true, ['required', null]],
+                'terminal values': true,
+            },
+            'create annotations': true,
+        }
+    })
+
+    a_fp.$b.createFile()(
+        ($i) => {
+            $i(
+                pd.a([$.testDirectory, "FOO.ts"]),
+                ($i) => {
+                    a_glossary.$b.serializeGlossary()(glossary, $i)
+                }
+            )
+        },
+        {
+            'logError': () => {
+
+            }
+        })
 
     resolved['type library']['global types'].__forEach(() => false, ($) => {
         function type($: g_resolved.T.Type) {

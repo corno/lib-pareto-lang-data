@@ -15,6 +15,7 @@ export const $$: A.map = ($d) => {
         $: g_in.T.Type__Library,
         $p: {
             'mapping settings': g_this.T.Mapping__Settings
+            'atom mappings': g_this.T.Atom__Mappings
         },
     ) => g_out.T.Glossary<null>
 
@@ -25,6 +26,7 @@ export const $$: A.map = ($d) => {
         $: g_in.T.Type,
         $p: {
             'mapping settings': g_this.T.Mapping__Settings
+            'atom mappings': g_this.T.Atom__Mappings
         }
     ) => g_out.T.Type<null>
 
@@ -365,7 +367,7 @@ export const $$: A.map = ($d) => {
                 case 'atom': return pl.ss($, ($) => {
                     const term = $.atom
                     return createMappedAtom(term, {
-                        'atom mappings': $p['mapping settings']['atom mappings']
+                        'atom mappings': $p['atom mappings']
                     })
                 })
                 case 'resolved reference': return pl.ss($, ($) => {
@@ -374,7 +376,7 @@ export const $$: A.map = ($d) => {
                         "key": $p['mapping settings']['constraints mapping']['terminal values']
                             ? [true, {
                                 'type': createMappedAtom($.atom, {
-                                    'atom mappings': $p['mapping settings']['atom mappings']
+                                    'atom mappings': $p['atom mappings']
                                 }),
                             }]
                             : [false],
@@ -417,7 +419,7 @@ export const $$: A.map = ($d) => {
                         "key": $p['mapping settings']['constraints mapping']['terminal values']
                             ? [true, {
                                 'type': createMappedAtom($.atom, {
-                                    'atom mappings': $p['mapping settings']['atom mappings']
+                                    'atom mappings': $p['atom mappings']
                                 }),
                             }]
                             : [false],
@@ -530,7 +532,8 @@ export const $$: A.map = ($d) => {
     }
     return ($) => {
         return map_Type__Library_2_Glossary($.library, {
-            'mapping settings': $['mapping settings']
+            'mapping settings': $['mapping settings'],
+            'atom mappings': $['atom mappings']
         })
     }
 }
