@@ -355,22 +355,23 @@ export function component(type: g_this.T.Global__Type__Selection<pd.SourceLocati
     }
 }
 
-export function cyclicSibling(type: string): g_this.T.Global__Type__Selection<pd.SourceLocation> {
-    return ['cyclic sibling', {
-        'type': {
-            'key': type,
-            'annotation': pd.getLocationInfo(1)
-        }
-    }]
-}
+export function typeRef(type: string, cyclic?: boolean): g_this.T.Global__Type__Selection<pd.SourceLocation> {
+    if (cyclic) {
+        return ['cyclic sibling', {
+            'type': {
+                'key': type,
+                'annotation': pd.getLocationInfo(1)
+            }
+        }]
+    } else {
+        return ['resolved sibling', {
+            'type': {
+                'key': type,
+                'annotation': pd.getLocationInfo(1)
+            }
+        }]
 
-export function resolvedSibling(type: string): g_this.T.Global__Type__Selection<pd.SourceLocation> {
-    return ['resolved sibling', {
-        'type': {
-            'key': type,
-            'annotation': pd.getLocationInfo(1)
-        }
-    }]
+    }
 }
 
 export function imported(library: string, type: string): g_this.T.Global__Type__Selection<pd.SourceLocation> {
