@@ -103,6 +103,29 @@ export namespace N {
         export namespace T {}
     }
     
+    export namespace Global_$_$Type {
+        
+        export namespace N {
+            
+            export namespace G {
+                
+                export namespace N {
+                    
+                    export namespace _$ltype {
+                        
+                        export namespace N {}
+                        
+                        export namespace T {}
+                    }
+                }
+                
+                export namespace T {}
+            }
+        }
+        
+        export namespace T {}
+    }
+    
     export namespace Global_$_$Type_$_$Selection {
         
         export namespace N {
@@ -201,23 +224,7 @@ export namespace N {
             
             export namespace D {
                 
-                export namespace N {
-                    
-                    export namespace G {
-                        
-                        export namespace N {
-                            
-                            export namespace _$ltype {
-                                
-                                export namespace N {}
-                                
-                                export namespace T {}
-                            }
-                        }
-                        
-                        export namespace T {}
-                    }
-                }
+                export namespace N {}
                 
                 export namespace T {}
             }
@@ -1140,6 +1147,15 @@ export namespace T {
         readonly 'type': T.Type__Selection<GAnnotation>
     }
     
+    export namespace Global__Type {
+        
+        export type _ltype<GAnnotation> = T.Type<GAnnotation>
+    }
+    
+    export type Global__Type<GAnnotation> = {
+        readonly 'type': T.Type<GAnnotation>
+    }
+    
     export namespace Global__Type__Selection {
         
         export namespace cyclic__sibling {
@@ -1152,16 +1168,21 @@ export namespace T {
                 
                 export namespace referent {
                     
-                    export type O<GAnnotation> = T.Global__Types.D<GAnnotation>
+                    export namespace O {
+                        
+                        export type C<GAnnotation> = T.Global__Type<GAnnotation>
+                    }
+                    
+                    export type O<GAnnotation> = () => T.Global__Type<GAnnotation>
                 }
                 
-                export type referent<GAnnotation> = [ false ] | [ true, T.Global__Types.D<GAnnotation>]
+                export type referent<GAnnotation> = [ false ] | [ true, () => T.Global__Type<GAnnotation>]
             }
             
             export type _ltype<GAnnotation> = {
                 readonly 'annotation': GAnnotation
                 readonly 'key': string
-                readonly 'referent': [ false ] | [ true, T.Global__Types.D<GAnnotation>]
+                readonly 'referent': [ false ] | [ true, () => T.Global__Type<GAnnotation>]
             }
         }
         
@@ -1169,7 +1190,7 @@ export namespace T {
             readonly 'type': {
                 readonly 'annotation': GAnnotation
                 readonly 'key': string
-                readonly 'referent': [ false ] | [ true, T.Global__Types.D<GAnnotation>]
+                readonly 'referent': [ false ] | [ true, () => T.Global__Type<GAnnotation>]
             }
         }
         
@@ -1239,21 +1260,16 @@ export namespace T {
                 
                 export namespace referent {
                     
-                    export namespace O {
-                        
-                        export type C<GAnnotation> = T.Global__Types<GAnnotation>
-                    }
-                    
-                    export type O<GAnnotation> = () => T.Global__Types<GAnnotation>
+                    export type O<GAnnotation> = T.Global__Type<GAnnotation>
                 }
                 
-                export type referent<GAnnotation> = [ false ] | [ true, () => T.Global__Types<GAnnotation>]
+                export type referent<GAnnotation> = [ false ] | [ true, T.Global__Type<GAnnotation>]
             }
             
             export type _ltype<GAnnotation> = {
                 readonly 'annotation': GAnnotation
                 readonly 'key': string
-                readonly 'referent': [ false ] | [ true, () => T.Global__Types<GAnnotation>]
+                readonly 'referent': [ false ] | [ true, T.Global__Type<GAnnotation>]
             }
         }
         
@@ -1261,7 +1277,7 @@ export namespace T {
             readonly 'type': {
                 readonly 'annotation': GAnnotation
                 readonly 'key': string
-                readonly 'referent': [ false ] | [ true, () => T.Global__Types<GAnnotation>]
+                readonly 'referent': [ false ] | [ true, T.Global__Type<GAnnotation>]
             }
         }
     }
@@ -1271,7 +1287,7 @@ export namespace T {
             readonly 'type': {
                 readonly 'annotation': GAnnotation
                 readonly 'key': string
-                readonly 'referent': [ false ] | [ true, T.Global__Types.D<GAnnotation>]
+                readonly 'referent': [ false ] | [ true, () => T.Global__Type<GAnnotation>]
             }
         }]
         | ['import', {
@@ -1290,25 +1306,16 @@ export namespace T {
             readonly 'type': {
                 readonly 'annotation': GAnnotation
                 readonly 'key': string
-                readonly 'referent': [ false ] | [ true, () => T.Global__Types<GAnnotation>]
+                readonly 'referent': [ false ] | [ true, T.Global__Type<GAnnotation>]
             }
         }]
     
     export namespace Global__Types {
         
-        export namespace D {
-            
-            export type _ltype<GAnnotation> = T.Type<GAnnotation>
-        }
-        
-        export type D<GAnnotation> = {
-            readonly 'type': T.Type<GAnnotation>
-        }
+        export type D<GAnnotation> = T.Global__Type<GAnnotation>
     }
     
-    export type Global__Types<GAnnotation> = pt.Dictionary<{
-        readonly 'type': T.Type<GAnnotation>
-    }>
+    export type Global__Types<GAnnotation> = pt.Dictionary<T.Global__Type<GAnnotation>>
     
     export namespace Imports {
         

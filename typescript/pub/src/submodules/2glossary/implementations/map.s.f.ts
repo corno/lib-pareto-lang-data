@@ -404,7 +404,7 @@ export const $$: A.map = ($d) => {
                                 return pl.cc($.value, ($) => {
                                     switch ($[0]) {
                                         case 'dictionary': return pl.ss($, ($) => ['reference', ['type', map_Type__Selection($['type'], { 'getLastSteps': () => pm.wrapRawArray(["D"]) })]])
-                                        case 'lookup': return pl.ss($, ($) => ['computed', ['reference', ['type', map_Global__Type__Selection($)]]])
+                                        case 'lookup': return pl.ss($, ($) => ['reference', ['type', map_Global__Type__Selection($)]])
                                         default: return pl.au($[0])
                                     }
                                 })

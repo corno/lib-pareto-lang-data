@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "lib-pareto-lang-data": "^0.2.1",
+    "lib-pareto-lang-data": "^0.2.2",
     "pareto-core-data": "^0.6.0",
     "pareto-core-dev": "^0.6.0",
     "pareto-core-exe": "^0.21.0",

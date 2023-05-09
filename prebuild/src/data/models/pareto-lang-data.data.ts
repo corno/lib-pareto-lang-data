@@ -107,10 +107,13 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = {
                 group({})
             )
         ),
-        "Global Types": globalType(
-            dictionary(group({
+        "Global Type": globalType(
+            group({
                 "type": prop(component(resolvedSibling("Type"))),
-            }))
+            })
+        ),
+        "Global Types": globalType(
+            dictionary(component(resolvedSibling("Global Type")))
         ),
         "Type Selection Tail": globalType(
             group({
@@ -177,14 +180,14 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = {
         "Global Type Selection": globalType(
             stateGroup({
                 "resolved sibling": state(group({
-                    "type": prop(resolvedReference(lookup(resolvedSibling("Global Types")))),
+                    "type": prop(resolvedReference(lookup(resolvedSibling("Global Type")))),
                 })),
                 "import": state(group({
                     "library": prop(resolvedReference(dict(dictSel(typeSelection("Imports"))))),
                     "type": prop(resolvedReference(dict(dictSel(typeSelection("Global Types"))))),
                 })),
                 "cyclic sibling": state(group({
-                    "type": prop(resolvedReference(dict(dictSel(typeSelection("Global Types"))))),
+                    "type": prop(cyclicReference(resolvedSibling("Global Type"))),
                 })),
             }),
         ),

@@ -167,12 +167,12 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                                     'type': <g_glossary.T.Type<pd.SourceLocation>>['string', null],
                                 },
                                 "referent": {
-                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['computed', <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
                                         'context': ['local', null],
                                         'typeXX': "Global Types",
                                         'tailXX': a([]),
                                         'type arguments': d({}),
-                                    }]]],
+                                    }]],
                                 },
                             })],
                         },

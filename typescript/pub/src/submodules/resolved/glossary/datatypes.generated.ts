@@ -103,6 +103,29 @@ export namespace N {
         export namespace T {}
     }
     
+    export namespace Global_$_$Type {
+        
+        export namespace N {
+            
+            export namespace G {
+                
+                export namespace N {
+                    
+                    export namespace _$ltype {
+                        
+                        export namespace N {}
+                        
+                        export namespace T {}
+                    }
+                }
+                
+                export namespace T {}
+            }
+        }
+        
+        export namespace T {}
+    }
+    
     export namespace Global_$_$Type_$_$Selection {
         
         export namespace N {
@@ -201,23 +224,7 @@ export namespace N {
             
             export namespace D {
                 
-                export namespace N {
-                    
-                    export namespace G {
-                        
-                        export namespace N {
-                            
-                            export namespace _$ltype {
-                                
-                                export namespace N {}
-                                
-                                export namespace T {}
-                            }
-                        }
-                        
-                        export namespace T {}
-                    }
-                }
+                export namespace N {}
                 
                 export namespace T {}
             }
@@ -1121,6 +1128,15 @@ export namespace T {
         readonly 'type': T.Type__Selection
     }
     
+    export namespace Global__Type {
+        
+        export type _ltype = T.Type
+    }
+    
+    export type Global__Type = {
+        readonly 'type': T.Type
+    }
+    
     export namespace Global__Type__Selection {
         
         export namespace cyclic__sibling {
@@ -1129,19 +1145,24 @@ export namespace T {
                 
                 export type key = string
                 
-                export type referent = () => T.Global__Types.D
+                export namespace referent {
+                    
+                    export type C = T.Global__Type
+                }
+                
+                export type referent = () => T.Global__Type
             }
             
             export type _ltype = {
                 readonly 'key': string
-                readonly 'referent': T.Global__Types.D
+                readonly 'referent': () => T.Global__Type
             }
         }
         
         export type cyclic__sibling = {
             readonly 'type': {
                 readonly 'key': string
-                readonly 'referent': () => T.Global__Types.D
+                readonly 'referent': () => T.Global__Type
             }
         }
         
@@ -1189,24 +1210,19 @@ export namespace T {
                 
                 export type key = string
                 
-                export namespace referent {
-                    
-                    export type C = T.Global__Types.D
-                }
-                
-                export type referent = T.Global__Types
+                export type referent = T.Global__Type
             }
             
             export type _ltype = {
                 readonly 'key': string
-                readonly 'referent': T.Global__Types.D
+                readonly 'referent': T.Global__Type
             }
         }
         
         export type resolved__sibling = {
             readonly 'type': {
                 readonly 'key': string
-                readonly 'referent': T.Global__Types.D
+                readonly 'referent': T.Global__Type
             }
         }
     }
@@ -1215,7 +1231,7 @@ export namespace T {
         | ['cyclic sibling', {
             readonly 'type': {
                 readonly 'key': string
-                readonly 'referent': () => T.Global__Types.D
+                readonly 'referent': () => T.Global__Type
             }
         }]
         | ['import', {
@@ -1231,25 +1247,16 @@ export namespace T {
         | ['resolved sibling', {
             readonly 'type': {
                 readonly 'key': string
-                readonly 'referent': T.Global__Types.D
+                readonly 'referent': T.Global__Type
             }
         }]
     
     export namespace Global__Types {
         
-        export namespace D {
-            
-            export type _ltype = T.Type
-        }
-        
-        export type D = {
-            readonly 'type': T.Type
-        }
+        export type D = T.Global__Type
     }
     
-    export type Global__Types = pt.Dictionary<{
-        readonly 'type': T.Type
-    }>
+    export type Global__Types = pt.Dictionary<T.Global__Type>
     
     export namespace Imports {
         
