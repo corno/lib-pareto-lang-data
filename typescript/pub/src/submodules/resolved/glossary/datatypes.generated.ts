@@ -103,21 +103,6 @@ export namespace N {
         export namespace T {}
     }
     
-    export namespace Dummy_$_$Type_$_$Library_$_$Lookup {
-        
-        export namespace N {
-            
-            export namespace D {
-                
-                export namespace N {}
-                
-                export namespace T {}
-            }
-        }
-        
-        export namespace T {}
-    }
-    
     export namespace Global_$_$Type_$_$Selection {
         
         export namespace N {
@@ -1059,21 +1044,21 @@ export namespace T {
         
         export namespace _ltype {
             
-            export type constraint = T.Atom__Types.D
-            
             export type key = string
+            
+            export type referent = T.Atom__Types.D
         }
         
         export type _ltype = {
-            readonly 'constraint': T.Atom__Types.D
             readonly 'key': string
+            readonly 'referent': T.Atom__Types.D
         }
     }
     
     export type Atom = {
         readonly 'type': {
-            readonly 'constraint': T.Atom__Types.D
             readonly 'key': string
+            readonly 'referent': T.Atom__Types.D
         }
     }
     
@@ -1136,39 +1121,27 @@ export namespace T {
         readonly 'type': T.Type__Selection
     }
     
-    export namespace Dummy__Type__Library__Lookup {
-        
-        export type D = T.Type__Library
-    }
-    
-    export type Dummy__Type__Library__Lookup = pt.Dictionary<T.Type__Library>
-    
     export namespace Global__Type__Selection {
         
         export namespace cyclic__sibling {
             
             export namespace _ltype {
                 
-                export namespace constraint {
-                    
-                    export type C = T.Global__Types.D
-                }
-                
-                export type constraint = () => T.Global__Types.D
-                
                 export type key = string
+                
+                export type referent = () => T.Global__Types.D
             }
             
             export type _ltype = {
-                readonly 'constraint': () => T.Global__Types.D
                 readonly 'key': string
+                readonly 'referent': T.Global__Types.D
             }
         }
         
         export type cyclic__sibling = {
             readonly 'type': {
-                readonly 'constraint': () => T.Global__Types.D
                 readonly 'key': string
+                readonly 'referent': () => T.Global__Types.D
             }
         }
         
@@ -1176,37 +1149,37 @@ export namespace T {
             
             export namespace library {
                 
-                export type constraint = T.Imports.D
-                
                 export type key = string
+                
+                export type referent = T.Imports.D
             }
             
             export type library = {
-                readonly 'constraint': T.Imports.D
                 readonly 'key': string
+                readonly 'referent': T.Imports.D
             }
             
             export namespace _ltype {
                 
-                export type constraint = T.Global__Types.D
-                
                 export type key = string
+                
+                export type referent = T.Global__Types.D
             }
             
             export type _ltype = {
-                readonly 'constraint': T.Global__Types.D
                 readonly 'key': string
+                readonly 'referent': T.Global__Types.D
             }
         }
         
         export type _limport = {
             readonly 'library': {
-                readonly 'constraint': T.Imports.D
                 readonly 'key': string
+                readonly 'referent': T.Imports.D
             }
             readonly 'type': {
-                readonly 'constraint': T.Global__Types.D
                 readonly 'key': string
+                readonly 'referent': T.Global__Types.D
             }
         }
         
@@ -1214,21 +1187,26 @@ export namespace T {
             
             export namespace _ltype {
                 
-                export type constraint = T.Global__Types.D
-                
                 export type key = string
+                
+                export namespace referent {
+                    
+                    export type C = T.Global__Types.D
+                }
+                
+                export type referent = T.Global__Types
             }
             
             export type _ltype = {
-                readonly 'constraint': T.Global__Types.D
                 readonly 'key': string
+                readonly 'referent': T.Global__Types.D
             }
         }
         
         export type resolved__sibling = {
             readonly 'type': {
-                readonly 'constraint': T.Global__Types.D
                 readonly 'key': string
+                readonly 'referent': T.Global__Types.D
             }
         }
     }
@@ -1236,24 +1214,24 @@ export namespace T {
     export type Global__Type__Selection = 
         | ['cyclic sibling', {
             readonly 'type': {
-                readonly 'constraint': () => T.Global__Types.D
                 readonly 'key': string
+                readonly 'referent': () => T.Global__Types.D
             }
         }]
         | ['import', {
             readonly 'library': {
-                readonly 'constraint': T.Imports.D
                 readonly 'key': string
+                readonly 'referent': T.Imports.D
             }
             readonly 'type': {
-                readonly 'constraint': T.Global__Types.D
                 readonly 'key': string
+                readonly 'referent': T.Global__Types.D
             }
         }]
         | ['resolved sibling', {
             readonly 'type': {
-                readonly 'constraint': T.Global__Types.D
                 readonly 'key': string
+                readonly 'referent': T.Global__Types.D
             }
         }]
     
@@ -1279,11 +1257,11 @@ export namespace T {
             
             export namespace constraints {
                 
-                export type library = T.Dummy__Type__Library__Lookup.D
+                export type library = T.Type__Library
             }
             
             export type constraints = {
-                readonly 'library': T.Dummy__Type__Library__Lookup.D
+                readonly 'library': T.Type__Library
             }
             
             export namespace content {}
@@ -1293,7 +1271,7 @@ export namespace T {
         
         export type D = {
             readonly 'constraints': {
-                readonly 'library': T.Dummy__Type__Library__Lookup.D
+                readonly 'library': T.Type__Library
             }
             readonly 'content': null
         }
@@ -1301,7 +1279,7 @@ export namespace T {
     
     export type Imports = pt.Dictionary<{
         readonly 'constraints': {
-            readonly 'library': T.Dummy__Type__Library__Lookup.D
+            readonly 'library': T.Type__Library
         }
         readonly 'content': null
     }>
@@ -1310,14 +1288,14 @@ export namespace T {
         
         export namespace root {
             
-            export type constraint = T.Global__Types.D
-            
             export type key = string
+            
+            export type referent = T.Global__Types.D
         }
         
         export type root = {
-            readonly 'constraint': T.Global__Types.D
             readonly 'key': string
+            readonly 'referent': T.Global__Types.D
         }
         
         export type type__library = T.Type__Library
@@ -1325,8 +1303,8 @@ export namespace T {
     
     export type Model = {
         readonly 'root': {
-            readonly 'constraint': T.Global__Types.D
             readonly 'key': string
+            readonly 'referent': T.Global__Types.D
         }
         readonly 'type library': T.Type__Library
     }
@@ -1352,21 +1330,21 @@ export namespace T {
                     
                     export namespace state {
                         
-                        export type constraint = T.Type._ltype.state__group.states.D
-                        
                         export type key = string
+                        
+                        export type referent = T.Type._ltype.state__group.states.D
                     }
                     
                     export type state = {
-                        readonly 'constraint': T.Type._ltype.state__group.states.D
                         readonly 'key': string
+                        readonly 'referent': T.Type._ltype.state__group.states.D
                     }
                 }
                 
                 export type content = {
                     readonly 'state': {
-                        readonly 'constraint': T.Type._ltype.state__group.states.D
                         readonly 'key': string
+                        readonly 'referent': T.Type._ltype.state__group.states.D
                     }
                 }
             }
@@ -1377,8 +1355,8 @@ export namespace T {
                 }
                 readonly 'content': {
                     readonly 'state': {
-                        readonly 'constraint': T.Type._ltype.state__group.states.D
                         readonly 'key': string
+                        readonly 'referent': T.Type._ltype.state__group.states.D
                     }
                 }
             }
@@ -1391,8 +1369,8 @@ export namespace T {
                 }
                 readonly 'content': {
                     readonly 'state': {
-                        readonly 'constraint': T.Type._ltype.state__group.states.D
                         readonly 'key': string
+                        readonly 'referent': T.Type._ltype.state__group.states.D
                     }
                 }
             }]
@@ -1408,8 +1386,8 @@ export namespace T {
                 }
                 readonly 'content': {
                     readonly 'state': {
-                        readonly 'constraint': T.Type._ltype.state__group.states.D
                         readonly 'key': string
+                        readonly 'referent': T.Type._ltype.state__group.states.D
                     }
                 }
             }]
@@ -1751,34 +1729,34 @@ export namespace T {
         
         export namespace global__type {
             
-            export type constraint = T.Global__Types.D
-            
             export type key = string
+            
+            export type referent = T.Global__Types.D
         }
         
         export type global__type = {
-            readonly 'constraint': T.Global__Types.D
             readonly 'key': string
+            readonly 'referent': T.Global__Types.D
         }
         
         export namespace _limport {
             
             export namespace O {
                 
-                export type constraint = T.Imports.D
-                
                 export type key = string
+                
+                export type referent = T.Imports.D
             }
             
             export type O = {
-                readonly 'constraint': T.Imports.D
                 readonly 'key': string
+                readonly 'referent': T.Imports.D
             }
         }
         
         export type _limport = [ false ] | [ true, {
-            readonly 'constraint': T.Imports.D
             readonly 'key': string
+            readonly 'referent': T.Imports.D
         }]
         
         export namespace tail {
@@ -1791,12 +1769,12 @@ export namespace T {
     
     export type Type__Selection = {
         readonly 'global type': {
-            readonly 'constraint': T.Global__Types.D
             readonly 'key': string
+            readonly 'referent': T.Global__Types.D
         }
         readonly 'import': [ false ] | [ true, {
-            readonly 'constraint': T.Imports.D
             readonly 'key': string
+            readonly 'referent': T.Imports.D
         }]
         readonly 'tail': [ false ] | [ true, T.Type__Selection__Tail]
     }
@@ -1866,21 +1844,21 @@ export namespace T {
                     
                     export namespace property {
                         
-                        export type constraint = T.Type._ltype.group.properties.D
-                        
                         export type key = string
+                        
+                        export type referent = T.Type._ltype.group.properties.D
                     }
                     
                     export type property = {
-                        readonly 'constraint': T.Type._ltype.group.properties.D
                         readonly 'key': string
+                        readonly 'referent': T.Type._ltype.group.properties.D
                     }
                 }
                 
                 export type content = {
                     readonly 'property': {
-                        readonly 'constraint': T.Type._ltype.group.properties.D
                         readonly 'key': string
+                        readonly 'referent': T.Type._ltype.group.properties.D
                     }
                 }
             }
@@ -1891,8 +1869,8 @@ export namespace T {
                 }
                 readonly 'content': {
                     readonly 'property': {
-                        readonly 'constraint': T.Type._ltype.group.properties.D
                         readonly 'key': string
+                        readonly 'referent': T.Type._ltype.group.properties.D
                     }
                 }
             }
@@ -1935,21 +1913,21 @@ export namespace T {
                     
                     export namespace state {
                         
-                        export type constraint = T.Type._ltype.state__group.states.D
-                        
                         export type key = string
+                        
+                        export type referent = T.Type._ltype.state__group.states.D
                     }
                     
                     export type state = {
-                        readonly 'constraint': T.Type._ltype.state__group.states.D
                         readonly 'key': string
+                        readonly 'referent': T.Type._ltype.state__group.states.D
                     }
                 }
                 
                 export type content = {
                     readonly 'state': {
-                        readonly 'constraint': T.Type._ltype.state__group.states.D
                         readonly 'key': string
+                        readonly 'referent': T.Type._ltype.state__group.states.D
                     }
                 }
             }
@@ -1960,8 +1938,8 @@ export namespace T {
                 }
                 readonly 'content': {
                     readonly 'state': {
-                        readonly 'constraint': T.Type._ltype.state__group.states.D
                         readonly 'key': string
+                        readonly 'referent': T.Type._ltype.state__group.states.D
                     }
                 }
             }
@@ -1986,8 +1964,8 @@ export namespace T {
                 }
                 readonly 'content': {
                     readonly 'property': {
-                        readonly 'constraint': T.Type._ltype.group.properties.D
                         readonly 'key': string
+                        readonly 'referent': T.Type._ltype.group.properties.D
                     }
                 }
             }]
@@ -2003,8 +1981,8 @@ export namespace T {
                 }
                 readonly 'content': {
                     readonly 'state': {
-                        readonly 'constraint': T.Type._ltype.state__group.states.D
                         readonly 'key': string
+                        readonly 'referent': T.Type._ltype.state__group.states.D
                     }
                 }
             }]
@@ -2037,8 +2015,8 @@ export namespace T {
                 }
                 readonly 'content': {
                     readonly 'property': {
-                        readonly 'constraint': T.Type._ltype.group.properties.D
                         readonly 'key': string
+                        readonly 'referent': T.Type._ltype.group.properties.D
                     }
                 }
             }]
@@ -2054,8 +2032,8 @@ export namespace T {
                 }
                 readonly 'content': {
                     readonly 'state': {
-                        readonly 'constraint': T.Type._ltype.state__group.states.D
                         readonly 'key': string
+                        readonly 'referent': T.Type._ltype.state__group.states.D
                     }
                 }
             }]

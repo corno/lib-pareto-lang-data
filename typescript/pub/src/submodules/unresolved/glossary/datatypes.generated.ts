@@ -103,21 +103,6 @@ export namespace N {
         export namespace T {}
     }
     
-    export namespace Dummy_$_$Type_$_$Library_$_$Lookup {
-        
-        export namespace N {
-            
-            export namespace D {
-                
-                export namespace N {}
-                
-                export namespace T {}
-            }
-        }
-        
-        export namespace T {}
-    }
-    
     export namespace Global_$_$Type_$_$Selection {
         
         export namespace N {
@@ -1122,13 +1107,6 @@ export namespace T {
             }]
         readonly 'type': T.Type__Selection<GAnnotation>
     }
-    
-    export namespace Dummy__Type__Library__Lookup {
-        
-        export type D<GAnnotation> = T.Type__Library<GAnnotation>
-    }
-    
-    export type Dummy__Type__Library__Lookup<GAnnotation> = pt.Dictionary<T.Type__Library<GAnnotation>>
     
     export namespace Global__Type__Selection {
         

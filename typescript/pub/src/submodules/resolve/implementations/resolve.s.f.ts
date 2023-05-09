@@ -32,7 +32,7 @@ function mapResultOptional<T, RT, Result>(
 }
 
 type Reference<T> = {
-    'constraint': T,
+    'referent': T,
     'key': string
 }
 
@@ -76,7 +76,7 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
             ($) => {
                 return {
                     'key': key.key,
-                    'constraint': $
+                    'referent': $
                 }
             },
             () => {
@@ -220,7 +220,7 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
             })
             case 'import': return pl.ss($, ($) => {
                 const v_library = getAnnotatedEntry($p.imports, $.library)
-                const v_type = getAnnotatedEntry(v_library.constraint.constraints.library['global types'], $.type)
+                const v_type = getAnnotatedEntry(v_library.referent.constraints.library['global types'], $.type)
                 return ['import', {
                     'library': v_library,
                     'type': v_type,
@@ -392,7 +392,7 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
         )
         const v_tail = mapResultOptional(
             $.tail,
-            v_global_type.constraint.type,
+            v_global_type.referent.type,
             ($) => {
                 const content = map_Type__Selection__Tail($.content, {
                     'context': $.result,
@@ -492,7 +492,7 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
                                 'property': v_property
                             },
                         }],
-                        'result': v_property.constraint.type,
+                        'result': v_property.referent.type,
                     }
                 })
                 case 'optional': return pl.ss($, ($) => {
@@ -548,7 +548,7 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
                                 'state': v_state
                             },
                         }],
-                        'result': v_state.constraint.type,
+                        'result': v_state.referent.type,
                     }
                 })
                 default: return pl.au($[0])

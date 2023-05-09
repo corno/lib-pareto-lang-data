@@ -12,12 +12,10 @@ import { $$ as x } from "./map2Glossary.b"
 import { A } from "../api.generated"
 
 export const $$: A.generateSubmodules = () => {
-    return ($) => {
-        a_2submodules.$a.generateSubmodules({
-            'createFile': a_fp.$b.createFile(),
-            'map2Glossary': x(),
-            'merge': a_array.$r.merge(),
-            'serializeGlossary': a_glossary.$b.serializeGlossary(),
-        })
-    }
+    return a_2submodules.$a.generateSubmodules({
+        'createFile': a_fp.$b.createFile(),
+        'map2Glossary': x(),
+        'merge': a_array.$r.merge(),
+        'serializeGlossary': a_glossary.$b.serializeGlossary(),
+    })
 }

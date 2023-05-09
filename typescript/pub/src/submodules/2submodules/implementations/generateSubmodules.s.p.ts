@@ -24,7 +24,7 @@ export const $$: A.generateSubmodules = ($d,) => {
             $d.createFile(
                 ($i) => {
                     $i(
-                        $d.merge(pm.wrapRawArray([$.path, pm.wrapRawArray(["FOO.ts"])])),
+                        $d.merge(pm.wrapRawArray([$.path, pm.wrapRawArray([name, "glossary.generated.ts"])])),
                         ($i) => {
                             $d.serializeGlossary(glossary, $i)
                         }
@@ -39,7 +39,7 @@ export const $$: A.generateSubmodules = ($d,) => {
         }
         foo("unresolved", {
             'constraints mapping': {
-                'constraints': [true, ['required', null]],
+                'constraints': [false],
                 'terminal values': true,
             },
             'create annotations': true,
@@ -49,11 +49,11 @@ export const $$: A.generateSubmodules = ($d,) => {
                 'constraints': [true, ['required', null]],
                 'terminal values': true,
             },
-            'create annotations': true,
+            'create annotations': false,
         })
         foo("possiblyresolved", {
             'constraints mapping': {
-                'constraints': [true, ['required', null]],
+                'constraints': [true, ['optional', null]],
                 'terminal values': true,
             },
             'create annotations': true,

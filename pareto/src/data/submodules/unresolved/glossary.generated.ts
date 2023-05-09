@@ -56,15 +56,6 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                     },
                 })]
             },
-            "Dummy Type Library Lookup": {
-                'parameters': d({}),
-                'type': <g_glossary.T.Type<pd.SourceLocation>>['dictionary', <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
-                    'context': ['local', null],
-                    'typeXX': "Type Library",
-                    'tailXX': a([]),
-                    'type arguments': d({}),
-                }]]]
-            },
             "Global Type Selection": {
                 'parameters': d({}),
                 'type': <g_glossary.T.Type<pd.SourceLocation>>['taggedUnion', d({
@@ -583,15 +574,6 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                                 'namespaces': d({}),
                             },
                         }),
-                    },
-                }),
-            },
-            "Dummy Type Library Lookup": {
-                'types': d({}),
-                'namespaces': d({
-                    "D": {
-                        'types': d({}),
-                        'namespaces': d({}),
                     },
                 }),
             },
