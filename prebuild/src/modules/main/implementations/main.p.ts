@@ -13,12 +13,9 @@ import { main } from "../api"
 export const $$: main = ($) => {
     //pv.logDebugMessage("REENABLE")
     const el = a_main.$r.createErrorLogger().construct()
-    pv.logDebugMessage("HIER")
     const x = a_pld.$b.generateSubmodules()
     
-    pv.logDebugMessage("DAAR")
     x(data, null)
-    pv.logDebugMessage("UUUUUUUUUUU")
 
     el.end()
 }
