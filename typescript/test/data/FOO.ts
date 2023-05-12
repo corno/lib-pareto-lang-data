@@ -12,6 +12,59 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
     }),
     'root': {
         'types': d({
+            "Any Value Selection": {
+                'parameters': d({}),
+                'type': <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                    "global type": {
+                        'type': <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                            "annotation": {
+                                'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['glossary parameterXX', "Annotation"]],
+                            },
+                            "key": {
+                                'type': <g_glossary.T.Type<pd.SourceLocation>>['string', null],
+                            },
+                            "referent": {
+                                'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                                    'context': ['local', null],
+                                    'typeXX': "Global Types",
+                                    'tailXX': a([
+                                        "D",
+                                    ]),
+                                    'type arguments': d({}),
+                                }]],
+                            },
+                        })],
+                    },
+                    "import": {
+                        'type': <g_glossary.T.Type<pd.SourceLocation>>['optional', <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                            "annotation": {
+                                'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['glossary parameterXX', "Annotation"]],
+                            },
+                            "key": {
+                                'type': <g_glossary.T.Type<pd.SourceLocation>>['string', null],
+                            },
+                            "referent": {
+                                'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                                    'context': ['local', null],
+                                    'typeXX': "Imports",
+                                    'tailXX': a([
+                                        "D",
+                                    ]),
+                                    'type arguments': d({}),
+                                }]],
+                            },
+                        })]],
+                    },
+                    "tail": {
+                        'type': <g_glossary.T.Type<pd.SourceLocation>>['optional', <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                            'context': ['local', null],
+                            'typeXX': "Type Selection Tail",
+                            'tailXX': a([]),
+                            'type arguments': d({}),
+                        }]]],
+                    },
+                })]
+            },
             "Atom": {
                 'parameters': d({}),
                 'type': <g_glossary.T.Type<pd.SourceLocation>>['group', d({
@@ -74,7 +127,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                     "type": {
                         'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
                             'context': ['local', null],
-                            'typeXX': "Type Selection",
+                            'typeXX': "Value Selection",
                             'tailXX': a([]),
                             'type arguments': d({}),
                         }]],
@@ -84,6 +137,22 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
             "Global Type": {
                 'parameters': d({}),
                 'type': <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                    "parameters": {
+                        'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                            'context': ['local', null],
+                            'typeXX': "Parameters",
+                            'tailXX': a([]),
+                            'type arguments': d({}),
+                        }]],
+                    },
+                    "result": {
+                        'type': <g_glossary.T.Type<pd.SourceLocation>>['optional', <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                            'context': ['local', null],
+                            'typeXX': "Any Value Selection",
+                            'tailXX': a([]),
+                            'type arguments': d({}),
+                        }]]],
+                    },
                     "type": {
                         'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
                             'context': ['local', null],
@@ -97,26 +166,6 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
             "Global Type Selection": {
                 'parameters': d({}),
                 'type': <g_glossary.T.Type<pd.SourceLocation>>['taggedUnion', d({
-                    "cyclic sibling": <g_glossary.T.Type<pd.SourceLocation>>['group', d({
-                        "type": {
-                            'type': <g_glossary.T.Type<pd.SourceLocation>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
-                                "key": {
-                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['string', null],
-                                },
-                                "referent": {
-                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['computed', <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
-                                        'context': ['local', null],
-                                        'typeXX': "Global Type",
-                                        'tailXX': a([]),
-                                        'type arguments': d({}),
-                                    }]]],
-                                },
-                            })],
-                        },
-                    })],
                     "import": <g_glossary.T.Type<pd.SourceLocation>>['group', d({
                         "library": {
                             'type': <g_glossary.T.Type<pd.SourceLocation>>['group', d({
@@ -213,6 +262,73 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                     },
                 })]]
             },
+            "Lookup Selection": {
+                'parameters': d({}),
+                'type': <g_glossary.T.Type<pd.SourceLocation>>['taggedUnion', d({
+                    "import": <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                        "library": {
+                            'type': <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                                "annotation": {
+                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['glossary parameterXX', "Annotation"]],
+                                },
+                                "key": {
+                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['string', null],
+                                },
+                                "referent": {
+                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "Imports",
+                                        'tailXX': a([
+                                            "D",
+                                        ]),
+                                        'type arguments': d({}),
+                                    }]],
+                                },
+                            })],
+                        },
+                        "type": {
+                            'type': <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                                "annotation": {
+                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['glossary parameterXX', "Annotation"]],
+                                },
+                                "key": {
+                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['string', null],
+                                },
+                                "referent": {
+                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "Global Types",
+                                        'tailXX': a([
+                                            "D",
+                                        ]),
+                                        'type arguments': d({}),
+                                    }]],
+                                },
+                            })],
+                        },
+                    })],
+                    "resolved sibling": <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                        "type": {
+                            'type': <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                                "annotation": {
+                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['glossary parameterXX', "Annotation"]],
+                                },
+                                "key": {
+                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['string', null],
+                                },
+                                "referent": {
+                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "Global Type",
+                                        'tailXX': a([]),
+                                        'type arguments': d({}),
+                                    }]],
+                                },
+                            })],
+                        },
+                    })],
+                })]
+            },
             "Model": {
                 'parameters': d({}),
                 'type': <g_glossary.T.Type<pd.SourceLocation>>['group', d({
@@ -246,6 +362,41 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                     },
                 })]
             },
+            "Parameters": {
+                'parameters': d({}),
+                'type': <g_glossary.T.Type<pd.SourceLocation>>['dictionary', <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                    "type": {
+                        'type': <g_glossary.T.Type<pd.SourceLocation>>['taggedUnion', d({
+                            "lookup": <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                                "type": {
+                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "Global Type Selection",
+                                        'tailXX': a([]),
+                                        'type arguments': d({}),
+                                    }]],
+                                },
+                            })],
+                            "resolved value": <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                                "optional": {
+                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['taggedUnion', d({
+                                        "no": <g_glossary.T.Type<pd.SourceLocation>>['group', d({})],
+                                        "yes": <g_glossary.T.Type<pd.SourceLocation>>['group', d({})],
+                                    })],
+                                },
+                                "type": {
+                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "Global Type Selection",
+                                        'tailXX': a([]),
+                                        'type arguments': d({}),
+                                    }]],
+                                },
+                            })],
+                        })],
+                    },
+                })]]
+            },
             "Root": {
                 'parameters': d({}),
                 'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
@@ -255,7 +406,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                     'type arguments': d({}),
                 }]]
             },
-            "State Group Selection": {
+            "State Selection": {
                 'parameters': d({}),
                 'type': <g_glossary.T.Type<pd.SourceLocation>>['group', d({
                     "cast": {
@@ -312,7 +463,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                     "type": {
                         'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
                             'context': ['local', null],
-                            'typeXX': "Type Selection",
+                            'typeXX': "Value Selection",
                             'tailXX': a([]),
                             'type arguments': d({}),
                         }]],
@@ -345,25 +496,48 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                                 },
                             })],
                             "component": <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                                "arguments": {
+                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['dictionary', <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                                        "annotation": {
+                                            'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['glossary parameterXX', "Annotation"]],
+                                        },
+                                        "constraints": {
+                                            'type': <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                                                "parameter": {
+                                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                                                        'context': ['local', null],
+                                                        'typeXX': "Parameters",
+                                                        'tailXX': a([
+                                                            "D",
+                                                        ]),
+                                                        'type arguments': d({}),
+                                                    }]],
+                                                },
+                                            })],
+                                        },
+                                        "content": {
+                                            'type': <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                                                "type": {
+                                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['taggedUnion', d({
+                                                        "lookup": <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                                                            'context': ['local', null],
+                                                            'typeXX': "Lookup Selection",
+                                                            'tailXX': a([]),
+                                                            'type arguments': d({}),
+                                                        }]],
+                                                        "resolved value": <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                                                            'context': ['local', null],
+                                                            'typeXX': "Value Selection",
+                                                            'tailXX': a([]),
+                                                            'type arguments': d({}),
+                                                        }]],
+                                                    })],
+                                                },
+                                            })],
+                                        },
+                                    })]],
+                                },
                                 "type": {
-                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
-                                        'context': ['local', null],
-                                        'typeXX': "Global Type Selection",
-                                        'tailXX': a([]),
-                                        'type arguments': d({}),
-                                    }]],
-                                },
-                            })],
-                            "cyclic reference": <g_glossary.T.Type<pd.SourceLocation>>['group', d({
-                                "atom": {
-                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
-                                        'context': ['local', null],
-                                        'typeXX': "Atom",
-                                        'tailXX': a([]),
-                                        'type arguments': d({}),
-                                    }]],
-                                },
-                                "sibling": {
                                     'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
                                         'context': ['local', null],
                                         'typeXX': "Global Type Selection",
@@ -393,7 +567,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                                         })],
                                         "lookup": <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
                                             'context': ['local', null],
-                                            'typeXX': "Global Type Selection",
+                                            'typeXX': "Lookup Selection",
                                             'tailXX': a([]),
                                             'type arguments': d({}),
                                         }]],
@@ -430,8 +604,37 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                                     })]],
                                 },
                             })],
-                            "nothing": <g_glossary.T.Type<pd.SourceLocation>>['group', d({})],
+                            "nothing": <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                                "result": {
+                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['optional', <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "Value Selection",
+                                        'tailXX': a([]),
+                                        'type arguments': d({}),
+                                    }]]],
+                                },
+                            })],
                             "optional": <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                                "result": {
+                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['optional', <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                                        "not set": {
+                                            'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                                                'context': ['local', null],
+                                                'typeXX': "Value Selection",
+                                                'tailXX': a([]),
+                                                'type arguments': d({}),
+                                            }]],
+                                        },
+                                        "set": {
+                                            'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                                                'context': ['local', null],
+                                                'typeXX': "Any Value Selection",
+                                                'tailXX': a([]),
+                                                'type arguments': d({}),
+                                            }]],
+                                        },
+                                    })]],
+                                },
                                 "type": {
                                     'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
                                         'context': ['local', null],
@@ -460,7 +663,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                                         }]],
                                         "lookup": <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
                                             'context': ['local', null],
-                                            'typeXX': "Global Type Selection",
+                                            'typeXX': "Lookup Selection",
                                             'tailXX': a([]),
                                             'type arguments': d({}),
                                         }]],
@@ -468,12 +671,28 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                                 },
                             })],
                             "state group": <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                                "result": {
+                                    'type': <g_glossary.T.Type<pd.SourceLocation>>['optional', <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "Global Type Selection",
+                                        'tailXX': a([]),
+                                        'type arguments': d({}),
+                                    }]]],
+                                },
                                 "states": {
                                     'type': <g_glossary.T.Type<pd.SourceLocation>>['dictionary', <g_glossary.T.Type<pd.SourceLocation>>['group', d({
                                         "constraints": {
                                             'type': <g_glossary.T.Type<pd.SourceLocation>>['dictionary', <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
                                                 'context': ['local', null],
-                                                'typeXX': "State Group Selection",
+                                                'typeXX': "State Selection",
+                                                'tailXX': a([]),
+                                                'type arguments': d({}),
+                                            }]]],
+                                        },
+                                        "result": {
+                                            'type': <g_glossary.T.Type<pd.SourceLocation>>['optional', <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                                                'context': ['local', null],
+                                                'typeXX': "Any Value Selection",
                                                 'tailXX': a([]),
                                                 'type arguments': d({}),
                                             }]]],
@@ -519,59 +738,6 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                             'tailXX': a([]),
                             'type arguments': d({}),
                         }]],
-                    },
-                })]
-            },
-            "Type Selection": {
-                'parameters': d({}),
-                'type': <g_glossary.T.Type<pd.SourceLocation>>['group', d({
-                    "global type": {
-                        'type': <g_glossary.T.Type<pd.SourceLocation>>['group', d({
-                            "annotation": {
-                                'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['glossary parameterXX', "Annotation"]],
-                            },
-                            "key": {
-                                'type': <g_glossary.T.Type<pd.SourceLocation>>['string', null],
-                            },
-                            "referent": {
-                                'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
-                                    'context': ['local', null],
-                                    'typeXX': "Global Types",
-                                    'tailXX': a([
-                                        "D",
-                                    ]),
-                                    'type arguments': d({}),
-                                }]],
-                            },
-                        })],
-                    },
-                    "import": {
-                        'type': <g_glossary.T.Type<pd.SourceLocation>>['optional', <g_glossary.T.Type<pd.SourceLocation>>['group', d({
-                            "annotation": {
-                                'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['glossary parameterXX', "Annotation"]],
-                            },
-                            "key": {
-                                'type': <g_glossary.T.Type<pd.SourceLocation>>['string', null],
-                            },
-                            "referent": {
-                                'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
-                                    'context': ['local', null],
-                                    'typeXX': "Imports",
-                                    'tailXX': a([
-                                        "D",
-                                    ]),
-                                    'type arguments': d({}),
-                                }]],
-                            },
-                        })]],
-                    },
-                    "tail": {
-                        'type': <g_glossary.T.Type<pd.SourceLocation>>['optional', <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
-                            'context': ['local', null],
-                            'typeXX': "Type Selection Tail",
-                            'tailXX': a([]),
-                            'type arguments': d({}),
-                        }]]],
                     },
                 })]
             },
@@ -755,8 +921,93 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                     },
                 })]
             },
+            "Value Selection": {
+                'parameters': d({}),
+                'type': <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                    "global type": {
+                        'type': <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                            "annotation": {
+                                'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['glossary parameterXX', "Annotation"]],
+                            },
+                            "key": {
+                                'type': <g_glossary.T.Type<pd.SourceLocation>>['string', null],
+                            },
+                            "referent": {
+                                'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                                    'context': ['local', null],
+                                    'typeXX': "Global Types",
+                                    'tailXX': a([
+                                        "D",
+                                    ]),
+                                    'type arguments': d({}),
+                                }]],
+                            },
+                        })],
+                    },
+                    "import": {
+                        'type': <g_glossary.T.Type<pd.SourceLocation>>['optional', <g_glossary.T.Type<pd.SourceLocation>>['group', d({
+                            "annotation": {
+                                'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['glossary parameterXX', "Annotation"]],
+                            },
+                            "key": {
+                                'type': <g_glossary.T.Type<pd.SourceLocation>>['string', null],
+                            },
+                            "referent": {
+                                'type': <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                                    'context': ['local', null],
+                                    'typeXX': "Imports",
+                                    'tailXX': a([
+                                        "D",
+                                    ]),
+                                    'type arguments': d({}),
+                                }]],
+                            },
+                        })]],
+                    },
+                    "tail": {
+                        'type': <g_glossary.T.Type<pd.SourceLocation>>['optional', <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
+                            'context': ['local', null],
+                            'typeXX': "Type Selection Tail",
+                            'tailXX': a([]),
+                            'type arguments': d({}),
+                        }]]],
+                    },
+                })]
+            },
         }),
         'namespaces': d({
+            "Any Value Selection": {
+                'types': d({}),
+                'namespaces': d({
+                    "G": {
+                        'types': d({}),
+                        'namespaces': d({
+                            "global type": {
+                                'types': d({}),
+                                'namespaces': d({}),
+                            },
+                            "import": {
+                                'types': d({}),
+                                'namespaces': d({
+                                    "O": {
+                                        'types': d({}),
+                                        'namespaces': d({}),
+                                    },
+                                }),
+                            },
+                            "tail": {
+                                'types': d({}),
+                                'namespaces': d({
+                                    "O": {
+                                        'types': d({}),
+                                        'namespaces': d({}),
+                                    },
+                                }),
+                            },
+                        }),
+                    },
+                }),
+            },
             "Atom": {
                 'types': d({}),
                 'namespaces': d({
@@ -824,6 +1075,19 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                     "G": {
                         'types': d({}),
                         'namespaces': d({
+                            "parameters": {
+                                'types': d({}),
+                                'namespaces': d({}),
+                            },
+                            "result": {
+                                'types': d({}),
+                                'namespaces': d({
+                                    "O": {
+                                        'types': d({}),
+                                        'namespaces': d({}),
+                                    },
+                                }),
+                            },
                             "type": {
                                 'types': d({}),
                                 'namespaces': d({}),
@@ -838,20 +1102,6 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                     "TU": {
                         'types': d({}),
                         'namespaces': d({
-                            "cyclic sibling": {
-                                'types': d({}),
-                                'namespaces': d({
-                                    "G": {
-                                        'types': d({}),
-                                        'namespaces': d({
-                                            "type": {
-                                                'types': d({}),
-                                                'namespaces': d({}),
-                                            },
-                                        }),
-                                    },
-                                }),
-                            },
                             "import": {
                                 'types': d({}),
                                 'namespaces': d({
@@ -911,6 +1161,48 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                     },
                 }),
             },
+            "Lookup Selection": {
+                'types': d({}),
+                'namespaces': d({
+                    "TU": {
+                        'types': d({}),
+                        'namespaces': d({
+                            "import": {
+                                'types': d({}),
+                                'namespaces': d({
+                                    "G": {
+                                        'types': d({}),
+                                        'namespaces': d({
+                                            "library": {
+                                                'types': d({}),
+                                                'namespaces': d({}),
+                                            },
+                                            "type": {
+                                                'types': d({}),
+                                                'namespaces': d({}),
+                                            },
+                                        }),
+                                    },
+                                }),
+                            },
+                            "resolved sibling": {
+                                'types': d({}),
+                                'namespaces': d({
+                                    "G": {
+                                        'types': d({}),
+                                        'namespaces': d({
+                                            "type": {
+                                                'types': d({}),
+                                                'namespaces': d({}),
+                                            },
+                                        }),
+                                    },
+                                }),
+                            },
+                        }),
+                    },
+                }),
+            },
             "Model": {
                 'types': d({}),
                 'namespaces': d({
@@ -929,11 +1221,92 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                     },
                 }),
             },
+            "Parameters": {
+                'types': d({}),
+                'namespaces': d({
+                    "D": {
+                        'types': d({}),
+                        'namespaces': d({
+                            "G": {
+                                'types': d({}),
+                                'namespaces': d({
+                                    "type": {
+                                        'types': d({}),
+                                        'namespaces': d({
+                                            "TU": {
+                                                'types': d({}),
+                                                'namespaces': d({
+                                                    "lookup": {
+                                                        'types': d({}),
+                                                        'namespaces': d({
+                                                            "G": {
+                                                                'types': d({}),
+                                                                'namespaces': d({
+                                                                    "type": {
+                                                                        'types': d({}),
+                                                                        'namespaces': d({}),
+                                                                    },
+                                                                }),
+                                                            },
+                                                        }),
+                                                    },
+                                                    "resolved value": {
+                                                        'types': d({}),
+                                                        'namespaces': d({
+                                                            "G": {
+                                                                'types': d({}),
+                                                                'namespaces': d({
+                                                                    "optional": {
+                                                                        'types': d({}),
+                                                                        'namespaces': d({
+                                                                            "TU": {
+                                                                                'types': d({}),
+                                                                                'namespaces': d({
+                                                                                    "no": {
+                                                                                        'types': d({}),
+                                                                                        'namespaces': d({
+                                                                                            "G": {
+                                                                                                'types': d({}),
+                                                                                                'namespaces': d({}),
+                                                                                            },
+                                                                                        }),
+                                                                                    },
+                                                                                    "yes": {
+                                                                                        'types': d({}),
+                                                                                        'namespaces': d({
+                                                                                            "G": {
+                                                                                                'types': d({}),
+                                                                                                'namespaces': d({}),
+                                                                                            },
+                                                                                        }),
+                                                                                    },
+                                                                                }),
+                                                                            },
+                                                                        }),
+                                                                    },
+                                                                    "type": {
+                                                                        'types': d({}),
+                                                                        'namespaces': d({}),
+                                                                    },
+                                                                }),
+                                                            },
+                                                        }),
+                                                    },
+                                                }),
+                                            },
+                                        }),
+                                    },
+                                }),
+                            },
+                        }),
+                    },
+                }),
+            },
             "Root": {
                 'types': d({}),
                 'namespaces': d({}),
             },
-            "State Group Selection": {
+            "State Selection": {
                 'types': d({}),
                 'namespaces': d({
                     "G": {
@@ -1017,25 +1390,40 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                                                     "G": {
                                                         'types': d({}),
                                                         'namespaces': d({
+                                                            "arguments": {
+                                                                'types': d({}),
+                                                                'namespaces': d({
+                                                                    "D": {
+                                                                        'types': d({}),
+                                                                        'namespaces': d({
+                                                                            "G": {
+                                                                                'types': d({}),
+                                                                                'namespaces': d({
+                                                                                    "type": {
+                                                                                        'types': d({}),
+                                                                                        'namespaces': d({
+                                                                                            "TU": {
+                                                                                                'types': d({}),
+                                                                                                'namespaces': d({
+                                                                                                    "lookup": {
+                                                                                                        'types': d({}),
+                                                                                                        'namespaces': d({}),
+                                                                                                    },
+                                                                                                    "resolved value": {
+                                                                                                        'types': d({}),
+                                                                                                        'namespaces': d({}),
+                                                                                                    },
+                                                                                                }),
+                                                                                            },
+                                                                                        }),
+                                                                                    },
+                                                                                }),
+                                                                            },
+                                                                        }),
+                                                                    },
+                                                                }),
+                                                            },
                                                             "type": {
-                                                                'types': d({}),
-                                                                'namespaces': d({}),
-                                                            },
-                                                        }),
-                                                    },
-                                                }),
-                                            },
-                                            "cyclic reference": {
-                                                'types': d({}),
-                                                'namespaces': d({
-                                                    "G": {
-                                                        'types': d({}),
-                                                        'namespaces': d({
-                                                            "atom": {
-                                                                'types': d({}),
-                                                                'namespaces': d({}),
-                                                            },
-                                                            "sibling": {
                                                                 'types': d({}),
                                                                 'namespaces': d({}),
                                                             },
@@ -1156,7 +1544,17 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                                                 'namespaces': d({
                                                     "G": {
                                                         'types': d({}),
-                                                        'namespaces': d({}),
+                                                        'namespaces': d({
+                                                            "result": {
+                                                                'types': d({}),
+                                                                'namespaces': d({
+                                                                    "O": {
+                                                                        'types': d({}),
+                                                                        'namespaces': d({}),
+                                                                    },
+                                                                }),
+                                                            },
+                                                        }),
                                                     },
                                                 }),
                                             },
@@ -1166,6 +1564,29 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                                                     "G": {
                                                         'types': d({}),
                                                         'namespaces': d({
+                                                            "result": {
+                                                                'types': d({}),
+                                                                'namespaces': d({
+                                                                    "O": {
+                                                                        'types': d({}),
+                                                                        'namespaces': d({
+                                                                            "G": {
+                                                                                'types': d({}),
+                                                                                'namespaces': d({
+                                                                                    "not set": {
+                                                                                        'types': d({}),
+                                                                                        'namespaces': d({}),
+                                                                                    },
+                                                                                    "set": {
+                                                                                        'types': d({}),
+                                                                                        'namespaces': d({}),
+                                                                                    },
+                                                                                }),
+                                                                            },
+                                                                        }),
+                                                                    },
+                                                                }),
+                                                            },
                                                             "type": {
                                                                 'types': d({}),
                                                                 'namespaces': d({}),
@@ -1212,6 +1633,15 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                                                     "G": {
                                                         'types': d({}),
                                                         'namespaces': d({
+                                                            "result": {
+                                                                'types': d({}),
+                                                                'namespaces': d({
+                                                                    "O": {
+                                                                        'types': d({}),
+                                                                        'namespaces': d({}),
+                                                                    },
+                                                                }),
+                                                            },
                                                             "states": {
                                                                 'types': d({}),
                                                                 'namespaces': d({
@@ -1225,6 +1655,15 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                                                                                         'types': d({}),
                                                                                         'namespaces': d({
                                                                                             "D": {
+                                                                                                'types': d({}),
+                                                                                                'namespaces': d({}),
+                                                                                            },
+                                                                                        }),
+                                                                                    },
+                                                                                    "result": {
+                                                                                        'types': d({}),
+                                                                                        'namespaces': d({
+                                                                                            "O": {
                                                                                                 'types': d({}),
                                                                                                 'namespaces': d({}),
                                                                                             },
@@ -1269,38 +1708,6 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                             "imports": {
                                 'types': d({}),
                                 'namespaces': d({}),
-                            },
-                        }),
-                    },
-                }),
-            },
-            "Type Selection": {
-                'types': d({}),
-                'namespaces': d({
-                    "G": {
-                        'types': d({}),
-                        'namespaces': d({
-                            "global type": {
-                                'types': d({}),
-                                'namespaces': d({}),
-                            },
-                            "import": {
-                                'types': d({}),
-                                'namespaces': d({
-                                    "O": {
-                                        'types': d({}),
-                                        'namespaces': d({}),
-                                    },
-                                }),
-                            },
-                            "tail": {
-                                'types': d({}),
-                                'namespaces': d({
-                                    "O": {
-                                        'types': d({}),
-                                        'namespaces': d({}),
-                                    },
-                                }),
                             },
                         }),
                     },
@@ -1374,6 +1781,38 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                                                 }),
                                             },
                                         }),
+                                    },
+                                }),
+                            },
+                            "tail": {
+                                'types': d({}),
+                                'namespaces': d({
+                                    "O": {
+                                        'types': d({}),
+                                        'namespaces': d({}),
+                                    },
+                                }),
+                            },
+                        }),
+                    },
+                }),
+            },
+            "Value Selection": {
+                'types': d({}),
+                'namespaces': d({
+                    "G": {
+                        'types': d({}),
+                        'namespaces': d({
+                            "global type": {
+                                'types': d({}),
+                                'namespaces': d({}),
+                            },
+                            "import": {
+                                'types': d({}),
+                                'namespaces': d({
+                                    "O": {
+                                        'types': d({}),
+                                        'namespaces': d({}),
                                     },
                                 }),
                             },

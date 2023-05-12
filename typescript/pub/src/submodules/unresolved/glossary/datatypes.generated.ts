@@ -293,7 +293,7 @@ export namespace N {
         export namespace T {}
     }
     
-    export namespace State_$_$Group_$_$Selection {
+    export namespace State_$_$Selection {
         
         export namespace N {
             
@@ -1289,7 +1289,7 @@ export namespace T {
     
     export type Root<GAnnotation> = T.Model<GAnnotation>
     
-    export namespace State__Group__Selection {
+    export namespace State__Selection {
         
         export namespace cast {
             
@@ -1345,7 +1345,7 @@ export namespace T {
         export type _ltype<GAnnotation> = T.Type__Selection<GAnnotation>
     }
     
-    export type State__Group__Selection<GAnnotation> = {
+    export type State__Selection<GAnnotation> = {
         readonly 'cast': 
             | ['state group', {
                 readonly 'annotation': GAnnotation
@@ -1546,29 +1546,29 @@ export namespace T {
                         
                         export namespace constraints {
                             
-                            export type D<GAnnotation> = T.State__Group__Selection<GAnnotation>
+                            export type D<GAnnotation> = T.State__Selection<GAnnotation>
                         }
                         
-                        export type constraints<GAnnotation> = pt.Dictionary<T.State__Group__Selection<GAnnotation>>
+                        export type constraints<GAnnotation> = pt.Dictionary<T.State__Selection<GAnnotation>>
                         
                         export type _ltype<GAnnotation> = T.Type<GAnnotation>
                     }
                     
                     export type D<GAnnotation> = {
-                        readonly 'constraints': pt.Dictionary<T.State__Group__Selection<GAnnotation>>
+                        readonly 'constraints': pt.Dictionary<T.State__Selection<GAnnotation>>
                         readonly 'type': T.Type<GAnnotation>
                     }
                 }
                 
                 export type states<GAnnotation> = pt.Dictionary<{
-                    readonly 'constraints': pt.Dictionary<T.State__Group__Selection<GAnnotation>>
+                    readonly 'constraints': pt.Dictionary<T.State__Selection<GAnnotation>>
                     readonly 'type': T.Type<GAnnotation>
                 }>
             }
             
             export type state__group<GAnnotation> = {
                 readonly 'states': pt.Dictionary<{
-                    readonly 'constraints': pt.Dictionary<T.State__Group__Selection<GAnnotation>>
+                    readonly 'constraints': pt.Dictionary<T.State__Selection<GAnnotation>>
                     readonly 'type': T.Type<GAnnotation>
                 }>
             }
@@ -1618,7 +1618,7 @@ export namespace T {
             }]
             | ['state group', {
                 readonly 'states': pt.Dictionary<{
-                    readonly 'constraints': pt.Dictionary<T.State__Group__Selection<GAnnotation>>
+                    readonly 'constraints': pt.Dictionary<T.State__Selection<GAnnotation>>
                     readonly 'type': T.Type<GAnnotation>
                 }>
             }]
@@ -1669,7 +1669,7 @@ export namespace T {
             }]
             | ['state group', {
                 readonly 'states': pt.Dictionary<{
-                    readonly 'constraints': pt.Dictionary<T.State__Group__Selection<GAnnotation>>
+                    readonly 'constraints': pt.Dictionary<T.State__Selection<GAnnotation>>
                     readonly 'type': T.Type<GAnnotation>
                 }>
             }]

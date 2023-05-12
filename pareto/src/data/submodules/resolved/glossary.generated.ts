@@ -229,7 +229,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                     'type arguments': d({}),
                 }]]
             },
-            "State Group Selection": {
+            "State Selection": {
                 'parameters': d({}),
                 'type': <g_glossary.T.Type<pd.SourceLocation>>['group', d({
                     "cast": {
@@ -441,7 +441,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                                         "constraints": {
                                             'type': <g_glossary.T.Type<pd.SourceLocation>>['dictionary', <g_glossary.T.Type<pd.SourceLocation>>['reference', ['type', {
                                                 'context': ['local', null],
-                                                'typeXX': "State Group Selection",
+                                                'typeXX': "State Selection",
                                                 'tailXX': a([]),
                                                 'type arguments': d({}),
                                             }]]],
@@ -874,7 +874,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                 'types': d({}),
                 'namespaces': d({}),
             },
-            "State Group Selection": {
+            "State Selection": {
                 'types': d({}),
                 'namespaces': d({
                     "G": {

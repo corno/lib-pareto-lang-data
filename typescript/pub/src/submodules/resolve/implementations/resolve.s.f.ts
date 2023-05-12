@@ -129,12 +129,12 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
 
 
     type Map_State__Group__Selection = (
-        $: g_in.T.State__Group__Selection<Annotation>,
+        $: g_in.T.State__Selection<Annotation>,
         $p: {
             'imports': g_out.T.Imports,
             'sibling global types': pt.Lookup<g_out.T.Global__Types.D>
         },
-    ) => g_out.T.State__Group__Selection
+    ) => g_out.T.State__Selection
 
     type Map_Root = (
         $: g_in.T.Root<Annotation>,

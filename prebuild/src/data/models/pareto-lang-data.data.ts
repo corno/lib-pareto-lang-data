@@ -90,7 +90,7 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = {
                     })),
                     "state group": state(group({
                         "states": prop(dictionary(group({
-                            "constraints": prop(dictionary(component(typeRef("State Group Selection", true)))),
+                            "constraints": prop(dictionary(component(typeRef("State Selection", true)))),
                             "type": prop(component(typeRef("Type", true))),
                         }))),
                     })),
@@ -146,7 +146,7 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = {
                 "tail": prop(optional(component(typeRef("Type Selection Tail"))))
             }),
         ),
-        "State Group Selection": globalType(
+        "State Selection": globalType(
             group({
                 "type": prop(component(typeRef("Type Selection"))),
                 "cast": prop(stateGroup({

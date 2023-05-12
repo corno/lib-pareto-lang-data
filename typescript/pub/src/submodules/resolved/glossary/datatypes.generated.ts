@@ -293,7 +293,7 @@ export namespace N {
         export namespace T {}
     }
     
-    export namespace State_$_$Group_$_$Selection {
+    export namespace State_$_$Selection {
         
         export namespace N {
             
@@ -1318,7 +1318,7 @@ export namespace T {
     
     export type Root = T.Model
     
-    export namespace State__Group__Selection {
+    export namespace State__Selection {
         
         export namespace cast {
             
@@ -1385,7 +1385,7 @@ export namespace T {
         export type _ltype = T.Type__Selection
     }
     
-    export type State__Group__Selection = {
+    export type State__Selection = {
         readonly 'cast': 
             | ['state group', {
                 readonly 'constraints': {
@@ -1588,29 +1588,29 @@ export namespace T {
                         
                         export namespace constraints {
                             
-                            export type D = T.State__Group__Selection
+                            export type D = T.State__Selection
                         }
                         
-                        export type constraints = pt.Dictionary<T.State__Group__Selection>
+                        export type constraints = pt.Dictionary<T.State__Selection>
                         
                         export type _ltype = T.Type
                     }
                     
                     export type D = {
-                        readonly 'constraints': pt.Dictionary<T.State__Group__Selection>
+                        readonly 'constraints': pt.Dictionary<T.State__Selection>
                         readonly 'type': T.Type
                     }
                 }
                 
                 export type states = pt.Dictionary<{
-                    readonly 'constraints': pt.Dictionary<T.State__Group__Selection>
+                    readonly 'constraints': pt.Dictionary<T.State__Selection>
                     readonly 'type': T.Type
                 }>
             }
             
             export type state__group = {
                 readonly 'states': pt.Dictionary<{
-                    readonly 'constraints': pt.Dictionary<T.State__Group__Selection>
+                    readonly 'constraints': pt.Dictionary<T.State__Selection>
                     readonly 'type': T.Type
                 }>
             }
@@ -1660,7 +1660,7 @@ export namespace T {
             }]
             | ['state group', {
                 readonly 'states': pt.Dictionary<{
-                    readonly 'constraints': pt.Dictionary<T.State__Group__Selection>
+                    readonly 'constraints': pt.Dictionary<T.State__Selection>
                     readonly 'type': T.Type
                 }>
             }]
@@ -1711,7 +1711,7 @@ export namespace T {
             }]
             | ['state group', {
                 readonly 'states': pt.Dictionary<{
-                    readonly 'constraints': pt.Dictionary<T.State__Group__Selection>
+                    readonly 'constraints': pt.Dictionary<T.State__Selection>
                     readonly 'type': T.Type
                 }>
             }]
