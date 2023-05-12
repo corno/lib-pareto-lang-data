@@ -286,6 +286,60 @@ export namespace N {
         export namespace T {}
     }
     
+    export namespace Optional_$_$Selection {
+        
+        export namespace N {
+            
+            export namespace G {
+                
+                export namespace N {
+                    
+                    export namespace cast {
+                        
+                        export namespace N {
+                            
+                            export namespace TU {
+                                
+                                export namespace N {
+                                    
+                                    export namespace optional {
+                                        
+                                        export namespace N {
+                                            
+                                            export namespace G {
+                                                
+                                                export namespace N {}
+                                                
+                                                export namespace T {}
+                                            }
+                                        }
+                                        
+                                        export namespace T {}
+                                    }
+                                }
+                                
+                                export namespace T {}
+                            }
+                        }
+                        
+                        export namespace T {}
+                    }
+                    
+                    export namespace _$ltype {
+                        
+                        export namespace N {}
+                        
+                        export namespace T {}
+                    }
+                }
+                
+                export namespace T {}
+            }
+        }
+        
+        export namespace T {}
+    }
+    
     export namespace Root {
         
         export namespace N {}
@@ -669,6 +723,21 @@ export namespace N {
                                             export namespace G {
                                                 
                                                 export namespace N {
+                                                    
+                                                    export namespace constraints {
+                                                        
+                                                        export namespace N {
+                                                            
+                                                            export namespace D {
+                                                                
+                                                                export namespace N {}
+                                                                
+                                                                export namespace T {}
+                                                            }
+                                                        }
+                                                        
+                                                        export namespace T {}
+                                                    }
                                                     
                                                     export namespace _$ltype {
                                                         
@@ -1287,6 +1356,43 @@ export namespace T {
         readonly 'type library': T.Type__Library<GAnnotation>
     }
     
+    export namespace Optional__Selection {
+        
+        export namespace cast {
+            
+            export namespace optional {
+                
+                export type annotation<GAnnotation> = GAnnotation
+                
+                export namespace content {}
+                
+                export type content<GAnnotation> = null
+            }
+            
+            export type optional<GAnnotation> = {
+                readonly 'annotation': GAnnotation
+                readonly 'content': null
+            }
+        }
+        
+        export type cast<GAnnotation> = 
+            | ['optional', {
+                readonly 'annotation': GAnnotation
+                readonly 'content': null
+            }]
+        
+        export type _ltype<GAnnotation> = T.Type__Selection<GAnnotation>
+    }
+    
+    export type Optional__Selection<GAnnotation> = {
+        readonly 'cast': 
+            | ['optional', {
+                readonly 'annotation': GAnnotation
+                readonly 'content': null
+            }]
+        readonly 'type': T.Type__Selection<GAnnotation>
+    }
+    
     export type Root<GAnnotation> = T.Model<GAnnotation>
     
     export namespace State__Selection {
@@ -1508,10 +1614,18 @@ export namespace T {
             
             export namespace optional {
                 
+                export namespace constraints {
+                    
+                    export type D<GAnnotation> = T.Optional__Selection<GAnnotation>
+                }
+                
+                export type constraints<GAnnotation> = pt.Dictionary<T.Optional__Selection<GAnnotation>>
+                
                 export type _ltype<GAnnotation> = T.Type<GAnnotation>
             }
             
             export type optional<GAnnotation> = {
+                readonly 'constraints': pt.Dictionary<T.Optional__Selection<GAnnotation>>
                 readonly 'type': T.Type<GAnnotation>
             }
             
@@ -1608,6 +1722,7 @@ export namespace T {
             }]
             | ['nothing', null]
             | ['optional', {
+                readonly 'constraints': pt.Dictionary<T.Optional__Selection<GAnnotation>>
                 readonly 'type': T.Type<GAnnotation>
             }]
             | ['resolved reference', {
@@ -1659,6 +1774,7 @@ export namespace T {
             }]
             | ['nothing', null]
             | ['optional', {
+                readonly 'constraints': pt.Dictionary<T.Optional__Selection<GAnnotation>>
                 readonly 'type': T.Type<GAnnotation>
             }]
             | ['resolved reference', {

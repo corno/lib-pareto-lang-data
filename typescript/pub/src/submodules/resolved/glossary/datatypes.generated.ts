@@ -286,6 +286,60 @@ export namespace N {
         export namespace T {}
     }
     
+    export namespace Optional_$_$Selection {
+        
+        export namespace N {
+            
+            export namespace G {
+                
+                export namespace N {
+                    
+                    export namespace cast {
+                        
+                        export namespace N {
+                            
+                            export namespace TU {
+                                
+                                export namespace N {
+                                    
+                                    export namespace optional {
+                                        
+                                        export namespace N {
+                                            
+                                            export namespace G {
+                                                
+                                                export namespace N {}
+                                                
+                                                export namespace T {}
+                                            }
+                                        }
+                                        
+                                        export namespace T {}
+                                    }
+                                }
+                                
+                                export namespace T {}
+                            }
+                        }
+                        
+                        export namespace T {}
+                    }
+                    
+                    export namespace _$ltype {
+                        
+                        export namespace N {}
+                        
+                        export namespace T {}
+                    }
+                }
+                
+                export namespace T {}
+            }
+        }
+        
+        export namespace T {}
+    }
+    
     export namespace Root {
         
         export namespace N {}
@@ -669,6 +723,21 @@ export namespace N {
                                             export namespace G {
                                                 
                                                 export namespace N {
+                                                    
+                                                    export namespace constraints {
+                                                        
+                                                        export namespace N {
+                                                            
+                                                            export namespace D {
+                                                                
+                                                                export namespace N {}
+                                                                
+                                                                export namespace T {}
+                                                            }
+                                                        }
+                                                        
+                                                        export namespace T {}
+                                                    }
                                                     
                                                     export namespace _$ltype {
                                                         
@@ -1316,6 +1385,56 @@ export namespace T {
         readonly 'type library': T.Type__Library
     }
     
+    export namespace Optional__Selection {
+        
+        export namespace cast {
+            
+            export namespace optional {
+                
+                export namespace constraints {
+                    
+                    export type optional = T.Type._ltype.optional
+                }
+                
+                export type constraints = {
+                    readonly 'optional': T.Type._ltype.optional
+                }
+                
+                export namespace content {}
+                
+                export type content = null
+            }
+            
+            export type optional = {
+                readonly 'constraints': {
+                    readonly 'optional': T.Type._ltype.optional
+                }
+                readonly 'content': null
+            }
+        }
+        
+        export type cast = 
+            | ['optional', {
+                readonly 'constraints': {
+                    readonly 'optional': T.Type._ltype.optional
+                }
+                readonly 'content': null
+            }]
+        
+        export type _ltype = T.Type__Selection
+    }
+    
+    export type Optional__Selection = {
+        readonly 'cast': 
+            | ['optional', {
+                readonly 'constraints': {
+                    readonly 'optional': T.Type._ltype.optional
+                }
+                readonly 'content': null
+            }]
+        readonly 'type': T.Type__Selection
+    }
+    
     export type Root = T.Model
     
     export namespace State__Selection {
@@ -1550,10 +1669,18 @@ export namespace T {
             
             export namespace optional {
                 
+                export namespace constraints {
+                    
+                    export type D = T.Optional__Selection
+                }
+                
+                export type constraints = pt.Dictionary<T.Optional__Selection>
+                
                 export type _ltype = T.Type
             }
             
             export type optional = {
+                readonly 'constraints': pt.Dictionary<T.Optional__Selection>
                 readonly 'type': T.Type
             }
             
@@ -1650,6 +1777,7 @@ export namespace T {
             }]
             | ['nothing', null]
             | ['optional', {
+                readonly 'constraints': pt.Dictionary<T.Optional__Selection>
                 readonly 'type': T.Type
             }]
             | ['resolved reference', {
@@ -1701,6 +1829,7 @@ export namespace T {
             }]
             | ['nothing', null]
             | ['optional', {
+                readonly 'constraints': pt.Dictionary<T.Optional__Selection>
                 readonly 'type': T.Type
             }]
             | ['resolved reference', {

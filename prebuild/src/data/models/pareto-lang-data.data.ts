@@ -78,6 +78,7 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = {
                     })),
                     "optional": state(group({
                         "type": prop(component(typeRef("Type", true))),
+                        "constraints": prop(dictionary(component(typeRef("Optional Selection", true)))),
                     })),
                     "resolved reference": state(group({
                         "atom": prop(component(typeRef("Atom"))),
@@ -154,6 +155,20 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = {
                         },
                         group({
                             "state": prop(dictionaryReference(typeSelection("Type", t_grp("type", t_sg("state group", t_grp("states")))))),
+                        }),
+                    )
+                }))
+            })
+        ),
+        "Optional Selection": globalType(
+            group({
+                "type": prop(component(typeRef("Type Selection"))),
+                "cast": prop(stateGroup({
+                    "optional": constrainedState(
+                        {
+                            "optional": stateConstraint(typeSelection("Type", t_grp("type")), "optional")
+                        },
+                        group({
                         }),
                     )
                 }))

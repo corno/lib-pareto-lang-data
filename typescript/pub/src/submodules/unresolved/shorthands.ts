@@ -44,6 +44,19 @@ export function array(type: g_this.T.Type<pd.SourceLocation>): g_this.T.Type<pd.
 export function optional(type: g_this.T.Type<pd.SourceLocation>): g_this.T.Type<pd.SourceLocation> {
     return {
         'type': ['optional', {
+            'constraints': pd.d<g_this.T.Type._ltype.optional.constraints.D<pd.SourceLocation>>({}),
+            'type': type,
+        }]
+    }
+}
+
+export function constrainedOptional(
+    constraints: RawDictionary<g_this.T.Type._ltype.optional.constraints.D<pd.SourceLocation>>,
+    type: g_this.T.Type<pd.SourceLocation>
+): g_this.T.Type<pd.SourceLocation> {
+    return {
+        'type': ['optional', {
+            'constraints': pd.d(constraints),
             'type': type,
         }]
     }
@@ -162,7 +175,7 @@ export function dictionary(type: g_this.T.Type<pd.SourceLocation>/*, autofill?: 
             'key': {
                 'type': r_imp("identifier", 1)
             },
-            'constraints': pd.d({}),
+            'constraints': pd.d<g_this.T.Type._ltype.dictionary.constraints.D<pd.SourceLocation>>({}),
             'type': type,
             //'autofill': pd.a(autofill === undefined ? [] : autofill),
         }]
@@ -215,6 +228,18 @@ export function stateConstraint(
                     'key': option
                 }
             }
+        }]
+    }
+}
+
+export function optionalConstraint(
+    type: g_this.T.Type__Selection<pd.SourceLocation>,
+): g_this.T.Type._ltype.optional.constraints.D<pd.SourceLocation> {
+    return {
+        'type': type,
+        'cast': ['optional', {
+            'annotation': pd.getLocationInfo(1),
+            'content': null
         }]
     }
 }

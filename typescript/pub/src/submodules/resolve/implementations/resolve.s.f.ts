@@ -128,7 +128,15 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
     ) => g_out.T.Model
 
 
-    type Map_State__Group__Selection = (
+    type Map_Optional__Selection = (
+        $: g_in.T.Optional__Selection<Annotation>,
+        $p: {
+            'imports': g_out.T.Imports,
+            'sibling global types': pt.Lookup<g_out.T.Global__Types.D>
+        },
+    ) => g_out.T.Optional__Selection
+
+    type Map_State__Selection = (
         $: g_in.T.State__Selection<Annotation>,
         $p: {
             'imports': g_out.T.Imports,
@@ -244,7 +252,41 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
         }
     }
 
-    const map_State__Group__Selection: Map_State__Group__Selection = ($, $p) => {
+    const map_Optional__Selection: Map_Optional__Selection = ($, $p) => {
+        const v_type = map_Type__Selection($.type, $p)
+        return {
+            'type': v_type.content,
+            'cast': ['optional', pl.cc($.cast, ($) => {
+                switch ($[0]) {
+                    case 'optional': return pl.ss($, ($) => {
+                        const x = $
+                        const c_optional = pl.cc(v_type.result, ($) => {
+                            if ($.type[0] !== 'optional') {
+                                $se.onError({
+                                    'annotation': x.annotation,
+                                    'message': ['not the right state', {
+                                        'found': $.type[0],
+                                        'expected': `optional`
+                                    }]
+                                })
+                                return pl.panic(`not an optional`)
+                            }
+                            return $.type[1]
+                        })
+                        return {
+                            'constraints': {
+                                'optional': c_optional
+                            },
+                            'content': null
+                        }
+                    })
+                    default: return pl.au($[0])
+                }
+            })],
+        }
+    }
+
+    const map_State__Selection: Map_State__Selection = ($, $p) => {
         const v_type = map_Type__Selection($.type, $p)
         return {
             'type': v_type.content,
@@ -261,7 +303,7 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
                                         'expected': `state group`
                                     }]
                                 })
-                                return pl.panic(`not a dictionary`)
+                                return pl.panic(`not a state group`)
                             }
                             return $.type[1]
                         })
@@ -297,7 +339,7 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
                         }]
                     })
                     case 'dictionary': return pl.ss($, ($): g_out.T.Type._ltype => ['dictionary', {
-                        'constraints': $.constraints.map(($) => pl.cc($, ($) => {
+                        'constraints': $.constraints.map<g_out.T.Type._ltype.dictionary.constraints.D>(($) => pl.cc($, ($) => {
                             switch ($[0]) {
                                 case 'lookup': return pl.ss($, ($) => {
                                     const v_gts = map_Global__Type__Selection($, $p)
@@ -326,6 +368,7 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
                     })
                     case 'nothing': return pl.ss($, ($) => ['nothing', null])
                     case 'optional': return pl.ss($, ($) => ['optional', {
+                        'constraints': $.constraints.map(($) => map_Optional__Selection($, $p)),
                         'type': map_Type($.type, $p),
                     }])
                     case 'state group': return pl.ss($, ($) => {
@@ -333,7 +376,7 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
                             'states': $d.resolveDictionary($.states, {
                                 'map': ($, $l) => {
                                     return {
-                                        'constraints': $.value.constraints.map(($) => map_State__Group__Selection($, $p)),
+                                        'constraints': $.value.constraints.map(($) => map_State__Selection($, $p)),
                                         'type': map_Type($.value.type, $p),
                                     }
                                 }
@@ -499,7 +542,7 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
                     const x = $
 
                     const v_optional = pl.cc($p.context.type, ($) => {
-                        if ($[0] !== 'array') {
+                        if ($[0] !== 'optional') {
                             $se.onError({
                                 'annotation': x.annotation,
                                 'message': ['not the right state', {
