@@ -8,7 +8,7 @@ import * as a_pub from "../../../../../pub"
 import * as a_resolve from "res-pareto-resolve"
 import * as a_glossary from "lib-pareto-typescript-project"
 
-import { $ as d_pareto_lang_data } from "../../../data/pareto-lang-data.data"
+import { $ as d_playground } from "../../../data/playground.data"
 
 import * as a_fp from "lib-fountain-pen"
 import * as a_2glossary from "../../../../../pub/dist/submodules/2glossary"
@@ -53,7 +53,7 @@ export const $$: A.getTestSet = ($) => {
     const resolved = resolve({
         'imports': pd.d({}),
         'root': {
-            'type library': d_pareto_lang_data,
+            'type library': d_playground,
             'root': {
                 'annotation': pd.getLocationInfo(0),
                 'key': "Root",
