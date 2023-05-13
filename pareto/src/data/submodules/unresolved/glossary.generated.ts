@@ -207,6 +207,12 @@ export const $: g_glossary.T.Glossary<null> = {
                                     }]],
                                 },
                             })],
+                            "constraint": <g_glossary.T.Type<null>>['reference', ['type', {
+                                'context': ['local', null],
+                                'typeXX': "Type Selection",
+                                'tailXX': a([]),
+                                'type arguments': d({}),
+                            }]],
                             "cyclic reference": <g_glossary.T.Type<null>>['group', d({
                                 "atom": {
                                     'type': <g_glossary.T.Type<null>>['reference', ['type', {
@@ -726,6 +732,10 @@ export const $: g_glossary.T.Glossary<null> = {
                                                         }),
                                                     },
                                                 }),
+                                            },
+                                            "constraint": {
+                                                'types': d({}),
+                                                'namespaces': d({}),
                                             },
                                             "cyclic reference": {
                                                 'types': d({}),

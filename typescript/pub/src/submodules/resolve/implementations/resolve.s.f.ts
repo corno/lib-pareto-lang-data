@@ -300,6 +300,7 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
                             'type': resolve_Global__Type__Selection($.type, $p)
                         }]
                     })
+                    case 'constraint': return pl.ss($, ($) => ['constraint', resolve_Type__Selection($, $p)])
                     case 'dictionary': return pl.ss($, ($): g_out.T.Type._ltype => ['dictionary', {
                         'constraints': $.constraints.map<g_out.T.Type._ltype.dictionary.constraints.D>(($) => pl.cc($, ($) => {
                             switch ($[0]) {

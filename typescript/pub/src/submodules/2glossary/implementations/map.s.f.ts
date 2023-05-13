@@ -204,6 +204,7 @@ export const $$: A.map = ($d) => {
                         case 'array': return pl.ss($, ($) => pm.wrapRawDictionary({
                             "A": mapTypeToNamespace($.type)
                         }))
+                        case 'constraint': return pl.ss($, ($) => pm.wrapRawDictionary({}))
                         case 'nothing': return pl.ss($, ($) => pm.wrapRawDictionary({}))
                         case 'optional': return pl.ss($, ($) => pm.wrapRawDictionary({
                             "O": mapTypeToNamespace($.type)
@@ -350,6 +351,22 @@ export const $$: A.map = ($d) => {
                 */
                     }
                 })]])
+                case 'constraint': return pl.ss($, ($): g_out.T.Type<null> => {
+                    const $a = $
+                    return pl.optional(
+                        $p['mapping settings']['constraints mapping'].constraints,
+                        ($): g_out.T.Type<null> => pl.cc($, ($) => {
+
+                            switch ($[0]) {
+                                case 'optional': return pl.ss($, ($) => ['optional', ['reference', ['type', map_Type__Selection($a, { 'getLastSteps': () => pm.wrapRawArray([]) })]]])
+                                case 'required': return pl.ss($, ($) => ['reference', ['type', map_Type__Selection($a, { 'getLastSteps': () => pm.wrapRawArray([]) })]])
+                                default: return pl.au($[0])
+                            }
+                        }),
+                        () => ['null', null],
+                    )
+                })
+
                 case 'dictionary': return pl.ss($, ($) => pl.cc($, ($) => {
                     const type = $.type
                     const constraints = $.constraints

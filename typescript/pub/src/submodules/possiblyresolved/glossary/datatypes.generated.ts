@@ -378,6 +378,13 @@ export namespace N {
                                         export namespace T {}
                                     }
                                     
+                                    export namespace constraint {
+                                        
+                                        export namespace N {}
+                                        
+                                        export namespace T {}
+                                    }
+                                    
                                     export namespace cyclic_$_$reference {
                                         
                                         export namespace N {
@@ -1381,6 +1388,8 @@ export namespace T {
                 readonly 'type': T.Global__Type__Selection<GAnnotation>
             }
             
+            export type constraint<GAnnotation> = T.Type__Selection<GAnnotation>
+            
             export namespace cyclic__reference {
                 
                 export type atom<GAnnotation> = T.Atom<GAnnotation>
@@ -1583,6 +1592,7 @@ export namespace T {
             | ['component', {
                 readonly 'type': T.Global__Type__Selection<GAnnotation>
             }]
+            | ['constraint', T.Type__Selection<GAnnotation>]
             | ['cyclic reference', {
                 readonly 'atom': T.Atom<GAnnotation>
                 readonly 'sibling': T.Global__Type__Selection<GAnnotation>
@@ -1635,6 +1645,7 @@ export namespace T {
             | ['component', {
                 readonly 'type': T.Global__Type__Selection<GAnnotation>
             }]
+            | ['constraint', T.Type__Selection<GAnnotation>]
             | ['cyclic reference', {
                 readonly 'atom': T.Atom<GAnnotation>
                 readonly 'sibling': T.Global__Type__Selection<GAnnotation>

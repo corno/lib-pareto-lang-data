@@ -182,6 +182,12 @@ export function dictionary(type: g_this.T.Type<pd.SourceLocation>/*, autofill?: 
     }
 }
 
+export function constraint(type: g_this.T.Type__Selection<pd.SourceLocation>): g_this.T.Type<pd.SourceLocation> {
+    return {
+        'type': ['constraint', type]
+    }
+}
+
 export function globalType(
     type: g_this.T.Type<pd.SourceLocation>,
 ): g_this.T.Global__Types.D<pd.SourceLocation> {
