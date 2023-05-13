@@ -149,9 +149,9 @@ export const $$: A.map = ($d) => {
                 switch ($[0]) {
                     case 'array': return pl.ss($, ($) => pm.wrapRawArray(["A"]))
                     case 'dictionary': return pl.ss($, ($) => pm.wrapRawArray(["D"]))
-                    case 'group': return pl.ss($, ($) => pm.wrapRawArray([$.content.property.key]))
+                    case 'group': return pl.ss($, ($) => pm.wrapRawArray([$.property.key]))
                     case 'optional': return pl.ss($, ($) => pm.wrapRawArray(["O"]))
-                    case 'state group': return pl.ss($, ($) => pm.wrapRawArray([$.content.state.key]))
+                    case 'state group': return pl.ss($, ($) => pm.wrapRawArray([$.state.key]))
                     default: return pl.au($[0])
                 }
             }),
@@ -260,38 +260,7 @@ export const $$: A.map = ($d) => {
                 })
                 case 'array': return pl.ss($, ($) => ['array', mapTypeToType($.type, $p)])
                 case 'optional': return pl.ss($, ($) => {
-                    const constraints = $.constraints
-                    return ['optional', $d.isEmpty($.constraints) || ($p['mapping settings']['constraints mapping'].constraints[0] === false && !$p['mapping settings']['create annotations'])
-                    ? mapTypeToType($.type, $p)
-                    : ['group', $d.filter(pm.wrapRawDictionary({
-                        "annotation": createOptionalAnnotation(null, {
-                            'mapping settings': $p['mapping settings']
-                        }),
-                        "constraints": pl.optional(
-                            $p['mapping settings']['constraints mapping'].constraints,
-                            ($): pt.OptionalValue<g_out.T.Type.group.D<null>> => {
-                                const constraintStrat = $
-                                return [true, {
-                                    'type': ['group', constraints.map(($) => {
-                                        const $a = $
-                                        return {
-                                            'type': pl.cc($, ($): g_out.T.Type<null> => {
-                                                return createPossiblyOptionalType2(constraintStrat, {
-                                                    'cb': () => {
-                                                        return ['reference', ['type', map_Type__Selection($a, { 'getLastSteps': () => pm.wrapRawArray([]) })]]
-                                                    }
-                                                })
-                                            })
-                                        }
-                                    })]
-                                }]
-                            },
-                            () => [false]
-                        ),
-                        "content": [true, {
-                            'type': mapTypeToType($.type, $p)
-                        }],
-                    }))]]
+                    return ['optional', mapTypeToType($.type, $p)]
                 })
                 case 'component': return pl.ss($, ($): g_out.T.Type<null> => ['reference', ['type', pl.cc($.type, ($): g_out.T.DataSpecifier._ltype<null> => {
                     switch ($[0]) {
@@ -485,36 +454,14 @@ export const $$: A.map = ($d) => {
                 case 'state group': return pl.ss($, ($) => {
                     return ['taggedUnion', $.states.map(($): g_out.T.Type<null> => pl.cc($, ($) => {
                         const type = $.type
-                        const constraints = $.constraints
 
                         //if there are no constraints -or- no constraints or annotations should be added, then don't create a meta data group
-                        return $d.isEmpty($.constraints) || ($p['mapping settings']['constraints mapping'].constraints[0] === false && !$p['mapping settings']['create annotations'])
+                        return !$p['mapping settings']['create annotations']
                             ? mapTypeToType(type, $p)
                             : ['group', $d.filter(pm.wrapRawDictionary({
                                 "annotation": createOptionalAnnotation(null, {
                                     'mapping settings': $p['mapping settings']
                                 }),
-                                "constraints": pl.optional(
-                                    $p['mapping settings']['constraints mapping'].constraints,
-                                    ($): pt.OptionalValue<g_out.T.Type.group.D<null>> => {
-                                        const constraintStrat = $
-                                        return [true, {
-                                            'type': ['group', constraints.map(($) => {
-                                                const $a = $
-                                                return {
-                                                    'type': pl.cc($, ($): g_out.T.Type<null> => {
-                                                        return createPossiblyOptionalType2(constraintStrat, {
-                                                            'cb': () => {
-                                                                return ['reference', ['type', map_Type__Selection($a, { 'getLastSteps': () => pm.wrapRawArray([]) })]]
-                                                            }
-                                                        })
-                                                    })
-                                                }
-                                            })]
-                                        }]
-                                    },
-                                    () => [false]
-                                ),
                                 "content": [true, {
                                     'type': mapTypeToType(type, $p)
                                 }],

@@ -57,33 +57,9 @@ export namespace N {
                 
                 export namespace N {
                     
-                    export namespace cast {
+                    export namespace dictionary {
                         
-                        export namespace N {
-                            
-                            export namespace TU {
-                                
-                                export namespace N {
-                                    
-                                    export namespace dictionary {
-                                        
-                                        export namespace N {
-                                            
-                                            export namespace G {
-                                                
-                                                export namespace N {}
-                                                
-                                                export namespace T {}
-                                            }
-                                        }
-                                        
-                                        export namespace T {}
-                                    }
-                                }
-                                
-                                export namespace T {}
-                            }
-                        }
+                        export namespace N {}
                         
                         export namespace T {}
                     }
@@ -615,21 +591,6 @@ export namespace N {
                                                 
                                                 export namespace N {
                                                     
-                                                    export namespace constraints {
-                                                        
-                                                        export namespace N {
-                                                            
-                                                            export namespace D {
-                                                                
-                                                                export namespace N {}
-                                                                
-                                                                export namespace T {}
-                                                            }
-                                                        }
-                                                        
-                                                        export namespace T {}
-                                                    }
-                                                    
                                                     export namespace _$ltype {
                                                         
                                                         export namespace N {}
@@ -717,21 +678,6 @@ export namespace N {
                                                                     export namespace G {
                                                                         
                                                                         export namespace N {
-                                                                            
-                                                                            export namespace constraints {
-                                                                                
-                                                                                export namespace N {
-                                                                                    
-                                                                                    export namespace D {
-                                                                                        
-                                                                                        export namespace N {}
-                                                                                        
-                                                                                        export namespace T {}
-                                                                                    }
-                                                                                }
-                                                                                
-                                                                                export namespace T {}
-                                                                            }
                                                                             
                                                                             export namespace _$ltype {
                                                                                 
@@ -888,7 +834,15 @@ export namespace N {
                                             
                                             export namespace G {
                                                 
-                                                export namespace N {}
+                                                export namespace N {
+                                                    
+                                                    export namespace array {
+                                                        
+                                                        export namespace N {}
+                                                        
+                                                        export namespace T {}
+                                                    }
+                                                }
                                                 
                                                 export namespace T {}
                                             }
@@ -903,7 +857,15 @@ export namespace N {
                                             
                                             export namespace G {
                                                 
-                                                export namespace N {}
+                                                export namespace N {
+                                                    
+                                                    export namespace dictionary {
+                                                        
+                                                        export namespace N {}
+                                                        
+                                                        export namespace T {}
+                                                    }
+                                                }
                                                 
                                                 export namespace T {}
                                             }
@@ -919,6 +881,13 @@ export namespace N {
                                             export namespace G {
                                                 
                                                 export namespace N {
+                                                    
+                                                    export namespace group {
+                                                        
+                                                        export namespace N {}
+                                                        
+                                                        export namespace T {}
+                                                    }
                                                     
                                                     export namespace property {
                                                         
@@ -941,7 +910,15 @@ export namespace N {
                                             
                                             export namespace G {
                                                 
-                                                export namespace N {}
+                                                export namespace N {
+                                                    
+                                                    export namespace optional {
+                                                        
+                                                        export namespace N {}
+                                                        
+                                                        export namespace T {}
+                                                    }
+                                                }
                                                 
                                                 export namespace T {}
                                             }
@@ -959,6 +936,13 @@ export namespace N {
                                                 export namespace N {
                                                     
                                                     export namespace state {
+                                                        
+                                                        export namespace N {}
+                                                        
+                                                        export namespace T {}
+                                                    }
+                                                    
+                                                    export namespace state_$_$group {
                                                         
                                                         export namespace N {}
                                                         
@@ -1040,51 +1024,13 @@ export namespace T {
     
     export namespace Dictionary__Selection {
         
-        export namespace cast {
-            
-            export namespace dictionary {
-                
-                export namespace constraints {
-                    
-                    export type dictionary = T.Type._ltype.dictionary
-                }
-                
-                export type constraints = {
-                    readonly 'dictionary': T.Type._ltype.dictionary
-                }
-                
-                export namespace content {}
-                
-                export type content = null
-            }
-            
-            export type dictionary = {
-                readonly 'constraints': {
-                    readonly 'dictionary': T.Type._ltype.dictionary
-                }
-                readonly 'content': null
-            }
-        }
-        
-        export type cast = 
-            | ['dictionary', {
-                readonly 'constraints': {
-                    readonly 'dictionary': T.Type._ltype.dictionary
-                }
-                readonly 'content': null
-            }]
+        export type dictionary = T.Type._ltype.dictionary
         
         export type _ltype = T.Type__Selection
     }
     
     export type Dictionary__Selection = {
-        readonly 'cast': 
-            | ['dictionary', {
-                readonly 'constraints': {
-                    readonly 'dictionary': T.Type._ltype.dictionary
-                }
-                readonly 'content': null
-            }]
+        readonly 'dictionary': T.Type._ltype.dictionary
         readonly 'type': T.Type__Selection
     }
     
@@ -1429,18 +1375,10 @@ export namespace T {
             
             export namespace optional {
                 
-                export namespace constraints {
-                    
-                    export type D = T.Type__Selection
-                }
-                
-                export type constraints = pt.Dictionary<T.Type__Selection>
-                
                 export type _ltype = T.Type
             }
             
             export type optional = {
-                readonly 'constraints': pt.Dictionary<T.Type__Selection>
                 readonly 'type': T.Type
             }
             
@@ -1473,31 +1411,21 @@ export namespace T {
                     
                     export namespace D {
                         
-                        export namespace constraints {
-                            
-                            export type D = T.Type__Selection
-                        }
-                        
-                        export type constraints = pt.Dictionary<T.Type__Selection>
-                        
                         export type _ltype = T.Type
                     }
                     
                     export type D = {
-                        readonly 'constraints': pt.Dictionary<T.Type__Selection>
                         readonly 'type': T.Type
                     }
                 }
                 
                 export type states = pt.Dictionary<{
-                    readonly 'constraints': pt.Dictionary<T.Type__Selection>
                     readonly 'type': T.Type
                 }>
             }
             
             export type state__group = {
                 readonly 'states': pt.Dictionary<{
-                    readonly 'constraints': pt.Dictionary<T.Type__Selection>
                     readonly 'type': T.Type
                 }>
             }
@@ -1538,7 +1466,6 @@ export namespace T {
             }]
             | ['nothing', null]
             | ['optional', {
-                readonly 'constraints': pt.Dictionary<T.Type__Selection>
                 readonly 'type': T.Type
             }]
             | ['resolved reference', {
@@ -1549,7 +1476,6 @@ export namespace T {
             }]
             | ['state group', {
                 readonly 'states': pt.Dictionary<{
-                    readonly 'constraints': pt.Dictionary<T.Type__Selection>
                     readonly 'type': T.Type
                 }>
             }]
@@ -1591,7 +1517,6 @@ export namespace T {
             }]
             | ['nothing', null]
             | ['optional', {
-                readonly 'constraints': pt.Dictionary<T.Type__Selection>
                 readonly 'type': T.Type
             }]
             | ['resolved reference', {
@@ -1602,7 +1527,6 @@ export namespace T {
             }]
             | ['state group', {
                 readonly 'states': pt.Dictionary<{
-                    readonly 'constraints': pt.Dictionary<T.Type__Selection>
                     readonly 'type': T.Type
                 }>
             }]
@@ -1683,206 +1607,105 @@ export namespace T {
             
             export namespace array {
                 
-                export namespace constraints {
-                    
-                    export type array = T.Type._ltype.array
-                }
-                
-                export type constraints = {
-                    readonly 'array': T.Type._ltype.array
-                }
-                
-                export namespace content {}
-                
-                export type content = null
+                export type array = T.Type._ltype.array
             }
             
             export type array = {
-                readonly 'constraints': {
-                    readonly 'array': T.Type._ltype.array
-                }
-                readonly 'content': null
+                readonly 'array': T.Type._ltype.array
             }
             
             export namespace dictionary {
                 
-                export namespace constraints {
-                    
-                    export type dictionary = T.Type._ltype.dictionary
-                }
-                
-                export type constraints = {
-                    readonly 'dictionary': T.Type._ltype.dictionary
-                }
-                
-                export namespace content {}
-                
-                export type content = null
+                export type dictionary = T.Type._ltype.dictionary
             }
             
             export type dictionary = {
-                readonly 'constraints': {
-                    readonly 'dictionary': T.Type._ltype.dictionary
-                }
-                readonly 'content': null
+                readonly 'dictionary': T.Type._ltype.dictionary
             }
             
             export namespace group {
                 
-                export namespace constraints {
+                export type group = T.Type._ltype.group
+                
+                export namespace property {
                     
-                    export type group = T.Type._ltype.group
+                    export type key = string
+                    
+                    export type referent = T.Type._ltype.group.properties.D
                 }
                 
-                export type constraints = {
-                    readonly 'group': T.Type._ltype.group
-                }
-                
-                export namespace content {
-                    
-                    export namespace property {
-                        
-                        export type key = string
-                        
-                        export type referent = T.Type._ltype.group.properties.D
-                    }
-                    
-                    export type property = {
-                        readonly 'key': string
-                        readonly 'referent': T.Type._ltype.group.properties.D
-                    }
-                }
-                
-                export type content = {
-                    readonly 'property': {
-                        readonly 'key': string
-                        readonly 'referent': T.Type._ltype.group.properties.D
-                    }
+                export type property = {
+                    readonly 'key': string
+                    readonly 'referent': T.Type._ltype.group.properties.D
                 }
             }
             
             export type group = {
-                readonly 'constraints': {
-                    readonly 'group': T.Type._ltype.group
-                }
-                readonly 'content': {
-                    readonly 'property': {
-                        readonly 'key': string
-                        readonly 'referent': T.Type._ltype.group.properties.D
-                    }
+                readonly 'group': T.Type._ltype.group
+                readonly 'property': {
+                    readonly 'key': string
+                    readonly 'referent': T.Type._ltype.group.properties.D
                 }
             }
             
             export namespace optional {
                 
-                export namespace constraints {
-                    
-                    export type optional = T.Type._ltype.optional
-                }
-                
-                export type constraints = {
-                    readonly 'optional': T.Type._ltype.optional
-                }
-                
-                export namespace content {}
-                
-                export type content = null
+                export type optional = T.Type._ltype.optional
             }
             
             export type optional = {
-                readonly 'constraints': {
-                    readonly 'optional': T.Type._ltype.optional
-                }
-                readonly 'content': null
+                readonly 'optional': T.Type._ltype.optional
             }
             
             export namespace state__group {
                 
-                export namespace constraints {
+                export namespace state {
                     
-                    export type state__group = T.Type._ltype.state__group
+                    export type key = string
+                    
+                    export type referent = T.Type._ltype.state__group.states.D
                 }
                 
-                export type constraints = {
-                    readonly 'state group': T.Type._ltype.state__group
+                export type state = {
+                    readonly 'key': string
+                    readonly 'referent': T.Type._ltype.state__group.states.D
                 }
                 
-                export namespace content {
-                    
-                    export namespace state {
-                        
-                        export type key = string
-                        
-                        export type referent = T.Type._ltype.state__group.states.D
-                    }
-                    
-                    export type state = {
-                        readonly 'key': string
-                        readonly 'referent': T.Type._ltype.state__group.states.D
-                    }
-                }
-                
-                export type content = {
-                    readonly 'state': {
-                        readonly 'key': string
-                        readonly 'referent': T.Type._ltype.state__group.states.D
-                    }
-                }
+                export type state__group = T.Type._ltype.state__group
             }
             
             export type state__group = {
-                readonly 'constraints': {
-                    readonly 'state group': T.Type._ltype.state__group
+                readonly 'state': {
+                    readonly 'key': string
+                    readonly 'referent': T.Type._ltype.state__group.states.D
                 }
-                readonly 'content': {
-                    readonly 'state': {
-                        readonly 'key': string
-                        readonly 'referent': T.Type._ltype.state__group.states.D
-                    }
-                }
+                readonly 'state group': T.Type._ltype.state__group
             }
         }
         
         export type step__type = 
             | ['array', {
-                readonly 'constraints': {
-                    readonly 'array': T.Type._ltype.array
-                }
-                readonly 'content': null
+                readonly 'array': T.Type._ltype.array
             }]
             | ['dictionary', {
-                readonly 'constraints': {
-                    readonly 'dictionary': T.Type._ltype.dictionary
-                }
-                readonly 'content': null
+                readonly 'dictionary': T.Type._ltype.dictionary
             }]
             | ['group', {
-                readonly 'constraints': {
-                    readonly 'group': T.Type._ltype.group
-                }
-                readonly 'content': {
-                    readonly 'property': {
-                        readonly 'key': string
-                        readonly 'referent': T.Type._ltype.group.properties.D
-                    }
+                readonly 'group': T.Type._ltype.group
+                readonly 'property': {
+                    readonly 'key': string
+                    readonly 'referent': T.Type._ltype.group.properties.D
                 }
             }]
             | ['optional', {
-                readonly 'constraints': {
-                    readonly 'optional': T.Type._ltype.optional
-                }
-                readonly 'content': null
+                readonly 'optional': T.Type._ltype.optional
             }]
             | ['state group', {
-                readonly 'constraints': {
-                    readonly 'state group': T.Type._ltype.state__group
+                readonly 'state': {
+                    readonly 'key': string
+                    readonly 'referent': T.Type._ltype.state__group.states.D
                 }
-                readonly 'content': {
-                    readonly 'state': {
-                        readonly 'key': string
-                        readonly 'referent': T.Type._ltype.state__group.states.D
-                    }
-                }
+                readonly 'state group': T.Type._ltype.state__group
             }]
         
         export namespace tail {
@@ -1896,44 +1719,27 @@ export namespace T {
     export type Type__Selection__Tail = {
         readonly 'step type': 
             | ['array', {
-                readonly 'constraints': {
-                    readonly 'array': T.Type._ltype.array
-                }
-                readonly 'content': null
+                readonly 'array': T.Type._ltype.array
             }]
             | ['dictionary', {
-                readonly 'constraints': {
-                    readonly 'dictionary': T.Type._ltype.dictionary
-                }
-                readonly 'content': null
+                readonly 'dictionary': T.Type._ltype.dictionary
             }]
             | ['group', {
-                readonly 'constraints': {
-                    readonly 'group': T.Type._ltype.group
-                }
-                readonly 'content': {
-                    readonly 'property': {
-                        readonly 'key': string
-                        readonly 'referent': T.Type._ltype.group.properties.D
-                    }
+                readonly 'group': T.Type._ltype.group
+                readonly 'property': {
+                    readonly 'key': string
+                    readonly 'referent': T.Type._ltype.group.properties.D
                 }
             }]
             | ['optional', {
-                readonly 'constraints': {
-                    readonly 'optional': T.Type._ltype.optional
-                }
-                readonly 'content': null
+                readonly 'optional': T.Type._ltype.optional
             }]
             | ['state group', {
-                readonly 'constraints': {
-                    readonly 'state group': T.Type._ltype.state__group
+                readonly 'state': {
+                    readonly 'key': string
+                    readonly 'referent': T.Type._ltype.state__group.states.D
                 }
-                readonly 'content': {
-                    readonly 'state': {
-                        readonly 'key': string
-                        readonly 'referent': T.Type._ltype.state__group.states.D
-                    }
-                }
+                readonly 'state group': T.Type._ltype.state__group
             }]
         readonly 'tail': [ false ] | [ true, T.Type__Selection__Tail]
     }

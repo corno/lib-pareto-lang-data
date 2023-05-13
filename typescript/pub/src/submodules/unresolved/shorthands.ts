@@ -44,19 +44,6 @@ export function array(type: g_this.T.Type<pd.SourceLocation>): g_this.T.Type<pd.
 export function optional(type: g_this.T.Type<pd.SourceLocation>): g_this.T.Type<pd.SourceLocation> {
     return {
         'type': ['optional', {
-            'constraints': pd.d<g_this.T.Type__Selection<pd.SourceLocation>>({}),
-            'type': type,
-        }]
-    }
-}
-
-export function constrainedOptional(
-    constraints: RawDictionary<g_this.T.Type__Selection<pd.SourceLocation>>,
-    type: g_this.T.Type<pd.SourceLocation>
-): g_this.T.Type<pd.SourceLocation> {
-    return {
-        'type': ['optional', {
-            'constraints': pd.d(constraints),
             'type': type,
         }]
     }
@@ -86,10 +73,7 @@ export function dictionaryReference(
             },
             'value': ['dictionary', {
                 'type': type,
-                'cast': ['dictionary', {
-                    'annotation': pd.getLocationInfo(1),
-                    'content': null,
-                }],
+                'dictionary': null,
             }],
         }]
     }
@@ -139,10 +123,7 @@ export function dictionaryConstraint(
     return ['dictionary', {
         'dictionary': {
             'type': type,
-            'cast': ['dictionary', {
-                'annotation': pd.getLocationInfo(1),
-                'content': null,
-            }],
+            'dictionary': null,
         },
         'dense': dense ? ['yes', null] : ['no', null]
     }]
@@ -213,17 +194,6 @@ export function state(
     type: g_this.T.Type<pd.SourceLocation>,
 ): g_this.T.Type._ltype.state__group.states.D<pd.SourceLocation> {
     return {
-        'constraints': pd.d({}),
-        'type': type,
-    }
-}
-
-export function constrainedState(
-    constraints: RawDictionary<g_this.T.Type__Selection<pd.SourceLocation>>,
-    type: g_this.T.Type<pd.SourceLocation>,
-): g_this.T.Type._ltype.state__group.states.D<pd.SourceLocation> {
-    return {
-        'constraints': pd.d(constraints),
         'type': type,
     }
 }
@@ -267,10 +237,9 @@ export function t_grp(
 ): g_this.T.Type__Selection__Tail<pd.SourceLocation> {
     return {
         'step type': ['group', {
-            'annotation': pd.getLocationInfo(1),
-            'content': {
-                'property': r_imp(prop, 1),
-            },
+            'group': null,
+            'property': r_imp(prop, 1),
+
         }],
         'tail': tail === undefined ? [false] : [true, tail]
     }
@@ -281,8 +250,7 @@ export function t_dict(
 ): g_this.T.Type__Selection__Tail<pd.SourceLocation> {
     return {
         'step type': ['dictionary', {
-            'annotation': pd.getLocationInfo(1),
-            'content': null,
+            'dictionary': null,
         }],
         'tail': tail === undefined ? [false] : [true, tail]
     }
@@ -293,8 +261,7 @@ export function t_arr(
 ): g_this.T.Type__Selection__Tail<pd.SourceLocation> {
     return {
         'step type': ['array', {
-            'annotation': pd.getLocationInfo(1),
-            'content': null,
+            'array': null,
         }],
         'tail': tail === undefined ? [false] : [true, tail]
     }
@@ -306,10 +273,8 @@ export function t_sg(
 ): g_this.T.Type__Selection__Tail<pd.SourceLocation> {
     return {
         'step type': ['state group', {
-            'annotation': pd.getLocationInfo(1),
-            'content': {
-                'state': r_imp(opt, 1),
-            },
+            'state group': null,
+            'state': r_imp(opt, 1),
         }],
         'tail': tail === undefined ? [false] : [true, tail]
     }

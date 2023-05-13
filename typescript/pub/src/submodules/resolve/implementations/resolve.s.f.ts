@@ -66,6 +66,7 @@ namespace Resolve {
     export type Dictionary__Selection<Annotation> = (
         $: g_in.T.Dictionary__Selection<Annotation>,
         $p: {
+            'annotation': Annotation,
             'imports': g_out.T.Imports,
             'sibling global types': pt.Lookup<g_out.T.Global__Types.D>
             'cyclic sibling global types': pt.Lookup<() => g_out.T.Global__Types.D>,
@@ -201,11 +202,11 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
 
     const select_Type__Selection__Tail__Step__Type: Select.Type__Selection__Tail__Step__Type = ($) => {
         switch ($[0]) {
-            case 'array': return pl.ss($, ($) => $.constraints.array.type)
-            case 'dictionary': return pl.ss($, ($) => $.constraints.dictionary.type)
-            case 'group': return pl.ss($, ($) => $.content.property.referent.type)
-            case 'optional': return pl.ss($, ($) => $.constraints.optional.type)
-            case 'state group': return pl.ss($, ($) => $.content.state.referent.type)
+            case 'array': return pl.ss($, ($) => $.array.type)
+            case 'dictionary': return pl.ss($, ($) => $.dictionary.type)
+            case 'group': return pl.ss($, ($) => $.property.referent.type)
+            case 'optional': return pl.ss($, ($) => $.optional.type)
+            case 'state group': return pl.ss($, ($) => $.state.referent.type)
             default: return pl.au($[0])
         }
     }
@@ -223,30 +224,25 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
     })
 
     const resolve_Dictionary__Selection: Resolve.Dictionary__Selection<Annotation> = ($, $p) => {
-        const x = $.cast
+        const x = $
 
         const v_type = resolve_Type__Selection($.type, $p)
         return {
             'type': v_type,
-            'cast': ['dictionary', {
-                'constraints': {
-                    'dictionary': pl.cc(select_Type__Selection(v_type), ($) => {
-                        if ($.type[0] !== 'dictionary') {
+            'dictionary': pl.cc(select_Type__Selection(v_type), ($) => {
+                if ($.type[0] !== 'dictionary') {
 
-                            $se.onError({
-                                'annotation': x[1].annotation,
-                                'message': ['not the right state', {
-                                    'found': $.type[0],
-                                    'expected': `dictionary`
-                                }]
-                            })
-                            pl.panic(`not a dictionary`)
-                        }
-                        return $.type[1]
+                    $se.onError({
+                        'annotation': $p.annotation,
+                        'message': ['not the right state', {
+                            'found': $.type[0],
+                            'expected': `dictionary`
+                        }]
                     })
-                },
-                'content': null
-            }],
+                    pl.panic(`not a dictionary`)
+                }
+                return $.type[1]
+            }),
 
         }
     }
@@ -310,7 +306,12 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
                                 })
                                 case 'dictionary': return pl.ss($, ($) => {
                                     return ['dictionary', {
-                                        'dictionary': resolve_Dictionary__Selection($.dictionary, $p),
+                                        'dictionary': resolve_Dictionary__Selection($.dictionary, {
+                                            'annotation': $.dictionary.type['global type'].annotation,
+                                            'cyclic sibling global types': $p['cyclic sibling global types'],
+                                            'imports': $p.imports,
+                                            'sibling global types': $p['sibling global types']
+                                        }),
                                         'dense': $.dense,
                                     }]
                                 })
@@ -331,7 +332,6 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
                     })
                     case 'nothing': return pl.ss($, ($) => ['nothing', null])
                     case 'optional': return pl.ss($, ($) => ['optional', {
-                        'constraints': $.constraints.map(($) => resolve_Type__Selection($, $p)),
                         'type': resolve_Type($.type, $p),
                     }])
                     case 'state group': return pl.ss($, ($) => {
@@ -339,7 +339,6 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
                             'states': $d.resolveDictionary($.states, {
                                 'map': ($, $l) => {
                                     return {
-                                        'constraints': $.value.constraints.map(($) => resolve_Type__Selection($, $p)),
                                         'type': resolve_Type($.value.type, $p),
                                     }
                                 }
@@ -362,7 +361,12 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
                                         return ['lookup', v_gts]
                                     })
                                     case 'dictionary': return pl.ss($, ($) => {
-                                        return ['dictionary', resolve_Dictionary__Selection($, $p)]
+                                        return ['dictionary', resolve_Dictionary__Selection($, {
+                                            'annotation': $.type['global type'].annotation,
+                                            'cyclic sibling global types': $p['cyclic sibling global types'],
+                                            'imports': $p.imports,
+                                            'sibling global types': $p['sibling global types']
+                                        })]
                                     })
                                     default: return pl.au($[0])
                                 }
@@ -409,26 +413,23 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
     const resolve_Type__Selection__Tail: Resolve.Type__Selection__Tail<Annotation> = ($, $p) => {
         const v_step_type = pl.cc($['step type'], ($): g_out.T.Type__Selection__Tail.step__type => {
             switch ($[0]) {
-                case 'array': return pl.ss($, ($) => {
+                case 'array': return pl.ss($, ($):g_out.T.Type__Selection__Tail.step__type => {
                     const x = $
                     const v_array = pl.cc($p.context.type, ($) => {
                         if ($[0] !== 'array') {
-                            $se.onError({
-                                'annotation': x.annotation,
-                                'message': ['not the right state', {
-                                    'found': $[0],
-                                    'expected': `array`
-                                }]
-                            })
+                            // $se.onError({
+                            //     'annotation': undefined,
+                            //     'message': ['not the right state', {
+                            //         'found': $[0],
+                            //         'expected': `array`
+                            //     }]
+                            // })
                             pl.panic(`not an array`)
                         }
                         return $[1]
                     })
                     return ['array', {
-                        'constraints': {
-                            'array': v_array,
-                        },
-                        'content': null,
+                        'array': v_array,
                     }]
                 })
                 case 'dictionary': return pl.ss($, ($) => {
@@ -436,22 +437,19 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
 
                     const v_dictionary = pl.cc($p.context.type, ($) => {
                         if ($[0] !== 'dictionary') {
-                            $se.onError({
-                                'annotation': x.annotation,
-                                'message': ['not the right state', {
-                                    'found': $[0],
-                                    'expected': `dictionary`
-                                }]
-                            })
+                            // $se.onError({
+                            //     'annotation': x.annotation,
+                            //     'message': ['not the right state', {
+                            //         'found': $[0],
+                            //         'expected': `dictionary`
+                            //     }]
+                            // })
                             pl.panic(`not a dictionary`)
                         }
                         return $[1]
                     })
                     return ['dictionary', {
-                        'constraints': {
-                            'dictionary': v_dictionary,
-                        },
-                        'content': null,
+                        'dictionary': v_dictionary,
                     }]
                 })
                 case 'group': return pl.ss($, ($) => {
@@ -459,25 +457,21 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
 
                     const v_group = pl.cc($p.context.type, ($) => {
                         if ($[0] !== 'group') {
-                            $se.onError({
-                                'annotation': x.annotation,
-                                'message': ['not the right state', {
-                                    'found': $[0],
-                                    'expected': `group`
-                                }]
-                            })
+                            // $se.onError({
+                            //     'annotation': x.annotation,
+                            //     'message': ['not the right state', {
+                            //         'found': $[0],
+                            //         'expected': `group`
+                            //     }]
+                            // })
                             pl.panic(`not a group`)
                         }
                         return $[1]
                     })
-                    const v_property = getAnnotatedEntry(v_group.properties, $.content.property)
+                    const v_property = getAnnotatedEntry(v_group.properties, $.property)
                     return ['group', {
-                        'constraints': {
-                            'group': v_group,
-                        },
-                        'content': {
-                            'property': v_property
-                        },
+                        'group': v_group,
+                        'property': v_property
                     }]
                 })
                 case 'optional': return pl.ss($, ($) => {
@@ -485,22 +479,19 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
 
                     const v_optional = pl.cc($p.context.type, ($) => {
                         if ($[0] !== 'optional') {
-                            $se.onError({
-                                'annotation': x.annotation,
-                                'message': ['not the right state', {
-                                    'found': $[0],
-                                    'expected': `optional`
-                                }]
-                            })
+                            // $se.onError({
+                            //     'annotation': x.annotation,
+                            //     'message': ['not the right state', {
+                            //         'found': $[0],
+                            //         'expected': `optional`
+                            //     }]
+                            // })
                             pl.panic(`not an optional`)
                         }
                         return $[1]
                     })
                     return ['optional', {
-                        'constraints': {
-                            'optional': v_optional,
-                        },
-                        'content': null,
+                        'optional': v_optional,
                     }]
                 })
                 case 'state group': return pl.ss($, ($) => {
@@ -508,26 +499,22 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
 
                     const v_state_group = pl.cc($p.context.type, ($) => {
                         if ($[0] !== 'state group') {
-                            $se.onError({
-                                'annotation': x.annotation,
-                                'message': ['not the right state', {
-                                    'found': $[0],
-                                    'expected': `state group`
-                                }]
-                            })
+                            // $se.onError({
+                            //     'annotation': x.annotation,
+                            //     'message': ['not the right state', {
+                            //         'found': $[0],
+                            //         'expected': `state group`
+                            //     }]
+                            // })
                             pl.panic(`not a state group`)
                         }
                         return $[1]
                     })
-                    const v_state = getAnnotatedEntry(v_state_group.states, $.content.state)
+                    const v_state = getAnnotatedEntry(v_state_group.states, $.state)
 
                     return ['state group', {
-                        'constraints': {
-                            'state group': v_state_group,
-                        },
-                        'content': {
-                            'state': v_state
-                        },
+                        'state group': v_state_group,
+                        'state': v_state
                     }]
                 })
                 default: return pl.au($[0])

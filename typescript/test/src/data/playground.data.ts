@@ -4,7 +4,6 @@ import * as g_pareto_lang_data from "../../../pub/dist/submodules/unresolved"
 
 import {
     array, constrainedDictionary,
-    constrainedState,
     dictionary,
     globalType,
     group,
@@ -177,29 +176,8 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = {
         "Value Selection Tail": globalType(
             group({
                 "step type": prop(stateGroup({
-                    "reference": constrainedState({
-                        "reference": typeSelection("Type", t_grp("type", t_sg("resolved reference"))),
-                    }, group({
-                    })),
-                    "component": constrainedState({
-                        "component": typeSelection("Type", t_grp("type", t_sg("component"))),
-                    }, group({
-                    })),
-                    "state group": constrainedState({
-                        "state group": typeSelection("Type", t_grp("type", t_sg("state group"))),
-                    }, group({
-                    })),
-                    "optional": constrainedState({
-                        "optional": typeSelection("Type", t_grp("type", t_sg("optional"))),
-                    }, group({
-                    })),
-                    // "nothing": constrainedState({
-                    //     "nothing": typeSelection("Type", t_grp("type", t_sg("nothing"))),
-                    // }, group({
-                    // })),
-                    "group": constrainedState({
-                        "group": typeSelection("Type", t_grp("type", t_sg("group"))),
-                    }, group({
+
+                    "group": state(group({
                         "property": prop(dictionaryReference(typeSelection("Type", t_grp("type", t_sg("group", t_grp("properties")))))),
                     })),
 
@@ -243,10 +221,7 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = {
             group({
                 "type": prop(component(typeRef("Value Selection"))),
                 "cast": prop(stateGroup({
-                    "dictionary": constrainedState(
-                        {
-                            "dictionary": typeSelection("Type", t_grp("type", t_sg("dictionary"))),
-                        },
+                    "dictionary": state(
                         group({}),
                     )
                 })),

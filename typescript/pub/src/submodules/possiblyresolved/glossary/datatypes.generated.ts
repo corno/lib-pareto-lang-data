@@ -57,33 +57,9 @@ export namespace N {
                 
                 export namespace N {
                     
-                    export namespace cast {
+                    export namespace dictionary {
                         
-                        export namespace N {
-                            
-                            export namespace TU {
-                                
-                                export namespace N {
-                                    
-                                    export namespace dictionary {
-                                        
-                                        export namespace N {
-                                            
-                                            export namespace G {
-                                                
-                                                export namespace N {}
-                                                
-                                                export namespace T {}
-                                            }
-                                        }
-                                        
-                                        export namespace T {}
-                                    }
-                                }
-                                
-                                export namespace T {}
-                            }
-                        }
+                        export namespace N {}
                         
                         export namespace T {}
                     }
@@ -615,21 +591,6 @@ export namespace N {
                                                 
                                                 export namespace N {
                                                     
-                                                    export namespace constraints {
-                                                        
-                                                        export namespace N {
-                                                            
-                                                            export namespace D {
-                                                                
-                                                                export namespace N {}
-                                                                
-                                                                export namespace T {}
-                                                            }
-                                                        }
-                                                        
-                                                        export namespace T {}
-                                                    }
-                                                    
                                                     export namespace _$ltype {
                                                         
                                                         export namespace N {}
@@ -717,21 +678,6 @@ export namespace N {
                                                                     export namespace G {
                                                                         
                                                                         export namespace N {
-                                                                            
-                                                                            export namespace constraints {
-                                                                                
-                                                                                export namespace N {
-                                                                                    
-                                                                                    export namespace D {
-                                                                                        
-                                                                                        export namespace N {}
-                                                                                        
-                                                                                        export namespace T {}
-                                                                                    }
-                                                                                }
-                                                                                
-                                                                                export namespace T {}
-                                                                            }
                                                                             
                                                                             export namespace _$ltype {
                                                                                 
@@ -888,7 +834,15 @@ export namespace N {
                                             
                                             export namespace G {
                                                 
-                                                export namespace N {}
+                                                export namespace N {
+                                                    
+                                                    export namespace array {
+                                                        
+                                                        export namespace N {}
+                                                        
+                                                        export namespace T {}
+                                                    }
+                                                }
                                                 
                                                 export namespace T {}
                                             }
@@ -903,7 +857,15 @@ export namespace N {
                                             
                                             export namespace G {
                                                 
-                                                export namespace N {}
+                                                export namespace N {
+                                                    
+                                                    export namespace dictionary {
+                                                        
+                                                        export namespace N {}
+                                                        
+                                                        export namespace T {}
+                                                    }
+                                                }
                                                 
                                                 export namespace T {}
                                             }
@@ -919,6 +881,13 @@ export namespace N {
                                             export namespace G {
                                                 
                                                 export namespace N {
+                                                    
+                                                    export namespace group {
+                                                        
+                                                        export namespace N {}
+                                                        
+                                                        export namespace T {}
+                                                    }
                                                     
                                                     export namespace property {
                                                         
@@ -941,7 +910,15 @@ export namespace N {
                                             
                                             export namespace G {
                                                 
-                                                export namespace N {}
+                                                export namespace N {
+                                                    
+                                                    export namespace optional {
+                                                        
+                                                        export namespace N {}
+                                                        
+                                                        export namespace T {}
+                                                    }
+                                                }
                                                 
                                                 export namespace T {}
                                             }
@@ -959,6 +936,13 @@ export namespace N {
                                                 export namespace N {
                                                     
                                                     export namespace state {
+                                                        
+                                                        export namespace N {}
+                                                        
+                                                        export namespace T {}
+                                                    }
+                                                    
+                                                    export namespace state_$_$group {
                                                         
                                                         export namespace N {}
                                                         
@@ -1049,61 +1033,18 @@ export namespace T {
     
     export namespace Dictionary__Selection {
         
-        export namespace cast {
+        export namespace dictionary {
             
-            export namespace dictionary {
-                
-                export type annotation<GAnnotation> = GAnnotation
-                
-                export namespace constraints {
-                    
-                    export namespace dictionary {
-                        
-                        export type O<GAnnotation> = T.Type._ltype.dictionary<GAnnotation>
-                    }
-                    
-                    export type dictionary<GAnnotation> = [ false ] | [ true, T.Type._ltype.dictionary<GAnnotation>]
-                }
-                
-                export type constraints<GAnnotation> = {
-                    readonly 'dictionary': [ false ] | [ true, T.Type._ltype.dictionary<GAnnotation>]
-                }
-                
-                export namespace content {}
-                
-                export type content<GAnnotation> = null
-            }
-            
-            export type dictionary<GAnnotation> = {
-                readonly 'annotation': GAnnotation
-                readonly 'constraints': {
-                    readonly 'dictionary': [ false ] | [ true, T.Type._ltype.dictionary<GAnnotation>]
-                }
-                readonly 'content': null
-            }
+            export type O<GAnnotation> = T.Type._ltype.dictionary<GAnnotation>
         }
         
-        export type cast<GAnnotation> = 
-            | ['dictionary', {
-                readonly 'annotation': GAnnotation
-                readonly 'constraints': {
-                    readonly 'dictionary': [ false ] | [ true, T.Type._ltype.dictionary<GAnnotation>]
-                }
-                readonly 'content': null
-            }]
+        export type dictionary<GAnnotation> = [ false ] | [ true, T.Type._ltype.dictionary<GAnnotation>]
         
         export type _ltype<GAnnotation> = T.Type__Selection<GAnnotation>
     }
     
     export type Dictionary__Selection<GAnnotation> = {
-        readonly 'cast': 
-            | ['dictionary', {
-                readonly 'annotation': GAnnotation
-                readonly 'constraints': {
-                    readonly 'dictionary': [ false ] | [ true, T.Type._ltype.dictionary<GAnnotation>]
-                }
-                readonly 'content': null
-            }]
+        readonly 'dictionary': [ false ] | [ true, T.Type._ltype.dictionary<GAnnotation>]
         readonly 'type': T.Type__Selection<GAnnotation>
     }
     
@@ -1508,18 +1449,10 @@ export namespace T {
             
             export namespace optional {
                 
-                export namespace constraints {
-                    
-                    export type D<GAnnotation> = T.Type__Selection<GAnnotation>
-                }
-                
-                export type constraints<GAnnotation> = pt.Dictionary<T.Type__Selection<GAnnotation>>
-                
                 export type _ltype<GAnnotation> = T.Type<GAnnotation>
             }
             
             export type optional<GAnnotation> = {
-                readonly 'constraints': pt.Dictionary<T.Type__Selection<GAnnotation>>
                 readonly 'type': T.Type<GAnnotation>
             }
             
@@ -1552,31 +1485,21 @@ export namespace T {
                     
                     export namespace D {
                         
-                        export namespace constraints {
-                            
-                            export type D<GAnnotation> = T.Type__Selection<GAnnotation>
-                        }
-                        
-                        export type constraints<GAnnotation> = pt.Dictionary<T.Type__Selection<GAnnotation>>
-                        
                         export type _ltype<GAnnotation> = T.Type<GAnnotation>
                     }
                     
                     export type D<GAnnotation> = {
-                        readonly 'constraints': pt.Dictionary<T.Type__Selection<GAnnotation>>
                         readonly 'type': T.Type<GAnnotation>
                     }
                 }
                 
                 export type states<GAnnotation> = pt.Dictionary<{
-                    readonly 'constraints': pt.Dictionary<T.Type__Selection<GAnnotation>>
                     readonly 'type': T.Type<GAnnotation>
                 }>
             }
             
             export type state__group<GAnnotation> = {
                 readonly 'states': pt.Dictionary<{
-                    readonly 'constraints': pt.Dictionary<T.Type__Selection<GAnnotation>>
                     readonly 'type': T.Type<GAnnotation>
                 }>
             }
@@ -1617,7 +1540,6 @@ export namespace T {
             }]
             | ['nothing', null]
             | ['optional', {
-                readonly 'constraints': pt.Dictionary<T.Type__Selection<GAnnotation>>
                 readonly 'type': T.Type<GAnnotation>
             }]
             | ['resolved reference', {
@@ -1628,7 +1550,6 @@ export namespace T {
             }]
             | ['state group', {
                 readonly 'states': pt.Dictionary<{
-                    readonly 'constraints': pt.Dictionary<T.Type__Selection<GAnnotation>>
                     readonly 'type': T.Type<GAnnotation>
                 }>
             }]
@@ -1670,7 +1591,6 @@ export namespace T {
             }]
             | ['nothing', null]
             | ['optional', {
-                readonly 'constraints': pt.Dictionary<T.Type__Selection<GAnnotation>>
                 readonly 'type': T.Type<GAnnotation>
             }]
             | ['resolved reference', {
@@ -1681,7 +1601,6 @@ export namespace T {
             }]
             | ['state group', {
                 readonly 'states': pt.Dictionary<{
-                    readonly 'constraints': pt.Dictionary<T.Type__Selection<GAnnotation>>
                     readonly 'type': T.Type<GAnnotation>
                 }>
             }]
@@ -1781,273 +1700,150 @@ export namespace T {
             
             export namespace array {
                 
-                export type annotation<GAnnotation> = GAnnotation
-                
-                export namespace constraints {
+                export namespace array {
                     
-                    export namespace array {
-                        
-                        export type O<GAnnotation> = T.Type._ltype.array<GAnnotation>
-                    }
-                    
-                    export type array<GAnnotation> = [ false ] | [ true, T.Type._ltype.array<GAnnotation>]
+                    export type O<GAnnotation> = T.Type._ltype.array<GAnnotation>
                 }
                 
-                export type constraints<GAnnotation> = {
-                    readonly 'array': [ false ] | [ true, T.Type._ltype.array<GAnnotation>]
-                }
-                
-                export namespace content {}
-                
-                export type content<GAnnotation> = null
+                export type array<GAnnotation> = [ false ] | [ true, T.Type._ltype.array<GAnnotation>]
             }
             
             export type array<GAnnotation> = {
-                readonly 'annotation': GAnnotation
-                readonly 'constraints': {
-                    readonly 'array': [ false ] | [ true, T.Type._ltype.array<GAnnotation>]
-                }
-                readonly 'content': null
+                readonly 'array': [ false ] | [ true, T.Type._ltype.array<GAnnotation>]
             }
             
             export namespace dictionary {
                 
-                export type annotation<GAnnotation> = GAnnotation
-                
-                export namespace constraints {
+                export namespace dictionary {
                     
-                    export namespace dictionary {
-                        
-                        export type O<GAnnotation> = T.Type._ltype.dictionary<GAnnotation>
-                    }
-                    
-                    export type dictionary<GAnnotation> = [ false ] | [ true, T.Type._ltype.dictionary<GAnnotation>]
+                    export type O<GAnnotation> = T.Type._ltype.dictionary<GAnnotation>
                 }
                 
-                export type constraints<GAnnotation> = {
-                    readonly 'dictionary': [ false ] | [ true, T.Type._ltype.dictionary<GAnnotation>]
-                }
-                
-                export namespace content {}
-                
-                export type content<GAnnotation> = null
+                export type dictionary<GAnnotation> = [ false ] | [ true, T.Type._ltype.dictionary<GAnnotation>]
             }
             
             export type dictionary<GAnnotation> = {
-                readonly 'annotation': GAnnotation
-                readonly 'constraints': {
-                    readonly 'dictionary': [ false ] | [ true, T.Type._ltype.dictionary<GAnnotation>]
-                }
-                readonly 'content': null
+                readonly 'dictionary': [ false ] | [ true, T.Type._ltype.dictionary<GAnnotation>]
             }
             
             export namespace group {
                 
-                export type annotation<GAnnotation> = GAnnotation
-                
-                export namespace constraints {
+                export namespace group {
                     
-                    export namespace group {
-                        
-                        export type O<GAnnotation> = T.Type._ltype.group<GAnnotation>
-                    }
-                    
-                    export type group<GAnnotation> = [ false ] | [ true, T.Type._ltype.group<GAnnotation>]
+                    export type O<GAnnotation> = T.Type._ltype.group<GAnnotation>
                 }
                 
-                export type constraints<GAnnotation> = {
-                    readonly 'group': [ false ] | [ true, T.Type._ltype.group<GAnnotation>]
-                }
+                export type group<GAnnotation> = [ false ] | [ true, T.Type._ltype.group<GAnnotation>]
                 
-                export namespace content {
+                export namespace property {
                     
-                    export namespace property {
+                    export type annotation<GAnnotation> = GAnnotation
+                    
+                    export type key<GAnnotation> = string
+                    
+                    export namespace referent {
                         
-                        export type annotation<GAnnotation> = GAnnotation
-                        
-                        export type key<GAnnotation> = string
-                        
-                        export namespace referent {
-                            
-                            export type O<GAnnotation> = T.Type._ltype.group.properties.D<GAnnotation>
-                        }
-                        
-                        export type referent<GAnnotation> = [ false ] | [ true, T.Type._ltype.group.properties.D<GAnnotation>]
+                        export type O<GAnnotation> = T.Type._ltype.group.properties.D<GAnnotation>
                     }
                     
-                    export type property<GAnnotation> = {
-                        readonly 'annotation': GAnnotation
-                        readonly 'key': string
-                        readonly 'referent': [ false ] | [ true, T.Type._ltype.group.properties.D<GAnnotation>]
-                    }
+                    export type referent<GAnnotation> = [ false ] | [ true, T.Type._ltype.group.properties.D<GAnnotation>]
                 }
                 
-                export type content<GAnnotation> = {
-                    readonly 'property': {
-                        readonly 'annotation': GAnnotation
-                        readonly 'key': string
-                        readonly 'referent': [ false ] | [ true, T.Type._ltype.group.properties.D<GAnnotation>]
-                    }
+                export type property<GAnnotation> = {
+                    readonly 'annotation': GAnnotation
+                    readonly 'key': string
+                    readonly 'referent': [ false ] | [ true, T.Type._ltype.group.properties.D<GAnnotation>]
                 }
             }
             
             export type group<GAnnotation> = {
-                readonly 'annotation': GAnnotation
-                readonly 'constraints': {
-                    readonly 'group': [ false ] | [ true, T.Type._ltype.group<GAnnotation>]
-                }
-                readonly 'content': {
-                    readonly 'property': {
-                        readonly 'annotation': GAnnotation
-                        readonly 'key': string
-                        readonly 'referent': [ false ] | [ true, T.Type._ltype.group.properties.D<GAnnotation>]
-                    }
+                readonly 'group': [ false ] | [ true, T.Type._ltype.group<GAnnotation>]
+                readonly 'property': {
+                    readonly 'annotation': GAnnotation
+                    readonly 'key': string
+                    readonly 'referent': [ false ] | [ true, T.Type._ltype.group.properties.D<GAnnotation>]
                 }
             }
             
             export namespace optional {
                 
-                export type annotation<GAnnotation> = GAnnotation
-                
-                export namespace constraints {
+                export namespace optional {
                     
-                    export namespace optional {
-                        
-                        export type O<GAnnotation> = T.Type._ltype.optional<GAnnotation>
-                    }
-                    
-                    export type optional<GAnnotation> = [ false ] | [ true, T.Type._ltype.optional<GAnnotation>]
+                    export type O<GAnnotation> = T.Type._ltype.optional<GAnnotation>
                 }
                 
-                export type constraints<GAnnotation> = {
-                    readonly 'optional': [ false ] | [ true, T.Type._ltype.optional<GAnnotation>]
-                }
-                
-                export namespace content {}
-                
-                export type content<GAnnotation> = null
+                export type optional<GAnnotation> = [ false ] | [ true, T.Type._ltype.optional<GAnnotation>]
             }
             
             export type optional<GAnnotation> = {
-                readonly 'annotation': GAnnotation
-                readonly 'constraints': {
-                    readonly 'optional': [ false ] | [ true, T.Type._ltype.optional<GAnnotation>]
-                }
-                readonly 'content': null
+                readonly 'optional': [ false ] | [ true, T.Type._ltype.optional<GAnnotation>]
             }
             
             export namespace state__group {
                 
-                export type annotation<GAnnotation> = GAnnotation
-                
-                export namespace constraints {
+                export namespace state {
                     
-                    export namespace state__group {
+                    export type annotation<GAnnotation> = GAnnotation
+                    
+                    export type key<GAnnotation> = string
+                    
+                    export namespace referent {
                         
-                        export type O<GAnnotation> = T.Type._ltype.state__group<GAnnotation>
+                        export type O<GAnnotation> = T.Type._ltype.state__group.states.D<GAnnotation>
                     }
                     
-                    export type state__group<GAnnotation> = [ false ] | [ true, T.Type._ltype.state__group<GAnnotation>]
+                    export type referent<GAnnotation> = [ false ] | [ true, T.Type._ltype.state__group.states.D<GAnnotation>]
                 }
                 
-                export type constraints<GAnnotation> = {
-                    readonly 'state group': [ false ] | [ true, T.Type._ltype.state__group<GAnnotation>]
+                export type state<GAnnotation> = {
+                    readonly 'annotation': GAnnotation
+                    readonly 'key': string
+                    readonly 'referent': [ false ] | [ true, T.Type._ltype.state__group.states.D<GAnnotation>]
                 }
                 
-                export namespace content {
+                export namespace state__group {
                     
-                    export namespace state {
-                        
-                        export type annotation<GAnnotation> = GAnnotation
-                        
-                        export type key<GAnnotation> = string
-                        
-                        export namespace referent {
-                            
-                            export type O<GAnnotation> = T.Type._ltype.state__group.states.D<GAnnotation>
-                        }
-                        
-                        export type referent<GAnnotation> = [ false ] | [ true, T.Type._ltype.state__group.states.D<GAnnotation>]
-                    }
-                    
-                    export type state<GAnnotation> = {
-                        readonly 'annotation': GAnnotation
-                        readonly 'key': string
-                        readonly 'referent': [ false ] | [ true, T.Type._ltype.state__group.states.D<GAnnotation>]
-                    }
+                    export type O<GAnnotation> = T.Type._ltype.state__group<GAnnotation>
                 }
                 
-                export type content<GAnnotation> = {
-                    readonly 'state': {
-                        readonly 'annotation': GAnnotation
-                        readonly 'key': string
-                        readonly 'referent': [ false ] | [ true, T.Type._ltype.state__group.states.D<GAnnotation>]
-                    }
-                }
+                export type state__group<GAnnotation> = [ false ] | [ true, T.Type._ltype.state__group<GAnnotation>]
             }
             
             export type state__group<GAnnotation> = {
-                readonly 'annotation': GAnnotation
-                readonly 'constraints': {
-                    readonly 'state group': [ false ] | [ true, T.Type._ltype.state__group<GAnnotation>]
+                readonly 'state': {
+                    readonly 'annotation': GAnnotation
+                    readonly 'key': string
+                    readonly 'referent': [ false ] | [ true, T.Type._ltype.state__group.states.D<GAnnotation>]
                 }
-                readonly 'content': {
-                    readonly 'state': {
-                        readonly 'annotation': GAnnotation
-                        readonly 'key': string
-                        readonly 'referent': [ false ] | [ true, T.Type._ltype.state__group.states.D<GAnnotation>]
-                    }
-                }
+                readonly 'state group': [ false ] | [ true, T.Type._ltype.state__group<GAnnotation>]
             }
         }
         
         export type step__type<GAnnotation> = 
             | ['array', {
-                readonly 'annotation': GAnnotation
-                readonly 'constraints': {
-                    readonly 'array': [ false ] | [ true, T.Type._ltype.array<GAnnotation>]
-                }
-                readonly 'content': null
+                readonly 'array': [ false ] | [ true, T.Type._ltype.array<GAnnotation>]
             }]
             | ['dictionary', {
-                readonly 'annotation': GAnnotation
-                readonly 'constraints': {
-                    readonly 'dictionary': [ false ] | [ true, T.Type._ltype.dictionary<GAnnotation>]
-                }
-                readonly 'content': null
+                readonly 'dictionary': [ false ] | [ true, T.Type._ltype.dictionary<GAnnotation>]
             }]
             | ['group', {
-                readonly 'annotation': GAnnotation
-                readonly 'constraints': {
-                    readonly 'group': [ false ] | [ true, T.Type._ltype.group<GAnnotation>]
-                }
-                readonly 'content': {
-                    readonly 'property': {
-                        readonly 'annotation': GAnnotation
-                        readonly 'key': string
-                        readonly 'referent': [ false ] | [ true, T.Type._ltype.group.properties.D<GAnnotation>]
-                    }
+                readonly 'group': [ false ] | [ true, T.Type._ltype.group<GAnnotation>]
+                readonly 'property': {
+                    readonly 'annotation': GAnnotation
+                    readonly 'key': string
+                    readonly 'referent': [ false ] | [ true, T.Type._ltype.group.properties.D<GAnnotation>]
                 }
             }]
             | ['optional', {
-                readonly 'annotation': GAnnotation
-                readonly 'constraints': {
-                    readonly 'optional': [ false ] | [ true, T.Type._ltype.optional<GAnnotation>]
-                }
-                readonly 'content': null
+                readonly 'optional': [ false ] | [ true, T.Type._ltype.optional<GAnnotation>]
             }]
             | ['state group', {
-                readonly 'annotation': GAnnotation
-                readonly 'constraints': {
-                    readonly 'state group': [ false ] | [ true, T.Type._ltype.state__group<GAnnotation>]
+                readonly 'state': {
+                    readonly 'annotation': GAnnotation
+                    readonly 'key': string
+                    readonly 'referent': [ false ] | [ true, T.Type._ltype.state__group.states.D<GAnnotation>]
                 }
-                readonly 'content': {
-                    readonly 'state': {
-                        readonly 'annotation': GAnnotation
-                        readonly 'key': string
-                        readonly 'referent': [ false ] | [ true, T.Type._ltype.state__group.states.D<GAnnotation>]
-                    }
-                }
+                readonly 'state group': [ false ] | [ true, T.Type._ltype.state__group<GAnnotation>]
             }]
         
         export namespace tail {
@@ -2061,51 +1857,29 @@ export namespace T {
     export type Type__Selection__Tail<GAnnotation> = {
         readonly 'step type': 
             | ['array', {
-                readonly 'annotation': GAnnotation
-                readonly 'constraints': {
-                    readonly 'array': [ false ] | [ true, T.Type._ltype.array<GAnnotation>]
-                }
-                readonly 'content': null
+                readonly 'array': [ false ] | [ true, T.Type._ltype.array<GAnnotation>]
             }]
             | ['dictionary', {
-                readonly 'annotation': GAnnotation
-                readonly 'constraints': {
-                    readonly 'dictionary': [ false ] | [ true, T.Type._ltype.dictionary<GAnnotation>]
-                }
-                readonly 'content': null
+                readonly 'dictionary': [ false ] | [ true, T.Type._ltype.dictionary<GAnnotation>]
             }]
             | ['group', {
-                readonly 'annotation': GAnnotation
-                readonly 'constraints': {
-                    readonly 'group': [ false ] | [ true, T.Type._ltype.group<GAnnotation>]
-                }
-                readonly 'content': {
-                    readonly 'property': {
-                        readonly 'annotation': GAnnotation
-                        readonly 'key': string
-                        readonly 'referent': [ false ] | [ true, T.Type._ltype.group.properties.D<GAnnotation>]
-                    }
+                readonly 'group': [ false ] | [ true, T.Type._ltype.group<GAnnotation>]
+                readonly 'property': {
+                    readonly 'annotation': GAnnotation
+                    readonly 'key': string
+                    readonly 'referent': [ false ] | [ true, T.Type._ltype.group.properties.D<GAnnotation>]
                 }
             }]
             | ['optional', {
-                readonly 'annotation': GAnnotation
-                readonly 'constraints': {
-                    readonly 'optional': [ false ] | [ true, T.Type._ltype.optional<GAnnotation>]
-                }
-                readonly 'content': null
+                readonly 'optional': [ false ] | [ true, T.Type._ltype.optional<GAnnotation>]
             }]
             | ['state group', {
-                readonly 'annotation': GAnnotation
-                readonly 'constraints': {
-                    readonly 'state group': [ false ] | [ true, T.Type._ltype.state__group<GAnnotation>]
+                readonly 'state': {
+                    readonly 'annotation': GAnnotation
+                    readonly 'key': string
+                    readonly 'referent': [ false ] | [ true, T.Type._ltype.state__group.states.D<GAnnotation>]
                 }
-                readonly 'content': {
-                    readonly 'state': {
-                        readonly 'annotation': GAnnotation
-                        readonly 'key': string
-                        readonly 'referent': [ false ] | [ true, T.Type._ltype.state__group.states.D<GAnnotation>]
-                    }
-                }
+                readonly 'state group': [ false ] | [ true, T.Type._ltype.state__group<GAnnotation>]
             }]
         readonly 'tail': [ false ] | [ true, T.Type__Selection__Tail<GAnnotation>]
     }
