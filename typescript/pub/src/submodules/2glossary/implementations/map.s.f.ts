@@ -259,7 +259,38 @@ export const $$: A.map = ($d) => {
                 })
                 case 'array': return pl.ss($, ($) => ['array', mapTypeToType($.type, $p)])
                 case 'optional': return pl.ss($, ($) => {
-                    return ['optional', mapTypeToType($.type, $p)]
+                    const constraints = $.constraints
+                    return ['optional', $d.isEmpty($.constraints) || ($p['mapping settings']['constraints mapping'].constraints[0] === false && !$p['mapping settings']['create annotations'])
+                    ? mapTypeToType($.type, $p)
+                    : ['group', $d.filter(pm.wrapRawDictionary({
+                        "annotation": createOptionalAnnotation(null, {
+                            'mapping settings': $p['mapping settings']
+                        }),
+                        "constraints": pl.optional(
+                            $p['mapping settings']['constraints mapping'].constraints,
+                            ($): pt.OptionalValue<g_out.T.Type.group.D<null>> => {
+                                const constraintStrat = $
+                                return [true, {
+                                    'type': ['group', constraints.map(($) => {
+                                        const $a = $
+                                        return {
+                                            'type': pl.cc($, ($): g_out.T.Type<null> => {
+                                                return createPossiblyOptionalType2(constraintStrat, {
+                                                    'cb': () => {
+                                                        return ['reference', ['type', map_Type__Selection($a, { 'getLastSteps': () => pm.wrapRawArray([]) })]]
+                                                    }
+                                                })
+                                            })
+                                        }
+                                    })]
+                                }]
+                            },
+                            () => [false]
+                        ),
+                        "content": [true, {
+                            'type': mapTypeToType($.type, $p)
+                        }],
+                    }))]]
                 })
                 case 'component': return pl.ss($, ($): g_out.T.Type<null> => ['reference', ['type', pl.cc($.type, ($): g_out.T.DataSpecifier._ltype<null> => {
                     switch ($[0]) {
@@ -457,15 +488,7 @@ export const $$: A.map = ($d) => {
                                                     'type': pl.cc($, ($): g_out.T.Type<null> => {
                                                         return createPossiblyOptionalType2(constraintStrat, {
                                                             'cb': () => {
-                                                                return pl.cc($.cast, ($) => {
-                                                                    switch ($[0]) {
-                                                                        case 'state group': return pl.ss($, ($) => {
-                                                                            return ['reference', ['type', map_Type__Selection($a['type'], { 'getLastSteps': () => pm.wrapRawArray([$.content.state.key]) })]]
-
-                                                                        })
-                                                                        default: return pl.au($[0])
-                                                                    }
-                                                                })
+                                                                return ['reference', ['type', map_Type__Selection($a, { 'getLastSteps': () => pm.wrapRawArray([]) })]]
                                                             }
                                                         })
                                                     })

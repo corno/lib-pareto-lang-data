@@ -9,7 +9,6 @@ import {
     globalType,
     group,
     state,
-    stateConstraint,
     optional,
     prop,
     t_grp,
@@ -73,7 +72,7 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = {
             }))
         ),
         "State Constraints": globalType(
-            dictionary(component(typeRef("State Selection", true)))
+            dictionary(component(typeRef("Value Selection", true)))
         ),
         "Property": globalType(
             group({
@@ -179,27 +178,27 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = {
             group({
                 "step type": prop(stateGroup({
                     "reference": constrainedState({
-                        "reference": stateConstraint(typeSelection("Type", t_grp("type")), "resolved reference")
+                        "reference": typeSelection("Type", t_grp("type", t_sg("resolved reference"))),
                     }, group({
                     })),
                     "component": constrainedState({
-                        "component": stateConstraint(typeSelection("Type", t_grp("type")), "component")
+                        "component": typeSelection("Type", t_grp("type", t_sg("component"))),
                     }, group({
                     })),
                     "state group": constrainedState({
-                        "state group": stateConstraint(typeSelection("Type", t_grp("type")), "state group")
+                        "state group": typeSelection("Type", t_grp("type", t_sg("state group"))),
                     }, group({
                     })),
                     "optional": constrainedState({
-                        "optional": stateConstraint(typeSelection("Type", t_grp("type")), "optional")
+                        "optional": typeSelection("Type", t_grp("type", t_sg("optional"))),
                     }, group({
                     })),
-                    "nothing": constrainedState({
-                        "nothing": stateConstraint(typeSelection("Type", t_grp("type")), "nothing")
-                    }, group({
-                    })),
+                    // "nothing": constrainedState({
+                    //     "nothing": typeSelection("Type", t_grp("type", t_sg("nothing"))),
+                    // }, group({
+                    // })),
                     "group": constrainedState({
-                        "group": stateConstraint(typeSelection("Type", t_grp("type")), "group")
+                        "group": typeSelection("Type", t_grp("type", t_sg("group"))),
                     }, group({
                         "property": prop(dictionaryReference(typeSelection("Type", t_grp("type", t_sg("group", t_grp("properties")))))),
                     })),
@@ -240,28 +239,13 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = {
                 "tail": prop(optional(component(typeRef("Value Selection Tail"))))
             }),
         ),
-        "State Selection": globalType(
-            group({
-                "type": prop(component(typeRef("Value Selection"))),
-                "cast": prop(stateGroup({
-                    "state group": constrainedState(
-                        {
-                            "state group": stateConstraint(typeSelection("Type", t_grp("type")), "state group")
-                        },
-                        group({
-                            "state": prop(dictionaryReference(typeSelection("Type", t_grp("type", t_sg("state group", t_grp("states")))))),
-                        }),
-                    )
-                }))
-            })
-        ),
         "Dictionary Selection": globalType(
             group({
                 "type": prop(component(typeRef("Value Selection"))),
                 "cast": prop(stateGroup({
                     "dictionary": constrainedState(
                         {
-                            "dictionary": stateConstraint(typeSelection("Type", t_grp("type")), "dictionary")
+                            "dictionary": typeSelection("Type", t_grp("type", t_sg("dictionary"))),
                         },
                         group({}),
                     )

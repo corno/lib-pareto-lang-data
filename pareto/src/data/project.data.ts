@@ -20,7 +20,7 @@ import { $ as d_2submodules } from "./submodules/2submodules/module.data"
 import { external, submodule, tempSubmodule, this_ } from "lib-pareto-typescript-project/dist/submodules/project/shorthands"
 
 
-export const $: g_project.T.Project<pd.SourceLocation> = {
+export const $: g_project.T.Project<pd.SourceLocation | null> = {
     'author': "Corno",
     'description': "the typesystem for the imperative Pareto language",
     'license': "TBD",

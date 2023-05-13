@@ -78,7 +78,7 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = {
                     })),
                     "optional": state(group({
                         "type": prop(component(typeRef("Type", true))),
-                        "constraints": prop(dictionary(component(typeRef("Optional Selection", true)))),
+                        "constraints": prop(dictionary(component(typeRef("Type Selection", true)))),
                     })),
                     "resolved reference": state(group({
                         "atom": prop(component(typeRef("Atom"))),
@@ -89,7 +89,7 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = {
                     })),
                     "state group": state(group({
                         "states": prop(dictionary(group({
-                            "constraints": prop(dictionary(component(typeRef("State Selection", true)))),
+                            "constraints": prop(dictionary(component(typeRef("Type Selection", true)))),
                             "type": prop(component(typeRef("Type", true))),
                         }))),
                     })),
@@ -144,35 +144,6 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = {
                 "global type": prop(dictionaryReference(typeSelection("Global Types"))),
                 "tail": prop(optional(component(typeRef("Type Selection Tail"))))
             }),
-        ),
-        "State Selection": globalType(
-            group({
-                "type": prop(component(typeRef("Type Selection"))),
-                "cast": prop(stateGroup({
-                    "state group": constrainedState(
-                        {
-                            "state group": stateConstraint(typeSelection("Type", t_grp("type")), "state group")
-                        },
-                        group({
-                            "state": prop(dictionaryReference(typeSelection("Type", t_grp("type", t_sg("state group", t_grp("states")))))),
-                        }),
-                    )
-                }))
-            })
-        ),
-        "Optional Selection": globalType(
-            group({
-                "type": prop(component(typeRef("Type Selection"))),
-                "cast": prop(stateGroup({
-                    "optional": constrainedState(
-                        {
-                            "optional": stateConstraint(typeSelection("Type", t_grp("type")), "optional")
-                        },
-                        group({
-                        }),
-                    )
-                }))
-            })
         ),
         "Dictionary Selection": globalType(
             group({

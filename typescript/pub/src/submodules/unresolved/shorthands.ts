@@ -44,14 +44,14 @@ export function array(type: g_this.T.Type<pd.SourceLocation>): g_this.T.Type<pd.
 export function optional(type: g_this.T.Type<pd.SourceLocation>): g_this.T.Type<pd.SourceLocation> {
     return {
         'type': ['optional', {
-            'constraints': pd.d<g_this.T.Type._ltype.optional.constraints.D<pd.SourceLocation>>({}),
+            'constraints': pd.d<g_this.T.Type__Selection<pd.SourceLocation>>({}),
             'type': type,
         }]
     }
 }
 
 export function constrainedOptional(
-    constraints: RawDictionary<g_this.T.Type._ltype.optional.constraints.D<pd.SourceLocation>>,
+    constraints: RawDictionary<g_this.T.Type__Selection<pd.SourceLocation>>,
     type: g_this.T.Type<pd.SourceLocation>
 ): g_this.T.Type<pd.SourceLocation> {
     return {
@@ -212,40 +212,8 @@ export function state(
     }
 }
 
-
-export function stateConstraint(
-    type: g_this.T.Type__Selection<pd.SourceLocation>,
-    option: string,
-): g_this.T.Type._ltype.state__group.states.D.constraints.D<pd.SourceLocation> {
-    return {
-        'type': type,
-        'cast': ['state group', {
-            'annotation': pd.getLocationInfo(1),
-            'content': {
-
-                'state': {
-                    'annotation': pd.getLocationInfo(1),
-                    'key': option
-                }
-            }
-        }]
-    }
-}
-
-export function optionalConstraint(
-    type: g_this.T.Type__Selection<pd.SourceLocation>,
-): g_this.T.Type._ltype.optional.constraints.D<pd.SourceLocation> {
-    return {
-        'type': type,
-        'cast': ['optional', {
-            'annotation': pd.getLocationInfo(1),
-            'content': null
-        }]
-    }
-}
-
 export function constrainedState(
-    constraints: RawDictionary<g_this.T.Type._ltype.state__group.states.D.constraints.D<pd.SourceLocation>>,
+    constraints: RawDictionary<g_this.T.Type__Selection<pd.SourceLocation>>,
     type: g_this.T.Type<pd.SourceLocation>,
 ): g_this.T.Type._ltype.state__group.states.D<pd.SourceLocation> {
     return {

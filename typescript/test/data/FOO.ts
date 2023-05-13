@@ -5,7 +5,7 @@ import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/gloss
 const d = pd.d
 const a = pd.a
 
-nullexport const $: g_glossary.T.Glossary<undefined> = {
+export const $: g_glossary.T.Glossary<null> = {
     'imports': d({}),
     'glossary parameters': d({
         "Annotation": null,
@@ -14,17 +14,17 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
         'types': d({
             "Any Value Selection": {
                 'parameters': d({}),
-                'type': null<g_glossary.T.Type<undefined>>['group', d({
+                'type': <g_glossary.T.Type<null>>['group', d({
                     "start": {
-                        'type': null<g_glossary.T.Type<undefined>>['optional', null<g_glossary.T.Type<undefined>>['group', d({
+                        'type': <g_glossary.T.Type<null>>['optional', <g_glossary.T.Type<null>>['group', d({
                             "annotation": {
-                                'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
+                                'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                             },
                             "key": {
-                                'type': null<g_glossary.T.Type<undefined>>['string', null],
+                                'type': <g_glossary.T.Type<null>>['string', null],
                             },
                             "referent": {
-                                'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                     'context': ['local', null],
                                     'typeXX': "Variables",
                                     'tailXX': a([
@@ -36,7 +36,7 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                         })]],
                     },
                     "tail": {
-                        'type': null<g_glossary.T.Type<undefined>>['optional', null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                        'type': <g_glossary.T.Type<null>>['optional', <g_glossary.T.Type<null>>['reference', ['type', {
                             'context': ['local', null],
                             'typeXX': "Value Selection Tail",
                             'tailXX': a([]),
@@ -47,17 +47,17 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
             },
             "Atom": {
                 'parameters': d({}),
-                'type': null<g_glossary.T.Type<undefined>>['group', d({
+                'type': <g_glossary.T.Type<null>>['group', d({
                     "type": {
-                        'type': null<g_glossary.T.Type<undefined>>['group', d({
+                        'type': <g_glossary.T.Type<null>>['group', d({
                             "annotation": {
-                                'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
+                                'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                             },
                             "key": {
-                                'type': null<g_glossary.T.Type<undefined>>['string', null],
+                                'type': <g_glossary.T.Type<null>>['string', null],
                             },
                             "referent": {
-                                'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                     'context': ['local', null],
                                     'typeXX': "Atom Types",
                                     'tailXX': a([
@@ -72,20 +72,20 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
             },
             "Atom Types": {
                 'parameters': d({}),
-                'type': null<g_glossary.T.Type<undefined>>['dictionary', null<g_glossary.T.Type<undefined>>['group', d({})]]
+                'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['group', d({})]]
             },
             "Dictionary Constraints": {
                 'parameters': d({}),
-                'type': null<g_glossary.T.Type<undefined>>['dictionary', null<g_glossary.T.Type<undefined>>['taggedUnion', d({
-                    "dictionary": null<g_glossary.T.Type<undefined>>['group', d({
+                'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['taggedUnion', d({
+                    "dictionary": <g_glossary.T.Type<null>>['group', d({
                         "dense": {
-                            'type': null<g_glossary.T.Type<undefined>>['taggedUnion', d({
-                                "no": null<g_glossary.T.Type<undefined>>['group', d({})],
-                                "yes": null<g_glossary.T.Type<undefined>>['group', d({})],
+                            'type': <g_glossary.T.Type<null>>['taggedUnion', d({
+                                "no": <g_glossary.T.Type<null>>['group', d({})],
+                                "yes": <g_glossary.T.Type<null>>['group', d({})],
                             })],
                         },
                         "dictionary": {
-                            'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                 'context': ['local', null],
                                 'typeXX': "Dictionary Selection",
                                 'tailXX': a([]),
@@ -93,7 +93,7 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                             }]],
                         },
                     })],
-                    "lookup": null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                    "lookup": <g_glossary.T.Type<null>>['reference', ['type', {
                         'context': ['local', null],
                         'typeXX': "Lookup Selection",
                         'tailXX': a([]),
@@ -103,17 +103,17 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
             },
             "Dictionary Selection": {
                 'parameters': d({}),
-                'type': null<g_glossary.T.Type<undefined>>['group', d({
+                'type': <g_glossary.T.Type<null>>['group', d({
                     "cast": {
-                        'type': null<g_glossary.T.Type<undefined>>['taggedUnion', d({
-                            "dictionary": null<g_glossary.T.Type<undefined>>['group', d({
+                        'type': <g_glossary.T.Type<null>>['taggedUnion', d({
+                            "dictionary": <g_glossary.T.Type<null>>['group', d({
                                 "annotation": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
+                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                                 },
                                 "constraints": {
-                                    'type': null<g_glossary.T.Type<undefined>>['group', d({
+                                    'type': <g_glossary.T.Type<null>>['group', d({
                                         "dictionary": {
-                                            'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                                 'context': ['local', null],
                                                 'typeXX': "Type",
                                                 'tailXX': a([
@@ -126,13 +126,13 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     })],
                                 },
                                 "content": {
-                                    'type': null<g_glossary.T.Type<undefined>>['group', d({})],
+                                    'type': <g_glossary.T.Type<null>>['group', d({})],
                                 },
                             })],
                         })],
                     },
                     "type": {
-                        'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                        'type': <g_glossary.T.Type<null>>['reference', ['type', {
                             'context': ['local', null],
                             'typeXX': "Value Selection",
                             'tailXX': a([]),
@@ -143,9 +143,9 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
             },
             "Global Type": {
                 'parameters': d({}),
-                'type': null<g_glossary.T.Type<undefined>>['group', d({
+                'type': <g_glossary.T.Type<null>>['group', d({
                     "parameters": {
-                        'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                        'type': <g_glossary.T.Type<null>>['reference', ['type', {
                             'context': ['local', null],
                             'typeXX': "Parameters",
                             'tailXX': a([]),
@@ -153,7 +153,7 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                         }]],
                     },
                     "result": {
-                        'type': null<g_glossary.T.Type<undefined>>['optional', null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                        'type': <g_glossary.T.Type<null>>['optional', <g_glossary.T.Type<null>>['reference', ['type', {
                             'context': ['local', null],
                             'typeXX': "Any Value Selection",
                             'tailXX': a([]),
@@ -161,7 +161,7 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                         }]]],
                     },
                     "type": {
-                        'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                        'type': <g_glossary.T.Type<null>>['reference', ['type', {
                             'context': ['local', null],
                             'typeXX': "Type",
                             'tailXX': a([]),
@@ -169,7 +169,7 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                         }]],
                     },
                     "variables": {
-                        'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                        'type': <g_glossary.T.Type<null>>['reference', ['type', {
                             'context': ['local', null],
                             'typeXX': "Variables",
                             'tailXX': a([]),
@@ -180,18 +180,18 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
             },
             "Global Type Selection": {
                 'parameters': d({}),
-                'type': null<g_glossary.T.Type<undefined>>['taggedUnion', d({
-                    "import": null<g_glossary.T.Type<undefined>>['group', d({
+                'type': <g_glossary.T.Type<null>>['taggedUnion', d({
+                    "import": <g_glossary.T.Type<null>>['group', d({
                         "library": {
-                            'type': null<g_glossary.T.Type<undefined>>['group', d({
+                            'type': <g_glossary.T.Type<null>>['group', d({
                                 "annotation": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
+                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                                 },
                                 "key": {
-                                    'type': null<g_glossary.T.Type<undefined>>['string', null],
+                                    'type': <g_glossary.T.Type<null>>['string', null],
                                 },
                                 "referent": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                         'context': ['local', null],
                                         'typeXX': "Imports",
                                         'tailXX': a([
@@ -203,15 +203,15 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                             })],
                         },
                         "type": {
-                            'type': null<g_glossary.T.Type<undefined>>['group', d({
+                            'type': <g_glossary.T.Type<null>>['group', d({
                                 "annotation": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
+                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                                 },
                                 "key": {
-                                    'type': null<g_glossary.T.Type<undefined>>['string', null],
+                                    'type': <g_glossary.T.Type<null>>['string', null],
                                 },
                                 "referent": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                         'context': ['local', null],
                                         'typeXX': "Global Types",
                                         'tailXX': a([
@@ -223,17 +223,17 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                             })],
                         },
                     })],
-                    "resolved sibling": null<g_glossary.T.Type<undefined>>['group', d({
+                    "resolved sibling": <g_glossary.T.Type<null>>['group', d({
                         "type": {
-                            'type': null<g_glossary.T.Type<undefined>>['group', d({
+                            'type': <g_glossary.T.Type<null>>['group', d({
                                 "annotation": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
+                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                                 },
                                 "key": {
-                                    'type': null<g_glossary.T.Type<undefined>>['string', null],
+                                    'type': <g_glossary.T.Type<null>>['string', null],
                                 },
                                 "referent": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                         'context': ['local', null],
                                         'typeXX': "Global Type",
                                         'tailXX': a([]),
@@ -247,7 +247,7 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
             },
             "Global Types": {
                 'parameters': d({}),
-                'type': null<g_glossary.T.Type<undefined>>['dictionary', null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['reference', ['type', {
                     'context': ['local', null],
                     'typeXX': "Global Type",
                     'tailXX': a([]),
@@ -256,14 +256,14 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
             },
             "Imports": {
                 'parameters': d({}),
-                'type': null<g_glossary.T.Type<undefined>>['dictionary', null<g_glossary.T.Type<undefined>>['group', d({
+                'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['group', d({
                     "annotation": {
-                        'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
+                        'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                     },
                     "constraints": {
-                        'type': null<g_glossary.T.Type<undefined>>['group', d({
+                        'type': <g_glossary.T.Type<null>>['group', d({
                             "library": {
-                                'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                     'context': ['local', null],
                                     'typeXX': "Type Library",
                                     'tailXX': a([]),
@@ -273,22 +273,22 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                         })],
                     },
                     "content": {
-                        'type': null<g_glossary.T.Type<undefined>>['group', d({})],
+                        'type': <g_glossary.T.Type<null>>['group', d({})],
                     },
                 })]]
             },
             "Lookup Selection": {
                 'parameters': d({}),
-                'type': null<g_glossary.T.Type<undefined>>['taggedUnion', d({
-                    "parameter": null<g_glossary.T.Type<undefined>>['group', d({
+                'type': <g_glossary.T.Type<null>>['taggedUnion', d({
+                    "parameter": <g_glossary.T.Type<null>>['group', d({
                         "annotation": {
-                            'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
+                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                         },
                         "key": {
-                            'type': null<g_glossary.T.Type<undefined>>['string', null],
+                            'type': <g_glossary.T.Type<null>>['string', null],
                         },
                         "referent": {
-                            'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                 'context': ['local', null],
                                 'typeXX': "Parameters",
                                 'tailXX': a([
@@ -298,28 +298,28 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                             }]],
                         },
                     })],
-                    "resolved dictionary": null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                    "resolved dictionary": <g_glossary.T.Type<null>>['reference', ['type', {
                         'context': ['local', null],
                         'typeXX': "Value Selection",
                         'tailXX': a([]),
                         'type arguments': d({}),
                     }]],
-                    "this": null<g_glossary.T.Type<undefined>>['group', d({})],
+                    "this": <g_glossary.T.Type<null>>['group', d({})],
                 })]
             },
             "Model": {
                 'parameters': d({}),
-                'type': null<g_glossary.T.Type<undefined>>['group', d({
+                'type': <g_glossary.T.Type<null>>['group', d({
                     "root": {
-                        'type': null<g_glossary.T.Type<undefined>>['group', d({
+                        'type': <g_glossary.T.Type<null>>['group', d({
                             "annotation": {
-                                'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
+                                'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                             },
                             "key": {
-                                'type': null<g_glossary.T.Type<undefined>>['string', null],
+                                'type': <g_glossary.T.Type<null>>['string', null],
                             },
                             "referent": {
-                                'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                     'context': ['local', null],
                                     'typeXX': "Global Types",
                                     'tailXX': a([
@@ -331,7 +331,7 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                         })],
                     },
                     "type library": {
-                        'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                        'type': <g_glossary.T.Type<null>>['reference', ['type', {
                             'context': ['local', null],
                             'typeXX': "Type Library",
                             'tailXX': a([]),
@@ -342,12 +342,12 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
             },
             "Parameters": {
                 'parameters': d({}),
-                'type': null<g_glossary.T.Type<undefined>>['dictionary', null<g_glossary.T.Type<undefined>>['group', d({
+                'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['group', d({
                     "type": {
-                        'type': null<g_glossary.T.Type<undefined>>['taggedUnion', d({
-                            "lookup": null<g_glossary.T.Type<undefined>>['group', d({
+                        'type': <g_glossary.T.Type<null>>['taggedUnion', d({
+                            "lookup": <g_glossary.T.Type<null>>['group', d({
                                 "type": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                         'context': ['local', null],
                                         'typeXX': "Global Type Selection",
                                         'tailXX': a([]),
@@ -355,15 +355,15 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     }]],
                                 },
                             })],
-                            "resolved value": null<g_glossary.T.Type<undefined>>['group', d({
+                            "resolved value": <g_glossary.T.Type<null>>['group', d({
                                 "optional": {
-                                    'type': null<g_glossary.T.Type<undefined>>['taggedUnion', d({
-                                        "no": null<g_glossary.T.Type<undefined>>['group', d({})],
-                                        "yes": null<g_glossary.T.Type<undefined>>['group', d({})],
+                                    'type': <g_glossary.T.Type<null>>['taggedUnion', d({
+                                        "no": <g_glossary.T.Type<null>>['group', d({})],
+                                        "yes": <g_glossary.T.Type<null>>['group', d({})],
                                     })],
                                 },
                                 "type": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                         'context': ['local', null],
                                         'typeXX': "Global Type Selection",
                                         'tailXX': a([]),
@@ -377,9 +377,9 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
             },
             "Property": {
                 'parameters': d({}),
-                'type': null<g_glossary.T.Type<undefined>>['group', d({
+                'type': <g_glossary.T.Type<null>>['group', d({
                     "type": {
-                        'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                        'type': <g_glossary.T.Type<null>>['reference', ['type', {
                             'context': ['local', null],
                             'typeXX': "Type",
                             'tailXX': a([]),
@@ -390,7 +390,7 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
             },
             "Root": {
                 'parameters': d({}),
-                'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                'type': <g_glossary.T.Type<null>>['reference', ['type', {
                     'context': ['local', null],
                     'typeXX': "Model",
                     'tailXX': a([]),
@@ -399,85 +399,21 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
             },
             "State Constraints": {
                 'parameters': d({}),
-                'type': null<g_glossary.T.Type<undefined>>['dictionary', null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['reference', ['type', {
                     'context': ['local', null],
-                    'typeXX': "State Selection",
+                    'typeXX': "Value Selection",
                     'tailXX': a([]),
                     'type arguments': d({}),
                 }]]]
             },
-            "State Selection": {
-                'parameters': d({}),
-                'type': null<g_glossary.T.Type<undefined>>['group', d({
-                    "cast": {
-                        'type': null<g_glossary.T.Type<undefined>>['taggedUnion', d({
-                            "state group": null<g_glossary.T.Type<undefined>>['group', d({
-                                "annotation": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
-                                "constraints": {
-                                    'type': null<g_glossary.T.Type<undefined>>['group', d({
-                                        "state group": {
-                                            'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
-                                                'context': ['local', null],
-                                                'typeXX': "Type",
-                                                'tailXX': a([
-                                                    "type",
-                                                    "state group",
-                                                ]),
-                                                'type arguments': d({}),
-                                            }]],
-                                        },
-                                    })],
-                                },
-                                "content": {
-                                    'type': null<g_glossary.T.Type<undefined>>['group', d({
-                                        "state": {
-                                            'type': null<g_glossary.T.Type<undefined>>['group', d({
-                                                "annotation": {
-                                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
-                                                },
-                                                "key": {
-                                                    'type': null<g_glossary.T.Type<undefined>>['string', null],
-                                                },
-                                                "referent": {
-                                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
-                                                        'context': ['local', null],
-                                                        'typeXX': "Type",
-                                                        'tailXX': a([
-                                                            "type",
-                                                            "state group",
-                                                            "states",
-                                                            "D",
-                                                        ]),
-                                                        'type arguments': d({}),
-                                                    }]],
-                                                },
-                                            })],
-                                        },
-                                    })],
-                                },
-                            })],
-                        })],
-                    },
-                    "type": {
-                        'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
-                            'context': ['local', null],
-                            'typeXX': "Value Selection",
-                            'tailXX': a([]),
-                            'type arguments': d({}),
-                        }]],
-                    },
-                })]
-            },
             "Type": {
                 'parameters': d({}),
-                'type': null<g_glossary.T.Type<undefined>>['group', d({
+                'type': <g_glossary.T.Type<null>>['group', d({
                     "type": {
-                        'type': null<g_glossary.T.Type<undefined>>['taggedUnion', d({
-                            "array": null<g_glossary.T.Type<undefined>>['group', d({
+                        'type': <g_glossary.T.Type<null>>['taggedUnion', d({
+                            "array": <g_glossary.T.Type<null>>['group', d({
                                 "type": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                         'context': ['local', null],
                                         'typeXX': "Type",
                                         'tailXX': a([]),
@@ -485,9 +421,9 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     }]],
                                 },
                             })],
-                            "atom": null<g_glossary.T.Type<undefined>>['group', d({
+                            "atom": <g_glossary.T.Type<null>>['group', d({
                                 "atom": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                         'context': ['local', null],
                                         'typeXX': "Atom",
                                         'tailXX': a([]),
@@ -495,16 +431,16 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     }]],
                                 },
                             })],
-                            "component": null<g_glossary.T.Type<undefined>>['group', d({
+                            "component": <g_glossary.T.Type<null>>['group', d({
                                 "arguments": {
-                                    'type': null<g_glossary.T.Type<undefined>>['dictionary', null<g_glossary.T.Type<undefined>>['group', d({
+                                    'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['group', d({
                                         "annotation": {
-                                            'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
+                                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                                         },
                                         "constraints": {
-                                            'type': null<g_glossary.T.Type<undefined>>['group', d({
+                                            'type': <g_glossary.T.Type<null>>['group', d({
                                                 "parameter": {
-                                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                                         'context': ['local', null],
                                                         'typeXX': "Parameters",
                                                         'tailXX': a([
@@ -516,16 +452,16 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                             })],
                                         },
                                         "content": {
-                                            'type': null<g_glossary.T.Type<undefined>>['group', d({
+                                            'type': <g_glossary.T.Type<null>>['group', d({
                                                 "type": {
-                                                    'type': null<g_glossary.T.Type<undefined>>['taggedUnion', d({
-                                                        "lookup": null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                                    'type': <g_glossary.T.Type<null>>['taggedUnion', d({
+                                                        "lookup": <g_glossary.T.Type<null>>['reference', ['type', {
                                                             'context': ['local', null],
                                                             'typeXX': "Lookup Selection",
                                                             'tailXX': a([]),
                                                             'type arguments': d({}),
                                                         }]],
-                                                        "resolved value": null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                                        "resolved value": <g_glossary.T.Type<null>>['reference', ['type', {
                                                             'context': ['local', null],
                                                             'typeXX': "Value Selection",
                                                             'tailXX': a([]),
@@ -538,7 +474,7 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     })]],
                                 },
                                 "type": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                         'context': ['local', null],
                                         'typeXX': "Global Type Selection",
                                         'tailXX': a([]),
@@ -546,9 +482,9 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     }]],
                                 },
                             })],
-                            "dictionary": null<g_glossary.T.Type<undefined>>['group', d({
+                            "dictionary": <g_glossary.T.Type<null>>['group', d({
                                 "constraints": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                         'context': ['local', null],
                                         'typeXX': "Dictionary Constraints",
                                         'tailXX': a([]),
@@ -556,7 +492,7 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     }]],
                                 },
                                 "key": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                         'context': ['local', null],
                                         'typeXX': "Atom",
                                         'tailXX': a([]),
@@ -564,7 +500,7 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     }]],
                                 },
                                 "type": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                         'context': ['local', null],
                                         'typeXX': "Type",
                                         'tailXX': a([]),
@@ -572,7 +508,7 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     }]],
                                 },
                                 "variables": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                         'context': ['local', null],
                                         'typeXX': "Variables",
                                         'tailXX': a([]),
@@ -580,9 +516,9 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     }]],
                                 },
                             })],
-                            "group": null<g_glossary.T.Type<undefined>>['group', d({
+                            "group": <g_glossary.T.Type<null>>['group', d({
                                 "properties": {
-                                    'type': null<g_glossary.T.Type<undefined>>['dictionary', null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                    'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['reference', ['type', {
                                         'context': ['local', null],
                                         'typeXX': "Property",
                                         'tailXX': a([]),
@@ -590,7 +526,7 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     }]]],
                                 },
                                 "variables": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                         'context': ['local', null],
                                         'typeXX': "Variables",
                                         'tailXX': a([]),
@@ -598,9 +534,9 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     }]],
                                 },
                             })],
-                            "nothing": null<g_glossary.T.Type<undefined>>['group', d({
+                            "nothing": <g_glossary.T.Type<null>>['group', d({
                                 "result": {
-                                    'type': null<g_glossary.T.Type<undefined>>['optional', null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                    'type': <g_glossary.T.Type<null>>['optional', <g_glossary.T.Type<null>>['reference', ['type', {
                                         'context': ['local', null],
                                         'typeXX': "Value Selection",
                                         'tailXX': a([]),
@@ -608,11 +544,11 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     }]]],
                                 },
                             })],
-                            "optional": null<g_glossary.T.Type<undefined>>['group', d({
+                            "optional": <g_glossary.T.Type<null>>['group', d({
                                 "result": {
-                                    'type': null<g_glossary.T.Type<undefined>>['optional', null<g_glossary.T.Type<undefined>>['group', d({
+                                    'type': <g_glossary.T.Type<null>>['optional', <g_glossary.T.Type<null>>['group', d({
                                         "not set": {
-                                            'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                                 'context': ['local', null],
                                                 'typeXX': "Value Selection",
                                                 'tailXX': a([]),
@@ -620,7 +556,7 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                             }]],
                                         },
                                         "set": {
-                                            'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                                 'context': ['local', null],
                                                 'typeXX': "Any Value Selection",
                                                 'tailXX': a([]),
@@ -630,7 +566,7 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     })]],
                                 },
                                 "type": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                         'context': ['local', null],
                                         'typeXX': "Type",
                                         'tailXX': a([]),
@@ -638,9 +574,9 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     }]],
                                 },
                             })],
-                            "resolved reference": null<g_glossary.T.Type<undefined>>['group', d({
+                            "resolved reference": <g_glossary.T.Type<null>>['group', d({
                                 "atom": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                         'context': ['local', null],
                                         'typeXX': "Atom",
                                         'tailXX': a([]),
@@ -648,14 +584,14 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     }]],
                                 },
                                 "value": {
-                                    'type': null<g_glossary.T.Type<undefined>>['taggedUnion', d({
-                                        "dictionary": null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                    'type': <g_glossary.T.Type<null>>['taggedUnion', d({
+                                        "dictionary": <g_glossary.T.Type<null>>['reference', ['type', {
                                             'context': ['local', null],
                                             'typeXX': "Dictionary Selection",
                                             'tailXX': a([]),
                                             'type arguments': d({}),
                                         }]],
-                                        "lookup": null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                        "lookup": <g_glossary.T.Type<null>>['reference', ['type', {
                                             'context': ['local', null],
                                             'typeXX': "Lookup Selection",
                                             'tailXX': a([]),
@@ -664,9 +600,9 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     })],
                                 },
                             })],
-                            "state group": null<g_glossary.T.Type<undefined>>['group', d({
+                            "state group": <g_glossary.T.Type<null>>['group', d({
                                 "result": {
-                                    'type': null<g_glossary.T.Type<undefined>>['optional', null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                    'type': <g_glossary.T.Type<null>>['optional', <g_glossary.T.Type<null>>['reference', ['type', {
                                         'context': ['local', null],
                                         'typeXX': "Global Type Selection",
                                         'tailXX': a([]),
@@ -674,9 +610,9 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     }]]],
                                 },
                                 "states": {
-                                    'type': null<g_glossary.T.Type<undefined>>['dictionary', null<g_glossary.T.Type<undefined>>['group', d({
+                                    'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['group', d({
                                         "constraints": {
-                                            'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                                 'context': ['local', null],
                                                 'typeXX': "State Constraints",
                                                 'tailXX': a([]),
@@ -684,7 +620,7 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                             }]],
                                         },
                                         "result": {
-                                            'type': null<g_glossary.T.Type<undefined>>['optional', null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                            'type': <g_glossary.T.Type<null>>['optional', <g_glossary.T.Type<null>>['reference', ['type', {
                                                 'context': ['local', null],
                                                 'typeXX': "Any Value Selection",
                                                 'tailXX': a([]),
@@ -692,7 +628,7 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                             }]]],
                                         },
                                         "type": {
-                                            'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                                 'context': ['local', null],
                                                 'typeXX': "Type",
                                                 'tailXX': a([]),
@@ -700,7 +636,7 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                             }]],
                                         },
                                         "variables": {
-                                            'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                                 'context': ['local', null],
                                                 'typeXX': "Variables",
                                                 'tailXX': a([]),
@@ -716,9 +652,9 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
             },
             "Type Library": {
                 'parameters': d({}),
-                'type': null<g_glossary.T.Type<undefined>>['group', d({
+                'type': <g_glossary.T.Type<null>>['group', d({
                     "atom types": {
-                        'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                        'type': <g_glossary.T.Type<null>>['reference', ['type', {
                             'context': ['local', null],
                             'typeXX': "Atom Types",
                             'tailXX': a([]),
@@ -726,7 +662,7 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                         }]],
                     },
                     "global types": {
-                        'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                        'type': <g_glossary.T.Type<null>>['reference', ['type', {
                             'context': ['local', null],
                             'typeXX': "Global Types",
                             'tailXX': a([]),
@@ -734,7 +670,7 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                         }]],
                     },
                     "imports": {
-                        'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                        'type': <g_glossary.T.Type<null>>['reference', ['type', {
                             'context': ['local', null],
                             'typeXX': "Imports",
                             'tailXX': a([]),
@@ -745,17 +681,17 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
             },
             "Value Selection": {
                 'parameters': d({}),
-                'type': null<g_glossary.T.Type<undefined>>['group', d({
+                'type': <g_glossary.T.Type<null>>['group', d({
                     "start": {
-                        'type': null<g_glossary.T.Type<undefined>>['group', d({
+                        'type': <g_glossary.T.Type<null>>['group', d({
                             "annotation": {
-                                'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
+                                'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                             },
                             "key": {
-                                'type': null<g_glossary.T.Type<undefined>>['string', null],
+                                'type': <g_glossary.T.Type<null>>['string', null],
                             },
                             "referent": {
-                                'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                     'context': ['local', null],
                                     'typeXX': "Variables",
                                     'tailXX': a([
@@ -767,7 +703,7 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                         })],
                     },
                     "tail": {
-                        'type': null<g_glossary.T.Type<undefined>>['optional', null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                        'type': <g_glossary.T.Type<null>>['optional', <g_glossary.T.Type<null>>['reference', ['type', {
                             'context': ['local', null],
                             'typeXX': "Value Selection Tail",
                             'tailXX': a([]),
@@ -778,17 +714,17 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
             },
             "Value Selection Tail": {
                 'parameters': d({}),
-                'type': null<g_glossary.T.Type<undefined>>['group', d({
+                'type': <g_glossary.T.Type<null>>['group', d({
                     "step type": {
-                        'type': null<g_glossary.T.Type<undefined>>['taggedUnion', d({
-                            "component": null<g_glossary.T.Type<undefined>>['group', d({
+                        'type': <g_glossary.T.Type<null>>['taggedUnion', d({
+                            "component": <g_glossary.T.Type<null>>['group', d({
                                 "annotation": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
+                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                                 },
                                 "constraints": {
-                                    'type': null<g_glossary.T.Type<undefined>>['group', d({
+                                    'type': <g_glossary.T.Type<null>>['group', d({
                                         "component": {
-                                            'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                                 'context': ['local', null],
                                                 'typeXX': "Type",
                                                 'tailXX': a([
@@ -801,17 +737,17 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     })],
                                 },
                                 "content": {
-                                    'type': null<g_glossary.T.Type<undefined>>['group', d({})],
+                                    'type': <g_glossary.T.Type<null>>['group', d({})],
                                 },
                             })],
-                            "group": null<g_glossary.T.Type<undefined>>['group', d({
+                            "group": <g_glossary.T.Type<null>>['group', d({
                                 "annotation": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
+                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                                 },
                                 "constraints": {
-                                    'type': null<g_glossary.T.Type<undefined>>['group', d({
+                                    'type': <g_glossary.T.Type<null>>['group', d({
                                         "group": {
-                                            'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                                 'context': ['local', null],
                                                 'typeXX': "Type",
                                                 'tailXX': a([
@@ -824,17 +760,17 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     })],
                                 },
                                 "content": {
-                                    'type': null<g_glossary.T.Type<undefined>>['group', d({
+                                    'type': <g_glossary.T.Type<null>>['group', d({
                                         "property": {
-                                            'type': null<g_glossary.T.Type<undefined>>['group', d({
+                                            'type': <g_glossary.T.Type<null>>['group', d({
                                                 "annotation": {
-                                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
+                                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                                                 },
                                                 "key": {
-                                                    'type': null<g_glossary.T.Type<undefined>>['string', null],
+                                                    'type': <g_glossary.T.Type<null>>['string', null],
                                                 },
                                                 "referent": {
-                                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                                         'context': ['local', null],
                                                         'typeXX': "Type",
                                                         'tailXX': a([
@@ -851,37 +787,14 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     })],
                                 },
                             })],
-                            "nothing": null<g_glossary.T.Type<undefined>>['group', d({
+                            "optional": <g_glossary.T.Type<null>>['group', d({
                                 "annotation": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
+                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                                 },
                                 "constraints": {
-                                    'type': null<g_glossary.T.Type<undefined>>['group', d({
-                                        "nothing": {
-                                            'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
-                                                'context': ['local', null],
-                                                'typeXX': "Type",
-                                                'tailXX': a([
-                                                    "type",
-                                                    "nothing",
-                                                ]),
-                                                'type arguments': d({}),
-                                            }]],
-                                        },
-                                    })],
-                                },
-                                "content": {
-                                    'type': null<g_glossary.T.Type<undefined>>['group', d({})],
-                                },
-                            })],
-                            "optional": null<g_glossary.T.Type<undefined>>['group', d({
-                                "annotation": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
-                                "constraints": {
-                                    'type': null<g_glossary.T.Type<undefined>>['group', d({
+                                    'type': <g_glossary.T.Type<null>>['group', d({
                                         "optional": {
-                                            'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                                 'context': ['local', null],
                                                 'typeXX': "Type",
                                                 'tailXX': a([
@@ -894,17 +807,17 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     })],
                                 },
                                 "content": {
-                                    'type': null<g_glossary.T.Type<undefined>>['group', d({})],
+                                    'type': <g_glossary.T.Type<null>>['group', d({})],
                                 },
                             })],
-                            "reference": null<g_glossary.T.Type<undefined>>['group', d({
+                            "reference": <g_glossary.T.Type<null>>['group', d({
                                 "annotation": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
+                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                                 },
                                 "constraints": {
-                                    'type': null<g_glossary.T.Type<undefined>>['group', d({
+                                    'type': <g_glossary.T.Type<null>>['group', d({
                                         "reference": {
-                                            'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                                 'context': ['local', null],
                                                 'typeXX': "Type",
                                                 'tailXX': a([
@@ -917,17 +830,17 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     })],
                                 },
                                 "content": {
-                                    'type': null<g_glossary.T.Type<undefined>>['group', d({})],
+                                    'type': <g_glossary.T.Type<null>>['group', d({})],
                                 },
                             })],
-                            "state group": null<g_glossary.T.Type<undefined>>['group', d({
+                            "state group": <g_glossary.T.Type<null>>['group', d({
                                 "annotation": {
-                                    'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
+                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                                 },
                                 "constraints": {
-                                    'type': null<g_glossary.T.Type<undefined>>['group', d({
+                                    'type': <g_glossary.T.Type<null>>['group', d({
                                         "state group": {
-                                            'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                                 'context': ['local', null],
                                                 'typeXX': "Type",
                                                 'tailXX': a([
@@ -940,13 +853,13 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                     })],
                                 },
                                 "content": {
-                                    'type': null<g_glossary.T.Type<undefined>>['group', d({})],
+                                    'type': <g_glossary.T.Type<null>>['group', d({})],
                                 },
                             })],
                         })],
                     },
                     "tail": {
-                        'type': null<g_glossary.T.Type<undefined>>['optional', null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                        'type': <g_glossary.T.Type<null>>['optional', <g_glossary.T.Type<null>>['reference', ['type', {
                             'context': ['local', null],
                             'typeXX': "Value Selection Tail",
                             'tailXX': a([]),
@@ -957,16 +870,16 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
             },
             "Variable": {
                 'parameters': d({}),
-                'type': null<g_glossary.T.Type<undefined>>['taggedUnion', d({
-                    "dictionary constraint": null<g_glossary.T.Type<undefined>>['group', d({
+                'type': <g_glossary.T.Type<null>>['taggedUnion', d({
+                    "dictionary constraint": <g_glossary.T.Type<null>>['group', d({
                         "annotation": {
-                            'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
+                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                         },
                         "key": {
-                            'type': null<g_glossary.T.Type<undefined>>['string', null],
+                            'type': <g_glossary.T.Type<null>>['string', null],
                         },
                         "referent": {
-                            'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                 'context': ['local', null],
                                 'typeXX': "Dictionary Constraints",
                                 'tailXX': a([
@@ -976,15 +889,15 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                             }]],
                         },
                     })],
-                    "option constraint": null<g_glossary.T.Type<undefined>>['group', d({
+                    "option constraint": <g_glossary.T.Type<null>>['group', d({
                         "annotation": {
-                            'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
+                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                         },
                         "key": {
-                            'type': null<g_glossary.T.Type<undefined>>['string', null],
+                            'type': <g_glossary.T.Type<null>>['string', null],
                         },
                         "referent": {
-                            'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                 'context': ['local', null],
                                 'typeXX': "State Constraints",
                                 'tailXX': a([
@@ -994,15 +907,15 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                             }]],
                         },
                     })],
-                    "parameter": null<g_glossary.T.Type<undefined>>['group', d({
+                    "parameter": <g_glossary.T.Type<null>>['group', d({
                         "annotation": {
-                            'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
+                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                         },
                         "key": {
-                            'type': null<g_glossary.T.Type<undefined>>['string', null],
+                            'type': <g_glossary.T.Type<null>>['string', null],
                         },
                         "referent": {
-                            'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                 'context': ['local', null],
                                 'typeXX': "Parameters",
                                 'tailXX': a([
@@ -1012,15 +925,15 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                             }]],
                         },
                     })],
-                    "parent variable": null<g_glossary.T.Type<undefined>>['group', d({
+                    "parent variable": <g_glossary.T.Type<null>>['group', d({
                         "annotation": {
-                            'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
+                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                         },
                         "key": {
-                            'type': null<g_glossary.T.Type<undefined>>['string', null],
+                            'type': <g_glossary.T.Type<null>>['string', null],
                         },
                         "referent": {
-                            'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                 'context': ['local', null],
                                 'typeXX': "Variable",
                                 'tailXX': a([]),
@@ -1028,15 +941,15 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                             }]],
                         },
                     })],
-                    "sibling property": null<g_glossary.T.Type<undefined>>['group', d({
+                    "sibling property": <g_glossary.T.Type<null>>['group', d({
                         "annotation": {
-                            'type': null<g_glossary.T.Type<undefined>>['reference', ['glossary parameterXX', "Annotation"]],
+                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                         },
                         "key": {
-                            'type': null<g_glossary.T.Type<undefined>>['string', null],
+                            'type': <g_glossary.T.Type<null>>['string', null],
                         },
                         "referent": {
-                            'type': null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                 'context': ['local', null],
                                 'typeXX': "Property",
                                 'tailXX': a([]),
@@ -1048,7 +961,7 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
             },
             "Variables": {
                 'parameters': d({}),
-                'type': null<g_glossary.T.Type<undefined>>['dictionary', null<g_glossary.T.Type<undefined>>['reference', ['type', {
+                'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['reference', ['type', {
                     'context': ['local', null],
                     'typeXX': "Variable",
                     'tailXX': a([]),
@@ -1456,44 +1369,6 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                     },
                 }),
             },
-            "State Selection": {
-                'types': d({}),
-                'namespaces': d({
-                    "G": {
-                        'types': d({}),
-                        'namespaces': d({
-                            "cast": {
-                                'types': d({}),
-                                'namespaces': d({
-                                    "TU": {
-                                        'types': d({}),
-                                        'namespaces': d({
-                                            "state group": {
-                                                'types': d({}),
-                                                'namespaces': d({
-                                                    "G": {
-                                                        'types': d({}),
-                                                        'namespaces': d({
-                                                            "state": {
-                                                                'types': d({}),
-                                                                'namespaces': d({}),
-                                                            },
-                                                        }),
-                                                    },
-                                                }),
-                                            },
-                                        }),
-                                    },
-                                }),
-                            },
-                            "type": {
-                                'types': d({}),
-                                'namespaces': d({}),
-                            },
-                        }),
-                    },
-                }),
-            },
             "Type": {
                 'types': d({}),
                 'namespaces': d({
@@ -1858,15 +1733,6 @@ nullexport const $: g_glossary.T.Glossary<undefined> = {
                                                                 'namespaces': d({}),
                                                             },
                                                         }),
-                                                    },
-                                                }),
-                                            },
-                                            "nothing": {
-                                                'types': d({}),
-                                                'namespaces': d({
-                                                    "G": {
-                                                        'types': d({}),
-                                                        'namespaces': d({}),
                                                     },
                                                 }),
                                             },
