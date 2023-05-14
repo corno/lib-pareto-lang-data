@@ -332,7 +332,7 @@ export const $$: A.map = ($d) => {
                                 default: return pl.au($[0])
                             }
                         }),
-                        () => ['null', null],
+                        () => ['reference', ['glossary parameterXX', "Annotation"]],
                     )
                 })
 
@@ -340,7 +340,7 @@ export const $$: A.map = ($d) => {
                     const type = $.type
                     const constraints = $.constraints
 
-                    return ['dictionary', ($d.isEmpty(constraints))
+                    return ['dictionary', ($d.isEmpty(constraints) && !$p['mapping settings']['create annotations'])
                         ? mapTypeToType(type, $p)
                         : ['group', $d.filter(pm.wrapRawDictionary<pt.OptionalValue<g_out.T.Type.group.D<null>>>({
                             "annotation": createOptionalAnnotation(null, $p),
@@ -455,17 +455,7 @@ export const $$: A.map = ($d) => {
                     return ['taggedUnion', $.states.map(($): g_out.T.Type<null> => pl.cc($, ($) => {
                         const type = $.type
 
-                        //if there are no constraints -or- no constraints or annotations should be added, then don't create a meta data group
-                        return !$p['mapping settings']['create annotations']
-                            ? mapTypeToType(type, $p)
-                            : ['group', $d.filter(pm.wrapRawDictionary({
-                                "annotation": createOptionalAnnotation(null, {
-                                    'mapping settings': $p['mapping settings']
-                                }),
-                                "content": [true, {
-                                    'type': mapTypeToType(type, $p)
-                                }],
-                            }))]
+                        return mapTypeToType(type, $p)
                     }))]
                 })
                 default: return pl.au($[0])

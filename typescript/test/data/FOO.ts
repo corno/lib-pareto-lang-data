@@ -72,35 +72,34 @@ export const $: g_glossary.T.Glossary<null> = {
             },
             "Atom Types": {
                 'parameters': d({}),
-                'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['group', d({})]]
+                'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['group', d({
+                    "annotation": {
+                        'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
+                    },
+                    "constraints": {
+                        'type': <g_glossary.T.Type<null>>['group', d({})],
+                    },
+                    "content": {
+                        'type': <g_glossary.T.Type<null>>['group', d({})],
+                    },
+                })]]
             },
             "Dictionary Constraints": {
                 'parameters': d({}),
-                'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['taggedUnion', d({
-                    "dictionary": <g_glossary.T.Type<null>>['group', d({
-                        "annotation": {
-                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                        },
-                        "content": {
-                            'type': <g_glossary.T.Type<null>>['group', d({
+                'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['group', d({
+                    "annotation": {
+                        'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
+                    },
+                    "constraints": {
+                        'type': <g_glossary.T.Type<null>>['group', d({})],
+                    },
+                    "content": {
+                        'type': <g_glossary.T.Type<null>>['taggedUnion', d({
+                            "dictionary": <g_glossary.T.Type<null>>['group', d({
                                 "dense": {
                                     'type': <g_glossary.T.Type<null>>['taggedUnion', d({
-                                        "no": <g_glossary.T.Type<null>>['group', d({
-                                            "annotation": {
-                                                'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                            },
-                                            "content": {
-                                                'type': <g_glossary.T.Type<null>>['group', d({})],
-                                            },
-                                        })],
-                                        "yes": <g_glossary.T.Type<null>>['group', d({
-                                            "annotation": {
-                                                'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                            },
-                                            "content": {
-                                                'type': <g_glossary.T.Type<null>>['group', d({})],
-                                            },
-                                        })],
+                                        "no": <g_glossary.T.Type<null>>['group', d({})],
+                                        "yes": <g_glossary.T.Type<null>>['group', d({})],
                                     })],
                                 },
                                 "dictionary": {
@@ -112,21 +111,14 @@ export const $: g_glossary.T.Glossary<null> = {
                                     }]],
                                 },
                             })],
-                        },
-                    })],
-                    "lookup": <g_glossary.T.Type<null>>['group', d({
-                        "annotation": {
-                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                        },
-                        "content": {
-                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                            "lookup": <g_glossary.T.Type<null>>['reference', ['type', {
                                 'context': ['local', null],
                                 'typeXX': "Lookup Selection",
                                 'tailXX': a([]),
                                 'type arguments': d({}),
                             }]],
-                        },
-                    })],
+                        })],
+                    },
                 })]]
             },
             "Dictionary Selection": {
@@ -134,14 +126,7 @@ export const $: g_glossary.T.Glossary<null> = {
                 'type': <g_glossary.T.Type<null>>['group', d({
                     "cast": {
                         'type': <g_glossary.T.Type<null>>['taggedUnion', d({
-                            "dictionary": <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
-                                "content": {
-                                    'type': <g_glossary.T.Type<null>>['group', d({})],
-                                },
-                            })],
+                            "dictionary": <g_glossary.T.Type<null>>['group', d({})],
                         })],
                     },
                     "type": {
@@ -195,77 +180,63 @@ export const $: g_glossary.T.Glossary<null> = {
                 'parameters': d({}),
                 'type': <g_glossary.T.Type<null>>['taggedUnion', d({
                     "import": <g_glossary.T.Type<null>>['group', d({
-                        "annotation": {
-                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                        },
-                        "content": {
+                        "library": {
                             'type': <g_glossary.T.Type<null>>['group', d({
-                                "library": {
-                                    'type': <g_glossary.T.Type<null>>['group', d({
-                                        "annotation": {
-                                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                        },
-                                        "key": {
-                                            'type': <g_glossary.T.Type<null>>['string', null],
-                                        },
-                                        "referent": {
-                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                                'context': ['local', null],
-                                                'typeXX': "Imports",
-                                                'tailXX': a([
-                                                    "D",
-                                                ]),
-                                                'type arguments': d({}),
-                                            }]],
-                                        },
-                                    })],
+                                "annotation": {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                                 },
-                                "type": {
-                                    'type': <g_glossary.T.Type<null>>['group', d({
-                                        "annotation": {
-                                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                        },
-                                        "key": {
-                                            'type': <g_glossary.T.Type<null>>['string', null],
-                                        },
-                                        "referent": {
-                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                                'context': ['local', null],
-                                                'typeXX': "Global Types",
-                                                'tailXX': a([
-                                                    "D",
-                                                ]),
-                                                'type arguments': d({}),
-                                            }]],
-                                        },
-                                    })],
+                                "key": {
+                                    'type': <g_glossary.T.Type<null>>['string', null],
+                                },
+                                "referent": {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "Imports",
+                                        'tailXX': a([
+                                            "D",
+                                        ]),
+                                        'type arguments': d({}),
+                                    }]],
+                                },
+                            })],
+                        },
+                        "type": {
+                            'type': <g_glossary.T.Type<null>>['group', d({
+                                "annotation": {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
+                                },
+                                "key": {
+                                    'type': <g_glossary.T.Type<null>>['string', null],
+                                },
+                                "referent": {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "Global Types",
+                                        'tailXX': a([
+                                            "D",
+                                        ]),
+                                        'type arguments': d({}),
+                                    }]],
                                 },
                             })],
                         },
                     })],
                     "resolved sibling": <g_glossary.T.Type<null>>['group', d({
-                        "annotation": {
-                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                        },
-                        "content": {
+                        "type": {
                             'type': <g_glossary.T.Type<null>>['group', d({
-                                "type": {
-                                    'type': <g_glossary.T.Type<null>>['group', d({
-                                        "annotation": {
-                                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                        },
-                                        "key": {
-                                            'type': <g_glossary.T.Type<null>>['string', null],
-                                        },
-                                        "referent": {
-                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                                'context': ['local', null],
-                                                'typeXX': "Global Type",
-                                                'tailXX': a([]),
-                                                'type arguments': d({}),
-                                            }]],
-                                        },
-                                    })],
+                                "annotation": {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
+                                },
+                                "key": {
+                                    'type': <g_glossary.T.Type<null>>['string', null],
+                                },
+                                "referent": {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "Global Type",
+                                        'tailXX': a([]),
+                                        'type arguments': d({}),
+                                    }]],
                                 },
                             })],
                         },
@@ -274,12 +245,22 @@ export const $: g_glossary.T.Glossary<null> = {
             },
             "Global Types": {
                 'parameters': d({}),
-                'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['reference', ['type', {
-                    'context': ['local', null],
-                    'typeXX': "Global Type",
-                    'tailXX': a([]),
-                    'type arguments': d({}),
-                }]]]
+                'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['group', d({
+                    "annotation": {
+                        'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
+                    },
+                    "constraints": {
+                        'type': <g_glossary.T.Type<null>>['group', d({})],
+                    },
+                    "content": {
+                        'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                            'context': ['local', null],
+                            'typeXX': "Global Type",
+                            'tailXX': a([]),
+                            'type arguments': d({}),
+                        }]],
+                    },
+                })]]
             },
             "Imports": {
                 'parameters': d({}),
@@ -311,48 +292,27 @@ export const $: g_glossary.T.Glossary<null> = {
                         "annotation": {
                             'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                         },
-                        "content": {
-                            'type': <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
-                                "key": {
-                                    'type': <g_glossary.T.Type<null>>['string', null],
-                                },
-                                "referent": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                        'context': ['local', null],
-                                        'typeXX': "Parameters",
-                                        'tailXX': a([
-                                            "D",
-                                        ]),
-                                        'type arguments': d({}),
-                                    }]],
-                                },
-                            })],
+                        "key": {
+                            'type': <g_glossary.T.Type<null>>['string', null],
                         },
-                    })],
-                    "resolved dictionary": <g_glossary.T.Type<null>>['group', d({
-                        "annotation": {
-                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                        },
-                        "content": {
+                        "referent": {
                             'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                 'context': ['local', null],
-                                'typeXX': "Value Selection",
-                                'tailXX': a([]),
+                                'typeXX': "Parameters",
+                                'tailXX': a([
+                                    "D",
+                                ]),
                                 'type arguments': d({}),
                             }]],
                         },
                     })],
-                    "this": <g_glossary.T.Type<null>>['group', d({
-                        "annotation": {
-                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                        },
-                        "content": {
-                            'type': <g_glossary.T.Type<null>>['group', d({})],
-                        },
-                    })],
+                    "resolved dictionary": <g_glossary.T.Type<null>>['reference', ['type', {
+                        'context': ['local', null],
+                        'typeXX': "Value Selection",
+                        'tailXX': a([]),
+                        'type arguments': d({}),
+                    }]],
+                    "this": <g_glossary.T.Type<null>>['group', d({})],
                 })]
             },
             "Model": {
@@ -391,14 +351,17 @@ export const $: g_glossary.T.Glossary<null> = {
             "Parameters": {
                 'parameters': d({}),
                 'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['group', d({
-                    "type": {
-                        'type': <g_glossary.T.Type<null>>['taggedUnion', d({
-                            "lookup": <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
-                                "content": {
-                                    'type': <g_glossary.T.Type<null>>['group', d({
+                    "annotation": {
+                        'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
+                    },
+                    "constraints": {
+                        'type': <g_glossary.T.Type<null>>['group', d({})],
+                    },
+                    "content": {
+                        'type': <g_glossary.T.Type<null>>['group', d({
+                            "type": {
+                                'type': <g_glossary.T.Type<null>>['taggedUnion', d({
+                                    "lookup": <g_glossary.T.Type<null>>['group', d({
                                         "type": {
                                             'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                                 'context': ['local', null],
@@ -408,32 +371,11 @@ export const $: g_glossary.T.Glossary<null> = {
                                             }]],
                                         },
                                     })],
-                                },
-                            })],
-                            "resolved value": <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
-                                "content": {
-                                    'type': <g_glossary.T.Type<null>>['group', d({
+                                    "resolved value": <g_glossary.T.Type<null>>['group', d({
                                         "optional": {
                                             'type': <g_glossary.T.Type<null>>['taggedUnion', d({
-                                                "no": <g_glossary.T.Type<null>>['group', d({
-                                                    "annotation": {
-                                                        'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                                    },
-                                                    "content": {
-                                                        'type': <g_glossary.T.Type<null>>['group', d({})],
-                                                    },
-                                                })],
-                                                "yes": <g_glossary.T.Type<null>>['group', d({
-                                                    "annotation": {
-                                                        'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                                    },
-                                                    "content": {
-                                                        'type': <g_glossary.T.Type<null>>['group', d({})],
-                                                    },
-                                                })],
+                                                "no": <g_glossary.T.Type<null>>['group', d({})],
+                                                "yes": <g_glossary.T.Type<null>>['group', d({})],
                                             })],
                                         },
                                         "type": {
@@ -445,8 +387,8 @@ export const $: g_glossary.T.Glossary<null> = {
                                             }]],
                                         },
                                     })],
-                                },
-                            })],
+                                })],
+                            },
                         })],
                     },
                 })]]
@@ -475,12 +417,22 @@ export const $: g_glossary.T.Glossary<null> = {
             },
             "State Constraints": {
                 'parameters': d({}),
-                'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['reference', ['type', {
-                    'context': ['local', null],
-                    'typeXX': "Value Selection",
-                    'tailXX': a([]),
-                    'type arguments': d({}),
-                }]]]
+                'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['group', d({
+                    "annotation": {
+                        'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
+                    },
+                    "constraints": {
+                        'type': <g_glossary.T.Type<null>>['group', d({})],
+                    },
+                    "content": {
+                        'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                            'context': ['local', null],
+                            'typeXX': "Value Selection",
+                            'tailXX': a([]),
+                            'type arguments': d({}),
+                        }]],
+                    },
+                })]]
             },
             "Type": {
                 'parameters': d({}),
@@ -488,294 +440,223 @@ export const $: g_glossary.T.Glossary<null> = {
                     "type": {
                         'type': <g_glossary.T.Type<null>>['taggedUnion', d({
                             "array": <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
-                                "content": {
-                                    'type': <g_glossary.T.Type<null>>['group', d({
-                                        "type": {
-                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                                'context': ['local', null],
-                                                'typeXX': "Type",
-                                                'tailXX': a([]),
-                                                'type arguments': d({}),
-                                            }]],
-                                        },
-                                    })],
+                                "type": {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "Type",
+                                        'tailXX': a([]),
+                                        'type arguments': d({}),
+                                    }]],
                                 },
                             })],
                             "atom": <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
-                                "content": {
-                                    'type': <g_glossary.T.Type<null>>['group', d({
-                                        "atom": {
-                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                                'context': ['local', null],
-                                                'typeXX': "Atom",
-                                                'tailXX': a([]),
-                                                'type arguments': d({}),
-                                            }]],
-                                        },
-                                    })],
+                                "atom": {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "Atom",
+                                        'tailXX': a([]),
+                                        'type arguments': d({}),
+                                    }]],
                                 },
                             })],
                             "component": <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
-                                "content": {
-                                    'type': <g_glossary.T.Type<null>>['group', d({
-                                        "arguments": {
-                                            'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['group', d({
-                                                "annotation": {
-                                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                                },
-                                                "constraints": {
-                                                    'type': <g_glossary.T.Type<null>>['group', d({
-                                                        "parameter": {
-                                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                                                'context': ['local', null],
-                                                                'typeXX': "Parameters",
-                                                                'tailXX': a([
-                                                                    "D",
-                                                                ]),
-                                                                'type arguments': d({}),
-                                                            }]],
-                                                        },
-                                                    })],
-                                                },
-                                                "content": {
-                                                    'type': <g_glossary.T.Type<null>>['group', d({
-                                                        "type": {
-                                                            'type': <g_glossary.T.Type<null>>['taggedUnion', d({
-                                                                "lookup": <g_glossary.T.Type<null>>['group', d({
-                                                                    "annotation": {
-                                                                        'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                                                    },
-                                                                    "content": {
-                                                                        'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                                                            'context': ['local', null],
-                                                                            'typeXX': "Lookup Selection",
-                                                                            'tailXX': a([]),
-                                                                            'type arguments': d({}),
-                                                                        }]],
-                                                                    },
-                                                                })],
-                                                                "resolved value": <g_glossary.T.Type<null>>['group', d({
-                                                                    "annotation": {
-                                                                        'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                                                    },
-                                                                    "content": {
-                                                                        'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                                                            'context': ['local', null],
-                                                                            'typeXX': "Value Selection",
-                                                                            'tailXX': a([]),
-                                                                            'type arguments': d({}),
-                                                                        }]],
-                                                                    },
-                                                                })],
-                                                            })],
-                                                        },
-                                                    })],
-                                                },
-                                            })]],
+                                "arguments": {
+                                    'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['group', d({
+                                        "annotation": {
+                                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                                         },
-                                        "type": {
-                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                                'context': ['local', null],
-                                                'typeXX': "Global Type Selection",
-                                                'tailXX': a([]),
-                                                'type arguments': d({}),
-                                            }]],
-                                        },
-                                    })],
-                                },
-                            })],
-                            "dictionary": <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
-                                "content": {
-                                    'type': <g_glossary.T.Type<null>>['group', d({
                                         "constraints": {
-                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                                'context': ['local', null],
-                                                'typeXX': "Dictionary Constraints",
-                                                'tailXX': a([]),
-                                                'type arguments': d({}),
-                                            }]],
-                                        },
-                                        "key": {
-                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                                'context': ['local', null],
-                                                'typeXX': "Atom",
-                                                'tailXX': a([]),
-                                                'type arguments': d({}),
-                                            }]],
-                                        },
-                                        "type": {
-                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                                'context': ['local', null],
-                                                'typeXX': "Type",
-                                                'tailXX': a([]),
-                                                'type arguments': d({}),
-                                            }]],
-                                        },
-                                        "variables": {
-                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                                'context': ['local', null],
-                                                'typeXX': "Variables",
-                                                'tailXX': a([]),
-                                                'type arguments': d({}),
-                                            }]],
-                                        },
-                                    })],
-                                },
-                            })],
-                            "group": <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
-                                "content": {
-                                    'type': <g_glossary.T.Type<null>>['group', d({
-                                        "properties": {
-                                            'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['reference', ['type', {
-                                                'context': ['local', null],
-                                                'typeXX': "Property",
-                                                'tailXX': a([]),
-                                                'type arguments': d({}),
-                                            }]]],
-                                        },
-                                        "variables": {
-                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                                'context': ['local', null],
-                                                'typeXX': "Variables",
-                                                'tailXX': a([]),
-                                                'type arguments': d({}),
-                                            }]],
-                                        },
-                                    })],
-                                },
-                            })],
-                            "nothing": <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
-                                "content": {
-                                    'type': <g_glossary.T.Type<null>>['group', d({
-                                        "result": {
-                                            'type': <g_glossary.T.Type<null>>['optional', <g_glossary.T.Type<null>>['reference', ['type', {
-                                                'context': ['local', null],
-                                                'typeXX': "Value Selection",
-                                                'tailXX': a([]),
-                                                'type arguments': d({}),
-                                            }]]],
-                                        },
-                                    })],
-                                },
-                            })],
-                            "optional": <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
-                                "content": {
-                                    'type': <g_glossary.T.Type<null>>['group', d({
-                                        "result": {
-                                            'type': <g_glossary.T.Type<null>>['optional', <g_glossary.T.Type<null>>['group', d({
-                                                "not set": {
+                                            'type': <g_glossary.T.Type<null>>['group', d({
+                                                "parameter": {
                                                     'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                                         'context': ['local', null],
-                                                        'typeXX': "Value Selection",
-                                                        'tailXX': a([]),
+                                                        'typeXX': "Parameters",
+                                                        'tailXX': a([
+                                                            "D",
+                                                        ]),
                                                         'type arguments': d({}),
                                                     }]],
                                                 },
-                                                "set": {
-                                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                                        'context': ['local', null],
-                                                        'typeXX': "Any Value Selection",
-                                                        'tailXX': a([]),
-                                                        'type arguments': d({}),
-                                                    }]],
-                                                },
-                                            })]],
+                                            })],
                                         },
-                                        "type": {
-                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                                'context': ['local', null],
-                                                'typeXX': "Type",
-                                                'tailXX': a([]),
-                                                'type arguments': d({}),
-                                            }]],
-                                        },
-                                    })],
-                                },
-                            })],
-                            "resolved reference": <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
-                                "content": {
-                                    'type': <g_glossary.T.Type<null>>['group', d({
-                                        "atom": {
-                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                                'context': ['local', null],
-                                                'typeXX': "Atom",
-                                                'tailXX': a([]),
-                                                'type arguments': d({}),
-                                            }]],
-                                        },
-                                        "value": {
-                                            'type': <g_glossary.T.Type<null>>['taggedUnion', d({
-                                                "dictionary": <g_glossary.T.Type<null>>['group', d({
-                                                    "annotation": {
-                                                        'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                                    },
-                                                    "content": {
-                                                        'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                                            'context': ['local', null],
-                                                            'typeXX': "Dictionary Selection",
-                                                            'tailXX': a([]),
-                                                            'type arguments': d({}),
-                                                        }]],
-                                                    },
-                                                })],
-                                                "lookup": <g_glossary.T.Type<null>>['group', d({
-                                                    "annotation": {
-                                                        'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                                    },
-                                                    "content": {
-                                                        'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                        "content": {
+                                            'type': <g_glossary.T.Type<null>>['group', d({
+                                                "type": {
+                                                    'type': <g_glossary.T.Type<null>>['taggedUnion', d({
+                                                        "lookup": <g_glossary.T.Type<null>>['reference', ['type', {
                                                             'context': ['local', null],
                                                             'typeXX': "Lookup Selection",
                                                             'tailXX': a([]),
                                                             'type arguments': d({}),
                                                         }]],
-                                                    },
-                                                })],
+                                                        "resolved value": <g_glossary.T.Type<null>>['reference', ['type', {
+                                                            'context': ['local', null],
+                                                            'typeXX': "Value Selection",
+                                                            'tailXX': a([]),
+                                                            'type arguments': d({}),
+                                                        }]],
+                                                    })],
+                                                },
                                             })],
                                         },
+                                    })]],
+                                },
+                                "type": {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "Global Type Selection",
+                                        'tailXX': a([]),
+                                        'type arguments': d({}),
+                                    }]],
+                                },
+                            })],
+                            "dictionary": <g_glossary.T.Type<null>>['group', d({
+                                "constraints": {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "Dictionary Constraints",
+                                        'tailXX': a([]),
+                                        'type arguments': d({}),
+                                    }]],
+                                },
+                                "key": {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "Atom",
+                                        'tailXX': a([]),
+                                        'type arguments': d({}),
+                                    }]],
+                                },
+                                "type": {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "Type",
+                                        'tailXX': a([]),
+                                        'type arguments': d({}),
+                                    }]],
+                                },
+                                "variables": {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "Variables",
+                                        'tailXX': a([]),
+                                        'type arguments': d({}),
+                                    }]],
+                                },
+                            })],
+                            "group": <g_glossary.T.Type<null>>['group', d({
+                                "properties": {
+                                    'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['group', d({
+                                        "annotation": {
+                                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
+                                        },
+                                        "constraints": {
+                                            'type': <g_glossary.T.Type<null>>['group', d({})],
+                                        },
+                                        "content": {
+                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                                'context': ['local', null],
+                                                'typeXX': "Property",
+                                                'tailXX': a([]),
+                                                'type arguments': d({}),
+                                            }]],
+                                        },
+                                    })]],
+                                },
+                                "variables": {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "Variables",
+                                        'tailXX': a([]),
+                                        'type arguments': d({}),
+                                    }]],
+                                },
+                            })],
+                            "nothing": <g_glossary.T.Type<null>>['group', d({
+                                "result": {
+                                    'type': <g_glossary.T.Type<null>>['optional', <g_glossary.T.Type<null>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "Value Selection",
+                                        'tailXX': a([]),
+                                        'type arguments': d({}),
+                                    }]]],
+                                },
+                            })],
+                            "optional": <g_glossary.T.Type<null>>['group', d({
+                                "result": {
+                                    'type': <g_glossary.T.Type<null>>['optional', <g_glossary.T.Type<null>>['group', d({
+                                        "not set": {
+                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                                'context': ['local', null],
+                                                'typeXX': "Value Selection",
+                                                'tailXX': a([]),
+                                                'type arguments': d({}),
+                                            }]],
+                                        },
+                                        "set": {
+                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                                'context': ['local', null],
+                                                'typeXX': "Any Value Selection",
+                                                'tailXX': a([]),
+                                                'type arguments': d({}),
+                                            }]],
+                                        },
+                                    })]],
+                                },
+                                "type": {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "Type",
+                                        'tailXX': a([]),
+                                        'type arguments': d({}),
+                                    }]],
+                                },
+                            })],
+                            "resolved reference": <g_glossary.T.Type<null>>['group', d({
+                                "atom": {
+                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "Atom",
+                                        'tailXX': a([]),
+                                        'type arguments': d({}),
+                                    }]],
+                                },
+                                "value": {
+                                    'type': <g_glossary.T.Type<null>>['taggedUnion', d({
+                                        "dictionary": <g_glossary.T.Type<null>>['reference', ['type', {
+                                            'context': ['local', null],
+                                            'typeXX': "Dictionary Selection",
+                                            'tailXX': a([]),
+                                            'type arguments': d({}),
+                                        }]],
+                                        "lookup": <g_glossary.T.Type<null>>['reference', ['type', {
+                                            'context': ['local', null],
+                                            'typeXX': "Lookup Selection",
+                                            'tailXX': a([]),
+                                            'type arguments': d({}),
+                                        }]],
                                     })],
                                 },
                             })],
                             "state group": <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
+                                "result": {
+                                    'type': <g_glossary.T.Type<null>>['optional', <g_glossary.T.Type<null>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "Global Type Selection",
+                                        'tailXX': a([]),
+                                        'type arguments': d({}),
+                                    }]]],
                                 },
-                                "content": {
-                                    'type': <g_glossary.T.Type<null>>['group', d({
-                                        "result": {
-                                            'type': <g_glossary.T.Type<null>>['optional', <g_glossary.T.Type<null>>['reference', ['type', {
-                                                'context': ['local', null],
-                                                'typeXX': "Global Type Selection",
-                                                'tailXX': a([]),
-                                                'type arguments': d({}),
-                                            }]]],
+                                "states": {
+                                    'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['group', d({
+                                        "annotation": {
+                                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                                         },
-                                        "states": {
-                                            'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['group', d({
+                                        "constraints": {
+                                            'type': <g_glossary.T.Type<null>>['group', d({})],
+                                        },
+                                        "content": {
+                                            'type': <g_glossary.T.Type<null>>['group', d({
                                                 "constraints": {
                                                     'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                                         'context': ['local', null],
@@ -808,9 +689,9 @@ export const $: g_glossary.T.Glossary<null> = {
                                                         'type arguments': d({}),
                                                     }]],
                                                 },
-                                            })]],
+                                            })],
                                         },
-                                    })],
+                                    })]],
                                 },
                             })],
                         })],
@@ -885,33 +766,26 @@ export const $: g_glossary.T.Glossary<null> = {
                     "step type": {
                         'type': <g_glossary.T.Type<null>>['taggedUnion', d({
                             "group": <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
-                                "content": {
+                                "property": {
                                     'type': <g_glossary.T.Type<null>>['group', d({
-                                        "property": {
-                                            'type': <g_glossary.T.Type<null>>['group', d({
-                                                "annotation": {
-                                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                                },
-                                                "key": {
-                                                    'type': <g_glossary.T.Type<null>>['string', null],
-                                                },
-                                                "referent": {
-                                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                                        'context': ['local', null],
-                                                        'typeXX': "Type",
-                                                        'tailXX': a([
-                                                            "type",
-                                                            "group",
-                                                            "properties",
-                                                            "D",
-                                                        ]),
-                                                        'type arguments': d({}),
-                                                    }]],
-                                                },
-                                            })],
+                                        "annotation": {
+                                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
+                                        },
+                                        "key": {
+                                            'type': <g_glossary.T.Type<null>>['string', null],
+                                        },
+                                        "referent": {
+                                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                                'context': ['local', null],
+                                                'typeXX': "Type",
+                                                'tailXX': a([
+                                                    "type",
+                                                    "group",
+                                                    "properties",
+                                                    "D",
+                                                ]),
+                                                'type arguments': d({}),
+                                            }]],
                                         },
                                     })],
                                 },
@@ -935,133 +809,108 @@ export const $: g_glossary.T.Glossary<null> = {
                         "annotation": {
                             'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                         },
-                        "content": {
-                            'type': <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
-                                "key": {
-                                    'type': <g_glossary.T.Type<null>>['string', null],
-                                },
-                                "referent": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                        'context': ['local', null],
-                                        'typeXX': "Dictionary Constraints",
-                                        'tailXX': a([
-                                            "D",
-                                        ]),
-                                        'type arguments': d({}),
-                                    }]],
-                                },
-                            })],
+                        "key": {
+                            'type': <g_glossary.T.Type<null>>['string', null],
+                        },
+                        "referent": {
+                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                'context': ['local', null],
+                                'typeXX': "Dictionary Constraints",
+                                'tailXX': a([
+                                    "D",
+                                ]),
+                                'type arguments': d({}),
+                            }]],
                         },
                     })],
                     "option constraint": <g_glossary.T.Type<null>>['group', d({
                         "annotation": {
                             'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                         },
-                        "content": {
-                            'type': <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
-                                "key": {
-                                    'type': <g_glossary.T.Type<null>>['string', null],
-                                },
-                                "referent": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                        'context': ['local', null],
-                                        'typeXX': "State Constraints",
-                                        'tailXX': a([
-                                            "D",
-                                        ]),
-                                        'type arguments': d({}),
-                                    }]],
-                                },
-                            })],
+                        "key": {
+                            'type': <g_glossary.T.Type<null>>['string', null],
+                        },
+                        "referent": {
+                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                'context': ['local', null],
+                                'typeXX': "State Constraints",
+                                'tailXX': a([
+                                    "D",
+                                ]),
+                                'type arguments': d({}),
+                            }]],
                         },
                     })],
                     "parameter": <g_glossary.T.Type<null>>['group', d({
                         "annotation": {
                             'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                         },
-                        "content": {
-                            'type': <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
-                                "key": {
-                                    'type': <g_glossary.T.Type<null>>['string', null],
-                                },
-                                "referent": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                        'context': ['local', null],
-                                        'typeXX': "Parameters",
-                                        'tailXX': a([
-                                            "D",
-                                        ]),
-                                        'type arguments': d({}),
-                                    }]],
-                                },
-                            })],
+                        "key": {
+                            'type': <g_glossary.T.Type<null>>['string', null],
+                        },
+                        "referent": {
+                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                'context': ['local', null],
+                                'typeXX': "Parameters",
+                                'tailXX': a([
+                                    "D",
+                                ]),
+                                'type arguments': d({}),
+                            }]],
                         },
                     })],
                     "parent variable": <g_glossary.T.Type<null>>['group', d({
                         "annotation": {
                             'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                         },
-                        "content": {
-                            'type': <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
-                                "key": {
-                                    'type': <g_glossary.T.Type<null>>['string', null],
-                                },
-                                "referent": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                        'context': ['local', null],
-                                        'typeXX': "Variable",
-                                        'tailXX': a([]),
-                                        'type arguments': d({}),
-                                    }]],
-                                },
-                            })],
+                        "key": {
+                            'type': <g_glossary.T.Type<null>>['string', null],
+                        },
+                        "referent": {
+                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                'context': ['local', null],
+                                'typeXX': "Variable",
+                                'tailXX': a([]),
+                                'type arguments': d({}),
+                            }]],
                         },
                     })],
                     "sibling property": <g_glossary.T.Type<null>>['group', d({
                         "annotation": {
                             'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                         },
-                        "content": {
-                            'type': <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
-                                "key": {
-                                    'type': <g_glossary.T.Type<null>>['string', null],
-                                },
-                                "referent": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                                        'context': ['local', null],
-                                        'typeXX': "Property",
-                                        'tailXX': a([]),
-                                        'type arguments': d({}),
-                                    }]],
-                                },
-                            })],
+                        "key": {
+                            'type': <g_glossary.T.Type<null>>['string', null],
+                        },
+                        "referent": {
+                            'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                'context': ['local', null],
+                                'typeXX': "Property",
+                                'tailXX': a([]),
+                                'type arguments': d({}),
+                            }]],
                         },
                     })],
                 })]
             },
             "Variables": {
                 'parameters': d({}),
-                'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['reference', ['type', {
-                    'context': ['local', null],
-                    'typeXX': "Variable",
-                    'tailXX': a([]),
-                    'type arguments': d({}),
-                }]]]
+                'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['group', d({
+                    "annotation": {
+                        'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
+                    },
+                    "constraints": {
+                        'type': <g_glossary.T.Type<null>>['group', d({})],
+                    },
+                    "content": {
+                        'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                            'context': ['local', null],
+                            'typeXX': "Variable",
+                            'tailXX': a([]),
+                            'type arguments': d({}),
+                        }]],
+                    },
+                })]]
             },
         }),
         'namespaces': d({

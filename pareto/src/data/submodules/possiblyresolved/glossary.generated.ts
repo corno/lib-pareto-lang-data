@@ -7,9 +7,7 @@ const a = pd.a
 
 export const $: g_glossary.T.Glossary<null> = {
     'imports': d({}),
-    'glossary parameters': d({
-        "Annotation": null,
-    }),
+    'glossary parameters': d({}),
     'root': {
         'types': d({
             "Atom": {
@@ -17,9 +15,6 @@ export const $: g_glossary.T.Glossary<null> = {
                 'type': <g_glossary.T.Type<null>>['group', d({
                     "type": {
                         'type': <g_glossary.T.Type<null>>['group', d({
-                            "annotation": {
-                                'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                            },
                             "key": {
                                 'type': <g_glossary.T.Type<null>>['string', null],
                             },
@@ -84,9 +79,6 @@ export const $: g_glossary.T.Glossary<null> = {
                     "cyclic sibling": <g_glossary.T.Type<null>>['group', d({
                         "type": {
                             'type': <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
                                 "key": {
                                     'type': <g_glossary.T.Type<null>>['string', null],
                                 },
@@ -104,9 +96,6 @@ export const $: g_glossary.T.Glossary<null> = {
                     "import": <g_glossary.T.Type<null>>['group', d({
                         "library": {
                             'type': <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
                                 "key": {
                                     'type': <g_glossary.T.Type<null>>['string', null],
                                 },
@@ -124,9 +113,6 @@ export const $: g_glossary.T.Glossary<null> = {
                         },
                         "type": {
                             'type': <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
                                 "key": {
                                     'type': <g_glossary.T.Type<null>>['string', null],
                                 },
@@ -146,9 +132,6 @@ export const $: g_glossary.T.Glossary<null> = {
                     "resolved sibling": <g_glossary.T.Type<null>>['group', d({
                         "type": {
                             'type': <g_glossary.T.Type<null>>['group', d({
-                                "annotation": {
-                                    'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                },
                                 "key": {
                                     'type': <g_glossary.T.Type<null>>['string', null],
                                 },
@@ -177,9 +160,6 @@ export const $: g_glossary.T.Glossary<null> = {
             "Imports": {
                 'parameters': d({}),
                 'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['group', d({
-                    "annotation": {
-                        'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                    },
                     "constraints": {
                         'type': <g_glossary.T.Type<null>>['optional', <g_glossary.T.Type<null>>['group', d({
                             "library": {
@@ -202,9 +182,6 @@ export const $: g_glossary.T.Glossary<null> = {
                 'type': <g_glossary.T.Type<null>>['group', d({
                     "root": {
                         'type': <g_glossary.T.Type<null>>['group', d({
-                            "annotation": {
-                                'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                            },
                             "key": {
                                 'type': <g_glossary.T.Type<null>>['string', null],
                             },
@@ -445,9 +422,6 @@ export const $: g_glossary.T.Glossary<null> = {
                 'type': <g_glossary.T.Type<null>>['group', d({
                     "global type": {
                         'type': <g_glossary.T.Type<null>>['group', d({
-                            "annotation": {
-                                'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                            },
                             "key": {
                                 'type': <g_glossary.T.Type<null>>['string', null],
                             },
@@ -465,9 +439,6 @@ export const $: g_glossary.T.Glossary<null> = {
                     },
                     "import": {
                         'type': <g_glossary.T.Type<null>>['optional', <g_glossary.T.Type<null>>['group', d({
-                            "annotation": {
-                                'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                            },
                             "key": {
                                 'type': <g_glossary.T.Type<null>>['string', null],
                             },
@@ -538,9 +509,6 @@ export const $: g_glossary.T.Glossary<null> = {
                                 },
                                 "property": {
                                     'type': <g_glossary.T.Type<null>>['group', d({
-                                        "annotation": {
-                                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                        },
                                         "key": {
                                             'type': <g_glossary.T.Type<null>>['string', null],
                                         },
@@ -576,9 +544,6 @@ export const $: g_glossary.T.Glossary<null> = {
                             "state group": <g_glossary.T.Type<null>>['group', d({
                                 "state": {
                                     'type': <g_glossary.T.Type<null>>['group', d({
-                                        "annotation": {
-                                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                                        },
                                         "key": {
                                             'type': <g_glossary.T.Type<null>>['string', null],
                                         },

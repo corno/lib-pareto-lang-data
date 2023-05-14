@@ -56,7 +56,7 @@ export const $$: A.generateSubmodules = ($d,) => {
                 'constraints': [true, ['optional', null]],
                 'terminal values': true,
             },
-            'create annotations': true,
+            'create annotations': false,
         })
     }
 }

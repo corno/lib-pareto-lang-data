@@ -995,30 +995,26 @@ export namespace T {
         
         export namespace _ltype {
             
-            export type annotation<GAnnotation> = GAnnotation
-            
-            export type key<GAnnotation> = string
+            export type key = string
             
             export namespace referent {
                 
-                export type O<GAnnotation> = T.Atom__Types.D<GAnnotation>
+                export type O = T.Atom__Types.D
             }
             
-            export type referent<GAnnotation> = [ false ] | [ true, T.Atom__Types.D<GAnnotation>]
+            export type referent = [ false ] | [ true, T.Atom__Types.D]
         }
         
-        export type _ltype<GAnnotation> = {
-            readonly 'annotation': GAnnotation
+        export type _ltype = {
             readonly 'key': string
-            readonly 'referent': [ false ] | [ true, T.Atom__Types.D<GAnnotation>]
+            readonly 'referent': [ false ] | [ true, T.Atom__Types.D]
         }
     }
     
-    export type Atom<GAnnotation> = {
+    export type Atom = {
         readonly 'type': {
-            readonly 'annotation': GAnnotation
             readonly 'key': string
-            readonly 'referent': [ false ] | [ true, T.Atom__Types.D<GAnnotation>]
+            readonly 'referent': [ false ] | [ true, T.Atom__Types.D]
         }
     }
     
@@ -1026,35 +1022,35 @@ export namespace T {
         
         export namespace D {}
         
-        export type D<GAnnotation> = null
+        export type D = null
     }
     
-    export type Atom__Types<GAnnotation> = pt.Dictionary<null>
+    export type Atom__Types = pt.Dictionary<null>
     
     export namespace Dictionary__Selection {
         
         export namespace dictionary {
             
-            export type O<GAnnotation> = T.Type._ltype.dictionary<GAnnotation>
+            export type O = T.Type._ltype.dictionary
         }
         
-        export type dictionary<GAnnotation> = [ false ] | [ true, T.Type._ltype.dictionary<GAnnotation>]
+        export type dictionary = [ false ] | [ true, T.Type._ltype.dictionary]
         
-        export type _ltype<GAnnotation> = T.Type__Selection<GAnnotation>
+        export type _ltype = T.Type__Selection
     }
     
-    export type Dictionary__Selection<GAnnotation> = {
-        readonly 'dictionary': [ false ] | [ true, T.Type._ltype.dictionary<GAnnotation>]
-        readonly 'type': T.Type__Selection<GAnnotation>
+    export type Dictionary__Selection = {
+        readonly 'dictionary': [ false ] | [ true, T.Type._ltype.dictionary]
+        readonly 'type': T.Type__Selection
     }
     
     export namespace Global__Type {
         
-        export type _ltype<GAnnotation> = T.Type<GAnnotation>
+        export type _ltype = T.Type
     }
     
-    export type Global__Type<GAnnotation> = {
-        readonly 'type': T.Type<GAnnotation>
+    export type Global__Type = {
+        readonly 'type': T.Type
     }
     
     export namespace Global__Type__Selection {
@@ -1063,35 +1059,31 @@ export namespace T {
             
             export namespace _ltype {
                 
-                export type annotation<GAnnotation> = GAnnotation
-                
-                export type key<GAnnotation> = string
+                export type key = string
                 
                 export namespace referent {
                     
                     export namespace O {
                         
-                        export type C<GAnnotation> = T.Global__Type<GAnnotation>
+                        export type C = T.Global__Type
                     }
                     
-                    export type O<GAnnotation> = () => T.Global__Type<GAnnotation>
+                    export type O = () => T.Global__Type
                 }
                 
-                export type referent<GAnnotation> = [ false ] | [ true, () => T.Global__Type<GAnnotation>]
+                export type referent = [ false ] | [ true, () => T.Global__Type]
             }
             
-            export type _ltype<GAnnotation> = {
-                readonly 'annotation': GAnnotation
+            export type _ltype = {
                 readonly 'key': string
-                readonly 'referent': [ false ] | [ true, () => T.Global__Type<GAnnotation>]
+                readonly 'referent': [ false ] | [ true, () => T.Global__Type]
             }
         }
         
-        export type cyclic__sibling<GAnnotation> = {
+        export type cyclic__sibling = {
             readonly 'type': {
-                readonly 'annotation': GAnnotation
                 readonly 'key': string
-                readonly 'referent': [ false ] | [ true, () => T.Global__Type<GAnnotation>]
+                readonly 'referent': [ false ] | [ true, () => T.Global__Type]
             }
         }
         
@@ -1099,55 +1091,47 @@ export namespace T {
             
             export namespace library {
                 
-                export type annotation<GAnnotation> = GAnnotation
-                
-                export type key<GAnnotation> = string
+                export type key = string
                 
                 export namespace referent {
                     
-                    export type O<GAnnotation> = T.Imports.D<GAnnotation>
+                    export type O = T.Imports.D
                 }
                 
-                export type referent<GAnnotation> = [ false ] | [ true, T.Imports.D<GAnnotation>]
+                export type referent = [ false ] | [ true, T.Imports.D]
             }
             
-            export type library<GAnnotation> = {
-                readonly 'annotation': GAnnotation
+            export type library = {
                 readonly 'key': string
-                readonly 'referent': [ false ] | [ true, T.Imports.D<GAnnotation>]
+                readonly 'referent': [ false ] | [ true, T.Imports.D]
             }
             
             export namespace _ltype {
                 
-                export type annotation<GAnnotation> = GAnnotation
-                
-                export type key<GAnnotation> = string
+                export type key = string
                 
                 export namespace referent {
                     
-                    export type O<GAnnotation> = T.Global__Types.D<GAnnotation>
+                    export type O = T.Global__Types.D
                 }
                 
-                export type referent<GAnnotation> = [ false ] | [ true, T.Global__Types.D<GAnnotation>]
+                export type referent = [ false ] | [ true, T.Global__Types.D]
             }
             
-            export type _ltype<GAnnotation> = {
-                readonly 'annotation': GAnnotation
+            export type _ltype = {
                 readonly 'key': string
-                readonly 'referent': [ false ] | [ true, T.Global__Types.D<GAnnotation>]
+                readonly 'referent': [ false ] | [ true, T.Global__Types.D]
             }
         }
         
-        export type _limport<GAnnotation> = {
+        export type _limport = {
             readonly 'library': {
-                readonly 'annotation': GAnnotation
                 readonly 'key': string
-                readonly 'referent': [ false ] | [ true, T.Imports.D<GAnnotation>]
+                readonly 'referent': [ false ] | [ true, T.Imports.D]
             }
             readonly 'type': {
-                readonly 'annotation': GAnnotation
                 readonly 'key': string
-                readonly 'referent': [ false ] | [ true, T.Global__Types.D<GAnnotation>]
+                readonly 'referent': [ false ] | [ true, T.Global__Types.D]
             }
         }
         
@@ -1155,109 +1139,97 @@ export namespace T {
             
             export namespace _ltype {
                 
-                export type annotation<GAnnotation> = GAnnotation
-                
-                export type key<GAnnotation> = string
+                export type key = string
                 
                 export namespace referent {
                     
-                    export type O<GAnnotation> = T.Global__Type<GAnnotation>
+                    export type O = T.Global__Type
                 }
                 
-                export type referent<GAnnotation> = [ false ] | [ true, T.Global__Type<GAnnotation>]
+                export type referent = [ false ] | [ true, T.Global__Type]
             }
             
-            export type _ltype<GAnnotation> = {
-                readonly 'annotation': GAnnotation
+            export type _ltype = {
                 readonly 'key': string
-                readonly 'referent': [ false ] | [ true, T.Global__Type<GAnnotation>]
+                readonly 'referent': [ false ] | [ true, T.Global__Type]
             }
         }
         
-        export type resolved__sibling<GAnnotation> = {
+        export type resolved__sibling = {
             readonly 'type': {
-                readonly 'annotation': GAnnotation
                 readonly 'key': string
-                readonly 'referent': [ false ] | [ true, T.Global__Type<GAnnotation>]
+                readonly 'referent': [ false ] | [ true, T.Global__Type]
             }
         }
     }
     
-    export type Global__Type__Selection<GAnnotation> = 
+    export type Global__Type__Selection = 
         | ['cyclic sibling', {
             readonly 'type': {
-                readonly 'annotation': GAnnotation
                 readonly 'key': string
-                readonly 'referent': [ false ] | [ true, () => T.Global__Type<GAnnotation>]
+                readonly 'referent': [ false ] | [ true, () => T.Global__Type]
             }
         }]
         | ['import', {
             readonly 'library': {
-                readonly 'annotation': GAnnotation
                 readonly 'key': string
-                readonly 'referent': [ false ] | [ true, T.Imports.D<GAnnotation>]
+                readonly 'referent': [ false ] | [ true, T.Imports.D]
             }
             readonly 'type': {
-                readonly 'annotation': GAnnotation
                 readonly 'key': string
-                readonly 'referent': [ false ] | [ true, T.Global__Types.D<GAnnotation>]
+                readonly 'referent': [ false ] | [ true, T.Global__Types.D]
             }
         }]
         | ['resolved sibling', {
             readonly 'type': {
-                readonly 'annotation': GAnnotation
                 readonly 'key': string
-                readonly 'referent': [ false ] | [ true, T.Global__Type<GAnnotation>]
+                readonly 'referent': [ false ] | [ true, T.Global__Type]
             }
         }]
     
     export namespace Global__Types {
         
-        export type D<GAnnotation> = T.Global__Type<GAnnotation>
+        export type D = T.Global__Type
     }
     
-    export type Global__Types<GAnnotation> = pt.Dictionary<T.Global__Type<GAnnotation>>
+    export type Global__Types = pt.Dictionary<T.Global__Type>
     
     export namespace Imports {
         
         export namespace D {
             
-            export type annotation<GAnnotation> = GAnnotation
-            
             export namespace constraints {
                 
                 export namespace O {
                     
-                    export type library<GAnnotation> = T.Type__Library<GAnnotation>
+                    export type library = T.Type__Library
                 }
                 
-                export type O<GAnnotation> = {
-                    readonly 'library': T.Type__Library<GAnnotation>
+                export type O = {
+                    readonly 'library': T.Type__Library
                 }
             }
             
-            export type constraints<GAnnotation> = [ false ] | [ true, {
-                readonly 'library': T.Type__Library<GAnnotation>
+            export type constraints = [ false ] | [ true, {
+                readonly 'library': T.Type__Library
             }]
             
             export namespace content {}
             
-            export type content<GAnnotation> = null
+            export type content = null
         }
         
-        export type D<GAnnotation> = {
-            readonly 'annotation': GAnnotation
+        export type D = {
             readonly 'constraints': [ false ] | [ true, {
-                readonly 'library': T.Type__Library<GAnnotation>
+                readonly 'library': T.Type__Library
             }]
             readonly 'content': null
         }
     }
     
-    export type Imports<GAnnotation> = pt.Dictionary<{
-        readonly 'annotation': GAnnotation
+    export type Imports = pt.Dictionary<{
         readonly 'constraints': [ false ] | [ true, {
-            readonly 'library': T.Type__Library<GAnnotation>
+            readonly 'library': T.Type__Library
         }]
         readonly 'content': null
     }>
@@ -1266,37 +1238,33 @@ export namespace T {
         
         export namespace root {
             
-            export type annotation<GAnnotation> = GAnnotation
-            
-            export type key<GAnnotation> = string
+            export type key = string
             
             export namespace referent {
                 
-                export type O<GAnnotation> = T.Global__Types.D<GAnnotation>
+                export type O = T.Global__Types.D
             }
             
-            export type referent<GAnnotation> = [ false ] | [ true, T.Global__Types.D<GAnnotation>]
+            export type referent = [ false ] | [ true, T.Global__Types.D]
         }
         
-        export type root<GAnnotation> = {
-            readonly 'annotation': GAnnotation
+        export type root = {
             readonly 'key': string
-            readonly 'referent': [ false ] | [ true, T.Global__Types.D<GAnnotation>]
+            readonly 'referent': [ false ] | [ true, T.Global__Types.D]
         }
         
-        export type type__library<GAnnotation> = T.Type__Library<GAnnotation>
+        export type type__library = T.Type__Library
     }
     
-    export type Model<GAnnotation> = {
+    export type Model = {
         readonly 'root': {
-            readonly 'annotation': GAnnotation
             readonly 'key': string
-            readonly 'referent': [ false ] | [ true, T.Global__Types.D<GAnnotation>]
+            readonly 'referent': [ false ] | [ true, T.Global__Types.D]
         }
-        readonly 'type library': T.Type__Library<GAnnotation>
+        readonly 'type library': T.Type__Library
     }
     
-    export type Root<GAnnotation> = T.Model<GAnnotation>
+    export type Root = T.Model
     
     export namespace Type {
         
@@ -1304,43 +1272,43 @@ export namespace T {
             
             export namespace array {
                 
-                export type _ltype<GAnnotation> = T.Type<GAnnotation>
+                export type _ltype = T.Type
             }
             
-            export type array<GAnnotation> = {
-                readonly 'type': T.Type<GAnnotation>
+            export type array = {
+                readonly 'type': T.Type
             }
             
             export namespace atom {
                 
-                export type atom<GAnnotation> = T.Atom<GAnnotation>
+                export type atom = T.Atom
             }
             
-            export type atom<GAnnotation> = {
-                readonly 'atom': T.Atom<GAnnotation>
+            export type atom = {
+                readonly 'atom': T.Atom
             }
             
             export namespace component {
                 
-                export type _ltype<GAnnotation> = T.Global__Type__Selection<GAnnotation>
+                export type _ltype = T.Global__Type__Selection
             }
             
-            export type component<GAnnotation> = {
-                readonly 'type': T.Global__Type__Selection<GAnnotation>
+            export type component = {
+                readonly 'type': T.Global__Type__Selection
             }
             
-            export type constraint<GAnnotation> = T.Type__Selection<GAnnotation>
+            export type constraint = T.Type__Selection
             
             export namespace cyclic__reference {
                 
-                export type atom<GAnnotation> = T.Atom<GAnnotation>
+                export type atom = T.Atom
                 
-                export type sibling<GAnnotation> = T.Global__Type__Selection<GAnnotation>
+                export type sibling = T.Global__Type__Selection
             }
             
-            export type cyclic__reference<GAnnotation> = {
-                readonly 'atom': T.Atom<GAnnotation>
-                readonly 'sibling': T.Global__Type__Selection<GAnnotation>
+            export type cyclic__reference = {
+                readonly 'atom': T.Atom
+                readonly 'sibling': T.Global__Type__Selection
             }
             
             export namespace dictionary {
@@ -1355,67 +1323,67 @@ export namespace T {
                                 
                                 export namespace no {}
                                 
-                                export type no<GAnnotation> = null
+                                export type no = null
                                 
                                 export namespace yes {}
                                 
-                                export type yes<GAnnotation> = null
+                                export type yes = null
                             }
                             
-                            export type dense<GAnnotation> = 
+                            export type dense = 
                                 | ['no', null]
                                 | ['yes', null]
                             
-                            export type dictionary<GAnnotation> = T.Dictionary__Selection<GAnnotation>
+                            export type dictionary = T.Dictionary__Selection
                         }
                         
-                        export type dictionary<GAnnotation> = {
+                        export type dictionary = {
                             readonly 'dense': 
                                 | ['no', null]
                                 | ['yes', null]
-                            readonly 'dictionary': T.Dictionary__Selection<GAnnotation>
+                            readonly 'dictionary': T.Dictionary__Selection
                         }
                         
-                        export type lookup<GAnnotation> = T.Global__Type__Selection<GAnnotation>
+                        export type lookup = T.Global__Type__Selection
                     }
                     
-                    export type D<GAnnotation> = 
+                    export type D = 
                         | ['dictionary', {
                             readonly 'dense': 
                                 | ['no', null]
                                 | ['yes', null]
-                            readonly 'dictionary': T.Dictionary__Selection<GAnnotation>
+                            readonly 'dictionary': T.Dictionary__Selection
                         }]
-                        | ['lookup', T.Global__Type__Selection<GAnnotation>]
+                        | ['lookup', T.Global__Type__Selection]
                 }
                 
-                export type constraints<GAnnotation> = pt.Dictionary<
+                export type constraints = pt.Dictionary<
                     | ['dictionary', {
                         readonly 'dense': 
                             | ['no', null]
                             | ['yes', null]
-                        readonly 'dictionary': T.Dictionary__Selection<GAnnotation>
+                        readonly 'dictionary': T.Dictionary__Selection
                     }]
-                    | ['lookup', T.Global__Type__Selection<GAnnotation>]
+                    | ['lookup', T.Global__Type__Selection]
                 >
                 
-                export type key<GAnnotation> = T.Atom<GAnnotation>
+                export type key = T.Atom
                 
-                export type _ltype<GAnnotation> = T.Type<GAnnotation>
+                export type _ltype = T.Type
             }
             
-            export type dictionary<GAnnotation> = {
+            export type dictionary = {
                 readonly 'constraints': pt.Dictionary<
                     | ['dictionary', {
                         readonly 'dense': 
                             | ['no', null]
                             | ['yes', null]
-                        readonly 'dictionary': T.Dictionary__Selection<GAnnotation>
+                        readonly 'dictionary': T.Dictionary__Selection
                     }]
-                    | ['lookup', T.Global__Type__Selection<GAnnotation>]
+                    | ['lookup', T.Global__Type__Selection]
                 >
-                readonly 'key': T.Atom<GAnnotation>
-                readonly 'type': T.Type<GAnnotation>
+                readonly 'key': T.Atom
+                readonly 'type': T.Type
             }
             
             export namespace group {
@@ -1424,59 +1392,59 @@ export namespace T {
                     
                     export namespace D {
                         
-                        export type _ltype<GAnnotation> = T.Type<GAnnotation>
+                        export type _ltype = T.Type
                     }
                     
-                    export type D<GAnnotation> = {
-                        readonly 'type': T.Type<GAnnotation>
+                    export type D = {
+                        readonly 'type': T.Type
                     }
                 }
                 
-                export type properties<GAnnotation> = pt.Dictionary<{
-                    readonly 'type': T.Type<GAnnotation>
+                export type properties = pt.Dictionary<{
+                    readonly 'type': T.Type
                 }>
             }
             
-            export type group<GAnnotation> = {
+            export type group = {
                 readonly 'properties': pt.Dictionary<{
-                    readonly 'type': T.Type<GAnnotation>
+                    readonly 'type': T.Type
                 }>
             }
             
             export namespace nothing {}
             
-            export type nothing<GAnnotation> = null
+            export type nothing = null
             
             export namespace optional {
                 
-                export type _ltype<GAnnotation> = T.Type<GAnnotation>
+                export type _ltype = T.Type
             }
             
-            export type optional<GAnnotation> = {
-                readonly 'type': T.Type<GAnnotation>
+            export type optional = {
+                readonly 'type': T.Type
             }
             
             export namespace resolved__reference {
                 
-                export type atom<GAnnotation> = T.Atom<GAnnotation>
+                export type atom = T.Atom
                 
                 export namespace value {
                     
-                    export type dictionary<GAnnotation> = T.Dictionary__Selection<GAnnotation>
+                    export type dictionary = T.Dictionary__Selection
                     
-                    export type lookup<GAnnotation> = T.Global__Type__Selection<GAnnotation>
+                    export type lookup = T.Global__Type__Selection
                 }
                 
-                export type value<GAnnotation> = 
-                    | ['dictionary', T.Dictionary__Selection<GAnnotation>]
-                    | ['lookup', T.Global__Type__Selection<GAnnotation>]
+                export type value = 
+                    | ['dictionary', T.Dictionary__Selection]
+                    | ['lookup', T.Global__Type__Selection]
             }
             
-            export type resolved__reference<GAnnotation> = {
-                readonly 'atom': T.Atom<GAnnotation>
+            export type resolved__reference = {
+                readonly 'atom': T.Atom
                 readonly 'value': 
-                    | ['dictionary', T.Dictionary__Selection<GAnnotation>]
-                    | ['lookup', T.Global__Type__Selection<GAnnotation>]
+                    | ['dictionary', T.Dictionary__Selection]
+                    | ['lookup', T.Global__Type__Selection]
             }
             
             export namespace state__group {
@@ -1485,40 +1453,40 @@ export namespace T {
                     
                     export namespace D {
                         
-                        export type _ltype<GAnnotation> = T.Type<GAnnotation>
+                        export type _ltype = T.Type
                     }
                     
-                    export type D<GAnnotation> = {
-                        readonly 'type': T.Type<GAnnotation>
+                    export type D = {
+                        readonly 'type': T.Type
                     }
                 }
                 
-                export type states<GAnnotation> = pt.Dictionary<{
-                    readonly 'type': T.Type<GAnnotation>
+                export type states = pt.Dictionary<{
+                    readonly 'type': T.Type
                 }>
             }
             
-            export type state__group<GAnnotation> = {
+            export type state__group = {
                 readonly 'states': pt.Dictionary<{
-                    readonly 'type': T.Type<GAnnotation>
+                    readonly 'type': T.Type
                 }>
             }
         }
         
-        export type _ltype<GAnnotation> = 
+        export type _ltype = 
             | ['array', {
-                readonly 'type': T.Type<GAnnotation>
+                readonly 'type': T.Type
             }]
             | ['atom', {
-                readonly 'atom': T.Atom<GAnnotation>
+                readonly 'atom': T.Atom
             }]
             | ['component', {
-                readonly 'type': T.Global__Type__Selection<GAnnotation>
+                readonly 'type': T.Global__Type__Selection
             }]
-            | ['constraint', T.Type__Selection<GAnnotation>]
+            | ['constraint', T.Type__Selection]
             | ['cyclic reference', {
-                readonly 'atom': T.Atom<GAnnotation>
-                readonly 'sibling': T.Global__Type__Selection<GAnnotation>
+                readonly 'atom': T.Atom
+                readonly 'sibling': T.Global__Type__Selection
             }]
             | ['dictionary', {
                 readonly 'constraints': pt.Dictionary<
@@ -1526,50 +1494,50 @@ export namespace T {
                         readonly 'dense': 
                             | ['no', null]
                             | ['yes', null]
-                        readonly 'dictionary': T.Dictionary__Selection<GAnnotation>
+                        readonly 'dictionary': T.Dictionary__Selection
                     }]
-                    | ['lookup', T.Global__Type__Selection<GAnnotation>]
+                    | ['lookup', T.Global__Type__Selection]
                 >
-                readonly 'key': T.Atom<GAnnotation>
-                readonly 'type': T.Type<GAnnotation>
+                readonly 'key': T.Atom
+                readonly 'type': T.Type
             }]
             | ['group', {
                 readonly 'properties': pt.Dictionary<{
-                    readonly 'type': T.Type<GAnnotation>
+                    readonly 'type': T.Type
                 }>
             }]
             | ['nothing', null]
             | ['optional', {
-                readonly 'type': T.Type<GAnnotation>
+                readonly 'type': T.Type
             }]
             | ['resolved reference', {
-                readonly 'atom': T.Atom<GAnnotation>
+                readonly 'atom': T.Atom
                 readonly 'value': 
-                    | ['dictionary', T.Dictionary__Selection<GAnnotation>]
-                    | ['lookup', T.Global__Type__Selection<GAnnotation>]
+                    | ['dictionary', T.Dictionary__Selection]
+                    | ['lookup', T.Global__Type__Selection]
             }]
             | ['state group', {
                 readonly 'states': pt.Dictionary<{
-                    readonly 'type': T.Type<GAnnotation>
+                    readonly 'type': T.Type
                 }>
             }]
     }
     
-    export type Type<GAnnotation> = {
+    export type Type = {
         readonly 'type': 
             | ['array', {
-                readonly 'type': T.Type<GAnnotation>
+                readonly 'type': T.Type
             }]
             | ['atom', {
-                readonly 'atom': T.Atom<GAnnotation>
+                readonly 'atom': T.Atom
             }]
             | ['component', {
-                readonly 'type': T.Global__Type__Selection<GAnnotation>
+                readonly 'type': T.Global__Type__Selection
             }]
-            | ['constraint', T.Type__Selection<GAnnotation>]
+            | ['constraint', T.Type__Selection]
             | ['cyclic reference', {
-                readonly 'atom': T.Atom<GAnnotation>
-                readonly 'sibling': T.Global__Type__Selection<GAnnotation>
+                readonly 'atom': T.Atom
+                readonly 'sibling': T.Global__Type__Selection
             }]
             | ['dictionary', {
                 readonly 'constraints': pt.Dictionary<
@@ -1577,121 +1545,112 @@ export namespace T {
                         readonly 'dense': 
                             | ['no', null]
                             | ['yes', null]
-                        readonly 'dictionary': T.Dictionary__Selection<GAnnotation>
+                        readonly 'dictionary': T.Dictionary__Selection
                     }]
-                    | ['lookup', T.Global__Type__Selection<GAnnotation>]
+                    | ['lookup', T.Global__Type__Selection]
                 >
-                readonly 'key': T.Atom<GAnnotation>
-                readonly 'type': T.Type<GAnnotation>
+                readonly 'key': T.Atom
+                readonly 'type': T.Type
             }]
             | ['group', {
                 readonly 'properties': pt.Dictionary<{
-                    readonly 'type': T.Type<GAnnotation>
+                    readonly 'type': T.Type
                 }>
             }]
             | ['nothing', null]
             | ['optional', {
-                readonly 'type': T.Type<GAnnotation>
+                readonly 'type': T.Type
             }]
             | ['resolved reference', {
-                readonly 'atom': T.Atom<GAnnotation>
+                readonly 'atom': T.Atom
                 readonly 'value': 
-                    | ['dictionary', T.Dictionary__Selection<GAnnotation>]
-                    | ['lookup', T.Global__Type__Selection<GAnnotation>]
+                    | ['dictionary', T.Dictionary__Selection]
+                    | ['lookup', T.Global__Type__Selection]
             }]
             | ['state group', {
                 readonly 'states': pt.Dictionary<{
-                    readonly 'type': T.Type<GAnnotation>
+                    readonly 'type': T.Type
                 }>
             }]
     }
     
     export namespace Type__Library {
         
-        export type atom__types<GAnnotation> = T.Atom__Types<GAnnotation>
+        export type atom__types = T.Atom__Types
         
-        export type global__types<GAnnotation> = T.Global__Types<GAnnotation>
+        export type global__types = T.Global__Types
         
-        export type imports<GAnnotation> = T.Imports<GAnnotation>
+        export type imports = T.Imports
     }
     
-    export type Type__Library<GAnnotation> = {
-        readonly 'atom types': T.Atom__Types<GAnnotation>
-        readonly 'global types': T.Global__Types<GAnnotation>
-        readonly 'imports': T.Imports<GAnnotation>
+    export type Type__Library = {
+        readonly 'atom types': T.Atom__Types
+        readonly 'global types': T.Global__Types
+        readonly 'imports': T.Imports
     }
     
     export namespace Type__Selection {
         
         export namespace global__type {
             
-            export type annotation<GAnnotation> = GAnnotation
-            
-            export type key<GAnnotation> = string
+            export type key = string
             
             export namespace referent {
                 
-                export type O<GAnnotation> = T.Global__Types.D<GAnnotation>
+                export type O = T.Global__Types.D
             }
             
-            export type referent<GAnnotation> = [ false ] | [ true, T.Global__Types.D<GAnnotation>]
+            export type referent = [ false ] | [ true, T.Global__Types.D]
         }
         
-        export type global__type<GAnnotation> = {
-            readonly 'annotation': GAnnotation
+        export type global__type = {
             readonly 'key': string
-            readonly 'referent': [ false ] | [ true, T.Global__Types.D<GAnnotation>]
+            readonly 'referent': [ false ] | [ true, T.Global__Types.D]
         }
         
         export namespace _limport {
             
             export namespace O {
                 
-                export type annotation<GAnnotation> = GAnnotation
-                
-                export type key<GAnnotation> = string
+                export type key = string
                 
                 export namespace referent {
                     
-                    export type O<GAnnotation> = T.Imports.D<GAnnotation>
+                    export type O = T.Imports.D
                 }
                 
-                export type referent<GAnnotation> = [ false ] | [ true, T.Imports.D<GAnnotation>]
+                export type referent = [ false ] | [ true, T.Imports.D]
             }
             
-            export type O<GAnnotation> = {
-                readonly 'annotation': GAnnotation
+            export type O = {
                 readonly 'key': string
-                readonly 'referent': [ false ] | [ true, T.Imports.D<GAnnotation>]
+                readonly 'referent': [ false ] | [ true, T.Imports.D]
             }
         }
         
-        export type _limport<GAnnotation> = [ false ] | [ true, {
-            readonly 'annotation': GAnnotation
+        export type _limport = [ false ] | [ true, {
             readonly 'key': string
-            readonly 'referent': [ false ] | [ true, T.Imports.D<GAnnotation>]
+            readonly 'referent': [ false ] | [ true, T.Imports.D]
         }]
         
         export namespace tail {
             
-            export type O<GAnnotation> = T.Type__Selection__Tail<GAnnotation>
+            export type O = T.Type__Selection__Tail
         }
         
-        export type tail<GAnnotation> = [ false ] | [ true, T.Type__Selection__Tail<GAnnotation>]
+        export type tail = [ false ] | [ true, T.Type__Selection__Tail]
     }
     
-    export type Type__Selection<GAnnotation> = {
+    export type Type__Selection = {
         readonly 'global type': {
-            readonly 'annotation': GAnnotation
             readonly 'key': string
-            readonly 'referent': [ false ] | [ true, T.Global__Types.D<GAnnotation>]
+            readonly 'referent': [ false ] | [ true, T.Global__Types.D]
         }
         readonly 'import': [ false ] | [ true, {
-            readonly 'annotation': GAnnotation
             readonly 'key': string
-            readonly 'referent': [ false ] | [ true, T.Imports.D<GAnnotation>]
+            readonly 'referent': [ false ] | [ true, T.Imports.D]
         }]
-        readonly 'tail': [ false ] | [ true, T.Type__Selection__Tail<GAnnotation>]
+        readonly 'tail': [ false ] | [ true, T.Type__Selection__Tail]
     }
     
     export namespace Type__Selection__Tail {
@@ -1702,66 +1661,62 @@ export namespace T {
                 
                 export namespace array {
                     
-                    export type O<GAnnotation> = T.Type._ltype.array<GAnnotation>
+                    export type O = T.Type._ltype.array
                 }
                 
-                export type array<GAnnotation> = [ false ] | [ true, T.Type._ltype.array<GAnnotation>]
+                export type array = [ false ] | [ true, T.Type._ltype.array]
             }
             
-            export type array<GAnnotation> = {
-                readonly 'array': [ false ] | [ true, T.Type._ltype.array<GAnnotation>]
+            export type array = {
+                readonly 'array': [ false ] | [ true, T.Type._ltype.array]
             }
             
             export namespace dictionary {
                 
                 export namespace dictionary {
                     
-                    export type O<GAnnotation> = T.Type._ltype.dictionary<GAnnotation>
+                    export type O = T.Type._ltype.dictionary
                 }
                 
-                export type dictionary<GAnnotation> = [ false ] | [ true, T.Type._ltype.dictionary<GAnnotation>]
+                export type dictionary = [ false ] | [ true, T.Type._ltype.dictionary]
             }
             
-            export type dictionary<GAnnotation> = {
-                readonly 'dictionary': [ false ] | [ true, T.Type._ltype.dictionary<GAnnotation>]
+            export type dictionary = {
+                readonly 'dictionary': [ false ] | [ true, T.Type._ltype.dictionary]
             }
             
             export namespace group {
                 
                 export namespace group {
                     
-                    export type O<GAnnotation> = T.Type._ltype.group<GAnnotation>
+                    export type O = T.Type._ltype.group
                 }
                 
-                export type group<GAnnotation> = [ false ] | [ true, T.Type._ltype.group<GAnnotation>]
+                export type group = [ false ] | [ true, T.Type._ltype.group]
                 
                 export namespace property {
                     
-                    export type annotation<GAnnotation> = GAnnotation
-                    
-                    export type key<GAnnotation> = string
+                    export type key = string
                     
                     export namespace referent {
                         
-                        export type O<GAnnotation> = T.Type._ltype.group.properties.D<GAnnotation>
+                        export type O = T.Type._ltype.group.properties.D
                     }
                     
-                    export type referent<GAnnotation> = [ false ] | [ true, T.Type._ltype.group.properties.D<GAnnotation>]
+                    export type referent = [ false ] | [ true, T.Type._ltype.group.properties.D]
                 }
                 
-                export type property<GAnnotation> = {
-                    readonly 'annotation': GAnnotation
+                export type property = {
                     readonly 'key': string
-                    readonly 'referent': [ false ] | [ true, T.Type._ltype.group.properties.D<GAnnotation>]
+                    readonly 'referent': [ false ] | [ true, T.Type._ltype.group.properties.D]
                 }
             }
             
-            export type group<GAnnotation> = {
-                readonly 'group': [ false ] | [ true, T.Type._ltype.group<GAnnotation>]
+            export type group = {
+                readonly 'group': [ false ] | [ true, T.Type._ltype.group]
                 readonly 'property': {
-                    readonly 'annotation': GAnnotation
                     readonly 'key': string
-                    readonly 'referent': [ false ] | [ true, T.Type._ltype.group.properties.D<GAnnotation>]
+                    readonly 'referent': [ false ] | [ true, T.Type._ltype.group.properties.D]
                 }
             }
             
@@ -1769,118 +1724,110 @@ export namespace T {
                 
                 export namespace optional {
                     
-                    export type O<GAnnotation> = T.Type._ltype.optional<GAnnotation>
+                    export type O = T.Type._ltype.optional
                 }
                 
-                export type optional<GAnnotation> = [ false ] | [ true, T.Type._ltype.optional<GAnnotation>]
+                export type optional = [ false ] | [ true, T.Type._ltype.optional]
             }
             
-            export type optional<GAnnotation> = {
-                readonly 'optional': [ false ] | [ true, T.Type._ltype.optional<GAnnotation>]
+            export type optional = {
+                readonly 'optional': [ false ] | [ true, T.Type._ltype.optional]
             }
             
             export namespace state__group {
                 
                 export namespace state {
                     
-                    export type annotation<GAnnotation> = GAnnotation
-                    
-                    export type key<GAnnotation> = string
+                    export type key = string
                     
                     export namespace referent {
                         
-                        export type O<GAnnotation> = T.Type._ltype.state__group.states.D<GAnnotation>
+                        export type O = T.Type._ltype.state__group.states.D
                     }
                     
-                    export type referent<GAnnotation> = [ false ] | [ true, T.Type._ltype.state__group.states.D<GAnnotation>]
+                    export type referent = [ false ] | [ true, T.Type._ltype.state__group.states.D]
                 }
                 
-                export type state<GAnnotation> = {
-                    readonly 'annotation': GAnnotation
+                export type state = {
                     readonly 'key': string
-                    readonly 'referent': [ false ] | [ true, T.Type._ltype.state__group.states.D<GAnnotation>]
+                    readonly 'referent': [ false ] | [ true, T.Type._ltype.state__group.states.D]
                 }
                 
                 export namespace state__group {
                     
-                    export type O<GAnnotation> = T.Type._ltype.state__group<GAnnotation>
+                    export type O = T.Type._ltype.state__group
                 }
                 
-                export type state__group<GAnnotation> = [ false ] | [ true, T.Type._ltype.state__group<GAnnotation>]
+                export type state__group = [ false ] | [ true, T.Type._ltype.state__group]
             }
             
-            export type state__group<GAnnotation> = {
+            export type state__group = {
                 readonly 'state': {
-                    readonly 'annotation': GAnnotation
                     readonly 'key': string
-                    readonly 'referent': [ false ] | [ true, T.Type._ltype.state__group.states.D<GAnnotation>]
+                    readonly 'referent': [ false ] | [ true, T.Type._ltype.state__group.states.D]
                 }
-                readonly 'state group': [ false ] | [ true, T.Type._ltype.state__group<GAnnotation>]
+                readonly 'state group': [ false ] | [ true, T.Type._ltype.state__group]
             }
         }
         
-        export type step__type<GAnnotation> = 
+        export type step__type = 
             | ['array', {
-                readonly 'array': [ false ] | [ true, T.Type._ltype.array<GAnnotation>]
+                readonly 'array': [ false ] | [ true, T.Type._ltype.array]
             }]
             | ['dictionary', {
-                readonly 'dictionary': [ false ] | [ true, T.Type._ltype.dictionary<GAnnotation>]
+                readonly 'dictionary': [ false ] | [ true, T.Type._ltype.dictionary]
             }]
             | ['group', {
-                readonly 'group': [ false ] | [ true, T.Type._ltype.group<GAnnotation>]
+                readonly 'group': [ false ] | [ true, T.Type._ltype.group]
                 readonly 'property': {
-                    readonly 'annotation': GAnnotation
                     readonly 'key': string
-                    readonly 'referent': [ false ] | [ true, T.Type._ltype.group.properties.D<GAnnotation>]
+                    readonly 'referent': [ false ] | [ true, T.Type._ltype.group.properties.D]
                 }
             }]
             | ['optional', {
-                readonly 'optional': [ false ] | [ true, T.Type._ltype.optional<GAnnotation>]
+                readonly 'optional': [ false ] | [ true, T.Type._ltype.optional]
             }]
             | ['state group', {
                 readonly 'state': {
-                    readonly 'annotation': GAnnotation
                     readonly 'key': string
-                    readonly 'referent': [ false ] | [ true, T.Type._ltype.state__group.states.D<GAnnotation>]
+                    readonly 'referent': [ false ] | [ true, T.Type._ltype.state__group.states.D]
                 }
-                readonly 'state group': [ false ] | [ true, T.Type._ltype.state__group<GAnnotation>]
+                readonly 'state group': [ false ] | [ true, T.Type._ltype.state__group]
             }]
         
         export namespace tail {
             
-            export type O<GAnnotation> = T.Type__Selection__Tail<GAnnotation>
+            export type O = T.Type__Selection__Tail
         }
         
-        export type tail<GAnnotation> = [ false ] | [ true, T.Type__Selection__Tail<GAnnotation>]
+        export type tail = [ false ] | [ true, T.Type__Selection__Tail]
     }
     
-    export type Type__Selection__Tail<GAnnotation> = {
+    export type Type__Selection__Tail = {
         readonly 'step type': 
             | ['array', {
-                readonly 'array': [ false ] | [ true, T.Type._ltype.array<GAnnotation>]
+                readonly 'array': [ false ] | [ true, T.Type._ltype.array]
             }]
             | ['dictionary', {
-                readonly 'dictionary': [ false ] | [ true, T.Type._ltype.dictionary<GAnnotation>]
+                readonly 'dictionary': [ false ] | [ true, T.Type._ltype.dictionary]
             }]
             | ['group', {
-                readonly 'group': [ false ] | [ true, T.Type._ltype.group<GAnnotation>]
+                readonly 'group': [ false ] | [ true, T.Type._ltype.group]
                 readonly 'property': {
-                    readonly 'annotation': GAnnotation
                     readonly 'key': string
-                    readonly 'referent': [ false ] | [ true, T.Type._ltype.group.properties.D<GAnnotation>]
+                    readonly 'referent': [ false ] | [ true, T.Type._ltype.group.properties.D]
                 }
             }]
             | ['optional', {
-                readonly 'optional': [ false ] | [ true, T.Type._ltype.optional<GAnnotation>]
+                readonly 'optional': [ false ] | [ true, T.Type._ltype.optional]
             }]
             | ['state group', {
                 readonly 'state': {
-                    readonly 'annotation': GAnnotation
                     readonly 'key': string
-                    readonly 'referent': [ false ] | [ true, T.Type._ltype.state__group.states.D<GAnnotation>]
+                    readonly 'referent': [ false ] | [ true, T.Type._ltype.state__group.states.D]
                 }
-                readonly 'state group': [ false ] | [ true, T.Type._ltype.state__group<GAnnotation>]
+                readonly 'state group': [ false ] | [ true, T.Type._ltype.state__group]
             }]
-        readonly 'tail': [ false ] | [ true, T.Type__Selection__Tail<GAnnotation>]
+        readonly 'tail': [ false ] | [ true, T.Type__Selection__Tail]
     }
 }
