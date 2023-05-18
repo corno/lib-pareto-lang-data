@@ -250,21 +250,21 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
     const resolve_Global__Type__Selection: Resolve.Global__Type__Selection<Annotation> = ($, $p) => {
         switch ($[0]) {
             case 'cyclic sibling': return pl.ss($, ($) => {
-                const v_type = getAnnotatedEntry($p['cyclic sibling global types'], $.content.type)
+                const v_type = getAnnotatedEntry($p['cyclic sibling global types'], $.type)
                 return ['cyclic sibling', {
                     'type': v_type,//FIX ME; don't call
                 }]
             })
             case 'import': return pl.ss($, ($) => {
-                const v_library = getAnnotatedEntry($p.imports, $.content.library)
-                const v_type = getAnnotatedEntry(v_library.referent.constraints.library['global types'], $.content.type)
+                const v_library = getAnnotatedEntry($p.imports, $.library)
+                const v_type = getAnnotatedEntry(v_library.referent.constraints.library['global types'], $.type)
                 return ['import', {
                     'library': v_library,
                     'type': v_type,
                 }]
             })
             case 'resolved sibling': return pl.ss($, ($) => {
-                const v_type = getAnnotatedEntry($p['sibling global types'], $.content.type)
+                const v_type = getAnnotatedEntry($p['sibling global types'], $.type)
                 return ['resolved sibling', {
                     'type': v_type,
                 }]
@@ -289,30 +289,30 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
             'type': pl.cc($.type, ($) => {
                 switch ($[0]) {
                     case 'array': return pl.ss($, ($) => ['array', {
-                        'type': resolve_Type($.content.type, $p)
+                        'type': resolve_Type($.type, $p)
                     }])
                     case 'component': return pl.ss($, ($) => {
                         return ['component', {
-                            'type': resolve_Global__Type__Selection($.content.type, $p)
+                            'type': resolve_Global__Type__Selection($.type, $p)
                         }]
                     })
-                    case 'constraint': return pl.ss($, ($) => ['constraint', resolve_Type__Selection($.content, $p)])
+                    case 'constraint': return pl.ss($, ($) => ['constraint', resolve_Type__Selection($, $p)])
                     case 'dictionary': return pl.ss($, ($): g_out.T.Type._ltype => ['dictionary', {
-                        'constraints': $.content.constraints.map<g_out.T.Type._ltype.dictionary.constraints.D>(($) => pl.cc($, ($) => {
+                        'constraints': $.constraints.dictionary.map<g_out.T.Type._ltype.dictionary.constraints.D>(($) => pl.cc($, ($) => {
                             switch ($[0]) {
                                 case 'lookup': return pl.ss($, ($): g_out.T.Type._ltype.dictionary.constraints.D => {
-                                    const v_gts = resolve_Global__Type__Selection($.content, $p)
+                                    const v_gts = resolve_Global__Type__Selection($, $p)
                                     return ['lookup', v_gts]
                                 })
                                 case 'dictionary': return pl.ss($, ($): g_out.T.Type._ltype.dictionary.constraints.D => {
                                     return ['dictionary', {
-                                        'dictionary': resolve_Dictionary__Selection($.content.dictionary, {
-                                            'annotation': $.content.dictionary.type['global type'].annotation,
+                                        'dictionary': resolve_Dictionary__Selection($.dictionary, {
+                                            'annotation': $.dictionary.type['global type'].annotation,
                                             'cyclic sibling global types': $p['cyclic sibling global types'],
                                             'imports': $p.imports,
                                             'sibling global types': $p['sibling global types']
                                         }),
-                                        'dense':pl.cc($.content.dense, ($) => {
+                                        'dense':pl.cc($.dense, ($) => {
                                             switch ($[0]) {
                                                 case 'no': return pl.ss($, ($) => ['no', null])
                                                 case 'yes': return pl.ss($, ($) => ['yes', null])
@@ -324,12 +324,12 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
                                 default: return pl.au($[0])
                             }
                         })),
-                        'key': resolve_Atom($.content.key, { 'atom types': $p['atom types'] }),
-                        'type': resolve_Type($.content.type, $p)
+                        'key': resolve_Atom($.key, { 'atom types': $p['atom types'] }),
+                        'type': resolve_Type($.type, $p)
                     }])
                     case 'group': return pl.ss($, ($) => {
                         return ['group', {
-                            'properties': $.content.properties.map(($) => {
+                            'properties': $.properties.dictionary.map(($) => {
                                 return {
                                     'type': resolve_Type($.type, $p)
                                 }
@@ -338,11 +338,11 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
                     })
                     case 'nothing': return pl.ss($, ($) => ['nothing', null])
                     case 'optional': return pl.ss($, ($) => ['optional', {
-                        'type': resolve_Type($.content.type, $p),
+                        'type': resolve_Type($.type, $p),
                     }])
                     case 'state group': return pl.ss($, ($) => {
                         return ['state group', {
-                            'states': $d.resolveDictionary($.content.states, {
+                            'states': $d.resolveDictionary($.states.dictionary, {
                                 'map': ($, $l) => {
                                     return {
                                         'type': resolve_Type($.value.type, $p),
@@ -353,22 +353,22 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
                     })
                     case 'cyclic reference': return pl.ss($, ($) => {
                         return ['cyclic reference', {
-                            'atom': resolve_Atom($.content.atom, { 'atom types': $p['atom types'] }),
-                            'sibling': resolve_Global__Type__Selection($.content.sibling, $p)
+                            'atom': resolve_Atom($.atom, { 'atom types': $p['atom types'] }),
+                            'sibling': resolve_Global__Type__Selection($.sibling, $p)
                         }]
                     })
                     case 'resolved reference': return pl.ss($, ($) => {
                         return ['resolved reference', {
-                            'atom': resolve_Atom($.content.atom, { 'atom types': $p['atom types'] }),
-                            'value': pl.cc($.content.value, ($) => {
+                            'atom': resolve_Atom($.atom, { 'atom types': $p['atom types'] }),
+                            'value': pl.cc($.value, ($) => {
                                 switch ($[0]) {
                                     case 'lookup': return pl.ss($, ($) => {
-                                        const v_gts = resolve_Global__Type__Selection($.content, $p)
+                                        const v_gts = resolve_Global__Type__Selection($, $p)
                                         return ['lookup', v_gts]
                                     })
                                     case 'dictionary': return pl.ss($, ($) => {
-                                        return ['dictionary', resolve_Dictionary__Selection($.content, {
-                                            'annotation': $.content.type['global type'].annotation,
+                                        return ['dictionary', resolve_Dictionary__Selection($, {
+                                            'annotation': $.type['global type'].annotation,
                                             'cyclic sibling global types': $p['cyclic sibling global types'],
                                             'imports': $p.imports,
                                             'sibling global types': $p['sibling global types']
@@ -381,7 +381,7 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
                     })
                     case 'atom': return pl.ss($, ($) => {
                         return ['atom', {
-                            'atom': resolve_Atom($.content.atom, { 'atom types': $p['atom types'] }),
+                            'atom': resolve_Atom($.atom, { 'atom types': $p['atom types'] }),
                         }]
                     })
                     default: return pl.au($[0])
@@ -474,7 +474,7 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
                         }
                         return $[1]
                     })
-                    const v_property = getAnnotatedEntry(v_group.properties, $.content.property)
+                    const v_property = getAnnotatedEntry(v_group.properties, $.property)
                     return ['group', {
                         'group': v_group,
                         'property': v_property
@@ -516,7 +516,7 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
                         }
                         return $[1]
                     })
-                    const v_state = getAnnotatedEntry(v_state_group.states, $.content.state)
+                    const v_state = getAnnotatedEntry(v_state_group.states, $.state)
 
                     return ['state group', {
                         'state group': v_state_group,
@@ -541,7 +541,7 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
     }
 
     const resolve_Type__Library: Resolve.Type__Library<Annotation> = ($, $p) => {
-        const imports = $.imports.__mapWithKey(($, key) => {
+        const imports = $.imports.dictionary.__mapWithKey(($, key) => {
             return {
                 'constraints': {
                     'library': getEntry($p.imports, key, $.annotation)
@@ -549,11 +549,11 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
                 'content': null
             }
         })
-        const v_atom__types = $['atom types'].map(($) => null)
+        const v_atom__types = $['atom types'].dictionary.map(($) => null)
         return {
             'imports': imports,
             'atom types': v_atom__types,
-            'global types': $d.resolveDictionary($['global types'], {
+            'global types': $d.resolveDictionary($['global types'].dictionary, {
                 'map': (($, $l) => {
                     return {
                         'type': resolve_Type($.value.type, {

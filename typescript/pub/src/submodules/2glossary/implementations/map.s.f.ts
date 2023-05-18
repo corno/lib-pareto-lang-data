@@ -7,7 +7,6 @@ import * as g_this from "../glossary"
 import * as g_out from "lib-pareto-typescript-project/dist/submodules/glossary"
 import * as g_in from "../../resolved"
 
-
 import { A } from "../api.generated"
 
 export const $$: A.map = ($d) => {
@@ -340,43 +339,57 @@ export const $$: A.map = ($d) => {
                     const type = $.type
                     const constraints = $.constraints
 
-                    return ['dictionary', ($d.isEmpty(constraints) && !$p['mapping settings']['create annotations'])
-                        ? mapTypeToType(type, $p)
-                        : ['group', $d.filter(pm.wrapRawDictionary<pt.OptionalValue<g_out.T.Type.group.D<null>>>({
-                            "annotation": createOptionalAnnotation(null, $p),
-                            "constraints": createPossiblyOptionalType(null, {
-                                'mapping settings': $p['mapping settings'],
-                                'cb': () => {
-                                    return ['group', constraints.map(($) => {
-                                        return pl.cc($, ($): g_out.T.Type.group.D<null> => {
-                                            switch ($[0]) {
-                                                case 'dictionary': return pl.ss($, ($) => {
-                                                    const $a = $
+                    function doDict(): g_out.T.Type<null> {
 
-                                                    return {
-                                                        'type': pl.cc($, ($): g_out.T.Type<null> => {
-                                                            return ['reference', ['type', map_Type__Selection($a.dictionary.type, { 'getLastSteps': () => pm.wrapRawArray(["D"]) })]]
-                                                        })
-                                                    }
-                                                })
-                                                case 'lookup': return pl.ss($, ($) => {
-                                                    const $a = $
+                        return ['dictionary', ($d.isEmpty(constraints))
+                            ? mapTypeToType(type, $p)
+                            : ['group', $d.filter(pm.wrapRawDictionary<pt.OptionalValue<g_out.T.Type.group.D<null>>>({
+                                "annotation": createOptionalAnnotation(null, $p),
+                                "constraints": createPossiblyOptionalType(null, {
+                                    'mapping settings': $p['mapping settings'],
+                                    'cb': () => {
+                                        return ['group', constraints.map(($) => {
+                                            return pl.cc($, ($): g_out.T.Type.group.D<null> => {
+                                                switch ($[0]) {
+                                                    case 'dictionary': return pl.ss($, ($) => {
+                                                        const $a = $
 
-                                                    return {
-                                                        'type': ['reference', ['type', map_Global__Type__Selection($a)]]
-                                                    }
-                                                })
-                                                default: return pl.au($[0])
-                                            }
-                                        })
-                                    })]
-                                }
-                            }),
-                            "content": [true, {
-                                'type': mapTypeToType(type, $p)
-                            }]
-                        }))]
-                    ]
+                                                        return {
+                                                            'type': pl.cc($, ($): g_out.T.Type<null> => {
+                                                                return ['reference', ['type', map_Type__Selection($a.dictionary.type, { 'getLastSteps': () => pm.wrapRawArray(["D"]) })]]
+                                                            })
+                                                        }
+                                                    })
+                                                    case 'lookup': return pl.ss($, ($) => {
+                                                        const $a = $
+
+                                                        return {
+                                                            'type': ['reference', ['type', map_Global__Type__Selection($a)]]
+                                                        }
+                                                    })
+                                                    default: return pl.au($[0])
+                                                }
+                                            })
+                                        })]
+                                    }
+                                }),
+                                "content": [true, {
+                                    'type': mapTypeToType(type, $p)
+                                }]
+                            }))]
+                        ]
+                    }
+                    return $p['mapping settings']['create annotations']
+                    ? ['group', pm.wrapRawDictionary({
+                        "annotation": {
+                            'type': ['reference', ['glossary parameterXX', "Annotation"]],
+                        },
+                        "dictionary": {
+                            'type': doDict()
+                        }
+                    })]
+                    : doDict()
+
                 }))
                 case 'group': return pl.ss($, ($) => ['group', $.properties.map(($) => ({
                     'type': mapTypeToType($.type, $p),

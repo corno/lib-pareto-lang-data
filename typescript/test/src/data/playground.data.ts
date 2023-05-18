@@ -21,15 +21,16 @@ import {
     lookupConstraint,
     cyclicReference,
     dictionaryConstraint,
+    typeLibrary,
 } from "../../../pub/dist/submodules/unresolved/shorthands"
 
-export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = {
-    'imports': pd.d({}),
-    'atom types': pd.d({
+export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = typeLibrary(
+    {},
+    {
         "text": null,
         "identifier": null,
-    }),
-    'global types': pd.d({
+    },
+    {
         "Atom Types": globalType(
             dictionary(group({}))
         ),
@@ -267,5 +268,5 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = {
         "Root": globalType(
             component(typeRef("Model"))
         )
-    }),
-}
+    },
+)
