@@ -20,6 +20,9 @@ export const $$: A.map = ($d) => {
 
     type Map_Global__Type__Selection = (
         $: g_in.T.Global__Type__Selection,
+        $p: {
+            'mapping settings': g_this.T.Mapping__Settings
+        },
     ) => g_out.T.DataSpecifier._ltype<null>
     type Map_Type_2_Type = (
         $: g_in.T.Type,
@@ -101,7 +104,7 @@ export const $$: A.map = ($d) => {
         )
     }
 
-    const map_Global__Type__Selection: Map_Global__Type__Selection = ($,) => {
+    const map_Global__Type__Selection: Map_Global__Type__Selection = ($, $p) => {
         switch ($[0]) {
             case 'cyclic sibling': return pl.ss($, ($) => {
                 return {
@@ -119,9 +122,12 @@ export const $$: A.map = ($d) => {
                                 'annotation': null,
                                 'key': $.library.key
                             },
-                            'glossary arguments': pm.wrapRawDictionary({
-                                "Annotation": ['glossary parameterXX', "Annotation"]
-                            }),
+                            'glossary arguments': $d.filter(pm.wrapRawDictionary({
+                                "Annotation": $p['mapping settings']['create annotations']
+                                ? [true, ['glossary parameterXX', "Annotation"],]
+                                : [false]
+
+                            }))
                         }
                     }],
                     'type arguments': pm.wrapRawDictionary({}),
@@ -364,7 +370,7 @@ export const $$: A.map = ($d) => {
                                                         const $a = $
 
                                                         return {
-                                                            'type': ['reference', ['type', map_Global__Type__Selection($a)]]
+                                                            'type': ['reference', ['type', map_Global__Type__Selection($a, $p)]]
                                                         }
                                                     })
                                                     default: return pl.au($[0])
@@ -434,7 +440,7 @@ export const $$: A.map = ($d) => {
                                 return pl.cc($.value, ($) => {
                                     switch ($[0]) {
                                         case 'dictionary': return pl.ss($, ($) => ['reference', ['type', map_Type__Selection($['type'], { 'getLastSteps': () => pm.wrapRawArray(["D"]) })]])
-                                        case 'lookup': return pl.ss($, ($) => ['reference', ['type', map_Global__Type__Selection($)]])
+                                        case 'lookup': return pl.ss($, ($) => ['reference', ['type', map_Global__Type__Selection($, $p)]])
                                         default: return pl.au($[0])
                                     }
                                 })
@@ -457,7 +463,7 @@ export const $$: A.map = ($d) => {
                             return createPossiblyOptionalType(null, {
                                 'mapping settings': $p['mapping settings'],
                                 'cb': () => {
-                                    return ['computed', ['reference', ['type', map_Global__Type__Selection($.sibling)]]]
+                                    return ['computed', ['reference', ['type', map_Global__Type__Selection($.sibling, $p)]]]
                                 }
                             })
                         }),//FIXME computed
