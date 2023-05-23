@@ -50,7 +50,7 @@ function r_imp(name: string, depth: number): g_common.T.AnnotatedKey<pd.SourceLo
 export function typeLibrary(
     imports: RawDictionary<g_this.T.Imports.dictionary.D<pd.SourceLocation>>,
     atomTypes: RawDictionary<g_this.T.Atom__Types.dictionary.D<pd.SourceLocation>>,
-    globalTypes: RawDictionary<g_this.T.Global__Types.dictionary.D<pd.SourceLocation>>,
+    globalTypes: RawDictionary<g_this.T.Global__Type<pd.SourceLocation>>,
 ): g_this.T.Type__Library<pd.SourceLocation> {
     return {
         'imports': dict(imports),
@@ -201,7 +201,7 @@ export function constraint(type: g_this.T.Type__Selection<pd.SourceLocation>): g
 
 export function globalType(
     type: g_this.T.Type<pd.SourceLocation>,
-): g_this.T.Global__Types.dictionary.D<pd.SourceLocation> {
+): g_this.T.Global__Type<pd.SourceLocation> {
     return {
         'type': type,
     }

@@ -8,8 +8,13 @@ const d = pd.d
 
 export const $: g_project.T.ModuleDefinition.api.root<pd.SourceLocation> = {
     'algorithms': d({
-        "map": algorithm(sfunction("this", {}, "Map"), {}, dependent(null, {
-            "resolveDictionary": sfunction("resolve", {}, "SafeResolveDictionary")
+        "map": algorithm(sfunction("this", {}, "Map"), { }, dependent(null, {
+            "resolveDictionary": sfunction("resolve", {}, "SafeResolveDictionary"),
+            "rekey": sfunction("dictionary", {}, "UnsafeRekey"),
+            "escape": sfunction("string", {}, "Escape"),
+            "merge": sfunction("dictionary", {}, "MergeAndIgnore"),
+            "addEntry": sfunction("dictionary", {}, "UnsafeAddEntry"),
+            "mergeDictionaries": sfunction("dictionary", {}, "MergeDictionaries"),
         }, {}))
     }),
 }

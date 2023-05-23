@@ -6,12 +6,15 @@ import * as pl from 'pareto-core-lib'
 
 import * as a_pub from "../../../../../pub"
 import * as a_resolve from "res-pareto-resolve"
+import * as a_dictionary from "res-pareto-dictionary"
+import * as a_string from "res-pareto-string"
 import * as a_glossary from "lib-pareto-typescript-project"
+import * as a_pld from "lib-proto-typesystem"
 
 import { $ as d_playground } from "../../../data/playground.data"
 
 import * as a_fp from "lib-fountain-pen"
-import * as a_2glossary from "../../../../../pub/dist/submodules/2glossary"
+import * as a_2prototypesystem from "../../../../../pub/dist/submodules/2prototypesystem"
 import * as a_pareto_lang_data_resolve from "../../../../../pub/dist/submodules/resolve"
 import * as g_resolved from "../../../../../pub/dist/submodules/resolved"
 
@@ -127,6 +130,51 @@ export const $$: A.getTestSet = ($) => {
         }
         type($.type)
     })
+
+
+    const pld = a_pld.$b.resolve()(a_2prototypesystem.$a.map(
+        {
+            'resolveDictionary': a_resolve.$r.safeResolveDictionary({
+                'onError': () => {
+
+                }
+            }),
+            'rekey': a_dictionary.$r.unsafeRekey(),
+            'escape': a_string.$r.escape(),
+            'merge': a_dictionary.$r.mergeAndIgnore(
+                {
+                    'error': {
+                        'data': () => {
+
+                        },
+                        'end': () => {
+
+                        }
+                    }
+                }
+            ),
+            'addEntry': a_dictionary.$r.unsafeAddEntry(),
+            'mergeDictionaries': a_dictionary.$r.mergeDictionaries(),
+        }
+    )({
+        'data': resolved['type library'],
+        'atom mappings': pd.d({
+            "text": ['string', null],
+            "identifier": ['string', null],
+        }),
+    }))
+
+    a_pld.$b.serializeToFileSystem()(
+        {
+            'data': pld,
+            'path': pm.wrapRawArray([$.testDirectory, "ts.ts"])
+        },
+        null,
+    )
+
+
+
+
 
     return pa.asyncValue({
         elements: pm.wrapRawDictionary({})

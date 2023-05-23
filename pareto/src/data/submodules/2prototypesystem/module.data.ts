@@ -14,7 +14,8 @@ export const $: g_project.T.Module<pd.SourceLocation> = {
             'root': glossary,
             'imports': d({
                 "in": sibling("resolved"),
-                "out": external("lib-proto-typesystem/dist/submodules/resolved"),
+                "out": external("lib-proto-typesystem/dist/submodules/unresolved"),
+                "common": external("glo-pareto-common")
             }),
 
         },
@@ -22,7 +23,9 @@ export const $: g_project.T.Module<pd.SourceLocation> = {
             'root': api,
             'imports': d({
                 "this": this_(),
-                "resolve": external("res-pareto-resolve")
+                "resolve": external("res-pareto-resolve"),
+                "dictionary": external("res-pareto-dictionary"),
+                "string": external("res-pareto-string"),
             }),
         },
     },

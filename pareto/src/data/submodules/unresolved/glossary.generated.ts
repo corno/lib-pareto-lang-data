@@ -118,22 +118,6 @@ export const $: g_glossary.T.Glossary<null> = {
                     })],
                 })]
             },
-            "Global Types": {
-                'parameters': d({}),
-                'type': <g_glossary.T.Type<null>>['group', d({
-                    "annotation": {
-                        'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
-                    },
-                    "dictionary": {
-                        'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['reference', ['type', {
-                            'context': ['local', null],
-                            'typeXX': "Global Type",
-                            'tailXX': a([]),
-                            'type arguments': d({}),
-                        }]]],
-                    },
-                })]
-            },
             "Imports": {
                 'parameters': d({}),
                 'type': <g_glossary.T.Type<null>>['group', d({
@@ -389,12 +373,19 @@ export const $: g_glossary.T.Glossary<null> = {
                         }]],
                     },
                     "global types": {
-                        'type': <g_glossary.T.Type<null>>['reference', ['type', {
-                            'context': ['local', null],
-                            'typeXX': "Global Types",
-                            'tailXX': a([]),
-                            'type arguments': d({}),
-                        }]],
+                        'type': <g_glossary.T.Type<null>>['group', d({
+                            "annotation": {
+                                'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
+                            },
+                            "dictionary": {
+                                'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['reference', ['type', {
+                                    'context': ['local', null],
+                                    'typeXX': "Global Type",
+                                    'tailXX': a([]),
+                                    'type arguments': d({}),
+                                }]]],
+                            },
+                        })],
                     },
                     "imports": {
                         'type': <g_glossary.T.Type<null>>['reference', ['type', {
@@ -616,15 +607,6 @@ export const $: g_glossary.T.Glossary<null> = {
                                 }),
                             },
                         }),
-                    },
-                }),
-            },
-            "Global Types": {
-                'types': d({}),
-                'namespaces': d({
-                    "D": {
-                        'types': d({}),
-                        'namespaces': d({}),
                     },
                 }),
             },
@@ -952,7 +934,12 @@ export const $: g_glossary.T.Glossary<null> = {
                             },
                             "global types": {
                                 'types': d({}),
-                                'namespaces': d({}),
+                                'namespaces': d({
+                                    "D": {
+                                        'types': d({}),
+                                        'namespaces': d({}),
+                                    },
+                                }),
                             },
                             "imports": {
                                 'types': d({}),

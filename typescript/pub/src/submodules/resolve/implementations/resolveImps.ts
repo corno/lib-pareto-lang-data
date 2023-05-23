@@ -53,7 +53,7 @@ export function resolve<Annotation>(
                         'key': key
                     }]
                 })
-                return pl.panic(`No Such Entry: ${key}`)
+                return pl.panic(`No Such EntryXX: ${key}`)
             }
         )
     }

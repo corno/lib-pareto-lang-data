@@ -2,8 +2,9 @@ import * as pt from 'pareto-core-types'
 
 import { T } from "./datatypes.generated"
 
+import * as g_common from "glo-pareto-common"
 import * as g_in from "../../resolved"
-import * as g_out from "lib-proto-typesystem/dist/submodules/resolved"
+import * as g_out from "lib-proto-typesystem/dist/submodules/unresolved"
 
 export namespace ASYNC {
     
@@ -18,7 +19,7 @@ export namespace SYNC {
         
         
         export namespace F {
-            export type Map = ($: g_in.T.Root) => g_out.T.Root
+            export type Map = ($: T.MapParameters) => g_out.T.Root<g_common.T.Null>
         }
     }
 }

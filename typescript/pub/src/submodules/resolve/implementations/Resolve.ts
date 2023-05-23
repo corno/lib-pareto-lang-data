@@ -14,8 +14,8 @@ export type Dictionary__Selection<Annotation> =  (
     $: g_in.T.Dictionary__Selection<Annotation>,
     $p: {
         'imports': g_out.T.Imports,
-        'sibling global types': pt.Lookup<g_out.T.Global__Types.D>
-        'cyclic sibling global types': pt.Lookup<() => g_out.T.Global__Types.D>,
+        'sibling global types': pt.Lookup<g_out.T.Global__Type>
+        'cyclic sibling global types': pt.Lookup<() => g_out.T.Global__Type>,
     },
 ) => g_out.T.Dictionary__Selection
 
@@ -23,8 +23,8 @@ export type Global__Type__Selection<Annotation> =  (
     $: g_in.T.Global__Type__Selection<Annotation>,
     $p: {
         'imports': g_out.T.Imports,
-        'sibling global types': pt.Lookup<g_out.T.Global__Types.D>
-        'cyclic sibling global types': pt.Lookup<() => g_out.T.Global__Types.D>,
+        'sibling global types': pt.Lookup<g_out.T.Global__Type>
+        'cyclic sibling global types': pt.Lookup<() => g_out.T.Global__Type>,
     },
 ) => g_out.T.Global__Type__Selection
 
@@ -47,8 +47,8 @@ export type Type<Annotation> =  (
     $p: {
         'atom types': g_out.T.Atom__Types,
         'imports': g_out.T.Imports,
-        'sibling global types': pt.Lookup<g_out.T.Global__Types.D>,
-        'cyclic sibling global types': pt.Lookup<() => g_out.T.Global__Types.D>,
+        'sibling global types': pt.Lookup<g_out.T.Global__Type>,
+        'cyclic sibling global types': pt.Lookup<() => g_out.T.Global__Type>,
     }
 ) => g_out.T.Type
 
@@ -56,7 +56,7 @@ export type Type__Selection<Annotation> =  (
     $: g_in.T.Type__Selection<Annotation>,
     $p: {
         'imports': g_out.T.Imports,
-        'sibling global types': pt.Lookup<g_out.T.Global__Types.D>
+        'sibling global types': pt.Lookup<g_out.T.Global__Type>
     },
 ) => g_out.T.Type__Selection
 
@@ -74,11 +74,14 @@ export type Type__Library<Annotation> =  (
     }
 ) => g_out.T.Type__Library
 
-
 export type Resolve<Annotation> = {
+    //Atom__Types: Atom__Types<Annotation>
     Atom: Atom<Annotation>
     Dictionary__Selection: Dictionary__Selection<Annotation>
+    //Global__Type: Global__Type<Annotation>
+    //Global__Types: Global__Types<Annotation>
     Global__Type__Selection: Global__Type__Selection<Annotation>
+    //Imports: Imports<Annotation>
     Model: Model<Annotation>
     Root: Root<Annotation>
     Type: Type<Annotation>

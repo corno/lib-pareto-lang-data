@@ -32,6 +32,7 @@ export const $: g_project.T.Project<pd.SourceLocation | null> = {
         "lib-proto-typesystem": null,
         "lib-pareto-typescript-project": null,
         "lib-fountain-pen": null,
+        "res-pareto-string": null,
     }),
     'type': ['library', {
         'main': d_main,
@@ -55,6 +56,9 @@ export const $: g_project.T.Project<pd.SourceLocation | null> = {
                 "res-pareto-resolve": null,
                 "lib-pareto-typescript-project": null,
                 "lib-fountain-pen": null,
+                "lib-proto-typesystem": null,
+                "res-pareto-string": null,
+                "res-pareto-dictionary": null,
             }),
             'definition': {
                 'glossary': {

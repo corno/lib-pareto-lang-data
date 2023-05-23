@@ -194,21 +194,6 @@ export namespace N {
         export namespace T {}
     }
     
-    export namespace Global_$_$Types {
-        
-        export namespace N {
-            
-            export namespace D {
-                
-                export namespace N {}
-                
-                export namespace T {}
-            }
-        }
-        
-        export namespace T {}
-    }
-    
     export namespace Imports {
         
         export namespace N {
@@ -739,7 +724,15 @@ export namespace N {
                     
                     export namespace global_$_$types {
                         
-                        export namespace N {}
+                        export namespace N {
+                            
+                            export namespace D {
+                                
+                                export namespace N {}
+                                
+                                export namespace T {}
+                            }
+                        }
                         
                         export namespace T {}
                     }
@@ -1161,23 +1154,6 @@ export namespace T {
                 readonly 'key': string
             }
         }]
-    
-    export namespace Global__Types {
-        
-        export type annotation<GAnnotation> = GAnnotation
-        
-        export namespace dictionary {
-            
-            export type D<GAnnotation> = T.Global__Type<GAnnotation>
-        }
-        
-        export type dictionary<GAnnotation> = pt.Dictionary<T.Global__Type<GAnnotation>>
-    }
-    
-    export type Global__Types<GAnnotation> = {
-        readonly 'annotation': GAnnotation
-        readonly 'dictionary': pt.Dictionary<T.Global__Type<GAnnotation>>
-    }
     
     export namespace Imports {
         
@@ -1622,14 +1598,32 @@ export namespace T {
         
         export type atom__types<GAnnotation> = T.Atom__Types<GAnnotation>
         
-        export type global__types<GAnnotation> = T.Global__Types<GAnnotation>
+        export namespace global__types {
+            
+            export type annotation<GAnnotation> = GAnnotation
+            
+            export namespace dictionary {
+                
+                export type D<GAnnotation> = T.Global__Type<GAnnotation>
+            }
+            
+            export type dictionary<GAnnotation> = pt.Dictionary<T.Global__Type<GAnnotation>>
+        }
+        
+        export type global__types<GAnnotation> = {
+            readonly 'annotation': GAnnotation
+            readonly 'dictionary': pt.Dictionary<T.Global__Type<GAnnotation>>
+        }
         
         export type imports<GAnnotation> = T.Imports<GAnnotation>
     }
     
     export type Type__Library<GAnnotation> = {
         readonly 'atom types': T.Atom__Types<GAnnotation>
-        readonly 'global types': T.Global__Types<GAnnotation>
+        readonly 'global types': {
+            readonly 'annotation': GAnnotation
+            readonly 'dictionary': pt.Dictionary<T.Global__Type<GAnnotation>>
+        }
         readonly 'imports': T.Imports<GAnnotation>
     }
     
