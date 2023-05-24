@@ -25,6 +25,11 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                         "boolean": group({}),
                     }))),
                     "data": member(ref(externalTypeReference("in", "Type Library", { }))),
+                })),
+                "SourceLocation": type(group({
+                    "file": member(string()),
+                    "line": member(number()),
+                    "column": member(number()),
                 }))
             }),
         },
@@ -35,7 +40,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
         'synchronous': {
             'interfaces': d({}),
             'algorithms': d({
-                "Map": sfunction(externalTypeReference("out", "Root", { "Annotation": externalTypeReference("common", "Null") }), data(typeReference("MapParameters"))),
+                "Map": sfunction(externalTypeReference("out", "Root", { "Annotation": typeReference("SourceLocation") }), data(typeReference("MapParameters"))),
             }),
         },
 }

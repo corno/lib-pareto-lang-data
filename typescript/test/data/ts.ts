@@ -1524,51 +1524,191 @@ export namespace Resolved {
 
 export namespace Resolve {
     
-    export type Atom__Types<_TAnnotation> = (
+    export type Atom__Types = <_TAnnotation>(
         $: Unresolved.Flat.Atom__Types$<_TAnnotation>,
     ) => Resolved.Flat.Atom__Types$
     
-    export type Atom<_TAnnotation> = (
+    export type Atom = <_TAnnotation>(
         $: Unresolved.Flat.Atom$<_TAnnotation>,
     ) => Resolved.Flat.Atom$
     
-    export type Type<_TAnnotation> = (
+    export type Type = <_TAnnotation>(
         $: Unresolved.Flat.Type$<_TAnnotation>,
     ) => Resolved.Flat.Type$
     
-    export type Imports<_TAnnotation> = (
+    export type Imports = <_TAnnotation>(
         $: Unresolved.Flat.Imports$<_TAnnotation>,
     ) => Resolved.Flat.Imports$
     
-    export type Global__Type<_TAnnotation> = (
+    export type Global__Type = <_TAnnotation>(
         $: Unresolved.Flat.Global__Type$<_TAnnotation>,
     ) => Resolved.Flat.Global__Type$
     
-    export type Type__Selection__Tail<_TAnnotation> = (
+    export type Type__Selection__Tail = <_TAnnotation>(
         $: Unresolved.Flat.Type__Selection__Tail$<_TAnnotation>,
     ) => Resolved.Flat.Type__Selection__Tail$
     
-    export type Type__Selection<_TAnnotation> = (
+    export type Type__Selection = <_TAnnotation>(
         $: Unresolved.Flat.Type__Selection$<_TAnnotation>,
     ) => Resolved.Flat.Type__Selection$
     
-    export type Dictionary__Selection<_TAnnotation> = (
+    export type Dictionary__Selection = <_TAnnotation>(
         $: Unresolved.Flat.Dictionary__Selection$<_TAnnotation>,
     ) => Resolved.Flat.Dictionary__Selection$
     
-    export type Type__Library<_TAnnotation> = (
+    export type Type__Library = <_TAnnotation>(
         $: Unresolved.Flat.Type__Library$<_TAnnotation>,
     ) => Resolved.Flat.Type__Library$
     
-    export type Global__Type__Selection<_TAnnotation> = (
+    export type Global__Type__Selection = <_TAnnotation>(
         $: Unresolved.Flat.Global__Type__Selection$<_TAnnotation>,
     ) => Resolved.Flat.Global__Type__Selection$
     
-    export type Model<_TAnnotation> = (
+    export type Model = <_TAnnotation>(
         $: Unresolved.Flat.Model$<_TAnnotation>,
     ) => Resolved.Flat.Model$
     
-    export type Root<_TAnnotation> = (
+    export type Root = <_TAnnotation>(
         $: Unresolved.Flat.Root$<_TAnnotation>,
     ) => Resolved.Flat.Root$
+}
+
+export namespace Serialize {
+    
+    export type Atom__Types = (
+        $: Resolved.Flat.Atom__Types$,
+        $p: {
+            readonly 'out': boolean
+        }
+    ) => void
+    
+    export type Atom = (
+        $: Resolved.Flat.Atom$,
+        $p: {
+            readonly 'out': boolean
+        }
+    ) => void
+    
+    export type Type = (
+        $: Resolved.Flat.Type$,
+        $p: {
+            readonly 'out': boolean
+        }
+    ) => void
+    
+    export type Imports = (
+        $: Resolved.Flat.Imports$,
+        $p: {
+            readonly 'out': boolean
+        }
+    ) => void
+    
+    export type Global__Type = (
+        $: Resolved.Flat.Global__Type$,
+        $p: {
+            readonly 'out': boolean
+        }
+    ) => void
+    
+    export type Type__Selection__Tail = (
+        $: Resolved.Flat.Type__Selection__Tail$,
+        $p: {
+            readonly 'out': boolean
+        }
+    ) => void
+    
+    export type Type__Selection = (
+        $: Resolved.Flat.Type__Selection$,
+        $p: {
+            readonly 'out': boolean
+        }
+    ) => void
+    
+    export type Dictionary__Selection = (
+        $: Resolved.Flat.Dictionary__Selection$,
+        $p: {
+            readonly 'out': boolean
+        }
+    ) => void
+    
+    export type Type__Library = (
+        $: Resolved.Flat.Type__Library$,
+        $p: {
+            readonly 'out': boolean
+        }
+    ) => void
+    
+    export type Global__Type__Selection = (
+        $: Resolved.Flat.Global__Type__Selection$,
+        $p: {
+            readonly 'out': boolean
+        }
+    ) => void
+    
+    export type Model = (
+        $: Resolved.Flat.Model$,
+        $p: {
+            readonly 'out': boolean
+        }
+    ) => void
+    
+    export type Root = (
+        $: Resolved.Flat.Root$,
+        $p: {
+            readonly 'out': boolean
+        }
+    ) => void
+}
+
+export type _$ = (
+    $: null,
+) => {
+    readonly 'Atom': {
+        readonly 'Resolve': Resolve.Atom
+        readonly 'Serialize': Serialize.Atom
+    }
+    readonly 'Atom Types': {
+        readonly 'Resolve': Resolve.Atom__Types
+        readonly 'Serialize': Serialize.Atom__Types
+    }
+    readonly 'Dictionary Selection': {
+        readonly 'Resolve': Resolve.Dictionary__Selection
+        readonly 'Serialize': Serialize.Dictionary__Selection
+    }
+    readonly 'Global Type': {
+        readonly 'Resolve': Resolve.Global__Type
+        readonly 'Serialize': Serialize.Global__Type
+    }
+    readonly 'Global Type Selection': {
+        readonly 'Resolve': Resolve.Global__Type__Selection
+        readonly 'Serialize': Serialize.Global__Type__Selection
+    }
+    readonly 'Imports': {
+        readonly 'Resolve': Resolve.Imports
+        readonly 'Serialize': Serialize.Imports
+    }
+    readonly 'Model': {
+        readonly 'Resolve': Resolve.Model
+        readonly 'Serialize': Serialize.Model
+    }
+    readonly 'Root': {
+        readonly 'Resolve': Resolve.Root
+        readonly 'Serialize': Serialize.Root
+    }
+    readonly 'Type': {
+        readonly 'Resolve': Resolve.Type
+        readonly 'Serialize': Serialize.Type
+    }
+    readonly 'Type Library': {
+        readonly 'Resolve': Resolve.Type__Library
+        readonly 'Serialize': Serialize.Type__Library
+    }
+    readonly 'Type Selection': {
+        readonly 'Resolve': Resolve.Type__Selection
+        readonly 'Serialize': Serialize.Type__Selection
+    }
+    readonly 'Type Selection Tail': {
+        readonly 'Resolve': Resolve.Type__Selection__Tail
+        readonly 'Serialize': Serialize.Type__Selection__Tail
+    }
 }

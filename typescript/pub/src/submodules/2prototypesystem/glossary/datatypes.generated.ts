@@ -50,4 +50,19 @@ export namespace T {
         >
         readonly 'data': g_in.T.Type__Library
     }
+    
+    export namespace SourceLocation {
+        
+        export type column = number
+        
+        export type file = string
+        
+        export type line = number
+    }
+    
+    export type SourceLocation = {
+        readonly 'column': number
+        readonly 'file': string
+        readonly 'line': number
+    }
 }

@@ -19,7 +19,7 @@ export namespace SYNC {
         
         
         export namespace F {
-            export type Map = ($: T.MapParameters) => g_out.T.Root<g_common.T.Null>
+            export type Map = ($: T.MapParameters) => g_out.T.Root<T.SourceLocation>
         }
     }
 }
