@@ -44,6 +44,7 @@ export const $$: A.map = ($d) => {
         $: g_in.T.Type__Selection,
         $p: {
             'getLastSteps': () => pt.Array<string>
+            'mapping settings': g_this.T.Mapping__Settings
         },
     ) => g_out.T.DataSpecifier._ltype<null>
 
@@ -124,8 +125,8 @@ export const $$: A.map = ($d) => {
                             },
                             'glossary arguments': $d.filter(pm.wrapRawDictionary({
                                 "Annotation": $p['mapping settings']['create annotations']
-                                ? [true, ['glossary parameterXX', "Annotation"],]
-                                : [false]
+                                    ? [true, ['glossary parameterXX', "Annotation"],]
+                                    : [false]
 
                             }))
                         }
@@ -177,9 +178,11 @@ export const $$: A.map = ($d) => {
                 $.import,
                 ($): g_out.T.DataSpecifier._ltype.context<null> => ['import', {
                     'glossary': {
-                        'glossary arguments': pm.wrapRawDictionary({
-                            "Annotation": ['glossary parameterXX', "Annotation"]
-                        }),
+                        'glossary arguments': $p['mapping settings']['create annotations']
+                            ? pm.wrapRawDictionary({
+                                "Annotation": ['glossary parameterXX', "Annotation"]
+                            })
+                            : pm.wrapRawDictionary({}),
                         'glossary': {
                             'annotation': null,
                             'key': $.key
@@ -332,8 +335,15 @@ export const $$: A.map = ($d) => {
                         ($): g_out.T.Type<null> => pl.cc($, ($) => {
 
                             switch ($[0]) {
-                                case 'optional': return pl.ss($, ($) => ['optional', ['reference', ['type', map_Type__Selection($a, { 'getLastSteps': () => pm.wrapRawArray([]) })]]])
-                                case 'required': return pl.ss($, ($) => ['reference', ['type', map_Type__Selection($a, { 'getLastSteps': () => pm.wrapRawArray([]) })]])
+                                case 'optional': return pl.ss($, ($) => ['optional', ['reference', ['type', map_Type__Selection($a, {
+                                    'mapping settings': $p['mapping settings'],
+
+                                    'getLastSteps': () => pm.wrapRawArray([])
+                                })]]])
+                                case 'required': return pl.ss($, ($) => ['reference', ['type', map_Type__Selection($a, {
+                                    'mapping settings': $p['mapping settings'],
+                                    'getLastSteps': () => pm.wrapRawArray([])
+                                })]])
                                 default: return pl.au($[0])
                             }
                         }),
@@ -362,7 +372,10 @@ export const $$: A.map = ($d) => {
 
                                                         return {
                                                             'type': pl.cc($, ($): g_out.T.Type<null> => {
-                                                                return ['reference', ['type', map_Type__Selection($a.dictionary.type, { 'getLastSteps': () => pm.wrapRawArray(["D"]) })]]
+                                                                return ['reference', ['type', map_Type__Selection($a.dictionary.type, {
+                                                                    'mapping settings': $p['mapping settings'],
+                                                                    'getLastSteps': () => pm.wrapRawArray(["D"])
+                                                                })]]
                                                             })
                                                         }
                                                     })
@@ -386,15 +399,15 @@ export const $$: A.map = ($d) => {
                         ]
                     }
                     return $p['mapping settings']['create annotations']
-                    ? ['group', pm.wrapRawDictionary({
-                        "annotation": {
-                            'type': ['reference', ['glossary parameterXX', "Annotation"]],
-                        },
-                        "dictionary": {
-                            'type': doDict()
-                        }
-                    })]
-                    : doDict()
+                        ? ['group', pm.wrapRawDictionary({
+                            "annotation": {
+                                'type': ['reference', ['glossary parameterXX', "Annotation"]],
+                            },
+                            "dictionary": {
+                                'type': doDict()
+                            }
+                        })]
+                        : doDict()
 
                 }))
                 case 'group': return pl.ss($, ($) => ['group', $.properties.map(($) => ({
@@ -439,7 +452,10 @@ export const $$: A.map = ($d) => {
                             return createOptionalConstraintProperty(() => {
                                 return pl.cc($.value, ($) => {
                                     switch ($[0]) {
-                                        case 'dictionary': return pl.ss($, ($) => ['reference', ['type', map_Type__Selection($['type'], { 'getLastSteps': () => pm.wrapRawArray(["D"]) })]])
+                                        case 'dictionary': return pl.ss($, ($) => ['reference', ['type', map_Type__Selection($['type'], {
+                                            'mapping settings': $p['mapping settings'],
+                                            'getLastSteps': () => pm.wrapRawArray(["D"])
+                                        })]])
                                         case 'lookup': return pl.ss($, ($) => ['reference', ['type', map_Global__Type__Selection($, $p)]])
                                         default: return pl.au($[0])
                                     }
