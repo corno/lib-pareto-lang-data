@@ -247,6 +247,37 @@ export namespace N {
         export namespace T {}
     }
     
+    export namespace Project {
+        
+        export namespace N {
+            
+            export namespace G {
+                
+                export namespace N {
+                    
+                    export namespace type_$_$libraries {
+                        
+                        export namespace N {
+                            
+                            export namespace D {
+                                
+                                export namespace N {}
+                                
+                                export namespace T {}
+                            }
+                        }
+                        
+                        export namespace T {}
+                    }
+                }
+                
+                export namespace T {}
+            }
+        }
+        
+        export namespace T {}
+    }
+    
     export namespace Root {
         
         export namespace N {}
@@ -1213,6 +1244,33 @@ export namespace T {
             readonly 'key': string
         }
         readonly 'type library': T.Type__Library<GAnnotation>
+    }
+    
+    export namespace Project {
+        
+        export namespace type__libraries {
+            
+            export type annotation<GAnnotation> = GAnnotation
+            
+            export namespace dictionary {
+                
+                export type D<GAnnotation> = T.Type__Library<GAnnotation>
+            }
+            
+            export type dictionary<GAnnotation> = pt.Dictionary<T.Type__Library<GAnnotation>>
+        }
+        
+        export type type__libraries<GAnnotation> = {
+            readonly 'annotation': GAnnotation
+            readonly 'dictionary': pt.Dictionary<T.Type__Library<GAnnotation>>
+        }
+    }
+    
+    export type Project<GAnnotation> = {
+        readonly 'type libraries': {
+            readonly 'annotation': GAnnotation
+            readonly 'dictionary': pt.Dictionary<T.Type__Library<GAnnotation>>
+        }
     }
     
     export type Root<GAnnotation> = T.Model<GAnnotation>

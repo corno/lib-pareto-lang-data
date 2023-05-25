@@ -390,6 +390,18 @@ export function resolve<Annotation>(
         }
     }
 
+    const Project: Resolve.Project<Annotation> = ($, $p) => {
+        return {
+            'type libraries': $d.resolveDictionary(
+                $['type libraries'].dictionary,
+                {
+                    'map': ($, $l) => Type__Library($.value, {
+                        'external type libraries': $l['non circular siblings']
+                    })
+                })
+        }
+    }
+
     const Type__Library: Resolve.Type__Library<Annotation> = ($, $p) => {
         const imports = $.imports.dictionary.__mapWithKey(($, key) => {
             return {
@@ -422,6 +434,7 @@ export function resolve<Annotation>(
         'Dictionary__Selection': Dictionary__Selection,
         'Global__Type__Selection': Global__Type__Selection,
         'Model': Model,
+        'Project': Project,
         'Root': Root,
         'Type': Type,
         'Type__Library': Type__Library,

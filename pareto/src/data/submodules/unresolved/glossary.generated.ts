@@ -159,6 +159,26 @@ export const $: g_glossary.T.Glossary<null> = {
                     },
                 })]
             },
+            "Project": {
+                'parameters': d({}),
+                'type': <g_glossary.T.Type<null>>['group', d({
+                    "type libraries": {
+                        'type': <g_glossary.T.Type<null>>['group', d({
+                            "annotation": {
+                                'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
+                            },
+                            "dictionary": {
+                                'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['reference', ['type', {
+                                    'context': ['local', null],
+                                    'typeXX': "Type Library",
+                                    'tailXX': a([]),
+                                    'type arguments': d({}),
+                                }]]],
+                            },
+                        })],
+                    },
+                })]
+            },
             "Root": {
                 'parameters': d({}),
                 'type': <g_glossary.T.Type<null>>['reference', ['type', {
@@ -637,6 +657,25 @@ export const $: g_glossary.T.Glossary<null> = {
                             "type library": {
                                 'types': d({}),
                                 'namespaces': d({}),
+                            },
+                        }),
+                    },
+                }),
+            },
+            "Project": {
+                'types': d({}),
+                'namespaces': d({
+                    "G": {
+                        'types': d({}),
+                        'namespaces': d({
+                            "type libraries": {
+                                'types': d({}),
+                                'namespaces': d({
+                                    "D": {
+                                        'types': d({}),
+                                        'namespaces': d({}),
+                                    },
+                                }),
                             },
                         }),
                     },

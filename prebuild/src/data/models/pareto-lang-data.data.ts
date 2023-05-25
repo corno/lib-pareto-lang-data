@@ -172,6 +172,9 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = typeLibr
                 "root": prop(dictionaryReference(typeSelection("Type Library", t_grp("global types")))),
             })
         ),
+        "Project": globalType(group({
+            "type libraries": prop(dictionary(component(typeRef("Type Library")))),
+        })),
         "Root": globalType(
             component(typeRef("Model"))
         )

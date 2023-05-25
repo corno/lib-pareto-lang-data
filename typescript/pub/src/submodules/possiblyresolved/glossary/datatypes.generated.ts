@@ -247,6 +247,37 @@ export namespace N {
         export namespace T {}
     }
     
+    export namespace Project {
+        
+        export namespace N {
+            
+            export namespace G {
+                
+                export namespace N {
+                    
+                    export namespace type_$_$libraries {
+                        
+                        export namespace N {
+                            
+                            export namespace D {
+                                
+                                export namespace N {}
+                                
+                                export namespace T {}
+                            }
+                        }
+                        
+                        export namespace T {}
+                    }
+                }
+                
+                export namespace T {}
+            }
+        }
+        
+        export namespace T {}
+    }
+    
     export namespace Root {
         
         export namespace N {}
@@ -1248,6 +1279,20 @@ export namespace T {
             readonly 'referent': [ false ] | [ true, T.Type__Library.global__types.D]
         }
         readonly 'type library': T.Type__Library
+    }
+    
+    export namespace Project {
+        
+        export namespace type__libraries {
+            
+            export type D = T.Type__Library
+        }
+        
+        export type type__libraries = pt.Dictionary<T.Type__Library>
+    }
+    
+    export type Project = {
+        readonly 'type libraries': pt.Dictionary<T.Type__Library>
     }
     
     export type Root = T.Model

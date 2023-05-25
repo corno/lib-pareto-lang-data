@@ -74,6 +74,12 @@ export type Type__Library<Annotation> =  (
     }
 ) => g_out.T.Type__Library
 
+export type Project<Annotation> =  (
+    $: g_in.T.Project<Annotation>,
+    $p: {
+    }
+) => g_out.T.Project
+
 export type Resolve<Annotation> = {
     //Atom__Types: Atom__Types<Annotation>
     Atom: Atom<Annotation>
@@ -83,6 +89,7 @@ export type Resolve<Annotation> = {
     Global__Type__Selection: Global__Type__Selection<Annotation>
     //Imports: Imports<Annotation>
     Model: Model<Annotation>
+    Project: Project<Annotation>
     Root: Root<Annotation>
     Type: Type<Annotation>
     Type__Library: Type__Library<Annotation>
