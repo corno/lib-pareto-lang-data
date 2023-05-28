@@ -22,6 +22,7 @@ import {
     lookupReference,
     constraint,
     typeLibrary,
+    t_dict,
 } from "lib-pareto-lang-data/dist/submodules/unresolved/shorthands"
 
 export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = typeLibrary(
@@ -96,15 +97,27 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = typeLibr
             })
         ),
         "Imports": globalType(
-            constrainedDictionary(
-                {
-                    "library": lookupConstraint(typeRef("Type Library", true))
-                },
-                group({})
+            dictionary(
+                group({
+                    "library": prop(lookupReference(typeRef("Type Library", true)))
+                })
             )
         ),
-        "Global Type": globalType(
+        "Global Type Declaration": globalType(group({
+            "parameters": prop(dictionary(group({
+                "type": prop(stateGroup({
+                    "resolved value": state(cyclicReference(typeRef("Global Type Declaration", true))),
+                    "sibling lookup": state(cyclicReference(typeRef("Global Type Declaration", true))),
+                    "cyclic sibling lookup": state(cyclicReference(typeRef("Global Type Declaration", true))),
+                })),
+                "optional": prop(optional(group({}))),
+            }))),
+            "result": prop(optional(cyclicReference(typeRef("Global Type Declaration", true)))),
+        })),
+        "Global Type Declarations": globalType(dictionary(component(typeRef("Global Type Declaration")))),
+        "Global Type Definition": globalType(
             group({
+                "declaration": prop(constraint(typeSelection("Global Type Declarations", t_dict()))),
                 "type": prop(component(typeRef("Type"))),
             })
         ),
@@ -113,30 +126,34 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = typeLibr
                 "step type": prop(stateGroup({
                     "dictionary": state(group({
                         "dictionary": prop(constraint(typeSelection("Type", t_grp("type", t_sg("dictionary"))))),
+                        "tail": prop(optional(component(typeRef("Type Selection Tail", true))))
                     })),
                     "optional": state(group({
                         "optional": prop(constraint(typeSelection("Type", t_grp("type", t_sg("optional"))))),
+                        "tail": prop(optional(component(typeRef("Type Selection Tail", true))))
                     })),
                     "array": state(group({
                         "array": prop(constraint(typeSelection("Type", t_grp("type", t_sg("array"))))),
+                        "tail": prop(optional(component(typeRef("Type Selection Tail", true))))
                     })),
                     "group": state(group({
                         "group": prop(constraint(typeSelection("Type", t_grp("type", t_sg("group"))))),
-                        "property": prop(dictionaryReference(typeSelection("Type", t_grp("type", t_sg("group", t_grp("properties"))))))
+                        "property": prop(dictionaryReference(typeSelection("Type", t_grp("type", t_sg("group", t_grp("properties")))))),
+                        "tail": prop(optional(component(typeRef("Type Selection Tail", true))))
                     })),
                     "state group": state(group({
                         "state group": prop(constraint(typeSelection("Type", t_grp("type", t_sg("state group"))))),
-                        "state": prop(dictionaryReference(typeSelection("Type", t_grp("type", t_sg("state group", t_grp("states"))))))
+                        "state": prop(dictionaryReference(typeSelection("Type", t_grp("type", t_sg("state group", t_grp("states")))))),
+                        "tail": prop(optional(component(typeRef("Type Selection Tail", true))))
                     })),
                 })),
-                "tail": prop(optional(component(typeRef("Type Selection Tail", true))))
-            }),
+            })
         ),
         "Type Selection": globalType(
             group({
                 "import": prop(optional(dictionaryReference(typeSelection("Imports")))),
-                "global type": prop(lookupReference(typeRef("Global Type"))),
-                "tail": prop(optional(component(typeRef("Type Selection Tail"))))
+                "global type": prop(lookupReference(typeRef("Global Type Definition"))),
+                "tail": prop(optional(component(typeRef("Type Selection Tail", true)))),
             }),
         ),
         "Dictionary Selection": globalType(
@@ -149,34 +166,37 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = typeLibr
             group({
                 "imports": prop(component(typeRef("Imports"))),
                 "atom types": prop(component(typeRef("Atom Types"))),
-                "global types": prop(dictionary(component(typeRef("Global Type")))),
+                "global types": prop(group({
+                    "declarations": prop(component(typeRef("Global Type Declarations"))),
+                    "definitions": prop(dictionary(component(typeRef("Global Type Definition")))),
+                })),
             })
         ),
         "Global Type Selection": globalType(
             stateGroup({
                 "resolved sibling": state(group({
-                    "type": prop(lookupReference(typeRef("Global Type"))),
+                    "type": prop(lookupReference(typeRef("Global Type Definition"))),
                 })),
                 "import": state(group({
                     "library": prop(dictionaryReference(typeSelection("Imports"))),
-                    "type": prop(dictionaryReference(typeSelection("Type Library", t_grp("global types")))),
+                    "type": prop(dictionaryReference(typeSelection("Type Library", t_grp("global types", t_grp("definitions"))))),
                 })),
                 "cyclic sibling": state(group({
-                    "type": prop(cyclicReference(typeRef("Global Type"))),
+                    "type": prop(cyclicReference(typeRef("Global Type Definition"))),
                 })),
             }),
         ),
         "Model": globalType(
             group({
                 "type library": prop(component(typeRef("Type Library"))),
-                "root": prop(dictionaryReference(typeSelection("Type Library", t_grp("global types")))),
+                "root": prop(dictionaryReference(typeSelection("Type Library", t_grp("global types", t_grp("definitions"))))),
             })
         ),
         "Project": globalType(group({
             "type libraries": prop(dictionary(component(typeRef("Type Library")))),
         })),
         "Root": globalType(
-            component(typeRef("Model"))
+            component(typeRef("Project"))
         )
     },
 )

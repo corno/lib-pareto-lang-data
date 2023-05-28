@@ -10,6 +10,7 @@ export namespace D {
     export type map = {
         readonly 'addEntry': g_dictionary.SYNC.A.F.UnsafeAddEntry
         readonly 'escape': g_string.SYNC.A.F.Escape
+        readonly 'filter': g_dictionary.SYNC.A.F.Filter
         readonly 'merge': g_dictionary.SYNC.A.F.MergeAndIgnore
         readonly 'mergeDictionaries': g_dictionary.SYNC.A.F.MergeDictionaries
         readonly 'rekey': g_dictionary.SYNC.A.F.UnsafeRekey

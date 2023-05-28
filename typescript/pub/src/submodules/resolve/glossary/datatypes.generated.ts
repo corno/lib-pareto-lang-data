@@ -59,18 +59,10 @@ export namespace T {
     
     export namespace Resolve__Parameters {
         
-        export namespace imports {
-            
-            export type D<GAnnotation> = g_out.T.Type__Library
-        }
-        
-        export type imports<GAnnotation> = pt.Dictionary<g_out.T.Type__Library>
-        
         export type root<GAnnotation> = g_in.T.Root<GAnnotation>
     }
     
     export type Resolve__Parameters<GAnnotation> = {
-        readonly 'imports': pt.Dictionary<g_out.T.Type__Library>
         readonly 'root': g_in.T.Root<GAnnotation>
     }
 }

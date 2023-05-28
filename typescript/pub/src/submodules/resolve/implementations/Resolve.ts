@@ -14,8 +14,8 @@ export type Dictionary__Selection<Annotation> =  (
     $: g_in.T.Dictionary__Selection<Annotation>,
     $p: {
         'imports': g_out.T.Imports,
-        'sibling global types': pt.Lookup<g_out.T.Global__Type>
-        'cyclic sibling global types': pt.Lookup<() => g_out.T.Global__Type>,
+        'sibling global types': pt.Lookup<g_out.T.Global__Type__Definition>
+        'cyclic sibling global types': pt.Lookup<() => g_out.T.Global__Type__Definition>,
     },
 ) => g_out.T.Dictionary__Selection
 
@@ -23,8 +23,8 @@ export type Global__Type__Selection<Annotation> =  (
     $: g_in.T.Global__Type__Selection<Annotation>,
     $p: {
         'imports': g_out.T.Imports,
-        'sibling global types': pt.Lookup<g_out.T.Global__Type>
-        'cyclic sibling global types': pt.Lookup<() => g_out.T.Global__Type>,
+        'sibling global types': pt.Lookup<g_out.T.Global__Type__Definition>
+        'cyclic sibling global types': pt.Lookup<() => g_out.T.Global__Type__Definition>,
     },
 ) => g_out.T.Global__Type__Selection
 
@@ -38,7 +38,6 @@ export type Model<Annotation> =  (
 export type Root<Annotation> =  (
     $: g_in.T.Root<Annotation>,
     $p: {
-        'external type libraries': pt.Lookup<g_out.T.Type__Library>,
     }
 ) => g_out.T.Root
 
@@ -47,8 +46,8 @@ export type Type<Annotation> =  (
     $p: {
         'atom types': g_out.T.Atom__Types,
         'imports': g_out.T.Imports,
-        'sibling global types': pt.Lookup<g_out.T.Global__Type>,
-        'cyclic sibling global types': pt.Lookup<() => g_out.T.Global__Type>,
+        'sibling global types': pt.Lookup<g_out.T.Global__Type__Definition>,
+        'cyclic sibling global types': pt.Lookup<() => g_out.T.Global__Type__Definition>,
     }
 ) => g_out.T.Type
 
@@ -56,7 +55,7 @@ export type Type__Selection<Annotation> =  (
     $: g_in.T.Type__Selection<Annotation>,
     $p: {
         'imports': g_out.T.Imports,
-        'sibling global types': pt.Lookup<g_out.T.Global__Type>
+        'sibling global types': pt.Lookup<g_out.T.Global__Type__Definition>
     },
 ) => g_out.T.Type__Selection
 

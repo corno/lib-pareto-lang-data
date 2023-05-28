@@ -15,6 +15,7 @@ export const $: g_project.T.ModuleDefinition.api.root<pd.SourceLocation> = {
             "merge": sfunction("dictionary", {}, "MergeAndIgnore"),
             "addEntry": sfunction("dictionary", {}, "UnsafeAddEntry"),
             "mergeDictionaries": sfunction("dictionary", {}, "MergeDictionaries"),
+            "filter": sfunction("dictionary", {}, "Filter")
         }, {}))
     }),
 }

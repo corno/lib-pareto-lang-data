@@ -92,7 +92,7 @@ export const $$: A.map = ($d,) => {
             })
         }
 
-        function rekey($: g_out.T.Local__Namespace.namespaces.dictionary<pd.SourceLocation>) {
+        function rekey($: g_out.T.Namespace.namespaces.dictionary<pd.SourceLocation>) {
             return $d.rekey(
                 $,
                 {
@@ -102,55 +102,73 @@ export const $$: A.map = ($d,) => {
         }
 
 
-        function doTail($: pt.OptionalValue<g_in.T.Type__Selection__Tail>): string {
-            return pl.optional(
-                $,
-                ($) => {
-                    const tail = $.tail
-                    return pl.cc($['step type'], ($) => {
-                        switch ($[0]) {
-                            case 'array': return pl.ss($, ($) => "A$" + doTail(tail))
-                            case 'dictionary': return pl.ss($, ($) => "D$" + doTail(tail))
-                            case 'group': return pl.ss($, ($) => $.property.key + "$" + doTail(tail))
-                            case 'optional': return pl.ss($, ($) => "O$" + doTail(tail))
-                            case 'state group': return pl.ss($, ($) => $.state.key + "$" + doTail(tail))
-                            default: return pl.au($[0])
-                        }
-                    })
-                },
-                () => ""
-            )
-        }
-        const Type__Selection2Path = ($: g_in.T.Type__Selection): string => {
-            return $['global type'].key + "$" + doTail($.tail)
+        function doTail($: g_in.T.Type__Selection__Tail): string {
+            return pl.cc($['step type'], ($) => {
+                switch ($[0]) {
+                    case 'array': return pl.ss($, ($) => "A$" + pl.optional(
+                        $.tail,
+                        ($) => doTail($),
+                        () => ""
+                    ))
+                    case 'dictionary': return pl.ss($, ($) => "D$" + pl.optional(
+                        $.tail,
+                        ($) => doTail($),
+                        () => ""
+                    ))
+                    case 'group': return pl.ss($, ($) => $.property.key + "$" + pl.optional(
+                        $.tail,
+                        ($) => doTail($),
+                        () => ""
+                    ))
+                    case 'optional': return pl.ss($, ($) => "O$" + pl.optional(
+                        $.tail,
+                        ($) => doTail($),
+                        () => ""
+                    ))
+                    case 'state group': return pl.ss($, ($) => $.state.key + "$" + pl.optional(
+                        $.tail,
+                        ($) => doTail($),
+                        () => ""
+                    ))
+                    default: return pl.au($[0])
+                }
+            })
         }
 
 
         const Dictionary__Selection2Type = ($: g_in.T.Dictionary__Selection): g_out.T.Type<pd.SourceLocation> => {
-
-            const tail = $.type.tail
-            return pl.optional(
-                $.type.import,
-                ($) => {
-                    return pv.implementMe(`XXXXX`)
-                },
-                () => {
-
-                    return ['type reference', ['sibling', ref(Type__Selection2Path($.type) + "D$")]]
-                }
-            )
+            return Type__Selection2Type($.type, "D$")
         }
-        const Type__Selection2Type = ($: g_in.T.Type__Selection): g_out.T.Type<pd.SourceLocation> => {
+        const Type__Selection2Type = ($: g_in.T.Type__Selection, tail: string): g_out.T.Type<pd.SourceLocation> => {
+            const x = $
 
 
-            const tail = $.tail
+            const Type__Selection2Path = ($: g_in.T.Type__Selection): string => {
+                return $['global type'].key + "$" + pl.optional(
+                    $.tail,
+                    ($) => doTail($),
+                    () => ""
+                )
+            }
             return pl.optional(
                 $.import,
-                ($) => {
-                    return pv.implementMe(`XXXXX`)
+                ($): g_out.T.Type<pd.SourceLocation> => {
+                    return ['type reference', ['external', {
+                        'namespace path': {
+                            'start': ['import', {
+                                'namespace': ref($.key),
+                                'arguments': rawDict({}),
+                                'tail': [true, {
+                                    'namespace': ref("Flat2"),
+                                    'arguments': rawDict({}),
+                                    'tail': [false]
+                                }]
+                            }],
+                        },
+                        'type': ref(Type__Selection2Path(x) + tail)
+                    }]]
                 },
                 () => {
-
                     return ['type reference', ['sibling', ref(Type__Selection2Path($))]]
                 }
             )
@@ -212,72 +230,79 @@ export const $$: A.map = ($d,) => {
                 'path': string,
                 'type': NSType
             }
-        ): g_out.T.Local__Namespace<pd.SourceLocation> => {
+        ): g_out.T.Namespace<pd.SourceLocation> => {
             return {
-                'namespaces': dict($d.addEntry({
-                    'dictionary': pl.cc($.type, ($) => {
-                        switch ($[0]) {
-                            case 'array': return pl.ss($, ($) => pm.wrapRawDictionary({
-                                "A": ['local', Type2Namespace(
+                'namespaces': dict(pl.cc($.type, ($) => {
+                    switch ($[0]) {
+                        case 'array': return pl.ss($, ($): g_out.T.Namespace.namespaces.dictionary<pd.SourceLocation> => pm.wrapRawDictionary({
+                            "A": {
+                                'imports': rawDict({}),
+                                'namespace': Type2Namespace(
                                     $.type,
                                     {
                                         'path': $p.path + "A$",
                                         'type': $p.type,
                                     }
-                                )]
-                            }))
-                            case 'atom': return pl.ss($, ($) => pm.wrapRawDictionary({}))
-                            case 'component': return pl.ss($, ($) => pm.wrapRawDictionary({}))
-                            case 'constraint': return pl.ss($, ($) => pm.wrapRawDictionary({}))
-                            case 'cyclic reference': return pl.ss($, ($) => pm.wrapRawDictionary({}))
-                            case 'dictionary': return pl.ss($, ($) => pm.wrapRawDictionary({
-                                "D": ['local', Type2Namespace(
+                                )
+                            }
+                        }))
+                        case 'atom': return pl.ss($, ($) => pm.wrapRawDictionary({}))
+                        case 'component': return pl.ss($, ($) => pm.wrapRawDictionary({}))
+                        case 'constraint': return pl.ss($, ($) => pm.wrapRawDictionary({}))
+                        case 'cyclic reference': return pl.ss($, ($) => pm.wrapRawDictionary({}))
+                        case 'dictionary': return pl.ss($, ($) => pm.wrapRawDictionary({
+                            "D": {
+                                'imports': rawDict({}),
+                                'namespace': Type2Namespace(
                                     $.type,
                                     {
                                         'path': $p.path + "D$",
                                         'type': $p.type,
                                     }
-                                )]
-                            }))
-                            case 'group': return pl.ss($, ($) => rekey($.properties.__mapWithKey(($, key) => {
-                                return ['local', Type2Namespace(
+                                )
+                            }
+                        }))
+                        case 'group': return pl.ss($, ($) => rekey($.properties.__mapWithKey(($, key) => {
+                            return {
+                                'imports': rawDict({}),
+                                'namespace': Type2Namespace(
                                     $.type,
                                     {
                                         'path': $p.path + key + "$",
                                         'type': $p.type,
                                     }
-                                )]
-                            })))
-                            case 'nothing': return pl.ss($, ($) => pm.wrapRawDictionary({}))
-                            case 'optional': return pl.ss($, ($) => pm.wrapRawDictionary({
-                                "O": ['local', Type2Namespace(
+                                )
+                            }
+                        })))
+                        case 'nothing': return pl.ss($, ($) => pm.wrapRawDictionary({}))
+                        case 'optional': return pl.ss($, ($) => pm.wrapRawDictionary({
+                            "O": {
+                                'imports': rawDict({}),
+                                'namespace': Type2Namespace(
                                     $.type,
                                     {
                                         'path': $p.path + "O$",
                                         'type': $p.type,
                                     }
-                                )]
-                            }))
-                            case 'resolved reference': return pl.ss($, ($) => pm.wrapRawDictionary({}))
-                            case 'state group': return pl.ss($, ($) => rekey(
-                                $.states.__mapWithKey(($, key) => {
-                                    return ['local', Type2Namespace(
+                                )
+                            }
+                        }))
+                        case 'resolved reference': return pl.ss($, ($) => pm.wrapRawDictionary({}))
+                        case 'state group': return pl.ss($, ($) => rekey(
+                            $.states.__mapWithKey(($, key) => {
+                                return {
+                                    'imports': rawDict({}),
+                                    'namespace': Type2Namespace(
                                         $.type,
                                         {
                                             'path': $p.path + key + "$",
                                             'type': $p.type,
                                         }
-                                    )]
-                                })
-                            ))
-                            default: return pl.au($[0])
-                        }
-                    }),
-                    'keyValuePair': {
-                        'key': "Flat",
-                        'value': ['parent sibling', {
-                            'namespace': ref("Flat",)
-                        }]
+                                    )
+                                }
+                            })
+                        ))
+                        default: return pl.au($[0])
                     }
                 })),
                 'parameters': {
@@ -286,10 +311,12 @@ export const $$: A.map = ($d,) => {
                 },
                 'types': rawDict({
                     "$": ['type reference', ['external', {
-                        'namespaces': {
-                            'namespace': ref("Flat",),
-                            'arguments': rawDict({}),
-                            'tail': [false]
+                        'namespace path': {
+                            'start': ['import', {
+                                'namespace': ref("Flat"),
+                                'arguments': rawDict({}),
+                                'tail': [false]
+                            }],
                         },
                         'type': ref($p.path)
                     }]]
@@ -300,7 +327,7 @@ export const $$: A.map = ($d,) => {
         const Atom2Type = (
             $: g_in.T.Atom,
             $p: {
-                'atom mappings': g_this.T.MapParameters.atom__mappings
+                'atom mappings': g_this.T.Atom__Mapping
             },
         ): g_out.T.Type<pd.SourceLocation> => {
             return pl.cc($p['atom mappings'].__unsafeGetEntry($.type.key), ($) => {
@@ -316,126 +343,268 @@ export const $$: A.map = ($d,) => {
         const TypeLibrary2MainNamespace = (
             $: g_in.T.Type__Library,
             $p: {
-                'atom mappings': g_this.T.MapParameters.atom__mappings,
+                'atom mappings': g_this.T.Atom__Mapping,
             }
-        ): g_out.T.Local__Namespace<pd.SourceLocation> => {
+        ): g_out.T.Namespace<pd.SourceLocation> => {
             return {
                 'parameters': {
                     'local': rawDict({}),
                     'aggregated': rawDict({})
                 },
-                'namespaces': rawDict({
-                    "Unresolved": ['local', TypeLibrary2Namespace($, {
-                        'atom mappings': $p['atom mappings'],
-                        'type': ['unresolved', null],
-                    })],
-                    "Resolved": ['local', TypeLibrary2Namespace($, {
-                        'atom mappings': $p['atom mappings'],
-                        'type': ['resolved', null],
-                    })],
-                    "Resolve": ['local', {
-                        'parameters': {
-                            'local': rawDict({
-                            }),
-                            'aggregated': rawDict({})
-                        },
-                        'namespaces': rawDict({
-                            "Resolved": ['parent sibling', {
-                                'namespace': ref("Resolved",)
-                            }],
-                            "Unresolved": ['parent sibling', {
-                                'namespace': ref("Unresolved",)
-                            }]
-                        }),
-                        'types': dict($['global types'].__mapWithKey(($, key): g_out.T.Type<pd.SourceLocation> => {
-                            return ['value function', {
-                                'declaration': {
+                'namespaces': rawDict<g_out.T.Namespace.namespaces.dictionary.D<pd.SourceLocation>>({
+                    // "Imports": ['local', {
+                    //     'parameters': {
+                    //         'local': rawDict({
+                    //         }),
+                    //         'aggregated': rawDict({})
+                    //     },
+                    //     'namespaces': rawDict({
 
-                                    'context': ['type reference', ['external', {
-                                        'namespaces': {
-                                            'namespace': ref("Unresolved",),
-                                            'arguments': rawDict({
-                                                "Annotation": constrainedDictionaryEntry({
-                                                    'type': ['type parameter', ref("Annotation")]
-                                                })
+                    //     }),
+                    //     'types': rawDict({}),
+
+                    // }],
+                    "Unresolved": {
+                        'imports': rawDict({}),
+                        'namespace': TypeLibrary2Namespace($, {
+                            'atom mappings': $p['atom mappings'],
+                            'type': ['unresolved', null],
+                        })
+                    },
+                    "Resolved": {
+                        'imports': rawDict({}),
+                        'namespace': TypeLibrary2Namespace($, {
+                            'atom mappings': $p['atom mappings'],
+                            'type': ['resolved', null],
+                        })
+                    },
+                    "Resolve": {
+                        'imports': rawDict({
+                            "Resolved": ['sibling', ref("Resolved")],
+                            "Unresolved": ['sibling', ref("Unresolved")],
+                        }),
+                        'namespace': {
+                            'parameters': {
+                                'local': rawDict({
+                                }),
+                                'aggregated': rawDict({})
+                            },
+                            'namespaces': rawDict({
+                            }),
+                            'types': dict($['global types'].declarations.__mapWithKey(($, key): g_out.T.Type<pd.SourceLocation> => {
+                                return ['value function', {
+                                    'declaration': {
+
+                                        'context': ['type reference', ['external', {
+                                            'namespace path': {
+                                                'start': ['import', {
+                                                    'namespace': ref("Unresolved",),
+                                                    'arguments': rawDict({
+                                                        "Annotation": constrainedDictionaryEntry({
+                                                            'type': ['type parameter', ref("Annotation")]
+                                                        })
+                                                    }),
+                                                    'tail': [true, {
+                                                        'namespace': ref("Flat",),
+                                                        'arguments': rawDict({}),
+                                                        'tail': [false]
+                                                    }]
+                                                }]
+                                            },
+                                            'type': ref(key + "$")
+                                        }]],
+                                        'parameters': dict($.parameters.map(($): g_out.T.Function__Declaration.parameters.dictionary.D<pd.SourceLocation> => {
+                                            const x: g_out.T.Type<pd.SourceLocation> = pl.cc($.type, ($) => {
+                                                switch ($[0]) {
+                                                    case 'resolved value': return pl.ss($, ($) => ['type reference', ['external', {
+                                                        'namespace path': {
+                                                            'start': ['import', {
+                                                                'namespace': ref("Resolved"),
+                                                                'arguments': rawDict({}),
+                                                                'tail': [true, {
+                                                                    'namespace': ref("Flat"),
+                                                                    'arguments': rawDict({}),
+                                                                    'tail': [false]
+                                                                }]
+                                                            }],
+                                                        },
+                                                        'type': ref($.key + "$")
+                                                    }]])
+                                                    case 'cyclic sibling lookup': return pl.ss($, ($) => ['lookup', ['computed', ['type reference', ['external', {
+                                                        'namespace path': {
+                                                            'start': ['import', {
+                                                                'namespace': ref("Resolved"),
+                                                                'arguments': rawDict({}),
+                                                                'tail': [true, {
+                                                                    'namespace': ref("Flat"),
+                                                                    'arguments': rawDict({}),
+                                                                    'tail': [false]
+                                                                }]
+                                                            }],
+                                                        },
+                                                        'type': ref($.key + "$")
+                                                    }]]]])
+                                                    case 'sibling lookup': return pl.ss($, ($) => ['lookup', ['type reference', ['external', {
+                                                        'namespace path': {
+                                                            'start': ['import', {
+                                                                'namespace': ref("Resolved"),
+                                                                'arguments': rawDict({}),
+                                                                'tail': [true, {
+                                                                    'namespace': ref("Flat"),
+                                                                    'arguments': rawDict({}),
+                                                                    'tail': [false]
+                                                                }]
+                                                            }],
+                                                        },
+                                                        'type': ref($.key + "$")
+                                                    }]]])
+                                                    default: return pl.au($[0])
+                                                }
+                                            })
+                                            return pl.optional(
+                                                $.optional,
+                                                () => ['optional', x],
+                                                () => x
+                                            )
+                                        })),
+                                        'type parameters': {
+                                            'local': rawDict({
+                                                "Annotation": null
                                             }),
-                                            'tail': [true, {
-                                                'namespace': ref("Flat",),
+                                            'aggregated': rawDict({}),
+                                        },
+                                    },
+                                    //'return type': ['boolean', null],
+                                    'return type': ['type reference', ['external', {
+                                        'namespace path': {
+                                            'start': ['import', {
+                                                'namespace': ref("Resolved"),
                                                 'arguments': rawDict({}),
-                                                'tail': [false]
-                                            }]
+                                                'tail': [true, {
+                                                    'namespace': ref("Flat"),
+                                                    'arguments': rawDict({}),
+                                                    'tail': [false]
+                                                }]
+                                            }],
+                                            // 'namespace': ref("Resolved",),
+                                            // 'arguments': rawDict({}),
+                                            // 'tail': [true, {
+                                            //     'namespace': ref("Flat",),
+                                            //     'arguments': rawDict({}),
+                                            //     'tail': [false]
+                                            // }]
                                         },
                                         'type': ref(key + "$")
-                                    }]],
-                                    'parameters': rawDict({}),
-                                    'type parameters': {
-                                        'local': rawDict({
-                                            "Annotation": null
+                                    }]]
+                                }]
+                            })),
+
+                        }
+                    },
+
+                    "Serialize": {
+                        'imports': rawDict({
+                            "Resolved": ['sibling', ref("Resolved")],
+                        }),
+                        'namespace': {
+                            'parameters': {
+                                'local': rawDict({
+                                }),
+                                'aggregated': rawDict({})
+                            },
+                            'namespaces': rawDict({}),
+                            'types': dict($['global types'].definitions.__mapWithKey(($, key): g_out.T.Type<pd.SourceLocation> => {
+                                return ['procedure', {
+                                    'declaration': {
+
+                                        'context': ['type reference', ['external', {
+                                            'namespace path': {
+                                                'start': ['import', {
+                                                    'namespace': ref("Resolved"),
+                                                    'arguments': rawDict({}),
+                                                    'tail': [true, {
+                                                        'namespace': ref("Flat"),
+                                                        'arguments': rawDict({}),
+                                                        'tail': [false]
+                                                    }]
+                                                }],
+                                            },
+                                            'type': ref(key + "$")
+                                        }]],
+                                        'parameters': rawDict({
+                                            "out": ['boolean', null]
                                         }),
-                                        'aggregated': rawDict({}),
-                                    },
-                                },
-                                //'return type': ['boolean', null],
-                                'return type': ['type reference', ['external', {
-                                    'namespaces': {
-                                        'namespace': ref("Resolved",),
-                                        'arguments': rawDict({}),
-                                        'tail': [true, {
-                                            'namespace': ref("Flat",),
-                                            'arguments': rawDict({}),
-                                            'tail': [false]
-                                        }]
-                                    },
-                                    'type': ref(key + "$")
-                                }]]
-                            }]
-                        })),
-
-                    }],
-
-                    "Serialize": ['local', {
-                        'parameters': {
-                            'local': rawDict({
-                            }),
-                            'aggregated': rawDict({})
-                        },
-                        'namespaces': rawDict({
-                            "Resolved": ['parent sibling', {
-                                'namespace': ref("Resolved",)
-                            }],
-                        }),
-                        'types': dict($['global types'].__mapWithKey(($, key): g_out.T.Type<pd.SourceLocation> => {
-                            return ['procedure', {
-                                'declaration': {
-
-                                    'context': ['type reference', ['external', {
-                                        'namespaces': {
-                                            'namespace': ref("Resolved",),
-                                            'arguments': rawDict({
-                                            }),
-                                            'tail': [true, {
-                                                'namespace': ref("Flat",),
-                                                'arguments': rawDict({}),
-                                                'tail': [false]
-                                            }]
+                                        'type parameters': {
+                                            'local': rawDict({}),
+                                            'aggregated': rawDict({}),
                                         },
-                                        'type': ref(key + "$")
-                                    }]],
-                                    'parameters': rawDict({
-                                        "out": ['boolean', null]
-                                    }),
-                                    'type parameters': {
-                                        'local': rawDict({}),
-                                        'aggregated': rawDict({}),
                                     },
-                                },
-                            }]
-                        })),
+                                }]
+                            })),
 
-                    }],
+                        }
+                    },
+                    "Select": {
+                        'imports': rawDict({
+                            "Resolved": ['sibling', ref("Resolved")]
+                        }),
+                        'namespace': {
+                            'parameters': {
+                                'local': rawDict({
+                                }),
+                                'aggregated': rawDict({})
+                            },
+                            'namespaces': rawDict({
+                            }),
+                            'types': dict($d.filter($['global types'].declarations.__mapWithKey(($, key): pt.OptionalValue<g_out.T.Type<pd.SourceLocation>> => {
+                                return mapOptional(
+                                    $.result,
+                                    ($) => ['value function', {
+                                        'declaration': {
+                                            'context': ['type reference', ['external', {
+                                                'namespace path': {
+                                                    'start': ['import', {
+                                                        'namespace': ref("Resolved"),
+                                                        'arguments': rawDict({}),
+                                                        'tail': [true, {
+                                                            'namespace': ref("Flat"),
+                                                            'arguments': rawDict({}),
+                                                            'tail': [false]
+                                                        }]
+                                                    }],
+                                                },
+                                                'type': ref(key + "$")
+                                            }]],
+                                            'parameters': rawDict({
+                                            }),
+                                            'type parameters': {
+                                                'local': rawDict({}),
+                                                'aggregated': rawDict({}),
+                                            },
+                                        },
+                                        'return type': ['type reference', ['external', {
+                                            'namespace path': {
+                                                'start': ['import', {
+                                                    'namespace': ref("Resolved"),
+                                                    'arguments': rawDict({}),
+                                                    'tail': [true, {
+                                                        'namespace': ref("Flat"),
+                                                        'arguments': rawDict({}),
+                                                        'tail': [false]
+                                                    }]
+                                                }],
+                                            },
+                                            'type': ref($.key + "$")
+                                        }]]
+                                    }]
+                                )
+                            }))),
+
+                        }
+                    },
 
                 }),
-                'types': rawDict({
+                'types': rawDict<g_out.T.Type<pd.SourceLocation>>({
                     "_": ['value function', {
                         'declaration': {
 
@@ -446,37 +615,44 @@ export const $$: A.map = ($d,) => {
                                 'aggregated': rawDict({}),
                             },
                         },
-                        'return type': ['group', dict($['global types'].__mapWithKey(($, key) => {
+                        'return type': ['group', dict($['global types'].definitions.__mapWithKey<g_out.T.Type.group.dictionary.D<pd.SourceLocation>>(($, key) => {
+
+                            const foo: g_out.T.Type<pd.SourceLocation> = ['group', rawDict<g_out.T.Type.group.dictionary.D<pd.SourceLocation>>({
+                                "Serialize": {
+                                    'mutable': [false],
+                                    'type': ['type reference', ['external', {
+                                        'namespace path': {
+                                            'start': ['local', {
+                                                'namespace': {
+                                                    'namespace': ref("Serialize"),
+                                                    'arguments': rawDict({}),
+                                                    'tail': [false]
+                                                }
+                                            }],
+
+                                        },
+                                        'type': ref(key)
+                                    }]]
+                                },
+                                "Resolve": {
+                                    'mutable': [false],
+                                    'type': ['type reference', ['external', {
+                                        'namespace path': {
+                                            'start': ['local', {
+                                                'namespace': {
+                                                    'namespace': ref("Resolve"),
+                                                    'arguments': rawDict({}),
+                                                    'tail': [false]
+                                                }
+                                            }],
+                                        },
+                                        'type': ref(key)
+                                    }]]
+                                }
+                            })]
                             return {
                                 'mutable': [false],
-                                'type': ['group', rawDict({
-                                    "Serialize": {
-                                        'mutable': [false],
-                                        'type': ['type reference', ['external', {
-                                            'namespaces': {
-                                                'namespace': ref("Serialize",),
-                                                'arguments': rawDict({
-                                                }),
-                                                'tail': [false],
-
-                                            },
-                                            'type': ref(key)
-                                        }]]
-                                    },
-                                    "Resolve": {
-                                        'mutable': [false],
-                                        'type': ['type reference', ['external', {
-                                            'namespaces': {
-                                                'namespace': ref("Resolve",),
-                                                'arguments': rawDict({
-                                                }),
-                                                'tail': [false],
-
-                                            },
-                                            'type': ref(key)
-                                        }]]
-                                    }
-                                })]
+                                'type': foo
                             }
                         }))]
                     }]
@@ -487,10 +663,10 @@ export const $$: A.map = ($d,) => {
         const TypeLibrary2Namespace = (
             $: g_in.T.Type__Library,
             $p: {
-                'atom mappings': g_this.T.MapParameters.atom__mappings,
+                'atom mappings': g_this.T.Atom__Mapping,
                 'type': NSType
             }
-        ): g_out.T.Local__Namespace<pd.SourceLocation> => {
+        ): g_out.T.Namespace<pd.SourceLocation> => {
 
             return {
                 'parameters': {
@@ -505,127 +681,160 @@ export const $$: A.map = ($d,) => {
                     })),
                     'aggregated': rawDict({})
                 },
-                'namespaces': rawDict({
-                    "Flat": ['local', {
-                        'parameters': {
-                            'local': rawDict({}),
-                            'aggregated': rawDict({})
-                        },
-                        'namespaces': rawDict({}),
-                        'types': dict($d.mergeDictionaries({
-                            'dictionaries': $['global types'].map(($) => {
-                                return flatten($.type)
-                            }),
-                            'escape': "_",
-                            'separator': "$",
-                        }).__mapWithKey<g_out.T.Type<pd.SourceLocation>>(($, key) => {
-                            return pl.cc($.type, ($) => {
-                                switch ($[0]) {
-                                    case 'array': return pl.ss($, ($): g_out.T.Type<pd.SourceLocation> => ['array', ['type reference', ['sibling', ref(key + "A$")]]])
-                                    case 'atom': return pl.ss($, ($) => Atom2Type($.atom, $p))
-                                    case 'component': return pl.ss($, ($) => Global__Type__Selection2Type($.type))
-                                    case 'constraint': return pl.ss($, ($) => pl.cc($, ($) => {
-                                        const $x = $
-                                        return pl.cc($p.type, ($) => {
-                                            switch ($[0]) {
-                                                case 'resolved': return pl.ss($, ($) => Type__Selection2Type($x))
-                                                case 'unresolved': return pl.ss($, ($) => ['type parameter', ref("Annotation")])
-                                                default: return pl.au($[0])
+                'namespaces': rawDict<g_out.T.Namespace.namespaces.dictionary.D<pd.SourceLocation>>({
+                    "Flat": {
+                        'imports': rawDict({}),
+                        'namespace': {
+                            'parameters': {
+                                'local': rawDict({}),
+                                'aggregated': rawDict({})
+                            },
+                            // 'namespaces': dict($.imports.map(($) => {
+                            //     return ['parent sibling', {
+                            //         'namespace': ref($.library.key)
+                            //     }]
+                            // })),
+                            'namespaces': rawDict({}),
+                            'types': dict($d.mergeDictionaries({
+                                'dictionaries': $['global types'].definitions.map(($) => {
+                                    return flatten($.type)
+                                }),
+                                'escape': "_",
+                                'separator': "$",
+                            }).__mapWithKey<g_out.T.Type<pd.SourceLocation>>(($, key) => {
+                                return pl.cc($.type, ($) => {
+                                    switch ($[0]) {
+                                        case 'array': return pl.ss($, ($): g_out.T.Type<pd.SourceLocation> => ['array', ['type reference', ['sibling', ref(key + "A$")]]])
+                                        case 'atom': return pl.ss($, ($) => Atom2Type($.atom, $p))
+                                        case 'component': return pl.ss($, ($) => Global__Type__Selection2Type($.type))
+                                        case 'constraint': return pl.ss($, ($) => pl.cc($, ($) => {
+                                            const $x = $
+                                            return pl.cc($p.type, ($) => {
+                                                switch ($[0]) {
+                                                    case 'resolved': return pl.ss($, ($) => Type__Selection2Type($x, ""))
+                                                    case 'unresolved': return pl.ss($, ($) => ['type parameter', ref("Annotation")])
+                                                    default: return pl.au($[0])
+                                                }
+                                            })
+                                        }))
+                                        case 'cyclic reference': return pl.ss($, ($): g_out.T.Type<pd.SourceLocation> => ['group', rawDict({
+                                            "key": {
+                                                'mutable': [false],
+                                                'type': Atom2Type($.atom, $p)
+                                            },
+                                            "referent": {
+                                                'mutable': [false],
+                                                'type': pl.cc($, ($) => {
+                                                    const $x = $
+                                                    return pl.cc($p.type, ($) => {
+                                                        switch ($[0]) {
+                                                            case 'resolved': return pl.ss($, ($) => ['computed', Global__Type__Selection2Type($x.sibling)])
+                                                            case 'unresolved': return pl.ss($, ($) => ['type parameter', ref("Annotation")])
+                                                            default: return pl.au($[0])
+                                                        }
+                                                    })
+                                                })
                                             }
-                                        })
-                                    }))
-                                    case 'cyclic reference': return pl.ss($, ($): g_out.T.Type<pd.SourceLocation> => ['group', rawDict({
-                                        "key": {
-                                            'mutable': [false],
-                                            'type': Atom2Type($.atom, $p)
-                                        },
-                                        "referent": {
-                                            'mutable': [false],
-                                            'type': pl.cc($, ($) => {
-                                                const $x = $
-                                                return pl.cc($p.type, ($) => {
-                                                    switch ($[0]) {
-                                                        case 'resolved': return pl.ss($, ($) => ['computed', Global__Type__Selection2Type($x.sibling)])
-                                                        case 'unresolved': return pl.ss($, ($) => ['type parameter', ref("Annotation")])
-                                                        default: return pl.au($[0])
-                                                    }
-                                                })
-                                            })
-                                        }
-                                    })])
+                                        })])
 
-                                    case 'dictionary': return pl.ss($, ($): g_out.T.Type<pd.SourceLocation> => ['dictionary', ['type reference', ['sibling', ref(key + "D$")]]])
-                                    case 'group': return pl.ss($, ($): g_out.T.Type<pd.SourceLocation> => ['group', dict($.properties.__mapWithKey(($, propkey) => {
-                                        return {
-                                            'mutable': [false],
-                                            'type': ['type reference', ['sibling', ref(key + propkey + "$")]]
-                                        }
-                                    }))])
-                                    case 'nothing': return pl.ss($, ($) => ['null', null])
-                                    case 'optional': return pl.ss($, ($): g_out.T.Type<pd.SourceLocation> => ['optional', ['type reference', ['sibling', ref(key + "O$")]]])
-                                    case 'resolved reference': return pl.ss($, ($): g_out.T.Type<pd.SourceLocation> => ['group', rawDict({
-                                        "key": {
-                                            'mutable': [false],
-                                            'type': Atom2Type($.atom, $p),
-                                        },
-                                        "referent": {
-                                            'mutable': [false],
-                                            'type': pl.cc($, ($) => {
-                                                const $x = $
-                                                return pl.cc($p.type, ($) => {
-                                                    switch ($[0]) {
-                                                        case 'resolved': return pl.ss($, ($) => pl.cc($x.value, ($) => {
-                                                            switch ($[0]) {
-                                                                case 'dictionary': return pl.ss($, ($) => Dictionary__Selection2Type($))
-                                                                case 'lookup': return pl.ss($, ($) => Global__Type__Selection2Type($))
-                                                                default: return pl.au($[0])
-                                                            }
-                                                        }))
-                                                        case 'unresolved': return pl.ss($, ($) => ['type parameter', ref("Annotation")])
-                                                        default: return pl.au($[0])
-                                                    }
+                                        case 'dictionary': return pl.ss($, ($): g_out.T.Type<pd.SourceLocation> => ['dictionary', ['type reference', ['sibling', ref(key + "D$")]]])
+                                        case 'group': return pl.ss($, ($): g_out.T.Type<pd.SourceLocation> => ['group', dict($.properties.__mapWithKey(($, propkey) => {
+                                            return {
+                                                'mutable': [false],
+                                                'type': ['type reference', ['sibling', ref(key + propkey + "$")]]
+                                            }
+                                        }))])
+                                        case 'nothing': return pl.ss($, ($) => ['null', null])
+                                        case 'optional': return pl.ss($, ($): g_out.T.Type<pd.SourceLocation> => ['optional', ['type reference', ['sibling', ref(key + "O$")]]])
+                                        case 'resolved reference': return pl.ss($, ($): g_out.T.Type<pd.SourceLocation> => ['group', rawDict({
+                                            "key": {
+                                                'mutable': [false],
+                                                'type': Atom2Type($.atom, $p),
+                                            },
+                                            "referent": {
+                                                'mutable': [false],
+                                                'type': pl.cc($, ($) => {
+                                                    const $x = $
+                                                    return pl.cc($p.type, ($) => {
+                                                        switch ($[0]) {
+                                                            case 'resolved': return pl.ss($, ($) => pl.cc($x.value, ($) => {
+                                                                switch ($[0]) {
+                                                                    case 'dictionary': return pl.ss($, ($) => Dictionary__Selection2Type($))
+                                                                    case 'lookup': return pl.ss($, ($) => Global__Type__Selection2Type($))
+                                                                    default: return pl.au($[0])
+                                                                }
+                                                            }))
+                                                            case 'unresolved': return pl.ss($, ($) => ['type parameter', ref("Annotation")])
+                                                            default: return pl.au($[0])
+                                                        }
+                                                    })
                                                 })
-                                            })
-                                        },
-                                    })])
+                                            },
+                                        })])
 
-                                    case 'state group': return pl.ss($, ($): g_out.T.Type<pd.SourceLocation> => ['tagged union', dict($.states.__mapWithKey(($, statekey): g_out.T.Type<pd.SourceLocation> => {
-                                        return ['type reference', ['sibling', ref(key + statekey + "$")]]
-                                    }))])
-                                    default: return pl.au($[0])
-                                }
-                            })
-                        })),
-                    }],
-                    "T": ['local', {
-                        'parameters': {
-                            'local': rawDict({}),
-                            'aggregated': rawDict({})
-                        },
-                        'namespaces': dict($d.addEntry({
-                            'dictionary': rekey($['global types'].__mapWithKey(($, key) => {
-                                return ['local', Type2Namespace(
-                                    $.type,
-                                    {
-                                        'path': key + "$",
-                                        'type': $p.type,
+                                        case 'state group': return pl.ss($, ($): g_out.T.Type<pd.SourceLocation> => ['tagged union', dict($.states.__mapWithKey(($, statekey): g_out.T.Type<pd.SourceLocation> => {
+                                            return ['type reference', ['sibling', ref(key + statekey + "$")]]
+                                        }))])
+                                        default: return pl.au($[0])
                                     }
-                                )]
+                                })
                             })),
-                            'keyValuePair': {
-                                'key': "Flat",
-                                'value': ['parent sibling', {
-                                    'namespace': ref("Flat",)
-                                }]
-                            }
-                        })),
-                        'types': rawDict({}),
-                    }]
+                        }
+                    },
+                    "T": {
+                        'imports': rawDict({
+                            "Flat": ['sibling', ref("Flat")]
+                        }),
+                        'namespace': {
+                            'parameters': {
+                                'local': rawDict({}),
+                                'aggregated': rawDict({})
+                            },
+                            'namespaces': dict(rekey($['global types'].definitions.__mapWithKey(($, key) => {
+                                return {
+
+                                    'imports': rawDict({}),
+                                    'namespace': Type2Namespace(
+                                        $.type,
+                                        {
+                                            'path': key + "$",
+                                            'type': $p.type,
+                                        }
+                                    )
+                                }
+                            }))),
+                            'types': rawDict({}),
+                        }
+                    }
                 }),
                 'types': rawDict({})
             }
         }
-        return TypeLibrary2MainNamespace(
+
+
+        const Project2Namespace = (
+            $: g_in.T.Project,
+            $p: {
+                'atom mappings': g_this.T.MapParameters.atom__mappings,
+            }
+        ): g_out.T.Namespace<pd.SourceLocation> => {
+            return {
+
+                'parameters': {
+                    'local': rawDict({}),
+                    'aggregated': rawDict({})
+                },
+                'namespaces': dict($['type libraries'].__mapWithKey(($, key) => ({
+                    'imports': rawDict({}),
+                    'namespace': TypeLibrary2MainNamespace($, {
+                        'atom mappings': $p['atom mappings'].__unsafeGetEntry(key)
+                    })
+                }))),
+                'types': rawDict({})
+            }
+        }
+
+        return Project2Namespace(
             $.data,
             {
                 'atom mappings': $['atom mappings']

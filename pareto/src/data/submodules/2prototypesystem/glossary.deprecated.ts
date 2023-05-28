@@ -18,13 +18,14 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
         'root': {
             'namespaces': d({}),
             'types': d({
+                "Atom Mapping": type(dictionary(taggedUnion({
+                    "string": group({}),
+                    "number": group({}),
+                    "boolean": group({}),
+                }))),
                 "MapParameters": type(group({
-                    "atom mappings": member(dictionary(taggedUnion({
-                        "string": group({}),
-                        "number": group({}),
-                        "boolean": group({}),
-                    }))),
-                    "data": member(ref(externalTypeReference("in", "Type Library", { }))),
+                    "atom mappings": member(dictionary(ref(typeReference("Atom Mapping")))),
+                    "data": member(ref(externalTypeReference("in", "Project", { }))),
                 })),
                 "SourceLocation": type(group({
                     "file": member(string()),

@@ -104,12 +104,12 @@ export function resolve<Annotation>(
             case 'cyclic sibling': return pl.ss($, ($) => {
                 const v_type = getAnnotatedEntry($p['cyclic sibling global types'], $.type)
                 return ['cyclic sibling', {
-                    'type': v_type,//FIX ME; don't call
+                    'type': v_type,
                 }]
             })
             case 'import': return pl.ss($, ($) => {
                 const v_library = getAnnotatedEntry($p.imports, $.library)
-                const v_type = getAnnotatedEntry(v_library.referent.constraints.library['global types'], $.type)
+                const v_type = getAnnotatedEntry(v_library.referent.library.referent['global types'].definitions, $.type)
                 return ['import', {
                     'library': v_library,
                     'type': v_type,
@@ -129,12 +129,12 @@ export function resolve<Annotation>(
         const tl = Type__Library($['type library'], $p)
         return {
             'type library': tl,
-            'root': getAnnotatedEntry(tl['global types'], $.root)
+            'root': getAnnotatedEntry(tl['global types'].definitions, $.root)
         }
     }
 
     const Root: Resolve.Root<Annotation> = ($, $p) => {
-        return Model($, $p)
+        return Project($, $p)
     }
     const Type: Resolve.Type<Annotation> = ($, $p) => {
         return {
@@ -249,7 +249,7 @@ export function resolve<Annotation>(
         const v_global_type = getAnnotatedEntry(
             pl.optional(
                 v_import,
-                ($) => $.referent.constraints.library['global types'],
+                ($) => $.referent.library.referent['global types'].definitions,
                 () => $p['sibling global types']
             ),
             $['global type'],
@@ -257,7 +257,7 @@ export function resolve<Annotation>(
         const v_tail = mapOptional(
             $.tail,
             ($) => Type__Selection__Tail($, {
-                'context': v_global_type.referent.type,
+                'context': v_global_type.referent.type
             }),
         )
         return {
@@ -284,8 +284,17 @@ export function resolve<Annotation>(
                         }
                         return $[1]
                     })
+                    const v_tail = mapOptional(
+                        $.tail,
+                        ($) => {
+                            return Type__Selection__Tail($, {
+                                'context': v_array.type
+                            })
+                        },
+                    )
                     return ['array', {
                         'array': v_array,
+                        'tail': v_tail
                     }]
                 })
                 case 'dictionary': return pl.ss($, ($) => {
@@ -304,8 +313,17 @@ export function resolve<Annotation>(
                         }
                         return $[1]
                     })
+                    const v_tail = mapOptional(
+                        $.tail,
+                        ($) => {
+                            return Type__Selection__Tail($, {
+                                'context': v_dictionary.type
+                            })
+                        },
+                    )
                     return ['dictionary', {
                         'dictionary': v_dictionary,
+                        'tail': v_tail
                     }]
                 })
                 case 'group': return pl.ss($, ($) => {
@@ -325,9 +343,18 @@ export function resolve<Annotation>(
                         return $[1]
                     })
                     const v_property = getAnnotatedEntry(v_group.properties, $.property)
+                    const v_tail = mapOptional(
+                        $.tail,
+                        ($) => {
+                            return Type__Selection__Tail($, {
+                                'context': v_property.referent.type
+                            })
+                        },
+                    )
                     return ['group', {
                         'group': v_group,
-                        'property': v_property
+                        'property': v_property,
+                        'tail': v_tail
                     }]
                 })
                 case 'optional': return pl.ss($, ($) => {
@@ -346,8 +373,17 @@ export function resolve<Annotation>(
                         }
                         return $[1]
                     })
+                    const v_tail = mapOptional(
+                        $.tail,
+                        ($) => {
+                            return Type__Selection__Tail($, {
+                                'context': v_optional.type
+                            })
+                        },
+                    )
                     return ['optional', {
                         'optional': v_optional,
+                        'tail': v_tail
                     }]
                 })
                 case 'state group': return pl.ss($, ($) => {
@@ -368,25 +404,25 @@ export function resolve<Annotation>(
                     })
                     const v_state = getAnnotatedEntry(v_state_group.states, $.state)
 
+                    const v_tail = mapOptional(
+                        $.tail,
+                        ($) => {
+                            return Type__Selection__Tail($, {
+                                'context': v_state.referent.type
+                            })
+                        },
+                    )
                     return ['state group', {
                         'state group': v_state_group,
-                        'state': v_state
+                        'state': v_state,
+                        'tail': v_tail
                     }]
                 })
                 default: return pl.au($[0])
             }
         })
-        const v_tail = mapOptional(
-            $.tail,
-            ($) => {
-                return Type__Selection__Tail($, {
-                    'context': select.Type__Selection__Tail__Step__Type(v_step_type)
-                })
-            },
-        )
         return {
             'step type': v_step_type,
-            'tail': v_tail
         }
     }
 
@@ -405,28 +441,62 @@ export function resolve<Annotation>(
     const Type__Library: Resolve.Type__Library<Annotation> = ($, $p) => {
         const imports = $.imports.dictionary.__mapWithKey(($, key) => {
             return {
-                'constraints': {
-                    'library': getEntry($p['external type libraries'], key, $.annotation)
-                },
-                'content': null
+                'library': getAnnotatedEntry($p['external type libraries'], $.library)
             }
         })
         const v_atom__types = $['atom types'].dictionary.map(($) => null)
+        const v_decl: g_out.T.Global__Type__Declarations = $d.resolveDictionary( $['global types'].declarations.dictionary, { 'map': (($, $l) => {
+            return {
+                'parameters': $d.resolveDictionary($.value.parameters.dictionary, { 'map' : (($): g_out.T.Global__Type__Declaration.parameters.D => {
+                    return {
+                        'optional': $.value.optional,
+                        'type': pl.cc($.value.type, ($) => {
+                            switch ($[0]) {
+                                case 'resolved value': return pl.ss($, ($) => {
+                                    const xxx = getAnnotatedEntry($l['all siblings'], $)
+    
+                                    return ['resolved value', xxx]
+                                })
+                                case 'cyclic sibling lookup': return pl.ss($, ($) => {
+                                    const xxx = getAnnotatedEntry($l['all siblings'], $)
+    
+                                    return ['cyclic sibling lookup', xxx]
+                                })
+                                case 'sibling lookup': return pl.ss($, ($) => {
+                                    const xxx = getAnnotatedEntry($l['all siblings'], $)
+    
+                                    return ['sibling lookup', xxx]
+                                })
+                                default: return pl.au($[0])
+                            }
+                        })
+                    }
+                })}),
+                'result': mapOptional(
+                    $.value.result,
+                    ($) => getAnnotatedEntry($l['all siblings'], $)
+                ),
+            }
+        })})
         return {
             'imports': imports,
             'atom types': v_atom__types,
-            'global types': $d.resolveDictionary($['global types'].dictionary, {
-                'map': (($, $l) => {
-                    return {
-                        'type': Type($.value.type, {
-                            'atom types': v_atom__types,
-                            'imports': imports,
-                            'sibling global types': $l['non circular siblings'],
-                            'cyclic sibling global types': $l['all siblings'],
-                        }),
-                    }
+            'global types': {
+                'declarations': v_decl,
+                'definitions': $d.resolveDictionary($['global types'].definitions.dictionary, {
+                    'map': (($, $l) => {
+                        return {
+                            'declaration': getEntry(v_decl, $.key, $.value.declaration),
+                            'type': Type($.value.type, {
+                                'atom types': v_atom__types,
+                                'imports': imports,
+                                'sibling global types': $l['non circular siblings'],
+                                'cyclic sibling global types': $l['all siblings'],
+                            }),
+                        }
+                    })
                 })
-            })
+            }
         }
     }
     return {

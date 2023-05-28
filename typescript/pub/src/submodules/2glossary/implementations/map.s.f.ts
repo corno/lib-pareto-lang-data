@@ -150,23 +150,27 @@ export const $$: A.map = ($d) => {
     }
 
     const tail2tail: Tail2tail = ($) => {
-        return $d.merge(pm.wrapRawArray([
-            pl.cc($['step type'], ($) => {
-                switch ($[0]) {
-                    case 'array': return pl.ss($, ($) => pm.wrapRawArray(["A"]))
-                    case 'dictionary': return pl.ss($, ($) => pm.wrapRawArray(["D"]))
-                    case 'group': return pl.ss($, ($) => pm.wrapRawArray([$.property.key]))
-                    case 'optional': return pl.ss($, ($) => pm.wrapRawArray(["O"]))
-                    case 'state group': return pl.ss($, ($) => pm.wrapRawArray([$.state.key]))
-                    default: return pl.au($[0])
-                }
-            }),
-            pl.optional(
-                $.tail,
-                ($) => tail2tail($),
-                () => pm.wrapRawArray([]),
-            )
-        ]))
+        return pl.cc($['step type'], ($) => {
+            function xx($: string, tail: pt.OptionalValue<g_in.T.Type__Selection__Tail>) {
+                return $d.merge(pm.wrapRawArray([
+                    pm.wrapRawArray([$]),
+                    pl.optional(
+                        tail,
+                        ($) => tail2tail($),
+                        () => pm.wrapRawArray([]),
+                    )
+                ]))
+
+            }
+            switch ($[0]) {
+                case 'array': return pl.ss($, ($) => xx("A", $.tail))
+                case 'dictionary': return pl.ss($, ($) => xx("D", $.tail))
+                case 'group': return pl.ss($, ($) => xx($.property.key, $.tail))
+                case 'optional': return pl.ss($, ($) => xx("O", $.tail))
+                case 'state group': return pl.ss($, ($) => xx($.state.key, $.tail))
+                default: return pl.au($[0])
+            }
+        })
     }
 
     const map_Type__Selection: Map_Type__Selection = (
@@ -507,8 +511,8 @@ export const $$: A.map = ($d) => {
                 })
                 : pm.wrapRawDictionary({}),
             'root': {
-                'namespaces': $['global types'].map(($) => mapTypeToNamespace($.type)),
-                'types': $['global types'].__mapWithKey(($, key) => {
+                'namespaces': $['global types'].definitions.map(($) => mapTypeToNamespace($.type)),
+                'types': $['global types'].definitions.__mapWithKey(($, key) => {
 
                     return {
                         'parameters': pm.wrapRawDictionary({}),

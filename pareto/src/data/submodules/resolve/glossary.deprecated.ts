@@ -33,8 +33,6 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                 })),
                 "Resolve Parameters": type(group({
                     "root": member(ref(externalTypeReference("in", "Root", { "Annotation": glossaryParameter("Annotation"), }))),
-                    "imports": member(dictionary(ref(externalTypeReference("out", "Type Library"))))
-
                 }))
             }),
         },

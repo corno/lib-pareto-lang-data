@@ -14,7 +14,7 @@ type AnnotatedDictionary<T> = {
     'dictionary': pt.Dictionary<T>
 }
 
-function dict<T>($: RawDictionary<T>): AnnotatedDictionary<T> {
+function rawDict<T>($: RawDictionary<T>): AnnotatedDictionary<T> {
     return {
         'annotation': pd.getLocationInfo(2),
         'dictionary': pd.d($),
@@ -24,10 +24,10 @@ function dict<T>($: RawDictionary<T>): AnnotatedDictionary<T> {
 
 type RawDictionary<T> = { [key: string]: T }
 
-function r_imp(name: string, depth: number): g_common.T.AnnotatedKey<pd.SourceLocation> {
+function ref(name: string): g_common.T.AnnotatedKey<pd.SourceLocation> {
     return {
         key: name,
-        annotation: pd.getLocationInfo(depth + 1),
+        annotation: pd.getLocationInfo(2),
     }
 }
 
@@ -47,15 +47,30 @@ function r_imp(name: string, depth: number): g_common.T.AnnotatedKey<pd.SourceLo
 //     return r_imp(name, 1)
 // }
 
+export function imprt(
+    library: string
+): g_this.T.Imports.dictionary.D<pd.SourceLocation> {
+    return {
+        'library': {
+            'annotation': pd.getLocationInfo(1),
+            'key': library,
+        }
+    }
+}
+
 export function typeLibrary(
     imports: RawDictionary<g_this.T.Imports.dictionary.D<pd.SourceLocation>>,
     atomTypes: RawDictionary<g_this.T.Atom__Types.dictionary.D<pd.SourceLocation>>,
-    globalTypes: RawDictionary<g_this.T.Global__Type<pd.SourceLocation>>,
+    globalTypesDeclarations: RawDictionary<g_this.T.Global__Type__Declarations.dictionary.D<pd.SourceLocation>>,
+    globalTypesDefinitions: RawDictionary<g_this.T.Global__Type__Definition<pd.SourceLocation>>,
 ): g_this.T.Type__Library<pd.SourceLocation> {
     return {
-        'imports': dict(imports),
-        'atom types': dict(atomTypes),
-        'global types': dict(globalTypes),
+        'imports': rawDict(imports),
+        'atom types': rawDict(atomTypes),
+        'global types': {
+            'declarations': rawDict(globalTypesDeclarations),
+            'definitions': rawDict(globalTypesDefinitions),
+        },
     }
 }
 
@@ -172,7 +187,7 @@ export function constrainedDictionary(
                     'key': "identifier",
                 },
             },
-            'constraints': dict(constraints),
+            'constraints': rawDict(constraints),
             'type': type,
             //'autofill': pd.a([]),
         }]
@@ -184,9 +199,9 @@ export function dictionary(type: g_this.T.Type<pd.SourceLocation>/*, autofill?: 
         'type': ['dictionary', {
             // 'annotation': li,
             'key': {
-                'type': r_imp("identifier", 1)
+                'type': ref("identifier")
             },
-            'constraints': dict<g_this.T.Type._ltype.dictionary.constraints.dictionary.D<pd.SourceLocation>>({}),
+            'constraints': rawDict<g_this.T.Type._ltype.dictionary.constraints.dictionary.D<pd.SourceLocation>>({}),
             'type': type,
             //'autofill': pd.a(autofill === undefined ? [] : autofill),
         }]
@@ -199,10 +214,42 @@ export function constraint(type: g_this.T.Type__Selection<pd.SourceLocation>): g
     }
 }
 
-export function globalType(
-    type: g_this.T.Type<pd.SourceLocation>,
-): g_this.T.Global__Type<pd.SourceLocation> {
+export function pResolvedValue(type: string, optional?: boolean): g_this.T.Global__Type__Declaration.parameters.dictionary.D<pd.SourceLocation> {
     return {
+        'optional': optional ? [true, null] : [false],
+        'type': ['resolved value', ref(type)]
+    }
+}
+
+export function pLookup(type: string, optional?: boolean): g_this.T.Global__Type__Declaration.parameters.dictionary.D<pd.SourceLocation> {
+    return {
+        'optional': optional ? [true, null] : [false],
+        'type': ['sibling lookup', ref(type)]
+    }
+}
+
+export function pCyclicLookup(type: string, optional?: boolean): g_this.T.Global__Type__Declaration.parameters.dictionary.D<pd.SourceLocation> {
+    return {
+        'optional': optional ? [true, null] : [false],
+        'type': ['cyclic sibling lookup', ref(type)]
+    }
+}
+
+export function globalTypeDeclaration(
+    parameters: RawDictionary<g_this.T.Global__Type__Declaration.parameters.dictionary.D<pd.SourceLocation>>,
+    result?: string
+): g_this.T.Global__Type__Declarations.dictionary.D<pd.SourceLocation> {
+    return {
+        'parameters': rawDict(parameters),
+        'result': result === undefined ? [false] : [true, ref(result)]
+    }
+}
+
+export function globalTypeDefinition(
+    type: g_this.T.Type<pd.SourceLocation>,
+): g_this.T.Global__Type__Definition<pd.SourceLocation> {
+    return {
+        'declaration': pd.getLocationInfo(1),
         'type': type,
     }
 }
@@ -246,7 +293,7 @@ export function stateGroup(
 
     return {
         'type': ['state group', {
-            'states': dict(states),
+            'states': rawDict(states),
         }]
     }
 }
@@ -271,9 +318,9 @@ export function t_grp(
     return {
         'step type': ['group', {
             'group': pd.getLocationInfo(1),
-            'property': r_imp(prop, 1),
+            'property': ref(prop),
+            'tail': tail === undefined ? [false] : [true, tail]
         }],
-        'tail': tail === undefined ? [false] : [true, tail]
     }
 }
 
@@ -283,8 +330,8 @@ export function t_dict(
     return {
         'step type': ['dictionary', {
             'dictionary': pd.getLocationInfo(1),
+            'tail': tail === undefined ? [false] : [true, tail],
         }],
-        'tail': tail === undefined ? [false] : [true, tail]
     }
 }
 
@@ -294,8 +341,8 @@ export function t_arr(
     return {
         'step type': ['array', {
             'array': pd.getLocationInfo(1),
+            'tail': tail === undefined ? [false] : [true, tail],
         }],
-        'tail': tail === undefined ? [false] : [true, tail]
     }
 }
 
@@ -303,12 +350,12 @@ export function t_sg(
     opt: string,
     tail?: g_this.T.Type__Selection__Tail<pd.SourceLocation>,
 ): g_this.T.Type__Selection__Tail<pd.SourceLocation> {
-    return {
+    return  {
         'step type': ['state group', {
             'state group': pd.getLocationInfo(1),
-            'state': r_imp(opt, 1),
+            'state': ref(opt),
+            'tail': tail === undefined ? [false] : [true, tail],
         }],
-        'tail': tail === undefined ? [false] : [true, tail]
     }
 }
 
@@ -322,7 +369,7 @@ export function externalTypeSelection(
             'key': imp,
             'annotation': pd.getLocationInfo(1),
         }],
-        'global type': r_imp(globalType, 1),
+        'global type': ref(globalType),
         'tail': tail === undefined ? [false] : [true, tail]
     }
 }
@@ -333,7 +380,7 @@ export function typeSelection(
 ): g_this.T.Type__Selection<pd.SourceLocation> {
     return {
         'import': [false],
-        'global type': r_imp(globalType, 1),
+        'global type': ref(globalType),
         'tail': tail === undefined ? [false] : [true, tail]
     }
 }
@@ -376,7 +423,7 @@ export function typeRef(type: string, cyclic?: boolean): g_this.T.Global__Type__
 
 export function imported(library: string, type: string): g_this.T.Global__Type__Selection<pd.SourceLocation> {
     return ['import', {
-        'library': r_imp(library, 1),
-        'type': r_imp(type, 1),
+        'library': ref(library),
+        'type': ref(type),
     }]
 }

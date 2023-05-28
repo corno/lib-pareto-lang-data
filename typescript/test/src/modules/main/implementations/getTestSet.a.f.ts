@@ -53,19 +53,14 @@ export const $$: A.getTestSet = ($) => {
             }
         }
     )
-    const resolved = resolve({
-        'imports': pd.d({}),
-        'root': {
-            'type library': d_playground,
-            'root': {
-                'annotation': pd.getLocationInfo(0),
-                'key': "Root",
-            }
-        },
+    const resolved_project = resolve({
+        'root': d_playground,
     })
 
+    const resolved = resolved_project['type libraries'].__unsafeGetEntry("pareto lang data")
+
     const glossary = a_pub.$b.map2Glossary()({
-        'library': resolved['type library'],
+        'library': resolved,
         'atom mappings': pd.d({
             "text": ['string', null],
             "identifier": ['string', null],
@@ -79,22 +74,22 @@ export const $$: A.getTestSet = ($) => {
         }
     })
 
-    a_fp.$b.createFile()(
-        ($i) => {
-            $i(
-                pd.a([$.testDirectory, "FOO.ts"]),
-                ($i) => {
-                    a_glossary.$b.serializeGlossary()(glossary, $i)
-                }
-            )
-        },
-        {
-            'logError': () => {
+    // a_fp.$b.createFile()(
+    //     ($i) => {
+    //         $i(
+    //             pd.a([$.testDirectory, "FOO.ts"]),
+    //             ($i) => {
+    //                 a_glossary.$b.serializeGlossary()(glossary, $i)
+    //             }
+    //         )
+    //     },
+    //     {
+    //         'logError': () => {
 
-            }
-        })
+    //         }
+    //     })
 
-    resolved['type library']['global types'].__forEach(() => false, ($) => {
+    resolved['global types'].definitions.__forEach(() => false, ($) => {
         function type($: g_resolved.T.Type) {
             pl.cc($.type, ($) => {
                 switch ($[0]) {
@@ -134,6 +129,7 @@ export const $$: A.getTestSet = ($) => {
 
     const pld = a_pld.$b.resolve()(a_2prototypesystem.$a.map(
         {
+            'filter': a_dictionary.$r.filter(),
             'resolveDictionary': a_resolve.$r.safeResolveDictionary({
                 'onError': () => {
 
@@ -157,17 +153,27 @@ export const $$: A.getTestSet = ($) => {
             'mergeDictionaries': a_dictionary.$r.mergeDictionaries(),
         }
     )({
-        'data': resolved['type library'],
+        'data': resolved_project,
         'atom mappings': pd.d({
-            "text": ['string', null],
-            "identifier": ['string', null],
+            "pareto lang data": pd.d({
+                "text": ['string', null],
+                "identifier": ['string', null],
+            }),
+            "proto typesystem": pd.d({
+                "identifier": ['string', null],
+            }),
+            "proto implementation": pd.d({
+                "identifier": ['string', null],
+                "numeric literal": ['number', null],
+                "string literal": ['string', null],
+            }),
         }),
     }))
 
     a_pld.$b.serializeToFileSystem()(
         {
             'data': pld,
-            'path': pm.wrapRawArray([$.testDirectory, "ts.ts"])
+            'path': pm.wrapRawArray([$.testDirectory, "src", "ts.ts"])
         },
         null,
     )

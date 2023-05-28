@@ -46,7 +46,6 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
 }) => {
     return ($: g_this.T.Resolve__Parameters<Annotation>) => {
         return resolve($d, $se).Root($.root, {
-            'external type libraries': $.imports,
         })
     }
 }
