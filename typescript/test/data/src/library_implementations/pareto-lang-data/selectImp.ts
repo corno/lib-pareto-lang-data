@@ -14,16 +14,16 @@ export const Type__Selection: Select2.Type__Selection = ($) => {
     )
 }
 
-// export const Type__Selection__Tail__Step__Type: Select.Type__Selection__Tail__Step__Type = ($) => {
-//     switch ($[0]) {
-//         case 'array': return pl.ss($, ($) => $.array.type)
-//         case 'dictionary': return pl.ss($, ($) => $.dictionary.type)
-//         case 'group': return pl.ss($, ($) => $.property.referent.type)
-//         case 'optional': return pl.ss($, ($) => $.optional.type)
-//         case 'state group': return pl.ss($, ($) => $.state.referent.type)
-//         default: return pl.au($[0])
-//     }
-// }
+export const Type__Selection__Tail__Step__Type: Select.Type__Selection__Tail__Step__Type = ($) => {
+    switch ($[0]) {
+        case 'array': return pl.ss($, ($) => $.array.type)
+        case 'dictionary': return pl.ss($, ($) => $.dictionary.type)
+        case 'group': return pl.ss($, ($) => $.property.referent.type)
+        case 'optional': return pl.ss($, ($) => $.optional.type)
+        case 'state group': return pl.ss($, ($) => $.state.referent.type)
+        default: return pl.au($[0])
+    }
+}
 
 export const Type__Selection__Tail: Select2.Type__Selection__Tail = ($) => {
     return pl.optional(

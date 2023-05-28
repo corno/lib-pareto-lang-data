@@ -338,11 +338,9 @@ export namespace pareto__lang__data {
             
             export namespace Atom__Types {
                 
-                import _IFlat = Flat
                 
                 export namespace D {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Atom__Types$D$<_TAnnotation>
                 }
@@ -352,11 +350,9 @@ export namespace pareto__lang__data {
             
             export namespace Atom {
                 
-                import _IFlat = Flat
                 
                 export namespace _ltype {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Atom$type$<_TAnnotation>
                 }
@@ -366,19 +362,15 @@ export namespace pareto__lang__data {
             
             export namespace TType {
                 
-                import _IFlat = Flat
                 
                 export namespace _ltype {
                     
-                    import _IFlat = Flat
                     
                     export namespace array {
                         
-                        import _IFlat = Flat
                         
                         export namespace _ltype {
                             
-                            import _IFlat = Flat
                             
                             export type $<_TAnnotation> = _IFlat.Type$type$array$type$<_TAnnotation>
                         }
@@ -388,11 +380,9 @@ export namespace pareto__lang__data {
                     
                     export namespace atom {
                         
-                        import _IFlat = Flat
                         
                         export namespace atom {
                             
-                            import _IFlat = Flat
                             
                             export type $<_TAnnotation> = _IFlat.Type$type$atom$atom$<_TAnnotation>
                         }
@@ -402,11 +392,9 @@ export namespace pareto__lang__data {
                     
                     export namespace component {
                         
-                        import _IFlat = Flat
                         
                         export namespace _ltype {
                             
-                            import _IFlat = Flat
                             
                             export type $<_TAnnotation> = _IFlat.Type$type$component$type$<_TAnnotation>
                         }
@@ -416,25 +404,21 @@ export namespace pareto__lang__data {
                     
                     export namespace constraint {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Type$type$constraint$<_TAnnotation>
                     }
                     
                     export namespace cyclic__reference {
                         
-                        import _IFlat = Flat
                         
                         export namespace atom {
                             
-                            import _IFlat = Flat
                             
                             export type $<_TAnnotation> = _IFlat.Type$type$cyclic__reference$atom$<_TAnnotation>
                         }
                         
                         export namespace sibling {
                             
-                            import _IFlat = Flat
                             
                             export type $<_TAnnotation> = _IFlat.Type$type$cyclic__reference$sibling$<_TAnnotation>
                         }
@@ -444,48 +428,39 @@ export namespace pareto__lang__data {
                     
                     export namespace dictionary {
                         
-                        import _IFlat = Flat
                         
                         export namespace key {
                             
-                            import _IFlat = Flat
                             
                             export type $<_TAnnotation> = _IFlat.Type$type$dictionary$key$<_TAnnotation>
                         }
                         
                         export namespace constraints {
                             
-                            import _IFlat = Flat
                             
                             export namespace D {
                                 
-                                import _IFlat = Flat
                                 
                                 export namespace dictionary {
                                     
-                                    import _IFlat = Flat
                                     
                                     export namespace dictionary {
                                         
-                                        import _IFlat = Flat
                                         
                                         export type $<_TAnnotation> = _IFlat.Type$type$dictionary$constraints$D$dictionary$dictionary$<_TAnnotation>
                                     }
                                     
                                     export namespace dense {
                                         
-                                        import _IFlat = Flat
                                         
                                         export namespace no {
                                             
-                                            import _IFlat = Flat
                                             
                                             export type $<_TAnnotation> = _IFlat.Type$type$dictionary$constraints$D$dictionary$dense$no$<_TAnnotation>
                                         }
                                         
                                         export namespace yes {
                                             
-                                            import _IFlat = Flat
                                             
                                             export type $<_TAnnotation> = _IFlat.Type$type$dictionary$constraints$D$dictionary$dense$yes$<_TAnnotation>
                                         }
@@ -498,7 +473,6 @@ export namespace pareto__lang__data {
                                 
                                 export namespace lookup {
                                     
-                                    import _IFlat = Flat
                                     
                                     export type $<_TAnnotation> = _IFlat.Type$type$dictionary$constraints$D$lookup$<_TAnnotation>
                                 }
@@ -511,7 +485,6 @@ export namespace pareto__lang__data {
                         
                         export namespace _ltype {
                             
-                            import _IFlat = Flat
                             
                             export type $<_TAnnotation> = _IFlat.Type$type$dictionary$type$<_TAnnotation>
                         }
@@ -521,19 +494,15 @@ export namespace pareto__lang__data {
                     
                     export namespace group {
                         
-                        import _IFlat = Flat
                         
                         export namespace properties {
                             
-                            import _IFlat = Flat
                             
                             export namespace D {
                                 
-                                import _IFlat = Flat
                                 
                                 export namespace _ltype {
                                     
-                                    import _IFlat = Flat
                                     
                                     export type $<_TAnnotation> = _IFlat.Type$type$group$properties$D$type$<_TAnnotation>
                                 }
@@ -549,18 +518,15 @@ export namespace pareto__lang__data {
                     
                     export namespace nothing {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Type$type$nothing$<_TAnnotation>
                     }
                     
                     export namespace optional {
                         
-                        import _IFlat = Flat
                         
                         export namespace _ltype {
                             
-                            import _IFlat = Flat
                             
                             export type $<_TAnnotation> = _IFlat.Type$type$optional$type$<_TAnnotation>
                         }
@@ -570,29 +536,24 @@ export namespace pareto__lang__data {
                     
                     export namespace resolved__reference {
                         
-                        import _IFlat = Flat
                         
                         export namespace atom {
                             
-                            import _IFlat = Flat
                             
                             export type $<_TAnnotation> = _IFlat.Type$type$resolved__reference$atom$<_TAnnotation>
                         }
                         
                         export namespace value {
                             
-                            import _IFlat = Flat
                             
                             export namespace dictionary {
                                 
-                                import _IFlat = Flat
                                 
                                 export type $<_TAnnotation> = _IFlat.Type$type$resolved__reference$value$dictionary$<_TAnnotation>
                             }
                             
                             export namespace lookup {
                                 
-                                import _IFlat = Flat
                                 
                                 export type $<_TAnnotation> = _IFlat.Type$type$resolved__reference$value$lookup$<_TAnnotation>
                             }
@@ -605,19 +566,15 @@ export namespace pareto__lang__data {
                     
                     export namespace state__group {
                         
-                        import _IFlat = Flat
                         
                         export namespace states {
                             
-                            import _IFlat = Flat
                             
                             export namespace D {
                                 
-                                import _IFlat = Flat
                                 
                                 export namespace _ltype {
                                     
-                                    import _IFlat = Flat
                                     
                                     export type $<_TAnnotation> = _IFlat.Type$type$state__group$states$D$type$<_TAnnotation>
                                 }
@@ -639,15 +596,12 @@ export namespace pareto__lang__data {
             
             export namespace Imports {
                 
-                import _IFlat = Flat
                 
                 export namespace D {
                     
-                    import _IFlat = Flat
                     
                     export namespace library {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Imports$D$library$<_TAnnotation>
                     }
@@ -660,11 +614,9 @@ export namespace pareto__lang__data {
             
             export namespace Global__Type {
                 
-                import _IFlat = Flat
                 
                 export namespace _ltype {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Global__Type$type$<_TAnnotation>
                 }
@@ -674,19 +626,15 @@ export namespace pareto__lang__data {
             
             export namespace TType__Selection__Tail {
                 
-                import _IFlat = Flat
                 
                 export namespace step__type {
                     
-                    import _IFlat = Flat
                     
                     export namespace dictionary {
                         
-                        import _IFlat = Flat
                         
                         export namespace dictionary {
                             
-                            import _IFlat = Flat
                             
                             export type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$dictionary$dictionary$<_TAnnotation>
                         }
@@ -696,11 +644,9 @@ export namespace pareto__lang__data {
                     
                     export namespace optional {
                         
-                        import _IFlat = Flat
                         
                         export namespace optional {
                             
-                            import _IFlat = Flat
                             
                             export type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$optional$optional$<_TAnnotation>
                         }
@@ -710,11 +656,9 @@ export namespace pareto__lang__data {
                     
                     export namespace array {
                         
-                        import _IFlat = Flat
                         
                         export namespace array {
                             
-                            import _IFlat = Flat
                             
                             export type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$array$array$<_TAnnotation>
                         }
@@ -724,18 +668,15 @@ export namespace pareto__lang__data {
                     
                     export namespace group {
                         
-                        import _IFlat = Flat
                         
                         export namespace group {
                             
-                            import _IFlat = Flat
                             
                             export type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$group$group$<_TAnnotation>
                         }
                         
                         export namespace property {
                             
-                            import _IFlat = Flat
                             
                             export type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$group$property$<_TAnnotation>
                         }
@@ -745,18 +686,15 @@ export namespace pareto__lang__data {
                     
                     export namespace state__group {
                         
-                        import _IFlat = Flat
                         
                         export namespace state__group {
                             
-                            import _IFlat = Flat
                             
                             export type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$state__group$state__group$<_TAnnotation>
                         }
                         
                         export namespace state {
                             
-                            import _IFlat = Flat
                             
                             export type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$state__group$state$<_TAnnotation>
                         }
@@ -769,11 +707,9 @@ export namespace pareto__lang__data {
                 
                 export namespace tail {
                     
-                    import _IFlat = Flat
                     
                     export namespace O {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Type__Selection__Tail$tail$O$<_TAnnotation>
                     }
@@ -786,15 +722,12 @@ export namespace pareto__lang__data {
             
             export namespace TType__Selection {
                 
-                import _IFlat = Flat
                 
                 export namespace _limport {
                     
-                    import _IFlat = Flat
                     
                     export namespace O {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Type__Selection$import$O$<_TAnnotation>
                     }
@@ -804,18 +737,15 @@ export namespace pareto__lang__data {
                 
                 export namespace global__type {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Type__Selection$global__type$<_TAnnotation>
                 }
                 
                 export namespace tail {
                     
-                    import _IFlat = Flat
                     
                     export namespace O {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Type__Selection$tail$O$<_TAnnotation>
                     }
@@ -828,18 +758,15 @@ export namespace pareto__lang__data {
             
             export namespace Dictionary__Selection {
                 
-                import _IFlat = Flat
                 
                 export namespace _ltype {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Dictionary__Selection$type$<_TAnnotation>
                 }
                 
                 export namespace dictionary {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Dictionary__Selection$dictionary$<_TAnnotation>
                 }
@@ -849,29 +776,24 @@ export namespace pareto__lang__data {
             
             export namespace TType__Library {
                 
-                import _IFlat = Flat
                 
                 export namespace imports {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Type__Library$imports$<_TAnnotation>
                 }
                 
                 export namespace atom__types {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Type__Library$atom__types$<_TAnnotation>
                 }
                 
                 export namespace global__types {
                     
-                    import _IFlat = Flat
                     
                     export namespace D {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Type__Library$global__types$D$<_TAnnotation>
                     }
@@ -884,15 +806,12 @@ export namespace pareto__lang__data {
             
             export namespace Global__Type__Selection {
                 
-                import _IFlat = Flat
                 
                 export namespace resolved__sibling {
                     
-                    import _IFlat = Flat
                     
                     export namespace _ltype {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Global__Type__Selection$resolved__sibling$type$<_TAnnotation>
                     }
@@ -902,18 +821,15 @@ export namespace pareto__lang__data {
                 
                 export namespace _limport {
                     
-                    import _IFlat = Flat
                     
                     export namespace library {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Global__Type__Selection$import$library$<_TAnnotation>
                     }
                     
                     export namespace _ltype {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Global__Type__Selection$import$type$<_TAnnotation>
                     }
@@ -923,11 +839,9 @@ export namespace pareto__lang__data {
                 
                 export namespace cyclic__sibling {
                     
-                    import _IFlat = Flat
                     
                     export namespace _ltype {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Global__Type__Selection$cyclic__sibling$type$<_TAnnotation>
                     }
@@ -940,18 +854,15 @@ export namespace pareto__lang__data {
             
             export namespace Model {
                 
-                import _IFlat = Flat
                 
                 export namespace type__library {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Model$type__library$<_TAnnotation>
                 }
                 
                 export namespace root {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Model$root$<_TAnnotation>
                 }
@@ -961,15 +872,12 @@ export namespace pareto__lang__data {
             
             export namespace Project {
                 
-                import _IFlat = Flat
                 
                 export namespace type__libraries {
                     
-                    import _IFlat = Flat
                     
                     export namespace D {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Project$type__libraries$D$<_TAnnotation>
                     }
@@ -982,7 +890,6 @@ export namespace pareto__lang__data {
             
             export namespace Root {
                 
-                import _IFlat = Flat
                 
                 export type $<_TAnnotation> = _IFlat.Root$<_TAnnotation>
             }
@@ -999,7 +906,7 @@ export namespace pareto__lang__data {
             
             export type Atom$type$ = {
                 readonly 'key': string
-                readonly 'referent': Atom__Types$
+                readonly 'referent': Atom__Types$D$
             }
             
             export type Atom$ = {
@@ -1171,7 +1078,7 @@ export namespace pareto__lang__data {
             
             export type Type__Selection__Tail$step__type$group$property$ = {
                 readonly 'key': string
-                readonly 'referent': Type$type$group$properties$
+                readonly 'referent': Type$type$group$properties$D$
             }
             
             export type Type__Selection__Tail$step__type$group$ = {
@@ -1183,7 +1090,7 @@ export namespace pareto__lang__data {
             
             export type Type__Selection__Tail$step__type$state__group$state$ = {
                 readonly 'key': string
-                readonly 'referent': Type$type$state__group$states$
+                readonly 'referent': Type$type$state__group$states$D$
             }
             
             export type Type__Selection__Tail$step__type$state__group$ = {
@@ -1209,7 +1116,7 @@ export namespace pareto__lang__data {
             
             export type Type__Selection$import$O$ = {
                 readonly 'key': string
-                readonly 'referent': Imports$
+                readonly 'referent': Imports$D$
             }
             
             export type Type__Selection$import$ = _pt.OptionalValue<Type__Selection$import$O$>
@@ -1263,12 +1170,12 @@ export namespace pareto__lang__data {
             
             export type Global__Type__Selection$import$library$ = {
                 readonly 'key': string
-                readonly 'referent': Imports$
+                readonly 'referent': Imports$D$
             }
             
             export type Global__Type__Selection$import$type$ = {
                 readonly 'key': string
-                readonly 'referent': Type__Library$global__types$
+                readonly 'referent': Type__Library$global__types$D$
             }
             
             export type Global__Type__Selection$import$ = {
@@ -1294,7 +1201,7 @@ export namespace pareto__lang__data {
             
             export type Model$root$ = {
                 readonly 'key': string
-                readonly 'referent': Type__Library$global__types$
+                readonly 'referent': Type__Library$global__types$D$
             }
             
             export type Model$ = {
@@ -1319,11 +1226,9 @@ export namespace pareto__lang__data {
             
             export namespace Atom__Types {
                 
-                import _IFlat = Flat
                 
                 export namespace D {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Atom__Types$D$
                 }
@@ -1333,11 +1238,9 @@ export namespace pareto__lang__data {
             
             export namespace Atom {
                 
-                import _IFlat = Flat
                 
                 export namespace _ltype {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Atom$type$
                 }
@@ -1347,19 +1250,15 @@ export namespace pareto__lang__data {
             
             export namespace TType {
                 
-                import _IFlat = Flat
                 
                 export namespace _ltype {
                     
-                    import _IFlat = Flat
                     
                     export namespace array {
                         
-                        import _IFlat = Flat
                         
                         export namespace _ltype {
                             
-                            import _IFlat = Flat
                             
                             export type $ = _IFlat.Type$type$array$type$
                         }
@@ -1369,11 +1268,9 @@ export namespace pareto__lang__data {
                     
                     export namespace atom {
                         
-                        import _IFlat = Flat
                         
                         export namespace atom {
                             
-                            import _IFlat = Flat
                             
                             export type $ = _IFlat.Type$type$atom$atom$
                         }
@@ -1383,11 +1280,9 @@ export namespace pareto__lang__data {
                     
                     export namespace component {
                         
-                        import _IFlat = Flat
                         
                         export namespace _ltype {
                             
-                            import _IFlat = Flat
                             
                             export type $ = _IFlat.Type$type$component$type$
                         }
@@ -1397,25 +1292,21 @@ export namespace pareto__lang__data {
                     
                     export namespace constraint {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Type$type$constraint$
                     }
                     
                     export namespace cyclic__reference {
                         
-                        import _IFlat = Flat
                         
                         export namespace atom {
                             
-                            import _IFlat = Flat
                             
                             export type $ = _IFlat.Type$type$cyclic__reference$atom$
                         }
                         
                         export namespace sibling {
                             
-                            import _IFlat = Flat
                             
                             export type $ = _IFlat.Type$type$cyclic__reference$sibling$
                         }
@@ -1425,48 +1316,39 @@ export namespace pareto__lang__data {
                     
                     export namespace dictionary {
                         
-                        import _IFlat = Flat
                         
                         export namespace key {
                             
-                            import _IFlat = Flat
                             
                             export type $ = _IFlat.Type$type$dictionary$key$
                         }
                         
                         export namespace constraints {
                             
-                            import _IFlat = Flat
                             
                             export namespace D {
                                 
-                                import _IFlat = Flat
                                 
                                 export namespace dictionary {
                                     
-                                    import _IFlat = Flat
                                     
                                     export namespace dictionary {
                                         
-                                        import _IFlat = Flat
                                         
                                         export type $ = _IFlat.Type$type$dictionary$constraints$D$dictionary$dictionary$
                                     }
                                     
                                     export namespace dense {
                                         
-                                        import _IFlat = Flat
                                         
                                         export namespace no {
                                             
-                                            import _IFlat = Flat
                                             
                                             export type $ = _IFlat.Type$type$dictionary$constraints$D$dictionary$dense$no$
                                         }
                                         
                                         export namespace yes {
                                             
-                                            import _IFlat = Flat
                                             
                                             export type $ = _IFlat.Type$type$dictionary$constraints$D$dictionary$dense$yes$
                                         }
@@ -1479,7 +1361,6 @@ export namespace pareto__lang__data {
                                 
                                 export namespace lookup {
                                     
-                                    import _IFlat = Flat
                                     
                                     export type $ = _IFlat.Type$type$dictionary$constraints$D$lookup$
                                 }
@@ -1492,7 +1373,6 @@ export namespace pareto__lang__data {
                         
                         export namespace _ltype {
                             
-                            import _IFlat = Flat
                             
                             export type $ = _IFlat.Type$type$dictionary$type$
                         }
@@ -1502,19 +1382,15 @@ export namespace pareto__lang__data {
                     
                     export namespace group {
                         
-                        import _IFlat = Flat
                         
                         export namespace properties {
                             
-                            import _IFlat = Flat
                             
                             export namespace D {
                                 
-                                import _IFlat = Flat
                                 
                                 export namespace _ltype {
                                     
-                                    import _IFlat = Flat
                                     
                                     export type $ = _IFlat.Type$type$group$properties$D$type$
                                 }
@@ -1530,18 +1406,15 @@ export namespace pareto__lang__data {
                     
                     export namespace nothing {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Type$type$nothing$
                     }
                     
                     export namespace optional {
                         
-                        import _IFlat = Flat
                         
                         export namespace _ltype {
                             
-                            import _IFlat = Flat
                             
                             export type $ = _IFlat.Type$type$optional$type$
                         }
@@ -1551,29 +1424,24 @@ export namespace pareto__lang__data {
                     
                     export namespace resolved__reference {
                         
-                        import _IFlat = Flat
                         
                         export namespace atom {
                             
-                            import _IFlat = Flat
                             
                             export type $ = _IFlat.Type$type$resolved__reference$atom$
                         }
                         
                         export namespace value {
                             
-                            import _IFlat = Flat
                             
                             export namespace dictionary {
                                 
-                                import _IFlat = Flat
                                 
                                 export type $ = _IFlat.Type$type$resolved__reference$value$dictionary$
                             }
                             
                             export namespace lookup {
                                 
-                                import _IFlat = Flat
                                 
                                 export type $ = _IFlat.Type$type$resolved__reference$value$lookup$
                             }
@@ -1586,19 +1454,15 @@ export namespace pareto__lang__data {
                     
                     export namespace state__group {
                         
-                        import _IFlat = Flat
                         
                         export namespace states {
                             
-                            import _IFlat = Flat
                             
                             export namespace D {
                                 
-                                import _IFlat = Flat
                                 
                                 export namespace _ltype {
                                     
-                                    import _IFlat = Flat
                                     
                                     export type $ = _IFlat.Type$type$state__group$states$D$type$
                                 }
@@ -1620,15 +1484,12 @@ export namespace pareto__lang__data {
             
             export namespace Imports {
                 
-                import _IFlat = Flat
                 
                 export namespace D {
                     
-                    import _IFlat = Flat
                     
                     export namespace library {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Imports$D$library$
                     }
@@ -1641,11 +1502,9 @@ export namespace pareto__lang__data {
             
             export namespace Global__Type {
                 
-                import _IFlat = Flat
                 
                 export namespace _ltype {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Global__Type$type$
                 }
@@ -1655,19 +1514,15 @@ export namespace pareto__lang__data {
             
             export namespace TType__Selection__Tail {
                 
-                import _IFlat = Flat
                 
                 export namespace step__type {
                     
-                    import _IFlat = Flat
                     
                     export namespace dictionary {
                         
-                        import _IFlat = Flat
                         
                         export namespace dictionary {
                             
-                            import _IFlat = Flat
                             
                             export type $ = _IFlat.Type__Selection__Tail$step__type$dictionary$dictionary$
                         }
@@ -1677,11 +1532,9 @@ export namespace pareto__lang__data {
                     
                     export namespace optional {
                         
-                        import _IFlat = Flat
                         
                         export namespace optional {
                             
-                            import _IFlat = Flat
                             
                             export type $ = _IFlat.Type__Selection__Tail$step__type$optional$optional$
                         }
@@ -1691,11 +1544,9 @@ export namespace pareto__lang__data {
                     
                     export namespace array {
                         
-                        import _IFlat = Flat
                         
                         export namespace array {
                             
-                            import _IFlat = Flat
                             
                             export type $ = _IFlat.Type__Selection__Tail$step__type$array$array$
                         }
@@ -1705,18 +1556,15 @@ export namespace pareto__lang__data {
                     
                     export namespace group {
                         
-                        import _IFlat = Flat
                         
                         export namespace group {
                             
-                            import _IFlat = Flat
                             
                             export type $ = _IFlat.Type__Selection__Tail$step__type$group$group$
                         }
                         
                         export namespace property {
                             
-                            import _IFlat = Flat
                             
                             export type $ = _IFlat.Type__Selection__Tail$step__type$group$property$
                         }
@@ -1726,18 +1574,15 @@ export namespace pareto__lang__data {
                     
                     export namespace state__group {
                         
-                        import _IFlat = Flat
                         
                         export namespace state__group {
                             
-                            import _IFlat = Flat
                             
                             export type $ = _IFlat.Type__Selection__Tail$step__type$state__group$state__group$
                         }
                         
                         export namespace state {
                             
-                            import _IFlat = Flat
                             
                             export type $ = _IFlat.Type__Selection__Tail$step__type$state__group$state$
                         }
@@ -1750,11 +1595,9 @@ export namespace pareto__lang__data {
                 
                 export namespace tail {
                     
-                    import _IFlat = Flat
                     
                     export namespace O {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Type__Selection__Tail$tail$O$
                     }
@@ -1767,15 +1610,12 @@ export namespace pareto__lang__data {
             
             export namespace TType__Selection {
                 
-                import _IFlat = Flat
                 
                 export namespace _limport {
                     
-                    import _IFlat = Flat
                     
                     export namespace O {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Type__Selection$import$O$
                     }
@@ -1785,18 +1625,15 @@ export namespace pareto__lang__data {
                 
                 export namespace global__type {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Type__Selection$global__type$
                 }
                 
                 export namespace tail {
                     
-                    import _IFlat = Flat
                     
                     export namespace O {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Type__Selection$tail$O$
                     }
@@ -1809,18 +1646,15 @@ export namespace pareto__lang__data {
             
             export namespace Dictionary__Selection {
                 
-                import _IFlat = Flat
                 
                 export namespace _ltype {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Dictionary__Selection$type$
                 }
                 
                 export namespace dictionary {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Dictionary__Selection$dictionary$
                 }
@@ -1830,29 +1664,24 @@ export namespace pareto__lang__data {
             
             export namespace TType__Library {
                 
-                import _IFlat = Flat
                 
                 export namespace imports {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Type__Library$imports$
                 }
                 
                 export namespace atom__types {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Type__Library$atom__types$
                 }
                 
                 export namespace global__types {
                     
-                    import _IFlat = Flat
                     
                     export namespace D {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Type__Library$global__types$D$
                     }
@@ -1865,15 +1694,12 @@ export namespace pareto__lang__data {
             
             export namespace Global__Type__Selection {
                 
-                import _IFlat = Flat
                 
                 export namespace resolved__sibling {
                     
-                    import _IFlat = Flat
                     
                     export namespace _ltype {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Global__Type__Selection$resolved__sibling$type$
                     }
@@ -1883,18 +1709,15 @@ export namespace pareto__lang__data {
                 
                 export namespace _limport {
                     
-                    import _IFlat = Flat
                     
                     export namespace library {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Global__Type__Selection$import$library$
                     }
                     
                     export namespace _ltype {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Global__Type__Selection$import$type$
                     }
@@ -1904,11 +1727,9 @@ export namespace pareto__lang__data {
                 
                 export namespace cyclic__sibling {
                     
-                    import _IFlat = Flat
                     
                     export namespace _ltype {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Global__Type__Selection$cyclic__sibling$type$
                     }
@@ -1921,18 +1742,15 @@ export namespace pareto__lang__data {
             
             export namespace Model {
                 
-                import _IFlat = Flat
                 
                 export namespace type__library {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Model$type__library$
                 }
                 
                 export namespace root {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Model$root$
                 }
@@ -1942,15 +1760,12 @@ export namespace pareto__lang__data {
             
             export namespace Project {
                 
-                import _IFlat = Flat
                 
                 export namespace type__libraries {
                     
-                    import _IFlat = Flat
                     
                     export namespace D {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Project$type__libraries$D$
                     }
@@ -1963,7 +1778,6 @@ export namespace pareto__lang__data {
             
             export namespace Root {
                 
-                import _IFlat = Flat
                 
                 export type $ = _IFlat.Root$
             }
@@ -2434,11 +2248,9 @@ export namespace proto__typesystem {
             
             export namespace Aggregated__Type__Parameters {
                 
-                import _IFlat = Flat
                 
                 export namespace D {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Aggregated__Type__Parameters$D$<_TAnnotation>
                 }
@@ -2448,15 +2260,12 @@ export namespace proto__typesystem {
             
             export namespace TType__Parameters {
                 
-                import _IFlat = Flat
                 
                 export namespace local {
                     
-                    import _IFlat = Flat
                     
                     export namespace D {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Type__Parameters$local$D$<_TAnnotation>
                     }
@@ -2466,7 +2275,6 @@ export namespace proto__typesystem {
                 
                 export namespace aggregated {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Type__Parameters$aggregated$<_TAnnotation>
                 }
@@ -2476,29 +2284,24 @@ export namespace proto__typesystem {
             
             export namespace Function__Declaration {
                 
-                import _IFlat = Flat
                 
                 export namespace type__parameters {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Function__Declaration$type__parameters$<_TAnnotation>
                 }
                 
                 export namespace context {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Function__Declaration$context$<_TAnnotation>
                 }
                 
                 export namespace parameters {
                     
-                    import _IFlat = Flat
                     
                     export namespace D {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Function__Declaration$parameters$D$<_TAnnotation>
                     }
@@ -2511,15 +2314,12 @@ export namespace proto__typesystem {
             
             export namespace Namespace__2 {
                 
-                import _IFlat = Flat
                 
                 export namespace parent__sibling {
                     
-                    import _IFlat = Flat
                     
                     export namespace namespace {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Namespace__2$parent__sibling$namespace$<_TAnnotation>
                     }
@@ -2529,7 +2329,6 @@ export namespace proto__typesystem {
                 
                 export namespace local {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Namespace__2$local$<_TAnnotation>
                 }
@@ -2539,15 +2338,12 @@ export namespace proto__typesystem {
             
             export namespace Local__Namespace {
                 
-                import _IFlat = Flat
                 
                 export namespace namespaces {
                     
-                    import _IFlat = Flat
                     
                     export namespace D {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Local__Namespace$namespaces$D$<_TAnnotation>
                     }
@@ -2557,18 +2353,15 @@ export namespace proto__typesystem {
                 
                 export namespace parameters {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Local__Namespace$parameters$<_TAnnotation>
                 }
                 
                 export namespace types {
                     
-                    import _IFlat = Flat
                     
                     export namespace D {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Local__Namespace$types$D$<_TAnnotation>
                     }
@@ -2581,22 +2374,18 @@ export namespace proto__typesystem {
             
             export namespace TType {
                 
-                import _IFlat = Flat
                 
                 export namespace address__function {
                     
-                    import _IFlat = Flat
                     
                     export namespace declaration {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Type$address__function$declaration$<_TAnnotation>
                     }
                     
                     export namespace return__type {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Type$address__function$return__type$<_TAnnotation>
                     }
@@ -2606,54 +2395,45 @@ export namespace proto__typesystem {
                 
                 export namespace array {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Type$array$<_TAnnotation>
                 }
                 
                 export namespace _lboolean {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Type$boolean$<_TAnnotation>
                 }
                 
                 export namespace computed {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Type$computed$<_TAnnotation>
                 }
                 
                 export namespace dictionary {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Type$dictionary$<_TAnnotation>
                 }
                 
                 export namespace group {
                     
-                    import _IFlat = Flat
                     
                     export namespace D {
                         
-                        import _IFlat = Flat
                         
                         export namespace _ltype {
                             
-                            import _IFlat = Flat
                             
                             export type $<_TAnnotation> = _IFlat.Type$group$D$type$<_TAnnotation>
                         }
                         
                         export namespace mutable {
                             
-                            import _IFlat = Flat
                             
                             export namespace O {
                                 
-                                import _IFlat = Flat
                                 
                                 export type $<_TAnnotation> = _IFlat.Type$group$D$mutable$O$<_TAnnotation>
                             }
@@ -2669,32 +2449,27 @@ export namespace proto__typesystem {
                 
                 export namespace _lnull {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Type$null$<_TAnnotation>
                 }
                 
                 export namespace _lnumber {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Type$number$<_TAnnotation>
                 }
                 
                 export namespace optional {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Type$optional$<_TAnnotation>
                 }
                 
                 export namespace procedure {
                     
-                    import _IFlat = Flat
                     
                     export namespace declaration {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Type$procedure$declaration$<_TAnnotation>
                     }
@@ -2704,18 +2479,15 @@ export namespace proto__typesystem {
                 
                 export namespace _lstring {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Type$string$<_TAnnotation>
                 }
                 
                 export namespace tagged__union {
                     
-                    import _IFlat = Flat
                     
                     export namespace D {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Type$tagged__union$D$<_TAnnotation>
                     }
@@ -2725,29 +2497,24 @@ export namespace proto__typesystem {
                 
                 export namespace type__parameter {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Type$type__parameter$<_TAnnotation>
                 }
                 
                 export namespace type__reference {
                     
-                    import _IFlat = Flat
                     
                     export namespace external {
                         
-                        import _IFlat = Flat
                         
                         export namespace namespaces {
                             
-                            import _IFlat = Flat
                             
                             export type $<_TAnnotation> = _IFlat.Type$type__reference$external$namespaces$<_TAnnotation>
                         }
                         
                         export namespace _ltype {
                             
-                            import _IFlat = Flat
                             
                             export type $<_TAnnotation> = _IFlat.Type$type__reference$external$type$<_TAnnotation>
                         }
@@ -2757,14 +2524,12 @@ export namespace proto__typesystem {
                     
                     export namespace sibling {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Type$type__reference$sibling$<_TAnnotation>
                     }
                     
                     export namespace cyclic__sibling {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Type$type__reference$cyclic__sibling$<_TAnnotation>
                     }
@@ -2774,18 +2539,15 @@ export namespace proto__typesystem {
                 
                 export namespace value__function {
                     
-                    import _IFlat = Flat
                     
                     export namespace declaration {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Type$value__function$declaration$<_TAnnotation>
                     }
                     
                     export namespace return__type {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Type$value__function$return__type$<_TAnnotation>
                     }
@@ -2798,15 +2560,12 @@ export namespace proto__typesystem {
             
             export namespace TType__Arguments {
                 
-                import _IFlat = Flat
                 
                 export namespace D {
                     
-                    import _IFlat = Flat
                     
                     export namespace _ltype {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Type__Arguments$D$type$<_TAnnotation>
                     }
@@ -2819,29 +2578,24 @@ export namespace proto__typesystem {
             
             export namespace Namespace__Selection {
                 
-                import _IFlat = Flat
                 
                 export namespace namespace {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Namespace__Selection$namespace$<_TAnnotation>
                 }
                 
                 export namespace arguments {
                     
-                    import _IFlat = Flat
                     
                     export type $<_TAnnotation> = _IFlat.Namespace__Selection$arguments$<_TAnnotation>
                 }
                 
                 export namespace tail {
                     
-                    import _IFlat = Flat
                     
                     export namespace O {
                         
-                        import _IFlat = Flat
                         
                         export type $<_TAnnotation> = _IFlat.Namespace__Selection$tail$O$<_TAnnotation>
                     }
@@ -2854,7 +2608,6 @@ export namespace proto__typesystem {
             
             export namespace Root {
                 
-                import _IFlat = Flat
                 
                 export type $<_TAnnotation> = _IFlat.Root$<_TAnnotation>
             }
@@ -2975,14 +2728,14 @@ export namespace proto__typesystem {
             
             export type Type$type__parameter$ = {
                 readonly 'key': string
-                readonly 'referent': Aggregated__Type__Parameters$
+                readonly 'referent': Aggregated__Type__Parameters$D$
             }
             
             export type Type$type__reference$external$namespaces$ = Namespace__Selection$
             
             export type Type$type__reference$external$type$ = {
                 readonly 'key': string
-                readonly 'referent': Local__Namespace$types$
+                readonly 'referent': Local__Namespace$types$D$
             }
             
             export type Type$type__reference$external$ = {
@@ -3041,7 +2794,7 @@ export namespace proto__typesystem {
             
             export type Namespace__Selection$namespace$ = {
                 readonly 'key': string
-                readonly 'referent': Local__Namespace$namespaces$
+                readonly 'referent': Local__Namespace$namespaces$D$
             }
             
             export type Namespace__Selection$arguments$ = Type__Arguments$
@@ -3065,11 +2818,9 @@ export namespace proto__typesystem {
             
             export namespace Aggregated__Type__Parameters {
                 
-                import _IFlat = Flat
                 
                 export namespace D {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Aggregated__Type__Parameters$D$
                 }
@@ -3079,15 +2830,12 @@ export namespace proto__typesystem {
             
             export namespace TType__Parameters {
                 
-                import _IFlat = Flat
                 
                 export namespace local {
                     
-                    import _IFlat = Flat
                     
                     export namespace D {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Type__Parameters$local$D$
                     }
@@ -3097,7 +2845,6 @@ export namespace proto__typesystem {
                 
                 export namespace aggregated {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Type__Parameters$aggregated$
                 }
@@ -3107,29 +2854,24 @@ export namespace proto__typesystem {
             
             export namespace Function__Declaration {
                 
-                import _IFlat = Flat
                 
                 export namespace type__parameters {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Function__Declaration$type__parameters$
                 }
                 
                 export namespace context {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Function__Declaration$context$
                 }
                 
                 export namespace parameters {
                     
-                    import _IFlat = Flat
                     
                     export namespace D {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Function__Declaration$parameters$D$
                     }
@@ -3142,15 +2884,12 @@ export namespace proto__typesystem {
             
             export namespace Namespace__2 {
                 
-                import _IFlat = Flat
                 
                 export namespace parent__sibling {
                     
-                    import _IFlat = Flat
                     
                     export namespace namespace {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Namespace__2$parent__sibling$namespace$
                     }
@@ -3160,7 +2899,6 @@ export namespace proto__typesystem {
                 
                 export namespace local {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Namespace__2$local$
                 }
@@ -3170,15 +2908,12 @@ export namespace proto__typesystem {
             
             export namespace Local__Namespace {
                 
-                import _IFlat = Flat
                 
                 export namespace namespaces {
                     
-                    import _IFlat = Flat
                     
                     export namespace D {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Local__Namespace$namespaces$D$
                     }
@@ -3188,18 +2923,15 @@ export namespace proto__typesystem {
                 
                 export namespace parameters {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Local__Namespace$parameters$
                 }
                 
                 export namespace types {
                     
-                    import _IFlat = Flat
                     
                     export namespace D {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Local__Namespace$types$D$
                     }
@@ -3212,22 +2944,18 @@ export namespace proto__typesystem {
             
             export namespace TType {
                 
-                import _IFlat = Flat
                 
                 export namespace address__function {
                     
-                    import _IFlat = Flat
                     
                     export namespace declaration {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Type$address__function$declaration$
                     }
                     
                     export namespace return__type {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Type$address__function$return__type$
                     }
@@ -3237,54 +2965,45 @@ export namespace proto__typesystem {
                 
                 export namespace array {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Type$array$
                 }
                 
                 export namespace _lboolean {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Type$boolean$
                 }
                 
                 export namespace computed {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Type$computed$
                 }
                 
                 export namespace dictionary {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Type$dictionary$
                 }
                 
                 export namespace group {
                     
-                    import _IFlat = Flat
                     
                     export namespace D {
                         
-                        import _IFlat = Flat
                         
                         export namespace _ltype {
                             
-                            import _IFlat = Flat
                             
                             export type $ = _IFlat.Type$group$D$type$
                         }
                         
                         export namespace mutable {
                             
-                            import _IFlat = Flat
                             
                             export namespace O {
                                 
-                                import _IFlat = Flat
                                 
                                 export type $ = _IFlat.Type$group$D$mutable$O$
                             }
@@ -3300,32 +3019,27 @@ export namespace proto__typesystem {
                 
                 export namespace _lnull {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Type$null$
                 }
                 
                 export namespace _lnumber {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Type$number$
                 }
                 
                 export namespace optional {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Type$optional$
                 }
                 
                 export namespace procedure {
                     
-                    import _IFlat = Flat
                     
                     export namespace declaration {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Type$procedure$declaration$
                     }
@@ -3335,18 +3049,15 @@ export namespace proto__typesystem {
                 
                 export namespace _lstring {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Type$string$
                 }
                 
                 export namespace tagged__union {
                     
-                    import _IFlat = Flat
                     
                     export namespace D {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Type$tagged__union$D$
                     }
@@ -3356,29 +3067,24 @@ export namespace proto__typesystem {
                 
                 export namespace type__parameter {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Type$type__parameter$
                 }
                 
                 export namespace type__reference {
                     
-                    import _IFlat = Flat
                     
                     export namespace external {
                         
-                        import _IFlat = Flat
                         
                         export namespace namespaces {
                             
-                            import _IFlat = Flat
                             
                             export type $ = _IFlat.Type$type__reference$external$namespaces$
                         }
                         
                         export namespace _ltype {
                             
-                            import _IFlat = Flat
                             
                             export type $ = _IFlat.Type$type__reference$external$type$
                         }
@@ -3388,14 +3094,12 @@ export namespace proto__typesystem {
                     
                     export namespace sibling {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Type$type__reference$sibling$
                     }
                     
                     export namespace cyclic__sibling {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Type$type__reference$cyclic__sibling$
                     }
@@ -3405,18 +3109,15 @@ export namespace proto__typesystem {
                 
                 export namespace value__function {
                     
-                    import _IFlat = Flat
                     
                     export namespace declaration {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Type$value__function$declaration$
                     }
                     
                     export namespace return__type {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Type$value__function$return__type$
                     }
@@ -3429,15 +3130,12 @@ export namespace proto__typesystem {
             
             export namespace TType__Arguments {
                 
-                import _IFlat = Flat
                 
                 export namespace D {
                     
-                    import _IFlat = Flat
                     
                     export namespace _ltype {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Type__Arguments$D$type$
                     }
@@ -3450,29 +3148,24 @@ export namespace proto__typesystem {
             
             export namespace Namespace__Selection {
                 
-                import _IFlat = Flat
                 
                 export namespace namespace {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Namespace__Selection$namespace$
                 }
                 
                 export namespace arguments {
                     
-                    import _IFlat = Flat
                     
                     export type $ = _IFlat.Namespace__Selection$arguments$
                 }
                 
                 export namespace tail {
                     
-                    import _IFlat = Flat
                     
                     export namespace O {
                         
-                        import _IFlat = Flat
                         
                         export type $ = _IFlat.Namespace__Selection$tail$O$
                     }
@@ -3485,7 +3178,6 @@ export namespace proto__typesystem {
             
             export namespace Root {
                 
-                import _IFlat = Flat
                 
                 export type $ = _IFlat.Root$
             }

@@ -204,8 +204,8 @@ export declare namespace pareto__lang__data {
             };
             type Root$<_TAnnotation> = Project$<_TAnnotation>;
         }
-        import _IFlat = Flat;
         namespace T {
+            import _IFlat = Flat;
             namespace Atom__Types {
                 namespace D {
                     type $<_TAnnotation> = _IFlat.Atom__Types$D$<_TAnnotation>;
@@ -493,7 +493,7 @@ export declare namespace pareto__lang__data {
             type Atom__Types$ = _pt.Dictionary<Atom__Types$D$>;
             type Atom$type$ = {
                 readonly 'key': string;
-                readonly 'referent': Atom__Types$;
+                readonly 'referent': Atom__Types$D$;
             };
             type Atom$ = {
                 readonly 'type': Atom$type$;
@@ -595,7 +595,7 @@ export declare namespace pareto__lang__data {
             type Type__Selection__Tail$step__type$group$group$ = Type$type$group$;
             type Type__Selection__Tail$step__type$group$property$ = {
                 readonly 'key': string;
-                readonly 'referent': Type$type$group$properties$;
+                readonly 'referent': Type$type$group$properties$D$;
             };
             type Type__Selection__Tail$step__type$group$ = {
                 readonly 'group': Type__Selection__Tail$step__type$group$group$;
@@ -604,7 +604,7 @@ export declare namespace pareto__lang__data {
             type Type__Selection__Tail$step__type$state__group$state__group$ = Type$type$state__group$;
             type Type__Selection__Tail$step__type$state__group$state$ = {
                 readonly 'key': string;
-                readonly 'referent': Type$type$state__group$states$;
+                readonly 'referent': Type$type$state__group$states$D$;
             };
             type Type__Selection__Tail$step__type$state__group$ = {
                 readonly 'state': Type__Selection__Tail$step__type$state__group$state$;
@@ -619,7 +619,7 @@ export declare namespace pareto__lang__data {
             };
             type Type__Selection$import$O$ = {
                 readonly 'key': string;
-                readonly 'referent': Imports$;
+                readonly 'referent': Imports$D$;
             };
             type Type__Selection$import$ = _pt.OptionalValue<Type__Selection$import$O$>;
             type Type__Selection$global__type$ = {
@@ -657,11 +657,11 @@ export declare namespace pareto__lang__data {
             };
             type Global__Type__Selection$import$library$ = {
                 readonly 'key': string;
-                readonly 'referent': Imports$;
+                readonly 'referent': Imports$D$;
             };
             type Global__Type__Selection$import$type$ = {
                 readonly 'key': string;
-                readonly 'referent': Type__Library$global__types$;
+                readonly 'referent': Type__Library$global__types$D$;
             };
             type Global__Type__Selection$import$ = {
                 readonly 'library': Global__Type__Selection$import$library$;
@@ -678,7 +678,7 @@ export declare namespace pareto__lang__data {
             type Model$type__library$ = Type__Library$;
             type Model$root$ = {
                 readonly 'key': string;
-                readonly 'referent': Type__Library$global__types$;
+                readonly 'referent': Type__Library$global__types$D$;
             };
             type Model$ = {
                 readonly 'root': Model$root$;
@@ -691,8 +691,8 @@ export declare namespace pareto__lang__data {
             };
             type Root$ = Project$;
         }
-        import _IFlat = Flat;
         namespace T {
+            import _IFlat = Flat;
             namespace Atom__Types {
                 namespace D {
                     type $ = _IFlat.Atom__Types$D$;
@@ -974,91 +974,93 @@ export declare namespace pareto__lang__data {
             }
         }
     }
-    import _IResolved = Resolved;
-    import _IUnresolved = Unresolved;
     namespace Resolve {
-        type Atom__Types = <_TAnnotation>($: _IUnresolved.Atom__Types$<_TAnnotation>) => _IResolved.Atom__Types$;
-        type Atom = <_TAnnotation>($: _IUnresolved.Atom$<_TAnnotation>, $p: {
-            readonly 'atom types': _IResolved.Atom__Types$;
-        }) => _IResolved.Atom$;
-        type Dictionary__Selection = <_TAnnotation>($: _IUnresolved.Dictionary__Selection$<_TAnnotation>, $p: {
-            readonly 'cyclic sibling global types': _pt.Lookup<_pt.ComputedValue<_IResolved.Global__Type$>>;
-            readonly 'imports': _IResolved.Imports$;
-            readonly 'sibling global types': _pt.Lookup<_IResolved.Global__Type$>;
-        }) => _IResolved.Dictionary__Selection$;
-        type Global__Type__Selection = <_TAnnotation>($: _IUnresolved.Global__Type__Selection$<_TAnnotation>, $p: {
-            readonly 'cyclic sibling global types': _pt.Lookup<_pt.ComputedValue<_IResolved.Global__Type$>>;
-            readonly 'imports': _IResolved.Imports$;
-            readonly 'sibling global types': _pt.Lookup<_IResolved.Global__Type$>;
-        }) => _IResolved.Global__Type__Selection$;
-        type Global__Type = <_TAnnotation>($: _IUnresolved.Global__Type$<_TAnnotation>) => _IResolved.Global__Type$;
-        type Imports = <_TAnnotation>($: _IUnresolved.Imports$<_TAnnotation>) => _IResolved.Imports$;
-        type Model = <_TAnnotation>($: _IUnresolved.Model$<_TAnnotation>, $p: {
-            readonly 'external type libraries': _pt.Lookup<_IResolved.Type__Library$>;
-        }) => _IResolved.Model$;
-        type Project = <_TAnnotation>($: _IUnresolved.Project$<_TAnnotation>) => _IResolved.Project$;
-        type Root = <_TAnnotation>($: _IUnresolved.Root$<_TAnnotation>) => _IResolved.Root$;
-        type Type__Library = <_TAnnotation>($: _IUnresolved.Type__Library$<_TAnnotation>, $p: {
-            readonly 'external type libraries': _pt.Lookup<_IResolved.Type__Library$>;
-        }) => _IResolved.Type__Library$;
-        type Type__Selection__Tail = <_TAnnotation>($: _IUnresolved.Type__Selection__Tail$<_TAnnotation>, $p: {
-            readonly 'context': _IResolved.Type$;
-        }) => _IResolved.Type__Selection__Tail$;
-        type Type__Selection = <_TAnnotation>($: _IUnresolved.Type__Selection$<_TAnnotation>, $p: {
-            readonly 'imports': _IResolved.Imports$;
-            readonly 'sibling global types': _pt.Lookup<_IResolved.Global__Type$>;
-        }) => _IResolved.Type__Selection$;
-        type Type = <_TAnnotation>($: _IUnresolved.Type$<_TAnnotation>, $p: {
-            readonly 'atom types': _IResolved.Atom__Types$;
-            readonly 'cyclic sibling global types': _pt.Lookup<_pt.ComputedValue<_IResolved.Global__Type$>>;
-            readonly 'imports': _IResolved.Imports$;
-            readonly 'sibling global types': _pt.Lookup<_IResolved.Global__Type$>;
-        }) => _IResolved.Type$;
+        import _IResolved = Resolved;
+        import _IUnresolved = Unresolved;
+        type Atom__Types = <_TAnnotation>($: _IUnresolved.Flat.Atom__Types$<_TAnnotation>) => _IResolved.Flat.Atom__Types$;
+        type Atom = <_TAnnotation>($: _IUnresolved.Flat.Atom$<_TAnnotation>, $p: {
+            readonly 'atom types': _IResolved.Flat.Atom__Types$;
+        }) => _IResolved.Flat.Atom$;
+        type Dictionary__Selection = <_TAnnotation>($: _IUnresolved.Flat.Dictionary__Selection$<_TAnnotation>, $p: {
+            readonly 'cyclic sibling global types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Global__Type$>>;
+            readonly 'imports': _IResolved.Flat.Imports$;
+            readonly 'sibling global types': _pt.Lookup<_IResolved.Flat.Global__Type$>;
+        }) => _IResolved.Flat.Dictionary__Selection$;
+        type Global__Type__Selection = <_TAnnotation>($: _IUnresolved.Flat.Global__Type__Selection$<_TAnnotation>, $p: {
+            readonly 'cyclic sibling global types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Global__Type$>>;
+            readonly 'imports': _IResolved.Flat.Imports$;
+            readonly 'sibling global types': _pt.Lookup<_IResolved.Flat.Global__Type$>;
+        }) => _IResolved.Flat.Global__Type__Selection$;
+        type Global__Type = <_TAnnotation>($: _IUnresolved.Flat.Global__Type$<_TAnnotation>) => _IResolved.Flat.Global__Type$;
+        type Imports = <_TAnnotation>($: _IUnresolved.Flat.Imports$<_TAnnotation>) => _IResolved.Flat.Imports$;
+        type Model = <_TAnnotation>($: _IUnresolved.Flat.Model$<_TAnnotation>, $p: {
+            readonly 'external type libraries': _pt.Lookup<_IResolved.Flat.Type__Library$>;
+        }) => _IResolved.Flat.Model$;
+        type Project = <_TAnnotation>($: _IUnresolved.Flat.Project$<_TAnnotation>) => _IResolved.Flat.Project$;
+        type Root = <_TAnnotation>($: _IUnresolved.Flat.Root$<_TAnnotation>) => _IResolved.Flat.Root$;
+        type Type__Library = <_TAnnotation>($: _IUnresolved.Flat.Type__Library$<_TAnnotation>, $p: {
+            readonly 'external type libraries': _pt.Lookup<_IResolved.Flat.Type__Library$>;
+        }) => _IResolved.Flat.Type__Library$;
+        type Type__Selection__Tail = <_TAnnotation>($: _IUnresolved.Flat.Type__Selection__Tail$<_TAnnotation>, $p: {
+            readonly 'context': _IResolved.Flat.Type$;
+        }) => _IResolved.Flat.Type__Selection__Tail$;
+        type Type__Selection = <_TAnnotation>($: _IUnresolved.Flat.Type__Selection$<_TAnnotation>, $p: {
+            readonly 'imports': _IResolved.Flat.Imports$;
+            readonly 'sibling global types': _pt.Lookup<_IResolved.Flat.Global__Type$>;
+        }) => _IResolved.Flat.Type__Selection$;
+        type Type = <_TAnnotation>($: _IUnresolved.Flat.Type$<_TAnnotation>, $p: {
+            readonly 'atom types': _IResolved.Flat.Atom__Types$;
+            readonly 'cyclic sibling global types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Global__Type$>>;
+            readonly 'imports': _IResolved.Flat.Imports$;
+            readonly 'sibling global types': _pt.Lookup<_IResolved.Flat.Global__Type$>;
+        }) => _IResolved.Flat.Type$;
     }
     namespace Serialize {
-        type Atom__Types = ($: _IResolved.Atom__Types$, $p: {
+        import _IResolved = Resolved;
+        type Atom__Types = ($: _IResolved.Flat.Atom__Types$, $p: {
             readonly 'out': boolean;
         }) => void;
-        type Atom = ($: _IResolved.Atom$, $p: {
+        type Atom = ($: _IResolved.Flat.Atom$, $p: {
             readonly 'out': boolean;
         }) => void;
-        type Type = ($: _IResolved.Type$, $p: {
+        type Type = ($: _IResolved.Flat.Type$, $p: {
             readonly 'out': boolean;
         }) => void;
-        type Imports = ($: _IResolved.Imports$, $p: {
+        type Imports = ($: _IResolved.Flat.Imports$, $p: {
             readonly 'out': boolean;
         }) => void;
-        type Global__Type = ($: _IResolved.Global__Type$, $p: {
+        type Global__Type = ($: _IResolved.Flat.Global__Type$, $p: {
             readonly 'out': boolean;
         }) => void;
-        type Type__Selection__Tail = ($: _IResolved.Type__Selection__Tail$, $p: {
+        type Type__Selection__Tail = ($: _IResolved.Flat.Type__Selection__Tail$, $p: {
             readonly 'out': boolean;
         }) => void;
-        type Type__Selection = ($: _IResolved.Type__Selection$, $p: {
+        type Type__Selection = ($: _IResolved.Flat.Type__Selection$, $p: {
             readonly 'out': boolean;
         }) => void;
-        type Dictionary__Selection = ($: _IResolved.Dictionary__Selection$, $p: {
+        type Dictionary__Selection = ($: _IResolved.Flat.Dictionary__Selection$, $p: {
             readonly 'out': boolean;
         }) => void;
-        type Type__Library = ($: _IResolved.Type__Library$, $p: {
+        type Type__Library = ($: _IResolved.Flat.Type__Library$, $p: {
             readonly 'out': boolean;
         }) => void;
-        type Global__Type__Selection = ($: _IResolved.Global__Type__Selection$, $p: {
+        type Global__Type__Selection = ($: _IResolved.Flat.Global__Type__Selection$, $p: {
             readonly 'out': boolean;
         }) => void;
-        type Model = ($: _IResolved.Model$, $p: {
+        type Model = ($: _IResolved.Flat.Model$, $p: {
             readonly 'out': boolean;
         }) => void;
-        type Project = ($: _IResolved.Project$, $p: {
+        type Project = ($: _IResolved.Flat.Project$, $p: {
             readonly 'out': boolean;
         }) => void;
-        type Root = ($: _IResolved.Root$, $p: {
+        type Root = ($: _IResolved.Flat.Root$, $p: {
             readonly 'out': boolean;
         }) => void;
     }
     namespace Select {
-        type Type__Selection__Tail = ($: _IResolved.Type__Selection__Tail$) => _IResolved.Type$;
-        type Type__Selection = ($: _IResolved.Type__Selection$) => _IResolved.Type$;
+        import _IResolved = Resolved;
+        type Type__Selection__Tail = ($: _IResolved.Flat.Type__Selection__Tail$) => _IResolved.Flat.Type$;
+        type Type__Selection = ($: _IResolved.Flat.Type__Selection$) => _IResolved.Flat.Type$;
     }
     type _$ = ($: null) => {
         readonly 'Atom': {
@@ -1231,8 +1233,8 @@ export declare namespace proto__typesystem {
             };
             type Root$<_TAnnotation> = Local__Namespace$<_TAnnotation>;
         }
-        import _IFlat = Flat;
         namespace T {
+            import _IFlat = Flat;
             namespace Aggregated__Type__Parameters {
                 namespace D {
                     type $<_TAnnotation> = _IFlat.Aggregated__Type__Parameters$D$<_TAnnotation>;
@@ -1487,12 +1489,12 @@ export declare namespace proto__typesystem {
             type Type$tagged__union$ = _pt.Dictionary<Type$tagged__union$D$>;
             type Type$type__parameter$ = {
                 readonly 'key': string;
-                readonly 'referent': Aggregated__Type__Parameters$;
+                readonly 'referent': Aggregated__Type__Parameters$D$;
             };
             type Type$type__reference$external$namespaces$ = Namespace__Selection$;
             type Type$type__reference$external$type$ = {
                 readonly 'key': string;
-                readonly 'referent': Local__Namespace$types$;
+                readonly 'referent': Local__Namespace$types$D$;
             };
             type Type$type__reference$external$ = {
                 readonly 'namespaces': Type$type__reference$external$namespaces$;
@@ -1521,7 +1523,7 @@ export declare namespace proto__typesystem {
             type Type__Arguments$ = _pt.Dictionary<Type__Arguments$D$>;
             type Namespace__Selection$namespace$ = {
                 readonly 'key': string;
-                readonly 'referent': Local__Namespace$namespaces$;
+                readonly 'referent': Local__Namespace$namespaces$D$;
             };
             type Namespace__Selection$arguments$ = Type__Arguments$;
             type Namespace__Selection$tail$O$ = Namespace__Selection$;
@@ -1533,8 +1535,8 @@ export declare namespace proto__typesystem {
             };
             type Root$ = Local__Namespace$;
         }
-        import _IFlat = Flat;
         namespace T {
+            import _IFlat = Flat;
             namespace Aggregated__Type__Parameters {
                 namespace D {
                     type $ = _IFlat.Aggregated__Type__Parameters$D$;
@@ -1720,73 +1722,75 @@ export declare namespace proto__typesystem {
             }
         }
     }
-    import _IResolved = Resolved;
-    import _IUnresolved = Unresolved;
     namespace Resolve {
-        type Aggregated__Type__Parameters = <_TAnnotation>($: _IUnresolved.Aggregated__Type__Parameters$<_TAnnotation>) => _IResolved.Aggregated__Type__Parameters$;
-        type Function__Declaration = <_TAnnotation>($: _IUnresolved.Function__Declaration$<_TAnnotation>, $p: {
-            readonly 'cyclic sibling types': _pt.Lookup<_pt.ComputedValue<_IResolved.Type$>>;
-            readonly 'resolved namespaces': _pt.Lookup<_IResolved.Namespace__2$>;
-            readonly 'resolved sibling types': _pt.Lookup<_IResolved.Type$>;
-            readonly 'type parameters': _IResolved.Aggregated__Type__Parameters$;
-        }) => _IResolved.Function__Declaration$;
-        type Local__Namespace = <_TAnnotation>($: _IUnresolved.Local__Namespace$<_TAnnotation>, $p: {
-            readonly 'parent type parameters': _pt.OptionalValue<_IResolved.Aggregated__Type__Parameters$>;
-            readonly 'resolved sibling namespaces': _pt.OptionalValue<_pt.Lookup<_IResolved.Namespace__2$>>;
-        }) => _IResolved.Local__Namespace$;
-        type Namespace__2 = <_TAnnotation>($: _IUnresolved.Namespace__2$<_TAnnotation>, $p: {
-            readonly 'resolved parent sibling namespaces': _pt.OptionalValue<_pt.Lookup<_IResolved.Namespace__2$>>;
-        }) => _IResolved.Namespace__2$;
-        type Namespace__Selection = <_TAnnotation>($: _IUnresolved.Namespace__Selection$<_TAnnotation>, $p: {
-            readonly 'cyclic sibling types': _pt.Lookup<_pt.ComputedValue<_IResolved.Type$>>;
-            readonly 'resolved namespaces': _pt.Lookup<_IResolved.Namespace__2$>;
-            readonly 'resolved sibling types': _pt.Lookup<_IResolved.Type$>;
-            readonly 'type parameters': _IResolved.Aggregated__Type__Parameters$;
-        }) => _IResolved.Namespace__Selection$;
-        type Root = <_TAnnotation>($: _IUnresolved.Root$<_TAnnotation>) => _IResolved.Root$;
-        type Type__Arguments = <_TAnnotation>($: _IUnresolved.Type__Arguments$<_TAnnotation>) => _IResolved.Type__Arguments$;
-        type Type__Parameters = <_TAnnotation>($: _IUnresolved.Type__Parameters$<_TAnnotation>, $p: {
-            readonly 'parent type parameters': _pt.OptionalValue<_IResolved.Aggregated__Type__Parameters$>;
-        }) => _IResolved.Type__Parameters$;
-        type Type = <_TAnnotation>($: _IUnresolved.Type$<_TAnnotation>, $p: {
-            readonly 'cyclic sibling types': _pt.Lookup<_pt.ComputedValue<_IResolved.Type$>>;
-            readonly 'resolved namespaces': _pt.Lookup<_IResolved.Namespace__2$>;
-            readonly 'resolved sibling types': _pt.Lookup<_IResolved.Type$>;
-            readonly 'type parameters': _IResolved.Aggregated__Type__Parameters$;
-        }) => _IResolved.Type$;
+        import _IResolved = Resolved;
+        import _IUnresolved = Unresolved;
+        type Aggregated__Type__Parameters = <_TAnnotation>($: _IUnresolved.Flat.Aggregated__Type__Parameters$<_TAnnotation>) => _IResolved.Flat.Aggregated__Type__Parameters$;
+        type Function__Declaration = <_TAnnotation>($: _IUnresolved.Flat.Function__Declaration$<_TAnnotation>, $p: {
+            readonly 'cyclic sibling types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Type$>>;
+            readonly 'resolved namespaces': _pt.Lookup<_IResolved.Flat.Namespace__2$>;
+            readonly 'resolved sibling types': _pt.Lookup<_IResolved.Flat.Type$>;
+            readonly 'type parameters': _IResolved.Flat.Aggregated__Type__Parameters$;
+        }) => _IResolved.Flat.Function__Declaration$;
+        type Local__Namespace = <_TAnnotation>($: _IUnresolved.Flat.Local__Namespace$<_TAnnotation>, $p: {
+            readonly 'parent type parameters': _pt.OptionalValue<_IResolved.Flat.Aggregated__Type__Parameters$>;
+            readonly 'resolved sibling namespaces': _pt.OptionalValue<_pt.Lookup<_IResolved.Flat.Namespace__2$>>;
+        }) => _IResolved.Flat.Local__Namespace$;
+        type Namespace__2 = <_TAnnotation>($: _IUnresolved.Flat.Namespace__2$<_TAnnotation>, $p: {
+            readonly 'resolved parent sibling namespaces': _pt.OptionalValue<_pt.Lookup<_IResolved.Flat.Namespace__2$>>;
+        }) => _IResolved.Flat.Namespace__2$;
+        type Namespace__Selection = <_TAnnotation>($: _IUnresolved.Flat.Namespace__Selection$<_TAnnotation>, $p: {
+            readonly 'cyclic sibling types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Type$>>;
+            readonly 'resolved namespaces': _pt.Lookup<_IResolved.Flat.Namespace__2$>;
+            readonly 'resolved sibling types': _pt.Lookup<_IResolved.Flat.Type$>;
+            readonly 'type parameters': _IResolved.Flat.Aggregated__Type__Parameters$;
+        }) => _IResolved.Flat.Namespace__Selection$;
+        type Root = <_TAnnotation>($: _IUnresolved.Flat.Root$<_TAnnotation>) => _IResolved.Flat.Root$;
+        type Type__Arguments = <_TAnnotation>($: _IUnresolved.Flat.Type__Arguments$<_TAnnotation>) => _IResolved.Flat.Type__Arguments$;
+        type Type__Parameters = <_TAnnotation>($: _IUnresolved.Flat.Type__Parameters$<_TAnnotation>, $p: {
+            readonly 'parent type parameters': _pt.OptionalValue<_IResolved.Flat.Aggregated__Type__Parameters$>;
+        }) => _IResolved.Flat.Type__Parameters$;
+        type Type = <_TAnnotation>($: _IUnresolved.Flat.Type$<_TAnnotation>, $p: {
+            readonly 'cyclic sibling types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Type$>>;
+            readonly 'resolved namespaces': _pt.Lookup<_IResolved.Flat.Namespace__2$>;
+            readonly 'resolved sibling types': _pt.Lookup<_IResolved.Flat.Type$>;
+            readonly 'type parameters': _IResolved.Flat.Aggregated__Type__Parameters$;
+        }) => _IResolved.Flat.Type$;
     }
     namespace Serialize {
-        type Aggregated__Type__Parameters = ($: _IResolved.Aggregated__Type__Parameters$, $p: {
+        import _IResolved = Resolved;
+        type Aggregated__Type__Parameters = ($: _IResolved.Flat.Aggregated__Type__Parameters$, $p: {
             readonly 'out': boolean;
         }) => void;
-        type Type__Parameters = ($: _IResolved.Type__Parameters$, $p: {
+        type Type__Parameters = ($: _IResolved.Flat.Type__Parameters$, $p: {
             readonly 'out': boolean;
         }) => void;
-        type Function__Declaration = ($: _IResolved.Function__Declaration$, $p: {
+        type Function__Declaration = ($: _IResolved.Flat.Function__Declaration$, $p: {
             readonly 'out': boolean;
         }) => void;
-        type Namespace__2 = ($: _IResolved.Namespace__2$, $p: {
+        type Namespace__2 = ($: _IResolved.Flat.Namespace__2$, $p: {
             readonly 'out': boolean;
         }) => void;
-        type Local__Namespace = ($: _IResolved.Local__Namespace$, $p: {
+        type Local__Namespace = ($: _IResolved.Flat.Local__Namespace$, $p: {
             readonly 'out': boolean;
         }) => void;
-        type Type = ($: _IResolved.Type$, $p: {
+        type Type = ($: _IResolved.Flat.Type$, $p: {
             readonly 'out': boolean;
         }) => void;
-        type Type__Arguments = ($: _IResolved.Type__Arguments$, $p: {
+        type Type__Arguments = ($: _IResolved.Flat.Type__Arguments$, $p: {
             readonly 'out': boolean;
         }) => void;
-        type Namespace__Selection = ($: _IResolved.Namespace__Selection$, $p: {
+        type Namespace__Selection = ($: _IResolved.Flat.Namespace__Selection$, $p: {
             readonly 'out': boolean;
         }) => void;
-        type Root = ($: _IResolved.Root$, $p: {
+        type Root = ($: _IResolved.Flat.Root$, $p: {
             readonly 'out': boolean;
         }) => void;
     }
     namespace Select {
-        type Namespace__2 = ($: _IResolved.Namespace__2$) => _IResolved.Local__Namespace$;
-        type Namespace__Selection = ($: _IResolved.Namespace__Selection$) => _IResolved.Namespace__2$;
+        import _IResolved = Resolved;
+        type Namespace__2 = ($: _IResolved.Flat.Namespace__2$) => _IResolved.Flat.Local__Namespace$;
+        type Namespace__Selection = ($: _IResolved.Flat.Namespace__Selection$) => _IResolved.Flat.Namespace__2$;
     }
     type _$ = ($: null) => {
         readonly 'Aggregated Type Parameters': {
@@ -1830,14 +1834,19 @@ export declare namespace proto__typesystem {
 export declare namespace proto__implementation {
     namespace Unresolved {
         namespace Flat { }
-        namespace T { }
+        namespace T {
+        }
     }
     namespace Resolved {
         namespace Flat { }
-        namespace T { }
+        namespace T {
+        }
     }
-    namespace Resolve { }
-    namespace Serialize { }
-    namespace Select { }
+    namespace Resolve {
+    }
+    namespace Serialize {
+    }
+    namespace Select {
+    }
     type _$ = ($: null) => null;
 }

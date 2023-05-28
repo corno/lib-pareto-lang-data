@@ -102,39 +102,6 @@ export const $$: A.map = ($d,) => {
         }
 
 
-        function doTail($: g_in.T.Type__Selection__Tail): string {
-            return pl.cc($['step type'], ($) => {
-                switch ($[0]) {
-                    case 'array': return pl.ss($, ($) => "A$" + pl.optional(
-                        $.tail,
-                        ($) => doTail($),
-                        () => ""
-                    ))
-                    case 'dictionary': return pl.ss($, ($) => "D$" + pl.optional(
-                        $.tail,
-                        ($) => doTail($),
-                        () => ""
-                    ))
-                    case 'group': return pl.ss($, ($) => $.property.key + "$" + pl.optional(
-                        $.tail,
-                        ($) => doTail($),
-                        () => ""
-                    ))
-                    case 'optional': return pl.ss($, ($) => "O$" + pl.optional(
-                        $.tail,
-                        ($) => doTail($),
-                        () => ""
-                    ))
-                    case 'state group': return pl.ss($, ($) => $.state.key + "$" + pl.optional(
-                        $.tail,
-                        ($) => doTail($),
-                        () => ""
-                    ))
-                    default: return pl.au($[0])
-                }
-            })
-        }
-
 
         const Dictionary__Selection2Type = ($: g_in.T.Dictionary__Selection): g_out.T.Type<pd.SourceLocation> => {
             return Type__Selection2Type($.type, "D$")
@@ -142,6 +109,39 @@ export const $$: A.map = ($d,) => {
         const Type__Selection2Type = ($: g_in.T.Type__Selection, tail: string): g_out.T.Type<pd.SourceLocation> => {
             const x = $
 
+
+            function doTail($: g_in.T.Type__Selection__Tail): string {
+                return pl.cc($['step type'], ($) => {
+                    switch ($[0]) {
+                        case 'array': return pl.ss($, ($) => "A$" + pl.optional(
+                            $.tail,
+                            ($) => doTail($),
+                            () => ""
+                        ))
+                        case 'dictionary': return pl.ss($, ($) => "D$" + pl.optional(
+                            $.tail,
+                            ($) => doTail($),
+                            () => ""
+                        ))
+                        case 'group': return pl.ss($, ($) => $.property.key + "$" + pl.optional(
+                            $.tail,
+                            ($) => doTail($),
+                            () => ""
+                        ))
+                        case 'optional': return pl.ss($, ($) => "O$" + pl.optional(
+                            $.tail,
+                            ($) => doTail($),
+                            () => ""
+                        ))
+                        case 'state group': return pl.ss($, ($) => $.state.key + "$" + pl.optional(
+                            $.tail,
+                            ($) => doTail($),
+                            () => ""
+                        ))
+                        default: return pl.au($[0])
+                    }
+                })
+            }
 
             const Type__Selection2Path = ($: g_in.T.Type__Selection): string => {
                 return $['global type'].key + "$" + pl.optional(
@@ -169,7 +169,7 @@ export const $$: A.map = ($d,) => {
                     }]]
                 },
                 () => {
-                    return ['type reference', ['sibling', ref(Type__Selection2Path($))]]
+                    return ['type reference', ['sibling', ref(Type__Selection2Path($) + tail)]]
                 }
             )
         }

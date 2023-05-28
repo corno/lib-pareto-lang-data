@@ -23,23 +23,24 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Type__Selection__Tail = exports.Type__Selection = void 0;
+exports.Type__Selection__Tail = exports.Type__Selection__Tail__Step__Type = exports.Type__Selection = void 0;
 const pl = __importStar(require("pareto-core-lib"));
 const Type__Selection = ($) => {
     return pl.optional($.tail, ($) => (0, exports.Type__Selection__Tail)($), () => $['global type'].referent.type);
 };
 exports.Type__Selection = Type__Selection;
-// export const Type__Selection__Tail__Step__Type: Select.Type__Selection__Tail__Step__Type = ($) => {
-//     switch ($[0]) {
-//         case 'array': return pl.ss($, ($) => $.array.type)
-//         case 'dictionary': return pl.ss($, ($) => $.dictionary.type)
-//         case 'group': return pl.ss($, ($) => $.property.referent.type)
-//         case 'optional': return pl.ss($, ($) => $.optional.type)
-//         case 'state group': return pl.ss($, ($) => $.state.referent.type)
-//         default: return pl.au($[0])
-//     }
-// }
+const Type__Selection__Tail__Step__Type = ($) => {
+    switch ($[0]) {
+        case 'array': return pl.ss($, ($) => $.array.type);
+        case 'dictionary': return pl.ss($, ($) => $.dictionary.type);
+        case 'group': return pl.ss($, ($) => $.property.referent.type);
+        case 'optional': return pl.ss($, ($) => $.optional.type);
+        case 'state group': return pl.ss($, ($) => $.state.referent.type);
+        default: return pl.au($[0]);
+    }
+};
+exports.Type__Selection__Tail__Step__Type = Type__Selection__Tail__Step__Type;
 const Type__Selection__Tail = ($) => {
-    return pl.optional($.tail, ($) => (0, exports.Type__Selection__Tail)($), () => pl.cc($['step type'], ($) => Type__Selection__Tail__Step__Type($)));
+    return pl.optional($.tail, ($) => (0, exports.Type__Selection__Tail)($), () => pl.cc($['step type'], ($) => (0, exports.Type__Selection__Tail__Step__Type)($)));
 };
 exports.Type__Selection__Tail = Type__Selection__Tail;
