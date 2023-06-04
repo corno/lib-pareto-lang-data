@@ -46,7 +46,7 @@ export function resolve<Annotation>(
                 // $.__forEach(() => false, ($, key) => {
                 //     keys += `${key}, `
                 // })
-                //pl.panic(`No Such Entry: ${key} (${keys})`)
+                //pl.panic(`No Such Entry%% ${key} (${keys})`)
                 $se.onError({
                     'annotation': annotation,
                     'message': ['no such entry', {
@@ -145,7 +145,10 @@ export function resolve<Annotation>(
                     }])
                     case 'component': return pl.ss($, ($) => {
                         return ['component', {
-                            'type': Global__Type__Selection($.type, $p)
+                            'type': Global__Type__Selection($.type, $p),
+                            'arguments': $.arguments.dictionary.map(($) => {
+                                return null
+                            })
                         }]
                     })
                     case 'constraint': return pl.ss($, ($) => ['constraint', Type__Selection($, $p)])

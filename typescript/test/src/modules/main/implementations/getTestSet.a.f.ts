@@ -10,11 +10,13 @@ import * as a_dictionary from "res-pareto-dictionary"
 import * as a_string from "res-pareto-string"
 import * as a_glossary from "lib-pareto-typescript-project"
 import * as a_pld from "lib-proto-typesystem"
+import * as a_pli from "lib-proto-implementation"
 
 import { $ as d_playground } from "../../../data/playground.data"
 
 import * as a_fp from "lib-fountain-pen"
 import * as a_2prototypesystem from "../../../../../pub/dist/submodules/2prototypesystem"
+import * as a_2protoimplementation from "../../../../../pub/dist/submodules/2protoimplementation"
 import * as a_pareto_lang_data_resolve from "../../../../../pub/dist/submodules/resolve"
 import * as g_resolved from "../../../../../pub/dist/submodules/resolved"
 
@@ -173,7 +175,60 @@ export const $$: A.getTestSet = ($) => {
     a_pld.$b.serializeToFileSystem()(
         {
             'data': pld,
-            'path': pm.wrapRawArray([$.testDirectory, "src", "ts.ts"])
+            'path': pm.wrapRawArray([$.testDirectory, "src", "typesystem.ts"])
+        },
+        null,
+    )
+
+
+    
+    const pli = a_2protoimplementation.$a.map(
+        {
+            'filter': a_dictionary.$r.filter(),
+            'resolveDictionary': a_resolve.$r.safeResolveDictionary({
+                'onError': () => {
+
+                }
+            }),
+            'rekey': a_dictionary.$r.unsafeRekey(),
+            'escape': a_string.$r.escape(),
+            'merge': a_dictionary.$r.mergeAndIgnore(
+                {
+                    'error': {
+                        'data': () => {
+
+                        },
+                        'end': () => {
+
+                        }
+                    }
+                }
+            ),
+            'addEntry': a_dictionary.$r.unsafeAddEntry(),
+            'mergeDictionaries': a_dictionary.$r.mergeDictionaries(),
+        }
+    )({
+        'data': resolved_project,
+        // 'atom mappings': pd.d({
+        //     "pareto lang data": pd.d({
+        //         "text": ['string', null],
+        //         "identifier": ['string', null],
+        //     }),
+        //     "proto typesystem": pd.d({
+        //         "identifier": ['string', null],
+        //     }),
+        //     "proto implementation": pd.d({
+        //         "identifier": ['string', null],
+        //         "numeric literal": ['number', null],
+        //         "string literal": ['string', null],
+        //     }),
+        // }),
+    })
+
+    a_pli.$b.serializeToFileSystem()(
+        {
+            'data': pli,
+            'path': pm.wrapRawArray([$.testDirectory, "src", "index.ts"])
         },
         null,
     )

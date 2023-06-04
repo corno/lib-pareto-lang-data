@@ -1,4 +1,4 @@
-import * as g_this from "../../ts";
+import * as g_this from "../../typesystem";
 import Res = g_this.pareto__lang__data.Resolve;
 export type Resolve = {
     Atom: Res.Atom;

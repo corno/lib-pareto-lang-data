@@ -1,6 +1,6 @@
 import * as pl from 'pareto-core-lib'
 
-import * as g_this from "../../ts"
+import * as g_this from "../../typesystem"
 
 import Select2 = g_this.pareto__lang__data.Select
 

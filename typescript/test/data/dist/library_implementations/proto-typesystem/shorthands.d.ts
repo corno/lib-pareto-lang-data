@@ -1,5 +1,5 @@
 import * as pd from 'pareto-core-data';
-import * as g_this from "../../ts";
+import * as g_this from "../../typesystem";
 import T = g_this.proto__typesystem.Unresolved.T;
 type RawDictionary<T> = {
     [key: string]: T;

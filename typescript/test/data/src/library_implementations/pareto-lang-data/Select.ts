@@ -1,5 +1,5 @@
 
-import * as g_this from "../../ts"
+import * as g_this from "../../typesystem"
 
 import Out = g_this.pareto__lang__data.Resolved.T
 

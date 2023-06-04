@@ -294,6 +294,16 @@ export const $: g_glossary.T.Glossary<null> = {
                                 },
                             })],
                             "component": <g_glossary.T.Type<null>>['group', d({
+                                "arguments": {
+                                    'type': <g_glossary.T.Type<null>>['group', d({
+                                        "annotation": {
+                                            'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
+                                        },
+                                        "dictionary": {
+                                            'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['group', d({})]],
+                                        },
+                                    })],
+                                },
                                 "type": {
                                     'type': <g_glossary.T.Type<null>>['reference', ['type', {
                                         'context': ['local', null],
@@ -943,6 +953,20 @@ export const $: g_glossary.T.Glossary<null> = {
                                                     "G": {
                                                         'types': d({}),
                                                         'namespaces': d({
+                                                            "arguments": {
+                                                                'types': d({}),
+                                                                'namespaces': d({
+                                                                    "D": {
+                                                                        'types': d({}),
+                                                                        'namespaces': d({
+                                                                            "G": {
+                                                                                'types': d({}),
+                                                                                'namespaces': d({}),
+                                                                            },
+                                                                        }),
+                                                                    },
+                                                                }),
+                                                            },
                                                             "type": {
                                                                 'types': d({}),
                                                                 'namespaces': d({}),

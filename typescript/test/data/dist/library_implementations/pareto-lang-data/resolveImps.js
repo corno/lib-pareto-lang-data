@@ -38,7 +38,7 @@ function resolved($d, $se) {
             // $.__forEach(() => false, ($, key) => {
             //     keys += `${key}, `
             // })
-            //pl.panic(`No Such Entry: ${key} (${keys})`)
+            //pl.panic(`No Such Entry%% ${key} (${keys})`)
             $se.onError({
                 //'annotation': annotation,
                 'message': ['no such entry', {

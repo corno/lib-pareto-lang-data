@@ -14,6 +14,7 @@ import { $ as d_possiblyresolved } from "./submodules/possiblyresolved/module.da
 import { $ as d_resolve } from "./submodules/resolve/module.data"
 import { $ as d_serialize } from "./submodules/serialize/module.data"
 import { $ as d_2prototypesystem } from "./submodules/2prototypesystem/module.data"
+import { $ as d_2protoimplementation } from "./submodules/2protoimplementation/module.data"
 import { $ as d_2glossary } from "./submodules/2glossary/module.data"
 import { $ as d_2submodules } from "./submodules/2submodules/module.data"
 
@@ -30,6 +31,7 @@ export const $: g_project.T.Project<pd.SourceLocation | null> = {
         "res-pareto-array": null,
         "res-pareto-dictionary": null,
         "lib-proto-typesystem": null,
+        "lib-proto-implementation": null,
         "lib-pareto-typescript-project": null,
         "lib-fountain-pen": null,
         "res-pareto-string": null,
@@ -42,6 +44,7 @@ export const $: g_project.T.Project<pd.SourceLocation | null> = {
             "resolve": d_resolve,
             "serialize": d_serialize,
             "2prototypesystem": d_2prototypesystem,
+            "2protoimplementation": d_2protoimplementation,
             "2glossary": d_2glossary,
             "2submodules": d_2submodules,
             "possiblyresolved": d_possiblyresolved,
@@ -57,6 +60,7 @@ export const $: g_project.T.Project<pd.SourceLocation | null> = {
                 "lib-pareto-typescript-project": null,
                 "lib-fountain-pen": null,
                 "lib-proto-typesystem": null,
+                "lib-proto-implementation": null,
                 "res-pareto-string": null,
                 "res-pareto-dictionary": null,
             }),

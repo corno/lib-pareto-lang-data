@@ -500,6 +500,29 @@ export namespace N {
                                                 
                                                 export namespace N {
                                                     
+                                                    export namespace arguments {
+                                                        
+                                                        export namespace N {
+                                                            
+                                                            export namespace D {
+                                                                
+                                                                export namespace N {
+                                                                    
+                                                                    export namespace G {
+                                                                        
+                                                                        export namespace N {}
+                                                                        
+                                                                        export namespace T {}
+                                                                    }
+                                                                }
+                                                                
+                                                                export namespace T {}
+                                                            }
+                                                        }
+                                                        
+                                                        export namespace T {}
+                                                    }
+                                                    
                                                     export namespace _$ltype {
                                                         
                                                         export namespace N {}
@@ -1735,10 +1758,33 @@ export namespace T {
             
             export namespace component {
                 
+                export namespace arguments {
+                    
+                    export type annotation<GAnnotation> = GAnnotation
+                    
+                    export namespace dictionary {
+                        
+                        export namespace D {}
+                        
+                        export type D<GAnnotation> = null
+                    }
+                    
+                    export type dictionary<GAnnotation> = pt.Dictionary<null>
+                }
+                
+                export type arguments<GAnnotation> = {
+                    readonly 'annotation': GAnnotation
+                    readonly 'dictionary': pt.Dictionary<null>
+                }
+                
                 export type _ltype<GAnnotation> = T.Global__Type__Selection<GAnnotation>
             }
             
             export type component<GAnnotation> = {
+                readonly 'arguments': {
+                    readonly 'annotation': GAnnotation
+                    readonly 'dictionary': pt.Dictionary<null>
+                }
                 readonly 'type': T.Global__Type__Selection<GAnnotation>
             }
             
@@ -1977,6 +2023,10 @@ export namespace T {
                 readonly 'atom': T.Atom<GAnnotation>
             }]
             | ['component', {
+                readonly 'arguments': {
+                    readonly 'annotation': GAnnotation
+                    readonly 'dictionary': pt.Dictionary<null>
+                }
                 readonly 'type': T.Global__Type__Selection<GAnnotation>
             }]
             | ['constraint', T.Type__Selection<GAnnotation>]
@@ -2037,6 +2087,10 @@ export namespace T {
                 readonly 'atom': T.Atom<GAnnotation>
             }]
             | ['component', {
+                readonly 'arguments': {
+                    readonly 'annotation': GAnnotation
+                    readonly 'dictionary': pt.Dictionary<null>
+                }
                 readonly 'type': T.Global__Type__Selection<GAnnotation>
             }]
             | ['constraint', T.Type__Selection<GAnnotation>]

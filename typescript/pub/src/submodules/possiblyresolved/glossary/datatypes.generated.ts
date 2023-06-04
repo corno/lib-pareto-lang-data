@@ -500,6 +500,29 @@ export namespace N {
                                                 
                                                 export namespace N {
                                                     
+                                                    export namespace arguments {
+                                                        
+                                                        export namespace N {
+                                                            
+                                                            export namespace D {
+                                                                
+                                                                export namespace N {
+                                                                    
+                                                                    export namespace G {
+                                                                        
+                                                                        export namespace N {}
+                                                                        
+                                                                        export namespace T {}
+                                                                    }
+                                                                }
+                                                                
+                                                                export namespace T {}
+                                                            }
+                                                        }
+                                                        
+                                                        export namespace T {}
+                                                    }
+                                                    
                                                     export namespace _$ltype {
                                                         
                                                         export namespace N {}
@@ -1749,10 +1772,20 @@ export namespace T {
             
             export namespace component {
                 
+                export namespace arguments {
+                    
+                    export namespace D {}
+                    
+                    export type D = null
+                }
+                
+                export type arguments = pt.Dictionary<null>
+                
                 export type _ltype = T.Global__Type__Selection
             }
             
             export type component = {
+                readonly 'arguments': pt.Dictionary<null>
                 readonly 'type': T.Global__Type__Selection
             }
             
@@ -1940,6 +1973,7 @@ export namespace T {
                 readonly 'atom': T.Atom
             }]
             | ['component', {
+                readonly 'arguments': pt.Dictionary<null>
                 readonly 'type': T.Global__Type__Selection
             }]
             | ['constraint', T.Type__Selection]
@@ -1991,6 +2025,7 @@ export namespace T {
                 readonly 'atom': T.Atom
             }]
             | ['component', {
+                readonly 'arguments': pt.Dictionary<null>
                 readonly 'type': T.Global__Type__Selection
             }]
             | ['constraint', T.Type__Selection]

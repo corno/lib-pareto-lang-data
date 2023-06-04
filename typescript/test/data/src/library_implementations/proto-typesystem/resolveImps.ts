@@ -9,7 +9,7 @@ import * as g_resolve from "res-pareto-resolve"
 import * as xx from "./Resolve"
 
 
-import * as g_this from "../../ts"
+import * as g_this from "../../typesystem"
 
 import In = g_this.proto__typesystem.Unresolved.T
 import Out = g_this.proto__typesystem.Resolved.T
@@ -71,7 +71,7 @@ export function resolved(
                 // $.__forEach(() => false, ($, key) => {
                 //     keys += `${key}, `
                 // })
-                //pl.panic(`No Such Entry: ${key} (${keys})`)
+                //pl.panic(`No Such Entry%% ${key} (${keys})`)
                 $se.onError({
                     //'annotation': annotation,
                     'message': ['no such entry', {

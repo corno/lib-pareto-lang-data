@@ -51,6 +51,7 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = typeLibr
                     })),
                     "component": state(group({
                         "type": prop(component(typeRef("Global Type Selection", true))),
+                        "arguments": prop(dictionary(group({}))),
                     })),
                     "constraint": state(component(typeRef("Type Selection", true))),
                     "cyclic reference": state(group({

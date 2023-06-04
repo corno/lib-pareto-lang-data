@@ -1,6 +1,6 @@
 import * as pt from 'pareto-core-types'
 
-import * as g_this from "../../ts"
+import * as g_this from "../../typesystem"
 
 import Res = g_this.proto__typesystem.Resolve
 

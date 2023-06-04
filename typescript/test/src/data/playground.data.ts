@@ -94,53 +94,109 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                         group({
                             "type": prop(stateGroup({
                                 "array": state(group({
-                                    "type": prop(component(typeRef("Type", true))),
+                                    "type": prop(component(typeRef("Type", true), {
+                                        "atom types": null,
+                                        "imports": null,
+                                        "sibling global types": null,
+                                        "cyclic sibling global types": null,
+                                    })),
                                 })),
                                 "atom": state(group({
-                                    "atom": prop(component(typeRef("Atom"))),
+                                    "atom": prop(component(typeRef("Atom"), {
+                                        "atom types": null
+                                    })),
                                 })),
                                 "component": state(group({
-                                    "type": prop(component(typeRef("Global Type Selection", true))),
+                                    "type": prop(component(typeRef("Global Type Selection", true), {
+                                        "imports": null,
+                                        "sibling global types": null,
+                                        "cyclic sibling global types": null,
+                                    })),
                                 })),
-                                "constraint": state(component(typeRef("Type Selection", true))),
+                                "constraint": state(component(typeRef("Type Selection", true), {
+                                    "imports": null,
+                                    "sibling global types": null,
+                                })),
                                 "cyclic reference": state(group({
-                                    "atom": prop(component(typeRef("Atom"))),
-                                    "sibling": component(typeRef("Global Type Selection", true)),
+                                    "atom": prop(component(typeRef("Atom"), {
+                                        "atom types": null
+                                    })),
+                                    "sibling": component(typeRef("Global Type Selection", true), {
+                                        "imports": null,
+                                        "sibling global types": null,
+                                        "cyclic sibling global types": null,
+                                    }),
                                 })),
                                 "dictionary": state(group({
-                                    "key": prop(component(typeRef("Atom"))),
+                                    "key": prop(component(typeRef("Atom"), {
+                                        "atom types": null
+                                    })),
                                     "constraints": prop(dictionary(stateGroup({
                                         "dictionary": state(group({
-                                            "dictionary": prop(component(typeRef("Dictionary Selection", true))),
+                                            "dictionary": prop(component(typeRef("Dictionary Selection", true), {
+                                                "imports": null,
+                                                "sibling global types": null,
+                                                "cyclic sibling global types": null,
+                                            })),
                                             "dense": prop(stateGroup({
                                                 "no": state(group({})),
                                                 "yes": state(group({})),
                                             }))
                                         })),
-                                        "lookup": state(component(typeRef("Global Type Selection", true))),
+                                        "lookup": state(component(typeRef("Global Type Selection", true), {
+                                            "imports": null,
+                                            "sibling global types": null,
+                                            "cyclic sibling global types": null,
+                                        })),
                                     }))),
-                                    "type": prop(component(typeRef("Type", true))),
+                                    "type": prop(component(typeRef("Type", true), {
+                                        "atom types": null,
+                                        "imports": null,
+                                        "sibling global types": null,
+                                        "cyclic sibling global types": null,})),
                                 })),
                                 "group": state(group({
                                     "properties": prop(dictionary(group({
-                                        "type": prop(component(typeRef("Type", true))),
+                                        "type": prop(component(typeRef("Type", true), {
+                                        "atom types": null,
+                                        "imports": null,
+                                        "sibling global types": null,
+                                        "cyclic sibling global types": null,})),
                                     }))),
                                 })),
                                 "nothing": state(group({
                                 })),
                                 "optional": state(group({
-                                    "type": prop(component(typeRef("Type", true))),
+                                    "type": prop(component(typeRef("Type", true), {
+                                        "atom types": null,
+                                        "imports": null,
+                                        "sibling global types": null,
+                                        "cyclic sibling global types": null,})),
                                 })),
                                 "resolved reference": state(group({
-                                    "atom": prop(component(typeRef("Atom"))),
+                                    "atom": prop(component(typeRef("Atom"), {
+                                        "atom types": null
+                                    })),
                                     "value": prop(stateGroup({
-                                        "dictionary": state(component(typeRef("Dictionary Selection", true))),
-                                        "lookup": state(component(typeRef("Global Type Selection", true))),
+                                        "dictionary": state(component(typeRef("Dictionary Selection", true), {
+                                            "imports": null,
+                                            "sibling global types": null,
+                                            "cyclic sibling global types": null,
+                                        })),
+                                        "lookup": state(component(typeRef("Global Type Selection", true), {
+                                            "imports": null,
+                                            "sibling global types": null,
+                                            "cyclic sibling global types": null,
+                                        })),
                                     }))
                                 })),
                                 "state group": state(group({
                                     "states": prop(dictionary(group({
-                                        "type": prop(component(typeRef("Type", true))),
+                                        "type": prop(component(typeRef("Type", true), {
+                                        "atom types": null,
+                                        "imports": null,
+                                        "sibling global types": null,
+                                        "cyclic sibling global types": null,})),
                                     }))),
                                 })),
                             })),
@@ -155,7 +211,11 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                     ),
                     "Global Type": globalTypeDefinition(
                         group({
-                            "type": prop(component(typeRef("Type"))),
+                            "type": prop(component(typeRef("Type"), {
+                                        "atom types": null,
+                                        "imports": null,
+                                        "sibling global types": null,
+                                        "cyclic sibling global types": null,})),
                         })
                     ),
                     "Type Selection Tail": globalTypeDefinition(
@@ -179,27 +239,30 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                                     "state": prop(dictionaryReference(typeSelection("Type", t_grp("type", t_sg("state group", t_grp("states"))))))
                                 })),
                             })),
-                            "tail": prop(optional(component(typeRef("Type Selection Tail", true))))
+                            "tail": prop(optional(component(typeRef("Type Selection Tail", true), {})))
                         }),
                     ),
                     "Type Selection": globalTypeDefinition(
                         group({
                             "import": prop(optional(dictionaryReference(typeSelection("Imports")))),
                             "global type": prop(lookupReference(typeRef("Global Type"))),
-                            "tail": prop(optional(component(typeRef("Type Selection Tail"))))
+                            "tail": prop(optional(component(typeRef("Type Selection Tail"), {})))
                         }),
                     ),
                     "Dictionary Selection": globalTypeDefinition(
                         group({
-                            "type": prop(component(typeRef("Type Selection"))),
+                            "type": prop(component(typeRef("Type Selection"), {
+                                "imports": null,
+                                "sibling global types": null,
+                            })),
                             "dictionary": constraint(typeSelection("Type", t_grp("type", t_sg("dictionary")))),
                         })
                     ),
                     "Type Library": globalTypeDefinition(
                         group({
-                            "imports": prop(component(typeRef("Imports"))),
-                            "atom types": prop(component(typeRef("Atom Types"))),
-                            "global types": prop(dictionary(component(typeRef("Global Type")))),
+                            "imports": prop(component(typeRef("Imports"), {})),
+                            "atom types": prop(component(typeRef("Atom Types"), {})),
+                            "global types": prop(dictionary(component(typeRef("Global Type"), {}))),
                         })
                     ),
                     "Global Type Selection": globalTypeDefinition(
@@ -218,15 +281,19 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                     ),
                     "Model": globalTypeDefinition(
                         group({
-                            "type library": prop(component(typeRef("Type Library"))),
+                            "type library": prop(component(typeRef("Type Library"), {
+                                "external type libraries": null,
+                            })),
                             "root": prop(dictionaryReference(typeSelection("Type Library", t_grp("global types")))),
                         })
                     ),
                     "Project": globalTypeDefinition(group({
-                        "type libraries": prop(dictionary(component(typeRef("Type Library")))),
+                        "type libraries": prop(dictionary(component(typeRef("Type Library"), {
+                            "external type libraries": null,
+                        }))),
                     })),
                     "Root": globalTypeDefinition(
-                        component(typeRef("Project"))
+                        component(typeRef("Project"), {})
                     )
                 },
             ),
@@ -241,7 +308,6 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
 
                     "Aggregated Type Parameters": globalTypeDeclaration({}),
                     "Function Declaration": globalTypeDeclaration({
-
                         "resolved namespaces": pLookup("Namespace 2"),
                         "resolved sibling types": pLookup("Type"),
                         "cyclic sibling types": pCyclicLookup("Type"),
@@ -250,7 +316,6 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                     "Local Namespace": globalTypeDeclaration({
                         "resolved sibling namespaces": pLookup("Namespace 2", true),
                         "parent type parameters": pResolvedValue("Aggregated Type Parameters", true),
-
                     }),
                     "Namespace 2": globalTypeDeclaration({
                         "resolved parent sibling namespaces": pLookup("Namespace 2", true),
@@ -278,14 +343,26 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                     "Type Parameters": globalTypeDefinition(
                         group({
                             "local": prop(dictionary(group({}))),
-                            "aggregated": prop(component(typeRef("Aggregated Type Parameters")))
+                            "aggregated": prop(component(typeRef("Aggregated Type Parameters"), {}))
                         })
                     ),
                     "Function Declaration": globalTypeDefinition(
                         group({
-                            "type parameters": prop(component(typeRef("Type Parameters"))),
-                            "context": prop(component(typeRef("Type", true))),
-                            "parameters": prop(dictionary(component(typeRef("Type", true)))),
+                            "type parameters": prop(component(typeRef("Type Parameters"), {
+                                "parent type parameters": null,
+                            })),
+                            "context": prop(component(typeRef("Type", true), {
+                                "resolved namespaces": null,
+                                "resolved sibling types": null,
+                                "cyclic sibling types": null,
+                                "type parameters": null,
+                            })),
+                            "parameters": prop(dictionary(component(typeRef("Type", true), {
+                                "resolved namespaces": null,
+                                "resolved sibling types": null,
+                                "cyclic sibling types": null,
+                                "type parameters": null,
+                            }))),
                         })
                     ),
                     "Namespace 2": globalTypeDefinition(
@@ -293,42 +370,104 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                             "parent sibling": state(group({
                                 "namespace": prop(lookupReference(typeRef("Namespace 2", true))),
                             })),
-                            "local": state(component(typeRef("Local Namespace", true))),
+                            "local": state(component(typeRef("Local Namespace", true), {
+                                "resolved sibling namespaces": null,
+                                "parent type parameters": null,
+                            })),
                         })
                     ),
                     "Local Namespace": globalTypeDefinition(
                         group({
-                            "namespaces": prop(dictionary(component(typeRef("Namespace 2")))),
-                            "parameters": prop(component(typeRef("Type Parameters"))),
-                            "types": prop(dictionary(component(typeRef("Type", true)))),
+                            "namespaces": prop(dictionary(component(typeRef("Namespace 2"), {
+                                "resolved parent sibling namespaces": null,
+                            }))),
+                            "parameters": prop(component(typeRef("Type Parameters"), {
+                                "parent type parameters": null,
+                            })),
+                            "types": prop(dictionary(component(typeRef("Type", true), {
+                                "resolved namespaces": null,
+                                "resolved sibling types": null,
+                                "cyclic sibling types": null,
+                                "type parameters": null,
+                            }))),
                         }),
                     ),
                     "Type": globalTypeDefinition(
                         stateGroup({
                             "address function": state(group({
-                                "declaration": prop(component(typeRef("Function Declaration"))),
-                                "return type": prop(component(typeRef("Type", true))),
+                                "declaration": prop(component(typeRef("Function Declaration"), {
+                                    "resolved namespaces": null,
+                                    "resolved sibling types": null,
+                                    "cyclic sibling types": null,
+                                    "type parameters": null,
+                                })),
+                                "return type": prop(component(typeRef("Type", true), {
+                                    "resolved namespaces": null,
+                                    "resolved sibling types": null,
+                                    "cyclic sibling types": null,
+                                    "type parameters": null,
+                                })),
                             })),
-                            "array": state(component(typeRef("Type", true))),
+                            "array": state(component(typeRef("Type", true), {
+                                "resolved namespaces": null,
+                                "resolved sibling types": null,
+                                "cyclic sibling types": null,
+                                "type parameters": null,
+                            })),
                             "boolean": state(group({})),
-                            "computed": state(component(typeRef("Type", true))),
-                            "dictionary": state(component(typeRef("Type", true))),
+                            "computed": state(component(typeRef("Type", true), {
+                                "resolved namespaces": null,
+                                "resolved sibling types": null,
+                                "cyclic sibling types": null,
+                                "type parameters": null,
+                            })),
+                            "dictionary": state(component(typeRef("Type", true), {
+                                "resolved namespaces": null,
+                                "resolved sibling types": null,
+                                "cyclic sibling types": null,
+                                "type parameters": null,
+                            })),
                             "group": state(dictionary(group({
-                                "type": prop(component(typeRef("Type", true))),
+                                "type": prop(component(typeRef("Type", true), {
+                                    "resolved namespaces": null,
+                                    "resolved sibling types": null,
+                                    "cyclic sibling types": null,
+                                    "type parameters": null,
+                                })),
                                 "mutable": prop(optional(group({}))),
                             }))),
                             "null": state(group({})),
                             "number": state(group({})),
-                            "optional": state(component(typeRef("Type", true))),
+                            "optional": state(component(typeRef("Type", true), {
+                                "resolved namespaces": null,
+                                "resolved sibling types": null,
+                                "cyclic sibling types": null,
+                                "type parameters": null,
+                            })),
                             "procedure": state(group({
-                                "declaration": prop(component(typeRef("Function Declaration"))),
+                                "declaration": prop(component(typeRef("Function Declaration"), {
+                                    "resolved namespaces": null,
+                                    "resolved sibling types": null,
+                                    "cyclic sibling types": null,
+                                    "type parameters": null,
+                                })),
                             })),
                             "string": state(group({})),
-                            "tagged union": state(dictionary(component(typeRef("Type", true)))),
+                            "tagged union": state(dictionary(component(typeRef("Type", true), {
+                                "resolved namespaces": null,
+                                "resolved sibling types": null,
+                                "cyclic sibling types": null,
+                                "type parameters": null,
+                            }))),
                             "type parameter": state(dictionaryReference(typeSelection("Aggregated Type Parameters"))),
                             "type reference": state(stateGroup({
                                 "external": state(group({
-                                    "namespaces": prop(component(typeRef("Namespace Selection", true))),
+                                    "namespaces": prop(component(typeRef("Namespace Selection", true), {
+                                        "resolved namespaces": null,
+                                        "resolved sibling types": null,
+                                        "cyclic sibling types": null,
+                                        "type parameters": null,
+                                    })),
                                     "type": prop(dictionaryReference(typeSelection("Local Namespace", t_grp("types")))),
 
                                 })),
@@ -336,8 +475,18 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                                 "cyclic sibling": state(cyclicReference(typeRef("Type", true))),
                             })),
                             "value function": state(group({
-                                "declaration": prop(component(typeRef("Function Declaration"))),
-                                "return type": prop(component(typeRef("Type", true))),
+                                "declaration": prop(component(typeRef("Function Declaration"), {
+                                    "resolved namespaces": null,
+                                    "resolved sibling types": null,
+                                    "cyclic sibling types": null,
+                                    "type parameters": null,
+                                })),
+                                "return type": prop(component(typeRef("Type", true), {
+                                    "resolved namespaces": null,
+                                    "resolved sibling types": null,
+                                    "cyclic sibling types": null,
+                                    "type parameters": null,
+                                })),
                             })),
                         })
                     ),
@@ -347,23 +496,36 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                         },
                         group({
                             //link to parameter
-                            "type": prop(component(typeRef("Type", true))),
+                            "type": prop(component(typeRef("Type", true), {
+                                "resolved namespaces": null,
+                                "resolved sibling types": null,
+                                "cyclic sibling types": null,
+                                "type parameters": null,
+                            })),
                         }))),
                     "Namespace Selection": globalTypeDefinition(
                         group({
                             "namespace": prop(dictionaryReference(typeSelection("Local Namespace", t_grp("namespaces")))),
-                            "arguments": prop(component(typeRef("Type Arguments"))),
-                            "tail": prop(optional(component(typeRef("Namespace Selection", true))))
+                            "arguments": prop(component(typeRef("Type Arguments"), {})),
+                            "tail": prop(optional(component(typeRef("Namespace Selection", true), {
+                                "resolved namespaces": null,
+                                "resolved sibling types": null,
+                                "cyclic sibling types": null,
+                                "type parameters": null,
+                            })))
                         })
                     ),
                     // "Namespace Selection": globalType(
                     //     group({
                     //         "namespace": prop(resolvedReference(lookup(typeRef("Local Namespace")))),
-                    //         "tail": prop(optional(component(typeRef("Namespace Selection"))))
+                    //         "tail": prop(optional(component(typeRef("Namespace Selection"), {})))
                     //     })
                     // ),
                     "Root": globalTypeDefinition(
-                        component(typeRef("Local Namespace")),
+                        component(typeRef("Local Namespace"), {
+                            "resolved sibling namespaces": null,
+                            "parent type parameters": null,
+                        }),
                     )
                 }
             ),
@@ -377,489 +539,488 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                     "identifier": null,
                 },
                 {
-                    // "Address Selection Tail": globalTypeDeclaration({}),
-                    // "Address Selection": globalTypeDeclaration({}),
-                    // "Assign": globalTypeDeclaration({}),
-                    // "Block": globalTypeDeclaration({}),
-                    // "Boolean Initialization Or Selection": globalTypeDeclaration({}),
-                    // "Boolean Initialization": globalTypeDeclaration({}),
-                    // "Initialization Or Selection": globalTypeDeclaration({}),
-                    // "Initialization": globalTypeDeclaration({}),
-                    // "Numerical Initialization Or Selection": globalTypeDeclaration({}),
-                    // "Numerical Initialization": globalTypeDeclaration({}),
-                    // "Root": globalTypeDeclaration({}),
-                    // "Source File": globalTypeDeclaration({}),
-                    // "Statements": globalTypeDeclaration({}),
-                    // "String Initialization Or Selection": globalTypeDeclaration({}),
-                    // "String Initialization": globalTypeDeclaration({}),
-                    // "Type Arguments": globalTypeDeclaration({}),
-                    // "Type Selection": globalTypeDeclaration({}),
-                    // "Variables": globalTypeDeclaration({}),
+                    "Address Selection Tail": globalTypeDeclaration({}),
+                    "Address Selection": globalTypeDeclaration({}),
+                    "Assign": globalTypeDeclaration({}),
+                    "Block": globalTypeDeclaration({}),
+                    "Boolean Initialization Or Selection": globalTypeDeclaration({}),
+                    "Boolean Initialization": globalTypeDeclaration({}),
+                    "Initialization Or Selection": globalTypeDeclaration({}),
+                    "Initialization": globalTypeDeclaration({}),
+                    "Numerical Initialization Or Selection": globalTypeDeclaration({}),
+                    "Numerical Initialization": globalTypeDeclaration({}),
+                    "Root": globalTypeDeclaration({}),
+                    "Source File": globalTypeDeclaration({}),
+                    "Statements": globalTypeDeclaration({}),
+                    "String Initialization Or Selection": globalTypeDeclaration({}),
+                    "String Initialization": globalTypeDeclaration({}),
+                    "Type Arguments": globalTypeDeclaration({}),
+                    "Type Selection": globalTypeDeclaration({}),
+                    "Variables": globalTypeDeclaration({}),
                 },
                 {
-                    // "Type Selection": globalTypeDefinition(
-                    //     stateGroup(
-                    //         {
-                    //             "current namespaceXXXXX": state(
-                    //                 dictionaryReference(externalTypeSelection("typesystem", "Local Namespace", t_grp("types"))),
-                    //             ),
-                    //             "child namespace": state(
-                    //                 group({
-                    //                     "namespacex": prop(dictionaryReference(externalTypeSelection("typesystem", "Local Namespace", t_grp("namespaces")))),
-                    //                     "selection": prop(component(typeRef("Type Selection", true))),
-                    //                 }),
-                    //             )
-                    //         }
-                    //     )
-                    // ),
-                    // "Type Arguments": globalTypeDefinition(
-                    //     constrainedDictionary(
-                    //         { "x": dictionaryConstraint(externalTypeSelection("typesystem", "Type Parameters", t_grp("local")), true) },
-                    //         group({
-                    //             "type": prop(component(typeRef("Type Selection")))
-                    //         })
-                    //     )
-                    // ),
-                    // "Address Selection Tail": globalTypeDefinition(
-                    //     optional(
-                    //         group({
-                    //             "step": prop(stateGroup({
-                    //                 "call": state(group({
-                    //                     "address function": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("address function")))),
-                    //                     // "function": prop(component(typeRef("Address Selection", {
-                    //                     //     "namespace": aResolvedValue(valSel("namespace")),
-                    //                     //     "variable stack": aResolvedValue(valSel("variable stack"))
-                    //                     // })), /*constraint tagged union: type === address function*/
-                    //                     "type arguments": prop(component(typeRef("Type Arguments"))),
-                    //                     // "arguments": prop(constrainedDictionary({
-                    //                     //     "parameter": dictConstraint(valSel("address function", s_group("declaration", s_group("parameters"))), tempExternalTypeSelection("typesystem", "Function Declaration", t_grp("parameters")))
-                    //                     // }, component(typeRef("Initialization", {
-                    //                     //     "expected type": aResolvedValue(valSel("parameter", /*s_group("type")*/)),
-                    //                     //     "namespace": aResolvedValue(valSel("namespace")),
-                    //                     //     "variable stack": aResolvedValue(valSel("variable stack")),
-                    //                     // }))),
-                    //                 })),
-                    //                 "property": state(
-                    //                     group({
-                    //                         "group": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("group")))),
-                    //                         "property": prop(dictionaryReference(externalTypeSelection("typesystem", "Type", t_sg("group")))),
-                    //                     }),
-                    //                 ),
-                    //             })),
-                    //             "tail": prop(component(typeRef("Address Selection Tail", true)))
-                    //         }),
-                    //     )
-                    // ),
-                    // "Variables": globalTypeDefinition(
-                    //     dictionary(group({
-                    //         "type": prop(stateGroup({
-                    //             //FIXME "parameter": state(group({
-                    //             //     "parameter": prop(dictionaryReference(valSel("parameters"), tempExternalTypeSelection("typesystem", "Parameters"))),
-                    //             // }), tailSel(s_group("parameter", s_reference(s_group("type"))))),
-                    //             "variable stack2": state(group({
-                    //                 "variable": prop(lookupReference(typeRef("Variables", true))),
-                    //             })),
-                    //             "local": state(group({
-                    //                 "type": prop(component(typeRef("Type Selection"))),
-                    //                 "initialization": prop(component(typeRef("Initialization", true))),
-                    //             })),
-                    //         })),
-                    //     }))
-                    // ),
-                    // "Address Selection": globalTypeDefinition(
-                    //     group({
-                    //         "variable": prop(dictionaryReference(typeSelection("Variables"))),
-                    //         "tail": prop(component(typeRef("Address Selection Tail"))),
-                    //     })
-                    // ),
+                    "Type Selection": globalTypeDefinition(
+                        stateGroup(
+                            {
+                                "current namespaceXXXXX": state(
+                                    dictionaryReference(externalTypeSelection("typesystem", "Local Namespace", t_grp("types"))),
+                                ),
+                                "child namespace": state(
+                                    group({
+                                        "namespacex": prop(dictionaryReference(externalTypeSelection("typesystem", "Local Namespace", t_grp("namespaces")))),
+                                        "selection": prop(component(typeRef("Type Selection", true), {})),
+                                    }),
+                                )
+                            }
+                        )
+                    ),
+                    "Type Arguments": globalTypeDefinition(
+                        constrainedDictionary(
+                            { "x": dictionaryConstraint(externalTypeSelection("typesystem", "Type Parameters", t_grp("local")), true) },
+                            group({
+                                "type": prop(component(typeRef("Type Selection"), {}))
+                            })
+                        )
+                    ),
+                    "Address Selection Tail": globalTypeDefinition(
+                        optional(
+                            group({
+                                "step": prop(stateGroup({
+                                    "call": state(group({
+                                        "address function": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("address function")))),
+                                        // "function": prop(component(typeRef("Address Selection", {
+                                        //     "namespace": aResolvedValue(valSel("namespace")),
+                                        //     "variable stack": aResolvedValue(valSel("variable stack"))
+                                        // })), /*constraint tagged union: type === address function*/
+                                        "type arguments": prop(component(typeRef("Type Arguments"), {})),
+                                        // "arguments": prop(constrainedDictionary({
+                                        //     "parameter": dictConstraint(valSel("address function", s_group("declaration", s_group("parameters"))), tempExternalTypeSelection("typesystem", "Function Declaration", t_grp("parameters")))
+                                        // }, component(typeRef("Initialization", {
+                                        //     "expected type": aResolvedValue(valSel("parameter", /*s_group("type")*/)),
+                                        //     "namespace": aResolvedValue(valSel("namespace")),
+                                        //     "variable stack": aResolvedValue(valSel("variable stack")),
+                                        // }))),
+                                    })),
+                                    "property": state(
+                                        group({
+                                            "group": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("group")))),
+                                            "property": prop(dictionaryReference(externalTypeSelection("typesystem", "Type", t_sg("group")))),
+                                        }),
+                                    ),
+                                })),
+                                "tail": prop(component(typeRef("Address Selection Tail", true), {}))
+                            }),
+                        )
+                    ),
+                    "Variables": globalTypeDefinition(
+                        dictionary(group({
+                            "type": prop(stateGroup({
+                                //FIXME "parameter": state(group({
+                                //     "parameter": prop(dictionaryReference(valSel("parameters"), tempExternalTypeSelection("typesystem", "Parameters"))),
+                                // }), tailSel(s_group("parameter", s_reference(s_group("type"))))),
+                                "variable stack2": state(group({
+                                    "variable": prop(lookupReference(typeRef("Variables", true))),
+                                })),
+                                "local": state(group({
+                                    "type": prop(component(typeRef("Type Selection"), {})),
+                                    "initialization": prop(component(typeRef("Initialization", true), {})),
+                                })),
+                            })),
+                        }))
+                    ),
+                    "Address Selection": globalTypeDefinition(
+                        group({
+                            "variable": prop(dictionaryReference(typeSelection("Variables"))),
+                            "tail": prop(component(typeRef("Address Selection Tail"), {})),
+                        })
+                    ),
 
-                    // ///////////////////////////////////////////////////////////////////////////////
-                    // //Expressions
-                    // "Initialization Or Selection": globalTypeDefinition(
-                    //     stateGroup({
-                    //         "initialization": state(component(typeRef("Initialization", true))),
-                    //         "selection": state(group({
-                    //             "selection": prop(component(typeRef("Address Selection"))),
-                    //             "string": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("string")))),
-                    //         })),
-                    //     })
-                    // ),
-                    // "String Initialization Or Selection": globalTypeDefinition(
-                    //     stateGroup({
-                    //         "initialization": state(component(typeRef("String Initialization", true))),
-                    //         "selection": state(group({
-                    //             "selection": prop(component(typeRef("Address Selection"))),
-                    //             "string": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("string")))),
-                    //         })),
-                    //     })
-                    // ),
-                    // "Numerical Initialization Or Selection": globalTypeDefinition(
-                    //     stateGroup({
-                    //         "initialization": state(component(typeRef("Numerical Initialization", true))),
-                    //         "selection": state(group({
-                    //             "selection": prop(component(typeRef("Address Selection"))),
-                    //             "number": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("number")))),
-                    //         })),
+                    ///////////////////////////////////////////////////////////////////////////////
+                    //Expressions
+                    "Initialization Or Selection": globalTypeDefinition(
+                        stateGroup({
+                            "initialization": state(component(typeRef("Initialization", true), {})),
+                            "selection": state(group({
+                                "selection": prop(component(typeRef("Address Selection"), {})),
+                                "string": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("string")))),
+                            })),
+                        })
+                    ),
+                    "String Initialization Or Selection": globalTypeDefinition(
+                        stateGroup({
+                            "initialization": state(component(typeRef("String Initialization", true), {})),
+                            "selection": state(group({
+                                "selection": prop(component(typeRef("Address Selection"), {})),
+                                "string": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("string")))),
+                            })),
+                        })
+                    ),
+                    "Numerical Initialization Or Selection": globalTypeDefinition(
+                        stateGroup({
+                            "initialization": state(component(typeRef("Numerical Initialization", true), {})),
+                            "selection": state(group({
+                                "selection": prop(component(typeRef("Address Selection"), {})),
+                                "number": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("number")))),
+                            })),
 
-                    //     })
-                    // ),
-                    // "Boolean Initialization Or Selection": globalTypeDefinition(
-                    //     stateGroup({
-                    //         "initialization": state(component(typeRef("Boolean Initialization", true))),
-                    //         "selection": state(group({
-                    //             "selection": prop(component(typeRef("Address Selection"))),
-                    //             "boolean": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("boolean"))))
-                    //         })),
-                    //     })
-                    // ),
-                    // "Boolean Initialization": globalTypeDefinition(
-                    //     stateGroup({
-                    //         "and": state(group({
-                    //             "left hand side": prop(component(typeRef("Boolean Initialization Or Selection"))),
-                    //             "right hand side": prop(component(typeRef("Boolean Initialization Or Selection"))),
-                    //         })),
-                    //         "or": state(group({
-                    //             "left hand side": prop(component(typeRef("Boolean Initialization Or Selection"))),
-                    //             "right hand side": prop(component(typeRef("Boolean Initialization Or Selection"))),
-                    //         })),
-                    //         "false": state(group({})),
-                    //         "not": state(component(typeRef("Boolean Initialization Or Selection"))),
-                    //         "true": state(group({})),
-                    //         // //boolean/string
-                    //         "string equals": state(group({
-                    //             "left hand side": prop(component(typeRef("String Initialization Or Selection"))),
-                    //             "right hand side": prop(component(typeRef("String Initialization Or Selection"))),
-                    //         })),
-                    //         "string not equals": state(group({
-                    //             "left hand side": prop(component(typeRef("String Initialization Or Selection"))),
-                    //             "right hand side": prop(component(typeRef("String Initialization Or Selection"))),
-                    //         })),
-                    //         // //boolean/number
-                    //         "number equals": state(group({
-                    //             "left hand side": prop(component(typeRef("Numerical Initialization Or Selection"))),
-                    //             "right hand side": prop(component(typeRef("Numerical Initialization Or Selection"))),
-                    //         })),
-                    //         "number not equals": state(group({
-                    //             "left hand side": prop(component(typeRef("Numerical Initialization Or Selection"))),
-                    //             "right hand side": prop(component(typeRef("Numerical Initialization Or Selection"))),
-                    //         })),
-                    //         "greater than": state(group({
-                    //             "left hand side": prop(component(typeRef("Numerical Initialization Or Selection"))),
-                    //             "right hand side": prop(component(typeRef("Numerical Initialization Or Selection"))),
-                    //         })),
-                    //         "less than": state(group({
-                    //             "left hand side": prop(component(typeRef("Numerical Initialization Or Selection"))),
-                    //             "right hand side": prop(component(typeRef("Numerical Initialization Or Selection"))),
-                    //         })),
-                    //     })
-                    // ),
-                    // "Numerical Initialization": globalTypeDefinition(
-                    //     stateGroup({
-                    //         "minus": state(group({
-                    //             "left hand side": prop(component(typeRef("Numerical Initialization Or Selection"))),
-                    //             "right hand side": prop(component(typeRef("Numerical Initialization Or Selection"))),
-                    //         })),
-                    //         "plus": state(group({
-                    //             "left hand side": prop(component(typeRef("Numerical Initialization Or Selection"))),
-                    //             "right hand side": prop(component(typeRef("Numerical Initialization Or Selection"))),
-                    //         })),
-                    //         "predecrement": state(component(typeRef("Numerical Initialization Or Selection"))),
-                    //         "preincrement": state(component(typeRef("Numerical Initialization Or Selection"))),
-                    //         "postdecrement": state(component(typeRef("Numerical Initialization Or Selection"))),
-                    //         "postincrement": state(component(typeRef("Numerical Initialization Or Selection"))),
-                    //         "numeric literal": state(atom("numeric literal")),
-                    //     })
-                    // ),
-                    // "String Initialization": globalTypeDefinition(
-                    //     stateGroup({
-                    //         "string literal": state(atom("string literal")),
-                    //     })
-                    // ),
-                    // "Initialization": globalTypeDefinition(
-                    //     stateGroup({
-                    //         // //array
-                    //         "array literal": state(array(group({
-                    //             "array": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("array")))),
-                    //             "initialization": prop(component(typeRef("Initialization Or Selection")))
-                    //         }))),
-                    //         // //object
-                    //         "object literal": state(group({
-                    //             "group": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("group")))),
-                    //             "properties": prop(constrainedDictionary(
-                    //                 {
-                    //                     "prop": dictionaryConstraint(externalTypeSelection("typesystem", "Type", t_sg("group")), true)
-                    //                 },
-                    //                 component(typeRef("Initialization Or Selection")
-                    //                 )
-                    //             )),
-                    //         })),
-                    //         // //function (inline function)
-                    //         // "address function": constrainedstate({
-                    //         //     "out": optionConstraint(valSel("type"), "function", externalTypeSelection("typesystem", "Type"))
-                    //         // }, group({
-                    //         //     "parameters": prop(dictionary(group({}))), //no type info needed
-                    //         //     //"signature": prop(component(typeRef("FunctionSignature", {})),
-                    //         //     "variables": prop(component(typeRef("Variables", {
-                    //         //         "namespace": aResolvedValue(valSel("namespace")),
-                    //         //         //"parameters": [true, aResolvedValue(valSel("parameters"))],
-                    //         //         "variable stack": aResolvedValue(valSel("variable stack")),
-                    //         //     })),
-                    //         //     "statements": prop(component(typeRef("Statements", {
-                    //         //         "function": aResolvedValue(valSel("out")),
-                    //         //         "namespace": aResolvedValue(valSel("namespace")),
-                    //         //         "variable stack": aResolvedValue(valSel("variables"))
-                    //         //     })),
-                    //         //     "return selection": prop(component(typeRef("Address Selection", {
-                    //         //         // "function": aResolvedValue(valSel("out")),
-                    //         //         // "namespace": aResolvedValue(valSel("namespace")),
-                    //         //         // "variable stack": aResolvedValue(valSel("variables"))
-                    //         //     })),
-                    //         // })),
-                    //         // "value function": constrainedstate({
-                    //         //     "out": optionConstraint(valSel("type"), "function", externalTypeSelection("typesystem", "Type"))
-                    //         // }, group({
-                    //         //     "parameters": prop(dictionary(group({}))), //no type info needed
-                    //         //     //"signature": prop(component(typeRef("FunctionSignature", {})),
-                    //         //     "variables": prop(component(typeRef("Variables", {
-                    //         //         "namespace": aResolvedValue(valSel("namespace")),
-                    //         //         //"parameters": [true, aResolvedValue(valSel("parameters"))],
-                    //         //         "variable stack": aResolvedValue(valSel("variable stack")),
-                    //         //     })),
-                    //         //     "statements": prop(component(typeRef("Statements", {
-                    //         //         "function": aResolvedValue(valSel("out")),
-                    //         //         "namespace": aResolvedValue(valSel("namespace")),
-                    //         //         "variable stack": aResolvedValue(valSel("variables"))
-                    //         //     })),
-                    //         //     "return expression": prop(component(typeRef("Initialization", {
-                    //         //         // "function": aResolvedValue(valSel("out")),
-                    //         //         // "namespace": aResolvedValue(valSel("namespace")),
-                    //         //         // "variable stack": aResolvedValue(valSel("variables"))
-                    //         //     })),
-                    //         // })),
-                    //         // // "procedure": constrainedstate({
-                    //         // //     "out": optionConstraint(valSel("type"), "function", externalTypeSelection("typesystem", "Type"))
-                    //         // // }, group({
-                    //         // //     "parameters": prop(dictionary(group({}))), //no type info needed
-                    //         // //     //"signature": prop(component(typeRef("FunctionSignature", {})),
-                    //         // //     "variables": prop(component(typeRef("Variables", {
-                    //         // //         "namespace": aResolvedValue(valSel("namespace")),
-                    //         // //         //"parameters": [true, aResolvedValue(valSel("parameters"))],
-                    //         // //         "variable stack": aResolvedValue(valSel("variable stack")),
-                    //         // //     })),
-                    //         // //     "statements": prop(component(typeRef("Statements", {
-                    //         // //         "function": aResolvedValue(valSel("out")),
-                    //         // //         "namespace": aResolvedValue(valSel("namespace")),
-                    //         // //         "variable stack": aResolvedValue(valSel("variables"))
-                    //         // //     })),
-                    //         // // })),
-                    //         //boolean
-                    //         "boolean": state(group({
-                    //             "boolean": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("boolean")))),
-                    //             "x": prop(component(typeRef("Boolean Initialization"))),
-                    //         })),
-                    //         "numerical": state(group({
-                    //             "number": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("number")))),
-                    //             "x": prop(component(typeRef("Numerical Initialization"))),
-                    //         })),
-                    //         "string": state(group({
-                    //             "number": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("string")))),
-                    //             "x": prop(component(typeRef("String Initialization"))),
-                    //         })),
-                    //         // //any
-                    //         // "conditional": state(group({
-                    //         //     "test": prop(component(typeRef("Boolean Initialization Or Selection", {
-                    //         //         "namespace": aResolvedValue(valSel("namespace")),
-                    //         //         "variable stack": aResolvedValue(valSel("variable stack"))
-                    //         //     })),
-                    //         //     "true": prop(component(typeRef("Initialization", {
-                    //         //         "variable stack": aResolvedValue(valSel("variable stack")),
-                    //         //         "namespace": aResolvedValue(valSel("namespace")),
-                    //         //         "type": aResolvedValue(valSel("type")),
-                    //         //     })),
-                    //         //     "false": prop(component(typeRef("Initialization", {
-                    //         //         "expected type": aResolvedValue(valSel("expected type")),
-                    //         //         "variable stack": aResolvedValue(valSel("variable stack")),
-                    //         //         "namespace": aResolvedValue(valSel("namespace")),
-                    //         //     })),
-                    //         // })),
-                    //         // //"identifier": state(atom("identifier")),
-                    //         // // "new": state(group({
-                    //         // //     "class": prop(atom("identifier")),
-                    //         // //     "parameters": prop(dictionary(component(typeRef("Initialization", {}))),
-                    //         // // })),
-                    //         // // "noSubstitutionTemplateLiteral": empty("NoSubstitutionTemplateLiteral"),
-                    //         "null": state(group({
-                    //             "null": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("null")))),
-                    //         })),
-                    //         // //"parenthesized": state(component(typeRef("Initialization", {})),
-                    //         // "symbol": state(component(typeRef("Address Selection", { //something that is stored
-                    //         //     "namespace": aResolvedValue(valSel("namespace")),
-                    //         //     "variable stack": aResolvedValue(valSel("variable stack"))
-                    //         // })),
-                    //         // // "template": composite("TemplateExpression", group({
-                    //         // //     "head": member(empty("TemplateHead", { "text": atom() })),
-                    //         // //     "spans": member(array(composite("TemplateSpan", group({
-                    //         // //         "Initialization": member(component(typeRef("Initialization")),
-                    //         // //         "type": member(choice({
-                    //         // //             "middle": empty("TemplateMiddle", { "text": atom() }),
-                    //         // //             "tail": empty("TemplateTail", { "text": atom() }),
-                    //         // //         })),
-                    //         // //     })))),
-                    //         // // })),
-                    //     })
-                    // ),
+                        })
+                    ),
+                    "Boolean Initialization Or Selection": globalTypeDefinition(
+                        stateGroup({
+                            "initialization": state(component(typeRef("Boolean Initialization", true), {})),
+                            "selection": state(group({
+                                "selection": prop(component(typeRef("Address Selection"), {})),
+                                "boolean": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("boolean"))))
+                            })),
+                        })
+                    ),
+                    "Boolean Initialization": globalTypeDefinition(
+                        stateGroup({
+                            "and": state(group({
+                                "left hand side": prop(component(typeRef("Boolean Initialization Or Selection"), {})),
+                                "right hand side": prop(component(typeRef("Boolean Initialization Or Selection"), {})),
+                            })),
+                            "or": state(group({
+                                "left hand side": prop(component(typeRef("Boolean Initialization Or Selection"), {})),
+                                "right hand side": prop(component(typeRef("Boolean Initialization Or Selection"), {})),
+                            })),
+                            "false": state(group({})),
+                            "not": state(component(typeRef("Boolean Initialization Or Selection"), {})),
+                            "true": state(group({})),
+                            // //boolean/string
+                            "string equals": state(group({
+                                "left hand side": prop(component(typeRef("String Initialization Or Selection"), {})),
+                                "right hand side": prop(component(typeRef("String Initialization Or Selection"), {})),
+                            })),
+                            "string not equals": state(group({
+                                "left hand side": prop(component(typeRef("String Initialization Or Selection"), {})),
+                                "right hand side": prop(component(typeRef("String Initialization Or Selection"), {})),
+                            })),
+                            // //boolean/number
+                            "number equals": state(group({
+                                "left hand side": prop(component(typeRef("Numerical Initialization Or Selection"), {})),
+                                "right hand side": prop(component(typeRef("Numerical Initialization Or Selection"), {})),
+                            })),
+                            "number not equals": state(group({
+                                "left hand side": prop(component(typeRef("Numerical Initialization Or Selection"), {})),
+                                "right hand side": prop(component(typeRef("Numerical Initialization Or Selection"), {})),
+                            })),
+                            "greater than": state(group({
+                                "left hand side": prop(component(typeRef("Numerical Initialization Or Selection"), {})),
+                                "right hand side": prop(component(typeRef("Numerical Initialization Or Selection"), {})),
+                            })),
+                            "less than": state(group({
+                                "left hand side": prop(component(typeRef("Numerical Initialization Or Selection"), {})),
+                                "right hand side": prop(component(typeRef("Numerical Initialization Or Selection"), {})),
+                            })),
+                        })
+                    ),
+                    "Numerical Initialization": globalTypeDefinition(
+                        stateGroup({
+                            "minus": state(group({
+                                "left hand side": prop(component(typeRef("Numerical Initialization Or Selection"), {})),
+                                "right hand side": prop(component(typeRef("Numerical Initialization Or Selection"), {})),
+                            })),
+                            "plus": state(group({
+                                "left hand side": prop(component(typeRef("Numerical Initialization Or Selection"), {})),
+                                "right hand side": prop(component(typeRef("Numerical Initialization Or Selection"), {})),
+                            })),
+                            "predecrement": state(component(typeRef("Numerical Initialization Or Selection"), {})),
+                            "preincrement": state(component(typeRef("Numerical Initialization Or Selection"), {})),
+                            "postdecrement": state(component(typeRef("Numerical Initialization Or Selection"), {})),
+                            "postincrement": state(component(typeRef("Numerical Initialization Or Selection"), {})),
+                            "numeric literal": state(atom("numeric literal")),
+                        })
+                    ),
+                    "String Initialization": globalTypeDefinition(
+                        stateGroup({
+                            "string literal": state(atom("string literal")),
+                        })
+                    ),
+                    "Initialization": globalTypeDefinition(
+                        stateGroup({
+                            // //array
+                            "array literal": state(array(group({
+                                "array": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("array")))),
+                                "initialization": prop(component(typeRef("Initialization Or Selection"), {}))
+                            }))),
+                            // //object
+                            "object literal": state(group({
+                                "group": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("group")))),
+                                "properties": prop(constrainedDictionary(
+                                    {
+                                        "prop": dictionaryConstraint(externalTypeSelection("typesystem", "Type", t_sg("group")), true)
+                                    },
+                                    component(typeRef("Initialization Or Selection"), {})
+                                )),
+                            })),
+                            // //function (inline function)
+                            // "address function": constrainedstate({
+                            //     "out": optionConstraint(valSel("type"), "function", externalTypeSelection("typesystem", "Type"))
+                            // }, group({
+                            //     "parameters": prop(dictionary(group({}))), //no type info needed
+                            //     //"signature": prop(component(typeRef("FunctionSignature", {})),
+                            //     "variables": prop(component(typeRef("Variables", {
+                            //         "namespace": aResolvedValue(valSel("namespace")),
+                            //         //"parameters": [true, aResolvedValue(valSel("parameters"))],
+                            //         "variable stack": aResolvedValue(valSel("variable stack")),
+                            //     })),
+                            //     "statements": prop(component(typeRef("Statements", {
+                            //         "function": aResolvedValue(valSel("out")),
+                            //         "namespace": aResolvedValue(valSel("namespace")),
+                            //         "variable stack": aResolvedValue(valSel("variables"))
+                            //     })),
+                            //     "return selection": prop(component(typeRef("Address Selection", {
+                            //         // "function": aResolvedValue(valSel("out")),
+                            //         // "namespace": aResolvedValue(valSel("namespace")),
+                            //         // "variable stack": aResolvedValue(valSel("variables"))
+                            //     })),
+                            // })),
+                            // "value function": constrainedstate({
+                            //     "out": optionConstraint(valSel("type"), "function", externalTypeSelection("typesystem", "Type"))
+                            // }, group({
+                            //     "parameters": prop(dictionary(group({}))), //no type info needed
+                            //     //"signature": prop(component(typeRef("FunctionSignature", {})),
+                            //     "variables": prop(component(typeRef("Variables", {
+                            //         "namespace": aResolvedValue(valSel("namespace")),
+                            //         //"parameters": [true, aResolvedValue(valSel("parameters"))],
+                            //         "variable stack": aResolvedValue(valSel("variable stack")),
+                            //     })),
+                            //     "statements": prop(component(typeRef("Statements", {
+                            //         "function": aResolvedValue(valSel("out")),
+                            //         "namespace": aResolvedValue(valSel("namespace")),
+                            //         "variable stack": aResolvedValue(valSel("variables"))
+                            //     })),
+                            //     "return expression": prop(component(typeRef("Initialization", {
+                            //         // "function": aResolvedValue(valSel("out")),
+                            //         // "namespace": aResolvedValue(valSel("namespace")),
+                            //         // "variable stack": aResolvedValue(valSel("variables"))
+                            //     })),
+                            // })),
+                            // // "procedure": constrainedstate({
+                            // //     "out": optionConstraint(valSel("type"), "function", externalTypeSelection("typesystem", "Type"))
+                            // // }, group({
+                            // //     "parameters": prop(dictionary(group({}))), //no type info needed
+                            // //     //"signature": prop(component(typeRef("FunctionSignature", {})),
+                            // //     "variables": prop(component(typeRef("Variables", {
+                            // //         "namespace": aResolvedValue(valSel("namespace")),
+                            // //         //"parameters": [true, aResolvedValue(valSel("parameters"))],
+                            // //         "variable stack": aResolvedValue(valSel("variable stack")),
+                            // //     })),
+                            // //     "statements": prop(component(typeRef("Statements", {
+                            // //         "function": aResolvedValue(valSel("out")),
+                            // //         "namespace": aResolvedValue(valSel("namespace")),
+                            // //         "variable stack": aResolvedValue(valSel("variables"))
+                            // //     })),
+                            // // })),
+                            //boolean
+                            "boolean": state(group({
+                                "boolean": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("boolean")))),
+                                "x": prop(component(typeRef("Boolean Initialization"), {})),
+                            })),
+                            "numerical": state(group({
+                                "number": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("number")))),
+                                "x": prop(component(typeRef("Numerical Initialization"), {})),
+                            })),
+                            "string": state(group({
+                                "number": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("string")))),
+                                "x": prop(component(typeRef("String Initialization"), {})),
+                            })),
+                            // //any
+                            // "conditional": state(group({
+                            //     "test": prop(component(typeRef("Boolean Initialization Or Selection", {
+                            //         "namespace": aResolvedValue(valSel("namespace")),
+                            //         "variable stack": aResolvedValue(valSel("variable stack"))
+                            //     })),
+                            //     "true": prop(component(typeRef("Initialization", {
+                            //         "variable stack": aResolvedValue(valSel("variable stack")),
+                            //         "namespace": aResolvedValue(valSel("namespace")),
+                            //         "type": aResolvedValue(valSel("type")),
+                            //     })),
+                            //     "false": prop(component(typeRef("Initialization", {
+                            //         "expected type": aResolvedValue(valSel("expected type")),
+                            //         "variable stack": aResolvedValue(valSel("variable stack")),
+                            //         "namespace": aResolvedValue(valSel("namespace")),
+                            //     })),
+                            // })),
+                            // //"identifier": state(atom("identifier")),
+                            // // "new": state(group({
+                            // //     "class": prop(atom("identifier")),
+                            // //     "parameters": prop(dictionary(component(typeRef("Initialization", {}))),
+                            // // })),
+                            // // "noSubstitutionTemplateLiteral": empty("NoSubstitutionTemplateLiteral"),
+                            "null": state(group({
+                                "null": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("null")))),
+                            })),
+                            // //"parenthesized": state(component(typeRef("Initialization", {})),
+                            // "symbol": state(component(typeRef("Address Selection", { //something that is stored
+                            //     "namespace": aResolvedValue(valSel("namespace")),
+                            //     "variable stack": aResolvedValue(valSel("variable stack"))
+                            // })),
+                            // // "template": composite("TemplateExpression", group({
+                            // //     "head": member(empty("TemplateHead", { "text": atom() })),
+                            // //     "spans": member(array(composite("TemplateSpan", group({
+                            // //         "Initialization": member(component(typeRef("Initialization"), {}),
+                            // //         "type": member(choice({
+                            // //             "middle": empty("TemplateMiddle", { "text": atom() }),
+                            // //             "tail": empty("TemplateTail", { "text": atom() }),
+                            // //         })),
+                            // //     })))),
+                            // // })),
+                        })
+                    ),
 
 
-                    // //Statements
-                    // "Block": globalTypeDefinition(
-                    //     group({
-                    //         "variables": prop(component(typeRef("Variables"))),
-                    //         "statements": prop(component(typeRef("Statements", true)))
-                    //     })
-                    // ),
-                    // "Assign": globalTypeDefinition(
-                    //     group({
-                    //         "target": prop(component(typeRef("Address Selection"))),
-                    //         "initialization": prop(component(typeRef("Initialization Or Selection"))),
-                    //     }),
-                    // ),
-                    // "Statements": globalTypeDefinition(
-                    //     array(stateGroup({
-                    //         "block": state(component(typeRef("Block"))),
-                    //         "with": state(group({
-                    //             "address": prop(component(typeRef("Address Selection"))),
-                    //             "action": prop(stateGroup({
-                    //                 //         "call": constrainedstate({
-                    //                 //             "procedure address": optionConstraint(valSel("address", s_component()), "procedure", externalTypeSelection("typesystem", "Type", [tu("procedure")]))
-                    //                 //         }, group({
-                    //                 //             "type arguments": prop(component(typeRef("Type Arguments", {
-                    //                 //                 "type parameters": aResolvedValue(valSel("function")),
-                    //                 //                 "namespace": aResolvedValue(valSel("namespace")),
-                    //                 //             })),
-                    //                 //             "arguments": prop(constrainedDictionary(
-                    //                 //                 { "parameter": dictConstraint(valSel("function"), externalTypeSelection("typesystem", "Parameters")) },
-                    //                 //                 component(typeRef("Initialization", {
-                    //                 //                     "expected type": aResolvedValue(valSel("parameter")),
-                    //                 //                     "variable stack": aResolvedValue(valSel("variable stack")),
-                    //                 //                     "namespace": aResolvedValue(valSel("namespace")),
-                    //                 //                 })
-                    //                 //             )),
-                    //                 //         })),
-                    //                 "assign": state(component(typeRef("Assign"))),
-                    //                 "minus assign": state(group({/*must be number*/
-                    //                     "number": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("number")))),
-                    //                     "right hand side": prop(component(typeRef("Numerical Initialization Or Selection"))),
-                    //                 })),
-                    //                 "plus assign": state(group({/*must be number*/
-                    //                     "number": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("number")))),
-                    //                     "right hand side": prop(component(typeRef("Numerical Initialization Or Selection"))),
-                    //                 })),
+                    //Statements
+                    "Block": globalTypeDefinition(
+                        group({
+                            "variables": prop(component(typeRef("Variables"), {})),
+                            "statements": prop(component(typeRef("Statements", true), {}))
+                        })
+                    ),
+                    "Assign": globalTypeDefinition(
+                        group({
+                            "target": prop(component(typeRef("Address Selection"), {})),
+                            "initialization": prop(component(typeRef("Initialization Or Selection"), {})),
+                        }),
+                    ),
+                    "Statements": globalTypeDefinition(
+                        array(stateGroup({
+                            "block": state(component(typeRef("Block"), {})),
+                            "with": state(group({
+                                "address": prop(component(typeRef("Address Selection"), {})),
+                                "action": prop(stateGroup({
+                                    //         "call": constrainedstate({
+                                    //             "procedure address": optionConstraint(valSel("address", s_component()), "procedure", externalTypeSelection("typesystem", "Type", [tu("procedure")]))
+                                    //         }, group({
+                                    //             "type arguments": prop(component(typeRef("Type Arguments", {
+                                    //                 "type parameters": aResolvedValue(valSel("function")),
+                                    //                 "namespace": aResolvedValue(valSel("namespace")),
+                                    //             })),
+                                    //             "arguments": prop(constrainedDictionary(
+                                    //                 { "parameter": dictConstraint(valSel("function"), externalTypeSelection("typesystem", "Parameters")) },
+                                    //                 component(typeRef("Initialization", {
+                                    //                     "expected type": aResolvedValue(valSel("parameter")),
+                                    //                     "variable stack": aResolvedValue(valSel("variable stack")),
+                                    //                     "namespace": aResolvedValue(valSel("namespace")),
+                                    //                 })
+                                    //             )),
+                                    //         })),
+                                    "assign": state(component(typeRef("Assign"), {})),
+                                    "minus assign": state(group({/*must be number*/
+                                        "number": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("number")))),
+                                        "right hand side": prop(component(typeRef("Numerical Initialization Or Selection"), {})),
+                                    })),
+                                    "plus assign": state(group({/*must be number*/
+                                        "number": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("number")))),
+                                        "right hand side": prop(component(typeRef("Numerical Initialization Or Selection"), {})),
+                                    })),
 
-                    //                 //         "switch": constrainedstate({
-                    //                 //             "tagged union address": optionConstraint(valSel("address", s_component()), "tagged union", typeSelection("Foo"))
-                    //                 //         }, group({
-                    //                 //             "cases": prop(constrainedDictionary(
-                    //                 //                 { "option": dictConstraint(valSel("tagged union address", s_group("options")), externalTypeSelection("typesystem", "Type", [tu("tagged union"), grp("options")])) },
-                    //                 //                 group({
-                    //                 //                     "block": prop(component(typeRef("Block", {
-                    //                 //                         "function": aResolvedValue(valSel("function")),
-                    //                 //                         "namespace": aResolvedValue(valSel("namespace")),
-                    //                 //                         "variable stack": aResolvedValue(valSel("variable stack")),
-                    //                 //                     }))
-                    //                 //                 })
-                    //                 //             )),
-                    //                 //             "default": prop(optional(component(typeRef("Block", {
-                    //                 //                 "function": aResolvedValue(valSel("function")),
-                    //                 //                 "namespace": aResolvedValue(valSel("namespace")),
-                    //                 //                 "variable stack": aResolvedValue(valSel("variable stack")),
-                    //                 //             }))),
-                    //                 //         })),
-                    //             }))
-                    //         })),
-                    //         // "for": state(group({
-                    //         //     "condition": prop(component(typeRef("Boolean Initialization", {
-                    //         //         "variable stack": aResolvedValue(valSel("variable stack")),
-                    //         //         "namespace": aResolvedValue(valSel("namespace")),
-                    //         //     })),
-                    //         //     "incrementer": prop(component(typeRef("Assign", {
-                    //         //         "namespace": aResolvedValue(valSel("namespace")),
-                    //         //         "variable stack": aResolvedValue(valSel("variable stack")),
-                    //         //     })),
-                    //         //     "block": prop(component(typeRef("Block", {
-                    //         //         "function": aResolvedValue(valSel("function")),
-                    //         //         "namespace": aResolvedValue(valSel("namespace")),
-                    //         //         "variable stack": aResolvedValue(valSel("variable stack")),
-                    //         //     })),
-                    //         ///})),
-                    //         "if": state(group({
-                    //             "condition": prop(component(typeRef("Boolean Initialization Or Selection"))),
-                    //             "then": prop(component(typeRef("Block"))),
-                    //             "else": prop(optional(component(typeRef("Block")))),
-                    //         })),
-                    //         // // "labeled": composite("LabeledStatement", group({
-                    //         // //     "label": member(component(typeRef("identifier")),
-                    //         // //     "statement": member(component(typeRef("statement")),
-                    //         // // })),
-                    //         // // "return": state(group({
-                    //         // //     "Initialization": prop(optional(component(typeRef("Initialization", {
-                    //         // //         "expected type": aResolvedValue(valSel("function", s_group("return type", result()))),
-                    //         // //         "variable stack": aResolvedValue(valSel("variable stack")),
-                    //         // //         "namespace": aResolvedValue(valSel("namespace")),
-                    //         // //     })))
-                    //         // // })),
-                    //         // // "throw": state(component(typeRef("Initialization", {})),
-                    //         // // "try": state(group({
-                    //         // //     "block": prop(component(typeRef("Block", {})),
-                    //         // //     "catchClause": prop(group({
-                    //         // //         "variable": prop(component(typeRef("variableDeclaration")),
-                    //         // //         "block": member(component(typeRef("block")),
-                    //         // //     }))),
-                    //         // // }))),
-                    //         "while": state(group({
-                    //             "condition": prop(component(typeRef("Boolean Initialization Or Selection"))),
-                    //             "block": prop(component(typeRef("Block"))),
-                    //         })),
-                    //     }))
-                    // ),
+                                    //         "switch": constrainedstate({
+                                    //             "tagged union address": optionConstraint(valSel("address", s_component()), "tagged union", typeSelection("Foo"))
+                                    //         }, group({
+                                    //             "cases": prop(constrainedDictionary(
+                                    //                 { "option": dictConstraint(valSel("tagged union address", s_group("options")), externalTypeSelection("typesystem", "Type", [tu("tagged union"), grp("options")])) },
+                                    //                 group({
+                                    //                     "block": prop(component(typeRef("Block", {
+                                    //                         "function": aResolvedValue(valSel("function")),
+                                    //                         "namespace": aResolvedValue(valSel("namespace")),
+                                    //                         "variable stack": aResolvedValue(valSel("variable stack")),
+                                    //                     }))
+                                    //                 })
+                                    //             )),
+                                    //             "default": prop(optional(component(typeRef("Block", {
+                                    //                 "function": aResolvedValue(valSel("function")),
+                                    //                 "namespace": aResolvedValue(valSel("namespace")),
+                                    //                 "variable stack": aResolvedValue(valSel("variable stack")),
+                                    //             }))),
+                                    //         })),
+                                }))
+                            })),
+                            // "for": state(group({
+                            //     "condition": prop(component(typeRef("Boolean Initialization", {
+                            //         "variable stack": aResolvedValue(valSel("variable stack")),
+                            //         "namespace": aResolvedValue(valSel("namespace")),
+                            //     })),
+                            //     "incrementer": prop(component(typeRef("Assign", {
+                            //         "namespace": aResolvedValue(valSel("namespace")),
+                            //         "variable stack": aResolvedValue(valSel("variable stack")),
+                            //     })),
+                            //     "block": prop(component(typeRef("Block", {
+                            //         "function": aResolvedValue(valSel("function")),
+                            //         "namespace": aResolvedValue(valSel("namespace")),
+                            //         "variable stack": aResolvedValue(valSel("variable stack")),
+                            //     })),
+                            ///})),
+                            "if": state(group({
+                                "condition": prop(component(typeRef("Boolean Initialization Or Selection"), {})),
+                                "then": prop(component(typeRef("Block"), {})),
+                                "else": prop(optional(component(typeRef("Block"), {}))),
+                            })),
+                            // // "labeled": composite("LabeledStatement", group({
+                            // //     "label": member(component(typeRef("identifier"), {}),
+                            // //     "statement": member(component(typeRef("statement"), {}),
+                            // // })),
+                            // // "return": state(group({
+                            // //     "Initialization": prop(optional(component(typeRef("Initialization", {
+                            // //         "expected type": aResolvedValue(valSel("function", s_group("return type", result()))),
+                            // //         "variable stack": aResolvedValue(valSel("variable stack")),
+                            // //         "namespace": aResolvedValue(valSel("namespace")),
+                            // //     })))
+                            // // })),
+                            // // "throw": state(component(typeRef("Initialization", {})),
+                            // // "try": state(group({
+                            // //     "block": prop(component(typeRef("Block", {})),
+                            // //     "catchClause": prop(group({
+                            // //         "variable": prop(component(typeRef("variableDeclaration"), {}),
+                            // //         "block": member(component(typeRef("block"), {}),
+                            // //     }))),
+                            // // }))),
+                            "while": state(group({
+                                "condition": prop(component(typeRef("Boolean Initialization Or Selection"), {})),
+                                "block": prop(component(typeRef("Block"), {})),
+                            })),
+                        }))
+                    ),
 
-                    // // // "Symbols": globalTypeDefinition({
-                    // // //     "namespace": pExternalResolvedValue("typesystem", "Namespace", false),
-                    // // // }, dictionary(stateGroup({
-                    // // //     "namespace": state(group({
-                    // // //         "symbols": prop(component(typeRef("Symbols", {
-                    // // //             "namespace": aResolvedValue(valSel("namespace"))
-                    // // //         }))
-                    // // //     })),
-                    // // //     "symbol": state(group({
-                    // // //         "type path": prop(component(typeRef("Type Selection", {
-                    // // //             "namespace": aResolvedValue(valSel("namespace"))
-                    // // //         })),
-                    // // //     })),
-                    // // // }))),
-                    // // // "Type Selection Tail": globalTypeDefinition(
-                    // // //     {
-                    // // //         "namespace": pExternalResolvedValue("typesystem", "Namespace", false)
-                    // // //     },
-                    // // //     optional(
-                    // // //         group({
-                    // // //             //"step type": prop(dictionaryReference(valSel("TBD"), externalTypeSelection("typesystem", "Type" /*constrain type to namespace*/))),
-                    // // //             "tail": prop(component(typeRef("Type Selection Tail", {
-                    // // //                 "namespace": aResolvedValue(valSel("namespace"))
-                    // // //             })),
-                    // // //         }),
-                    // // //         optionalResult(externalGlobalTypeSelection("typesystem", "Type"), tailSel(s_group("tail", s_component())), valSel("namespace"))),
-                    // // //     globalTypeResult(externalGlobalTypeSelection("typesystem", "Type"), tailSel(s_optional()))
-                    // // // ),
+                    // // "Symbols": globalTypeDefinition({
+                    // //     "namespace": pExternalResolvedValue("typesystem", "Namespace", false),
+                    // // }, dictionary(stateGroup({
+                    // //     "namespace": state(group({
+                    // //         "symbols": prop(component(typeRef("Symbols", {
+                    // //             "namespace": aResolvedValue(valSel("namespace"))
+                    // //         }))
+                    // //     })),
+                    // //     "symbol": state(group({
+                    // //         "type path": prop(component(typeRef("Type Selection", {
+                    // //             "namespace": aResolvedValue(valSel("namespace"))
+                    // //         })),
+                    // //     })),
+                    // // }))),
+                    // // "Type Selection Tail": globalTypeDefinition(
+                    // //     {
+                    // //         "namespace": pExternalResolvedValue("typesystem", "Namespace", false)
+                    // //     },
+                    // //     optional(
+                    // //         group({
+                    // //             //"step type": prop(dictionaryReference(valSel("TBD"), externalTypeSelection("typesystem", "Type" /*constrain type to namespace*/))),
+                    // //             "tail": prop(component(typeRef("Type Selection Tail", {
+                    // //                 "namespace": aResolvedValue(valSel("namespace"))
+                    // //             })),
+                    // //         }),
+                    // //         optionalResult(externalGlobalTypeSelection("typesystem", "Type"), tailSel(s_group("tail", s_component())), valSel("namespace"))),
+                    // //     globalTypeResult(externalGlobalTypeSelection("typesystem", "Type"), tailSel(s_optional()))
+                    // // ),
 
-                    // "Source File": globalTypeDefinition(
-                    //     group({
-                    //         "type": prop(component(typeRef("Type Selection"))),
-                    //         "initialization": prop(component(typeRef("Initialization", true))),
-                    //     })
-                    // ),
-                    // "Root": globalTypeDefinition(
-                    //     component(typeRef("Source File"))
-                    // )
+                    "Source File": globalTypeDefinition(
+                        group({
+                            "type": prop(component(typeRef("Type Selection"), {})),
+                            "initialization": prop(component(typeRef("Initialization", true), {})),
+                        })
+                    ),
+                    "Root": globalTypeDefinition(
+                        component(typeRef("Source File"), {})
+                    )
                 }
             ),
         })

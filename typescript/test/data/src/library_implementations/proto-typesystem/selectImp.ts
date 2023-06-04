@@ -4,7 +4,7 @@ import * as pl from 'pareto-core-lib'
 //import * as Select from "./Select"
 
 
-import * as g_this from "../../ts"
+import * as g_this from "../../typesystem"
 
 import Out = g_this.proto__typesystem.Resolved.T
 import Select = g_this.proto__typesystem.Select

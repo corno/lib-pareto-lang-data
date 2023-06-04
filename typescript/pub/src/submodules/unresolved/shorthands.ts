@@ -394,10 +394,14 @@ export function typeSelection(
 //     }]
 // }
 
-export function component(type: g_this.T.Global__Type__Selection<pd.SourceLocation>): g_this.T.Type<pd.SourceLocation> {
+export function component(
+    type: g_this.T.Global__Type__Selection<pd.SourceLocation>,
+    args: RawDictionary<null>
+    ): g_this.T.Type<pd.SourceLocation> {
     return {
         'type': ['component', {
-            'type': type
+            'type': type,
+            'arguments': rawDict(args)
         }]
     }
 }
