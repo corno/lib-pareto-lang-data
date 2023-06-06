@@ -565,114 +565,200 @@ export const $$: A.map = ($d,) => {
                                 'aggregated': rawDict({})
                             },
                             'namespaces': rawDict({
-                            }),
-                            'types': dict($['global types'].declarations.__mapWithKey(($, key): g_out.T.Type<pd.SourceLocation> => {
-                                return ['value function', {
-                                    'declaration': {
-
-                                        'context': ['type reference', ['external', {
-                                            'namespace path': {
-                                                'start': ['import', {
-                                                    'namespace': ref("Unresolved",),
-                                                    'arguments': rawDict({
-                                                        "Annotation": constrainedDictionaryEntry({
-                                                            'type': ['type parameter', ref("Annotation")]
-                                                        })
-                                                    }),
-                                                    'tail': [true, {
-                                                        'namespace': ref("Flat",),
-                                                        'arguments': rawDict({}),
-                                                        'tail': [false]
-                                                    }]
-                                                }]
-                                            },
-                                            'type': ref(key + "$")
-                                        }]],
-                                        'parameters': dict($.parameters.map(($): g_out.T.Function__Declaration.parameters.dictionary.D<pd.SourceLocation> => {
-                                            const x: g_out.T.Type<pd.SourceLocation> = pl.cc($.type, ($) => {
-                                                switch ($[0]) {
-                                                    case 'resolved value': return pl.ss($, ($) => ['type reference', ['external', {
-                                                        'namespace path': {
-                                                            'start': ['import', {
-                                                                'namespace': ref("Resolved"),
-                                                                'arguments': rawDict({}),
-                                                                'tail': [true, {
-                                                                    'namespace': ref("Flat"),
-                                                                    'arguments': rawDict({}),
-                                                                    'tail': [false]
-                                                                }]
-                                                            }],
-                                                        },
-                                                        'type': ref($.key + "$")
-                                                    }]])
-                                                    case 'cyclic sibling lookup': return pl.ss($, ($) => ['lookup', ['computed', ['type reference', ['external', {
-                                                        'namespace path': {
-                                                            'start': ['import', {
-                                                                'namespace': ref("Resolved"),
-                                                                'arguments': rawDict({}),
-                                                                'tail': [true, {
-                                                                    'namespace': ref("Flat"),
-                                                                    'arguments': rawDict({}),
-                                                                    'tail': [false]
-                                                                }]
-                                                            }],
-                                                        },
-                                                        'type': ref($.key + "$")
-                                                    }]]]])
-                                                    case 'sibling lookup': return pl.ss($, ($) => ['lookup', ['type reference', ['external', {
-                                                        'namespace path': {
-                                                            'start': ['import', {
-                                                                'namespace': ref("Resolved"),
-                                                                'arguments': rawDict({}),
-                                                                'tail': [true, {
-                                                                    'namespace': ref("Flat"),
-                                                                    'arguments': rawDict({}),
-                                                                    'tail': [false]
-                                                                }]
-                                                            }],
-                                                        },
-                                                        'type': ref($.key + "$")
-                                                    }]]])
-                                                    default: return pl.au($[0])
-                                                }
-                                            })
-                                            return pl.optional(
-                                                $.optional,
-                                                () => ['optional', x],
-                                                () => x
-                                            )
-                                        })),
-                                        'type parameters': {
+                                "selectors": {
+                                    'imports': rawDict({}),
+                                    'namespace': {
+                                        'parameters': {
                                             'local': rawDict({
-                                                "Annotation": null
                                             }),
-                                            'aggregated': rawDict({}),
+                                            'aggregated': rawDict({})
                                         },
-                                    },
-                                    //'return type': ['boolean', null],
-                                    'return type': ['type reference', ['external', {
+                                        'namespaces': rawDict({
+                                        }),
+                                        'types': dict($d.filter($['global types'].declarations.__mapWithKey(($, key): pt.OptionalValue<g_out.T.Type<pd.SourceLocation>> => {
+                                            return mapOptional(
+                                                $.result,
+                                                ($) => ['value function', {
+                                                    'declaration': {
+                                                        'context': ['type reference', ['external', {
+                                                            'namespace path': {
+                                                                'start': ['import', {
+                                                                    'namespace': ref("Resolved"),
+                                                                    'arguments': rawDict({}),
+                                                                    'tail': [true, {
+                                                                        'namespace': ref("Flat"),
+                                                                        'arguments': rawDict({}),
+                                                                        'tail': [false]
+                                                                    }]
+                                                                }],
+                                                            },
+                                                            'type': ref(key + "$")
+                                                        }]],
+                                                        'parameters': rawDict({
+                                                        }),
+                                                        'type parameters': {
+                                                            'local': rawDict({}),
+                                                            'aggregated': rawDict({}),
+                                                        },
+                                                    },
+                                                    'return type': ['type reference', ['external', {
+                                                        'namespace path': {
+                                                            'start': ['import', {
+                                                                'namespace': ref("Resolved"),
+                                                                'arguments': rawDict({}),
+                                                                'tail': [true, {
+                                                                    'namespace': ref("Flat"),
+                                                                    'arguments': rawDict({}),
+                                                                    'tail': [false]
+                                                                }]
+                                                            }],
+                                                        },
+                                                        'type': ref($.key + "$")
+                                                    }]]
+                                                }]
+                                            )
+                                        }))),
+                                    }
+                                },
+                                "resolvers": {
+                                    'imports': rawDict({}),
+                                    'namespace': {
+                                        'parameters': {
+                                            'local': rawDict({
+                                            }),
+                                            'aggregated': rawDict({})
+                                        },
+                                        'namespaces': rawDict({
+                                        }),
+                                        'types': dict($['global types'].declarations.__mapWithKey(($, key): g_out.T.Type<pd.SourceLocation> => {
+                                            return ['value function', {
+                                                'declaration': {
+
+                                                    'context': ['type reference', ['external', {
+                                                        'namespace path': {
+                                                            'start': ['import', {
+                                                                'namespace': ref("Unresolved",),
+                                                                'arguments': rawDict({
+                                                                    "Annotation": constrainedDictionaryEntry({
+                                                                        'type': ['type parameter', ref("Annotation")]
+                                                                    })
+                                                                }),
+                                                                'tail': [true, {
+                                                                    'namespace': ref("Flat",),
+                                                                    'arguments': rawDict({}),
+                                                                    'tail': [false]
+                                                                }]
+                                                            }]
+                                                        },
+                                                        'type': ref(key + "$")
+                                                    }]],
+                                                    'parameters': dict($.parameters.map(($): g_out.T.Function__Declaration.parameters.dictionary.D<pd.SourceLocation> => {
+                                                        const x: g_out.T.Type<pd.SourceLocation> = pl.cc($.type, ($) => {
+                                                            switch ($[0]) {
+                                                                case 'resolved value': return pl.ss($, ($) => ['type reference', ['external', {
+                                                                    'namespace path': {
+                                                                        'start': ['import', {
+                                                                            'namespace': ref("Resolved"),
+                                                                            'arguments': rawDict({}),
+                                                                            'tail': [true, {
+                                                                                'namespace': ref("Flat"),
+                                                                                'arguments': rawDict({}),
+                                                                                'tail': [false]
+                                                                            }]
+                                                                        }],
+                                                                    },
+                                                                    'type': ref($.key + "$")
+                                                                }]])
+                                                                case 'cyclic sibling lookup': return pl.ss($, ($) => ['lookup', ['computed', ['type reference', ['external', {
+                                                                    'namespace path': {
+                                                                        'start': ['import', {
+                                                                            'namespace': ref("Resolved"),
+                                                                            'arguments': rawDict({}),
+                                                                            'tail': [true, {
+                                                                                'namespace': ref("Flat"),
+                                                                                'arguments': rawDict({}),
+                                                                                'tail': [false]
+                                                                            }]
+                                                                        }],
+                                                                    },
+                                                                    'type': ref($.key + "$")
+                                                                }]]]])
+                                                                case 'key': return pl.ss($, ($) => ['string', null])
+
+                                                                case 'sibling lookup': return pl.ss($, ($) => ['lookup', ['type reference', ['external', {
+                                                                    'namespace path': {
+                                                                        'start': ['import', {
+                                                                            'namespace': ref("Resolved"),
+                                                                            'arguments': rawDict({}),
+                                                                            'tail': [true, {
+                                                                                'namespace': ref("Flat"),
+                                                                                'arguments': rawDict({}),
+                                                                                'tail': [false]
+                                                                            }]
+                                                                        }],
+                                                                    },
+                                                                    'type': ref($.key + "$")
+                                                                }]]])
+                                                                default: return pl.au($[0])
+                                                            }
+                                                        })
+                                                        return pl.optional(
+                                                            $.optional,
+                                                            () => ['optional', x],
+                                                            () => x
+                                                        )
+                                                    })),
+                                                    'type parameters': {
+                                                        'local': rawDict({
+                                                            "Annotation": null
+                                                        }),
+                                                        'aggregated': rawDict({}),
+                                                    },
+                                                },
+                                                //'return type': ['boolean', null],
+                                                'return type': ['type reference', ['external', {
+                                                    'namespace path': {
+                                                        'start': ['import', {
+                                                            'namespace': ref("Resolved"),
+                                                            'arguments': rawDict({}),
+                                                            'tail': [true, {
+                                                                'namespace': ref("Flat"),
+                                                                'arguments': rawDict({}),
+                                                                'tail': [false]
+                                                            }]
+                                                        }],
+                                                        // 'namespace': ref("Resolved",),
+                                                        // 'arguments': rawDict({}),
+                                                        // 'tail': [true, {
+                                                        //     'namespace': ref("Flat",),
+                                                        //     'arguments': rawDict({}),
+                                                        //     'tail': [false]
+                                                        // }]
+                                                    },
+                                                    'type': ref(key + "$")
+                                                }]]
+                                            }]
+                                        })),
+                                    }
+                                }
+                            }),
+                            'types': rawDict({
+                                "$": ['group', dict<g_out.T.Type.group.dictionary.D<pd.SourceLocation>>($['global types'].definitions.__mapWithKey<g_out.T.Type.group.dictionary.D<pd.SourceLocation>>(($, key) => ({
+                                    'mutable': [false],
+                                    'type': ['type reference', ['external', {
                                         'namespace path': {
-                                            'start': ['import', {
-                                                'namespace': ref("Resolved"),
-                                                'arguments': rawDict({}),
-                                                'tail': [true, {
-                                                    'namespace': ref("Flat"),
+                                            'start': ['local', {
+                                                'namespace': {
+                                                    'namespace': ref("resolvers"),
                                                     'arguments': rawDict({}),
                                                     'tail': [false]
-                                                }]
+                                                }
                                             }],
-                                            // 'namespace': ref("Resolved",),
-                                            // 'arguments': rawDict({}),
-                                            // 'tail': [true, {
-                                            //     'namespace': ref("Flat",),
-                                            //     'arguments': rawDict({}),
-                                            //     'tail': [false]
-                                            // }]
                                         },
-                                        'type': ref(key + "$")
+                                        'type': ref(key)
                                     }]]
-                                }]
-                            })),
+                                })))]
+                            }),
 
                         }
                     },
@@ -687,150 +773,129 @@ export const $$: A.map = ($d,) => {
                                 }),
                                 'aggregated': rawDict({})
                             },
-                            'namespaces': rawDict({}),
-                            'types': dict($['global types'].definitions.__mapWithKey(($, key): g_out.T.Type<pd.SourceLocation> => {
-                                return ['procedure', {
-                                    'declaration': {
-
-                                        'context': ['type reference', ['external', {
-                                            'namespace path': {
-                                                'start': ['import', {
-                                                    'namespace': ref("Resolved"),
-                                                    'arguments': rawDict({}),
-                                                    'tail': [true, {
-                                                        'namespace': ref("Flat"),
-                                                        'arguments': rawDict({}),
-                                                        'tail': [false]
-                                                    }]
-                                                }],
-                                            },
-                                            'type': ref(key + "$")
-                                        }]],
-                                        'parameters': rawDict({
-                                            "out": ['boolean', null]
-                                        }),
-                                        'type parameters': {
-                                            'local': rawDict({}),
-                                            'aggregated': rawDict({}),
-                                        },
-                                    },
-                                }]
-                            })),
-
-                        }
-                    },
-                    "Select": {
-                        'imports': rawDict({
-                            "Resolved": ['sibling', ref("Resolved")]
-                        }),
-                        'namespace': {
-                            'parameters': {
-                                'local': rawDict({
-                                }),
-                                'aggregated': rawDict({})
-                            },
                             'namespaces': rawDict({
-                            }),
-                            'types': dict($d.filter($['global types'].declarations.__mapWithKey(($, key): pt.OptionalValue<g_out.T.Type<pd.SourceLocation>> => {
-                                return mapOptional(
-                                    $.result,
-                                    ($) => ['value function', {
-                                        'declaration': {
-                                            'context': ['type reference', ['external', {
-                                                'namespace path': {
-                                                    'start': ['import', {
-                                                        'namespace': ref("Resolved"),
-                                                        'arguments': rawDict({}),
-                                                        'tail': [true, {
-                                                            'namespace': ref("Flat"),
-                                                            'arguments': rawDict({}),
-                                                            'tail': [false]
-                                                        }]
-                                                    }],
-                                                },
-                                                'type': ref(key + "$")
-                                            }]],
-                                            'parameters': rawDict({
+                                "types": {
+                                    'imports': rawDict({}),
+                                    'namespace': {
+                                        'parameters': {
+                                            'local': rawDict({
                                             }),
-                                            'type parameters': {
-                                                'local': rawDict({}),
-                                                'aggregated': rawDict({}),
-                                            },
+                                            'aggregated': rawDict({})
                                         },
-                                        'return type': ['type reference', ['external', {
-                                            'namespace path': {
-                                                'start': ['import', {
-                                                    'namespace': ref("Resolved"),
+                                        'namespaces': rawDict({
+                                        }),
+                                        'types': dict($['global types'].definitions.__mapWithKey(($, key): g_out.T.Type<pd.SourceLocation> => {
+                                            return ['procedure', {
+                                                'declaration': {
+            
+                                                    'context': ['type reference', ['external', {
+                                                        'namespace path': {
+                                                            'start': ['import', {
+                                                                'namespace': ref("Resolved"),
+                                                                'arguments': rawDict({}),
+                                                                'tail': [true, {
+                                                                    'namespace': ref("Flat"),
+                                                                    'arguments': rawDict({}),
+                                                                    'tail': [false]
+                                                                }]
+                                                            }],
+                                                        },
+                                                        'type': ref(key + "$")
+                                                    }]],
+                                                    'parameters': rawDict({
+                                                        "out": ['boolean', null]
+                                                    }),
+                                                    'type parameters': {
+                                                        'local': rawDict({}),
+                                                        'aggregated': rawDict({}),
+                                                    },
+                                                },
+                                            }]
+                                        }))
+                                    },
+                                }
+                            }),
+                            'types': rawDict({
+                                "$": ['group', dict<g_out.T.Type.group.dictionary.D<pd.SourceLocation>>($['global types'].definitions.__mapWithKey<g_out.T.Type.group.dictionary.D<pd.SourceLocation>>(($, key) => ({
+                                    'mutable': [false],
+                                    'type': ['type reference', ['external', {
+                                        'namespace path': {
+                                            'start': ['local', {
+                                                'namespace': {
+                                                    'namespace': ref("types"),
                                                     'arguments': rawDict({}),
-                                                    'tail': [true, {
-                                                        'namespace': ref("Flat"),
-                                                        'arguments': rawDict({}),
-                                                        'tail': [false]
-                                                    }]
-                                                }],
-                                            },
-                                            'type': ref($.key + "$")
-                                        }]]
-                                    }]
-                                )
-                            }))),
+                                                    'tail': [false]
+                                                }
+                                            }],
+                                        },
+                                        'type': ref(key)
+                                    }]]
+                                })))]
+                            }),
 
                         }
                     },
 
                 }),
                 'types': rawDict<g_out.T.Type<pd.SourceLocation>>({
-                    "_": ['value function', {
-                        'declaration': {
+                    // "_": ['value function', {
+                    //     'declaration': {
 
-                            'context': ['null', null],
-                            'parameters': rawDict({}),
-                            'type parameters': {
-                                'local': rawDict({}),
-                                'aggregated': rawDict({}),
-                            },
-                        },
-                        'return type': ['group', dict($['global types'].definitions.__mapWithKey<g_out.T.Type.group.dictionary.D<pd.SourceLocation>>(($, key) => {
+                    //         'context': ['null', null],
+                    //         'parameters': rawDict({}),
+                    //         'type parameters': {
+                    //             'local': rawDict({}),
+                    //             'aggregated': rawDict({}),
+                    //         },
+                    //     },
+                    //     'return type': ['group', dict($['global types'].definitions.__mapWithKey<g_out.T.Type.group.dictionary.D<pd.SourceLocation>>(($, key) => {
 
-                            const foo: g_out.T.Type<pd.SourceLocation> = ['group', rawDict<g_out.T.Type.group.dictionary.D<pd.SourceLocation>>({
-                                "Serialize": {
-                                    'mutable': [false],
-                                    'type': ['type reference', ['external', {
-                                        'namespace path': {
-                                            'start': ['local', {
-                                                'namespace': {
-                                                    'namespace': ref("Serialize"),
-                                                    'arguments': rawDict({}),
-                                                    'tail': [false]
-                                                }
-                                            }],
-
-                                        },
-                                        'type': ref(key)
-                                    }]]
-                                },
-                                "Resolve": {
-                                    'mutable': [false],
-                                    'type': ['type reference', ['external', {
-                                        'namespace path': {
-                                            'start': ['local', {
-                                                'namespace': {
-                                                    'namespace': ref("Resolve"),
-                                                    'arguments': rawDict({}),
-                                                    'tail': [false]
-                                                }
-                                            }],
-                                        },
-                                        'type': ref(key)
-                                    }]]
-                                }
-                            })]
-                            return {
-                                'mutable': [false],
-                                'type': foo
-                            }
-                        }))]
-                    }]
+                    //         return {
+                    //             'mutable': [false],
+                    //             'type': ['group', rawDict<g_out.T.Type.group.dictionary.D<pd.SourceLocation>>({
+                    //                 "Serialize": {
+                    //                     'mutable': [false],
+                    //                     'type': ['type reference', ['external', {
+                    //                         'namespace path': {
+                    //                             'start': ['local', {
+                    //                                 'namespace': {
+                    //                                     'namespace': ref("Serialize"),
+                    //                                     'arguments': rawDict({}),
+                    //                                     'tail': [true, {
+                    //                                         'namespace': ref("types"),
+                    //                                         'arguments': rawDict({}),
+                    //                                         'tail': [false]
+                    //                                     }]
+                    //                                 }
+                    //                             }],
+    
+                    //                         },
+                    //                         'type': ref(key)
+                    //                     }]]
+                    //                 },
+                    //                 "Resolve": {
+                    //                     'mutable': [false],
+                    //                     'type': ['type reference', ['external', {
+                    //                         'namespace path': {
+                    //                             'start': ['local', {
+                    //                                 'namespace': {
+                    //                                     'namespace': ref("Resolve"),
+                    //                                     'arguments': rawDict({}),
+                    //                                     'tail': [true, {
+                    //                                         'namespace': ref("types"),
+                    //                                         'arguments': rawDict({}),
+                    //                                         'tail': [false]
+                    //                                     }]
+                    //                                 }
+                    //                             }],
+                    //                         },
+                    //                         'type': ref(key)
+                    //                     }]]
+                    //                 }
+                    //             })]
+                    //         }
+                    //     }))]
+                    // }]
                 }),
             }
         }
@@ -861,10 +926,10 @@ export const $$: A.map = ($d,) => {
                         return {
                             'mutable': [false],
                             'type': ['group', rawDict({
-                                "Serialize": {
+                                "createResolveContext": {
                                     'mutable': [false],
                                     'type': ['value function', {
-                                        'declaration': { 
+                                        'declaration': {
                                             'context': ['null', null],
                                             'parameters': rawDict({
                                             }),
@@ -873,31 +938,28 @@ export const $$: A.map = ($d,) => {
                                                 'aggregated': rawDict({}),
                                             },
                                         },
-                                        'return type': ['group', dict<g_out.T.Type.group.dictionary.D<pd.SourceLocation>>($['global types'].definitions.__mapWithKey<g_out.T.Type.group.dictionary.D<pd.SourceLocation>>(($, key) => ({
-                                            'mutable': [false],
-                                            'type': ['type reference', ['external', {
-                                                'namespace path': {
-                                                    'start': ['local', {
-                                                        'namespace': {
-                                                            'namespace': ref(tlName),
+                                        'return type': ['type reference', ['external', {
+                                            'namespace path': {
+                                                'start': ['local', {
+                                                    'namespace': {
+                                                        'namespace': ref(tlName),
+                                                        'arguments': rawDict({}),
+                                                        'tail': [true, {
+                                                            'namespace': ref("Resolve"),
                                                             'arguments': rawDict({}),
-                                                            'tail': [true, {
-                                                                'namespace': ref("Serialize"),
-                                                                'arguments': rawDict({}),
-                                                                'tail': [false]
-                                                            }]
-                                                        }
-                                                    }],
-                                                },
-                                                'type': ref(key)
-                                            }]]
-                                        })))]
+                                                            'tail': [false]
+                                                        }]
+                                                    }
+                                                }],
+                                            },
+                                            'type': ref("$")
+                                        }]]
                                     }]
                                 },
-                                "Resolve": {
+                                "createSerializeContext": {
                                     'mutable': [false],
                                     'type': ['value function', {
-                                        'declaration': { 
+                                        'declaration': {
                                             'context': ['null', null],
                                             'parameters': rawDict({
                                             }),
@@ -906,25 +968,22 @@ export const $$: A.map = ($d,) => {
                                                 'aggregated': rawDict({}),
                                             },
                                         },
-                                        'return type': ['group', dict<g_out.T.Type.group.dictionary.D<pd.SourceLocation>>($['global types'].definitions.__mapWithKey<g_out.T.Type.group.dictionary.D<pd.SourceLocation>>(($, key) => ({
-                                            'mutable': [false],
-                                            'type': ['type reference', ['external', {
-                                                'namespace path': {
-                                                    'start': ['local', {
-                                                        'namespace': {
-                                                            'namespace': ref(tlName),
+                                        'return type': ['type reference', ['external', {
+                                            'namespace path': {
+                                                'start': ['local', {
+                                                    'namespace': {
+                                                        'namespace': ref(tlName),
+                                                        'arguments': rawDict({}),
+                                                        'tail': [true, {
+                                                            'namespace': ref("Serialize"),
                                                             'arguments': rawDict({}),
-                                                            'tail': [true, {
-                                                                'namespace': ref("Resolve"),
-                                                                'arguments': rawDict({}),
-                                                                'tail': [false]
-                                                            }]
-                                                        }
-                                                    }],
-                                                },
-                                                'type': ref(key)
-                                            }]]
-                                        })))]
+                                                            'tail': [false]
+                                                        }]
+                                                    }
+                                                }],
+                                            },
+                                            'type': ref("$")
+                                        }]]
                                     }]
                                 }
                             })]
