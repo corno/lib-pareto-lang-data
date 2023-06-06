@@ -228,6 +228,13 @@ export function pLookup(type: string, optional?: boolean): g_this.T.Global__Type
     }
 }
 
+export function pKey(optional?: boolean): g_this.T.Global__Type__Declaration.parameters.dictionary.D<pd.SourceLocation> {
+    return {
+        'optional': optional ? [true, null] : [false],
+        'type': ['key', null]
+    }
+}
+
 export function pCyclicLookup(type: string, optional?: boolean): g_this.T.Global__Type__Declaration.parameters.dictionary.D<pd.SourceLocation> {
     return {
         'optional': optional ? [true, null] : [false],
@@ -350,7 +357,7 @@ export function t_sg(
     opt: string,
     tail?: g_this.T.Type__Selection__Tail<pd.SourceLocation>,
 ): g_this.T.Type__Selection__Tail<pd.SourceLocation> {
-    return  {
+    return {
         'step type': ['state group', {
             'state group': pd.getLocationInfo(1),
             'state': ref(opt),
@@ -397,7 +404,7 @@ export function typeSelection(
 export function component(
     type: g_this.T.Global__Type__Selection<pd.SourceLocation>,
     args: RawDictionary<null>
-    ): g_this.T.Type<pd.SourceLocation> {
+): g_this.T.Type<pd.SourceLocation> {
     return {
         'type': ['component', {
             'type': type,

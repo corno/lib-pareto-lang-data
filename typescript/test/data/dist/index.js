@@ -28,7 +28,7 @@ const _pl = __importStar(require("pareto-core-lib"));
 const _pd = __importStar(require("pareto-core-dev"));
 exports.$ = {
     'pareto lang data': {
-        'Resolve': ($) => _pl.cc($, ($) => {
+        'createResolveContext': ($) => _pl.cc($, ($) => {
             const Atom__Types = ($) => $.map(($) => _pl.cc($, ($) => {
                 return null;
             }));
@@ -66,7 +66,11 @@ exports.$ = {
                                     'imports': _pd.implementMe("ARGS"),
                                     'sibling global types': _pd.implementMe("ARGS"),
                                 }));
+                                const _larguments = _pl.cc($['arguments'], ($) => $.map(($) => _pl.cc($, ($) => {
+                                    return null;
+                                })));
                                 return {
+                                    'arguments': _larguments,
                                     'type': _ltype,
                                 };
                             })]);
@@ -219,7 +223,33 @@ exports.$ = {
                     'library': library,
                 };
             }));
-            const Global__Type = ($) => _pl.cc($, ($) => {
+            const Global__Type__Declaration = ($) => _pl.cc($, ($) => {
+                const parameters = _pl.cc($['parameters'], ($) => $.map(($) => _pl.cc($, ($) => {
+                    const _ltype = _pl.cc($['type'], ($) => _pl.cc($, ($) => {
+                        switch ($[0]) {
+                            case 'resolved value': return _pl.ss($, ($) => ['resolved value', _pd.implementMe("CyCLIC REFERENCE")]);
+                            case 'sibling lookup': return _pl.ss($, ($) => ['sibling lookup', _pd.implementMe("CyCLIC REFERENCE")]);
+                            case 'cyclic sibling lookup': return _pl.ss($, ($) => ['cyclic sibling lookup', _pd.implementMe("CyCLIC REFERENCE")]);
+                            default: return _pl.au($[0]);
+                        }
+                    }));
+                    const optional = _pl.cc($['optional'], ($) => _pd.implementMe("OPTIONAL"));
+                    return {
+                        'optional': optional,
+                        'type': _ltype,
+                    };
+                })));
+                const result = _pl.cc($['result'], ($) => _pd.implementMe("OPTIONAL"));
+                return {
+                    'parameters': parameters,
+                    'result': result,
+                };
+            });
+            const Global__Type__Declarations = ($) => $.map(($) => Global__Type__Declaration($, {
+                'all siblings': _pd.implementMe("ARGS"),
+            }));
+            const Global__Type__Definition = ($) => _pl.cc($, ($) => {
+                const declaration = _pl.cc($['declaration'], ($) => _pd.implementMe("CONSTRAINT"));
                 const _ltype = _pl.cc($['type'], ($) => Type($, {
                     'atom types': _pd.implementMe("ARGS"),
                     'cyclic sibling global types': _pd.implementMe("ARGS"),
@@ -227,6 +257,7 @@ exports.$ = {
                     'sibling global types': _pd.implementMe("ARGS"),
                 }));
                 return {
+                    'declaration': declaration,
                     'type': _ltype,
                 };
             });
@@ -235,45 +266,53 @@ exports.$ = {
                     switch ($[0]) {
                         case 'dictionary': return _pl.ss($, ($) => ['dictionary', _pl.cc($, ($) => {
                                 const dictionary = _pl.cc($['dictionary'], ($) => _pd.implementMe("CONSTRAINT"));
+                                const tail = _pl.cc($['tail'], ($) => _pd.implementMe("OPTIONAL"));
                                 return {
                                     'dictionary': dictionary,
+                                    'tail': tail,
                                 };
                             })]);
                         case 'optional': return _pl.ss($, ($) => ['optional', _pl.cc($, ($) => {
                                 const optional = _pl.cc($['optional'], ($) => _pd.implementMe("CONSTRAINT"));
+                                const tail = _pl.cc($['tail'], ($) => _pd.implementMe("OPTIONAL"));
                                 return {
                                     'optional': optional,
+                                    'tail': tail,
                                 };
                             })]);
                         case 'array': return _pl.ss($, ($) => ['array', _pl.cc($, ($) => {
                                 const array = _pl.cc($['array'], ($) => _pd.implementMe("CONSTRAINT"));
+                                const tail = _pl.cc($['tail'], ($) => _pd.implementMe("OPTIONAL"));
                                 return {
                                     'array': array,
+                                    'tail': tail,
                                 };
                             })]);
                         case 'group': return _pl.ss($, ($) => ['group', _pl.cc($, ($) => {
                                 const group = _pl.cc($['group'], ($) => _pd.implementMe("CONSTRAINT"));
                                 const property = _pl.cc($['property'], ($) => _pd.implementMe("RESOLVED REFERENCE"));
+                                const tail = _pl.cc($['tail'], ($) => _pd.implementMe("OPTIONAL"));
                                 return {
                                     'group': group,
                                     'property': property,
+                                    'tail': tail,
                                 };
                             })]);
                         case 'state group': return _pl.ss($, ($) => ['state group', _pl.cc($, ($) => {
                                 const state__group = _pl.cc($['state group'], ($) => _pd.implementMe("CONSTRAINT"));
                                 const state = _pl.cc($['state'], ($) => _pd.implementMe("RESOLVED REFERENCE"));
+                                const tail = _pl.cc($['tail'], ($) => _pd.implementMe("OPTIONAL"));
                                 return {
                                     'state': state,
                                     'state group': state__group,
+                                    'tail': tail,
                                 };
                             })]);
                         default: return _pl.au($[0]);
                     }
                 }));
-                const tail = _pl.cc($['tail'], ($) => _pd.implementMe("OPTIONAL"));
                 return {
                     'step type': step__type,
-                    'tail': tail,
                 };
             });
             const Type__Selection = ($) => _pl.cc($, ($) => {
@@ -298,9 +337,25 @@ exports.$ = {
                 };
             });
             const Type__Library = ($) => _pl.cc($, ($) => {
-                const imports = _pl.cc($['imports'], ($) => Imports($));
+                const imports = _pl.cc($['imports'], ($) => Imports($, {
+                    'external type libraries': _pd.implementMe("ARGS"),
+                }));
                 const atom__types = _pl.cc($['atom types'], ($) => Atom__Types($));
-                const global__types = _pl.cc($['global types'], ($) => $.map(($) => Global__Type($)));
+                const global__types = _pl.cc($['global types'], ($) => _pl.cc($, ($) => {
+                    const declarations = _pl.cc($['declarations'], ($) => Global__Type__Declarations($));
+                    const definitions = _pl.cc($['definitions'], ($) => $.map(($) => Global__Type__Definition($, {
+                        'all siblings': _pd.implementMe("ARGS"),
+                        'atom types': _pd.implementMe("ARGS"),
+                        'global type declarations': _pd.implementMe("ARGS"),
+                        'imports': _pd.implementMe("ARGS"),
+                        'key': _pd.implementMe("ARGS"),
+                        'non cyclic siblings': _pd.implementMe("ARGS"),
+                    })));
+                    return {
+                        'declarations': declarations,
+                        'definitions': definitions,
+                    };
+                }));
                 return {
                     'atom types': atom__types,
                     'global types': global__types,
@@ -351,40 +406,122 @@ exports.$ = {
                 };
             });
             const Root = ($) => Project($);
+            const Variable = ($) => _pl.cc($, ($) => {
+                switch ($[0]) {
+                    case 'parent variable': return _pl.ss($, ($) => ['parent variable', _pd.implementMe("RESOLVED REFERENCE")]);
+                    default: return _pl.au($[0]);
+                }
+            });
+            const Variables = ($) => $.map(($) => Variable($));
+            const Value__Selection__Tail = ($) => _pl.cc($, ($) => {
+                switch ($[0]) {
+                    case 'reference': return _pl.ss($, ($) => ['reference', _pl.cc($, ($) => {
+                            const reference = _pl.cc($['reference'], ($) => _pd.implementMe("CONSTRAINT"));
+                            const tail = _pl.cc($['tail'], ($) => _pd.implementMe("OPTIONAL"));
+                            return {
+                                'reference': reference,
+                                'tail': tail,
+                            };
+                        })]);
+                    case 'component': return _pl.ss($, ($) => ['component', _pl.cc($, ($) => {
+                            const component = _pl.cc($['component'], ($) => _pd.implementMe("CONSTRAINT"));
+                            const tail = _pl.cc($['tail'], ($) => _pd.implementMe("OPTIONAL"));
+                            return {
+                                'component': component,
+                                'tail': tail,
+                            };
+                        })]);
+                    case 'state group': return _pl.ss($, ($) => ['state group', _pl.cc($, ($) => {
+                            const state__group = _pl.cc($['state group'], ($) => _pd.implementMe("CONSTRAINT"));
+                            const result__type = _pl.cc($['result type'], ($) => Global__Type__Selection($, {
+                                'cyclic sibling global types': _pd.implementMe("ARGS"),
+                                'imports': _pd.implementMe("ARGS"),
+                                'sibling global types': _pd.implementMe("ARGS"),
+                            }));
+                            const states = _pl.cc($['states'], ($) => $.map(($) => Any__Value__Selection($)));
+                            return {
+                                'result type': result__type,
+                                'state group': state__group,
+                                'states': states,
+                            };
+                        })]);
+                    case 'group': return _pl.ss($, ($) => ['group', _pl.cc($, ($) => {
+                            const group = _pl.cc($['group'], ($) => _pd.implementMe("CONSTRAINT"));
+                            const property = _pl.cc($['property'], ($) => _pd.implementMe("RESOLVED REFERENCE"));
+                            const tail = _pl.cc($['tail'], ($) => _pd.implementMe("OPTIONAL"));
+                            return {
+                                'group': group,
+                                'property': property,
+                                'tail': tail,
+                            };
+                        })]);
+                    default: return _pl.au($[0]);
+                }
+            });
+            const No__Context__Value__Selection = ($) => _pl.cc($, ($) => {
+                const start = _pl.cc($['start'], ($) => _pd.implementMe("RESOLVED REFERENCE"));
+                const tail = _pl.cc($['tail'], ($) => _pd.implementMe("OPTIONAL"));
+                return {
+                    'start': start,
+                    'tail': tail,
+                };
+            });
+            const Any__Value__Selection = ($) => _pl.cc($, ($) => {
+                const start = _pl.cc($['start'], ($) => _pd.implementMe("OPTIONAL"));
+                const tail = _pl.cc($['tail'], ($) => _pd.implementMe("OPTIONAL"));
+                return {
+                    'start': start,
+                    'tail': tail,
+                };
+            });
             return {
+                'Any Value Selection': Any__Value__Selection,
                 'Atom': Atom,
                 'Atom Types': Atom__Types,
                 'Dictionary Selection': Dictionary__Selection,
-                'Global Type': Global__Type,
+                'Global Type Declaration': Global__Type__Declaration,
+                'Global Type Declarations': Global__Type__Declarations,
+                'Global Type Definition': Global__Type__Definition,
                 'Global Type Selection': Global__Type__Selection,
                 'Imports': Imports,
                 'Model': Model,
+                'No Context Value Selection': No__Context__Value__Selection,
                 'Project': Project,
                 'Root': Root,
                 'Type': Type,
                 'Type Library': Type__Library,
                 'Type Selection': Type__Selection,
                 'Type Selection Tail': Type__Selection__Tail,
+                'Value Selection Tail': Value__Selection__Tail,
+                'Variable': Variable,
+                'Variables': Variables,
             };
         }),
-        'Serialize': ($) => ({
+        'createSerializeContext': ($) => ({
+            'Any Value Selection': ($) => { },
             'Atom': ($) => { },
             'Atom Types': ($) => { },
             'Dictionary Selection': ($) => { },
-            'Global Type': ($) => { },
+            'Global Type Declaration': ($) => { },
+            'Global Type Declarations': ($) => { },
+            'Global Type Definition': ($) => { },
             'Global Type Selection': ($) => { },
             'Imports': ($) => { },
             'Model': ($) => { },
+            'No Context Value Selection': ($) => { },
             'Project': ($) => { },
             'Root': ($) => { },
             'Type': ($) => { },
             'Type Library': ($) => { },
             'Type Selection': ($) => { },
             'Type Selection Tail': ($) => { },
+            'Value Selection Tail': ($) => { },
+            'Variable': ($) => { },
+            'Variables': ($) => { },
         }),
     },
     'proto implementation': {
-        'Resolve': ($) => _pl.cc($, ($) => {
+        'createResolveContext': ($) => _pl.cc($, ($) => {
             const Type__Selection = ($) => _pl.cc($, ($) => {
                 switch ($[0]) {
                     case 'current namespaceXXXXX': return _pl.ss($, ($) => ['current namespaceXXXXX', _pd.implementMe("RESOLVED REFERENCE")]);
@@ -405,8 +542,15 @@ exports.$ = {
                     'type': _ltype,
                 };
             }));
-            const Address__Selection__Tail = ($) => _pd.implementMe("OPTIONAL");
-            const Variables = ($) => $.map(($) => _pl.cc($, ($) => {
+            const Local__Variables = ($) => $.map(($) => _pl.cc($, ($) => {
+                const _ltype = _pl.cc($['type'], ($) => Type__Selection($));
+                const initialization = _pl.cc($['initialization'], ($) => Initialization($));
+                return {
+                    'initialization': initialization,
+                    'type': _ltype,
+                };
+            }));
+            const Aggregated__Variable = ($) => _pl.cc($, ($) => {
                 const _ltype = _pl.cc($['type'], ($) => _pl.cc($, ($) => {
                     switch ($[0]) {
                         case 'variable stack2': return _pl.ss($, ($) => ['variable stack2', _pl.cc($, ($) => {
@@ -416,12 +560,7 @@ exports.$ = {
                                 };
                             })]);
                         case 'local': return _pl.ss($, ($) => ['local', _pl.cc($, ($) => {
-                                const _ltype = _pl.cc($['type'], ($) => Type__Selection($));
-                                const initialization = _pl.cc($['initialization'], ($) => Initialization($));
-                                return {
-                                    'initialization': initialization,
-                                    'type': _ltype,
-                                };
+                                return null;
                             })]);
                         default: return _pl.au($[0]);
                     }
@@ -429,24 +568,49 @@ exports.$ = {
                 return {
                     'type': _ltype,
                 };
-            }));
-            const Address__Selection = ($) => _pl.cc($, ($) => {
+            });
+            const Aggregated__Variables = ($) => $.map(($) => Aggregated__Variable($));
+            const Variables = ($) => _pl.cc($, ($) => {
+                const local = _pl.cc($['local'], ($) => Local__Variables($));
+                const aggregated = _pl.cc($['aggregated'], ($) => Aggregated__Variables($));
+                return {
+                    'aggregated': aggregated,
+                    'local': local,
+                };
+            });
+            const Target__Selection__Tail = ($) => _pd.implementMe("OPTIONAL");
+            const Target__Selection = ($) => _pl.cc($, ($) => {
                 const variable = _pl.cc($['variable'], ($) => _pd.implementMe("RESOLVED REFERENCE"));
-                const tail = _pl.cc($['tail'], ($) => Address__Selection__Tail($));
+                const tail = _pl.cc($['tail'], ($) => Target__Selection__Tail($));
                 return {
                     'tail': tail,
                     'variable': variable,
+                };
+            });
+            const Source__Selection__Tail = ($) => _pd.implementMe("OPTIONAL");
+            const Source__Selection = ($) => _pl.cc($, ($) => {
+                const start = _pl.cc($['start'], ($) => _pl.cc($, ($) => {
+                    switch ($[0]) {
+                        case 'context': return _pl.ss($, ($) => ['context', _pl.cc($, ($) => {
+                                return null;
+                            })]);
+                        case 'variable': return _pl.ss($, ($) => ['variable', _pd.implementMe("RESOLVED REFERENCE")]);
+                        default: return _pl.au($[0]);
+                    }
+                }));
+                const tail = _pl.cc($['tail'], ($) => Source__Selection__Tail($));
+                return {
+                    'start': start,
+                    'tail': tail,
                 };
             });
             const Initialization__Or__Selection = ($) => _pl.cc($, ($) => {
                 switch ($[0]) {
                     case 'initialization': return _pl.ss($, ($) => ['initialization', Initialization($)]);
                     case 'selection': return _pl.ss($, ($) => ['selection', _pl.cc($, ($) => {
-                            const selection = _pl.cc($['selection'], ($) => Address__Selection($));
-                            const _lstring = _pl.cc($['string'], ($) => _pd.implementMe("CONSTRAINT"));
+                            const selection = _pl.cc($['selection'], ($) => Source__Selection($));
                             return {
                                 'selection': selection,
-                                'string': _lstring,
                             };
                         })]);
                     default: return _pl.au($[0]);
@@ -456,7 +620,7 @@ exports.$ = {
                 switch ($[0]) {
                     case 'initialization': return _pl.ss($, ($) => ['initialization', String__Initialization($)]);
                     case 'selection': return _pl.ss($, ($) => ['selection', _pl.cc($, ($) => {
-                            const selection = _pl.cc($['selection'], ($) => Address__Selection($));
+                            const selection = _pl.cc($['selection'], ($) => Source__Selection($));
                             const _lstring = _pl.cc($['string'], ($) => _pd.implementMe("CONSTRAINT"));
                             return {
                                 'selection': selection,
@@ -470,7 +634,7 @@ exports.$ = {
                 switch ($[0]) {
                     case 'initialization': return _pl.ss($, ($) => ['initialization', Numerical__Initialization($)]);
                     case 'selection': return _pl.ss($, ($) => ['selection', _pl.cc($, ($) => {
-                            const selection = _pl.cc($['selection'], ($) => Address__Selection($));
+                            const selection = _pl.cc($['selection'], ($) => Source__Selection($));
                             const _lnumber = _pl.cc($['number'], ($) => _pd.implementMe("CONSTRAINT"));
                             return {
                                 'number': _lnumber,
@@ -484,7 +648,7 @@ exports.$ = {
                 switch ($[0]) {
                     case 'initialization': return _pl.ss($, ($) => ['initialization', Boolean__Initialization($)]);
                     case 'selection': return _pl.ss($, ($) => ['selection', _pl.cc($, ($) => {
-                            const selection = _pl.cc($['selection'], ($) => Address__Selection($));
+                            const selection = _pl.cc($['selection'], ($) => Source__Selection($));
                             const _lboolean = _pl.cc($['boolean'], ($) => _pd.implementMe("CONSTRAINT"));
                             return {
                                 'boolean': _lboolean,
@@ -604,50 +768,149 @@ exports.$ = {
             });
             const Initialization = ($) => _pl.cc($, ($) => {
                 switch ($[0]) {
-                    case 'array literal': return _pl.ss($, ($) => ['array literal', $.map(($) => _pl.cc($, ($) => {
-                            const array = _pl.cc($['array'], ($) => _pd.implementMe("CONSTRAINT"));
-                            const initialization = _pl.cc($['initialization'], ($) => Initialization__Or__Selection($));
+                    case 'array literal': return _pl.ss($, ($) => ['array literal', _pl.cc($, ($) => {
+                            const definition = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"));
+                            const initialization = _pl.cc($['initialization'], ($) => $.map(($) => Initialization__Or__Selection($)));
                             return {
-                                'array': array,
+                                'definition': definition,
                                 'initialization': initialization,
                             };
-                        }))]);
-                    case 'object literal': return _pl.ss($, ($) => ['object literal', _pl.cc($, ($) => {
-                            const group = _pl.cc($['group'], ($) => _pd.implementMe("CONSTRAINT"));
-                            const properties = _pl.cc($['properties'], ($) => $.map(($) => Initialization__Or__Selection($)));
+                        })]);
+                    case 'array map': return _pl.ss($, ($) => ['array map', _pl.cc($, ($) => {
+                            const definition = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"));
+                            const source = _pl.cc($['source'], ($) => Source__Selection($));
+                            const initialization = _pl.cc($['initialization'], ($) => Initialization__Or__Selection($));
                             return {
-                                'group': group,
-                                'properties': properties,
+                                'definition': definition,
+                                'initialization': initialization,
+                                'source': source,
                             };
                         })]);
                     case 'boolean': return _pl.ss($, ($) => ['boolean', _pl.cc($, ($) => {
-                            const _lboolean = _pl.cc($['boolean'], ($) => _pd.implementMe("CONSTRAINT"));
-                            const x = _pl.cc($['x'], ($) => Boolean__Initialization($));
+                            const definition = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"));
+                            const initialization = _pl.cc($['initialization'], ($) => Boolean__Initialization($));
                             return {
-                                'boolean': _lboolean,
-                                'x': x,
+                                'definition': definition,
+                                'initialization': initialization,
+                            };
+                        })]);
+                    case 'change context': return _pl.ss($, ($) => ['change context', _pl.cc($, ($) => {
+                            const source = _pl.cc($['source'], ($) => Source__Selection($));
+                            const initialization = _pl.cc($['initialization'], ($) => Initialization__Or__Selection($));
+                            return {
+                                'initialization': initialization,
+                                'source': source,
+                            };
+                        })]);
+                    case 'dictionary literal': return _pl.ss($, ($) => ['dictionary literal', _pl.cc($, ($) => {
+                            const definition = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"));
+                            const initialization = _pl.cc($['initialization'], ($) => $.map(($) => Initialization__Or__Selection($)));
+                            return {
+                                'definition': definition,
+                                'initialization': initialization,
+                            };
+                        })]);
+                    case 'dictionary map': return _pl.ss($, ($) => ['dictionary map', _pl.cc($, ($) => {
+                            const definition = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"));
+                            const source = _pl.cc($['source'], ($) => Source__Selection($));
+                            const initialization = _pl.cc($['initialization'], ($) => Initialization__Or__Selection($));
+                            return {
+                                'definition': definition,
+                                'initialization': initialization,
+                                'source': source,
+                            };
+                        })]);
+                    case 'group literal': return _pl.ss($, ($) => ['group literal', _pl.cc($, ($) => {
+                            const definition = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"));
+                            const properties = _pl.cc($['properties'], ($) => $.map(($) => Initialization__Or__Selection($)));
+                            return {
+                                'definition': definition,
+                                'properties': properties,
+                            };
+                        })]);
+                    case 'implement me': return _pl.ss($, ($) => ['implement me', $]);
+                    case 'null': return _pl.ss($, ($) => ['null', _pl.cc($, ($) => {
+                            const definition = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"));
+                            return {
+                                'definition': definition,
                             };
                         })]);
                     case 'numerical': return _pl.ss($, ($) => ['numerical', _pl.cc($, ($) => {
-                            const _lnumber = _pl.cc($['number'], ($) => _pd.implementMe("CONSTRAINT"));
-                            const x = _pl.cc($['x'], ($) => Numerical__Initialization($));
+                            const definition = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"));
+                            const initialization = _pl.cc($['initialization'], ($) => Numerical__Initialization($));
                             return {
-                                'number': _lnumber,
-                                'x': x,
+                                'definition': definition,
+                                'initialization': initialization,
+                            };
+                        })]);
+                    case 'optional': return _pl.ss($, ($) => ['optional', _pl.cc($, ($) => {
+                            const definition = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"));
+                            return {
+                                'definition': definition,
+                            };
+                        })]);
+                    case 'procedure': return _pl.ss($, ($) => ['procedure', _pl.cc($, ($) => {
+                            const definition = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"));
+                            const temp__has__parameters = _pl.cc($['temp has parameters'], ($) => _pd.implementMe("OPTIONAL"));
+                            const variables = _pl.cc($['variables'], ($) => Aggregated__Variables($));
+                            const block = _pl.cc($['block'], ($) => Block($));
+                            return {
+                                'block': block,
+                                'definition': definition,
+                                'temp has parameters': temp__has__parameters,
+                                'variables': variables,
+                            };
+                        })]);
+                    case 'tagged union literal': return _pl.ss($, ($) => ['tagged union literal', _pl.cc($, ($) => {
+                            const definition = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"));
+                            const state = _pl.cc($['state'], ($) => _pd.implementMe("RESOLVED REFERENCE"));
+                            const initialization = _pl.cc($['initialization'], ($) => Initialization__Or__Selection($));
+                            return {
+                                'definition': definition,
+                                'initialization': initialization,
+                                'state': state,
                             };
                         })]);
                     case 'string': return _pl.ss($, ($) => ['string', _pl.cc($, ($) => {
-                            const _lnumber = _pl.cc($['number'], ($) => _pd.implementMe("CONSTRAINT"));
-                            const x = _pl.cc($['x'], ($) => String__Initialization($));
+                            const definition = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"));
+                            const initialization = _pl.cc($['initialization'], ($) => String__Initialization($));
                             return {
-                                'number': _lnumber,
-                                'x': x,
+                                'definition': definition,
+                                'initialization': initialization,
                             };
                         })]);
-                    case 'null': return _pl.ss($, ($) => ['null', _pl.cc($, ($) => {
-                            const _lnull = _pl.cc($['null'], ($) => _pd.implementMe("CONSTRAINT"));
+                    case 'switch': return _pl.ss($, ($) => ['switch', _pl.cc($, ($) => {
+                            const definition = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"));
+                            const temp__type = _pl.cc($['temp type'], ($) => Type__Selection($));
+                            const source = _pl.cc($['source'], ($) => Source__Selection($));
+                            const cases = _pl.cc($['cases'], ($) => $.map(($) => Initialization__Or__Selection($)));
+                            const _ldefault = _pl.cc($['default'], ($) => _pd.implementMe("OPTIONAL"));
                             return {
-                                'null': _lnull,
+                                'cases': cases,
+                                'default': _ldefault,
+                                'definition': definition,
+                                'source': source,
+                                'temp type': temp__type,
+                            };
+                        })]);
+                    case 'value function': return _pl.ss($, ($) => ['value function', _pl.cc($, ($) => {
+                            const definition = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"));
+                            const temp__has__parameters = _pl.cc($['temp has parameters'], ($) => _pd.implementMe("OPTIONAL"));
+                            const variables = _pl.cc($['variables'], ($) => Aggregated__Variables($));
+                            const initialization = _pl.cc($['initialization'], ($) => Initialization__Or__Selection($));
+                            return {
+                                'definition': definition,
+                                'initialization': initialization,
+                                'temp has parameters': temp__has__parameters,
+                                'variables': variables,
+                            };
+                        })]);
+                    case 'variables': return _pl.ss($, ($) => ['variables', _pl.cc($, ($) => {
+                            const variables = _pl.cc($['variables'], ($) => Variables($));
+                            const initialization = _pl.cc($['initialization'], ($) => Initialization__Or__Selection($));
+                            return {
+                                'initialization': initialization,
+                                'variables': variables,
                             };
                         })]);
                     default: return _pl.au($[0]);
@@ -662,7 +925,7 @@ exports.$ = {
                 };
             });
             const Assign = ($) => _pl.cc($, ($) => {
-                const target = _pl.cc($['target'], ($) => Address__Selection($));
+                const target = _pl.cc($['target'], ($) => Target__Selection($));
                 const initialization = _pl.cc($['initialization'], ($) => Initialization__Or__Selection($));
                 return {
                     'initialization': initialization,
@@ -672,8 +935,50 @@ exports.$ = {
             const Statements = ($) => $.map(($) => _pl.cc($, ($) => {
                 switch ($[0]) {
                     case 'block': return _pl.ss($, ($) => ['block', Block($)]);
+                    case 'call': return _pl.ss($, ($) => ['call', _pl.cc($, ($) => {
+                            const _lfunction = _pl.cc($['function'], ($) => Source__Selection($));
+                            const context__definition = _pl.cc($['context definition'], ($) => _pd.implementMe("CONSTRAINT"));
+                            const context = _pl.cc($['context'], ($) => Source__Selection($));
+                            const _larguments = _pl.cc($['arguments'], ($) => $.map(($) => Initialization__Or__Selection($)));
+                            return {
+                                'arguments': _larguments,
+                                'context': context,
+                                'context definition': context__definition,
+                                'function': _lfunction,
+                            };
+                        })]);
+                    case 'change context': return _pl.ss($, ($) => ['change context', _pl.cc($, ($) => {
+                            const source = _pl.cc($['source'], ($) => Source__Selection($));
+                            const block = _pl.cc($['block'], ($) => Block($));
+                            return {
+                                'block': block,
+                                'source': source,
+                            };
+                        })]);
+                    case 'if': return _pl.ss($, ($) => ['if', _pl.cc($, ($) => {
+                            const condition = _pl.cc($['condition'], ($) => Boolean__Initialization__Or__Selection($));
+                            const then = _pl.cc($['then'], ($) => Block($));
+                            const _lelse = _pl.cc($['else'], ($) => _pd.implementMe("OPTIONAL"));
+                            return {
+                                'condition': condition,
+                                'else': _lelse,
+                                'then': then,
+                            };
+                        })]);
+                    case 'switch': return _pl.ss($, ($) => ['switch', _pl.cc($, ($) => {
+                            const source = _pl.cc($['source'], ($) => Source__Selection($));
+                            const context__definition = _pl.cc($['context definition'], ($) => _pd.implementMe("CONSTRAINT"));
+                            const cases = _pl.cc($['cases'], ($) => $.map(($) => Block($)));
+                            const _ldefault = _pl.cc($['default'], ($) => _pd.implementMe("OPTIONAL"));
+                            return {
+                                'cases': cases,
+                                'context definition': context__definition,
+                                'default': _ldefault,
+                                'source': source,
+                            };
+                        })]);
                     case 'with': return _pl.ss($, ($) => ['with', _pl.cc($, ($) => {
-                            const address = _pl.cc($['address'], ($) => Address__Selection($));
+                            const source = _pl.cc($['source'], ($) => Source__Selection($));
                             const action = _pl.cc($['action'], ($) => _pl.cc($, ($) => {
                                 switch ($[0]) {
                                     case 'assign': return _pl.ss($, ($) => ['assign', Assign($)]);
@@ -698,17 +1003,7 @@ exports.$ = {
                             }));
                             return {
                                 'action': action,
-                                'address': address,
-                            };
-                        })]);
-                    case 'if': return _pl.ss($, ($) => ['if', _pl.cc($, ($) => {
-                            const condition = _pl.cc($['condition'], ($) => Boolean__Initialization__Or__Selection($));
-                            const then = _pl.cc($['then'], ($) => Block($));
-                            const _lelse = _pl.cc($['else'], ($) => _pd.implementMe("OPTIONAL"));
-                            return {
-                                'condition': condition,
-                                'else': _lelse,
-                                'then': then,
+                                'source': source,
                             };
                         })]);
                     case 'while': return _pl.ss($, ($) => ['while', _pl.cc($, ($) => {
@@ -732,49 +1027,59 @@ exports.$ = {
             });
             const Root = ($) => Source__File($);
             return {
-                'Address Selection': Address__Selection,
-                'Address Selection Tail': Address__Selection__Tail,
+                'Aggregated Variable': Aggregated__Variable,
+                'Aggregated Variables': Aggregated__Variables,
                 'Assign': Assign,
                 'Block': Block,
                 'Boolean Initialization': Boolean__Initialization,
                 'Boolean Initialization Or Selection': Boolean__Initialization__Or__Selection,
                 'Initialization': Initialization,
                 'Initialization Or Selection': Initialization__Or__Selection,
+                'Local Variables': Local__Variables,
                 'Numerical Initialization': Numerical__Initialization,
                 'Numerical Initialization Or Selection': Numerical__Initialization__Or__Selection,
                 'Root': Root,
                 'Source File': Source__File,
+                'Source Selection': Source__Selection,
+                'Source Selection Tail': Source__Selection__Tail,
                 'Statements': Statements,
                 'String Initialization': String__Initialization,
                 'String Initialization Or Selection': String__Initialization__Or__Selection,
+                'Target Selection': Target__Selection,
+                'Target Selection Tail': Target__Selection__Tail,
                 'Type Arguments': Type__Arguments,
                 'Type Selection': Type__Selection,
                 'Variables': Variables,
             };
         }),
-        'Serialize': ($) => ({
-            'Address Selection': ($) => { },
-            'Address Selection Tail': ($) => { },
+        'createSerializeContext': ($) => ({
+            'Aggregated Variable': ($) => { },
+            'Aggregated Variables': ($) => { },
             'Assign': ($) => { },
             'Block': ($) => { },
             'Boolean Initialization': ($) => { },
             'Boolean Initialization Or Selection': ($) => { },
             'Initialization': ($) => { },
             'Initialization Or Selection': ($) => { },
+            'Local Variables': ($) => { },
             'Numerical Initialization': ($) => { },
             'Numerical Initialization Or Selection': ($) => { },
             'Root': ($) => { },
             'Source File': ($) => { },
+            'Source Selection': ($) => { },
+            'Source Selection Tail': ($) => { },
             'Statements': ($) => { },
             'String Initialization': ($) => { },
             'String Initialization Or Selection': ($) => { },
+            'Target Selection': ($) => { },
+            'Target Selection Tail': ($) => { },
             'Type Arguments': ($) => { },
             'Type Selection': ($) => { },
             'Variables': ($) => { },
         }),
     },
     'proto typesystem': {
-        'Resolve': ($) => _pl.cc($, ($) => {
+        'createResolveContext': ($) => _pl.cc($, ($) => {
             const Aggregated__Type__Parameters = ($) => $.map(($) => _pl.cc($, ($) => {
                 return null;
             }));
@@ -810,23 +1115,27 @@ exports.$ = {
                     'type parameters': type__parameters,
                 };
             });
-            const Namespace__2 = ($) => _pl.cc($, ($) => {
+            const Imports = ($) => $.map(($) => Import($));
+            const Nested__Namespace = ($) => _pl.cc($, ($) => {
+                const imports = _pl.cc($['imports'], ($) => Imports($));
+                const namespace = _pl.cc($['namespace'], ($) => Namespace($, {
+                    'parent type parameters': _pd.implementMe("ARGS"),
+                    'resolved sibling namespaces': _pd.implementMe("ARGS"),
+                }));
+                return {
+                    'imports': imports,
+                    'namespace': namespace,
+                };
+            });
+            const Import = ($) => _pl.cc($, ($) => {
                 switch ($[0]) {
-                    case 'parent sibling': return _pl.ss($, ($) => ['parent sibling', _pl.cc($, ($) => {
-                            const namespace = _pl.cc($['namespace'], ($) => _pd.implementMe("RESOLVED REFERENCE"));
-                            return {
-                                'namespace': namespace,
-                            };
-                        })]);
-                    case 'local': return _pl.ss($, ($) => ['local', Local__Namespace($, {
-                            'parent type parameters': _pd.implementMe("ARGS"),
-                            'resolved sibling namespaces': _pd.implementMe("ARGS"),
-                        })]);
+                    case 'sibling': return _pl.ss($, ($) => ['sibling', _pd.implementMe("RESOLVED REFERENCE")]);
+                    case 'parent import': return _pl.ss($, ($) => ['parent import', _pd.implementMe("RESOLVED REFERENCE")]);
                     default: return _pl.au($[0]);
                 }
             });
-            const Local__Namespace = ($) => _pl.cc($, ($) => {
-                const namespaces = _pl.cc($['namespaces'], ($) => $.map(($) => Namespace__2($, {
+            const Namespace = ($) => _pl.cc($, ($) => {
+                const namespaces = _pl.cc($['namespaces'], ($) => $.map(($) => Nested__Namespace($, {
                     'resolved parent sibling namespaces': _pd.implementMe("ARGS"),
                 })));
                 const parameters = _pl.cc($['parameters'], ($) => Type__Parameters($, {
@@ -898,6 +1207,12 @@ exports.$ = {
                                 'type': _ltype,
                             };
                         }))]);
+                    case 'lookup': return _pl.ss($, ($) => ['lookup', Type($, {
+                            'cyclic sibling types': _pd.implementMe("ARGS"),
+                            'resolved namespaces': _pd.implementMe("ARGS"),
+                            'resolved sibling types': _pd.implementMe("ARGS"),
+                            'type parameters': _pd.implementMe("ARGS"),
+                        })]);
                     case 'null': return _pl.ss($, ($) => ['null', _pl.cc($, ($) => {
                             return null;
                         })]);
@@ -934,7 +1249,7 @@ exports.$ = {
                     case 'type reference': return _pl.ss($, ($) => ['type reference', _pl.cc($, ($) => {
                             switch ($[0]) {
                                 case 'external': return _pl.ss($, ($) => ['external', _pl.cc($, ($) => {
-                                        const namespaces = _pl.cc($['namespaces'], ($) => Namespace__Selection($, {
+                                        const namespace__path = _pl.cc($['namespace path'], ($) => Namespace__Selection($, {
                                             'cyclic sibling types': _pd.implementMe("ARGS"),
                                             'resolved namespaces': _pd.implementMe("ARGS"),
                                             'resolved sibling types': _pd.implementMe("ARGS"),
@@ -942,7 +1257,7 @@ exports.$ = {
                                         }));
                                         const _ltype = _pl.cc($['type'], ($) => _pd.implementMe("RESOLVED REFERENCE"));
                                         return {
-                                            'namespaces': namespaces,
+                                            'namespace path': namespace__path,
                                             'type': _ltype,
                                         };
                                     })]);
@@ -983,7 +1298,7 @@ exports.$ = {
                     'type': _ltype,
                 };
             }));
-            const Namespace__Selection = ($) => _pl.cc($, ($) => {
+            const Namespace__Selection__Tail = ($) => _pl.cc($, ($) => {
                 const namespace = _pl.cc($['namespace'], ($) => _pd.implementMe("RESOLVED REFERENCE"));
                 const _larguments = _pl.cc($['arguments'], ($) => Type__Arguments($));
                 const tail = _pl.cc($['tail'], ($) => _pd.implementMe("OPTIONAL"));
@@ -993,28 +1308,60 @@ exports.$ = {
                     'tail': tail,
                 };
             });
-            const Root = ($) => Local__Namespace($, {
+            const Namespace__Selection = ($) => _pl.cc($, ($) => {
+                const start = _pl.cc($['start'], ($) => _pl.cc($, ($) => {
+                    switch ($[0]) {
+                        case 'import': return _pl.ss($, ($) => ['import', _pl.cc($, ($) => {
+                                const namespace = _pl.cc($['namespace'], ($) => _pd.implementMe("RESOLVED REFERENCE"));
+                                const _larguments = _pl.cc($['arguments'], ($) => Type__Arguments($));
+                                const tail = _pl.cc($['tail'], ($) => _pd.implementMe("OPTIONAL"));
+                                return {
+                                    'arguments': _larguments,
+                                    'namespace': namespace,
+                                    'tail': tail,
+                                };
+                            })]);
+                        case 'local': return _pl.ss($, ($) => ['local', _pl.cc($, ($) => {
+                                const namespace = _pl.cc($['namespace'], ($) => Namespace__Selection__Tail($));
+                                return {
+                                    'namespace': namespace,
+                                };
+                            })]);
+                        default: return _pl.au($[0]);
+                    }
+                }));
+                return {
+                    'start': start,
+                };
+            });
+            const Root = ($) => Namespace($, {
                 'parent type parameters': _pd.implementMe("ARGS"),
                 'resolved sibling namespaces': _pd.implementMe("ARGS"),
             });
             return {
                 'Aggregated Type Parameters': Aggregated__Type__Parameters,
                 'Function Declaration': Function__Declaration,
-                'Local Namespace': Local__Namespace,
-                'Namespace 2': Namespace__2,
+                'Import': Import,
+                'Imports': Imports,
+                'Namespace': Namespace,
                 'Namespace Selection': Namespace__Selection,
+                'Namespace Selection Tail': Namespace__Selection__Tail,
+                'Nested Namespace': Nested__Namespace,
                 'Root': Root,
                 'Type': Type,
                 'Type Arguments': Type__Arguments,
                 'Type Parameters': Type__Parameters,
             };
         }),
-        'Serialize': ($) => ({
+        'createSerializeContext': ($) => ({
             'Aggregated Type Parameters': ($) => { },
             'Function Declaration': ($) => { },
-            'Local Namespace': ($) => { },
-            'Namespace 2': ($) => { },
+            'Import': ($) => { },
+            'Imports': ($) => { },
+            'Namespace': ($) => { },
             'Namespace Selection': ($) => { },
+            'Namespace Selection Tail': ($) => { },
+            'Nested Namespace': ($) => { },
             'Root': ($) => { },
             'Type': ($) => { },
             'Type Arguments': ($) => { },

@@ -31,6 +31,7 @@ import {
     pResolvedValue,
     pLookup,
     pCyclicLookup,
+    pKey,
 } from "../../../pub/dist/submodules/unresolved/shorthands"
 
 export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
@@ -44,6 +45,7 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                     "identifier": null,
                 },
                 {
+                    "Any Value Selection": globalTypeDeclaration({}),
                     "Atom Types": globalTypeDeclaration({}),
                     "Atom": globalTypeDeclaration({
                         "atom types": pResolvedValue("Atom Types")
@@ -53,18 +55,30 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                         "sibling global types": pLookup("Global Type Definition"),
                         "cyclic sibling global types": pCyclicLookup("Global Type Definition"),
                     }),
-                    "Global Type Declaration": globalTypeDeclaration({}),
+                    "Global Type Declaration": globalTypeDeclaration({
+                        "all siblings": pCyclicLookup("Global Type Declaration", false)
+                    }),
                     "Global Type Declarations": globalTypeDeclaration({}),
-                    "Global Type Definition": globalTypeDeclaration({}),
+                    "Global Type Definition": globalTypeDeclaration({
+                        "global type declarations": pResolvedValue("Global Type Declarations"),
+                        "key": pKey(),
+                        "all siblings": pCyclicLookup("Global Type Definition"),
+                        "non cyclic siblings": pLookup("Global Type Definition"),
+                        "atom types": pResolvedValue("Atom Types"),
+                        "imports": pResolvedValue("Imports"),
+                    }),
                     "Global Type Selection": globalTypeDeclaration({
                         "imports": pResolvedValue("Imports"),
                         "sibling global types": pLookup("Global Type Definition"),
                         "cyclic sibling global types": pCyclicLookup("Global Type Definition"),
                     }),
-                    "Imports": globalTypeDeclaration({}),
+                    "Imports": globalTypeDeclaration({
+                        "external type libraries": pLookup("Type Library"),
+                    }),
                     "Model": globalTypeDeclaration({
                         "external type libraries": pLookup("Type Library")
                     }),
+                    "No Context Value Selection": globalTypeDeclaration({}),
                     "Project": globalTypeDeclaration({}),
                     "Root": globalTypeDeclaration({}),
                     "Type Library": globalTypeDeclaration({
@@ -83,6 +97,9 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                         "sibling global types": pLookup("Global Type Definition"),
                         "cyclic sibling global types": pCyclicLookup("Global Type Definition"),
                     }),
+                    "Value Selection Tail": globalTypeDeclaration({}),
+                    "Variable": globalTypeDeclaration({}),
+                    "Variables": globalTypeDeclaration({}),
                 },
                 {
                     "Atom Types": globalTypeDefinition(
@@ -228,7 +245,9 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                         }))),
                         "result": prop(optional(cyclicReference(typeRef("Global Type Declaration", true)))),
                     })),
-                    "Global Type Declarations": globalTypeDefinition(dictionary(component(typeRef("Global Type Declaration"), {}))),
+                    "Global Type Declarations": globalTypeDefinition(dictionary(component(typeRef("Global Type Declaration"), {
+                        "all siblings": null,
+                    }))),
                     "Global Type Definition": globalTypeDefinition(
                         group({
                             "declaration": prop(constraint(typeSelection("Global Type Declarations", t_dict()))),
@@ -286,11 +305,21 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                     ),
                     "Type Library": globalTypeDefinition(
                         group({
-                            "imports": prop(component(typeRef("Imports"), {})),
+                            "imports": prop(component(typeRef("Imports"), {
+                                "external type libraries": null,
+                            })),
                             "atom types": prop(component(typeRef("Atom Types"), {})),
                             "global types": prop(group({
                                 "declarations": prop(component(typeRef("Global Type Declarations"), {})),
-                                "definitions": prop(dictionary(component(typeRef("Global Type Definition"), {}))),
+                                "definitions": prop(dictionary(component(typeRef("Global Type Definition"), {
+                                    "global type declarations": null,
+                                    "key": null,
+                                    "all siblings": null,
+                                    "non cyclic siblings": null,
+                                    "atom types": null,
+                                    "imports": null,
+            
+                                }))),
                             })),
                         })
                     ),
@@ -323,7 +352,71 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                     })),
                     "Root": globalTypeDefinition(
                         component(typeRef("Project"), {})
-                    )
+                    ),
+                    "Variable": globalTypeDefinition(
+                        stateGroup({
+                            // "sibling property": state(lookupReference(typeRef("Property"))),
+                            // "state constraint": state(dictionaryReference(typeSelection("State Constraints"))),
+                            // "dictionary constraint": state(dictionaryReference(typeSelection("Dictionary Constraints"))),
+                            // "parameter": state(group({
+                            //     "parameter": prop(dictionaryReference(typeSelection("Parameters"))),
+                            //     //"resolved value": prop(constraint(typeSelection("Parameters", t_dict(t_grp("type", t_sg("resolved value"))))))
+                            // })),
+                            "parent variable": state(lookupReference(typeRef("Variable", true))),
+                        })
+                    ),
+                    "Variables": globalTypeDefinition(
+                        dictionary(component(typeRef("Variable"), {}))
+                    ),
+                    "Value Selection Tail": globalTypeDefinition(
+                        stateGroup({
+                            "reference": state(group({
+                                "reference": prop(constraint(typeSelection("Type", t_grp("type", t_sg("resolved reference"))))),
+                                "tail": prop(optional(component(typeRef("Value Selection Tail", true), {})))
+                            })),
+                            "component": state(group({
+                                "component": prop(constraint(typeSelection("Type", t_grp("type", t_sg("component"))))),
+                                "tail": prop(optional(component(typeRef("Value Selection Tail", true), {})))
+            
+                            })),
+                            "state group": state(group({
+                                "state group": prop(constraint(typeSelection("Type", t_grp("type", t_sg("state group"))))),
+                                "result type": prop(component(typeRef("Global Type Selection", true), {
+                                    "imports": null,
+                                    "sibling global types": null,
+                                    "cyclic sibling global types": null,
+                                })),
+                                "states": prop(constrainedDictionary(
+                                    {
+                                        "state": dictionaryConstraint(typeSelection("Type", t_grp("type", t_sg("state group", t_grp("states")))), true)
+                                    },
+                                    component(typeRef("Any Value Selection", true), {})
+                                ))
+                            })),
+                            // "optional": state(group({
+                            //     "optional": prop(constraint(typeSelection("Type", t_grp("type", t_sg("optional"))))),
+                            //     "set": prop(component(typeRef("Any Value Selection", true))),
+                            //     "not set": prop(component(typeRef("No Context Value Selection", true))),//validate result is equal to 'set' result
+                            // })),
+                            "group": state(group({
+                                "group": prop(constraint(typeSelection("Type", t_grp("type", t_sg("group"))))),
+                                "property": prop(dictionaryReference(typeSelection("Type", t_grp("type", t_sg("group", t_grp("properties")))))),
+                                "tail": prop(optional(component(typeRef("Value Selection Tail", true), {})))
+                            })),
+                        }),
+                    ),
+                    "No Context Value Selection": globalTypeDefinition(
+                        group({
+                            "start": prop(dictionaryReference(typeSelection("Variables"))),
+                            "tail": prop(optional(component(typeRef("Value Selection Tail"), {})))
+                        }),
+                    ),
+                    "Any Value Selection": globalTypeDefinition(
+                        group({
+                            "start": prop(optional(dictionaryReference(typeSelection("Variables")))),
+                            "tail": prop(optional(component(typeRef("Value Selection Tail"), {})))
+                        }),
+                    ),
                 },
             ),
             "proto typesystem": typeLibrary(

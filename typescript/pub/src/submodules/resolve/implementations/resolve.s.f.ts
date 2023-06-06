@@ -1,7 +1,7 @@
 import * as pl from 'pareto-core-lib'
 import * as pt from 'pareto-core-types'
 
-import { resolve } from "./resolveImps"
+import { createResolveContext } from "./resolveImps"
 
 import * as g_this from "../glossary"
 import * as g_in from "../../unresolved"
@@ -45,7 +45,6 @@ export const $$: A.resolve = <Annotation>($d: D.resolve<Annotation>, $se: {
     readonly 'onError': g_this.SYNC.I.OnError<Annotation>
 }) => {
     return ($: g_this.T.Resolve__Parameters<Annotation>) => {
-        return resolve($d, $se).Root($.root, {
-        })
+        return createResolveContext($d, {}).Root($.root)
     }
 }

@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.imported = exports.typeRef = exports.component = exports.typeSelection = exports.externalTypeSelection = exports.t_sg = exports.t_arr = exports.t_dict = exports.t_grp = exports.atom = exports.stateGroup = exports.state = exports.group = exports.globalType = exports.constraint = exports.dictionary = exports.constrainedDictionary = exports.dictionaryConstraint = exports.lookupConstraint = exports.cyclicReference = exports.lookupReference = exports.dictionaryReference = exports.prop = exports.nothing = exports.optional = exports.array = exports.typeLibrary = exports.imprt = void 0;
+exports.imported = exports.typeRef = exports.component = exports.typeSelection = exports.externalTypeSelection = exports.t_sg = exports.t_arr = exports.t_dict = exports.t_grp = exports.atom = exports.stateGroup = exports.state = exports.group = exports.globalTypeDefinition = exports.globalTypeDeclaration = exports.constraint = exports.dictionary = exports.constrainedDictionary = exports.dictionaryConstraint = exports.lookupConstraint = exports.cyclicReference = exports.lookupReference = exports.dictionaryReference = exports.prop = exports.nothing = exports.optional = exports.array = exports.typeLibrary = exports.imprt = void 0;
 const pd = __importStar(require("pareto-core-data"));
 function ref($) {
     return {
@@ -31,7 +31,7 @@ function ref($) {
         'key': $,
     };
 }
-function dict($) {
+function rawDict($) {
     return pd.d($);
 }
 //////////////////////////////////////////////////////////
@@ -41,11 +41,14 @@ function imprt(library) {
     };
 }
 exports.imprt = imprt;
-function typeLibrary(imports, atomTypes, globalTypes) {
+function typeLibrary(imports, atomTypes, globalTypesDeclarations, globalTypesDefinitions) {
     return {
-        'imports': dict(imports),
-        'atom types': dict(atomTypes),
-        'global types': dict(globalTypes),
+        'imports': rawDict(imports),
+        'atom types': rawDict(atomTypes),
+        'global types': {
+            'declarations': rawDict(globalTypesDeclarations),
+            'definitions': rawDict(globalTypesDefinitions),
+        },
     };
 }
 exports.typeLibrary = typeLibrary;
@@ -138,7 +141,7 @@ function constrainedDictionary(constraints, type) {
                 'key': {
                     'type': ref("identifier"),
                 },
-                'constraints': dict(constraints),
+                'constraints': rawDict(constraints),
                 'type': type,
                 //'autofill': pd.a([]),
             }]
@@ -152,7 +155,7 @@ function dictionary(type /*, autofill?: T.TType._ltype.dictionary.autofill.A.$<p
                 'key': {
                     'type': ref("identifier")
                 },
-                'constraints': dict({}),
+                'constraints': rawDict({}),
                 'type': type,
                 //'autofill': pd.a(autofill === undefined ? [] : autofill),
             }]
@@ -165,12 +168,20 @@ function constraint(type) {
     };
 }
 exports.constraint = constraint;
-function globalType(type) {
+function globalTypeDeclaration(parameters, result) {
     return {
+        'parameters': rawDict(parameters),
+        'result': result === undefined ? [false] : [true, ref(result)]
+    };
+}
+exports.globalTypeDeclaration = globalTypeDeclaration;
+function globalTypeDefinition(type) {
+    return {
+        'declaration': pd.getLocationInfo(1),
         'type': type,
     };
 }
-exports.globalType = globalType;
+exports.globalTypeDefinition = globalTypeDefinition;
 function group(rawProperties) {
     return {
         'type': ['group', {
@@ -201,7 +212,7 @@ function stateGroup(states) {
     }
     return {
         'type': ['state group', {
-                'states': dict(states),
+                'states': rawDict(states),
             }]
     };
 }
@@ -221,8 +232,8 @@ function t_grp(prop, tail) {
         'step type': ['group', {
                 'group': pd.getLocationInfo(1),
                 'property': ref(prop),
+                'tail': tail === undefined ? [false] : [true, tail],
             }],
-        'tail': tail === undefined ? [false] : [true, tail]
     };
 }
 exports.t_grp = t_grp;
@@ -230,8 +241,8 @@ function t_dict(tail) {
     return {
         'step type': ['dictionary', {
                 'dictionary': pd.getLocationInfo(1),
+                'tail': tail === undefined ? [false] : [true, tail],
             }],
-        'tail': tail === undefined ? [false] : [true, tail]
     };
 }
 exports.t_dict = t_dict;
@@ -239,8 +250,8 @@ function t_arr(tail) {
     return {
         'step type': ['array', {
                 'array': pd.getLocationInfo(1),
+                'tail': tail === undefined ? [false] : [true, tail],
             }],
-        'tail': tail === undefined ? [false] : [true, tail]
     };
 }
 exports.t_arr = t_arr;
@@ -249,8 +260,8 @@ function t_sg(opt, tail) {
         'step type': ['state group', {
                 'state group': pd.getLocationInfo(1),
                 'state': ref(opt),
+                'tail': tail === undefined ? [false] : [true, tail],
             }],
-        'tail': tail === undefined ? [false] : [true, tail]
     };
 }
 exports.t_sg = t_sg;
@@ -278,10 +289,11 @@ exports.typeSelection = typeSelection;
 //         }
 //     }]
 // }
-function component(type) {
+function component(type, args) {
     return {
         'type': ['component', {
-                'type': type
+                'type': type,
+                'arguments': rawDict(args),
             }]
     };
 }

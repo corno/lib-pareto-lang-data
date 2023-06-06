@@ -20,7 +20,10 @@ export declare namespace pareto__lang__data {
                 readonly 'atom': Type$type$atom$atom$<_TAnnotation>;
             };
             type Type$type$component$type$<_TAnnotation> = Global__Type__Selection$<_TAnnotation>;
+            type Type$type$component$arguments$D$<_TAnnotation> = null;
+            type Type$type$component$arguments$<_TAnnotation> = _pt.Dictionary<Type$type$component$arguments$D$<_TAnnotation>>;
             type Type$type$component$<_TAnnotation> = {
+                readonly 'arguments': Type$type$component$arguments$<_TAnnotation>;
                 readonly 'type': Type$type$component$type$<_TAnnotation>;
             };
             type Type$type$constraint$<_TAnnotation> = Type__Selection$<_TAnnotation>;
@@ -89,46 +92,91 @@ export declare namespace pareto__lang__data {
                 readonly 'library': Imports$D$library$<_TAnnotation>;
             };
             type Imports$<_TAnnotation> = _pt.Dictionary<Imports$D$<_TAnnotation>>;
-            type Global__Type$type$<_TAnnotation> = Type$<_TAnnotation>;
-            type Global__Type$<_TAnnotation> = {
-                readonly 'type': Global__Type$type$<_TAnnotation>;
+            type Global__Type__Declaration$parameters$D$type$resolved__value$<_TAnnotation> = {
+                readonly 'key': string;
+                readonly 'referent': _TAnnotation;
+            };
+            type Global__Type__Declaration$parameters$D$type$sibling__lookup$<_TAnnotation> = {
+                readonly 'key': string;
+                readonly 'referent': _TAnnotation;
+            };
+            type Global__Type__Declaration$parameters$D$type$cyclic__sibling__lookup$<_TAnnotation> = {
+                readonly 'key': string;
+                readonly 'referent': _TAnnotation;
+            };
+            type Global__Type__Declaration$parameters$D$type$<_TAnnotation> = ['cyclic sibling lookup', Global__Type__Declaration$parameters$D$type$cyclic__sibling__lookup$<_TAnnotation>] | ['resolved value', Global__Type__Declaration$parameters$D$type$resolved__value$<_TAnnotation>] | ['sibling lookup', Global__Type__Declaration$parameters$D$type$sibling__lookup$<_TAnnotation>];
+            type Global__Type__Declaration$parameters$D$optional$O$<_TAnnotation> = null;
+            type Global__Type__Declaration$parameters$D$optional$<_TAnnotation> = _pt.OptionalValue<Global__Type__Declaration$parameters$D$optional$O$<_TAnnotation>>;
+            type Global__Type__Declaration$parameters$D$<_TAnnotation> = {
+                readonly 'optional': Global__Type__Declaration$parameters$D$optional$<_TAnnotation>;
+                readonly 'type': Global__Type__Declaration$parameters$D$type$<_TAnnotation>;
+            };
+            type Global__Type__Declaration$parameters$<_TAnnotation> = _pt.Dictionary<Global__Type__Declaration$parameters$D$<_TAnnotation>>;
+            type Global__Type__Declaration$result$O$<_TAnnotation> = {
+                readonly 'key': string;
+                readonly 'referent': _TAnnotation;
+            };
+            type Global__Type__Declaration$result$<_TAnnotation> = _pt.OptionalValue<Global__Type__Declaration$result$O$<_TAnnotation>>;
+            type Global__Type__Declaration$<_TAnnotation> = {
+                readonly 'parameters': Global__Type__Declaration$parameters$<_TAnnotation>;
+                readonly 'result': Global__Type__Declaration$result$<_TAnnotation>;
+            };
+            type Global__Type__Declarations$D$<_TAnnotation> = Global__Type__Declaration$<_TAnnotation>;
+            type Global__Type__Declarations$<_TAnnotation> = _pt.Dictionary<Global__Type__Declarations$D$<_TAnnotation>>;
+            type Global__Type__Definition$declaration$<_TAnnotation> = _TAnnotation;
+            type Global__Type__Definition$type$<_TAnnotation> = Type$<_TAnnotation>;
+            type Global__Type__Definition$<_TAnnotation> = {
+                readonly 'declaration': Global__Type__Definition$declaration$<_TAnnotation>;
+                readonly 'type': Global__Type__Definition$type$<_TAnnotation>;
             };
             type Type__Selection__Tail$step__type$dictionary$dictionary$<_TAnnotation> = _TAnnotation;
+            type Type__Selection__Tail$step__type$dictionary$tail$O$<_TAnnotation> = Type__Selection__Tail$<_TAnnotation>;
+            type Type__Selection__Tail$step__type$dictionary$tail$<_TAnnotation> = _pt.OptionalValue<Type__Selection__Tail$step__type$dictionary$tail$O$<_TAnnotation>>;
             type Type__Selection__Tail$step__type$dictionary$<_TAnnotation> = {
                 readonly 'dictionary': Type__Selection__Tail$step__type$dictionary$dictionary$<_TAnnotation>;
+                readonly 'tail': Type__Selection__Tail$step__type$dictionary$tail$<_TAnnotation>;
             };
             type Type__Selection__Tail$step__type$optional$optional$<_TAnnotation> = _TAnnotation;
+            type Type__Selection__Tail$step__type$optional$tail$O$<_TAnnotation> = Type__Selection__Tail$<_TAnnotation>;
+            type Type__Selection__Tail$step__type$optional$tail$<_TAnnotation> = _pt.OptionalValue<Type__Selection__Tail$step__type$optional$tail$O$<_TAnnotation>>;
             type Type__Selection__Tail$step__type$optional$<_TAnnotation> = {
                 readonly 'optional': Type__Selection__Tail$step__type$optional$optional$<_TAnnotation>;
+                readonly 'tail': Type__Selection__Tail$step__type$optional$tail$<_TAnnotation>;
             };
             type Type__Selection__Tail$step__type$array$array$<_TAnnotation> = _TAnnotation;
+            type Type__Selection__Tail$step__type$array$tail$O$<_TAnnotation> = Type__Selection__Tail$<_TAnnotation>;
+            type Type__Selection__Tail$step__type$array$tail$<_TAnnotation> = _pt.OptionalValue<Type__Selection__Tail$step__type$array$tail$O$<_TAnnotation>>;
             type Type__Selection__Tail$step__type$array$<_TAnnotation> = {
                 readonly 'array': Type__Selection__Tail$step__type$array$array$<_TAnnotation>;
+                readonly 'tail': Type__Selection__Tail$step__type$array$tail$<_TAnnotation>;
             };
             type Type__Selection__Tail$step__type$group$group$<_TAnnotation> = _TAnnotation;
             type Type__Selection__Tail$step__type$group$property$<_TAnnotation> = {
                 readonly 'key': string;
                 readonly 'referent': _TAnnotation;
             };
+            type Type__Selection__Tail$step__type$group$tail$O$<_TAnnotation> = Type__Selection__Tail$<_TAnnotation>;
+            type Type__Selection__Tail$step__type$group$tail$<_TAnnotation> = _pt.OptionalValue<Type__Selection__Tail$step__type$group$tail$O$<_TAnnotation>>;
             type Type__Selection__Tail$step__type$group$<_TAnnotation> = {
                 readonly 'group': Type__Selection__Tail$step__type$group$group$<_TAnnotation>;
                 readonly 'property': Type__Selection__Tail$step__type$group$property$<_TAnnotation>;
+                readonly 'tail': Type__Selection__Tail$step__type$group$tail$<_TAnnotation>;
             };
             type Type__Selection__Tail$step__type$state__group$state__group$<_TAnnotation> = _TAnnotation;
             type Type__Selection__Tail$step__type$state__group$state$<_TAnnotation> = {
                 readonly 'key': string;
                 readonly 'referent': _TAnnotation;
             };
+            type Type__Selection__Tail$step__type$state__group$tail$O$<_TAnnotation> = Type__Selection__Tail$<_TAnnotation>;
+            type Type__Selection__Tail$step__type$state__group$tail$<_TAnnotation> = _pt.OptionalValue<Type__Selection__Tail$step__type$state__group$tail$O$<_TAnnotation>>;
             type Type__Selection__Tail$step__type$state__group$<_TAnnotation> = {
                 readonly 'state': Type__Selection__Tail$step__type$state__group$state$<_TAnnotation>;
                 readonly 'state group': Type__Selection__Tail$step__type$state__group$state__group$<_TAnnotation>;
+                readonly 'tail': Type__Selection__Tail$step__type$state__group$tail$<_TAnnotation>;
             };
             type Type__Selection__Tail$step__type$<_TAnnotation> = ['array', Type__Selection__Tail$step__type$array$<_TAnnotation>] | ['dictionary', Type__Selection__Tail$step__type$dictionary$<_TAnnotation>] | ['group', Type__Selection__Tail$step__type$group$<_TAnnotation>] | ['optional', Type__Selection__Tail$step__type$optional$<_TAnnotation>] | ['state group', Type__Selection__Tail$step__type$state__group$<_TAnnotation>];
-            type Type__Selection__Tail$tail$O$<_TAnnotation> = Type__Selection__Tail$<_TAnnotation>;
-            type Type__Selection__Tail$tail$<_TAnnotation> = _pt.OptionalValue<Type__Selection__Tail$tail$O$<_TAnnotation>>;
             type Type__Selection__Tail$<_TAnnotation> = {
                 readonly 'step type': Type__Selection__Tail$step__type$<_TAnnotation>;
-                readonly 'tail': Type__Selection__Tail$tail$<_TAnnotation>;
             };
             type Type__Selection$import$O$<_TAnnotation> = {
                 readonly 'key': string;
@@ -154,8 +202,13 @@ export declare namespace pareto__lang__data {
             };
             type Type__Library$imports$<_TAnnotation> = Imports$<_TAnnotation>;
             type Type__Library$atom__types$<_TAnnotation> = Atom__Types$<_TAnnotation>;
-            type Type__Library$global__types$D$<_TAnnotation> = Global__Type$<_TAnnotation>;
-            type Type__Library$global__types$<_TAnnotation> = _pt.Dictionary<Type__Library$global__types$D$<_TAnnotation>>;
+            type Type__Library$global__types$declarations$<_TAnnotation> = Global__Type__Declarations$<_TAnnotation>;
+            type Type__Library$global__types$definitions$D$<_TAnnotation> = Global__Type__Definition$<_TAnnotation>;
+            type Type__Library$global__types$definitions$<_TAnnotation> = _pt.Dictionary<Type__Library$global__types$definitions$D$<_TAnnotation>>;
+            type Type__Library$global__types$<_TAnnotation> = {
+                readonly 'declarations': Type__Library$global__types$declarations$<_TAnnotation>;
+                readonly 'definitions': Type__Library$global__types$definitions$<_TAnnotation>;
+            };
             type Type__Library$<_TAnnotation> = {
                 readonly 'atom types': Type__Library$atom__types$<_TAnnotation>;
                 readonly 'global types': Type__Library$global__types$<_TAnnotation>;
@@ -203,6 +256,70 @@ export declare namespace pareto__lang__data {
                 readonly 'type libraries': Project$type__libraries$<_TAnnotation>;
             };
             type Root$<_TAnnotation> = Project$<_TAnnotation>;
+            type Variable$parent__variable$<_TAnnotation> = {
+                readonly 'key': string;
+                readonly 'referent': _TAnnotation;
+            };
+            type Variable$<_TAnnotation> = ['parent variable', Variable$parent__variable$<_TAnnotation>];
+            type Variables$D$<_TAnnotation> = Variable$<_TAnnotation>;
+            type Variables$<_TAnnotation> = _pt.Dictionary<Variables$D$<_TAnnotation>>;
+            type Value__Selection__Tail$reference$reference$<_TAnnotation> = _TAnnotation;
+            type Value__Selection__Tail$reference$tail$O$<_TAnnotation> = Value__Selection__Tail$<_TAnnotation>;
+            type Value__Selection__Tail$reference$tail$<_TAnnotation> = _pt.OptionalValue<Value__Selection__Tail$reference$tail$O$<_TAnnotation>>;
+            type Value__Selection__Tail$reference$<_TAnnotation> = {
+                readonly 'reference': Value__Selection__Tail$reference$reference$<_TAnnotation>;
+                readonly 'tail': Value__Selection__Tail$reference$tail$<_TAnnotation>;
+            };
+            type Value__Selection__Tail$component$component$<_TAnnotation> = _TAnnotation;
+            type Value__Selection__Tail$component$tail$O$<_TAnnotation> = Value__Selection__Tail$<_TAnnotation>;
+            type Value__Selection__Tail$component$tail$<_TAnnotation> = _pt.OptionalValue<Value__Selection__Tail$component$tail$O$<_TAnnotation>>;
+            type Value__Selection__Tail$component$<_TAnnotation> = {
+                readonly 'component': Value__Selection__Tail$component$component$<_TAnnotation>;
+                readonly 'tail': Value__Selection__Tail$component$tail$<_TAnnotation>;
+            };
+            type Value__Selection__Tail$state__group$state__group$<_TAnnotation> = _TAnnotation;
+            type Value__Selection__Tail$state__group$result__type$<_TAnnotation> = Global__Type__Selection$<_TAnnotation>;
+            type Value__Selection__Tail$state__group$states$D$<_TAnnotation> = Any__Value__Selection$<_TAnnotation>;
+            type Value__Selection__Tail$state__group$states$<_TAnnotation> = _pt.Dictionary<Value__Selection__Tail$state__group$states$D$<_TAnnotation>>;
+            type Value__Selection__Tail$state__group$<_TAnnotation> = {
+                readonly 'result type': Value__Selection__Tail$state__group$result__type$<_TAnnotation>;
+                readonly 'state group': Value__Selection__Tail$state__group$state__group$<_TAnnotation>;
+                readonly 'states': Value__Selection__Tail$state__group$states$<_TAnnotation>;
+            };
+            type Value__Selection__Tail$group$group$<_TAnnotation> = _TAnnotation;
+            type Value__Selection__Tail$group$property$<_TAnnotation> = {
+                readonly 'key': string;
+                readonly 'referent': _TAnnotation;
+            };
+            type Value__Selection__Tail$group$tail$O$<_TAnnotation> = Value__Selection__Tail$<_TAnnotation>;
+            type Value__Selection__Tail$group$tail$<_TAnnotation> = _pt.OptionalValue<Value__Selection__Tail$group$tail$O$<_TAnnotation>>;
+            type Value__Selection__Tail$group$<_TAnnotation> = {
+                readonly 'group': Value__Selection__Tail$group$group$<_TAnnotation>;
+                readonly 'property': Value__Selection__Tail$group$property$<_TAnnotation>;
+                readonly 'tail': Value__Selection__Tail$group$tail$<_TAnnotation>;
+            };
+            type Value__Selection__Tail$<_TAnnotation> = ['component', Value__Selection__Tail$component$<_TAnnotation>] | ['group', Value__Selection__Tail$group$<_TAnnotation>] | ['reference', Value__Selection__Tail$reference$<_TAnnotation>] | ['state group', Value__Selection__Tail$state__group$<_TAnnotation>];
+            type No__Context__Value__Selection$start$<_TAnnotation> = {
+                readonly 'key': string;
+                readonly 'referent': _TAnnotation;
+            };
+            type No__Context__Value__Selection$tail$O$<_TAnnotation> = Value__Selection__Tail$<_TAnnotation>;
+            type No__Context__Value__Selection$tail$<_TAnnotation> = _pt.OptionalValue<No__Context__Value__Selection$tail$O$<_TAnnotation>>;
+            type No__Context__Value__Selection$<_TAnnotation> = {
+                readonly 'start': No__Context__Value__Selection$start$<_TAnnotation>;
+                readonly 'tail': No__Context__Value__Selection$tail$<_TAnnotation>;
+            };
+            type Any__Value__Selection$start$O$<_TAnnotation> = {
+                readonly 'key': string;
+                readonly 'referent': _TAnnotation;
+            };
+            type Any__Value__Selection$start$<_TAnnotation> = _pt.OptionalValue<Any__Value__Selection$start$O$<_TAnnotation>>;
+            type Any__Value__Selection$tail$O$<_TAnnotation> = Value__Selection__Tail$<_TAnnotation>;
+            type Any__Value__Selection$tail$<_TAnnotation> = _pt.OptionalValue<Any__Value__Selection$tail$O$<_TAnnotation>>;
+            type Any__Value__Selection$<_TAnnotation> = {
+                readonly 'start': Any__Value__Selection$start$<_TAnnotation>;
+                readonly 'tail': Any__Value__Selection$tail$<_TAnnotation>;
+            };
         }
         namespace T {
             import _IFlat = Flat;
@@ -235,6 +352,12 @@ export declare namespace pareto__lang__data {
                     namespace component {
                         namespace _ltype {
                             type $<_TAnnotation> = _IFlat.Type$type$component$type$<_TAnnotation>;
+                        }
+                        namespace _larguments {
+                            namespace D {
+                                type $<_TAnnotation> = _IFlat.Type$type$component$arguments$D$<_TAnnotation>;
+                            }
+                            type $<_TAnnotation> = _IFlat.Type$type$component$arguments$<_TAnnotation>;
                         }
                         type $<_TAnnotation> = _IFlat.Type$type$component$<_TAnnotation>;
                     }
@@ -344,11 +467,53 @@ export declare namespace pareto__lang__data {
                 }
                 type $<_TAnnotation> = _IFlat.Imports$<_TAnnotation>;
             }
-            namespace Global__Type {
-                namespace _ltype {
-                    type $<_TAnnotation> = _IFlat.Global__Type$type$<_TAnnotation>;
+            namespace Global__Type__Declaration {
+                namespace parameters {
+                    namespace D {
+                        namespace _ltype {
+                            namespace resolved__value {
+                                type $<_TAnnotation> = _IFlat.Global__Type__Declaration$parameters$D$type$resolved__value$<_TAnnotation>;
+                            }
+                            namespace sibling__lookup {
+                                type $<_TAnnotation> = _IFlat.Global__Type__Declaration$parameters$D$type$sibling__lookup$<_TAnnotation>;
+                            }
+                            namespace cyclic__sibling__lookup {
+                                type $<_TAnnotation> = _IFlat.Global__Type__Declaration$parameters$D$type$cyclic__sibling__lookup$<_TAnnotation>;
+                            }
+                            type $<_TAnnotation> = _IFlat.Global__Type__Declaration$parameters$D$type$<_TAnnotation>;
+                        }
+                        namespace optional {
+                            namespace O {
+                                type $<_TAnnotation> = _IFlat.Global__Type__Declaration$parameters$D$optional$O$<_TAnnotation>;
+                            }
+                            type $<_TAnnotation> = _IFlat.Global__Type__Declaration$parameters$D$optional$<_TAnnotation>;
+                        }
+                        type $<_TAnnotation> = _IFlat.Global__Type__Declaration$parameters$D$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Global__Type__Declaration$parameters$<_TAnnotation>;
                 }
-                type $<_TAnnotation> = _IFlat.Global__Type$<_TAnnotation>;
+                namespace result {
+                    namespace O {
+                        type $<_TAnnotation> = _IFlat.Global__Type__Declaration$result$O$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Global__Type__Declaration$result$<_TAnnotation>;
+                }
+                type $<_TAnnotation> = _IFlat.Global__Type__Declaration$<_TAnnotation>;
+            }
+            namespace Global__Type__Declarations {
+                namespace D {
+                    type $<_TAnnotation> = _IFlat.Global__Type__Declarations$D$<_TAnnotation>;
+                }
+                type $<_TAnnotation> = _IFlat.Global__Type__Declarations$<_TAnnotation>;
+            }
+            namespace Global__Type__Definition {
+                namespace declaration {
+                    type $<_TAnnotation> = _IFlat.Global__Type__Definition$declaration$<_TAnnotation>;
+                }
+                namespace _ltype {
+                    type $<_TAnnotation> = _IFlat.Global__Type__Definition$type$<_TAnnotation>;
+                }
+                type $<_TAnnotation> = _IFlat.Global__Type__Definition$<_TAnnotation>;
             }
             namespace TType__Selection__Tail {
                 namespace step__type {
@@ -356,17 +521,35 @@ export declare namespace pareto__lang__data {
                         namespace dictionary {
                             type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$dictionary$dictionary$<_TAnnotation>;
                         }
+                        namespace tail {
+                            namespace O {
+                                type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$dictionary$tail$O$<_TAnnotation>;
+                            }
+                            type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$dictionary$tail$<_TAnnotation>;
+                        }
                         type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$dictionary$<_TAnnotation>;
                     }
                     namespace optional {
                         namespace optional {
                             type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$optional$optional$<_TAnnotation>;
                         }
+                        namespace tail {
+                            namespace O {
+                                type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$optional$tail$O$<_TAnnotation>;
+                            }
+                            type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$optional$tail$<_TAnnotation>;
+                        }
                         type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$optional$<_TAnnotation>;
                     }
                     namespace array {
                         namespace array {
                             type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$array$array$<_TAnnotation>;
+                        }
+                        namespace tail {
+                            namespace O {
+                                type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$array$tail$O$<_TAnnotation>;
+                            }
+                            type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$array$tail$<_TAnnotation>;
                         }
                         type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$array$<_TAnnotation>;
                     }
@@ -377,6 +560,12 @@ export declare namespace pareto__lang__data {
                         namespace property {
                             type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$group$property$<_TAnnotation>;
                         }
+                        namespace tail {
+                            namespace O {
+                                type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$group$tail$O$<_TAnnotation>;
+                            }
+                            type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$group$tail$<_TAnnotation>;
+                        }
                         type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$group$<_TAnnotation>;
                     }
                     namespace state__group {
@@ -386,15 +575,15 @@ export declare namespace pareto__lang__data {
                         namespace state {
                             type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$state__group$state$<_TAnnotation>;
                         }
+                        namespace tail {
+                            namespace O {
+                                type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$state__group$tail$O$<_TAnnotation>;
+                            }
+                            type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$state__group$tail$<_TAnnotation>;
+                        }
                         type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$state__group$<_TAnnotation>;
                     }
                     type $<_TAnnotation> = _IFlat.Type__Selection__Tail$step__type$<_TAnnotation>;
-                }
-                namespace tail {
-                    namespace O {
-                        type $<_TAnnotation> = _IFlat.Type__Selection__Tail$tail$O$<_TAnnotation>;
-                    }
-                    type $<_TAnnotation> = _IFlat.Type__Selection__Tail$tail$<_TAnnotation>;
                 }
                 type $<_TAnnotation> = _IFlat.Type__Selection__Tail$<_TAnnotation>;
             }
@@ -433,8 +622,14 @@ export declare namespace pareto__lang__data {
                     type $<_TAnnotation> = _IFlat.Type__Library$atom__types$<_TAnnotation>;
                 }
                 namespace global__types {
-                    namespace D {
-                        type $<_TAnnotation> = _IFlat.Type__Library$global__types$D$<_TAnnotation>;
+                    namespace declarations {
+                        type $<_TAnnotation> = _IFlat.Type__Library$global__types$declarations$<_TAnnotation>;
+                    }
+                    namespace definitions {
+                        namespace D {
+                            type $<_TAnnotation> = _IFlat.Type__Library$global__types$definitions$D$<_TAnnotation>;
+                        }
+                        type $<_TAnnotation> = _IFlat.Type__Library$global__types$definitions$<_TAnnotation>;
                     }
                     type $<_TAnnotation> = _IFlat.Type__Library$global__types$<_TAnnotation>;
                 }
@@ -485,6 +680,102 @@ export declare namespace pareto__lang__data {
             namespace Root {
                 type $<_TAnnotation> = _IFlat.Root$<_TAnnotation>;
             }
+            namespace Variable {
+                namespace parent__variable {
+                    type $<_TAnnotation> = _IFlat.Variable$parent__variable$<_TAnnotation>;
+                }
+                type $<_TAnnotation> = _IFlat.Variable$<_TAnnotation>;
+            }
+            namespace Variables {
+                namespace D {
+                    type $<_TAnnotation> = _IFlat.Variables$D$<_TAnnotation>;
+                }
+                type $<_TAnnotation> = _IFlat.Variables$<_TAnnotation>;
+            }
+            namespace Value__Selection__Tail {
+                namespace reference {
+                    namespace reference {
+                        type $<_TAnnotation> = _IFlat.Value__Selection__Tail$reference$reference$<_TAnnotation>;
+                    }
+                    namespace tail {
+                        namespace O {
+                            type $<_TAnnotation> = _IFlat.Value__Selection__Tail$reference$tail$O$<_TAnnotation>;
+                        }
+                        type $<_TAnnotation> = _IFlat.Value__Selection__Tail$reference$tail$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Value__Selection__Tail$reference$<_TAnnotation>;
+                }
+                namespace component {
+                    namespace component {
+                        type $<_TAnnotation> = _IFlat.Value__Selection__Tail$component$component$<_TAnnotation>;
+                    }
+                    namespace tail {
+                        namespace O {
+                            type $<_TAnnotation> = _IFlat.Value__Selection__Tail$component$tail$O$<_TAnnotation>;
+                        }
+                        type $<_TAnnotation> = _IFlat.Value__Selection__Tail$component$tail$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Value__Selection__Tail$component$<_TAnnotation>;
+                }
+                namespace state__group {
+                    namespace state__group {
+                        type $<_TAnnotation> = _IFlat.Value__Selection__Tail$state__group$state__group$<_TAnnotation>;
+                    }
+                    namespace result__type {
+                        type $<_TAnnotation> = _IFlat.Value__Selection__Tail$state__group$result__type$<_TAnnotation>;
+                    }
+                    namespace states {
+                        namespace D {
+                            type $<_TAnnotation> = _IFlat.Value__Selection__Tail$state__group$states$D$<_TAnnotation>;
+                        }
+                        type $<_TAnnotation> = _IFlat.Value__Selection__Tail$state__group$states$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Value__Selection__Tail$state__group$<_TAnnotation>;
+                }
+                namespace group {
+                    namespace group {
+                        type $<_TAnnotation> = _IFlat.Value__Selection__Tail$group$group$<_TAnnotation>;
+                    }
+                    namespace property {
+                        type $<_TAnnotation> = _IFlat.Value__Selection__Tail$group$property$<_TAnnotation>;
+                    }
+                    namespace tail {
+                        namespace O {
+                            type $<_TAnnotation> = _IFlat.Value__Selection__Tail$group$tail$O$<_TAnnotation>;
+                        }
+                        type $<_TAnnotation> = _IFlat.Value__Selection__Tail$group$tail$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Value__Selection__Tail$group$<_TAnnotation>;
+                }
+                type $<_TAnnotation> = _IFlat.Value__Selection__Tail$<_TAnnotation>;
+            }
+            namespace No__Context__Value__Selection {
+                namespace start {
+                    type $<_TAnnotation> = _IFlat.No__Context__Value__Selection$start$<_TAnnotation>;
+                }
+                namespace tail {
+                    namespace O {
+                        type $<_TAnnotation> = _IFlat.No__Context__Value__Selection$tail$O$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.No__Context__Value__Selection$tail$<_TAnnotation>;
+                }
+                type $<_TAnnotation> = _IFlat.No__Context__Value__Selection$<_TAnnotation>;
+            }
+            namespace Any__Value__Selection {
+                namespace start {
+                    namespace O {
+                        type $<_TAnnotation> = _IFlat.Any__Value__Selection$start$O$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Any__Value__Selection$start$<_TAnnotation>;
+                }
+                namespace tail {
+                    namespace O {
+                        type $<_TAnnotation> = _IFlat.Any__Value__Selection$tail$O$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Any__Value__Selection$tail$<_TAnnotation>;
+                }
+                type $<_TAnnotation> = _IFlat.Any__Value__Selection$<_TAnnotation>;
+            }
         }
     }
     namespace Resolved {
@@ -507,7 +798,10 @@ export declare namespace pareto__lang__data {
                 readonly 'atom': Type$type$atom$atom$;
             };
             type Type$type$component$type$ = Global__Type__Selection$;
+            type Type$type$component$arguments$D$ = null;
+            type Type$type$component$arguments$ = _pt.Dictionary<Type$type$component$arguments$D$>;
             type Type$type$component$ = {
+                readonly 'arguments': Type$type$component$arguments$;
                 readonly 'type': Type$type$component$type$;
             };
             type Type$type$constraint$ = Type__Selection$;
@@ -576,46 +870,91 @@ export declare namespace pareto__lang__data {
                 readonly 'library': Imports$D$library$;
             };
             type Imports$ = _pt.Dictionary<Imports$D$>;
-            type Global__Type$type$ = Type$;
-            type Global__Type$ = {
-                readonly 'type': Global__Type$type$;
+            type Global__Type__Declaration$parameters$D$type$resolved__value$ = {
+                readonly 'key': string;
+                readonly 'referent': _pt.ComputedValue<Global__Type__Declaration$>;
+            };
+            type Global__Type__Declaration$parameters$D$type$sibling__lookup$ = {
+                readonly 'key': string;
+                readonly 'referent': _pt.ComputedValue<Global__Type__Declaration$>;
+            };
+            type Global__Type__Declaration$parameters$D$type$cyclic__sibling__lookup$ = {
+                readonly 'key': string;
+                readonly 'referent': _pt.ComputedValue<Global__Type__Declaration$>;
+            };
+            type Global__Type__Declaration$parameters$D$type$ = ['cyclic sibling lookup', Global__Type__Declaration$parameters$D$type$cyclic__sibling__lookup$] | ['resolved value', Global__Type__Declaration$parameters$D$type$resolved__value$] | ['sibling lookup', Global__Type__Declaration$parameters$D$type$sibling__lookup$];
+            type Global__Type__Declaration$parameters$D$optional$O$ = null;
+            type Global__Type__Declaration$parameters$D$optional$ = _pt.OptionalValue<Global__Type__Declaration$parameters$D$optional$O$>;
+            type Global__Type__Declaration$parameters$D$ = {
+                readonly 'optional': Global__Type__Declaration$parameters$D$optional$;
+                readonly 'type': Global__Type__Declaration$parameters$D$type$;
+            };
+            type Global__Type__Declaration$parameters$ = _pt.Dictionary<Global__Type__Declaration$parameters$D$>;
+            type Global__Type__Declaration$result$O$ = {
+                readonly 'key': string;
+                readonly 'referent': _pt.ComputedValue<Global__Type__Declaration$>;
+            };
+            type Global__Type__Declaration$result$ = _pt.OptionalValue<Global__Type__Declaration$result$O$>;
+            type Global__Type__Declaration$ = {
+                readonly 'parameters': Global__Type__Declaration$parameters$;
+                readonly 'result': Global__Type__Declaration$result$;
+            };
+            type Global__Type__Declarations$D$ = Global__Type__Declaration$;
+            type Global__Type__Declarations$ = _pt.Dictionary<Global__Type__Declarations$D$>;
+            type Global__Type__Definition$declaration$ = Global__Type__Declarations$D$;
+            type Global__Type__Definition$type$ = Type$;
+            type Global__Type__Definition$ = {
+                readonly 'declaration': Global__Type__Definition$declaration$;
+                readonly 'type': Global__Type__Definition$type$;
             };
             type Type__Selection__Tail$step__type$dictionary$dictionary$ = Type$type$dictionary$;
+            type Type__Selection__Tail$step__type$dictionary$tail$O$ = Type__Selection__Tail$;
+            type Type__Selection__Tail$step__type$dictionary$tail$ = _pt.OptionalValue<Type__Selection__Tail$step__type$dictionary$tail$O$>;
             type Type__Selection__Tail$step__type$dictionary$ = {
                 readonly 'dictionary': Type__Selection__Tail$step__type$dictionary$dictionary$;
+                readonly 'tail': Type__Selection__Tail$step__type$dictionary$tail$;
             };
             type Type__Selection__Tail$step__type$optional$optional$ = Type$type$optional$;
+            type Type__Selection__Tail$step__type$optional$tail$O$ = Type__Selection__Tail$;
+            type Type__Selection__Tail$step__type$optional$tail$ = _pt.OptionalValue<Type__Selection__Tail$step__type$optional$tail$O$>;
             type Type__Selection__Tail$step__type$optional$ = {
                 readonly 'optional': Type__Selection__Tail$step__type$optional$optional$;
+                readonly 'tail': Type__Selection__Tail$step__type$optional$tail$;
             };
             type Type__Selection__Tail$step__type$array$array$ = Type$type$array$;
+            type Type__Selection__Tail$step__type$array$tail$O$ = Type__Selection__Tail$;
+            type Type__Selection__Tail$step__type$array$tail$ = _pt.OptionalValue<Type__Selection__Tail$step__type$array$tail$O$>;
             type Type__Selection__Tail$step__type$array$ = {
                 readonly 'array': Type__Selection__Tail$step__type$array$array$;
+                readonly 'tail': Type__Selection__Tail$step__type$array$tail$;
             };
             type Type__Selection__Tail$step__type$group$group$ = Type$type$group$;
             type Type__Selection__Tail$step__type$group$property$ = {
                 readonly 'key': string;
                 readonly 'referent': Type$type$group$properties$D$;
             };
+            type Type__Selection__Tail$step__type$group$tail$O$ = Type__Selection__Tail$;
+            type Type__Selection__Tail$step__type$group$tail$ = _pt.OptionalValue<Type__Selection__Tail$step__type$group$tail$O$>;
             type Type__Selection__Tail$step__type$group$ = {
                 readonly 'group': Type__Selection__Tail$step__type$group$group$;
                 readonly 'property': Type__Selection__Tail$step__type$group$property$;
+                readonly 'tail': Type__Selection__Tail$step__type$group$tail$;
             };
             type Type__Selection__Tail$step__type$state__group$state__group$ = Type$type$state__group$;
             type Type__Selection__Tail$step__type$state__group$state$ = {
                 readonly 'key': string;
                 readonly 'referent': Type$type$state__group$states$D$;
             };
+            type Type__Selection__Tail$step__type$state__group$tail$O$ = Type__Selection__Tail$;
+            type Type__Selection__Tail$step__type$state__group$tail$ = _pt.OptionalValue<Type__Selection__Tail$step__type$state__group$tail$O$>;
             type Type__Selection__Tail$step__type$state__group$ = {
                 readonly 'state': Type__Selection__Tail$step__type$state__group$state$;
                 readonly 'state group': Type__Selection__Tail$step__type$state__group$state__group$;
+                readonly 'tail': Type__Selection__Tail$step__type$state__group$tail$;
             };
             type Type__Selection__Tail$step__type$ = ['array', Type__Selection__Tail$step__type$array$] | ['dictionary', Type__Selection__Tail$step__type$dictionary$] | ['group', Type__Selection__Tail$step__type$group$] | ['optional', Type__Selection__Tail$step__type$optional$] | ['state group', Type__Selection__Tail$step__type$state__group$];
-            type Type__Selection__Tail$tail$O$ = Type__Selection__Tail$;
-            type Type__Selection__Tail$tail$ = _pt.OptionalValue<Type__Selection__Tail$tail$O$>;
             type Type__Selection__Tail$ = {
                 readonly 'step type': Type__Selection__Tail$step__type$;
-                readonly 'tail': Type__Selection__Tail$tail$;
             };
             type Type__Selection$import$O$ = {
                 readonly 'key': string;
@@ -624,7 +963,7 @@ export declare namespace pareto__lang__data {
             type Type__Selection$import$ = _pt.OptionalValue<Type__Selection$import$O$>;
             type Type__Selection$global__type$ = {
                 readonly 'key': string;
-                readonly 'referent': Global__Type$;
+                readonly 'referent': Global__Type__Definition$;
             };
             type Type__Selection$tail$O$ = Type__Selection__Tail$;
             type Type__Selection$tail$ = _pt.OptionalValue<Type__Selection$tail$O$>;
@@ -641,8 +980,13 @@ export declare namespace pareto__lang__data {
             };
             type Type__Library$imports$ = Imports$;
             type Type__Library$atom__types$ = Atom__Types$;
-            type Type__Library$global__types$D$ = Global__Type$;
-            type Type__Library$global__types$ = _pt.Dictionary<Type__Library$global__types$D$>;
+            type Type__Library$global__types$declarations$ = Global__Type__Declarations$;
+            type Type__Library$global__types$definitions$D$ = Global__Type__Definition$;
+            type Type__Library$global__types$definitions$ = _pt.Dictionary<Type__Library$global__types$definitions$D$>;
+            type Type__Library$global__types$ = {
+                readonly 'declarations': Type__Library$global__types$declarations$;
+                readonly 'definitions': Type__Library$global__types$definitions$;
+            };
             type Type__Library$ = {
                 readonly 'atom types': Type__Library$atom__types$;
                 readonly 'global types': Type__Library$global__types$;
@@ -650,7 +994,7 @@ export declare namespace pareto__lang__data {
             };
             type Global__Type__Selection$resolved__sibling$type$ = {
                 readonly 'key': string;
-                readonly 'referent': Global__Type$;
+                readonly 'referent': Global__Type__Definition$;
             };
             type Global__Type__Selection$resolved__sibling$ = {
                 readonly 'type': Global__Type__Selection$resolved__sibling$type$;
@@ -661,7 +1005,7 @@ export declare namespace pareto__lang__data {
             };
             type Global__Type__Selection$import$type$ = {
                 readonly 'key': string;
-                readonly 'referent': Type__Library$global__types$D$;
+                readonly 'referent': Type__Library$global__types$definitions$D$;
             };
             type Global__Type__Selection$import$ = {
                 readonly 'library': Global__Type__Selection$import$library$;
@@ -669,7 +1013,7 @@ export declare namespace pareto__lang__data {
             };
             type Global__Type__Selection$cyclic__sibling$type$ = {
                 readonly 'key': string;
-                readonly 'referent': _pt.ComputedValue<Global__Type$>;
+                readonly 'referent': _pt.ComputedValue<Global__Type__Definition$>;
             };
             type Global__Type__Selection$cyclic__sibling$ = {
                 readonly 'type': Global__Type__Selection$cyclic__sibling$type$;
@@ -678,7 +1022,7 @@ export declare namespace pareto__lang__data {
             type Model$type__library$ = Type__Library$;
             type Model$root$ = {
                 readonly 'key': string;
-                readonly 'referent': Type__Library$global__types$D$;
+                readonly 'referent': Type__Library$global__types$definitions$D$;
             };
             type Model$ = {
                 readonly 'root': Model$root$;
@@ -690,6 +1034,70 @@ export declare namespace pareto__lang__data {
                 readonly 'type libraries': Project$type__libraries$;
             };
             type Root$ = Project$;
+            type Variable$parent__variable$ = {
+                readonly 'key': string;
+                readonly 'referent': Variable$;
+            };
+            type Variable$ = ['parent variable', Variable$parent__variable$];
+            type Variables$D$ = Variable$;
+            type Variables$ = _pt.Dictionary<Variables$D$>;
+            type Value__Selection__Tail$reference$reference$ = Type$type$resolved__reference$;
+            type Value__Selection__Tail$reference$tail$O$ = Value__Selection__Tail$;
+            type Value__Selection__Tail$reference$tail$ = _pt.OptionalValue<Value__Selection__Tail$reference$tail$O$>;
+            type Value__Selection__Tail$reference$ = {
+                readonly 'reference': Value__Selection__Tail$reference$reference$;
+                readonly 'tail': Value__Selection__Tail$reference$tail$;
+            };
+            type Value__Selection__Tail$component$component$ = Type$type$component$;
+            type Value__Selection__Tail$component$tail$O$ = Value__Selection__Tail$;
+            type Value__Selection__Tail$component$tail$ = _pt.OptionalValue<Value__Selection__Tail$component$tail$O$>;
+            type Value__Selection__Tail$component$ = {
+                readonly 'component': Value__Selection__Tail$component$component$;
+                readonly 'tail': Value__Selection__Tail$component$tail$;
+            };
+            type Value__Selection__Tail$state__group$state__group$ = Type$type$state__group$;
+            type Value__Selection__Tail$state__group$result__type$ = Global__Type__Selection$;
+            type Value__Selection__Tail$state__group$states$D$ = Any__Value__Selection$;
+            type Value__Selection__Tail$state__group$states$ = _pt.Dictionary<Value__Selection__Tail$state__group$states$D$>;
+            type Value__Selection__Tail$state__group$ = {
+                readonly 'result type': Value__Selection__Tail$state__group$result__type$;
+                readonly 'state group': Value__Selection__Tail$state__group$state__group$;
+                readonly 'states': Value__Selection__Tail$state__group$states$;
+            };
+            type Value__Selection__Tail$group$group$ = Type$type$group$;
+            type Value__Selection__Tail$group$property$ = {
+                readonly 'key': string;
+                readonly 'referent': Type$type$group$properties$D$;
+            };
+            type Value__Selection__Tail$group$tail$O$ = Value__Selection__Tail$;
+            type Value__Selection__Tail$group$tail$ = _pt.OptionalValue<Value__Selection__Tail$group$tail$O$>;
+            type Value__Selection__Tail$group$ = {
+                readonly 'group': Value__Selection__Tail$group$group$;
+                readonly 'property': Value__Selection__Tail$group$property$;
+                readonly 'tail': Value__Selection__Tail$group$tail$;
+            };
+            type Value__Selection__Tail$ = ['component', Value__Selection__Tail$component$] | ['group', Value__Selection__Tail$group$] | ['reference', Value__Selection__Tail$reference$] | ['state group', Value__Selection__Tail$state__group$];
+            type No__Context__Value__Selection$start$ = {
+                readonly 'key': string;
+                readonly 'referent': Variables$D$;
+            };
+            type No__Context__Value__Selection$tail$O$ = Value__Selection__Tail$;
+            type No__Context__Value__Selection$tail$ = _pt.OptionalValue<No__Context__Value__Selection$tail$O$>;
+            type No__Context__Value__Selection$ = {
+                readonly 'start': No__Context__Value__Selection$start$;
+                readonly 'tail': No__Context__Value__Selection$tail$;
+            };
+            type Any__Value__Selection$start$O$ = {
+                readonly 'key': string;
+                readonly 'referent': Variables$D$;
+            };
+            type Any__Value__Selection$start$ = _pt.OptionalValue<Any__Value__Selection$start$O$>;
+            type Any__Value__Selection$tail$O$ = Value__Selection__Tail$;
+            type Any__Value__Selection$tail$ = _pt.OptionalValue<Any__Value__Selection$tail$O$>;
+            type Any__Value__Selection$ = {
+                readonly 'start': Any__Value__Selection$start$;
+                readonly 'tail': Any__Value__Selection$tail$;
+            };
         }
         namespace T {
             import _IFlat = Flat;
@@ -722,6 +1130,12 @@ export declare namespace pareto__lang__data {
                     namespace component {
                         namespace _ltype {
                             type $ = _IFlat.Type$type$component$type$;
+                        }
+                        namespace _larguments {
+                            namespace D {
+                                type $ = _IFlat.Type$type$component$arguments$D$;
+                            }
+                            type $ = _IFlat.Type$type$component$arguments$;
                         }
                         type $ = _IFlat.Type$type$component$;
                     }
@@ -831,11 +1245,53 @@ export declare namespace pareto__lang__data {
                 }
                 type $ = _IFlat.Imports$;
             }
-            namespace Global__Type {
-                namespace _ltype {
-                    type $ = _IFlat.Global__Type$type$;
+            namespace Global__Type__Declaration {
+                namespace parameters {
+                    namespace D {
+                        namespace _ltype {
+                            namespace resolved__value {
+                                type $ = _IFlat.Global__Type__Declaration$parameters$D$type$resolved__value$;
+                            }
+                            namespace sibling__lookup {
+                                type $ = _IFlat.Global__Type__Declaration$parameters$D$type$sibling__lookup$;
+                            }
+                            namespace cyclic__sibling__lookup {
+                                type $ = _IFlat.Global__Type__Declaration$parameters$D$type$cyclic__sibling__lookup$;
+                            }
+                            type $ = _IFlat.Global__Type__Declaration$parameters$D$type$;
+                        }
+                        namespace optional {
+                            namespace O {
+                                type $ = _IFlat.Global__Type__Declaration$parameters$D$optional$O$;
+                            }
+                            type $ = _IFlat.Global__Type__Declaration$parameters$D$optional$;
+                        }
+                        type $ = _IFlat.Global__Type__Declaration$parameters$D$;
+                    }
+                    type $ = _IFlat.Global__Type__Declaration$parameters$;
                 }
-                type $ = _IFlat.Global__Type$;
+                namespace result {
+                    namespace O {
+                        type $ = _IFlat.Global__Type__Declaration$result$O$;
+                    }
+                    type $ = _IFlat.Global__Type__Declaration$result$;
+                }
+                type $ = _IFlat.Global__Type__Declaration$;
+            }
+            namespace Global__Type__Declarations {
+                namespace D {
+                    type $ = _IFlat.Global__Type__Declarations$D$;
+                }
+                type $ = _IFlat.Global__Type__Declarations$;
+            }
+            namespace Global__Type__Definition {
+                namespace declaration {
+                    type $ = _IFlat.Global__Type__Definition$declaration$;
+                }
+                namespace _ltype {
+                    type $ = _IFlat.Global__Type__Definition$type$;
+                }
+                type $ = _IFlat.Global__Type__Definition$;
             }
             namespace TType__Selection__Tail {
                 namespace step__type {
@@ -843,17 +1299,35 @@ export declare namespace pareto__lang__data {
                         namespace dictionary {
                             type $ = _IFlat.Type__Selection__Tail$step__type$dictionary$dictionary$;
                         }
+                        namespace tail {
+                            namespace O {
+                                type $ = _IFlat.Type__Selection__Tail$step__type$dictionary$tail$O$;
+                            }
+                            type $ = _IFlat.Type__Selection__Tail$step__type$dictionary$tail$;
+                        }
                         type $ = _IFlat.Type__Selection__Tail$step__type$dictionary$;
                     }
                     namespace optional {
                         namespace optional {
                             type $ = _IFlat.Type__Selection__Tail$step__type$optional$optional$;
                         }
+                        namespace tail {
+                            namespace O {
+                                type $ = _IFlat.Type__Selection__Tail$step__type$optional$tail$O$;
+                            }
+                            type $ = _IFlat.Type__Selection__Tail$step__type$optional$tail$;
+                        }
                         type $ = _IFlat.Type__Selection__Tail$step__type$optional$;
                     }
                     namespace array {
                         namespace array {
                             type $ = _IFlat.Type__Selection__Tail$step__type$array$array$;
+                        }
+                        namespace tail {
+                            namespace O {
+                                type $ = _IFlat.Type__Selection__Tail$step__type$array$tail$O$;
+                            }
+                            type $ = _IFlat.Type__Selection__Tail$step__type$array$tail$;
                         }
                         type $ = _IFlat.Type__Selection__Tail$step__type$array$;
                     }
@@ -864,6 +1338,12 @@ export declare namespace pareto__lang__data {
                         namespace property {
                             type $ = _IFlat.Type__Selection__Tail$step__type$group$property$;
                         }
+                        namespace tail {
+                            namespace O {
+                                type $ = _IFlat.Type__Selection__Tail$step__type$group$tail$O$;
+                            }
+                            type $ = _IFlat.Type__Selection__Tail$step__type$group$tail$;
+                        }
                         type $ = _IFlat.Type__Selection__Tail$step__type$group$;
                     }
                     namespace state__group {
@@ -873,15 +1353,15 @@ export declare namespace pareto__lang__data {
                         namespace state {
                             type $ = _IFlat.Type__Selection__Tail$step__type$state__group$state$;
                         }
+                        namespace tail {
+                            namespace O {
+                                type $ = _IFlat.Type__Selection__Tail$step__type$state__group$tail$O$;
+                            }
+                            type $ = _IFlat.Type__Selection__Tail$step__type$state__group$tail$;
+                        }
                         type $ = _IFlat.Type__Selection__Tail$step__type$state__group$;
                     }
                     type $ = _IFlat.Type__Selection__Tail$step__type$;
-                }
-                namespace tail {
-                    namespace O {
-                        type $ = _IFlat.Type__Selection__Tail$tail$O$;
-                    }
-                    type $ = _IFlat.Type__Selection__Tail$tail$;
                 }
                 type $ = _IFlat.Type__Selection__Tail$;
             }
@@ -920,8 +1400,14 @@ export declare namespace pareto__lang__data {
                     type $ = _IFlat.Type__Library$atom__types$;
                 }
                 namespace global__types {
-                    namespace D {
-                        type $ = _IFlat.Type__Library$global__types$D$;
+                    namespace declarations {
+                        type $ = _IFlat.Type__Library$global__types$declarations$;
+                    }
+                    namespace definitions {
+                        namespace D {
+                            type $ = _IFlat.Type__Library$global__types$definitions$D$;
+                        }
+                        type $ = _IFlat.Type__Library$global__types$definitions$;
                     }
                     type $ = _IFlat.Type__Library$global__types$;
                 }
@@ -972,150 +1458,281 @@ export declare namespace pareto__lang__data {
             namespace Root {
                 type $ = _IFlat.Root$;
             }
+            namespace Variable {
+                namespace parent__variable {
+                    type $ = _IFlat.Variable$parent__variable$;
+                }
+                type $ = _IFlat.Variable$;
+            }
+            namespace Variables {
+                namespace D {
+                    type $ = _IFlat.Variables$D$;
+                }
+                type $ = _IFlat.Variables$;
+            }
+            namespace Value__Selection__Tail {
+                namespace reference {
+                    namespace reference {
+                        type $ = _IFlat.Value__Selection__Tail$reference$reference$;
+                    }
+                    namespace tail {
+                        namespace O {
+                            type $ = _IFlat.Value__Selection__Tail$reference$tail$O$;
+                        }
+                        type $ = _IFlat.Value__Selection__Tail$reference$tail$;
+                    }
+                    type $ = _IFlat.Value__Selection__Tail$reference$;
+                }
+                namespace component {
+                    namespace component {
+                        type $ = _IFlat.Value__Selection__Tail$component$component$;
+                    }
+                    namespace tail {
+                        namespace O {
+                            type $ = _IFlat.Value__Selection__Tail$component$tail$O$;
+                        }
+                        type $ = _IFlat.Value__Selection__Tail$component$tail$;
+                    }
+                    type $ = _IFlat.Value__Selection__Tail$component$;
+                }
+                namespace state__group {
+                    namespace state__group {
+                        type $ = _IFlat.Value__Selection__Tail$state__group$state__group$;
+                    }
+                    namespace result__type {
+                        type $ = _IFlat.Value__Selection__Tail$state__group$result__type$;
+                    }
+                    namespace states {
+                        namespace D {
+                            type $ = _IFlat.Value__Selection__Tail$state__group$states$D$;
+                        }
+                        type $ = _IFlat.Value__Selection__Tail$state__group$states$;
+                    }
+                    type $ = _IFlat.Value__Selection__Tail$state__group$;
+                }
+                namespace group {
+                    namespace group {
+                        type $ = _IFlat.Value__Selection__Tail$group$group$;
+                    }
+                    namespace property {
+                        type $ = _IFlat.Value__Selection__Tail$group$property$;
+                    }
+                    namespace tail {
+                        namespace O {
+                            type $ = _IFlat.Value__Selection__Tail$group$tail$O$;
+                        }
+                        type $ = _IFlat.Value__Selection__Tail$group$tail$;
+                    }
+                    type $ = _IFlat.Value__Selection__Tail$group$;
+                }
+                type $ = _IFlat.Value__Selection__Tail$;
+            }
+            namespace No__Context__Value__Selection {
+                namespace start {
+                    type $ = _IFlat.No__Context__Value__Selection$start$;
+                }
+                namespace tail {
+                    namespace O {
+                        type $ = _IFlat.No__Context__Value__Selection$tail$O$;
+                    }
+                    type $ = _IFlat.No__Context__Value__Selection$tail$;
+                }
+                type $ = _IFlat.No__Context__Value__Selection$;
+            }
+            namespace Any__Value__Selection {
+                namespace start {
+                    namespace O {
+                        type $ = _IFlat.Any__Value__Selection$start$O$;
+                    }
+                    type $ = _IFlat.Any__Value__Selection$start$;
+                }
+                namespace tail {
+                    namespace O {
+                        type $ = _IFlat.Any__Value__Selection$tail$O$;
+                    }
+                    type $ = _IFlat.Any__Value__Selection$tail$;
+                }
+                type $ = _IFlat.Any__Value__Selection$;
+            }
         }
     }
     namespace Resolve {
         import _IResolved = Resolved;
         import _IUnresolved = Unresolved;
-        type Atom__Types = <_TAnnotation>($: _IUnresolved.Flat.Atom__Types$<_TAnnotation>) => _IResolved.Flat.Atom__Types$;
-        type Atom = <_TAnnotation>($: _IUnresolved.Flat.Atom$<_TAnnotation>, $p: {
-            readonly 'atom types': _IResolved.Flat.Atom__Types$;
-        }) => _IResolved.Flat.Atom$;
-        type Dictionary__Selection = <_TAnnotation>($: _IUnresolved.Flat.Dictionary__Selection$<_TAnnotation>, $p: {
-            readonly 'cyclic sibling global types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Global__Type$>>;
-            readonly 'imports': _IResolved.Flat.Imports$;
-            readonly 'sibling global types': _pt.Lookup<_IResolved.Flat.Global__Type$>;
-        }) => _IResolved.Flat.Dictionary__Selection$;
-        type Global__Type__Selection = <_TAnnotation>($: _IUnresolved.Flat.Global__Type__Selection$<_TAnnotation>, $p: {
-            readonly 'cyclic sibling global types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Global__Type$>>;
-            readonly 'imports': _IResolved.Flat.Imports$;
-            readonly 'sibling global types': _pt.Lookup<_IResolved.Flat.Global__Type$>;
-        }) => _IResolved.Flat.Global__Type__Selection$;
-        type Global__Type = <_TAnnotation>($: _IUnresolved.Flat.Global__Type$<_TAnnotation>) => _IResolved.Flat.Global__Type$;
-        type Imports = <_TAnnotation>($: _IUnresolved.Flat.Imports$<_TAnnotation>) => _IResolved.Flat.Imports$;
-        type Model = <_TAnnotation>($: _IUnresolved.Flat.Model$<_TAnnotation>, $p: {
-            readonly 'external type libraries': _pt.Lookup<_IResolved.Flat.Type__Library$>;
-        }) => _IResolved.Flat.Model$;
-        type Project = <_TAnnotation>($: _IUnresolved.Flat.Project$<_TAnnotation>) => _IResolved.Flat.Project$;
-        type Root = <_TAnnotation>($: _IUnresolved.Flat.Root$<_TAnnotation>) => _IResolved.Flat.Root$;
-        type Type__Library = <_TAnnotation>($: _IUnresolved.Flat.Type__Library$<_TAnnotation>, $p: {
-            readonly 'external type libraries': _pt.Lookup<_IResolved.Flat.Type__Library$>;
-        }) => _IResolved.Flat.Type__Library$;
-        type Type__Selection__Tail = <_TAnnotation>($: _IUnresolved.Flat.Type__Selection__Tail$<_TAnnotation>, $p: {
-            readonly 'context': _IResolved.Flat.Type$;
-        }) => _IResolved.Flat.Type__Selection__Tail$;
-        type Type__Selection = <_TAnnotation>($: _IUnresolved.Flat.Type__Selection$<_TAnnotation>, $p: {
-            readonly 'imports': _IResolved.Flat.Imports$;
-            readonly 'sibling global types': _pt.Lookup<_IResolved.Flat.Global__Type$>;
-        }) => _IResolved.Flat.Type__Selection$;
-        type Type = <_TAnnotation>($: _IUnresolved.Flat.Type$<_TAnnotation>, $p: {
-            readonly 'atom types': _IResolved.Flat.Atom__Types$;
-            readonly 'cyclic sibling global types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Global__Type$>>;
-            readonly 'imports': _IResolved.Flat.Imports$;
-            readonly 'sibling global types': _pt.Lookup<_IResolved.Flat.Global__Type$>;
-        }) => _IResolved.Flat.Type$;
+        namespace types {
+            type Any__Value__Selection = <_TAnnotation>($: _IUnresolved.Flat.Any__Value__Selection$<_TAnnotation>) => _IResolved.Flat.Any__Value__Selection$;
+            type Atom__Types = <_TAnnotation>($: _IUnresolved.Flat.Atom__Types$<_TAnnotation>) => _IResolved.Flat.Atom__Types$;
+            type Atom = <_TAnnotation>($: _IUnresolved.Flat.Atom$<_TAnnotation>, $p: {
+                readonly 'atom types': _IResolved.Flat.Atom__Types$;
+            }) => _IResolved.Flat.Atom$;
+            type Dictionary__Selection = <_TAnnotation>($: _IUnresolved.Flat.Dictionary__Selection$<_TAnnotation>, $p: {
+                readonly 'cyclic sibling global types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Global__Type__Definition$>>;
+                readonly 'imports': _IResolved.Flat.Imports$;
+                readonly 'sibling global types': _pt.Lookup<_IResolved.Flat.Global__Type__Definition$>;
+            }) => _IResolved.Flat.Dictionary__Selection$;
+            type Global__Type__Declaration = <_TAnnotation>($: _IUnresolved.Flat.Global__Type__Declaration$<_TAnnotation>, $p: {
+                readonly 'all siblings': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Global__Type__Declaration$>>;
+            }) => _IResolved.Flat.Global__Type__Declaration$;
+            type Global__Type__Declarations = <_TAnnotation>($: _IUnresolved.Flat.Global__Type__Declarations$<_TAnnotation>) => _IResolved.Flat.Global__Type__Declarations$;
+            type Global__Type__Definition = <_TAnnotation>($: _IUnresolved.Flat.Global__Type__Definition$<_TAnnotation>, $p: {
+                readonly 'all siblings': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Global__Type__Definition$>>;
+                readonly 'atom types': _IResolved.Flat.Atom__Types$;
+                readonly 'global type declarations': _IResolved.Flat.Global__Type__Declarations$;
+                readonly 'imports': _IResolved.Flat.Imports$;
+                readonly 'key': string;
+                readonly 'non cyclic siblings': _pt.Lookup<_IResolved.Flat.Global__Type__Definition$>;
+            }) => _IResolved.Flat.Global__Type__Definition$;
+            type Global__Type__Selection = <_TAnnotation>($: _IUnresolved.Flat.Global__Type__Selection$<_TAnnotation>, $p: {
+                readonly 'cyclic sibling global types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Global__Type__Definition$>>;
+                readonly 'imports': _IResolved.Flat.Imports$;
+                readonly 'sibling global types': _pt.Lookup<_IResolved.Flat.Global__Type__Definition$>;
+            }) => _IResolved.Flat.Global__Type__Selection$;
+            type Imports = <_TAnnotation>($: _IUnresolved.Flat.Imports$<_TAnnotation>, $p: {
+                readonly 'external type libraries': _pt.Lookup<_IResolved.Flat.Type__Library$>;
+            }) => _IResolved.Flat.Imports$;
+            type Model = <_TAnnotation>($: _IUnresolved.Flat.Model$<_TAnnotation>, $p: {
+                readonly 'external type libraries': _pt.Lookup<_IResolved.Flat.Type__Library$>;
+            }) => _IResolved.Flat.Model$;
+            type No__Context__Value__Selection = <_TAnnotation>($: _IUnresolved.Flat.No__Context__Value__Selection$<_TAnnotation>) => _IResolved.Flat.No__Context__Value__Selection$;
+            type Project = <_TAnnotation>($: _IUnresolved.Flat.Project$<_TAnnotation>) => _IResolved.Flat.Project$;
+            type Root = <_TAnnotation>($: _IUnresolved.Flat.Root$<_TAnnotation>) => _IResolved.Flat.Root$;
+            type Type__Library = <_TAnnotation>($: _IUnresolved.Flat.Type__Library$<_TAnnotation>, $p: {
+                readonly 'external type libraries': _pt.Lookup<_IResolved.Flat.Type__Library$>;
+            }) => _IResolved.Flat.Type__Library$;
+            type Type__Selection__Tail = <_TAnnotation>($: _IUnresolved.Flat.Type__Selection__Tail$<_TAnnotation>, $p: {
+                readonly 'context': _IResolved.Flat.Type$;
+            }) => _IResolved.Flat.Type__Selection__Tail$;
+            type Type__Selection = <_TAnnotation>($: _IUnresolved.Flat.Type__Selection$<_TAnnotation>, $p: {
+                readonly 'imports': _IResolved.Flat.Imports$;
+                readonly 'sibling global types': _pt.Lookup<_IResolved.Flat.Global__Type__Definition$>;
+            }) => _IResolved.Flat.Type__Selection$;
+            type Type = <_TAnnotation>($: _IUnresolved.Flat.Type$<_TAnnotation>, $p: {
+                readonly 'atom types': _IResolved.Flat.Atom__Types$;
+                readonly 'cyclic sibling global types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Global__Type__Definition$>>;
+                readonly 'imports': _IResolved.Flat.Imports$;
+                readonly 'sibling global types': _pt.Lookup<_IResolved.Flat.Global__Type__Definition$>;
+            }) => _IResolved.Flat.Type$;
+            type Value__Selection__Tail = <_TAnnotation>($: _IUnresolved.Flat.Value__Selection__Tail$<_TAnnotation>) => _IResolved.Flat.Value__Selection__Tail$;
+            type Variable = <_TAnnotation>($: _IUnresolved.Flat.Variable$<_TAnnotation>) => _IResolved.Flat.Variable$;
+            type Variables = <_TAnnotation>($: _IUnresolved.Flat.Variables$<_TAnnotation>) => _IResolved.Flat.Variables$;
+        }
+        type $ = {
+            readonly 'Any Value Selection': types.Any__Value__Selection;
+            readonly 'Atom': types.Atom;
+            readonly 'Atom Types': types.Atom__Types;
+            readonly 'Dictionary Selection': types.Dictionary__Selection;
+            readonly 'Global Type Declaration': types.Global__Type__Declaration;
+            readonly 'Global Type Declarations': types.Global__Type__Declarations;
+            readonly 'Global Type Definition': types.Global__Type__Definition;
+            readonly 'Global Type Selection': types.Global__Type__Selection;
+            readonly 'Imports': types.Imports;
+            readonly 'Model': types.Model;
+            readonly 'No Context Value Selection': types.No__Context__Value__Selection;
+            readonly 'Project': types.Project;
+            readonly 'Root': types.Root;
+            readonly 'Type': types.Type;
+            readonly 'Type Library': types.Type__Library;
+            readonly 'Type Selection': types.Type__Selection;
+            readonly 'Type Selection Tail': types.Type__Selection__Tail;
+            readonly 'Value Selection Tail': types.Value__Selection__Tail;
+            readonly 'Variable': types.Variable;
+            readonly 'Variables': types.Variables;
+        };
     }
     namespace Serialize {
         import _IResolved = Resolved;
-        type Atom__Types = ($: _IResolved.Flat.Atom__Types$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Atom = ($: _IResolved.Flat.Atom$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Type = ($: _IResolved.Flat.Type$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Imports = ($: _IResolved.Flat.Imports$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Global__Type = ($: _IResolved.Flat.Global__Type$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Type__Selection__Tail = ($: _IResolved.Flat.Type__Selection__Tail$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Type__Selection = ($: _IResolved.Flat.Type__Selection$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Dictionary__Selection = ($: _IResolved.Flat.Dictionary__Selection$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Type__Library = ($: _IResolved.Flat.Type__Library$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Global__Type__Selection = ($: _IResolved.Flat.Global__Type__Selection$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Model = ($: _IResolved.Flat.Model$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Project = ($: _IResolved.Flat.Project$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Root = ($: _IResolved.Flat.Root$, $p: {
-            readonly 'out': boolean;
-        }) => void;
+        namespace types {
+            type Atom__Types = ($: _IResolved.Flat.Atom__Types$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Atom = ($: _IResolved.Flat.Atom$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Type = ($: _IResolved.Flat.Type$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Imports = ($: _IResolved.Flat.Imports$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Global__Type__Declaration = ($: _IResolved.Flat.Global__Type__Declaration$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Global__Type__Declarations = ($: _IResolved.Flat.Global__Type__Declarations$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Global__Type__Definition = ($: _IResolved.Flat.Global__Type__Definition$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Type__Selection__Tail = ($: _IResolved.Flat.Type__Selection__Tail$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Type__Selection = ($: _IResolved.Flat.Type__Selection$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Dictionary__Selection = ($: _IResolved.Flat.Dictionary__Selection$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Type__Library = ($: _IResolved.Flat.Type__Library$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Global__Type__Selection = ($: _IResolved.Flat.Global__Type__Selection$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Model = ($: _IResolved.Flat.Model$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Project = ($: _IResolved.Flat.Project$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Root = ($: _IResolved.Flat.Root$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Variable = ($: _IResolved.Flat.Variable$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Variables = ($: _IResolved.Flat.Variables$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Value__Selection__Tail = ($: _IResolved.Flat.Value__Selection__Tail$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type No__Context__Value__Selection = ($: _IResolved.Flat.No__Context__Value__Selection$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Any__Value__Selection = ($: _IResolved.Flat.Any__Value__Selection$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+        }
+        type $ = {
+            readonly 'Any Value Selection': types.Any__Value__Selection;
+            readonly 'Atom': types.Atom;
+            readonly 'Atom Types': types.Atom__Types;
+            readonly 'Dictionary Selection': types.Dictionary__Selection;
+            readonly 'Global Type Declaration': types.Global__Type__Declaration;
+            readonly 'Global Type Declarations': types.Global__Type__Declarations;
+            readonly 'Global Type Definition': types.Global__Type__Definition;
+            readonly 'Global Type Selection': types.Global__Type__Selection;
+            readonly 'Imports': types.Imports;
+            readonly 'Model': types.Model;
+            readonly 'No Context Value Selection': types.No__Context__Value__Selection;
+            readonly 'Project': types.Project;
+            readonly 'Root': types.Root;
+            readonly 'Type': types.Type;
+            readonly 'Type Library': types.Type__Library;
+            readonly 'Type Selection': types.Type__Selection;
+            readonly 'Type Selection Tail': types.Type__Selection__Tail;
+            readonly 'Value Selection Tail': types.Value__Selection__Tail;
+            readonly 'Variable': types.Variable;
+            readonly 'Variables': types.Variables;
+        };
     }
     namespace Select {
         import _IResolved = Resolved;
+        namespace types {
+        }
         type Type__Selection__Tail = ($: _IResolved.Flat.Type__Selection__Tail$) => _IResolved.Flat.Type$;
         type Type__Selection = ($: _IResolved.Flat.Type__Selection$) => _IResolved.Flat.Type$;
     }
-    type _$ = ($: null) => {
-        readonly 'Atom': {
-            readonly 'Resolve': Resolve.Atom;
-            readonly 'Serialize': Serialize.Atom;
-        };
-        readonly 'Atom Types': {
-            readonly 'Resolve': Resolve.Atom__Types;
-            readonly 'Serialize': Serialize.Atom__Types;
-        };
-        readonly 'Dictionary Selection': {
-            readonly 'Resolve': Resolve.Dictionary__Selection;
-            readonly 'Serialize': Serialize.Dictionary__Selection;
-        };
-        readonly 'Global Type': {
-            readonly 'Resolve': Resolve.Global__Type;
-            readonly 'Serialize': Serialize.Global__Type;
-        };
-        readonly 'Global Type Selection': {
-            readonly 'Resolve': Resolve.Global__Type__Selection;
-            readonly 'Serialize': Serialize.Global__Type__Selection;
-        };
-        readonly 'Imports': {
-            readonly 'Resolve': Resolve.Imports;
-            readonly 'Serialize': Serialize.Imports;
-        };
-        readonly 'Model': {
-            readonly 'Resolve': Resolve.Model;
-            readonly 'Serialize': Serialize.Model;
-        };
-        readonly 'Project': {
-            readonly 'Resolve': Resolve.Project;
-            readonly 'Serialize': Serialize.Project;
-        };
-        readonly 'Root': {
-            readonly 'Resolve': Resolve.Root;
-            readonly 'Serialize': Serialize.Root;
-        };
-        readonly 'Type': {
-            readonly 'Resolve': Resolve.Type;
-            readonly 'Serialize': Serialize.Type;
-        };
-        readonly 'Type Library': {
-            readonly 'Resolve': Resolve.Type__Library;
-            readonly 'Serialize': Serialize.Type__Library;
-        };
-        readonly 'Type Selection': {
-            readonly 'Resolve': Resolve.Type__Selection;
-            readonly 'Serialize': Serialize.Type__Selection;
-        };
-        readonly 'Type Selection Tail': {
-            readonly 'Resolve': Resolve.Type__Selection__Tail;
-            readonly 'Serialize': Serialize.Type__Selection__Tail;
-        };
-    };
 }
 export declare namespace proto__typesystem {
     namespace Unresolved {
@@ -1138,24 +1755,32 @@ export declare namespace proto__typesystem {
                 readonly 'parameters': Function__Declaration$parameters$<_TAnnotation>;
                 readonly 'type parameters': Function__Declaration$type__parameters$<_TAnnotation>;
             };
-            type Namespace__2$parent__sibling$namespace$<_TAnnotation> = {
+            type Imports$D$<_TAnnotation> = Import$<_TAnnotation>;
+            type Imports$<_TAnnotation> = _pt.Dictionary<Imports$D$<_TAnnotation>>;
+            type Nested__Namespace$imports$<_TAnnotation> = Imports$<_TAnnotation>;
+            type Nested__Namespace$namespace$<_TAnnotation> = Namespace$<_TAnnotation>;
+            type Nested__Namespace$<_TAnnotation> = {
+                readonly 'imports': Nested__Namespace$imports$<_TAnnotation>;
+                readonly 'namespace': Nested__Namespace$namespace$<_TAnnotation>;
+            };
+            type Import$sibling$<_TAnnotation> = {
                 readonly 'key': string;
                 readonly 'referent': _TAnnotation;
             };
-            type Namespace__2$parent__sibling$<_TAnnotation> = {
-                readonly 'namespace': Namespace__2$parent__sibling$namespace$<_TAnnotation>;
+            type Import$parent__import$<_TAnnotation> = {
+                readonly 'key': string;
+                readonly 'referent': _TAnnotation;
             };
-            type Namespace__2$local$<_TAnnotation> = Local__Namespace$<_TAnnotation>;
-            type Namespace__2$<_TAnnotation> = ['local', Namespace__2$local$<_TAnnotation>] | ['parent sibling', Namespace__2$parent__sibling$<_TAnnotation>];
-            type Local__Namespace$namespaces$D$<_TAnnotation> = Namespace__2$<_TAnnotation>;
-            type Local__Namespace$namespaces$<_TAnnotation> = _pt.Dictionary<Local__Namespace$namespaces$D$<_TAnnotation>>;
-            type Local__Namespace$parameters$<_TAnnotation> = Type__Parameters$<_TAnnotation>;
-            type Local__Namespace$types$D$<_TAnnotation> = Type$<_TAnnotation>;
-            type Local__Namespace$types$<_TAnnotation> = _pt.Dictionary<Local__Namespace$types$D$<_TAnnotation>>;
-            type Local__Namespace$<_TAnnotation> = {
-                readonly 'namespaces': Local__Namespace$namespaces$<_TAnnotation>;
-                readonly 'parameters': Local__Namespace$parameters$<_TAnnotation>;
-                readonly 'types': Local__Namespace$types$<_TAnnotation>;
+            type Import$<_TAnnotation> = ['parent import', Import$parent__import$<_TAnnotation>] | ['sibling', Import$sibling$<_TAnnotation>];
+            type Namespace$namespaces$D$<_TAnnotation> = Nested__Namespace$<_TAnnotation>;
+            type Namespace$namespaces$<_TAnnotation> = _pt.Dictionary<Namespace$namespaces$D$<_TAnnotation>>;
+            type Namespace$parameters$<_TAnnotation> = Type__Parameters$<_TAnnotation>;
+            type Namespace$types$D$<_TAnnotation> = Type$<_TAnnotation>;
+            type Namespace$types$<_TAnnotation> = _pt.Dictionary<Namespace$types$D$<_TAnnotation>>;
+            type Namespace$<_TAnnotation> = {
+                readonly 'namespaces': Namespace$namespaces$<_TAnnotation>;
+                readonly 'parameters': Namespace$parameters$<_TAnnotation>;
+                readonly 'types': Namespace$types$<_TAnnotation>;
             };
             type Type$address__function$declaration$<_TAnnotation> = Function__Declaration$<_TAnnotation>;
             type Type$address__function$return__type$<_TAnnotation> = Type$<_TAnnotation>;
@@ -1175,6 +1800,7 @@ export declare namespace proto__typesystem {
                 readonly 'type': Type$group$D$type$<_TAnnotation>;
             };
             type Type$group$<_TAnnotation> = _pt.Dictionary<Type$group$D$<_TAnnotation>>;
+            type Type$lookup$<_TAnnotation> = Type$<_TAnnotation>;
             type Type$null$<_TAnnotation> = null;
             type Type$number$<_TAnnotation> = null;
             type Type$optional$<_TAnnotation> = Type$<_TAnnotation>;
@@ -1189,13 +1815,13 @@ export declare namespace proto__typesystem {
                 readonly 'key': string;
                 readonly 'referent': _TAnnotation;
             };
-            type Type$type__reference$external$namespaces$<_TAnnotation> = Namespace__Selection$<_TAnnotation>;
+            type Type$type__reference$external$namespace__path$<_TAnnotation> = Namespace__Selection$<_TAnnotation>;
             type Type$type__reference$external$type$<_TAnnotation> = {
                 readonly 'key': string;
                 readonly 'referent': _TAnnotation;
             };
             type Type$type__reference$external$<_TAnnotation> = {
-                readonly 'namespaces': Type$type__reference$external$namespaces$<_TAnnotation>;
+                readonly 'namespace path': Type$type__reference$external$namespace__path$<_TAnnotation>;
                 readonly 'type': Type$type__reference$external$type$<_TAnnotation>;
             };
             type Type$type__reference$sibling$<_TAnnotation> = {
@@ -1213,25 +1839,45 @@ export declare namespace proto__typesystem {
                 readonly 'declaration': Type$value__function$declaration$<_TAnnotation>;
                 readonly 'return type': Type$value__function$return__type$<_TAnnotation>;
             };
-            type Type$<_TAnnotation> = ['address function', Type$address__function$<_TAnnotation>] | ['array', Type$array$<_TAnnotation>] | ['boolean', Type$boolean$<_TAnnotation>] | ['computed', Type$computed$<_TAnnotation>] | ['dictionary', Type$dictionary$<_TAnnotation>] | ['group', Type$group$<_TAnnotation>] | ['null', Type$null$<_TAnnotation>] | ['number', Type$number$<_TAnnotation>] | ['optional', Type$optional$<_TAnnotation>] | ['procedure', Type$procedure$<_TAnnotation>] | ['string', Type$string$<_TAnnotation>] | ['tagged union', Type$tagged__union$<_TAnnotation>] | ['type parameter', Type$type__parameter$<_TAnnotation>] | ['type reference', Type$type__reference$<_TAnnotation>] | ['value function', Type$value__function$<_TAnnotation>];
+            type Type$<_TAnnotation> = ['address function', Type$address__function$<_TAnnotation>] | ['array', Type$array$<_TAnnotation>] | ['boolean', Type$boolean$<_TAnnotation>] | ['computed', Type$computed$<_TAnnotation>] | ['dictionary', Type$dictionary$<_TAnnotation>] | ['group', Type$group$<_TAnnotation>] | ['lookup', Type$lookup$<_TAnnotation>] | ['null', Type$null$<_TAnnotation>] | ['number', Type$number$<_TAnnotation>] | ['optional', Type$optional$<_TAnnotation>] | ['procedure', Type$procedure$<_TAnnotation>] | ['string', Type$string$<_TAnnotation>] | ['tagged union', Type$tagged__union$<_TAnnotation>] | ['type parameter', Type$type__parameter$<_TAnnotation>] | ['type reference', Type$type__reference$<_TAnnotation>] | ['value function', Type$value__function$<_TAnnotation>];
             type Type__Arguments$D$type$<_TAnnotation> = Type$<_TAnnotation>;
             type Type__Arguments$D$<_TAnnotation> = {
                 readonly 'type': Type__Arguments$D$type$<_TAnnotation>;
             };
             type Type__Arguments$<_TAnnotation> = _pt.Dictionary<Type__Arguments$D$<_TAnnotation>>;
-            type Namespace__Selection$namespace$<_TAnnotation> = {
+            type Namespace__Selection__Tail$namespace$<_TAnnotation> = {
                 readonly 'key': string;
                 readonly 'referent': _TAnnotation;
             };
-            type Namespace__Selection$arguments$<_TAnnotation> = Type__Arguments$<_TAnnotation>;
-            type Namespace__Selection$tail$O$<_TAnnotation> = Namespace__Selection$<_TAnnotation>;
-            type Namespace__Selection$tail$<_TAnnotation> = _pt.OptionalValue<Namespace__Selection$tail$O$<_TAnnotation>>;
-            type Namespace__Selection$<_TAnnotation> = {
-                readonly 'arguments': Namespace__Selection$arguments$<_TAnnotation>;
-                readonly 'namespace': Namespace__Selection$namespace$<_TAnnotation>;
-                readonly 'tail': Namespace__Selection$tail$<_TAnnotation>;
+            type Namespace__Selection__Tail$arguments$<_TAnnotation> = Type__Arguments$<_TAnnotation>;
+            type Namespace__Selection__Tail$tail$O$<_TAnnotation> = Namespace__Selection__Tail$<_TAnnotation>;
+            type Namespace__Selection__Tail$tail$<_TAnnotation> = _pt.OptionalValue<Namespace__Selection__Tail$tail$O$<_TAnnotation>>;
+            type Namespace__Selection__Tail$<_TAnnotation> = {
+                readonly 'arguments': Namespace__Selection__Tail$arguments$<_TAnnotation>;
+                readonly 'namespace': Namespace__Selection__Tail$namespace$<_TAnnotation>;
+                readonly 'tail': Namespace__Selection__Tail$tail$<_TAnnotation>;
             };
-            type Root$<_TAnnotation> = Local__Namespace$<_TAnnotation>;
+            type Namespace__Selection$start$import$namespace$<_TAnnotation> = {
+                readonly 'key': string;
+                readonly 'referent': _TAnnotation;
+            };
+            type Namespace__Selection$start$import$arguments$<_TAnnotation> = Type__Arguments$<_TAnnotation>;
+            type Namespace__Selection$start$import$tail$O$<_TAnnotation> = Namespace__Selection__Tail$<_TAnnotation>;
+            type Namespace__Selection$start$import$tail$<_TAnnotation> = _pt.OptionalValue<Namespace__Selection$start$import$tail$O$<_TAnnotation>>;
+            type Namespace__Selection$start$import$<_TAnnotation> = {
+                readonly 'arguments': Namespace__Selection$start$import$arguments$<_TAnnotation>;
+                readonly 'namespace': Namespace__Selection$start$import$namespace$<_TAnnotation>;
+                readonly 'tail': Namespace__Selection$start$import$tail$<_TAnnotation>;
+            };
+            type Namespace__Selection$start$local$namespace$<_TAnnotation> = Namespace__Selection__Tail$<_TAnnotation>;
+            type Namespace__Selection$start$local$<_TAnnotation> = {
+                readonly 'namespace': Namespace__Selection$start$local$namespace$<_TAnnotation>;
+            };
+            type Namespace__Selection$start$<_TAnnotation> = ['import', Namespace__Selection$start$import$<_TAnnotation>] | ['local', Namespace__Selection$start$local$<_TAnnotation>];
+            type Namespace__Selection$<_TAnnotation> = {
+                readonly 'start': Namespace__Selection$start$<_TAnnotation>;
+            };
+            type Root$<_TAnnotation> = Namespace$<_TAnnotation>;
         }
         namespace T {
             import _IFlat = Flat;
@@ -1268,35 +1914,47 @@ export declare namespace proto__typesystem {
                 }
                 type $<_TAnnotation> = _IFlat.Function__Declaration$<_TAnnotation>;
             }
-            namespace Namespace__2 {
-                namespace parent__sibling {
-                    namespace namespace {
-                        type $<_TAnnotation> = _IFlat.Namespace__2$parent__sibling$namespace$<_TAnnotation>;
-                    }
-                    type $<_TAnnotation> = _IFlat.Namespace__2$parent__sibling$<_TAnnotation>;
+            namespace Imports {
+                namespace D {
+                    type $<_TAnnotation> = _IFlat.Imports$D$<_TAnnotation>;
                 }
-                namespace local {
-                    type $<_TAnnotation> = _IFlat.Namespace__2$local$<_TAnnotation>;
-                }
-                type $<_TAnnotation> = _IFlat.Namespace__2$<_TAnnotation>;
+                type $<_TAnnotation> = _IFlat.Imports$<_TAnnotation>;
             }
-            namespace Local__Namespace {
+            namespace Nested__Namespace {
+                namespace imports {
+                    type $<_TAnnotation> = _IFlat.Nested__Namespace$imports$<_TAnnotation>;
+                }
+                namespace namespace {
+                    type $<_TAnnotation> = _IFlat.Nested__Namespace$namespace$<_TAnnotation>;
+                }
+                type $<_TAnnotation> = _IFlat.Nested__Namespace$<_TAnnotation>;
+            }
+            namespace Import {
+                namespace sibling {
+                    type $<_TAnnotation> = _IFlat.Import$sibling$<_TAnnotation>;
+                }
+                namespace parent__import {
+                    type $<_TAnnotation> = _IFlat.Import$parent__import$<_TAnnotation>;
+                }
+                type $<_TAnnotation> = _IFlat.Import$<_TAnnotation>;
+            }
+            namespace Namespace {
                 namespace namespaces {
                     namespace D {
-                        type $<_TAnnotation> = _IFlat.Local__Namespace$namespaces$D$<_TAnnotation>;
+                        type $<_TAnnotation> = _IFlat.Namespace$namespaces$D$<_TAnnotation>;
                     }
-                    type $<_TAnnotation> = _IFlat.Local__Namespace$namespaces$<_TAnnotation>;
+                    type $<_TAnnotation> = _IFlat.Namespace$namespaces$<_TAnnotation>;
                 }
                 namespace parameters {
-                    type $<_TAnnotation> = _IFlat.Local__Namespace$parameters$<_TAnnotation>;
+                    type $<_TAnnotation> = _IFlat.Namespace$parameters$<_TAnnotation>;
                 }
                 namespace types {
                     namespace D {
-                        type $<_TAnnotation> = _IFlat.Local__Namespace$types$D$<_TAnnotation>;
+                        type $<_TAnnotation> = _IFlat.Namespace$types$D$<_TAnnotation>;
                     }
-                    type $<_TAnnotation> = _IFlat.Local__Namespace$types$<_TAnnotation>;
+                    type $<_TAnnotation> = _IFlat.Namespace$types$<_TAnnotation>;
                 }
-                type $<_TAnnotation> = _IFlat.Local__Namespace$<_TAnnotation>;
+                type $<_TAnnotation> = _IFlat.Namespace$<_TAnnotation>;
             }
             namespace TType {
                 namespace address__function {
@@ -1335,6 +1993,9 @@ export declare namespace proto__typesystem {
                     }
                     type $<_TAnnotation> = _IFlat.Type$group$<_TAnnotation>;
                 }
+                namespace lookup {
+                    type $<_TAnnotation> = _IFlat.Type$lookup$<_TAnnotation>;
+                }
                 namespace _lnull {
                     type $<_TAnnotation> = _IFlat.Type$null$<_TAnnotation>;
                 }
@@ -1364,8 +2025,8 @@ export declare namespace proto__typesystem {
                 }
                 namespace type__reference {
                     namespace external {
-                        namespace namespaces {
-                            type $<_TAnnotation> = _IFlat.Type$type__reference$external$namespaces$<_TAnnotation>;
+                        namespace namespace__path {
+                            type $<_TAnnotation> = _IFlat.Type$type__reference$external$namespace__path$<_TAnnotation>;
                         }
                         namespace _ltype {
                             type $<_TAnnotation> = _IFlat.Type$type__reference$external$type$<_TAnnotation>;
@@ -1400,18 +2061,45 @@ export declare namespace proto__typesystem {
                 }
                 type $<_TAnnotation> = _IFlat.Type__Arguments$<_TAnnotation>;
             }
-            namespace Namespace__Selection {
+            namespace Namespace__Selection__Tail {
                 namespace namespace {
-                    type $<_TAnnotation> = _IFlat.Namespace__Selection$namespace$<_TAnnotation>;
+                    type $<_TAnnotation> = _IFlat.Namespace__Selection__Tail$namespace$<_TAnnotation>;
                 }
-                namespace arguments {
-                    type $<_TAnnotation> = _IFlat.Namespace__Selection$arguments$<_TAnnotation>;
+                namespace _larguments {
+                    type $<_TAnnotation> = _IFlat.Namespace__Selection__Tail$arguments$<_TAnnotation>;
                 }
                 namespace tail {
                     namespace O {
-                        type $<_TAnnotation> = _IFlat.Namespace__Selection$tail$O$<_TAnnotation>;
+                        type $<_TAnnotation> = _IFlat.Namespace__Selection__Tail$tail$O$<_TAnnotation>;
                     }
-                    type $<_TAnnotation> = _IFlat.Namespace__Selection$tail$<_TAnnotation>;
+                    type $<_TAnnotation> = _IFlat.Namespace__Selection__Tail$tail$<_TAnnotation>;
+                }
+                type $<_TAnnotation> = _IFlat.Namespace__Selection__Tail$<_TAnnotation>;
+            }
+            namespace Namespace__Selection {
+                namespace start {
+                    namespace _limport {
+                        namespace namespace {
+                            type $<_TAnnotation> = _IFlat.Namespace__Selection$start$import$namespace$<_TAnnotation>;
+                        }
+                        namespace _larguments {
+                            type $<_TAnnotation> = _IFlat.Namespace__Selection$start$import$arguments$<_TAnnotation>;
+                        }
+                        namespace tail {
+                            namespace O {
+                                type $<_TAnnotation> = _IFlat.Namespace__Selection$start$import$tail$O$<_TAnnotation>;
+                            }
+                            type $<_TAnnotation> = _IFlat.Namespace__Selection$start$import$tail$<_TAnnotation>;
+                        }
+                        type $<_TAnnotation> = _IFlat.Namespace__Selection$start$import$<_TAnnotation>;
+                    }
+                    namespace local {
+                        namespace namespace {
+                            type $<_TAnnotation> = _IFlat.Namespace__Selection$start$local$namespace$<_TAnnotation>;
+                        }
+                        type $<_TAnnotation> = _IFlat.Namespace__Selection$start$local$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Namespace__Selection$start$<_TAnnotation>;
                 }
                 type $<_TAnnotation> = _IFlat.Namespace__Selection$<_TAnnotation>;
             }
@@ -1440,24 +2128,32 @@ export declare namespace proto__typesystem {
                 readonly 'parameters': Function__Declaration$parameters$;
                 readonly 'type parameters': Function__Declaration$type__parameters$;
             };
-            type Namespace__2$parent__sibling$namespace$ = {
+            type Imports$D$ = Import$;
+            type Imports$ = _pt.Dictionary<Imports$D$>;
+            type Nested__Namespace$imports$ = Imports$;
+            type Nested__Namespace$namespace$ = Namespace$;
+            type Nested__Namespace$ = {
+                readonly 'imports': Nested__Namespace$imports$;
+                readonly 'namespace': Nested__Namespace$namespace$;
+            };
+            type Import$sibling$ = {
                 readonly 'key': string;
-                readonly 'referent': Namespace__2$;
+                readonly 'referent': Nested__Namespace$;
             };
-            type Namespace__2$parent__sibling$ = {
-                readonly 'namespace': Namespace__2$parent__sibling$namespace$;
+            type Import$parent__import$ = {
+                readonly 'key': string;
+                readonly 'referent': Imports$D$;
             };
-            type Namespace__2$local$ = Local__Namespace$;
-            type Namespace__2$ = ['local', Namespace__2$local$] | ['parent sibling', Namespace__2$parent__sibling$];
-            type Local__Namespace$namespaces$D$ = Namespace__2$;
-            type Local__Namespace$namespaces$ = _pt.Dictionary<Local__Namespace$namespaces$D$>;
-            type Local__Namespace$parameters$ = Type__Parameters$;
-            type Local__Namespace$types$D$ = Type$;
-            type Local__Namespace$types$ = _pt.Dictionary<Local__Namespace$types$D$>;
-            type Local__Namespace$ = {
-                readonly 'namespaces': Local__Namespace$namespaces$;
-                readonly 'parameters': Local__Namespace$parameters$;
-                readonly 'types': Local__Namespace$types$;
+            type Import$ = ['parent import', Import$parent__import$] | ['sibling', Import$sibling$];
+            type Namespace$namespaces$D$ = Nested__Namespace$;
+            type Namespace$namespaces$ = _pt.Dictionary<Namespace$namespaces$D$>;
+            type Namespace$parameters$ = Type__Parameters$;
+            type Namespace$types$D$ = Type$;
+            type Namespace$types$ = _pt.Dictionary<Namespace$types$D$>;
+            type Namespace$ = {
+                readonly 'namespaces': Namespace$namespaces$;
+                readonly 'parameters': Namespace$parameters$;
+                readonly 'types': Namespace$types$;
             };
             type Type$address__function$declaration$ = Function__Declaration$;
             type Type$address__function$return__type$ = Type$;
@@ -1477,6 +2173,7 @@ export declare namespace proto__typesystem {
                 readonly 'type': Type$group$D$type$;
             };
             type Type$group$ = _pt.Dictionary<Type$group$D$>;
+            type Type$lookup$ = Type$;
             type Type$null$ = null;
             type Type$number$ = null;
             type Type$optional$ = Type$;
@@ -1491,13 +2188,13 @@ export declare namespace proto__typesystem {
                 readonly 'key': string;
                 readonly 'referent': Aggregated__Type__Parameters$D$;
             };
-            type Type$type__reference$external$namespaces$ = Namespace__Selection$;
+            type Type$type__reference$external$namespace__path$ = Namespace__Selection$;
             type Type$type__reference$external$type$ = {
                 readonly 'key': string;
-                readonly 'referent': Local__Namespace$types$D$;
+                readonly 'referent': Namespace$types$D$;
             };
             type Type$type__reference$external$ = {
-                readonly 'namespaces': Type$type__reference$external$namespaces$;
+                readonly 'namespace path': Type$type__reference$external$namespace__path$;
                 readonly 'type': Type$type__reference$external$type$;
             };
             type Type$type__reference$sibling$ = {
@@ -1515,25 +2212,45 @@ export declare namespace proto__typesystem {
                 readonly 'declaration': Type$value__function$declaration$;
                 readonly 'return type': Type$value__function$return__type$;
             };
-            type Type$ = ['address function', Type$address__function$] | ['array', Type$array$] | ['boolean', Type$boolean$] | ['computed', Type$computed$] | ['dictionary', Type$dictionary$] | ['group', Type$group$] | ['null', Type$null$] | ['number', Type$number$] | ['optional', Type$optional$] | ['procedure', Type$procedure$] | ['string', Type$string$] | ['tagged union', Type$tagged__union$] | ['type parameter', Type$type__parameter$] | ['type reference', Type$type__reference$] | ['value function', Type$value__function$];
+            type Type$ = ['address function', Type$address__function$] | ['array', Type$array$] | ['boolean', Type$boolean$] | ['computed', Type$computed$] | ['dictionary', Type$dictionary$] | ['group', Type$group$] | ['lookup', Type$lookup$] | ['null', Type$null$] | ['number', Type$number$] | ['optional', Type$optional$] | ['procedure', Type$procedure$] | ['string', Type$string$] | ['tagged union', Type$tagged__union$] | ['type parameter', Type$type__parameter$] | ['type reference', Type$type__reference$] | ['value function', Type$value__function$];
             type Type__Arguments$D$type$ = Type$;
             type Type__Arguments$D$ = {
                 readonly 'type': Type__Arguments$D$type$;
             };
             type Type__Arguments$ = _pt.Dictionary<Type__Arguments$D$>;
-            type Namespace__Selection$namespace$ = {
+            type Namespace__Selection__Tail$namespace$ = {
                 readonly 'key': string;
-                readonly 'referent': Local__Namespace$namespaces$D$;
+                readonly 'referent': Namespace$namespaces$D$;
             };
-            type Namespace__Selection$arguments$ = Type__Arguments$;
-            type Namespace__Selection$tail$O$ = Namespace__Selection$;
-            type Namespace__Selection$tail$ = _pt.OptionalValue<Namespace__Selection$tail$O$>;
+            type Namespace__Selection__Tail$arguments$ = Type__Arguments$;
+            type Namespace__Selection__Tail$tail$O$ = Namespace__Selection__Tail$;
+            type Namespace__Selection__Tail$tail$ = _pt.OptionalValue<Namespace__Selection__Tail$tail$O$>;
+            type Namespace__Selection__Tail$ = {
+                readonly 'arguments': Namespace__Selection__Tail$arguments$;
+                readonly 'namespace': Namespace__Selection__Tail$namespace$;
+                readonly 'tail': Namespace__Selection__Tail$tail$;
+            };
+            type Namespace__Selection$start$import$namespace$ = {
+                readonly 'key': string;
+                readonly 'referent': Imports$D$;
+            };
+            type Namespace__Selection$start$import$arguments$ = Type__Arguments$;
+            type Namespace__Selection$start$import$tail$O$ = Namespace__Selection__Tail$;
+            type Namespace__Selection$start$import$tail$ = _pt.OptionalValue<Namespace__Selection$start$import$tail$O$>;
+            type Namespace__Selection$start$import$ = {
+                readonly 'arguments': Namespace__Selection$start$import$arguments$;
+                readonly 'namespace': Namespace__Selection$start$import$namespace$;
+                readonly 'tail': Namespace__Selection$start$import$tail$;
+            };
+            type Namespace__Selection$start$local$namespace$ = Namespace__Selection__Tail$;
+            type Namespace__Selection$start$local$ = {
+                readonly 'namespace': Namespace__Selection$start$local$namespace$;
+            };
+            type Namespace__Selection$start$ = ['import', Namespace__Selection$start$import$] | ['local', Namespace__Selection$start$local$];
             type Namespace__Selection$ = {
-                readonly 'arguments': Namespace__Selection$arguments$;
-                readonly 'namespace': Namespace__Selection$namespace$;
-                readonly 'tail': Namespace__Selection$tail$;
+                readonly 'start': Namespace__Selection$start$;
             };
-            type Root$ = Local__Namespace$;
+            type Root$ = Namespace$;
         }
         namespace T {
             import _IFlat = Flat;
@@ -1570,35 +2287,47 @@ export declare namespace proto__typesystem {
                 }
                 type $ = _IFlat.Function__Declaration$;
             }
-            namespace Namespace__2 {
-                namespace parent__sibling {
-                    namespace namespace {
-                        type $ = _IFlat.Namespace__2$parent__sibling$namespace$;
-                    }
-                    type $ = _IFlat.Namespace__2$parent__sibling$;
+            namespace Imports {
+                namespace D {
+                    type $ = _IFlat.Imports$D$;
                 }
-                namespace local {
-                    type $ = _IFlat.Namespace__2$local$;
-                }
-                type $ = _IFlat.Namespace__2$;
+                type $ = _IFlat.Imports$;
             }
-            namespace Local__Namespace {
+            namespace Nested__Namespace {
+                namespace imports {
+                    type $ = _IFlat.Nested__Namespace$imports$;
+                }
+                namespace namespace {
+                    type $ = _IFlat.Nested__Namespace$namespace$;
+                }
+                type $ = _IFlat.Nested__Namespace$;
+            }
+            namespace Import {
+                namespace sibling {
+                    type $ = _IFlat.Import$sibling$;
+                }
+                namespace parent__import {
+                    type $ = _IFlat.Import$parent__import$;
+                }
+                type $ = _IFlat.Import$;
+            }
+            namespace Namespace {
                 namespace namespaces {
                     namespace D {
-                        type $ = _IFlat.Local__Namespace$namespaces$D$;
+                        type $ = _IFlat.Namespace$namespaces$D$;
                     }
-                    type $ = _IFlat.Local__Namespace$namespaces$;
+                    type $ = _IFlat.Namespace$namespaces$;
                 }
                 namespace parameters {
-                    type $ = _IFlat.Local__Namespace$parameters$;
+                    type $ = _IFlat.Namespace$parameters$;
                 }
                 namespace types {
                     namespace D {
-                        type $ = _IFlat.Local__Namespace$types$D$;
+                        type $ = _IFlat.Namespace$types$D$;
                     }
-                    type $ = _IFlat.Local__Namespace$types$;
+                    type $ = _IFlat.Namespace$types$;
                 }
-                type $ = _IFlat.Local__Namespace$;
+                type $ = _IFlat.Namespace$;
             }
             namespace TType {
                 namespace address__function {
@@ -1637,6 +2366,9 @@ export declare namespace proto__typesystem {
                     }
                     type $ = _IFlat.Type$group$;
                 }
+                namespace lookup {
+                    type $ = _IFlat.Type$lookup$;
+                }
                 namespace _lnull {
                     type $ = _IFlat.Type$null$;
                 }
@@ -1666,8 +2398,8 @@ export declare namespace proto__typesystem {
                 }
                 namespace type__reference {
                     namespace external {
-                        namespace namespaces {
-                            type $ = _IFlat.Type$type__reference$external$namespaces$;
+                        namespace namespace__path {
+                            type $ = _IFlat.Type$type__reference$external$namespace__path$;
                         }
                         namespace _ltype {
                             type $ = _IFlat.Type$type__reference$external$type$;
@@ -1702,18 +2434,45 @@ export declare namespace proto__typesystem {
                 }
                 type $ = _IFlat.Type__Arguments$;
             }
-            namespace Namespace__Selection {
+            namespace Namespace__Selection__Tail {
                 namespace namespace {
-                    type $ = _IFlat.Namespace__Selection$namespace$;
+                    type $ = _IFlat.Namespace__Selection__Tail$namespace$;
                 }
-                namespace arguments {
-                    type $ = _IFlat.Namespace__Selection$arguments$;
+                namespace _larguments {
+                    type $ = _IFlat.Namespace__Selection__Tail$arguments$;
                 }
                 namespace tail {
                     namespace O {
-                        type $ = _IFlat.Namespace__Selection$tail$O$;
+                        type $ = _IFlat.Namespace__Selection__Tail$tail$O$;
                     }
-                    type $ = _IFlat.Namespace__Selection$tail$;
+                    type $ = _IFlat.Namespace__Selection__Tail$tail$;
+                }
+                type $ = _IFlat.Namespace__Selection__Tail$;
+            }
+            namespace Namespace__Selection {
+                namespace start {
+                    namespace _limport {
+                        namespace namespace {
+                            type $ = _IFlat.Namespace__Selection$start$import$namespace$;
+                        }
+                        namespace _larguments {
+                            type $ = _IFlat.Namespace__Selection$start$import$arguments$;
+                        }
+                        namespace tail {
+                            namespace O {
+                                type $ = _IFlat.Namespace__Selection$start$import$tail$O$;
+                            }
+                            type $ = _IFlat.Namespace__Selection$start$import$tail$;
+                        }
+                        type $ = _IFlat.Namespace__Selection$start$import$;
+                    }
+                    namespace local {
+                        namespace namespace {
+                            type $ = _IFlat.Namespace__Selection$start$local$namespace$;
+                        }
+                        type $ = _IFlat.Namespace__Selection$start$local$;
+                    }
+                    type $ = _IFlat.Namespace__Selection$start$;
                 }
                 type $ = _IFlat.Namespace__Selection$;
             }
@@ -1725,111 +2484,119 @@ export declare namespace proto__typesystem {
     namespace Resolve {
         import _IResolved = Resolved;
         import _IUnresolved = Unresolved;
-        type Aggregated__Type__Parameters = <_TAnnotation>($: _IUnresolved.Flat.Aggregated__Type__Parameters$<_TAnnotation>) => _IResolved.Flat.Aggregated__Type__Parameters$;
-        type Function__Declaration = <_TAnnotation>($: _IUnresolved.Flat.Function__Declaration$<_TAnnotation>, $p: {
-            readonly 'cyclic sibling types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Type$>>;
-            readonly 'resolved namespaces': _pt.Lookup<_IResolved.Flat.Namespace__2$>;
-            readonly 'resolved sibling types': _pt.Lookup<_IResolved.Flat.Type$>;
-            readonly 'type parameters': _IResolved.Flat.Aggregated__Type__Parameters$;
-        }) => _IResolved.Flat.Function__Declaration$;
-        type Local__Namespace = <_TAnnotation>($: _IUnresolved.Flat.Local__Namespace$<_TAnnotation>, $p: {
-            readonly 'parent type parameters': _pt.OptionalValue<_IResolved.Flat.Aggregated__Type__Parameters$>;
-            readonly 'resolved sibling namespaces': _pt.OptionalValue<_pt.Lookup<_IResolved.Flat.Namespace__2$>>;
-        }) => _IResolved.Flat.Local__Namespace$;
-        type Namespace__2 = <_TAnnotation>($: _IUnresolved.Flat.Namespace__2$<_TAnnotation>, $p: {
-            readonly 'resolved parent sibling namespaces': _pt.OptionalValue<_pt.Lookup<_IResolved.Flat.Namespace__2$>>;
-        }) => _IResolved.Flat.Namespace__2$;
-        type Namespace__Selection = <_TAnnotation>($: _IUnresolved.Flat.Namespace__Selection$<_TAnnotation>, $p: {
-            readonly 'cyclic sibling types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Type$>>;
-            readonly 'resolved namespaces': _pt.Lookup<_IResolved.Flat.Namespace__2$>;
-            readonly 'resolved sibling types': _pt.Lookup<_IResolved.Flat.Type$>;
-            readonly 'type parameters': _IResolved.Flat.Aggregated__Type__Parameters$;
-        }) => _IResolved.Flat.Namespace__Selection$;
-        type Root = <_TAnnotation>($: _IUnresolved.Flat.Root$<_TAnnotation>) => _IResolved.Flat.Root$;
-        type Type__Arguments = <_TAnnotation>($: _IUnresolved.Flat.Type__Arguments$<_TAnnotation>) => _IResolved.Flat.Type__Arguments$;
-        type Type__Parameters = <_TAnnotation>($: _IUnresolved.Flat.Type__Parameters$<_TAnnotation>, $p: {
-            readonly 'parent type parameters': _pt.OptionalValue<_IResolved.Flat.Aggregated__Type__Parameters$>;
-        }) => _IResolved.Flat.Type__Parameters$;
-        type Type = <_TAnnotation>($: _IUnresolved.Flat.Type$<_TAnnotation>, $p: {
-            readonly 'cyclic sibling types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Type$>>;
-            readonly 'resolved namespaces': _pt.Lookup<_IResolved.Flat.Namespace__2$>;
-            readonly 'resolved sibling types': _pt.Lookup<_IResolved.Flat.Type$>;
-            readonly 'type parameters': _IResolved.Flat.Aggregated__Type__Parameters$;
-        }) => _IResolved.Flat.Type$;
+        namespace types {
+            type Aggregated__Type__Parameters = <_TAnnotation>($: _IUnresolved.Flat.Aggregated__Type__Parameters$<_TAnnotation>) => _IResolved.Flat.Aggregated__Type__Parameters$;
+            type Function__Declaration = <_TAnnotation>($: _IUnresolved.Flat.Function__Declaration$<_TAnnotation>, $p: {
+                readonly 'cyclic sibling types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Type$>>;
+                readonly 'resolved namespaces': _pt.Lookup<_IResolved.Flat.Nested__Namespace$>;
+                readonly 'resolved sibling types': _pt.Lookup<_IResolved.Flat.Type$>;
+                readonly 'type parameters': _IResolved.Flat.Aggregated__Type__Parameters$;
+            }) => _IResolved.Flat.Function__Declaration$;
+            type Import = <_TAnnotation>($: _IUnresolved.Flat.Import$<_TAnnotation>) => _IResolved.Flat.Import$;
+            type Imports = <_TAnnotation>($: _IUnresolved.Flat.Imports$<_TAnnotation>) => _IResolved.Flat.Imports$;
+            type Namespace = <_TAnnotation>($: _IUnresolved.Flat.Namespace$<_TAnnotation>, $p: {
+                readonly 'parent type parameters': _pt.OptionalValue<_IResolved.Flat.Aggregated__Type__Parameters$>;
+                readonly 'resolved sibling namespaces': _pt.OptionalValue<_pt.Lookup<_IResolved.Flat.Nested__Namespace$>>;
+            }) => _IResolved.Flat.Namespace$;
+            type Nested__Namespace = <_TAnnotation>($: _IUnresolved.Flat.Nested__Namespace$<_TAnnotation>, $p: {
+                readonly 'resolved parent sibling namespaces': _pt.OptionalValue<_pt.Lookup<_IResolved.Flat.Nested__Namespace$>>;
+            }) => _IResolved.Flat.Nested__Namespace$;
+            type Namespace__Selection = <_TAnnotation>($: _IUnresolved.Flat.Namespace__Selection$<_TAnnotation>, $p: {
+                readonly 'cyclic sibling types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Type$>>;
+                readonly 'resolved namespaces': _pt.Lookup<_IResolved.Flat.Nested__Namespace$>;
+                readonly 'resolved sibling types': _pt.Lookup<_IResolved.Flat.Type$>;
+                readonly 'type parameters': _IResolved.Flat.Aggregated__Type__Parameters$;
+            }) => _IResolved.Flat.Namespace__Selection$;
+            type Namespace__Selection__Tail = <_TAnnotation>($: _IUnresolved.Flat.Namespace__Selection__Tail$<_TAnnotation>) => _IResolved.Flat.Namespace__Selection__Tail$;
+            type Root = <_TAnnotation>($: _IUnresolved.Flat.Root$<_TAnnotation>) => _IResolved.Flat.Root$;
+            type Type__Arguments = <_TAnnotation>($: _IUnresolved.Flat.Type__Arguments$<_TAnnotation>) => _IResolved.Flat.Type__Arguments$;
+            type Type__Parameters = <_TAnnotation>($: _IUnresolved.Flat.Type__Parameters$<_TAnnotation>, $p: {
+                readonly 'parent type parameters': _pt.OptionalValue<_IResolved.Flat.Aggregated__Type__Parameters$>;
+            }) => _IResolved.Flat.Type__Parameters$;
+            type Type = <_TAnnotation>($: _IUnresolved.Flat.Type$<_TAnnotation>, $p: {
+                readonly 'cyclic sibling types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Type$>>;
+                readonly 'resolved namespaces': _pt.Lookup<_IResolved.Flat.Nested__Namespace$>;
+                readonly 'resolved sibling types': _pt.Lookup<_IResolved.Flat.Type$>;
+                readonly 'type parameters': _IResolved.Flat.Aggregated__Type__Parameters$;
+            }) => _IResolved.Flat.Type$;
+        }
+        type $ = {
+            readonly 'Aggregated Type Parameters': types.Aggregated__Type__Parameters;
+            readonly 'Function Declaration': types.Function__Declaration;
+            readonly 'Import': types.Import;
+            readonly 'Imports': types.Imports;
+            readonly 'Namespace': types.Namespace;
+            readonly 'Namespace Selection': types.Namespace__Selection;
+            readonly 'Namespace Selection Tail': types.Namespace__Selection__Tail;
+            readonly 'Nested Namespace': types.Nested__Namespace;
+            readonly 'Root': types.Root;
+            readonly 'Type': types.Type;
+            readonly 'Type Arguments': types.Type__Arguments;
+            readonly 'Type Parameters': types.Type__Parameters;
+        };
     }
     namespace Serialize {
         import _IResolved = Resolved;
-        type Aggregated__Type__Parameters = ($: _IResolved.Flat.Aggregated__Type__Parameters$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Type__Parameters = ($: _IResolved.Flat.Type__Parameters$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Function__Declaration = ($: _IResolved.Flat.Function__Declaration$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Namespace__2 = ($: _IResolved.Flat.Namespace__2$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Local__Namespace = ($: _IResolved.Flat.Local__Namespace$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Type = ($: _IResolved.Flat.Type$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Type__Arguments = ($: _IResolved.Flat.Type__Arguments$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Namespace__Selection = ($: _IResolved.Flat.Namespace__Selection$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Root = ($: _IResolved.Flat.Root$, $p: {
-            readonly 'out': boolean;
-        }) => void;
+        namespace types {
+            type Aggregated__Type__Parameters = ($: _IResolved.Flat.Aggregated__Type__Parameters$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Type__Parameters = ($: _IResolved.Flat.Type__Parameters$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Function__Declaration = ($: _IResolved.Flat.Function__Declaration$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Imports = ($: _IResolved.Flat.Imports$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Nested__Namespace = ($: _IResolved.Flat.Nested__Namespace$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Import = ($: _IResolved.Flat.Import$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Namespace = ($: _IResolved.Flat.Namespace$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Type = ($: _IResolved.Flat.Type$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Type__Arguments = ($: _IResolved.Flat.Type__Arguments$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Namespace__Selection__Tail = ($: _IResolved.Flat.Namespace__Selection__Tail$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Namespace__Selection = ($: _IResolved.Flat.Namespace__Selection$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Root = ($: _IResolved.Flat.Root$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+        }
+        type $ = {
+            readonly 'Aggregated Type Parameters': types.Aggregated__Type__Parameters;
+            readonly 'Function Declaration': types.Function__Declaration;
+            readonly 'Import': types.Import;
+            readonly 'Imports': types.Imports;
+            readonly 'Namespace': types.Namespace;
+            readonly 'Namespace Selection': types.Namespace__Selection;
+            readonly 'Namespace Selection Tail': types.Namespace__Selection__Tail;
+            readonly 'Nested Namespace': types.Nested__Namespace;
+            readonly 'Root': types.Root;
+            readonly 'Type': types.Type;
+            readonly 'Type Arguments': types.Type__Arguments;
+            readonly 'Type Parameters': types.Type__Parameters;
+        };
     }
     namespace Select {
         import _IResolved = Resolved;
-        type Namespace__2 = ($: _IResolved.Flat.Namespace__2$) => _IResolved.Flat.Local__Namespace$;
-        type Namespace__Selection = ($: _IResolved.Flat.Namespace__Selection$) => _IResolved.Flat.Namespace__2$;
+        namespace types {
+        }
+        type Nested__Namespace = ($: _IResolved.Flat.Nested__Namespace$) => _IResolved.Flat.Namespace$;
+        type Namespace__Selection = ($: _IResolved.Flat.Namespace__Selection$) => _IResolved.Flat.Nested__Namespace$;
     }
-    type _$ = ($: null) => {
-        readonly 'Aggregated Type Parameters': {
-            readonly 'Resolve': Resolve.Aggregated__Type__Parameters;
-            readonly 'Serialize': Serialize.Aggregated__Type__Parameters;
-        };
-        readonly 'Function Declaration': {
-            readonly 'Resolve': Resolve.Function__Declaration;
-            readonly 'Serialize': Serialize.Function__Declaration;
-        };
-        readonly 'Local Namespace': {
-            readonly 'Resolve': Resolve.Local__Namespace;
-            readonly 'Serialize': Serialize.Local__Namespace;
-        };
-        readonly 'Namespace 2': {
-            readonly 'Resolve': Resolve.Namespace__2;
-            readonly 'Serialize': Serialize.Namespace__2;
-        };
-        readonly 'Namespace Selection': {
-            readonly 'Resolve': Resolve.Namespace__Selection;
-            readonly 'Serialize': Serialize.Namespace__Selection;
-        };
-        readonly 'Root': {
-            readonly 'Resolve': Resolve.Root;
-            readonly 'Serialize': Serialize.Root;
-        };
-        readonly 'Type': {
-            readonly 'Resolve': Resolve.Type;
-            readonly 'Serialize': Serialize.Type;
-        };
-        readonly 'Type Arguments': {
-            readonly 'Resolve': Resolve.Type__Arguments;
-            readonly 'Serialize': Serialize.Type__Arguments;
-        };
-        readonly 'Type Parameters': {
-            readonly 'Resolve': Resolve.Type__Parameters;
-            readonly 'Serialize': Serialize.Type__Parameters;
-        };
-    };
 }
 export declare namespace proto__implementation {
     import _Itypesystem = proto__typesystem;
@@ -1854,65 +2621,104 @@ export declare namespace proto__implementation {
                 readonly 'type': Type__Arguments$D$type$<_TAnnotation>;
             };
             type Type__Arguments$<_TAnnotation> = _pt.Dictionary<Type__Arguments$D$<_TAnnotation>>;
-            type Address__Selection__Tail$O$step$call$address__function$<_TAnnotation> = _TAnnotation;
-            type Address__Selection__Tail$O$step$call$type__arguments$<_TAnnotation> = Type__Arguments$<_TAnnotation>;
-            type Address__Selection__Tail$O$step$call$<_TAnnotation> = {
-                readonly 'address function': Address__Selection__Tail$O$step$call$address__function$<_TAnnotation>;
-                readonly 'type arguments': Address__Selection__Tail$O$step$call$type__arguments$<_TAnnotation>;
+            type Local__Variables$D$type$<_TAnnotation> = Type__Selection$<_TAnnotation>;
+            type Local__Variables$D$initialization$<_TAnnotation> = Initialization$<_TAnnotation>;
+            type Local__Variables$D$<_TAnnotation> = {
+                readonly 'initialization': Local__Variables$D$initialization$<_TAnnotation>;
+                readonly 'type': Local__Variables$D$type$<_TAnnotation>;
             };
-            type Address__Selection__Tail$O$step$property$group$<_TAnnotation> = _TAnnotation;
-            type Address__Selection__Tail$O$step$property$property$<_TAnnotation> = {
+            type Local__Variables$<_TAnnotation> = _pt.Dictionary<Local__Variables$D$<_TAnnotation>>;
+            type Aggregated__Variable$type$variable__stack2$variable$<_TAnnotation> = {
                 readonly 'key': string;
                 readonly 'referent': _TAnnotation;
             };
-            type Address__Selection__Tail$O$step$property$<_TAnnotation> = {
-                readonly 'group': Address__Selection__Tail$O$step$property$group$<_TAnnotation>;
-                readonly 'property': Address__Selection__Tail$O$step$property$property$<_TAnnotation>;
+            type Aggregated__Variable$type$variable__stack2$<_TAnnotation> = {
+                readonly 'variable': Aggregated__Variable$type$variable__stack2$variable$<_TAnnotation>;
             };
-            type Address__Selection__Tail$O$step$<_TAnnotation> = ['call', Address__Selection__Tail$O$step$call$<_TAnnotation>] | ['property', Address__Selection__Tail$O$step$property$<_TAnnotation>];
-            type Address__Selection__Tail$O$tail$<_TAnnotation> = Address__Selection__Tail$<_TAnnotation>;
-            type Address__Selection__Tail$O$<_TAnnotation> = {
-                readonly 'step': Address__Selection__Tail$O$step$<_TAnnotation>;
-                readonly 'tail': Address__Selection__Tail$O$tail$<_TAnnotation>;
+            type Aggregated__Variable$type$local$<_TAnnotation> = null;
+            type Aggregated__Variable$type$<_TAnnotation> = ['local', Aggregated__Variable$type$local$<_TAnnotation>] | ['variable stack2', Aggregated__Variable$type$variable__stack2$<_TAnnotation>];
+            type Aggregated__Variable$<_TAnnotation> = {
+                readonly 'type': Aggregated__Variable$type$<_TAnnotation>;
             };
-            type Address__Selection__Tail$<_TAnnotation> = _pt.OptionalValue<Address__Selection__Tail$O$<_TAnnotation>>;
-            type Variables$D$type$variable__stack2$variable$<_TAnnotation> = {
+            type Aggregated__Variables$D$<_TAnnotation> = Aggregated__Variable$<_TAnnotation>;
+            type Aggregated__Variables$<_TAnnotation> = _pt.Dictionary<Aggregated__Variables$D$<_TAnnotation>>;
+            type Variables$local$<_TAnnotation> = Local__Variables$<_TAnnotation>;
+            type Variables$aggregated$<_TAnnotation> = Aggregated__Variables$<_TAnnotation>;
+            type Variables$<_TAnnotation> = {
+                readonly 'aggregated': Variables$aggregated$<_TAnnotation>;
+                readonly 'local': Variables$local$<_TAnnotation>;
+            };
+            type Target__Selection__Tail$O$step$property$group$<_TAnnotation> = _TAnnotation;
+            type Target__Selection__Tail$O$step$property$property$<_TAnnotation> = {
                 readonly 'key': string;
                 readonly 'referent': _TAnnotation;
             };
-            type Variables$D$type$variable__stack2$<_TAnnotation> = {
-                readonly 'variable': Variables$D$type$variable__stack2$variable$<_TAnnotation>;
+            type Target__Selection__Tail$O$step$property$<_TAnnotation> = {
+                readonly 'group': Target__Selection__Tail$O$step$property$group$<_TAnnotation>;
+                readonly 'property': Target__Selection__Tail$O$step$property$property$<_TAnnotation>;
             };
-            type Variables$D$type$local$type$<_TAnnotation> = Type__Selection$<_TAnnotation>;
-            type Variables$D$type$local$initialization$<_TAnnotation> = Initialization$<_TAnnotation>;
-            type Variables$D$type$local$<_TAnnotation> = {
-                readonly 'initialization': Variables$D$type$local$initialization$<_TAnnotation>;
-                readonly 'type': Variables$D$type$local$type$<_TAnnotation>;
+            type Target__Selection__Tail$O$step$<_TAnnotation> = ['property', Target__Selection__Tail$O$step$property$<_TAnnotation>];
+            type Target__Selection__Tail$O$tail$<_TAnnotation> = Target__Selection__Tail$<_TAnnotation>;
+            type Target__Selection__Tail$O$<_TAnnotation> = {
+                readonly 'step': Target__Selection__Tail$O$step$<_TAnnotation>;
+                readonly 'tail': Target__Selection__Tail$O$tail$<_TAnnotation>;
             };
-            type Variables$D$type$<_TAnnotation> = ['local', Variables$D$type$local$<_TAnnotation>] | ['variable stack2', Variables$D$type$variable__stack2$<_TAnnotation>];
-            type Variables$D$<_TAnnotation> = {
-                readonly 'type': Variables$D$type$<_TAnnotation>;
-            };
-            type Variables$<_TAnnotation> = _pt.Dictionary<Variables$D$<_TAnnotation>>;
-            type Address__Selection$variable$<_TAnnotation> = {
+            type Target__Selection__Tail$<_TAnnotation> = _pt.OptionalValue<Target__Selection__Tail$O$<_TAnnotation>>;
+            type Target__Selection$variable$<_TAnnotation> = {
                 readonly 'key': string;
                 readonly 'referent': _TAnnotation;
             };
-            type Address__Selection$tail$<_TAnnotation> = Address__Selection__Tail$<_TAnnotation>;
-            type Address__Selection$<_TAnnotation> = {
-                readonly 'tail': Address__Selection$tail$<_TAnnotation>;
-                readonly 'variable': Address__Selection$variable$<_TAnnotation>;
+            type Target__Selection$tail$<_TAnnotation> = Target__Selection__Tail$<_TAnnotation>;
+            type Target__Selection$<_TAnnotation> = {
+                readonly 'tail': Target__Selection$tail$<_TAnnotation>;
+                readonly 'variable': Target__Selection$variable$<_TAnnotation>;
+            };
+            type Source__Selection__Tail$O$step$call$address__function$<_TAnnotation> = _TAnnotation;
+            type Source__Selection__Tail$O$step$call$type__arguments$<_TAnnotation> = Type__Arguments$<_TAnnotation>;
+            type Source__Selection__Tail$O$step$call$context$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>;
+            type Source__Selection__Tail$O$step$call$arguments$D$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>;
+            type Source__Selection__Tail$O$step$call$arguments$<_TAnnotation> = _pt.Dictionary<Source__Selection__Tail$O$step$call$arguments$D$<_TAnnotation>>;
+            type Source__Selection__Tail$O$step$call$<_TAnnotation> = {
+                readonly 'address function': Source__Selection__Tail$O$step$call$address__function$<_TAnnotation>;
+                readonly 'arguments': Source__Selection__Tail$O$step$call$arguments$<_TAnnotation>;
+                readonly 'context': Source__Selection__Tail$O$step$call$context$<_TAnnotation>;
+                readonly 'type arguments': Source__Selection__Tail$O$step$call$type__arguments$<_TAnnotation>;
+            };
+            type Source__Selection__Tail$O$step$property$group$<_TAnnotation> = _TAnnotation;
+            type Source__Selection__Tail$O$step$property$property$<_TAnnotation> = {
+                readonly 'key': string;
+                readonly 'referent': _TAnnotation;
+            };
+            type Source__Selection__Tail$O$step$property$<_TAnnotation> = {
+                readonly 'group': Source__Selection__Tail$O$step$property$group$<_TAnnotation>;
+                readonly 'property': Source__Selection__Tail$O$step$property$property$<_TAnnotation>;
+            };
+            type Source__Selection__Tail$O$step$<_TAnnotation> = ['call', Source__Selection__Tail$O$step$call$<_TAnnotation>] | ['property', Source__Selection__Tail$O$step$property$<_TAnnotation>];
+            type Source__Selection__Tail$O$tail$<_TAnnotation> = Source__Selection__Tail$<_TAnnotation>;
+            type Source__Selection__Tail$O$<_TAnnotation> = {
+                readonly 'step': Source__Selection__Tail$O$step$<_TAnnotation>;
+                readonly 'tail': Source__Selection__Tail$O$tail$<_TAnnotation>;
+            };
+            type Source__Selection__Tail$<_TAnnotation> = _pt.OptionalValue<Source__Selection__Tail$O$<_TAnnotation>>;
+            type Source__Selection$start$context$<_TAnnotation> = null;
+            type Source__Selection$start$variable$<_TAnnotation> = {
+                readonly 'key': string;
+                readonly 'referent': _TAnnotation;
+            };
+            type Source__Selection$start$<_TAnnotation> = ['context', Source__Selection$start$context$<_TAnnotation>] | ['variable', Source__Selection$start$variable$<_TAnnotation>];
+            type Source__Selection$tail$<_TAnnotation> = Source__Selection__Tail$<_TAnnotation>;
+            type Source__Selection$<_TAnnotation> = {
+                readonly 'start': Source__Selection$start$<_TAnnotation>;
+                readonly 'tail': Source__Selection$tail$<_TAnnotation>;
             };
             type Initialization__Or__Selection$initialization$<_TAnnotation> = Initialization$<_TAnnotation>;
-            type Initialization__Or__Selection$selection$selection$<_TAnnotation> = Address__Selection$<_TAnnotation>;
-            type Initialization__Or__Selection$selection$string$<_TAnnotation> = _TAnnotation;
+            type Initialization__Or__Selection$selection$selection$<_TAnnotation> = Source__Selection$<_TAnnotation>;
             type Initialization__Or__Selection$selection$<_TAnnotation> = {
                 readonly 'selection': Initialization__Or__Selection$selection$selection$<_TAnnotation>;
-                readonly 'string': Initialization__Or__Selection$selection$string$<_TAnnotation>;
             };
             type Initialization__Or__Selection$<_TAnnotation> = ['initialization', Initialization__Or__Selection$initialization$<_TAnnotation>] | ['selection', Initialization__Or__Selection$selection$<_TAnnotation>];
             type String__Initialization__Or__Selection$initialization$<_TAnnotation> = String__Initialization$<_TAnnotation>;
-            type String__Initialization__Or__Selection$selection$selection$<_TAnnotation> = Address__Selection$<_TAnnotation>;
+            type String__Initialization__Or__Selection$selection$selection$<_TAnnotation> = Source__Selection$<_TAnnotation>;
             type String__Initialization__Or__Selection$selection$string$<_TAnnotation> = _TAnnotation;
             type String__Initialization__Or__Selection$selection$<_TAnnotation> = {
                 readonly 'selection': String__Initialization__Or__Selection$selection$selection$<_TAnnotation>;
@@ -1920,7 +2726,7 @@ export declare namespace proto__implementation {
             };
             type String__Initialization__Or__Selection$<_TAnnotation> = ['initialization', String__Initialization__Or__Selection$initialization$<_TAnnotation>] | ['selection', String__Initialization__Or__Selection$selection$<_TAnnotation>];
             type Numerical__Initialization__Or__Selection$initialization$<_TAnnotation> = Numerical__Initialization$<_TAnnotation>;
-            type Numerical__Initialization__Or__Selection$selection$selection$<_TAnnotation> = Address__Selection$<_TAnnotation>;
+            type Numerical__Initialization__Or__Selection$selection$selection$<_TAnnotation> = Source__Selection$<_TAnnotation>;
             type Numerical__Initialization__Or__Selection$selection$number$<_TAnnotation> = _TAnnotation;
             type Numerical__Initialization__Or__Selection$selection$<_TAnnotation> = {
                 readonly 'number': Numerical__Initialization__Or__Selection$selection$number$<_TAnnotation>;
@@ -1928,7 +2734,7 @@ export declare namespace proto__implementation {
             };
             type Numerical__Initialization__Or__Selection$<_TAnnotation> = ['initialization', Numerical__Initialization__Or__Selection$initialization$<_TAnnotation>] | ['selection', Numerical__Initialization__Or__Selection$selection$<_TAnnotation>];
             type Boolean__Initialization__Or__Selection$initialization$<_TAnnotation> = Boolean__Initialization$<_TAnnotation>;
-            type Boolean__Initialization__Or__Selection$selection$selection$<_TAnnotation> = Address__Selection$<_TAnnotation>;
+            type Boolean__Initialization__Or__Selection$selection$selection$<_TAnnotation> = Source__Selection$<_TAnnotation>;
             type Boolean__Initialization__Or__Selection$selection$boolean$<_TAnnotation> = _TAnnotation;
             type Boolean__Initialization__Or__Selection$selection$<_TAnnotation> = {
                 readonly 'boolean': Boolean__Initialization__Or__Selection$selection$boolean$<_TAnnotation>;
@@ -2007,57 +2813,182 @@ export declare namespace proto__implementation {
             type Numerical__Initialization$<_TAnnotation> = ['minus', Numerical__Initialization$minus$<_TAnnotation>] | ['numeric literal', Numerical__Initialization$numeric__literal$<_TAnnotation>] | ['plus', Numerical__Initialization$plus$<_TAnnotation>] | ['postdecrement', Numerical__Initialization$postdecrement$<_TAnnotation>] | ['postincrement', Numerical__Initialization$postincrement$<_TAnnotation>] | ['predecrement', Numerical__Initialization$predecrement$<_TAnnotation>] | ['preincrement', Numerical__Initialization$preincrement$<_TAnnotation>];
             type String__Initialization$string__literal$<_TAnnotation> = string;
             type String__Initialization$<_TAnnotation> = ['string literal', String__Initialization$string__literal$<_TAnnotation>];
-            type Initialization$array__literal$A$array$<_TAnnotation> = _TAnnotation;
-            type Initialization$array__literal$A$initialization$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>;
-            type Initialization$array__literal$A$<_TAnnotation> = {
-                readonly 'array': Initialization$array__literal$A$array$<_TAnnotation>;
-                readonly 'initialization': Initialization$array__literal$A$initialization$<_TAnnotation>;
+            type Initialization$array__literal$definition$<_TAnnotation> = _TAnnotation;
+            type Initialization$array__literal$initialization$A$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>;
+            type Initialization$array__literal$initialization$<_TAnnotation> = _pt.Array<Initialization$array__literal$initialization$A$<_TAnnotation>>;
+            type Initialization$array__literal$<_TAnnotation> = {
+                readonly 'definition': Initialization$array__literal$definition$<_TAnnotation>;
+                readonly 'initialization': Initialization$array__literal$initialization$<_TAnnotation>;
             };
-            type Initialization$array__literal$<_TAnnotation> = _pt.Array<Initialization$array__literal$A$<_TAnnotation>>;
-            type Initialization$object__literal$group$<_TAnnotation> = _TAnnotation;
-            type Initialization$object__literal$properties$D$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>;
-            type Initialization$object__literal$properties$<_TAnnotation> = _pt.Dictionary<Initialization$object__literal$properties$D$<_TAnnotation>>;
-            type Initialization$object__literal$<_TAnnotation> = {
-                readonly 'group': Initialization$object__literal$group$<_TAnnotation>;
-                readonly 'properties': Initialization$object__literal$properties$<_TAnnotation>;
+            type Initialization$array__map$definition$<_TAnnotation> = _TAnnotation;
+            type Initialization$array__map$source$<_TAnnotation> = Source__Selection$<_TAnnotation>;
+            type Initialization$array__map$initialization$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>;
+            type Initialization$array__map$<_TAnnotation> = {
+                readonly 'definition': Initialization$array__map$definition$<_TAnnotation>;
+                readonly 'initialization': Initialization$array__map$initialization$<_TAnnotation>;
+                readonly 'source': Initialization$array__map$source$<_TAnnotation>;
             };
-            type Initialization$boolean$boolean$<_TAnnotation> = _TAnnotation;
-            type Initialization$boolean$x$<_TAnnotation> = Boolean__Initialization$<_TAnnotation>;
+            type Initialization$boolean$definition$<_TAnnotation> = _TAnnotation;
+            type Initialization$boolean$initialization$<_TAnnotation> = Boolean__Initialization$<_TAnnotation>;
             type Initialization$boolean$<_TAnnotation> = {
-                readonly 'boolean': Initialization$boolean$boolean$<_TAnnotation>;
-                readonly 'x': Initialization$boolean$x$<_TAnnotation>;
+                readonly 'definition': Initialization$boolean$definition$<_TAnnotation>;
+                readonly 'initialization': Initialization$boolean$initialization$<_TAnnotation>;
             };
-            type Initialization$numerical$number$<_TAnnotation> = _TAnnotation;
-            type Initialization$numerical$x$<_TAnnotation> = Numerical__Initialization$<_TAnnotation>;
-            type Initialization$numerical$<_TAnnotation> = {
-                readonly 'number': Initialization$numerical$number$<_TAnnotation>;
-                readonly 'x': Initialization$numerical$x$<_TAnnotation>;
+            type Initialization$change__context$source$<_TAnnotation> = Source__Selection$<_TAnnotation>;
+            type Initialization$change__context$initialization$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>;
+            type Initialization$change__context$<_TAnnotation> = {
+                readonly 'initialization': Initialization$change__context$initialization$<_TAnnotation>;
+                readonly 'source': Initialization$change__context$source$<_TAnnotation>;
             };
-            type Initialization$string$number$<_TAnnotation> = _TAnnotation;
-            type Initialization$string$x$<_TAnnotation> = String__Initialization$<_TAnnotation>;
-            type Initialization$string$<_TAnnotation> = {
-                readonly 'number': Initialization$string$number$<_TAnnotation>;
-                readonly 'x': Initialization$string$x$<_TAnnotation>;
+            type Initialization$dictionary__literal$definition$<_TAnnotation> = _TAnnotation;
+            type Initialization$dictionary__literal$initialization$D$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>;
+            type Initialization$dictionary__literal$initialization$<_TAnnotation> = _pt.Dictionary<Initialization$dictionary__literal$initialization$D$<_TAnnotation>>;
+            type Initialization$dictionary__literal$<_TAnnotation> = {
+                readonly 'definition': Initialization$dictionary__literal$definition$<_TAnnotation>;
+                readonly 'initialization': Initialization$dictionary__literal$initialization$<_TAnnotation>;
             };
-            type Initialization$null$null$<_TAnnotation> = _TAnnotation;
+            type Initialization$dictionary__map$definition$<_TAnnotation> = _TAnnotation;
+            type Initialization$dictionary__map$source$<_TAnnotation> = Source__Selection$<_TAnnotation>;
+            type Initialization$dictionary__map$initialization$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>;
+            type Initialization$dictionary__map$<_TAnnotation> = {
+                readonly 'definition': Initialization$dictionary__map$definition$<_TAnnotation>;
+                readonly 'initialization': Initialization$dictionary__map$initialization$<_TAnnotation>;
+                readonly 'source': Initialization$dictionary__map$source$<_TAnnotation>;
+            };
+            type Initialization$group__literal$definition$<_TAnnotation> = _TAnnotation;
+            type Initialization$group__literal$properties$D$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>;
+            type Initialization$group__literal$properties$<_TAnnotation> = _pt.Dictionary<Initialization$group__literal$properties$D$<_TAnnotation>>;
+            type Initialization$group__literal$<_TAnnotation> = {
+                readonly 'definition': Initialization$group__literal$definition$<_TAnnotation>;
+                readonly 'properties': Initialization$group__literal$properties$<_TAnnotation>;
+            };
+            type Initialization$implement__me$<_TAnnotation> = string;
+            type Initialization$null$definition$<_TAnnotation> = _TAnnotation;
             type Initialization$null$<_TAnnotation> = {
-                readonly 'null': Initialization$null$null$<_TAnnotation>;
+                readonly 'definition': Initialization$null$definition$<_TAnnotation>;
             };
-            type Initialization$<_TAnnotation> = ['array literal', Initialization$array__literal$<_TAnnotation>] | ['boolean', Initialization$boolean$<_TAnnotation>] | ['null', Initialization$null$<_TAnnotation>] | ['numerical', Initialization$numerical$<_TAnnotation>] | ['object literal', Initialization$object__literal$<_TAnnotation>] | ['string', Initialization$string$<_TAnnotation>];
+            type Initialization$numerical$definition$<_TAnnotation> = _TAnnotation;
+            type Initialization$numerical$initialization$<_TAnnotation> = Numerical__Initialization$<_TAnnotation>;
+            type Initialization$numerical$<_TAnnotation> = {
+                readonly 'definition': Initialization$numerical$definition$<_TAnnotation>;
+                readonly 'initialization': Initialization$numerical$initialization$<_TAnnotation>;
+            };
+            type Initialization$optional$definition$<_TAnnotation> = _TAnnotation;
+            type Initialization$optional$<_TAnnotation> = {
+                readonly 'definition': Initialization$optional$definition$<_TAnnotation>;
+            };
+            type Initialization$procedure$definition$<_TAnnotation> = _TAnnotation;
+            type Initialization$procedure$temp__has__parameters$O$<_TAnnotation> = null;
+            type Initialization$procedure$temp__has__parameters$<_TAnnotation> = _pt.OptionalValue<Initialization$procedure$temp__has__parameters$O$<_TAnnotation>>;
+            type Initialization$procedure$variables$<_TAnnotation> = Aggregated__Variables$<_TAnnotation>;
+            type Initialization$procedure$block$<_TAnnotation> = Block$<_TAnnotation>;
+            type Initialization$procedure$<_TAnnotation> = {
+                readonly 'block': Initialization$procedure$block$<_TAnnotation>;
+                readonly 'definition': Initialization$procedure$definition$<_TAnnotation>;
+                readonly 'temp has parameters': Initialization$procedure$temp__has__parameters$<_TAnnotation>;
+                readonly 'variables': Initialization$procedure$variables$<_TAnnotation>;
+            };
+            type Initialization$tagged__union__literal$definition$<_TAnnotation> = _TAnnotation;
+            type Initialization$tagged__union__literal$state$<_TAnnotation> = {
+                readonly 'key': string;
+                readonly 'referent': _TAnnotation;
+            };
+            type Initialization$tagged__union__literal$initialization$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>;
+            type Initialization$tagged__union__literal$<_TAnnotation> = {
+                readonly 'definition': Initialization$tagged__union__literal$definition$<_TAnnotation>;
+                readonly 'initialization': Initialization$tagged__union__literal$initialization$<_TAnnotation>;
+                readonly 'state': Initialization$tagged__union__literal$state$<_TAnnotation>;
+            };
+            type Initialization$string$definition$<_TAnnotation> = _TAnnotation;
+            type Initialization$string$initialization$<_TAnnotation> = String__Initialization$<_TAnnotation>;
+            type Initialization$string$<_TAnnotation> = {
+                readonly 'definition': Initialization$string$definition$<_TAnnotation>;
+                readonly 'initialization': Initialization$string$initialization$<_TAnnotation>;
+            };
+            type Initialization$switch$definition$<_TAnnotation> = _TAnnotation;
+            type Initialization$switch$temp__type$<_TAnnotation> = Type__Selection$<_TAnnotation>;
+            type Initialization$switch$source$<_TAnnotation> = Source__Selection$<_TAnnotation>;
+            type Initialization$switch$cases$D$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>;
+            type Initialization$switch$cases$<_TAnnotation> = _pt.Dictionary<Initialization$switch$cases$D$<_TAnnotation>>;
+            type Initialization$switch$default$O$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>;
+            type Initialization$switch$default$<_TAnnotation> = _pt.OptionalValue<Initialization$switch$default$O$<_TAnnotation>>;
+            type Initialization$switch$<_TAnnotation> = {
+                readonly 'cases': Initialization$switch$cases$<_TAnnotation>;
+                readonly 'default': Initialization$switch$default$<_TAnnotation>;
+                readonly 'definition': Initialization$switch$definition$<_TAnnotation>;
+                readonly 'source': Initialization$switch$source$<_TAnnotation>;
+                readonly 'temp type': Initialization$switch$temp__type$<_TAnnotation>;
+            };
+            type Initialization$value__function$definition$<_TAnnotation> = _TAnnotation;
+            type Initialization$value__function$temp__has__parameters$O$<_TAnnotation> = null;
+            type Initialization$value__function$temp__has__parameters$<_TAnnotation> = _pt.OptionalValue<Initialization$value__function$temp__has__parameters$O$<_TAnnotation>>;
+            type Initialization$value__function$variables$<_TAnnotation> = Aggregated__Variables$<_TAnnotation>;
+            type Initialization$value__function$initialization$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>;
+            type Initialization$value__function$<_TAnnotation> = {
+                readonly 'definition': Initialization$value__function$definition$<_TAnnotation>;
+                readonly 'initialization': Initialization$value__function$initialization$<_TAnnotation>;
+                readonly 'temp has parameters': Initialization$value__function$temp__has__parameters$<_TAnnotation>;
+                readonly 'variables': Initialization$value__function$variables$<_TAnnotation>;
+            };
+            type Initialization$variables$variables$<_TAnnotation> = Variables$<_TAnnotation>;
+            type Initialization$variables$initialization$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>;
+            type Initialization$variables$<_TAnnotation> = {
+                readonly 'initialization': Initialization$variables$initialization$<_TAnnotation>;
+                readonly 'variables': Initialization$variables$variables$<_TAnnotation>;
+            };
+            type Initialization$<_TAnnotation> = ['array literal', Initialization$array__literal$<_TAnnotation>] | ['array map', Initialization$array__map$<_TAnnotation>] | ['boolean', Initialization$boolean$<_TAnnotation>] | ['change context', Initialization$change__context$<_TAnnotation>] | ['dictionary literal', Initialization$dictionary__literal$<_TAnnotation>] | ['dictionary map', Initialization$dictionary__map$<_TAnnotation>] | ['group literal', Initialization$group__literal$<_TAnnotation>] | ['implement me', Initialization$implement__me$<_TAnnotation>] | ['null', Initialization$null$<_TAnnotation>] | ['numerical', Initialization$numerical$<_TAnnotation>] | ['optional', Initialization$optional$<_TAnnotation>] | ['procedure', Initialization$procedure$<_TAnnotation>] | ['string', Initialization$string$<_TAnnotation>] | ['switch', Initialization$switch$<_TAnnotation>] | ['tagged union literal', Initialization$tagged__union__literal$<_TAnnotation>] | ['value function', Initialization$value__function$<_TAnnotation>] | ['variables', Initialization$variables$<_TAnnotation>];
             type Block$variables$<_TAnnotation> = Variables$<_TAnnotation>;
             type Block$statements$<_TAnnotation> = Statements$<_TAnnotation>;
             type Block$<_TAnnotation> = {
                 readonly 'statements': Block$statements$<_TAnnotation>;
                 readonly 'variables': Block$variables$<_TAnnotation>;
             };
-            type Assign$target$<_TAnnotation> = Address__Selection$<_TAnnotation>;
+            type Assign$target$<_TAnnotation> = Target__Selection$<_TAnnotation>;
             type Assign$initialization$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>;
             type Assign$<_TAnnotation> = {
                 readonly 'initialization': Assign$initialization$<_TAnnotation>;
                 readonly 'target': Assign$target$<_TAnnotation>;
             };
             type Statements$A$block$<_TAnnotation> = Block$<_TAnnotation>;
-            type Statements$A$with$address$<_TAnnotation> = Address__Selection$<_TAnnotation>;
+            type Statements$A$call$function$<_TAnnotation> = Source__Selection$<_TAnnotation>;
+            type Statements$A$call$context__definition$<_TAnnotation> = _TAnnotation;
+            type Statements$A$call$context$<_TAnnotation> = Source__Selection$<_TAnnotation>;
+            type Statements$A$call$arguments$D$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>;
+            type Statements$A$call$arguments$<_TAnnotation> = _pt.Dictionary<Statements$A$call$arguments$D$<_TAnnotation>>;
+            type Statements$A$call$<_TAnnotation> = {
+                readonly 'arguments': Statements$A$call$arguments$<_TAnnotation>;
+                readonly 'context': Statements$A$call$context$<_TAnnotation>;
+                readonly 'context definition': Statements$A$call$context__definition$<_TAnnotation>;
+                readonly 'function': Statements$A$call$function$<_TAnnotation>;
+            };
+            type Statements$A$change__context$source$<_TAnnotation> = Source__Selection$<_TAnnotation>;
+            type Statements$A$change__context$block$<_TAnnotation> = Block$<_TAnnotation>;
+            type Statements$A$change__context$<_TAnnotation> = {
+                readonly 'block': Statements$A$change__context$block$<_TAnnotation>;
+                readonly 'source': Statements$A$change__context$source$<_TAnnotation>;
+            };
+            type Statements$A$if$condition$<_TAnnotation> = Boolean__Initialization__Or__Selection$<_TAnnotation>;
+            type Statements$A$if$then$<_TAnnotation> = Block$<_TAnnotation>;
+            type Statements$A$if$else$O$<_TAnnotation> = Block$<_TAnnotation>;
+            type Statements$A$if$else$<_TAnnotation> = _pt.OptionalValue<Statements$A$if$else$O$<_TAnnotation>>;
+            type Statements$A$if$<_TAnnotation> = {
+                readonly 'condition': Statements$A$if$condition$<_TAnnotation>;
+                readonly 'else': Statements$A$if$else$<_TAnnotation>;
+                readonly 'then': Statements$A$if$then$<_TAnnotation>;
+            };
+            type Statements$A$switch$source$<_TAnnotation> = Source__Selection$<_TAnnotation>;
+            type Statements$A$switch$context__definition$<_TAnnotation> = _TAnnotation;
+            type Statements$A$switch$cases$D$<_TAnnotation> = Block$<_TAnnotation>;
+            type Statements$A$switch$cases$<_TAnnotation> = _pt.Dictionary<Statements$A$switch$cases$D$<_TAnnotation>>;
+            type Statements$A$switch$default$O$<_TAnnotation> = Block$<_TAnnotation>;
+            type Statements$A$switch$default$<_TAnnotation> = _pt.OptionalValue<Statements$A$switch$default$O$<_TAnnotation>>;
+            type Statements$A$switch$<_TAnnotation> = {
+                readonly 'cases': Statements$A$switch$cases$<_TAnnotation>;
+                readonly 'context definition': Statements$A$switch$context__definition$<_TAnnotation>;
+                readonly 'default': Statements$A$switch$default$<_TAnnotation>;
+                readonly 'source': Statements$A$switch$source$<_TAnnotation>;
+            };
+            type Statements$A$with$source$<_TAnnotation> = Source__Selection$<_TAnnotation>;
             type Statements$A$with$action$assign$<_TAnnotation> = Assign$<_TAnnotation>;
             type Statements$A$with$action$minus__assign$number$<_TAnnotation> = _TAnnotation;
             type Statements$A$with$action$minus__assign$right__hand__side$<_TAnnotation> = Numerical__Initialization__Or__Selection$<_TAnnotation>;
@@ -2074,16 +3005,7 @@ export declare namespace proto__implementation {
             type Statements$A$with$action$<_TAnnotation> = ['assign', Statements$A$with$action$assign$<_TAnnotation>] | ['minus assign', Statements$A$with$action$minus__assign$<_TAnnotation>] | ['plus assign', Statements$A$with$action$plus__assign$<_TAnnotation>];
             type Statements$A$with$<_TAnnotation> = {
                 readonly 'action': Statements$A$with$action$<_TAnnotation>;
-                readonly 'address': Statements$A$with$address$<_TAnnotation>;
-            };
-            type Statements$A$if$condition$<_TAnnotation> = Boolean__Initialization__Or__Selection$<_TAnnotation>;
-            type Statements$A$if$then$<_TAnnotation> = Block$<_TAnnotation>;
-            type Statements$A$if$else$O$<_TAnnotation> = Block$<_TAnnotation>;
-            type Statements$A$if$else$<_TAnnotation> = _pt.OptionalValue<Statements$A$if$else$O$<_TAnnotation>>;
-            type Statements$A$if$<_TAnnotation> = {
-                readonly 'condition': Statements$A$if$condition$<_TAnnotation>;
-                readonly 'else': Statements$A$if$else$<_TAnnotation>;
-                readonly 'then': Statements$A$if$then$<_TAnnotation>;
+                readonly 'source': Statements$A$with$source$<_TAnnotation>;
             };
             type Statements$A$while$condition$<_TAnnotation> = Boolean__Initialization__Or__Selection$<_TAnnotation>;
             type Statements$A$while$block$<_TAnnotation> = Block$<_TAnnotation>;
@@ -2091,7 +3013,7 @@ export declare namespace proto__implementation {
                 readonly 'block': Statements$A$while$block$<_TAnnotation>;
                 readonly 'condition': Statements$A$while$condition$<_TAnnotation>;
             };
-            type Statements$A$<_TAnnotation> = ['block', Statements$A$block$<_TAnnotation>] | ['if', Statements$A$if$<_TAnnotation>] | ['while', Statements$A$while$<_TAnnotation>] | ['with', Statements$A$with$<_TAnnotation>];
+            type Statements$A$<_TAnnotation> = ['block', Statements$A$block$<_TAnnotation>] | ['call', Statements$A$call$<_TAnnotation>] | ['change context', Statements$A$change__context$<_TAnnotation>] | ['if', Statements$A$if$<_TAnnotation>] | ['switch', Statements$A$switch$<_TAnnotation>] | ['while', Statements$A$while$<_TAnnotation>] | ['with', Statements$A$with$<_TAnnotation>];
             type Statements$<_TAnnotation> = _pt.Array<Statements$A$<_TAnnotation>>;
             type Source__File$type$<_TAnnotation> = Type__Selection$<_TAnnotation>;
             type Source__File$initialization$<_TAnnotation> = Initialization$<_TAnnotation>;
@@ -2127,68 +3049,131 @@ export declare namespace proto__implementation {
                 }
                 type $<_TAnnotation> = _IFlat.Type__Arguments$<_TAnnotation>;
             }
-            namespace Address__Selection__Tail {
+            namespace Local__Variables {
+                namespace D {
+                    namespace _ltype {
+                        type $<_TAnnotation> = _IFlat.Local__Variables$D$type$<_TAnnotation>;
+                    }
+                    namespace initialization {
+                        type $<_TAnnotation> = _IFlat.Local__Variables$D$initialization$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Local__Variables$D$<_TAnnotation>;
+                }
+                type $<_TAnnotation> = _IFlat.Local__Variables$<_TAnnotation>;
+            }
+            namespace Aggregated__Variable {
+                namespace _ltype {
+                    namespace variable__stack2 {
+                        namespace variable {
+                            type $<_TAnnotation> = _IFlat.Aggregated__Variable$type$variable__stack2$variable$<_TAnnotation>;
+                        }
+                        type $<_TAnnotation> = _IFlat.Aggregated__Variable$type$variable__stack2$<_TAnnotation>;
+                    }
+                    namespace local {
+                        type $<_TAnnotation> = _IFlat.Aggregated__Variable$type$local$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Aggregated__Variable$type$<_TAnnotation>;
+                }
+                type $<_TAnnotation> = _IFlat.Aggregated__Variable$<_TAnnotation>;
+            }
+            namespace Aggregated__Variables {
+                namespace D {
+                    type $<_TAnnotation> = _IFlat.Aggregated__Variables$D$<_TAnnotation>;
+                }
+                type $<_TAnnotation> = _IFlat.Aggregated__Variables$<_TAnnotation>;
+            }
+            namespace Variables {
+                namespace local {
+                    type $<_TAnnotation> = _IFlat.Variables$local$<_TAnnotation>;
+                }
+                namespace aggregated {
+                    type $<_TAnnotation> = _IFlat.Variables$aggregated$<_TAnnotation>;
+                }
+                type $<_TAnnotation> = _IFlat.Variables$<_TAnnotation>;
+            }
+            namespace TTarget__Selection__Tail {
+                namespace O {
+                    namespace step {
+                        namespace property {
+                            namespace group {
+                                type $<_TAnnotation> = _IFlat.Target__Selection__Tail$O$step$property$group$<_TAnnotation>;
+                            }
+                            namespace property {
+                                type $<_TAnnotation> = _IFlat.Target__Selection__Tail$O$step$property$property$<_TAnnotation>;
+                            }
+                            type $<_TAnnotation> = _IFlat.Target__Selection__Tail$O$step$property$<_TAnnotation>;
+                        }
+                        type $<_TAnnotation> = _IFlat.Target__Selection__Tail$O$step$<_TAnnotation>;
+                    }
+                    namespace tail {
+                        type $<_TAnnotation> = _IFlat.Target__Selection__Tail$O$tail$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Target__Selection__Tail$O$<_TAnnotation>;
+                }
+                type $<_TAnnotation> = _IFlat.Target__Selection__Tail$<_TAnnotation>;
+            }
+            namespace TTarget__Selection {
+                namespace variable {
+                    type $<_TAnnotation> = _IFlat.Target__Selection$variable$<_TAnnotation>;
+                }
+                namespace tail {
+                    type $<_TAnnotation> = _IFlat.Target__Selection$tail$<_TAnnotation>;
+                }
+                type $<_TAnnotation> = _IFlat.Target__Selection$<_TAnnotation>;
+            }
+            namespace Source__Selection__Tail {
                 namespace O {
                     namespace step {
                         namespace call {
                             namespace address__function {
-                                type $<_TAnnotation> = _IFlat.Address__Selection__Tail$O$step$call$address__function$<_TAnnotation>;
+                                type $<_TAnnotation> = _IFlat.Source__Selection__Tail$O$step$call$address__function$<_TAnnotation>;
                             }
                             namespace type__arguments {
-                                type $<_TAnnotation> = _IFlat.Address__Selection__Tail$O$step$call$type__arguments$<_TAnnotation>;
+                                type $<_TAnnotation> = _IFlat.Source__Selection__Tail$O$step$call$type__arguments$<_TAnnotation>;
                             }
-                            type $<_TAnnotation> = _IFlat.Address__Selection__Tail$O$step$call$<_TAnnotation>;
+                            namespace context {
+                                type $<_TAnnotation> = _IFlat.Source__Selection__Tail$O$step$call$context$<_TAnnotation>;
+                            }
+                            namespace _larguments {
+                                namespace D {
+                                    type $<_TAnnotation> = _IFlat.Source__Selection__Tail$O$step$call$arguments$D$<_TAnnotation>;
+                                }
+                                type $<_TAnnotation> = _IFlat.Source__Selection__Tail$O$step$call$arguments$<_TAnnotation>;
+                            }
+                            type $<_TAnnotation> = _IFlat.Source__Selection__Tail$O$step$call$<_TAnnotation>;
                         }
                         namespace property {
                             namespace group {
-                                type $<_TAnnotation> = _IFlat.Address__Selection__Tail$O$step$property$group$<_TAnnotation>;
+                                type $<_TAnnotation> = _IFlat.Source__Selection__Tail$O$step$property$group$<_TAnnotation>;
                             }
                             namespace property {
-                                type $<_TAnnotation> = _IFlat.Address__Selection__Tail$O$step$property$property$<_TAnnotation>;
+                                type $<_TAnnotation> = _IFlat.Source__Selection__Tail$O$step$property$property$<_TAnnotation>;
                             }
-                            type $<_TAnnotation> = _IFlat.Address__Selection__Tail$O$step$property$<_TAnnotation>;
+                            type $<_TAnnotation> = _IFlat.Source__Selection__Tail$O$step$property$<_TAnnotation>;
                         }
-                        type $<_TAnnotation> = _IFlat.Address__Selection__Tail$O$step$<_TAnnotation>;
+                        type $<_TAnnotation> = _IFlat.Source__Selection__Tail$O$step$<_TAnnotation>;
                     }
                     namespace tail {
-                        type $<_TAnnotation> = _IFlat.Address__Selection__Tail$O$tail$<_TAnnotation>;
+                        type $<_TAnnotation> = _IFlat.Source__Selection__Tail$O$tail$<_TAnnotation>;
                     }
-                    type $<_TAnnotation> = _IFlat.Address__Selection__Tail$O$<_TAnnotation>;
+                    type $<_TAnnotation> = _IFlat.Source__Selection__Tail$O$<_TAnnotation>;
                 }
-                type $<_TAnnotation> = _IFlat.Address__Selection__Tail$<_TAnnotation>;
+                type $<_TAnnotation> = _IFlat.Source__Selection__Tail$<_TAnnotation>;
             }
-            namespace Variables {
-                namespace D {
-                    namespace _ltype {
-                        namespace variable__stack2 {
-                            namespace variable {
-                                type $<_TAnnotation> = _IFlat.Variables$D$type$variable__stack2$variable$<_TAnnotation>;
-                            }
-                            type $<_TAnnotation> = _IFlat.Variables$D$type$variable__stack2$<_TAnnotation>;
-                        }
-                        namespace local {
-                            namespace _ltype {
-                                type $<_TAnnotation> = _IFlat.Variables$D$type$local$type$<_TAnnotation>;
-                            }
-                            namespace initialization {
-                                type $<_TAnnotation> = _IFlat.Variables$D$type$local$initialization$<_TAnnotation>;
-                            }
-                            type $<_TAnnotation> = _IFlat.Variables$D$type$local$<_TAnnotation>;
-                        }
-                        type $<_TAnnotation> = _IFlat.Variables$D$type$<_TAnnotation>;
+            namespace Source__Selection {
+                namespace start {
+                    namespace context {
+                        type $<_TAnnotation> = _IFlat.Source__Selection$start$context$<_TAnnotation>;
                     }
-                    type $<_TAnnotation> = _IFlat.Variables$D$<_TAnnotation>;
-                }
-                type $<_TAnnotation> = _IFlat.Variables$<_TAnnotation>;
-            }
-            namespace Address__Selection {
-                namespace variable {
-                    type $<_TAnnotation> = _IFlat.Address__Selection$variable$<_TAnnotation>;
+                    namespace variable {
+                        type $<_TAnnotation> = _IFlat.Source__Selection$start$variable$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Source__Selection$start$<_TAnnotation>;
                 }
                 namespace tail {
-                    type $<_TAnnotation> = _IFlat.Address__Selection$tail$<_TAnnotation>;
+                    type $<_TAnnotation> = _IFlat.Source__Selection$tail$<_TAnnotation>;
                 }
-                type $<_TAnnotation> = _IFlat.Address__Selection$<_TAnnotation>;
+                type $<_TAnnotation> = _IFlat.Source__Selection$<_TAnnotation>;
             }
             namespace Initialization__Or__Selection {
                 namespace initialization {
@@ -2197,9 +3182,6 @@ export declare namespace proto__implementation {
                 namespace selection {
                     namespace selection {
                         type $<_TAnnotation> = _IFlat.Initialization__Or__Selection$selection$selection$<_TAnnotation>;
-                    }
-                    namespace _lstring {
-                        type $<_TAnnotation> = _IFlat.Initialization__Or__Selection$selection$string$<_TAnnotation>;
                     }
                     type $<_TAnnotation> = _IFlat.Initialization__Or__Selection$selection$<_TAnnotation>;
                 }
@@ -2378,61 +3360,196 @@ export declare namespace proto__implementation {
             }
             namespace Initialization {
                 namespace array__literal {
-                    namespace A {
-                        namespace array {
-                            type $<_TAnnotation> = _IFlat.Initialization$array__literal$A$array$<_TAnnotation>;
+                    namespace definition {
+                        type $<_TAnnotation> = _IFlat.Initialization$array__literal$definition$<_TAnnotation>;
+                    }
+                    namespace initialization {
+                        namespace A {
+                            type $<_TAnnotation> = _IFlat.Initialization$array__literal$initialization$A$<_TAnnotation>;
                         }
-                        namespace initialization {
-                            type $<_TAnnotation> = _IFlat.Initialization$array__literal$A$initialization$<_TAnnotation>;
-                        }
-                        type $<_TAnnotation> = _IFlat.Initialization$array__literal$A$<_TAnnotation>;
+                        type $<_TAnnotation> = _IFlat.Initialization$array__literal$initialization$<_TAnnotation>;
                     }
                     type $<_TAnnotation> = _IFlat.Initialization$array__literal$<_TAnnotation>;
                 }
-                namespace object__literal {
-                    namespace group {
-                        type $<_TAnnotation> = _IFlat.Initialization$object__literal$group$<_TAnnotation>;
+                namespace array__map {
+                    namespace definition {
+                        type $<_TAnnotation> = _IFlat.Initialization$array__map$definition$<_TAnnotation>;
                     }
-                    namespace properties {
-                        namespace D {
-                            type $<_TAnnotation> = _IFlat.Initialization$object__literal$properties$D$<_TAnnotation>;
-                        }
-                        type $<_TAnnotation> = _IFlat.Initialization$object__literal$properties$<_TAnnotation>;
+                    namespace source {
+                        type $<_TAnnotation> = _IFlat.Initialization$array__map$source$<_TAnnotation>;
                     }
-                    type $<_TAnnotation> = _IFlat.Initialization$object__literal$<_TAnnotation>;
+                    namespace initialization {
+                        type $<_TAnnotation> = _IFlat.Initialization$array__map$initialization$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Initialization$array__map$<_TAnnotation>;
                 }
                 namespace _lboolean {
-                    namespace _lboolean {
-                        type $<_TAnnotation> = _IFlat.Initialization$boolean$boolean$<_TAnnotation>;
+                    namespace definition {
+                        type $<_TAnnotation> = _IFlat.Initialization$boolean$definition$<_TAnnotation>;
                     }
-                    namespace x {
-                        type $<_TAnnotation> = _IFlat.Initialization$boolean$x$<_TAnnotation>;
+                    namespace initialization {
+                        type $<_TAnnotation> = _IFlat.Initialization$boolean$initialization$<_TAnnotation>;
                     }
                     type $<_TAnnotation> = _IFlat.Initialization$boolean$<_TAnnotation>;
                 }
-                namespace numerical {
-                    namespace _lnumber {
-                        type $<_TAnnotation> = _IFlat.Initialization$numerical$number$<_TAnnotation>;
+                namespace change__context {
+                    namespace source {
+                        type $<_TAnnotation> = _IFlat.Initialization$change__context$source$<_TAnnotation>;
                     }
-                    namespace x {
-                        type $<_TAnnotation> = _IFlat.Initialization$numerical$x$<_TAnnotation>;
+                    namespace initialization {
+                        type $<_TAnnotation> = _IFlat.Initialization$change__context$initialization$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Initialization$change__context$<_TAnnotation>;
+                }
+                namespace dictionary__literal {
+                    namespace definition {
+                        type $<_TAnnotation> = _IFlat.Initialization$dictionary__literal$definition$<_TAnnotation>;
+                    }
+                    namespace initialization {
+                        namespace D {
+                            type $<_TAnnotation> = _IFlat.Initialization$dictionary__literal$initialization$D$<_TAnnotation>;
+                        }
+                        type $<_TAnnotation> = _IFlat.Initialization$dictionary__literal$initialization$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Initialization$dictionary__literal$<_TAnnotation>;
+                }
+                namespace dictionary__map {
+                    namespace definition {
+                        type $<_TAnnotation> = _IFlat.Initialization$dictionary__map$definition$<_TAnnotation>;
+                    }
+                    namespace source {
+                        type $<_TAnnotation> = _IFlat.Initialization$dictionary__map$source$<_TAnnotation>;
+                    }
+                    namespace initialization {
+                        type $<_TAnnotation> = _IFlat.Initialization$dictionary__map$initialization$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Initialization$dictionary__map$<_TAnnotation>;
+                }
+                namespace group__literal {
+                    namespace definition {
+                        type $<_TAnnotation> = _IFlat.Initialization$group__literal$definition$<_TAnnotation>;
+                    }
+                    namespace properties {
+                        namespace D {
+                            type $<_TAnnotation> = _IFlat.Initialization$group__literal$properties$D$<_TAnnotation>;
+                        }
+                        type $<_TAnnotation> = _IFlat.Initialization$group__literal$properties$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Initialization$group__literal$<_TAnnotation>;
+                }
+                namespace implement__me {
+                    type $<_TAnnotation> = _IFlat.Initialization$implement__me$<_TAnnotation>;
+                }
+                namespace _lnull {
+                    namespace definition {
+                        type $<_TAnnotation> = _IFlat.Initialization$null$definition$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Initialization$null$<_TAnnotation>;
+                }
+                namespace numerical {
+                    namespace definition {
+                        type $<_TAnnotation> = _IFlat.Initialization$numerical$definition$<_TAnnotation>;
+                    }
+                    namespace initialization {
+                        type $<_TAnnotation> = _IFlat.Initialization$numerical$initialization$<_TAnnotation>;
                     }
                     type $<_TAnnotation> = _IFlat.Initialization$numerical$<_TAnnotation>;
                 }
-                namespace _lstring {
-                    namespace _lnumber {
-                        type $<_TAnnotation> = _IFlat.Initialization$string$number$<_TAnnotation>;
+                namespace optional {
+                    namespace definition {
+                        type $<_TAnnotation> = _IFlat.Initialization$optional$definition$<_TAnnotation>;
                     }
-                    namespace x {
-                        type $<_TAnnotation> = _IFlat.Initialization$string$x$<_TAnnotation>;
+                    type $<_TAnnotation> = _IFlat.Initialization$optional$<_TAnnotation>;
+                }
+                namespace procedure {
+                    namespace definition {
+                        type $<_TAnnotation> = _IFlat.Initialization$procedure$definition$<_TAnnotation>;
+                    }
+                    namespace temp__has__parameters {
+                        namespace O {
+                            type $<_TAnnotation> = _IFlat.Initialization$procedure$temp__has__parameters$O$<_TAnnotation>;
+                        }
+                        type $<_TAnnotation> = _IFlat.Initialization$procedure$temp__has__parameters$<_TAnnotation>;
+                    }
+                    namespace variables {
+                        type $<_TAnnotation> = _IFlat.Initialization$procedure$variables$<_TAnnotation>;
+                    }
+                    namespace block {
+                        type $<_TAnnotation> = _IFlat.Initialization$procedure$block$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Initialization$procedure$<_TAnnotation>;
+                }
+                namespace tagged__union__literal {
+                    namespace definition {
+                        type $<_TAnnotation> = _IFlat.Initialization$tagged__union__literal$definition$<_TAnnotation>;
+                    }
+                    namespace state {
+                        type $<_TAnnotation> = _IFlat.Initialization$tagged__union__literal$state$<_TAnnotation>;
+                    }
+                    namespace initialization {
+                        type $<_TAnnotation> = _IFlat.Initialization$tagged__union__literal$initialization$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Initialization$tagged__union__literal$<_TAnnotation>;
+                }
+                namespace _lstring {
+                    namespace definition {
+                        type $<_TAnnotation> = _IFlat.Initialization$string$definition$<_TAnnotation>;
+                    }
+                    namespace initialization {
+                        type $<_TAnnotation> = _IFlat.Initialization$string$initialization$<_TAnnotation>;
                     }
                     type $<_TAnnotation> = _IFlat.Initialization$string$<_TAnnotation>;
                 }
-                namespace _lnull {
-                    namespace _lnull {
-                        type $<_TAnnotation> = _IFlat.Initialization$null$null$<_TAnnotation>;
+                namespace _lswitch {
+                    namespace definition {
+                        type $<_TAnnotation> = _IFlat.Initialization$switch$definition$<_TAnnotation>;
                     }
-                    type $<_TAnnotation> = _IFlat.Initialization$null$<_TAnnotation>;
+                    namespace temp__type {
+                        type $<_TAnnotation> = _IFlat.Initialization$switch$temp__type$<_TAnnotation>;
+                    }
+                    namespace source {
+                        type $<_TAnnotation> = _IFlat.Initialization$switch$source$<_TAnnotation>;
+                    }
+                    namespace cases {
+                        namespace D {
+                            type $<_TAnnotation> = _IFlat.Initialization$switch$cases$D$<_TAnnotation>;
+                        }
+                        type $<_TAnnotation> = _IFlat.Initialization$switch$cases$<_TAnnotation>;
+                    }
+                    namespace _ldefault {
+                        namespace O {
+                            type $<_TAnnotation> = _IFlat.Initialization$switch$default$O$<_TAnnotation>;
+                        }
+                        type $<_TAnnotation> = _IFlat.Initialization$switch$default$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Initialization$switch$<_TAnnotation>;
+                }
+                namespace value__function {
+                    namespace definition {
+                        type $<_TAnnotation> = _IFlat.Initialization$value__function$definition$<_TAnnotation>;
+                    }
+                    namespace temp__has__parameters {
+                        namespace O {
+                            type $<_TAnnotation> = _IFlat.Initialization$value__function$temp__has__parameters$O$<_TAnnotation>;
+                        }
+                        type $<_TAnnotation> = _IFlat.Initialization$value__function$temp__has__parameters$<_TAnnotation>;
+                    }
+                    namespace variables {
+                        type $<_TAnnotation> = _IFlat.Initialization$value__function$variables$<_TAnnotation>;
+                    }
+                    namespace initialization {
+                        type $<_TAnnotation> = _IFlat.Initialization$value__function$initialization$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Initialization$value__function$<_TAnnotation>;
+                }
+                namespace variables {
+                    namespace variables {
+                        type $<_TAnnotation> = _IFlat.Initialization$variables$variables$<_TAnnotation>;
+                    }
+                    namespace initialization {
+                        type $<_TAnnotation> = _IFlat.Initialization$variables$initialization$<_TAnnotation>;
+                    }
+                    type $<_TAnnotation> = _IFlat.Initialization$variables$<_TAnnotation>;
                 }
                 type $<_TAnnotation> = _IFlat.Initialization$<_TAnnotation>;
             }
@@ -2459,9 +3576,72 @@ export declare namespace proto__implementation {
                     namespace block {
                         type $<_TAnnotation> = _IFlat.Statements$A$block$<_TAnnotation>;
                     }
+                    namespace call {
+                        namespace _lfunction {
+                            type $<_TAnnotation> = _IFlat.Statements$A$call$function$<_TAnnotation>;
+                        }
+                        namespace context__definition {
+                            type $<_TAnnotation> = _IFlat.Statements$A$call$context__definition$<_TAnnotation>;
+                        }
+                        namespace context {
+                            type $<_TAnnotation> = _IFlat.Statements$A$call$context$<_TAnnotation>;
+                        }
+                        namespace _larguments {
+                            namespace D {
+                                type $<_TAnnotation> = _IFlat.Statements$A$call$arguments$D$<_TAnnotation>;
+                            }
+                            type $<_TAnnotation> = _IFlat.Statements$A$call$arguments$<_TAnnotation>;
+                        }
+                        type $<_TAnnotation> = _IFlat.Statements$A$call$<_TAnnotation>;
+                    }
+                    namespace change__context {
+                        namespace source {
+                            type $<_TAnnotation> = _IFlat.Statements$A$change__context$source$<_TAnnotation>;
+                        }
+                        namespace block {
+                            type $<_TAnnotation> = _IFlat.Statements$A$change__context$block$<_TAnnotation>;
+                        }
+                        type $<_TAnnotation> = _IFlat.Statements$A$change__context$<_TAnnotation>;
+                    }
+                    namespace _lif {
+                        namespace condition {
+                            type $<_TAnnotation> = _IFlat.Statements$A$if$condition$<_TAnnotation>;
+                        }
+                        namespace then {
+                            type $<_TAnnotation> = _IFlat.Statements$A$if$then$<_TAnnotation>;
+                        }
+                        namespace _lelse {
+                            namespace O {
+                                type $<_TAnnotation> = _IFlat.Statements$A$if$else$O$<_TAnnotation>;
+                            }
+                            type $<_TAnnotation> = _IFlat.Statements$A$if$else$<_TAnnotation>;
+                        }
+                        type $<_TAnnotation> = _IFlat.Statements$A$if$<_TAnnotation>;
+                    }
+                    namespace _lswitch {
+                        namespace source {
+                            type $<_TAnnotation> = _IFlat.Statements$A$switch$source$<_TAnnotation>;
+                        }
+                        namespace context__definition {
+                            type $<_TAnnotation> = _IFlat.Statements$A$switch$context__definition$<_TAnnotation>;
+                        }
+                        namespace cases {
+                            namespace D {
+                                type $<_TAnnotation> = _IFlat.Statements$A$switch$cases$D$<_TAnnotation>;
+                            }
+                            type $<_TAnnotation> = _IFlat.Statements$A$switch$cases$<_TAnnotation>;
+                        }
+                        namespace _ldefault {
+                            namespace O {
+                                type $<_TAnnotation> = _IFlat.Statements$A$switch$default$O$<_TAnnotation>;
+                            }
+                            type $<_TAnnotation> = _IFlat.Statements$A$switch$default$<_TAnnotation>;
+                        }
+                        type $<_TAnnotation> = _IFlat.Statements$A$switch$<_TAnnotation>;
+                    }
                     namespace _lwith {
-                        namespace address {
-                            type $<_TAnnotation> = _IFlat.Statements$A$with$address$<_TAnnotation>;
+                        namespace source {
+                            type $<_TAnnotation> = _IFlat.Statements$A$with$source$<_TAnnotation>;
                         }
                         namespace action {
                             namespace assign {
@@ -2488,21 +3668,6 @@ export declare namespace proto__implementation {
                             type $<_TAnnotation> = _IFlat.Statements$A$with$action$<_TAnnotation>;
                         }
                         type $<_TAnnotation> = _IFlat.Statements$A$with$<_TAnnotation>;
-                    }
-                    namespace _lif {
-                        namespace condition {
-                            type $<_TAnnotation> = _IFlat.Statements$A$if$condition$<_TAnnotation>;
-                        }
-                        namespace then {
-                            type $<_TAnnotation> = _IFlat.Statements$A$if$then$<_TAnnotation>;
-                        }
-                        namespace _lelse {
-                            namespace O {
-                                type $<_TAnnotation> = _IFlat.Statements$A$if$else$O$<_TAnnotation>;
-                            }
-                            type $<_TAnnotation> = _IFlat.Statements$A$if$else$<_TAnnotation>;
-                        }
-                        type $<_TAnnotation> = _IFlat.Statements$A$if$<_TAnnotation>;
                     }
                     namespace _lwhile {
                         namespace condition {
@@ -2535,11 +3700,11 @@ export declare namespace proto__implementation {
         namespace Flat {
             type Type__Selection$current__namespaceXXXXX$ = {
                 readonly 'key': string;
-                readonly 'referent': _Itypesystem.Resolved.Flat.Local__Namespace$types$D$;
+                readonly 'referent': _Itypesystem.Resolved.Flat.Namespace$types$D$;
             };
             type Type__Selection$child__namespace$namespacex$ = {
                 readonly 'key': string;
-                readonly 'referent': _Itypesystem.Resolved.Flat.Local__Namespace$namespaces$D$;
+                readonly 'referent': _Itypesystem.Resolved.Flat.Namespace$namespaces$D$;
             };
             type Type__Selection$child__namespace$selection$ = Type__Selection$;
             type Type__Selection$child__namespace$ = {
@@ -2552,65 +3717,104 @@ export declare namespace proto__implementation {
                 readonly 'type': Type__Arguments$D$type$;
             };
             type Type__Arguments$ = _pt.Dictionary<Type__Arguments$D$>;
-            type Address__Selection__Tail$O$step$call$address__function$ = _Itypesystem.Resolved.Flat.Type$address__function$;
-            type Address__Selection__Tail$O$step$call$type__arguments$ = Type__Arguments$;
-            type Address__Selection__Tail$O$step$call$ = {
-                readonly 'address function': Address__Selection__Tail$O$step$call$address__function$;
-                readonly 'type arguments': Address__Selection__Tail$O$step$call$type__arguments$;
+            type Local__Variables$D$type$ = Type__Selection$;
+            type Local__Variables$D$initialization$ = Initialization$;
+            type Local__Variables$D$ = {
+                readonly 'initialization': Local__Variables$D$initialization$;
+                readonly 'type': Local__Variables$D$type$;
             };
-            type Address__Selection__Tail$O$step$property$group$ = _Itypesystem.Resolved.Flat.Type$group$;
-            type Address__Selection__Tail$O$step$property$property$ = {
+            type Local__Variables$ = _pt.Dictionary<Local__Variables$D$>;
+            type Aggregated__Variable$type$variable__stack2$variable$ = {
+                readonly 'key': string;
+                readonly 'referent': Aggregated__Variable$;
+            };
+            type Aggregated__Variable$type$variable__stack2$ = {
+                readonly 'variable': Aggregated__Variable$type$variable__stack2$variable$;
+            };
+            type Aggregated__Variable$type$local$ = null;
+            type Aggregated__Variable$type$ = ['local', Aggregated__Variable$type$local$] | ['variable stack2', Aggregated__Variable$type$variable__stack2$];
+            type Aggregated__Variable$ = {
+                readonly 'type': Aggregated__Variable$type$;
+            };
+            type Aggregated__Variables$D$ = Aggregated__Variable$;
+            type Aggregated__Variables$ = _pt.Dictionary<Aggregated__Variables$D$>;
+            type Variables$local$ = Local__Variables$;
+            type Variables$aggregated$ = Aggregated__Variables$;
+            type Variables$ = {
+                readonly 'aggregated': Variables$aggregated$;
+                readonly 'local': Variables$local$;
+            };
+            type Target__Selection__Tail$O$step$property$group$ = _Itypesystem.Resolved.Flat.Type$group$;
+            type Target__Selection__Tail$O$step$property$property$ = {
                 readonly 'key': string;
                 readonly 'referent': _Itypesystem.Resolved.Flat.Type$group$D$;
             };
-            type Address__Selection__Tail$O$step$property$ = {
-                readonly 'group': Address__Selection__Tail$O$step$property$group$;
-                readonly 'property': Address__Selection__Tail$O$step$property$property$;
+            type Target__Selection__Tail$O$step$property$ = {
+                readonly 'group': Target__Selection__Tail$O$step$property$group$;
+                readonly 'property': Target__Selection__Tail$O$step$property$property$;
             };
-            type Address__Selection__Tail$O$step$ = ['call', Address__Selection__Tail$O$step$call$] | ['property', Address__Selection__Tail$O$step$property$];
-            type Address__Selection__Tail$O$tail$ = Address__Selection__Tail$;
-            type Address__Selection__Tail$O$ = {
-                readonly 'step': Address__Selection__Tail$O$step$;
-                readonly 'tail': Address__Selection__Tail$O$tail$;
+            type Target__Selection__Tail$O$step$ = ['property', Target__Selection__Tail$O$step$property$];
+            type Target__Selection__Tail$O$tail$ = Target__Selection__Tail$;
+            type Target__Selection__Tail$O$ = {
+                readonly 'step': Target__Selection__Tail$O$step$;
+                readonly 'tail': Target__Selection__Tail$O$tail$;
             };
-            type Address__Selection__Tail$ = _pt.OptionalValue<Address__Selection__Tail$O$>;
-            type Variables$D$type$variable__stack2$variable$ = {
+            type Target__Selection__Tail$ = _pt.OptionalValue<Target__Selection__Tail$O$>;
+            type Target__Selection$variable$ = {
                 readonly 'key': string;
-                readonly 'referent': Variables$;
+                readonly 'referent': Aggregated__Variables$D$;
             };
-            type Variables$D$type$variable__stack2$ = {
-                readonly 'variable': Variables$D$type$variable__stack2$variable$;
+            type Target__Selection$tail$ = Target__Selection__Tail$;
+            type Target__Selection$ = {
+                readonly 'tail': Target__Selection$tail$;
+                readonly 'variable': Target__Selection$variable$;
             };
-            type Variables$D$type$local$type$ = Type__Selection$;
-            type Variables$D$type$local$initialization$ = Initialization$;
-            type Variables$D$type$local$ = {
-                readonly 'initialization': Variables$D$type$local$initialization$;
-                readonly 'type': Variables$D$type$local$type$;
+            type Source__Selection__Tail$O$step$call$address__function$ = _Itypesystem.Resolved.Flat.Type$address__function$;
+            type Source__Selection__Tail$O$step$call$type__arguments$ = Type__Arguments$;
+            type Source__Selection__Tail$O$step$call$context$ = Initialization__Or__Selection$;
+            type Source__Selection__Tail$O$step$call$arguments$D$ = Initialization__Or__Selection$;
+            type Source__Selection__Tail$O$step$call$arguments$ = _pt.Dictionary<Source__Selection__Tail$O$step$call$arguments$D$>;
+            type Source__Selection__Tail$O$step$call$ = {
+                readonly 'address function': Source__Selection__Tail$O$step$call$address__function$;
+                readonly 'arguments': Source__Selection__Tail$O$step$call$arguments$;
+                readonly 'context': Source__Selection__Tail$O$step$call$context$;
+                readonly 'type arguments': Source__Selection__Tail$O$step$call$type__arguments$;
             };
-            type Variables$D$type$ = ['local', Variables$D$type$local$] | ['variable stack2', Variables$D$type$variable__stack2$];
-            type Variables$D$ = {
-                readonly 'type': Variables$D$type$;
-            };
-            type Variables$ = _pt.Dictionary<Variables$D$>;
-            type Address__Selection$variable$ = {
+            type Source__Selection__Tail$O$step$property$group$ = _Itypesystem.Resolved.Flat.Type$group$;
+            type Source__Selection__Tail$O$step$property$property$ = {
                 readonly 'key': string;
-                readonly 'referent': Variables$D$;
+                readonly 'referent': _Itypesystem.Resolved.Flat.Type$group$D$;
             };
-            type Address__Selection$tail$ = Address__Selection__Tail$;
-            type Address__Selection$ = {
-                readonly 'tail': Address__Selection$tail$;
-                readonly 'variable': Address__Selection$variable$;
+            type Source__Selection__Tail$O$step$property$ = {
+                readonly 'group': Source__Selection__Tail$O$step$property$group$;
+                readonly 'property': Source__Selection__Tail$O$step$property$property$;
+            };
+            type Source__Selection__Tail$O$step$ = ['call', Source__Selection__Tail$O$step$call$] | ['property', Source__Selection__Tail$O$step$property$];
+            type Source__Selection__Tail$O$tail$ = Source__Selection__Tail$;
+            type Source__Selection__Tail$O$ = {
+                readonly 'step': Source__Selection__Tail$O$step$;
+                readonly 'tail': Source__Selection__Tail$O$tail$;
+            };
+            type Source__Selection__Tail$ = _pt.OptionalValue<Source__Selection__Tail$O$>;
+            type Source__Selection$start$context$ = null;
+            type Source__Selection$start$variable$ = {
+                readonly 'key': string;
+                readonly 'referent': Aggregated__Variables$D$;
+            };
+            type Source__Selection$start$ = ['context', Source__Selection$start$context$] | ['variable', Source__Selection$start$variable$];
+            type Source__Selection$tail$ = Source__Selection__Tail$;
+            type Source__Selection$ = {
+                readonly 'start': Source__Selection$start$;
+                readonly 'tail': Source__Selection$tail$;
             };
             type Initialization__Or__Selection$initialization$ = Initialization$;
-            type Initialization__Or__Selection$selection$selection$ = Address__Selection$;
-            type Initialization__Or__Selection$selection$string$ = _Itypesystem.Resolved.Flat.Type$string$;
+            type Initialization__Or__Selection$selection$selection$ = Source__Selection$;
             type Initialization__Or__Selection$selection$ = {
                 readonly 'selection': Initialization__Or__Selection$selection$selection$;
-                readonly 'string': Initialization__Or__Selection$selection$string$;
             };
             type Initialization__Or__Selection$ = ['initialization', Initialization__Or__Selection$initialization$] | ['selection', Initialization__Or__Selection$selection$];
             type String__Initialization__Or__Selection$initialization$ = String__Initialization$;
-            type String__Initialization__Or__Selection$selection$selection$ = Address__Selection$;
+            type String__Initialization__Or__Selection$selection$selection$ = Source__Selection$;
             type String__Initialization__Or__Selection$selection$string$ = _Itypesystem.Resolved.Flat.Type$string$;
             type String__Initialization__Or__Selection$selection$ = {
                 readonly 'selection': String__Initialization__Or__Selection$selection$selection$;
@@ -2618,7 +3822,7 @@ export declare namespace proto__implementation {
             };
             type String__Initialization__Or__Selection$ = ['initialization', String__Initialization__Or__Selection$initialization$] | ['selection', String__Initialization__Or__Selection$selection$];
             type Numerical__Initialization__Or__Selection$initialization$ = Numerical__Initialization$;
-            type Numerical__Initialization__Or__Selection$selection$selection$ = Address__Selection$;
+            type Numerical__Initialization__Or__Selection$selection$selection$ = Source__Selection$;
             type Numerical__Initialization__Or__Selection$selection$number$ = _Itypesystem.Resolved.Flat.Type$number$;
             type Numerical__Initialization__Or__Selection$selection$ = {
                 readonly 'number': Numerical__Initialization__Or__Selection$selection$number$;
@@ -2626,7 +3830,7 @@ export declare namespace proto__implementation {
             };
             type Numerical__Initialization__Or__Selection$ = ['initialization', Numerical__Initialization__Or__Selection$initialization$] | ['selection', Numerical__Initialization__Or__Selection$selection$];
             type Boolean__Initialization__Or__Selection$initialization$ = Boolean__Initialization$;
-            type Boolean__Initialization__Or__Selection$selection$selection$ = Address__Selection$;
+            type Boolean__Initialization__Or__Selection$selection$selection$ = Source__Selection$;
             type Boolean__Initialization__Or__Selection$selection$boolean$ = _Itypesystem.Resolved.Flat.Type$boolean$;
             type Boolean__Initialization__Or__Selection$selection$ = {
                 readonly 'boolean': Boolean__Initialization__Or__Selection$selection$boolean$;
@@ -2705,57 +3909,182 @@ export declare namespace proto__implementation {
             type Numerical__Initialization$ = ['minus', Numerical__Initialization$minus$] | ['numeric literal', Numerical__Initialization$numeric__literal$] | ['plus', Numerical__Initialization$plus$] | ['postdecrement', Numerical__Initialization$postdecrement$] | ['postincrement', Numerical__Initialization$postincrement$] | ['predecrement', Numerical__Initialization$predecrement$] | ['preincrement', Numerical__Initialization$preincrement$];
             type String__Initialization$string__literal$ = string;
             type String__Initialization$ = ['string literal', String__Initialization$string__literal$];
-            type Initialization$array__literal$A$array$ = _Itypesystem.Resolved.Flat.Type$array$;
-            type Initialization$array__literal$A$initialization$ = Initialization__Or__Selection$;
-            type Initialization$array__literal$A$ = {
-                readonly 'array': Initialization$array__literal$A$array$;
-                readonly 'initialization': Initialization$array__literal$A$initialization$;
+            type Initialization$array__literal$definition$ = _Itypesystem.Resolved.Flat.Type$array$;
+            type Initialization$array__literal$initialization$A$ = Initialization__Or__Selection$;
+            type Initialization$array__literal$initialization$ = _pt.Array<Initialization$array__literal$initialization$A$>;
+            type Initialization$array__literal$ = {
+                readonly 'definition': Initialization$array__literal$definition$;
+                readonly 'initialization': Initialization$array__literal$initialization$;
             };
-            type Initialization$array__literal$ = _pt.Array<Initialization$array__literal$A$>;
-            type Initialization$object__literal$group$ = _Itypesystem.Resolved.Flat.Type$group$;
-            type Initialization$object__literal$properties$D$ = Initialization__Or__Selection$;
-            type Initialization$object__literal$properties$ = _pt.Dictionary<Initialization$object__literal$properties$D$>;
-            type Initialization$object__literal$ = {
-                readonly 'group': Initialization$object__literal$group$;
-                readonly 'properties': Initialization$object__literal$properties$;
+            type Initialization$array__map$definition$ = _Itypesystem.Resolved.Flat.Type$array$;
+            type Initialization$array__map$source$ = Source__Selection$;
+            type Initialization$array__map$initialization$ = Initialization__Or__Selection$;
+            type Initialization$array__map$ = {
+                readonly 'definition': Initialization$array__map$definition$;
+                readonly 'initialization': Initialization$array__map$initialization$;
+                readonly 'source': Initialization$array__map$source$;
             };
-            type Initialization$boolean$boolean$ = _Itypesystem.Resolved.Flat.Type$boolean$;
-            type Initialization$boolean$x$ = Boolean__Initialization$;
+            type Initialization$boolean$definition$ = _Itypesystem.Resolved.Flat.Type$boolean$;
+            type Initialization$boolean$initialization$ = Boolean__Initialization$;
             type Initialization$boolean$ = {
-                readonly 'boolean': Initialization$boolean$boolean$;
-                readonly 'x': Initialization$boolean$x$;
+                readonly 'definition': Initialization$boolean$definition$;
+                readonly 'initialization': Initialization$boolean$initialization$;
             };
-            type Initialization$numerical$number$ = _Itypesystem.Resolved.Flat.Type$number$;
-            type Initialization$numerical$x$ = Numerical__Initialization$;
-            type Initialization$numerical$ = {
-                readonly 'number': Initialization$numerical$number$;
-                readonly 'x': Initialization$numerical$x$;
+            type Initialization$change__context$source$ = Source__Selection$;
+            type Initialization$change__context$initialization$ = Initialization__Or__Selection$;
+            type Initialization$change__context$ = {
+                readonly 'initialization': Initialization$change__context$initialization$;
+                readonly 'source': Initialization$change__context$source$;
             };
-            type Initialization$string$number$ = _Itypesystem.Resolved.Flat.Type$string$;
-            type Initialization$string$x$ = String__Initialization$;
-            type Initialization$string$ = {
-                readonly 'number': Initialization$string$number$;
-                readonly 'x': Initialization$string$x$;
+            type Initialization$dictionary__literal$definition$ = _Itypesystem.Resolved.Flat.Type$dictionary$;
+            type Initialization$dictionary__literal$initialization$D$ = Initialization__Or__Selection$;
+            type Initialization$dictionary__literal$initialization$ = _pt.Dictionary<Initialization$dictionary__literal$initialization$D$>;
+            type Initialization$dictionary__literal$ = {
+                readonly 'definition': Initialization$dictionary__literal$definition$;
+                readonly 'initialization': Initialization$dictionary__literal$initialization$;
             };
-            type Initialization$null$null$ = _Itypesystem.Resolved.Flat.Type$null$;
+            type Initialization$dictionary__map$definition$ = _Itypesystem.Resolved.Flat.Type$dictionary$;
+            type Initialization$dictionary__map$source$ = Source__Selection$;
+            type Initialization$dictionary__map$initialization$ = Initialization__Or__Selection$;
+            type Initialization$dictionary__map$ = {
+                readonly 'definition': Initialization$dictionary__map$definition$;
+                readonly 'initialization': Initialization$dictionary__map$initialization$;
+                readonly 'source': Initialization$dictionary__map$source$;
+            };
+            type Initialization$group__literal$definition$ = _Itypesystem.Resolved.Flat.Type$group$;
+            type Initialization$group__literal$properties$D$ = Initialization__Or__Selection$;
+            type Initialization$group__literal$properties$ = _pt.Dictionary<Initialization$group__literal$properties$D$>;
+            type Initialization$group__literal$ = {
+                readonly 'definition': Initialization$group__literal$definition$;
+                readonly 'properties': Initialization$group__literal$properties$;
+            };
+            type Initialization$implement__me$ = string;
+            type Initialization$null$definition$ = _Itypesystem.Resolved.Flat.Type$null$;
             type Initialization$null$ = {
-                readonly 'null': Initialization$null$null$;
+                readonly 'definition': Initialization$null$definition$;
             };
-            type Initialization$ = ['array literal', Initialization$array__literal$] | ['boolean', Initialization$boolean$] | ['null', Initialization$null$] | ['numerical', Initialization$numerical$] | ['object literal', Initialization$object__literal$] | ['string', Initialization$string$];
+            type Initialization$numerical$definition$ = _Itypesystem.Resolved.Flat.Type$number$;
+            type Initialization$numerical$initialization$ = Numerical__Initialization$;
+            type Initialization$numerical$ = {
+                readonly 'definition': Initialization$numerical$definition$;
+                readonly 'initialization': Initialization$numerical$initialization$;
+            };
+            type Initialization$optional$definition$ = _Itypesystem.Resolved.Flat.Type$optional$;
+            type Initialization$optional$ = {
+                readonly 'definition': Initialization$optional$definition$;
+            };
+            type Initialization$procedure$definition$ = _Itypesystem.Resolved.Flat.Type$procedure$;
+            type Initialization$procedure$temp__has__parameters$O$ = null;
+            type Initialization$procedure$temp__has__parameters$ = _pt.OptionalValue<Initialization$procedure$temp__has__parameters$O$>;
+            type Initialization$procedure$variables$ = Aggregated__Variables$;
+            type Initialization$procedure$block$ = Block$;
+            type Initialization$procedure$ = {
+                readonly 'block': Initialization$procedure$block$;
+                readonly 'definition': Initialization$procedure$definition$;
+                readonly 'temp has parameters': Initialization$procedure$temp__has__parameters$;
+                readonly 'variables': Initialization$procedure$variables$;
+            };
+            type Initialization$tagged__union__literal$definition$ = _Itypesystem.Resolved.Flat.Type$tagged__union$;
+            type Initialization$tagged__union__literal$state$ = {
+                readonly 'key': string;
+                readonly 'referent': _Itypesystem.Resolved.Flat.Type$tagged__union$D$;
+            };
+            type Initialization$tagged__union__literal$initialization$ = Initialization__Or__Selection$;
+            type Initialization$tagged__union__literal$ = {
+                readonly 'definition': Initialization$tagged__union__literal$definition$;
+                readonly 'initialization': Initialization$tagged__union__literal$initialization$;
+                readonly 'state': Initialization$tagged__union__literal$state$;
+            };
+            type Initialization$string$definition$ = _Itypesystem.Resolved.Flat.Type$string$;
+            type Initialization$string$initialization$ = String__Initialization$;
+            type Initialization$string$ = {
+                readonly 'definition': Initialization$string$definition$;
+                readonly 'initialization': Initialization$string$initialization$;
+            };
+            type Initialization$switch$definition$ = _Itypesystem.Resolved.Flat.Type$tagged__union$;
+            type Initialization$switch$temp__type$ = Type__Selection$;
+            type Initialization$switch$source$ = Source__Selection$;
+            type Initialization$switch$cases$D$ = Initialization__Or__Selection$;
+            type Initialization$switch$cases$ = _pt.Dictionary<Initialization$switch$cases$D$>;
+            type Initialization$switch$default$O$ = Initialization__Or__Selection$;
+            type Initialization$switch$default$ = _pt.OptionalValue<Initialization$switch$default$O$>;
+            type Initialization$switch$ = {
+                readonly 'cases': Initialization$switch$cases$;
+                readonly 'default': Initialization$switch$default$;
+                readonly 'definition': Initialization$switch$definition$;
+                readonly 'source': Initialization$switch$source$;
+                readonly 'temp type': Initialization$switch$temp__type$;
+            };
+            type Initialization$value__function$definition$ = _Itypesystem.Resolved.Flat.Type$procedure$;
+            type Initialization$value__function$temp__has__parameters$O$ = null;
+            type Initialization$value__function$temp__has__parameters$ = _pt.OptionalValue<Initialization$value__function$temp__has__parameters$O$>;
+            type Initialization$value__function$variables$ = Aggregated__Variables$;
+            type Initialization$value__function$initialization$ = Initialization__Or__Selection$;
+            type Initialization$value__function$ = {
+                readonly 'definition': Initialization$value__function$definition$;
+                readonly 'initialization': Initialization$value__function$initialization$;
+                readonly 'temp has parameters': Initialization$value__function$temp__has__parameters$;
+                readonly 'variables': Initialization$value__function$variables$;
+            };
+            type Initialization$variables$variables$ = Variables$;
+            type Initialization$variables$initialization$ = Initialization__Or__Selection$;
+            type Initialization$variables$ = {
+                readonly 'initialization': Initialization$variables$initialization$;
+                readonly 'variables': Initialization$variables$variables$;
+            };
+            type Initialization$ = ['array literal', Initialization$array__literal$] | ['array map', Initialization$array__map$] | ['boolean', Initialization$boolean$] | ['change context', Initialization$change__context$] | ['dictionary literal', Initialization$dictionary__literal$] | ['dictionary map', Initialization$dictionary__map$] | ['group literal', Initialization$group__literal$] | ['implement me', Initialization$implement__me$] | ['null', Initialization$null$] | ['numerical', Initialization$numerical$] | ['optional', Initialization$optional$] | ['procedure', Initialization$procedure$] | ['string', Initialization$string$] | ['switch', Initialization$switch$] | ['tagged union literal', Initialization$tagged__union__literal$] | ['value function', Initialization$value__function$] | ['variables', Initialization$variables$];
             type Block$variables$ = Variables$;
             type Block$statements$ = Statements$;
             type Block$ = {
                 readonly 'statements': Block$statements$;
                 readonly 'variables': Block$variables$;
             };
-            type Assign$target$ = Address__Selection$;
+            type Assign$target$ = Target__Selection$;
             type Assign$initialization$ = Initialization__Or__Selection$;
             type Assign$ = {
                 readonly 'initialization': Assign$initialization$;
                 readonly 'target': Assign$target$;
             };
             type Statements$A$block$ = Block$;
-            type Statements$A$with$address$ = Address__Selection$;
+            type Statements$A$call$function$ = Source__Selection$;
+            type Statements$A$call$context__definition$ = _Itypesystem.Resolved.Flat.Type$procedure$;
+            type Statements$A$call$context$ = Source__Selection$;
+            type Statements$A$call$arguments$D$ = Initialization__Or__Selection$;
+            type Statements$A$call$arguments$ = _pt.Dictionary<Statements$A$call$arguments$D$>;
+            type Statements$A$call$ = {
+                readonly 'arguments': Statements$A$call$arguments$;
+                readonly 'context': Statements$A$call$context$;
+                readonly 'context definition': Statements$A$call$context__definition$;
+                readonly 'function': Statements$A$call$function$;
+            };
+            type Statements$A$change__context$source$ = Source__Selection$;
+            type Statements$A$change__context$block$ = Block$;
+            type Statements$A$change__context$ = {
+                readonly 'block': Statements$A$change__context$block$;
+                readonly 'source': Statements$A$change__context$source$;
+            };
+            type Statements$A$if$condition$ = Boolean__Initialization__Or__Selection$;
+            type Statements$A$if$then$ = Block$;
+            type Statements$A$if$else$O$ = Block$;
+            type Statements$A$if$else$ = _pt.OptionalValue<Statements$A$if$else$O$>;
+            type Statements$A$if$ = {
+                readonly 'condition': Statements$A$if$condition$;
+                readonly 'else': Statements$A$if$else$;
+                readonly 'then': Statements$A$if$then$;
+            };
+            type Statements$A$switch$source$ = Source__Selection$;
+            type Statements$A$switch$context__definition$ = _Itypesystem.Resolved.Flat.Type$tagged__union$;
+            type Statements$A$switch$cases$D$ = Block$;
+            type Statements$A$switch$cases$ = _pt.Dictionary<Statements$A$switch$cases$D$>;
+            type Statements$A$switch$default$O$ = Block$;
+            type Statements$A$switch$default$ = _pt.OptionalValue<Statements$A$switch$default$O$>;
+            type Statements$A$switch$ = {
+                readonly 'cases': Statements$A$switch$cases$;
+                readonly 'context definition': Statements$A$switch$context__definition$;
+                readonly 'default': Statements$A$switch$default$;
+                readonly 'source': Statements$A$switch$source$;
+            };
+            type Statements$A$with$source$ = Source__Selection$;
             type Statements$A$with$action$assign$ = Assign$;
             type Statements$A$with$action$minus__assign$number$ = _Itypesystem.Resolved.Flat.Type$number$;
             type Statements$A$with$action$minus__assign$right__hand__side$ = Numerical__Initialization__Or__Selection$;
@@ -2772,16 +4101,7 @@ export declare namespace proto__implementation {
             type Statements$A$with$action$ = ['assign', Statements$A$with$action$assign$] | ['minus assign', Statements$A$with$action$minus__assign$] | ['plus assign', Statements$A$with$action$plus__assign$];
             type Statements$A$with$ = {
                 readonly 'action': Statements$A$with$action$;
-                readonly 'address': Statements$A$with$address$;
-            };
-            type Statements$A$if$condition$ = Boolean__Initialization__Or__Selection$;
-            type Statements$A$if$then$ = Block$;
-            type Statements$A$if$else$O$ = Block$;
-            type Statements$A$if$else$ = _pt.OptionalValue<Statements$A$if$else$O$>;
-            type Statements$A$if$ = {
-                readonly 'condition': Statements$A$if$condition$;
-                readonly 'else': Statements$A$if$else$;
-                readonly 'then': Statements$A$if$then$;
+                readonly 'source': Statements$A$with$source$;
             };
             type Statements$A$while$condition$ = Boolean__Initialization__Or__Selection$;
             type Statements$A$while$block$ = Block$;
@@ -2789,7 +4109,7 @@ export declare namespace proto__implementation {
                 readonly 'block': Statements$A$while$block$;
                 readonly 'condition': Statements$A$while$condition$;
             };
-            type Statements$A$ = ['block', Statements$A$block$] | ['if', Statements$A$if$] | ['while', Statements$A$while$] | ['with', Statements$A$with$];
+            type Statements$A$ = ['block', Statements$A$block$] | ['call', Statements$A$call$] | ['change context', Statements$A$change__context$] | ['if', Statements$A$if$] | ['switch', Statements$A$switch$] | ['while', Statements$A$while$] | ['with', Statements$A$with$];
             type Statements$ = _pt.Array<Statements$A$>;
             type Source__File$type$ = Type__Selection$;
             type Source__File$initialization$ = Initialization$;
@@ -2825,68 +4145,131 @@ export declare namespace proto__implementation {
                 }
                 type $ = _IFlat.Type__Arguments$;
             }
-            namespace Address__Selection__Tail {
+            namespace Local__Variables {
+                namespace D {
+                    namespace _ltype {
+                        type $ = _IFlat.Local__Variables$D$type$;
+                    }
+                    namespace initialization {
+                        type $ = _IFlat.Local__Variables$D$initialization$;
+                    }
+                    type $ = _IFlat.Local__Variables$D$;
+                }
+                type $ = _IFlat.Local__Variables$;
+            }
+            namespace Aggregated__Variable {
+                namespace _ltype {
+                    namespace variable__stack2 {
+                        namespace variable {
+                            type $ = _IFlat.Aggregated__Variable$type$variable__stack2$variable$;
+                        }
+                        type $ = _IFlat.Aggregated__Variable$type$variable__stack2$;
+                    }
+                    namespace local {
+                        type $ = _IFlat.Aggregated__Variable$type$local$;
+                    }
+                    type $ = _IFlat.Aggregated__Variable$type$;
+                }
+                type $ = _IFlat.Aggregated__Variable$;
+            }
+            namespace Aggregated__Variables {
+                namespace D {
+                    type $ = _IFlat.Aggregated__Variables$D$;
+                }
+                type $ = _IFlat.Aggregated__Variables$;
+            }
+            namespace Variables {
+                namespace local {
+                    type $ = _IFlat.Variables$local$;
+                }
+                namespace aggregated {
+                    type $ = _IFlat.Variables$aggregated$;
+                }
+                type $ = _IFlat.Variables$;
+            }
+            namespace TTarget__Selection__Tail {
+                namespace O {
+                    namespace step {
+                        namespace property {
+                            namespace group {
+                                type $ = _IFlat.Target__Selection__Tail$O$step$property$group$;
+                            }
+                            namespace property {
+                                type $ = _IFlat.Target__Selection__Tail$O$step$property$property$;
+                            }
+                            type $ = _IFlat.Target__Selection__Tail$O$step$property$;
+                        }
+                        type $ = _IFlat.Target__Selection__Tail$O$step$;
+                    }
+                    namespace tail {
+                        type $ = _IFlat.Target__Selection__Tail$O$tail$;
+                    }
+                    type $ = _IFlat.Target__Selection__Tail$O$;
+                }
+                type $ = _IFlat.Target__Selection__Tail$;
+            }
+            namespace TTarget__Selection {
+                namespace variable {
+                    type $ = _IFlat.Target__Selection$variable$;
+                }
+                namespace tail {
+                    type $ = _IFlat.Target__Selection$tail$;
+                }
+                type $ = _IFlat.Target__Selection$;
+            }
+            namespace Source__Selection__Tail {
                 namespace O {
                     namespace step {
                         namespace call {
                             namespace address__function {
-                                type $ = _IFlat.Address__Selection__Tail$O$step$call$address__function$;
+                                type $ = _IFlat.Source__Selection__Tail$O$step$call$address__function$;
                             }
                             namespace type__arguments {
-                                type $ = _IFlat.Address__Selection__Tail$O$step$call$type__arguments$;
+                                type $ = _IFlat.Source__Selection__Tail$O$step$call$type__arguments$;
                             }
-                            type $ = _IFlat.Address__Selection__Tail$O$step$call$;
+                            namespace context {
+                                type $ = _IFlat.Source__Selection__Tail$O$step$call$context$;
+                            }
+                            namespace _larguments {
+                                namespace D {
+                                    type $ = _IFlat.Source__Selection__Tail$O$step$call$arguments$D$;
+                                }
+                                type $ = _IFlat.Source__Selection__Tail$O$step$call$arguments$;
+                            }
+                            type $ = _IFlat.Source__Selection__Tail$O$step$call$;
                         }
                         namespace property {
                             namespace group {
-                                type $ = _IFlat.Address__Selection__Tail$O$step$property$group$;
+                                type $ = _IFlat.Source__Selection__Tail$O$step$property$group$;
                             }
                             namespace property {
-                                type $ = _IFlat.Address__Selection__Tail$O$step$property$property$;
+                                type $ = _IFlat.Source__Selection__Tail$O$step$property$property$;
                             }
-                            type $ = _IFlat.Address__Selection__Tail$O$step$property$;
+                            type $ = _IFlat.Source__Selection__Tail$O$step$property$;
                         }
-                        type $ = _IFlat.Address__Selection__Tail$O$step$;
+                        type $ = _IFlat.Source__Selection__Tail$O$step$;
                     }
                     namespace tail {
-                        type $ = _IFlat.Address__Selection__Tail$O$tail$;
+                        type $ = _IFlat.Source__Selection__Tail$O$tail$;
                     }
-                    type $ = _IFlat.Address__Selection__Tail$O$;
+                    type $ = _IFlat.Source__Selection__Tail$O$;
                 }
-                type $ = _IFlat.Address__Selection__Tail$;
+                type $ = _IFlat.Source__Selection__Tail$;
             }
-            namespace Variables {
-                namespace D {
-                    namespace _ltype {
-                        namespace variable__stack2 {
-                            namespace variable {
-                                type $ = _IFlat.Variables$D$type$variable__stack2$variable$;
-                            }
-                            type $ = _IFlat.Variables$D$type$variable__stack2$;
-                        }
-                        namespace local {
-                            namespace _ltype {
-                                type $ = _IFlat.Variables$D$type$local$type$;
-                            }
-                            namespace initialization {
-                                type $ = _IFlat.Variables$D$type$local$initialization$;
-                            }
-                            type $ = _IFlat.Variables$D$type$local$;
-                        }
-                        type $ = _IFlat.Variables$D$type$;
+            namespace Source__Selection {
+                namespace start {
+                    namespace context {
+                        type $ = _IFlat.Source__Selection$start$context$;
                     }
-                    type $ = _IFlat.Variables$D$;
-                }
-                type $ = _IFlat.Variables$;
-            }
-            namespace Address__Selection {
-                namespace variable {
-                    type $ = _IFlat.Address__Selection$variable$;
+                    namespace variable {
+                        type $ = _IFlat.Source__Selection$start$variable$;
+                    }
+                    type $ = _IFlat.Source__Selection$start$;
                 }
                 namespace tail {
-                    type $ = _IFlat.Address__Selection$tail$;
+                    type $ = _IFlat.Source__Selection$tail$;
                 }
-                type $ = _IFlat.Address__Selection$;
+                type $ = _IFlat.Source__Selection$;
             }
             namespace Initialization__Or__Selection {
                 namespace initialization {
@@ -2895,9 +4278,6 @@ export declare namespace proto__implementation {
                 namespace selection {
                     namespace selection {
                         type $ = _IFlat.Initialization__Or__Selection$selection$selection$;
-                    }
-                    namespace _lstring {
-                        type $ = _IFlat.Initialization__Or__Selection$selection$string$;
                     }
                     type $ = _IFlat.Initialization__Or__Selection$selection$;
                 }
@@ -3076,61 +4456,196 @@ export declare namespace proto__implementation {
             }
             namespace Initialization {
                 namespace array__literal {
-                    namespace A {
-                        namespace array {
-                            type $ = _IFlat.Initialization$array__literal$A$array$;
+                    namespace definition {
+                        type $ = _IFlat.Initialization$array__literal$definition$;
+                    }
+                    namespace initialization {
+                        namespace A {
+                            type $ = _IFlat.Initialization$array__literal$initialization$A$;
                         }
-                        namespace initialization {
-                            type $ = _IFlat.Initialization$array__literal$A$initialization$;
-                        }
-                        type $ = _IFlat.Initialization$array__literal$A$;
+                        type $ = _IFlat.Initialization$array__literal$initialization$;
                     }
                     type $ = _IFlat.Initialization$array__literal$;
                 }
-                namespace object__literal {
-                    namespace group {
-                        type $ = _IFlat.Initialization$object__literal$group$;
+                namespace array__map {
+                    namespace definition {
+                        type $ = _IFlat.Initialization$array__map$definition$;
                     }
-                    namespace properties {
-                        namespace D {
-                            type $ = _IFlat.Initialization$object__literal$properties$D$;
-                        }
-                        type $ = _IFlat.Initialization$object__literal$properties$;
+                    namespace source {
+                        type $ = _IFlat.Initialization$array__map$source$;
                     }
-                    type $ = _IFlat.Initialization$object__literal$;
+                    namespace initialization {
+                        type $ = _IFlat.Initialization$array__map$initialization$;
+                    }
+                    type $ = _IFlat.Initialization$array__map$;
                 }
                 namespace _lboolean {
-                    namespace _lboolean {
-                        type $ = _IFlat.Initialization$boolean$boolean$;
+                    namespace definition {
+                        type $ = _IFlat.Initialization$boolean$definition$;
                     }
-                    namespace x {
-                        type $ = _IFlat.Initialization$boolean$x$;
+                    namespace initialization {
+                        type $ = _IFlat.Initialization$boolean$initialization$;
                     }
                     type $ = _IFlat.Initialization$boolean$;
                 }
-                namespace numerical {
-                    namespace _lnumber {
-                        type $ = _IFlat.Initialization$numerical$number$;
+                namespace change__context {
+                    namespace source {
+                        type $ = _IFlat.Initialization$change__context$source$;
                     }
-                    namespace x {
-                        type $ = _IFlat.Initialization$numerical$x$;
+                    namespace initialization {
+                        type $ = _IFlat.Initialization$change__context$initialization$;
+                    }
+                    type $ = _IFlat.Initialization$change__context$;
+                }
+                namespace dictionary__literal {
+                    namespace definition {
+                        type $ = _IFlat.Initialization$dictionary__literal$definition$;
+                    }
+                    namespace initialization {
+                        namespace D {
+                            type $ = _IFlat.Initialization$dictionary__literal$initialization$D$;
+                        }
+                        type $ = _IFlat.Initialization$dictionary__literal$initialization$;
+                    }
+                    type $ = _IFlat.Initialization$dictionary__literal$;
+                }
+                namespace dictionary__map {
+                    namespace definition {
+                        type $ = _IFlat.Initialization$dictionary__map$definition$;
+                    }
+                    namespace source {
+                        type $ = _IFlat.Initialization$dictionary__map$source$;
+                    }
+                    namespace initialization {
+                        type $ = _IFlat.Initialization$dictionary__map$initialization$;
+                    }
+                    type $ = _IFlat.Initialization$dictionary__map$;
+                }
+                namespace group__literal {
+                    namespace definition {
+                        type $ = _IFlat.Initialization$group__literal$definition$;
+                    }
+                    namespace properties {
+                        namespace D {
+                            type $ = _IFlat.Initialization$group__literal$properties$D$;
+                        }
+                        type $ = _IFlat.Initialization$group__literal$properties$;
+                    }
+                    type $ = _IFlat.Initialization$group__literal$;
+                }
+                namespace implement__me {
+                    type $ = _IFlat.Initialization$implement__me$;
+                }
+                namespace _lnull {
+                    namespace definition {
+                        type $ = _IFlat.Initialization$null$definition$;
+                    }
+                    type $ = _IFlat.Initialization$null$;
+                }
+                namespace numerical {
+                    namespace definition {
+                        type $ = _IFlat.Initialization$numerical$definition$;
+                    }
+                    namespace initialization {
+                        type $ = _IFlat.Initialization$numerical$initialization$;
                     }
                     type $ = _IFlat.Initialization$numerical$;
                 }
-                namespace _lstring {
-                    namespace _lnumber {
-                        type $ = _IFlat.Initialization$string$number$;
+                namespace optional {
+                    namespace definition {
+                        type $ = _IFlat.Initialization$optional$definition$;
                     }
-                    namespace x {
-                        type $ = _IFlat.Initialization$string$x$;
+                    type $ = _IFlat.Initialization$optional$;
+                }
+                namespace procedure {
+                    namespace definition {
+                        type $ = _IFlat.Initialization$procedure$definition$;
+                    }
+                    namespace temp__has__parameters {
+                        namespace O {
+                            type $ = _IFlat.Initialization$procedure$temp__has__parameters$O$;
+                        }
+                        type $ = _IFlat.Initialization$procedure$temp__has__parameters$;
+                    }
+                    namespace variables {
+                        type $ = _IFlat.Initialization$procedure$variables$;
+                    }
+                    namespace block {
+                        type $ = _IFlat.Initialization$procedure$block$;
+                    }
+                    type $ = _IFlat.Initialization$procedure$;
+                }
+                namespace tagged__union__literal {
+                    namespace definition {
+                        type $ = _IFlat.Initialization$tagged__union__literal$definition$;
+                    }
+                    namespace state {
+                        type $ = _IFlat.Initialization$tagged__union__literal$state$;
+                    }
+                    namespace initialization {
+                        type $ = _IFlat.Initialization$tagged__union__literal$initialization$;
+                    }
+                    type $ = _IFlat.Initialization$tagged__union__literal$;
+                }
+                namespace _lstring {
+                    namespace definition {
+                        type $ = _IFlat.Initialization$string$definition$;
+                    }
+                    namespace initialization {
+                        type $ = _IFlat.Initialization$string$initialization$;
                     }
                     type $ = _IFlat.Initialization$string$;
                 }
-                namespace _lnull {
-                    namespace _lnull {
-                        type $ = _IFlat.Initialization$null$null$;
+                namespace _lswitch {
+                    namespace definition {
+                        type $ = _IFlat.Initialization$switch$definition$;
                     }
-                    type $ = _IFlat.Initialization$null$;
+                    namespace temp__type {
+                        type $ = _IFlat.Initialization$switch$temp__type$;
+                    }
+                    namespace source {
+                        type $ = _IFlat.Initialization$switch$source$;
+                    }
+                    namespace cases {
+                        namespace D {
+                            type $ = _IFlat.Initialization$switch$cases$D$;
+                        }
+                        type $ = _IFlat.Initialization$switch$cases$;
+                    }
+                    namespace _ldefault {
+                        namespace O {
+                            type $ = _IFlat.Initialization$switch$default$O$;
+                        }
+                        type $ = _IFlat.Initialization$switch$default$;
+                    }
+                    type $ = _IFlat.Initialization$switch$;
+                }
+                namespace value__function {
+                    namespace definition {
+                        type $ = _IFlat.Initialization$value__function$definition$;
+                    }
+                    namespace temp__has__parameters {
+                        namespace O {
+                            type $ = _IFlat.Initialization$value__function$temp__has__parameters$O$;
+                        }
+                        type $ = _IFlat.Initialization$value__function$temp__has__parameters$;
+                    }
+                    namespace variables {
+                        type $ = _IFlat.Initialization$value__function$variables$;
+                    }
+                    namespace initialization {
+                        type $ = _IFlat.Initialization$value__function$initialization$;
+                    }
+                    type $ = _IFlat.Initialization$value__function$;
+                }
+                namespace variables {
+                    namespace variables {
+                        type $ = _IFlat.Initialization$variables$variables$;
+                    }
+                    namespace initialization {
+                        type $ = _IFlat.Initialization$variables$initialization$;
+                    }
+                    type $ = _IFlat.Initialization$variables$;
                 }
                 type $ = _IFlat.Initialization$;
             }
@@ -3157,9 +4672,72 @@ export declare namespace proto__implementation {
                     namespace block {
                         type $ = _IFlat.Statements$A$block$;
                     }
+                    namespace call {
+                        namespace _lfunction {
+                            type $ = _IFlat.Statements$A$call$function$;
+                        }
+                        namespace context__definition {
+                            type $ = _IFlat.Statements$A$call$context__definition$;
+                        }
+                        namespace context {
+                            type $ = _IFlat.Statements$A$call$context$;
+                        }
+                        namespace _larguments {
+                            namespace D {
+                                type $ = _IFlat.Statements$A$call$arguments$D$;
+                            }
+                            type $ = _IFlat.Statements$A$call$arguments$;
+                        }
+                        type $ = _IFlat.Statements$A$call$;
+                    }
+                    namespace change__context {
+                        namespace source {
+                            type $ = _IFlat.Statements$A$change__context$source$;
+                        }
+                        namespace block {
+                            type $ = _IFlat.Statements$A$change__context$block$;
+                        }
+                        type $ = _IFlat.Statements$A$change__context$;
+                    }
+                    namespace _lif {
+                        namespace condition {
+                            type $ = _IFlat.Statements$A$if$condition$;
+                        }
+                        namespace then {
+                            type $ = _IFlat.Statements$A$if$then$;
+                        }
+                        namespace _lelse {
+                            namespace O {
+                                type $ = _IFlat.Statements$A$if$else$O$;
+                            }
+                            type $ = _IFlat.Statements$A$if$else$;
+                        }
+                        type $ = _IFlat.Statements$A$if$;
+                    }
+                    namespace _lswitch {
+                        namespace source {
+                            type $ = _IFlat.Statements$A$switch$source$;
+                        }
+                        namespace context__definition {
+                            type $ = _IFlat.Statements$A$switch$context__definition$;
+                        }
+                        namespace cases {
+                            namespace D {
+                                type $ = _IFlat.Statements$A$switch$cases$D$;
+                            }
+                            type $ = _IFlat.Statements$A$switch$cases$;
+                        }
+                        namespace _ldefault {
+                            namespace O {
+                                type $ = _IFlat.Statements$A$switch$default$O$;
+                            }
+                            type $ = _IFlat.Statements$A$switch$default$;
+                        }
+                        type $ = _IFlat.Statements$A$switch$;
+                    }
                     namespace _lwith {
-                        namespace address {
-                            type $ = _IFlat.Statements$A$with$address$;
+                        namespace source {
+                            type $ = _IFlat.Statements$A$with$source$;
                         }
                         namespace action {
                             namespace assign {
@@ -3186,21 +4764,6 @@ export declare namespace proto__implementation {
                             type $ = _IFlat.Statements$A$with$action$;
                         }
                         type $ = _IFlat.Statements$A$with$;
-                    }
-                    namespace _lif {
-                        namespace condition {
-                            type $ = _IFlat.Statements$A$if$condition$;
-                        }
-                        namespace then {
-                            type $ = _IFlat.Statements$A$if$then$;
-                        }
-                        namespace _lelse {
-                            namespace O {
-                                type $ = _IFlat.Statements$A$if$else$O$;
-                            }
-                            type $ = _IFlat.Statements$A$if$else$;
-                        }
-                        type $ = _IFlat.Statements$A$if$;
                     }
                     namespace _lwhile {
                         namespace condition {
@@ -3232,256 +4795,172 @@ export declare namespace proto__implementation {
     namespace Resolve {
         import _IResolved = Resolved;
         import _IUnresolved = Unresolved;
-        type Address__Selection__Tail = <_TAnnotation>($: _IUnresolved.Flat.Address__Selection__Tail$<_TAnnotation>) => _IResolved.Flat.Address__Selection__Tail$;
-        type Address__Selection = <_TAnnotation>($: _IUnresolved.Flat.Address__Selection$<_TAnnotation>) => _IResolved.Flat.Address__Selection$;
-        type Assign = <_TAnnotation>($: _IUnresolved.Flat.Assign$<_TAnnotation>) => _IResolved.Flat.Assign$;
-        type Block = <_TAnnotation>($: _IUnresolved.Flat.Block$<_TAnnotation>) => _IResolved.Flat.Block$;
-        type Boolean__Initialization__Or__Selection = <_TAnnotation>($: _IUnresolved.Flat.Boolean__Initialization__Or__Selection$<_TAnnotation>) => _IResolved.Flat.Boolean__Initialization__Or__Selection$;
-        type Boolean__Initialization = <_TAnnotation>($: _IUnresolved.Flat.Boolean__Initialization$<_TAnnotation>) => _IResolved.Flat.Boolean__Initialization$;
-        type Initialization__Or__Selection = <_TAnnotation>($: _IUnresolved.Flat.Initialization__Or__Selection$<_TAnnotation>) => _IResolved.Flat.Initialization__Or__Selection$;
-        type Initialization = <_TAnnotation>($: _IUnresolved.Flat.Initialization$<_TAnnotation>) => _IResolved.Flat.Initialization$;
-        type Numerical__Initialization__Or__Selection = <_TAnnotation>($: _IUnresolved.Flat.Numerical__Initialization__Or__Selection$<_TAnnotation>) => _IResolved.Flat.Numerical__Initialization__Or__Selection$;
-        type Numerical__Initialization = <_TAnnotation>($: _IUnresolved.Flat.Numerical__Initialization$<_TAnnotation>) => _IResolved.Flat.Numerical__Initialization$;
-        type Root = <_TAnnotation>($: _IUnresolved.Flat.Root$<_TAnnotation>) => _IResolved.Flat.Root$;
-        type Source__File = <_TAnnotation>($: _IUnresolved.Flat.Source__File$<_TAnnotation>) => _IResolved.Flat.Source__File$;
-        type Statements = <_TAnnotation>($: _IUnresolved.Flat.Statements$<_TAnnotation>) => _IResolved.Flat.Statements$;
-        type String__Initialization__Or__Selection = <_TAnnotation>($: _IUnresolved.Flat.String__Initialization__Or__Selection$<_TAnnotation>) => _IResolved.Flat.String__Initialization__Or__Selection$;
-        type String__Initialization = <_TAnnotation>($: _IUnresolved.Flat.String__Initialization$<_TAnnotation>) => _IResolved.Flat.String__Initialization$;
-        type Type__Arguments = <_TAnnotation>($: _IUnresolved.Flat.Type__Arguments$<_TAnnotation>) => _IResolved.Flat.Type__Arguments$;
-        type Type__Selection = <_TAnnotation>($: _IUnresolved.Flat.Type__Selection$<_TAnnotation>) => _IResolved.Flat.Type__Selection$;
-        type Variables = <_TAnnotation>($: _IUnresolved.Flat.Variables$<_TAnnotation>) => _IResolved.Flat.Variables$;
+        namespace types {
+            type Aggregated__Variable = <_TAnnotation>($: _IUnresolved.Flat.Aggregated__Variable$<_TAnnotation>) => _IResolved.Flat.Aggregated__Variable$;
+            type Aggregated__Variables = <_TAnnotation>($: _IUnresolved.Flat.Aggregated__Variables$<_TAnnotation>) => _IResolved.Flat.Aggregated__Variables$;
+            type Assign = <_TAnnotation>($: _IUnresolved.Flat.Assign$<_TAnnotation>) => _IResolved.Flat.Assign$;
+            type Block = <_TAnnotation>($: _IUnresolved.Flat.Block$<_TAnnotation>) => _IResolved.Flat.Block$;
+            type Boolean__Initialization__Or__Selection = <_TAnnotation>($: _IUnresolved.Flat.Boolean__Initialization__Or__Selection$<_TAnnotation>) => _IResolved.Flat.Boolean__Initialization__Or__Selection$;
+            type Boolean__Initialization = <_TAnnotation>($: _IUnresolved.Flat.Boolean__Initialization$<_TAnnotation>) => _IResolved.Flat.Boolean__Initialization$;
+            type Initialization__Or__Selection = <_TAnnotation>($: _IUnresolved.Flat.Initialization__Or__Selection$<_TAnnotation>) => _IResolved.Flat.Initialization__Or__Selection$;
+            type Initialization = <_TAnnotation>($: _IUnresolved.Flat.Initialization$<_TAnnotation>) => _IResolved.Flat.Initialization$;
+            type Local__Variables = <_TAnnotation>($: _IUnresolved.Flat.Local__Variables$<_TAnnotation>) => _IResolved.Flat.Local__Variables$;
+            type Numerical__Initialization__Or__Selection = <_TAnnotation>($: _IUnresolved.Flat.Numerical__Initialization__Or__Selection$<_TAnnotation>) => _IResolved.Flat.Numerical__Initialization__Or__Selection$;
+            type Numerical__Initialization = <_TAnnotation>($: _IUnresolved.Flat.Numerical__Initialization$<_TAnnotation>) => _IResolved.Flat.Numerical__Initialization$;
+            type Root = <_TAnnotation>($: _IUnresolved.Flat.Root$<_TAnnotation>) => _IResolved.Flat.Root$;
+            type Source__File = <_TAnnotation>($: _IUnresolved.Flat.Source__File$<_TAnnotation>) => _IResolved.Flat.Source__File$;
+            type Source__Selection__Tail = <_TAnnotation>($: _IUnresolved.Flat.Source__Selection__Tail$<_TAnnotation>) => _IResolved.Flat.Source__Selection__Tail$;
+            type Source__Selection = <_TAnnotation>($: _IUnresolved.Flat.Source__Selection$<_TAnnotation>) => _IResolved.Flat.Source__Selection$;
+            type Statements = <_TAnnotation>($: _IUnresolved.Flat.Statements$<_TAnnotation>) => _IResolved.Flat.Statements$;
+            type String__Initialization__Or__Selection = <_TAnnotation>($: _IUnresolved.Flat.String__Initialization__Or__Selection$<_TAnnotation>) => _IResolved.Flat.String__Initialization__Or__Selection$;
+            type String__Initialization = <_TAnnotation>($: _IUnresolved.Flat.String__Initialization$<_TAnnotation>) => _IResolved.Flat.String__Initialization$;
+            type Target__Selection__Tail = <_TAnnotation>($: _IUnresolved.Flat.Target__Selection__Tail$<_TAnnotation>) => _IResolved.Flat.Target__Selection__Tail$;
+            type Target__Selection = <_TAnnotation>($: _IUnresolved.Flat.Target__Selection$<_TAnnotation>) => _IResolved.Flat.Target__Selection$;
+            type Type__Arguments = <_TAnnotation>($: _IUnresolved.Flat.Type__Arguments$<_TAnnotation>) => _IResolved.Flat.Type__Arguments$;
+            type Type__Selection = <_TAnnotation>($: _IUnresolved.Flat.Type__Selection$<_TAnnotation>) => _IResolved.Flat.Type__Selection$;
+            type Variables = <_TAnnotation>($: _IUnresolved.Flat.Variables$<_TAnnotation>) => _IResolved.Flat.Variables$;
+        }
+        type $ = {
+            readonly 'Aggregated Variable': types.Aggregated__Variable;
+            readonly 'Aggregated Variables': types.Aggregated__Variables;
+            readonly 'Assign': types.Assign;
+            readonly 'Block': types.Block;
+            readonly 'Boolean Initialization': types.Boolean__Initialization;
+            readonly 'Boolean Initialization Or Selection': types.Boolean__Initialization__Or__Selection;
+            readonly 'Initialization': types.Initialization;
+            readonly 'Initialization Or Selection': types.Initialization__Or__Selection;
+            readonly 'Local Variables': types.Local__Variables;
+            readonly 'Numerical Initialization': types.Numerical__Initialization;
+            readonly 'Numerical Initialization Or Selection': types.Numerical__Initialization__Or__Selection;
+            readonly 'Root': types.Root;
+            readonly 'Source File': types.Source__File;
+            readonly 'Source Selection': types.Source__Selection;
+            readonly 'Source Selection Tail': types.Source__Selection__Tail;
+            readonly 'Statements': types.Statements;
+            readonly 'String Initialization': types.String__Initialization;
+            readonly 'String Initialization Or Selection': types.String__Initialization__Or__Selection;
+            readonly 'Target Selection': types.Target__Selection;
+            readonly 'Target Selection Tail': types.Target__Selection__Tail;
+            readonly 'Type Arguments': types.Type__Arguments;
+            readonly 'Type Selection': types.Type__Selection;
+            readonly 'Variables': types.Variables;
+        };
     }
     namespace Serialize {
         import _IResolved = Resolved;
-        type Type__Selection = ($: _IResolved.Flat.Type__Selection$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Type__Arguments = ($: _IResolved.Flat.Type__Arguments$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Address__Selection__Tail = ($: _IResolved.Flat.Address__Selection__Tail$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Variables = ($: _IResolved.Flat.Variables$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Address__Selection = ($: _IResolved.Flat.Address__Selection$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Initialization__Or__Selection = ($: _IResolved.Flat.Initialization__Or__Selection$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type String__Initialization__Or__Selection = ($: _IResolved.Flat.String__Initialization__Or__Selection$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Numerical__Initialization__Or__Selection = ($: _IResolved.Flat.Numerical__Initialization__Or__Selection$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Boolean__Initialization__Or__Selection = ($: _IResolved.Flat.Boolean__Initialization__Or__Selection$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Boolean__Initialization = ($: _IResolved.Flat.Boolean__Initialization$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Numerical__Initialization = ($: _IResolved.Flat.Numerical__Initialization$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type String__Initialization = ($: _IResolved.Flat.String__Initialization$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Initialization = ($: _IResolved.Flat.Initialization$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Block = ($: _IResolved.Flat.Block$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Assign = ($: _IResolved.Flat.Assign$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Statements = ($: _IResolved.Flat.Statements$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Source__File = ($: _IResolved.Flat.Source__File$, $p: {
-            readonly 'out': boolean;
-        }) => void;
-        type Root = ($: _IResolved.Flat.Root$, $p: {
-            readonly 'out': boolean;
-        }) => void;
+        namespace types {
+            type Type__Selection = ($: _IResolved.Flat.Type__Selection$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Type__Arguments = ($: _IResolved.Flat.Type__Arguments$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Local__Variables = ($: _IResolved.Flat.Local__Variables$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Aggregated__Variable = ($: _IResolved.Flat.Aggregated__Variable$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Aggregated__Variables = ($: _IResolved.Flat.Aggregated__Variables$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Variables = ($: _IResolved.Flat.Variables$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Target__Selection__Tail = ($: _IResolved.Flat.Target__Selection__Tail$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Target__Selection = ($: _IResolved.Flat.Target__Selection$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Source__Selection__Tail = ($: _IResolved.Flat.Source__Selection__Tail$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Source__Selection = ($: _IResolved.Flat.Source__Selection$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Initialization__Or__Selection = ($: _IResolved.Flat.Initialization__Or__Selection$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type String__Initialization__Or__Selection = ($: _IResolved.Flat.String__Initialization__Or__Selection$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Numerical__Initialization__Or__Selection = ($: _IResolved.Flat.Numerical__Initialization__Or__Selection$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Boolean__Initialization__Or__Selection = ($: _IResolved.Flat.Boolean__Initialization__Or__Selection$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Boolean__Initialization = ($: _IResolved.Flat.Boolean__Initialization$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Numerical__Initialization = ($: _IResolved.Flat.Numerical__Initialization$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type String__Initialization = ($: _IResolved.Flat.String__Initialization$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Initialization = ($: _IResolved.Flat.Initialization$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Block = ($: _IResolved.Flat.Block$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Assign = ($: _IResolved.Flat.Assign$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Statements = ($: _IResolved.Flat.Statements$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Source__File = ($: _IResolved.Flat.Source__File$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+            type Root = ($: _IResolved.Flat.Root$, $p: {
+                readonly 'out': boolean;
+            }) => void;
+        }
+        type $ = {
+            readonly 'Aggregated Variable': types.Aggregated__Variable;
+            readonly 'Aggregated Variables': types.Aggregated__Variables;
+            readonly 'Assign': types.Assign;
+            readonly 'Block': types.Block;
+            readonly 'Boolean Initialization': types.Boolean__Initialization;
+            readonly 'Boolean Initialization Or Selection': types.Boolean__Initialization__Or__Selection;
+            readonly 'Initialization': types.Initialization;
+            readonly 'Initialization Or Selection': types.Initialization__Or__Selection;
+            readonly 'Local Variables': types.Local__Variables;
+            readonly 'Numerical Initialization': types.Numerical__Initialization;
+            readonly 'Numerical Initialization Or Selection': types.Numerical__Initialization__Or__Selection;
+            readonly 'Root': types.Root;
+            readonly 'Source File': types.Source__File;
+            readonly 'Source Selection': types.Source__Selection;
+            readonly 'Source Selection Tail': types.Source__Selection__Tail;
+            readonly 'Statements': types.Statements;
+            readonly 'String Initialization': types.String__Initialization;
+            readonly 'String Initialization Or Selection': types.String__Initialization__Or__Selection;
+            readonly 'Target Selection': types.Target__Selection;
+            readonly 'Target Selection Tail': types.Target__Selection__Tail;
+            readonly 'Type Arguments': types.Type__Arguments;
+            readonly 'Type Selection': types.Type__Selection;
+            readonly 'Variables': types.Variables;
+        };
     }
     namespace Select {
+        namespace types {
+        }
     }
-    type _$ = ($: null) => {
-        readonly 'Address Selection': {
-            readonly 'Resolve': Resolve.Address__Selection;
-            readonly 'Serialize': Serialize.Address__Selection;
-        };
-        readonly 'Address Selection Tail': {
-            readonly 'Resolve': Resolve.Address__Selection__Tail;
-            readonly 'Serialize': Serialize.Address__Selection__Tail;
-        };
-        readonly 'Assign': {
-            readonly 'Resolve': Resolve.Assign;
-            readonly 'Serialize': Serialize.Assign;
-        };
-        readonly 'Block': {
-            readonly 'Resolve': Resolve.Block;
-            readonly 'Serialize': Serialize.Block;
-        };
-        readonly 'Boolean Initialization': {
-            readonly 'Resolve': Resolve.Boolean__Initialization;
-            readonly 'Serialize': Serialize.Boolean__Initialization;
-        };
-        readonly 'Boolean Initialization Or Selection': {
-            readonly 'Resolve': Resolve.Boolean__Initialization__Or__Selection;
-            readonly 'Serialize': Serialize.Boolean__Initialization__Or__Selection;
-        };
-        readonly 'Initialization': {
-            readonly 'Resolve': Resolve.Initialization;
-            readonly 'Serialize': Serialize.Initialization;
-        };
-        readonly 'Initialization Or Selection': {
-            readonly 'Resolve': Resolve.Initialization__Or__Selection;
-            readonly 'Serialize': Serialize.Initialization__Or__Selection;
-        };
-        readonly 'Numerical Initialization': {
-            readonly 'Resolve': Resolve.Numerical__Initialization;
-            readonly 'Serialize': Serialize.Numerical__Initialization;
-        };
-        readonly 'Numerical Initialization Or Selection': {
-            readonly 'Resolve': Resolve.Numerical__Initialization__Or__Selection;
-            readonly 'Serialize': Serialize.Numerical__Initialization__Or__Selection;
-        };
-        readonly 'Root': {
-            readonly 'Resolve': Resolve.Root;
-            readonly 'Serialize': Serialize.Root;
-        };
-        readonly 'Source File': {
-            readonly 'Resolve': Resolve.Source__File;
-            readonly 'Serialize': Serialize.Source__File;
-        };
-        readonly 'Statements': {
-            readonly 'Resolve': Resolve.Statements;
-            readonly 'Serialize': Serialize.Statements;
-        };
-        readonly 'String Initialization': {
-            readonly 'Resolve': Resolve.String__Initialization;
-            readonly 'Serialize': Serialize.String__Initialization;
-        };
-        readonly 'String Initialization Or Selection': {
-            readonly 'Resolve': Resolve.String__Initialization__Or__Selection;
-            readonly 'Serialize': Serialize.String__Initialization__Or__Selection;
-        };
-        readonly 'Type Arguments': {
-            readonly 'Resolve': Resolve.Type__Arguments;
-            readonly 'Serialize': Serialize.Type__Arguments;
-        };
-        readonly 'Type Selection': {
-            readonly 'Resolve': Resolve.Type__Selection;
-            readonly 'Serialize': Serialize.Type__Selection;
-        };
-        readonly 'Variables': {
-            readonly 'Resolve': Resolve.Variables;
-            readonly 'Serialize': Serialize.Variables;
-        };
-    };
 }
 export type $ = {
     readonly 'pareto lang data': {
-        readonly 'Resolve': ($: null) => {
-            readonly 'Atom': pareto__lang__data.Resolve.Atom;
-            readonly 'Atom Types': pareto__lang__data.Resolve.Atom__Types;
-            readonly 'Dictionary Selection': pareto__lang__data.Resolve.Dictionary__Selection;
-            readonly 'Global Type': pareto__lang__data.Resolve.Global__Type;
-            readonly 'Global Type Selection': pareto__lang__data.Resolve.Global__Type__Selection;
-            readonly 'Imports': pareto__lang__data.Resolve.Imports;
-            readonly 'Model': pareto__lang__data.Resolve.Model;
-            readonly 'Project': pareto__lang__data.Resolve.Project;
-            readonly 'Root': pareto__lang__data.Resolve.Root;
-            readonly 'Type': pareto__lang__data.Resolve.Type;
-            readonly 'Type Library': pareto__lang__data.Resolve.Type__Library;
-            readonly 'Type Selection': pareto__lang__data.Resolve.Type__Selection;
-            readonly 'Type Selection Tail': pareto__lang__data.Resolve.Type__Selection__Tail;
-        };
-        readonly 'Serialize': ($: null) => {
-            readonly 'Atom': pareto__lang__data.Serialize.Atom;
-            readonly 'Atom Types': pareto__lang__data.Serialize.Atom__Types;
-            readonly 'Dictionary Selection': pareto__lang__data.Serialize.Dictionary__Selection;
-            readonly 'Global Type': pareto__lang__data.Serialize.Global__Type;
-            readonly 'Global Type Selection': pareto__lang__data.Serialize.Global__Type__Selection;
-            readonly 'Imports': pareto__lang__data.Serialize.Imports;
-            readonly 'Model': pareto__lang__data.Serialize.Model;
-            readonly 'Project': pareto__lang__data.Serialize.Project;
-            readonly 'Root': pareto__lang__data.Serialize.Root;
-            readonly 'Type': pareto__lang__data.Serialize.Type;
-            readonly 'Type Library': pareto__lang__data.Serialize.Type__Library;
-            readonly 'Type Selection': pareto__lang__data.Serialize.Type__Selection;
-            readonly 'Type Selection Tail': pareto__lang__data.Serialize.Type__Selection__Tail;
-        };
+        readonly 'createResolveContext': ($: null) => pareto__lang__data.Resolve.$;
+        readonly 'createSerializeContext': ($: null) => pareto__lang__data.Serialize.$;
     };
     readonly 'proto implementation': {
-        readonly 'Resolve': ($: null) => {
-            readonly 'Address Selection': proto__implementation.Resolve.Address__Selection;
-            readonly 'Address Selection Tail': proto__implementation.Resolve.Address__Selection__Tail;
-            readonly 'Assign': proto__implementation.Resolve.Assign;
-            readonly 'Block': proto__implementation.Resolve.Block;
-            readonly 'Boolean Initialization': proto__implementation.Resolve.Boolean__Initialization;
-            readonly 'Boolean Initialization Or Selection': proto__implementation.Resolve.Boolean__Initialization__Or__Selection;
-            readonly 'Initialization': proto__implementation.Resolve.Initialization;
-            readonly 'Initialization Or Selection': proto__implementation.Resolve.Initialization__Or__Selection;
-            readonly 'Numerical Initialization': proto__implementation.Resolve.Numerical__Initialization;
-            readonly 'Numerical Initialization Or Selection': proto__implementation.Resolve.Numerical__Initialization__Or__Selection;
-            readonly 'Root': proto__implementation.Resolve.Root;
-            readonly 'Source File': proto__implementation.Resolve.Source__File;
-            readonly 'Statements': proto__implementation.Resolve.Statements;
-            readonly 'String Initialization': proto__implementation.Resolve.String__Initialization;
-            readonly 'String Initialization Or Selection': proto__implementation.Resolve.String__Initialization__Or__Selection;
-            readonly 'Type Arguments': proto__implementation.Resolve.Type__Arguments;
-            readonly 'Type Selection': proto__implementation.Resolve.Type__Selection;
-            readonly 'Variables': proto__implementation.Resolve.Variables;
-        };
-        readonly 'Serialize': ($: null) => {
-            readonly 'Address Selection': proto__implementation.Serialize.Address__Selection;
-            readonly 'Address Selection Tail': proto__implementation.Serialize.Address__Selection__Tail;
-            readonly 'Assign': proto__implementation.Serialize.Assign;
-            readonly 'Block': proto__implementation.Serialize.Block;
-            readonly 'Boolean Initialization': proto__implementation.Serialize.Boolean__Initialization;
-            readonly 'Boolean Initialization Or Selection': proto__implementation.Serialize.Boolean__Initialization__Or__Selection;
-            readonly 'Initialization': proto__implementation.Serialize.Initialization;
-            readonly 'Initialization Or Selection': proto__implementation.Serialize.Initialization__Or__Selection;
-            readonly 'Numerical Initialization': proto__implementation.Serialize.Numerical__Initialization;
-            readonly 'Numerical Initialization Or Selection': proto__implementation.Serialize.Numerical__Initialization__Or__Selection;
-            readonly 'Root': proto__implementation.Serialize.Root;
-            readonly 'Source File': proto__implementation.Serialize.Source__File;
-            readonly 'Statements': proto__implementation.Serialize.Statements;
-            readonly 'String Initialization': proto__implementation.Serialize.String__Initialization;
-            readonly 'String Initialization Or Selection': proto__implementation.Serialize.String__Initialization__Or__Selection;
-            readonly 'Type Arguments': proto__implementation.Serialize.Type__Arguments;
-            readonly 'Type Selection': proto__implementation.Serialize.Type__Selection;
-            readonly 'Variables': proto__implementation.Serialize.Variables;
-        };
+        readonly 'createResolveContext': ($: null) => proto__implementation.Resolve.$;
+        readonly 'createSerializeContext': ($: null) => proto__implementation.Serialize.$;
     };
     readonly 'proto typesystem': {
-        readonly 'Resolve': ($: null) => {
-            readonly 'Aggregated Type Parameters': proto__typesystem.Resolve.Aggregated__Type__Parameters;
-            readonly 'Function Declaration': proto__typesystem.Resolve.Function__Declaration;
-            readonly 'Local Namespace': proto__typesystem.Resolve.Local__Namespace;
-            readonly 'Namespace 2': proto__typesystem.Resolve.Namespace__2;
-            readonly 'Namespace Selection': proto__typesystem.Resolve.Namespace__Selection;
-            readonly 'Root': proto__typesystem.Resolve.Root;
-            readonly 'Type': proto__typesystem.Resolve.Type;
-            readonly 'Type Arguments': proto__typesystem.Resolve.Type__Arguments;
-            readonly 'Type Parameters': proto__typesystem.Resolve.Type__Parameters;
-        };
-        readonly 'Serialize': ($: null) => {
-            readonly 'Aggregated Type Parameters': proto__typesystem.Serialize.Aggregated__Type__Parameters;
-            readonly 'Function Declaration': proto__typesystem.Serialize.Function__Declaration;
-            readonly 'Local Namespace': proto__typesystem.Serialize.Local__Namespace;
-            readonly 'Namespace 2': proto__typesystem.Serialize.Namespace__2;
-            readonly 'Namespace Selection': proto__typesystem.Serialize.Namespace__Selection;
-            readonly 'Root': proto__typesystem.Serialize.Root;
-            readonly 'Type': proto__typesystem.Serialize.Type;
-            readonly 'Type Arguments': proto__typesystem.Serialize.Type__Arguments;
-            readonly 'Type Parameters': proto__typesystem.Serialize.Type__Parameters;
-        };
+        readonly 'createResolveContext': ($: null) => proto__typesystem.Resolve.$;
+        readonly 'createSerializeContext': ($: null) => proto__typesystem.Serialize.$;
     };
 };

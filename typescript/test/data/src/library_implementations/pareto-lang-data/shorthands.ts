@@ -1,9 +1,10 @@
 import * as pd from 'pareto-core-data'
 import * as pt from 'pareto-core-types'
 
-import * as g_this from "../../typesystem"
+import * as _ from "../../typesystem"
 
-import T = g_this.pareto__lang__data.Unresolved.T
+import T = _.pareto__lang__data.Unresolved.T
+import g_this = _.pareto__lang__data.Unresolved
 
 function ref($: string) {
     return {
@@ -12,7 +13,7 @@ function ref($: string) {
     }
 }
 
-function dict<T>($: RawDictionary<T>): pt.Dictionary<T> {
+function rawDict<T>($: RawDictionary<T>): pt.Dictionary<T> {
     return pd.d($)
 }
 
@@ -29,17 +30,20 @@ export function imprt(
 }
 
 export function typeLibrary(
-    imports: RawDictionary<T.Imports.D.$<pd.SourceLocation>>,
-    atomTypes: RawDictionary<T.Atom__Types.D.$<pd.SourceLocation>>,
-    globalTypes: RawDictionary<T.Global__Type.$<pd.SourceLocation>>,
-): T.TType__Library.$<pd.SourceLocation> {
+    imports: RawDictionary<g_this.T.Imports.D.$<pd.SourceLocation>>,
+    atomTypes: RawDictionary<g_this.T.Atom__Types.D.$<pd.SourceLocation>>,
+    globalTypesDeclarations: RawDictionary<g_this.T.Global__Type__Declarations.D.$<pd.SourceLocation>>,
+    globalTypesDefinitions: RawDictionary<g_this.T.Global__Type__Definition.$<pd.SourceLocation>>,
+): g_this.T.TType__Library.$<pd.SourceLocation> {
     return {
-        'imports': dict(imports),
-        'atom types': dict(atomTypes),
-        'global types': dict(globalTypes),
+        'imports': rawDict(imports),
+        'atom types': rawDict(atomTypes),
+        'global types': {
+            'declarations': rawDict(globalTypesDeclarations),
+            'definitions': rawDict(globalTypesDefinitions),
+        },
     }
 }
-
 export function array(type: T.TType.$<pd.SourceLocation>): T.TType.$<pd.SourceLocation> {
     return {
         'type': ['array', {
@@ -144,7 +148,7 @@ export function constrainedDictionary(
             'key': {
                 'type': ref("identifier"),
             },
-            'constraints': dict(constraints),
+            'constraints': rawDict(constraints),
             'type': type,
             //'autofill': pd.a([]),
         }]
@@ -158,7 +162,7 @@ export function dictionary(type: T.TType.$<pd.SourceLocation>/*, autofill?: T.TT
             'key': {
                 'type': ref("identifier")
             },
-            'constraints': dict<T.TType._ltype.dictionary.constraints.D.$<pd.SourceLocation>>({}),
+            'constraints': rawDict<T.TType._ltype.dictionary.constraints.D.$<pd.SourceLocation>>({}),
             'type': type,
             //'autofill': pd.a(autofill === undefined ? [] : autofill),
         }]
@@ -171,10 +175,21 @@ export function constraint(type: T.TType__Selection.$<pd.SourceLocation>): T.TTy
     }
 }
 
-export function globalType(
-    type: T.TType.$<pd.SourceLocation>,
-): T.Global__Type.$<pd.SourceLocation> {
+export function globalTypeDeclaration(
+    parameters: RawDictionary<g_this.T.Global__Type__Declaration.parameters.D.$<pd.SourceLocation>>,
+    result?: string
+): g_this.T.Global__Type__Declarations.D.$<pd.SourceLocation> {
     return {
+        'parameters': rawDict(parameters),
+        'result': result === undefined ? [false] : [true, ref(result)]
+    }
+}
+
+export function globalTypeDefinition(
+    type: g_this.T.TType.$<pd.SourceLocation>,
+): g_this.T.Global__Type__Definition.$<pd.SourceLocation> {
+    return {
+        'declaration': pd.getLocationInfo(1),
         'type': type,
     }
 }
@@ -215,7 +230,7 @@ export function stateGroup(
 
     return {
         'type': ['state group', {
-            'states': dict(states),
+            'states': rawDict(states),
         }]
     }
 }
@@ -238,8 +253,8 @@ export function t_grp(
         'step type': ['group', {
             'group': pd.getLocationInfo(1),
             'property': ref(prop),
+            'tail': tail === undefined ? [false] : [true, tail],
         }],
-        'tail': tail === undefined ? [false] : [true, tail]
     }
 }
 
@@ -249,8 +264,8 @@ export function t_dict(
     return {
         'step type': ['dictionary', {
             'dictionary': pd.getLocationInfo(1),
+            'tail': tail === undefined ? [false] : [true, tail],
         }],
-        'tail': tail === undefined ? [false] : [true, tail]
     }
 }
 
@@ -260,8 +275,8 @@ export function t_arr(
     return {
         'step type': ['array', {
             'array': pd.getLocationInfo(1),
+            'tail': tail === undefined ? [false] : [true, tail],
         }],
-        'tail': tail === undefined ? [false] : [true, tail]
     }
 }
 
@@ -273,8 +288,8 @@ export function t_sg(
         'step type': ['state group', {
             'state group': pd.getLocationInfo(1),
             'state': ref(opt),
+            'tail': tail === undefined ? [false] : [true, tail],
         }],
-        'tail': tail === undefined ? [false] : [true, tail]
     }
 }
 
@@ -310,10 +325,14 @@ export function typeSelection(
 //     }]
 // }
 
-export function component(type: T.Global__Type__Selection.$<pd.SourceLocation>): T.TType.$<pd.SourceLocation> {
+export function component(
+    type: T.Global__Type__Selection.$<pd.SourceLocation>,
+    args: RawDictionary<null>,
+    ): T.TType.$<pd.SourceLocation> {
     return {
         'type': ['component', {
-            'type': type
+            'type': type,
+            'arguments': rawDict(args),
         }]
     }
 }

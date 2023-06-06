@@ -3,6 +3,52 @@ import * as pt from 'pareto-core-types'
 
 export namespace N {
     
+    export namespace Any_$_$Value_$_$Selection {
+        
+        export namespace N {
+            
+            export namespace G {
+                
+                export namespace N {
+                    
+                    export namespace start {
+                        
+                        export namespace N {
+                            
+                            export namespace O {
+                                
+                                export namespace N {}
+                                
+                                export namespace T {}
+                            }
+                        }
+                        
+                        export namespace T {}
+                    }
+                    
+                    export namespace tail {
+                        
+                        export namespace N {
+                            
+                            export namespace O {
+                                
+                                export namespace N {}
+                                
+                                export namespace T {}
+                            }
+                        }
+                        
+                        export namespace T {}
+                    }
+                }
+                
+                export namespace T {}
+            }
+        }
+        
+        export namespace T {}
+    }
+    
     export namespace Atom {
         
         export namespace N {
@@ -133,6 +179,21 @@ export namespace N {
                                                             export namespace cyclic_$_$sibling_$_$lookup {
                                                                 
                                                                 export namespace N {}
+                                                                
+                                                                export namespace T {}
+                                                            }
+                                                            
+                                                            export namespace key {
+                                                                
+                                                                export namespace N {
+                                                                    
+                                                                    export namespace G {
+                                                                        
+                                                                        export namespace N {}
+                                                                        
+                                                                        export namespace T {}
+                                                                    }
+                                                                }
                                                                 
                                                                 export namespace T {}
                                                             }
@@ -380,6 +441,44 @@ export namespace N {
                     export namespace type_$_$library {
                         
                         export namespace N {}
+                        
+                        export namespace T {}
+                    }
+                }
+                
+                export namespace T {}
+            }
+        }
+        
+        export namespace T {}
+    }
+    
+    export namespace No_$_$Context_$_$Value_$_$Selection {
+        
+        export namespace N {
+            
+            export namespace G {
+                
+                export namespace N {
+                    
+                    export namespace start {
+                        
+                        export namespace N {}
+                        
+                        export namespace T {}
+                    }
+                    
+                    export namespace tail {
+                        
+                        export namespace N {
+                            
+                            export namespace O {
+                                
+                                export namespace N {}
+                                
+                                export namespace T {}
+                            }
+                        }
                         
                         export namespace T {}
                     }
@@ -1262,9 +1361,267 @@ export namespace N {
         
         export namespace T {}
     }
+    
+    export namespace Value_$_$Selection_$_$Tail {
+        
+        export namespace N {
+            
+            export namespace TU {
+                
+                export namespace N {
+                    
+                    export namespace component {
+                        
+                        export namespace N {
+                            
+                            export namespace G {
+                                
+                                export namespace N {
+                                    
+                                    export namespace component {
+                                        
+                                        export namespace N {}
+                                        
+                                        export namespace T {}
+                                    }
+                                    
+                                    export namespace tail {
+                                        
+                                        export namespace N {
+                                            
+                                            export namespace O {
+                                                
+                                                export namespace N {}
+                                                
+                                                export namespace T {}
+                                            }
+                                        }
+                                        
+                                        export namespace T {}
+                                    }
+                                }
+                                
+                                export namespace T {}
+                            }
+                        }
+                        
+                        export namespace T {}
+                    }
+                    
+                    export namespace group {
+                        
+                        export namespace N {
+                            
+                            export namespace G {
+                                
+                                export namespace N {
+                                    
+                                    export namespace group {
+                                        
+                                        export namespace N {}
+                                        
+                                        export namespace T {}
+                                    }
+                                    
+                                    export namespace property {
+                                        
+                                        export namespace N {}
+                                        
+                                        export namespace T {}
+                                    }
+                                    
+                                    export namespace tail {
+                                        
+                                        export namespace N {
+                                            
+                                            export namespace O {
+                                                
+                                                export namespace N {}
+                                                
+                                                export namespace T {}
+                                            }
+                                        }
+                                        
+                                        export namespace T {}
+                                    }
+                                }
+                                
+                                export namespace T {}
+                            }
+                        }
+                        
+                        export namespace T {}
+                    }
+                    
+                    export namespace reference {
+                        
+                        export namespace N {
+                            
+                            export namespace G {
+                                
+                                export namespace N {
+                                    
+                                    export namespace reference {
+                                        
+                                        export namespace N {}
+                                        
+                                        export namespace T {}
+                                    }
+                                    
+                                    export namespace tail {
+                                        
+                                        export namespace N {
+                                            
+                                            export namespace O {
+                                                
+                                                export namespace N {}
+                                                
+                                                export namespace T {}
+                                            }
+                                        }
+                                        
+                                        export namespace T {}
+                                    }
+                                }
+                                
+                                export namespace T {}
+                            }
+                        }
+                        
+                        export namespace T {}
+                    }
+                    
+                    export namespace state_$_$group {
+                        
+                        export namespace N {
+                            
+                            export namespace G {
+                                
+                                export namespace N {
+                                    
+                                    export namespace result_$_$type {
+                                        
+                                        export namespace N {}
+                                        
+                                        export namespace T {}
+                                    }
+                                    
+                                    export namespace state_$_$group {
+                                        
+                                        export namespace N {}
+                                        
+                                        export namespace T {}
+                                    }
+                                    
+                                    export namespace states {
+                                        
+                                        export namespace N {
+                                            
+                                            export namespace D {
+                                                
+                                                export namespace N {}
+                                                
+                                                export namespace T {}
+                                            }
+                                        }
+                                        
+                                        export namespace T {}
+                                    }
+                                }
+                                
+                                export namespace T {}
+                            }
+                        }
+                        
+                        export namespace T {}
+                    }
+                }
+                
+                export namespace T {}
+            }
+        }
+        
+        export namespace T {}
+    }
+    
+    export namespace Variable {
+        
+        export namespace N {
+            
+            export namespace TU {
+                
+                export namespace N {
+                    
+                    export namespace parent_$_$variable {
+                        
+                        export namespace N {}
+                        
+                        export namespace T {}
+                    }
+                }
+                
+                export namespace T {}
+            }
+        }
+        
+        export namespace T {}
+    }
+    
+    export namespace Variables {
+        
+        export namespace N {
+            
+            export namespace D {
+                
+                export namespace N {}
+                
+                export namespace T {}
+            }
+        }
+        
+        export namespace T {}
+    }
 }
 
 export namespace T {
+    
+    export namespace Any__Value__Selection {
+        
+        export namespace start {
+            
+            export namespace O {
+                
+                export type key = string
+                
+                export type referent = T.Variables.D
+            }
+            
+            export type O = {
+                readonly 'key': string
+                readonly 'referent': T.Variables.D
+            }
+        }
+        
+        export type start = [ false ] | [ true, {
+            readonly 'key': string
+            readonly 'referent': T.Variables.D
+        }]
+        
+        export namespace tail {
+            
+            export type O = T.Value__Selection__Tail
+        }
+        
+        export type tail = [ false ] | [ true, T.Value__Selection__Tail]
+    }
+    
+    export type Any__Value__Selection = {
+        readonly 'start': [ false ] | [ true, {
+            readonly 'key': string
+            readonly 'referent': T.Variables.D
+        }]
+        readonly 'tail': [ false ] | [ true, T.Value__Selection__Tail]
+    }
     
     export namespace Atom {
         
@@ -1343,6 +1700,10 @@ export namespace T {
                         readonly 'referent': () => T.Global__Type__Declaration
                     }
                     
+                    export namespace key {}
+                    
+                    export type key = null
+                    
                     export namespace resolved__value {
                         
                         export type key = string
@@ -1383,6 +1744,7 @@ export namespace T {
                         readonly 'key': string
                         readonly 'referent': () => T.Global__Type__Declaration
                     }]
+                    | ['key', null]
                     | ['resolved value', {
                         readonly 'key': string
                         readonly 'referent': () => T.Global__Type__Declaration
@@ -1400,6 +1762,7 @@ export namespace T {
                         readonly 'key': string
                         readonly 'referent': () => T.Global__Type__Declaration
                     }]
+                    | ['key', null]
                     | ['resolved value', {
                         readonly 'key': string
                         readonly 'referent': () => T.Global__Type__Declaration
@@ -1418,6 +1781,7 @@ export namespace T {
                     readonly 'key': string
                     readonly 'referent': () => T.Global__Type__Declaration
                 }]
+                | ['key', null]
                 | ['resolved value', {
                     readonly 'key': string
                     readonly 'referent': () => T.Global__Type__Declaration
@@ -1462,6 +1826,7 @@ export namespace T {
                     readonly 'key': string
                     readonly 'referent': () => T.Global__Type__Declaration
                 }]
+                | ['key', null]
                 | ['resolved value', {
                     readonly 'key': string
                     readonly 'referent': () => T.Global__Type__Declaration
@@ -1665,6 +2030,36 @@ export namespace T {
             readonly 'referent': T.Type__Library.global__types.definitions.D
         }
         readonly 'type library': T.Type__Library
+    }
+    
+    export namespace No__Context__Value__Selection {
+        
+        export namespace start {
+            
+            export type key = string
+            
+            export type referent = T.Variables.D
+        }
+        
+        export type start = {
+            readonly 'key': string
+            readonly 'referent': T.Variables.D
+        }
+        
+        export namespace tail {
+            
+            export type O = T.Value__Selection__Tail
+        }
+        
+        export type tail = [ false ] | [ true, T.Value__Selection__Tail]
+    }
+    
+    export type No__Context__Value__Selection = {
+        readonly 'start': {
+            readonly 'key': string
+            readonly 'referent': T.Variables.D
+        }
+        readonly 'tail': [ false ] | [ true, T.Value__Selection__Tail]
     }
     
     export namespace Project {
@@ -2274,4 +2669,179 @@ export namespace T {
                 readonly 'tail': [ false ] | [ true, T.Type__Selection__Tail]
             }]
     }
+    
+    export namespace Value__Selection__Tail {
+        
+        export namespace component {
+            
+            export type component = T.Type._ltype.component
+            
+            export namespace tail {
+                
+                export type O = T.Value__Selection__Tail
+            }
+            
+            export type tail = [ false ] | [ true, T.Value__Selection__Tail]
+        }
+        
+        export type component = {
+            readonly 'component': T.Type._ltype.component
+            readonly 'tail': [ false ] | [ true, T.Value__Selection__Tail]
+        }
+        
+        export namespace group {
+            
+            export type group = T.Type._ltype.group
+            
+            export namespace property {
+                
+                export type key = string
+                
+                export type referent = T.Type._ltype.group.properties.D
+            }
+            
+            export type property = {
+                readonly 'key': string
+                readonly 'referent': T.Type._ltype.group.properties.D
+            }
+            
+            export namespace tail {
+                
+                export type O = T.Value__Selection__Tail
+            }
+            
+            export type tail = [ false ] | [ true, T.Value__Selection__Tail]
+        }
+        
+        export type group = {
+            readonly 'group': T.Type._ltype.group
+            readonly 'property': {
+                readonly 'key': string
+                readonly 'referent': T.Type._ltype.group.properties.D
+            }
+            readonly 'tail': [ false ] | [ true, T.Value__Selection__Tail]
+        }
+        
+        export namespace reference {
+            
+            export type reference = T.Type._ltype.resolved__reference
+            
+            export namespace tail {
+                
+                export type O = T.Value__Selection__Tail
+            }
+            
+            export type tail = [ false ] | [ true, T.Value__Selection__Tail]
+        }
+        
+        export type reference = {
+            readonly 'reference': T.Type._ltype.resolved__reference
+            readonly 'tail': [ false ] | [ true, T.Value__Selection__Tail]
+        }
+        
+        export namespace state__group {
+            
+            export type result__type = T.Global__Type__Selection
+            
+            export type state__group = T.Type._ltype.state__group
+            
+            export namespace states {
+                
+                export namespace D {
+                    
+                    export namespace constraints {
+                        
+                        export type state = T.Type._ltype.state__group.states.D
+                    }
+                    
+                    export type constraints = {
+                        readonly 'state': T.Type._ltype.state__group.states.D
+                    }
+                    
+                    export type content = T.Any__Value__Selection
+                }
+                
+                export type D = {
+                    readonly 'constraints': {
+                        readonly 'state': T.Type._ltype.state__group.states.D
+                    }
+                    readonly 'content': T.Any__Value__Selection
+                }
+            }
+            
+            export type states = pt.Dictionary<{
+                readonly 'constraints': {
+                    readonly 'state': T.Type._ltype.state__group.states.D
+                }
+                readonly 'content': T.Any__Value__Selection
+            }>
+        }
+        
+        export type state__group = {
+            readonly 'result type': T.Global__Type__Selection
+            readonly 'state group': T.Type._ltype.state__group
+            readonly 'states': pt.Dictionary<{
+                readonly 'constraints': {
+                    readonly 'state': T.Type._ltype.state__group.states.D
+                }
+                readonly 'content': T.Any__Value__Selection
+            }>
+        }
+    }
+    
+    export type Value__Selection__Tail = 
+        | ['component', {
+            readonly 'component': T.Type._ltype.component
+            readonly 'tail': [ false ] | [ true, T.Value__Selection__Tail]
+        }]
+        | ['group', {
+            readonly 'group': T.Type._ltype.group
+            readonly 'property': {
+                readonly 'key': string
+                readonly 'referent': T.Type._ltype.group.properties.D
+            }
+            readonly 'tail': [ false ] | [ true, T.Value__Selection__Tail]
+        }]
+        | ['reference', {
+            readonly 'reference': T.Type._ltype.resolved__reference
+            readonly 'tail': [ false ] | [ true, T.Value__Selection__Tail]
+        }]
+        | ['state group', {
+            readonly 'result type': T.Global__Type__Selection
+            readonly 'state group': T.Type._ltype.state__group
+            readonly 'states': pt.Dictionary<{
+                readonly 'constraints': {
+                    readonly 'state': T.Type._ltype.state__group.states.D
+                }
+                readonly 'content': T.Any__Value__Selection
+            }>
+        }]
+    
+    export namespace Variable {
+        
+        export namespace parent__variable {
+            
+            export type key = string
+            
+            export type referent = T.Variable
+        }
+        
+        export type parent__variable = {
+            readonly 'key': string
+            readonly 'referent': T.Variable
+        }
+    }
+    
+    export type Variable = 
+        | ['parent variable', {
+            readonly 'key': string
+            readonly 'referent': T.Variable
+        }]
+    
+    export namespace Variables {
+        
+        export type D = T.Variable
+    }
+    
+    export type Variables = pt.Dictionary<T.Variable>
 }

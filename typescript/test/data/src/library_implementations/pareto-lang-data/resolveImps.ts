@@ -1,18 +1,16 @@
 import * as pl from 'pareto-core-lib'
 import * as pt from 'pareto-core-types'
+import * as pd from 'pareto-core-dev'
+
+import * as _ from "../../typesystem"
+
+import Resolve = _.pareto__lang__data.Resolve
 
 import * as select from "./selectImp"
 
 import * as g_resolve from "res-pareto-resolve"
 
-import * as xx from "./Resolve"
-
-
-import * as g_this from "../../typesystem"
-
-import In = g_this.pareto__lang__data.Unresolved.T
-import Out = g_this.pareto__lang__data.Resolved.T
-import Resolve = g_this.pareto__lang__data.Resolve
+import g_out = _.pareto__lang__data.Resolved
 
 type Reference<T> = {
     'referent': T,
@@ -32,29 +30,16 @@ function mapOptional<T, RT>(
     )
 }
 
-
-export type Error = {
-    //readonly 'annotation': GAnnotation
-    readonly 'message': 
-        | ['no such entry', {
-            readonly 'key': string
-        }]
-        | ['not the right state', {
-            readonly 'expected': string
-            readonly 'found': string
-        }]
-}
-
-export function resolved(
+export function createResolveContext (
     $d: {
         readonly resolveDictionary: g_resolve.SYNC.A.F.SafeResolveDictionary;
     },
     $se: {
-        readonly 'onError': ($: Error) => void
+        //readonly 'onError': g_this.SYNC.I.OnError 
     }
-): xx.Resolve {
+): Resolve.$  {
 
-    function getEntry<T, Annotation>($: pt.Lookup<T>, key: string, annotation: Annotation): T {
+    function getEntry<T>($: pt.Lookup<T>, key: string, annotation: any): T {
         return $.__getEntry(
             key,
             ($) => $,
@@ -64,19 +49,19 @@ export function resolved(
                 //     keys += `${key}, `
                 // })
                 //pl.panic(`No Such Entry%% ${key} (${keys})`)
-                $se.onError({
-                    //'annotation': annotation,
-                    'message': ['no such entry', {
-                        'key': key
-                    }]
-                })
+                // $se.onError({
+                //     'annotation': annotation,
+                //     'message': ['no such entry', {
+                //         'key': key
+                //     }]
+                // })
                 return pl.panic(`No Such EntryXX: ${key}`)
             }
         )
     }
 
-    function getAnnotatedEntry<T, Annotation>($: pt.Lookup<T>, key: {
-        'referent': Annotation,
+    function getAnnotatedEntry<T>($: pt.Lookup<T>, key: {
+        'referent': any,
         'key': string
     }): Reference<T> {
         return {
@@ -88,11 +73,11 @@ export function resolved(
     ///////////////////////////////////////////////////////////////
 
 
-    const Atom: Resolve.Atom = ($, $p) => ({
+    const Atom: Resolve.types.Atom  = ($, $p) => ({
         'type': getAnnotatedEntry($p['atom types'], $.type)
     })
 
-    const Dictionary__Selection: Resolve.Dictionary__Selection= ($, $p) => {
+    const Dictionary__Selection: Resolve.types.Dictionary__Selection  = ($, $p) => {
         const x = $
 
         const v_type = Type__Selection($.type, $p)
@@ -101,13 +86,13 @@ export function resolved(
             'dictionary': pl.cc(select.Type__Selection(v_type), ($) => {
                 if ($.type[0] !== 'dictionary') {
 
-                    $se.onError({
-                        //'annotation': x.dictionary,
-                        'message': ['not the right state', {
-                            'found': $.type[0],
-                            'expected': `dictionary`
-                        }]
-                    })
+                    // $se.onError({
+                    //     'annotation': x,
+                    //     'message': ['not the right state', {
+                    //         'found': $.type[0],
+                    //         'expected': `dictionary`
+                    //     }]
+                    // })
                     pl.panic(`not a dictionary`)
                 }
                 return $.type[1]
@@ -116,7 +101,7 @@ export function resolved(
         }
     }
 
-    const Global__Type__Selection: Resolve.Global__Type__Selection = ($, $p) => {
+    const Global__Type__Selection: Resolve.types.Global__Type__Selection  = ($, $p) => {
         switch ($[0]) {
             case 'cyclic sibling': return pl.ss($, ($) => {
                 const v_type = getAnnotatedEntry($p['cyclic sibling global types'], $.type)
@@ -126,7 +111,7 @@ export function resolved(
             })
             case 'import': return pl.ss($, ($) => {
                 const v_library = getAnnotatedEntry($p.imports, $.library)
-                const v_type = getAnnotatedEntry(v_library.referent.library.referent['global types'], $.type)
+                const v_type = getAnnotatedEntry(v_library.referent.library.referent['global types'].definitions, $.type)
                 return ['import', {
                     'library': v_library,
                     'type': v_type,
@@ -142,18 +127,18 @@ export function resolved(
         }
     }
 
-    const Model: Resolve.Model = ($, $p) => {
+    const Model: Resolve.types.Model  = ($, $p) => {
         const tl = Type__Library($['type library'], $p)
         return {
             'type library': tl,
-            'root': getAnnotatedEntry(tl['global types'], $.root)
+            'root': getAnnotatedEntry(tl['global types'].definitions, $.root)
         }
     }
 
-    const Root: Resolve.Root = ($) => {
+    const Root: Resolve.types.Root  = ($) => {
         return Project($)
     }
-    const Type: Resolve.Type = ($, $p) => {
+    const Type: Resolve.types.Type  = ($, $p) => {
         return {
             'type': pl.cc($.type, ($) => {
                 switch ($[0]) {
@@ -162,18 +147,21 @@ export function resolved(
                     }])
                     case 'component': return pl.ss($, ($) => {
                         return ['component', {
-                            'type': Global__Type__Selection($.type, $p)
+                            'type': Global__Type__Selection($.type, $p),
+                            'arguments': $.arguments.map(($) => {
+                                return null
+                            })
                         }]
                     })
                     case 'constraint': return pl.ss($, ($) => ['constraint', Type__Selection($, $p)])
-                    case 'dictionary': return pl.ss($, ($): Out.TType._ltype.$ => ['dictionary', {
-                        'constraints': $.constraints.map<Out.TType._ltype.dictionary.constraints.D.$>(($) => pl.cc($, ($) => {
+                    case 'dictionary': return pl.ss($, ($): g_out.T.TType._ltype.$ => ['dictionary', {
+                        'constraints': $.constraints.map<g_out.T.TType._ltype.dictionary.constraints.D.$>(($) => pl.cc($, ($) => {
                             switch ($[0]) {
-                                case 'lookup': return pl.ss($, ($): Out.TType._ltype.dictionary.constraints.D.$ => {
+                                case 'lookup': return pl.ss($, ($): g_out.T.TType._ltype.dictionary.constraints.D.$ => {
                                     const v_gts = Global__Type__Selection($, $p)
                                     return ['lookup', v_gts]
                                 })
-                                case 'dictionary': return pl.ss($, ($): Out.TType._ltype.dictionary.constraints.D.$ => {
+                                case 'dictionary': return pl.ss($, ($): g_out.T.TType._ltype.dictionary.constraints.D.$ => {
                                     return ['dictionary', {
                                         'dictionary': Dictionary__Selection($.dictionary, {
                                             'cyclic sibling global types': $p['cyclic sibling global types'],
@@ -256,7 +244,7 @@ export function resolved(
             })
         }
     }
-    const Type__Selection: Resolve.Type__Selection = ($, $p) => {
+    const Type__Selection: Resolve.types.Type__Selection  = ($, $p) => {
 
         const v_import = mapOptional(
             $.import,
@@ -266,7 +254,7 @@ export function resolved(
         const v_global_type = getAnnotatedEntry(
             pl.optional(
                 v_import,
-                ($) => $.referent.library.referent['global types'],
+                ($) => $.referent.library.referent['global types'].definitions,
                 () => $p['sibling global types']
             ),
             $['global type'],
@@ -274,7 +262,7 @@ export function resolved(
         const v_tail = mapOptional(
             $.tail,
             ($) => Type__Selection__Tail($, {
-                'context': v_global_type.referent.type,
+                'context': v_global_type.referent.type
             }),
         )
         return {
@@ -283,10 +271,10 @@ export function resolved(
             'tail': v_tail,
         }
     }
-    const Type__Selection__Tail: Resolve.Type__Selection__Tail = ($, $p) => {
-        const v_step_type = pl.cc($['step type'], ($): Out.TType__Selection__Tail.step__type.$ => {
+    const Type__Selection__Tail: Resolve.types.Type__Selection__Tail  = ($, $p) => {
+        const v_step_type = pl.cc($['step type'], ($): g_out.T.TType__Selection__Tail.step__type.$ => {
             switch ($[0]) {
-                case 'array': return pl.ss($, ($): Out.TType__Selection__Tail.step__type.$ => {
+                case 'array': return pl.ss($, ($): g_out.T.TType__Selection__Tail.step__type.$ => {
                     const x = $
                     const v_array = pl.cc($p.context.type, ($) => {
                         if ($[0] !== 'array') {
@@ -301,8 +289,17 @@ export function resolved(
                         }
                         return $[1]
                     })
+                    const v_tail = mapOptional(
+                        $.tail,
+                        ($) => {
+                            return Type__Selection__Tail($, {
+                                'context': v_array.type
+                            })
+                        },
+                    )
                     return ['array', {
                         'array': v_array,
+                        'tail': v_tail
                     }]
                 })
                 case 'dictionary': return pl.ss($, ($) => {
@@ -321,8 +318,17 @@ export function resolved(
                         }
                         return $[1]
                     })
+                    const v_tail = mapOptional(
+                        $.tail,
+                        ($) => {
+                            return Type__Selection__Tail($, {
+                                'context': v_dictionary.type
+                            })
+                        },
+                    )
                     return ['dictionary', {
                         'dictionary': v_dictionary,
+                        'tail': v_tail
                     }]
                 })
                 case 'group': return pl.ss($, ($) => {
@@ -342,9 +348,18 @@ export function resolved(
                         return $[1]
                     })
                     const v_property = getAnnotatedEntry(v_group.properties, $.property)
+                    const v_tail = mapOptional(
+                        $.tail,
+                        ($) => {
+                            return Type__Selection__Tail($, {
+                                'context': v_property.referent.type
+                            })
+                        },
+                    )
                     return ['group', {
                         'group': v_group,
-                        'property': v_property
+                        'property': v_property,
+                        'tail': v_tail
                     }]
                 })
                 case 'optional': return pl.ss($, ($) => {
@@ -363,8 +378,17 @@ export function resolved(
                         }
                         return $[1]
                     })
+                    const v_tail = mapOptional(
+                        $.tail,
+                        ($) => {
+                            return Type__Selection__Tail($, {
+                                'context': v_optional.type
+                            })
+                        },
+                    )
                     return ['optional', {
                         'optional': v_optional,
+                        'tail': v_tail
                     }]
                 })
                 case 'state group': return pl.ss($, ($) => {
@@ -385,29 +409,29 @@ export function resolved(
                     })
                     const v_state = getAnnotatedEntry(v_state_group.states, $.state)
 
+                    const v_tail = mapOptional(
+                        $.tail,
+                        ($) => {
+                            return Type__Selection__Tail($, {
+                                'context': v_state.referent.type
+                            })
+                        },
+                    )
                     return ['state group', {
                         'state group': v_state_group,
-                        'state': v_state
+                        'state': v_state,
+                        'tail': v_tail
                     }]
                 })
                 default: return pl.au($[0])
             }
         })
-        const v_tail = mapOptional(
-            $.tail,
-            ($) => {
-                return Type__Selection__Tail($, {
-                    'context': select.Type__Selection__Tail__Step__Type(v_step_type)
-                })
-            },
-        )
         return {
             'step type': v_step_type,
-            'tail': v_tail
         }
     }
 
-    const Project: Resolve.Project = ($) => {
+    const Project: Resolve.types.Project  = ($) => {
         return {
             'type libraries': $d.resolveDictionary(
                 $['type libraries'],
@@ -419,40 +443,120 @@ export function resolved(
         }
     }
 
-    const Type__Library: Resolve.Type__Library = ($, $p) => {
-        const imports = $.imports.__mapWithKey(($, key) => {
+    const Imports: Resolve.types.Imports  = ($, $p) => {
+        return $.__mapWithKey(($, key) => {
             return {
                 'library': getAnnotatedEntry($p['external type libraries'], $.library)
             }
         })
-        const v_atom__types = $['atom types'].map(($) => null)
+    }
+
+    const Atom__Types: Resolve.types.Atom__Types  = ($) => {
+        return $.map(($) => null)
+    }
+
+    const Global__Type__Declaration: Resolve.types.Global__Type__Declaration  = ($, $p) => {
+        return {
+            'parameters': $d.resolveDictionary($.parameters, {
+                'map': (($): g_out.T.Global__Type__Declaration.parameters.D.$ => {
+                    return {
+                        'optional': $.value.optional,
+                        'type': pl.cc($.value.type, ($) => {
+                            switch ($[0]) {
+                                case 'resolved value': return pl.ss($, ($) => {
+                                    const xxx = getAnnotatedEntry($p['all siblings'], $)
+
+                                    return ['resolved value', xxx]
+                                })
+                                case 'cyclic sibling lookup': return pl.ss($, ($) => {
+                                    const xxx = getAnnotatedEntry($p['all siblings'], $)
+
+                                    return ['cyclic sibling lookup', xxx]
+                                })
+                                case 'sibling lookup': return pl.ss($, ($) => {
+                                    const xxx = getAnnotatedEntry($p['all siblings'], $)
+
+                                    return ['sibling lookup', xxx]
+                                })
+                                default: return pl.au($[0])
+                            }
+                        })
+                    }
+                })
+            }),
+            'result': mapOptional(
+                $.result,
+                ($) => getAnnotatedEntry($p['all siblings'], $)
+            ),
+        }
+    }
+
+    const Global__Type__Declarations: Resolve.types.Global__Type__Declarations  = ($) => {
+        return $d.resolveDictionary($, {
+            'map': (($, $l) => {
+                return Global__Type__Declaration($.value, {
+                    'all siblings': $l['all siblings']
+                })
+            })
+        })
+    }
+
+    const Global__Type__Definition: Resolve.types.Global__Type__Definition  = ($, $p) => {
+        return {
+            'declaration': getEntry($p['global type declarations'], $p.key, $.declaration),
+            'type': Type($.type, {
+                'atom types': $p['atom types'],
+                'imports': $p.imports,
+                'sibling global types': $p['non cyclic siblings'],
+                'cyclic sibling global types': $p['all siblings'],
+            }),
+        }
+    }
+
+    const Type__Library: Resolve.types.Type__Library  = ($, $p) => {
+        const imports = Imports($.imports, $p)
+        const v_atom__types = Atom__Types($['atom types'])
+        const v_decl = Global__Type__Declarations($['global types'].declarations)
         return {
             'imports': imports,
             'atom types': v_atom__types,
-            'global types': $d.resolveDictionary($['global types'], {
-                'map': (($, $l) => {
-                    return {
-                        'type': Type($.value.type, {
+            'global types': {
+                'declarations': v_decl,
+                'definitions': $d.resolveDictionary($['global types'].definitions, {
+                    'map': (($, $l) => {
+                        return Global__Type__Definition($.value, {
                             'atom types': v_atom__types,
+                            'all siblings': $l['all siblings'],
+                            'global type declarations': v_decl,
                             'imports': imports,
-                            'sibling global types': $l['non circular siblings'],
-                            'cyclic sibling global types': $l['all siblings'],
-                        }),
-                    }
+                            'key': $.key,
+                            'non cyclic siblings': $l['non circular siblings']
+                        })
+                    })
                 })
-            })
+            }
         }
     }
     return {
+        'Any Value Selection': pd.implementMe("xxx"),
         'Atom': Atom,
-        'Dictionary__Selection': Dictionary__Selection,
-        'Global__Type__Selection': Global__Type__Selection,
+        'Atom Types': Atom__Types,
+        'Dictionary Selection': Dictionary__Selection,
+        'Global Type Selection': Global__Type__Selection,
+        'Imports': Imports,
+        'Global Type Declaration': Global__Type__Declaration,
+        'Global Type Declarations': Global__Type__Declarations,
+        'Global Type Definition': Global__Type__Definition,
         'Model': Model,
+        'No Context Value Selection': pd.implementMe("XXX"),
         'Project': Project,
         'Root': Root,
         'Type': Type,
-        'Type__Library': Type__Library,
-        'Type__Selection': Type__Selection,
-        'Type__Selection__Tail': Type__Selection__Tail
+        'Type Library': Type__Library,
+        'Type Selection': Type__Selection,
+        'Type Selection Tail': Type__Selection__Tail,
+        'Value Selection Tail': pd.implementMe("XXXX"),
+        'Variable': pd.implementMe("DSFSDF"),
+        'Variables': pd.implementMe("SDFSDFSDF"),
     }
 }

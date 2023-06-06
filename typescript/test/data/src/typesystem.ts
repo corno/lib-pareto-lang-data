@@ -412,6 +412,107 @@ export namespace pareto__lang__data {
             }
             
             export type Root$<_TAnnotation> = Project$<_TAnnotation>
+            
+            export type Variable$parent__variable$<_TAnnotation> = {
+                readonly 'key': string
+                readonly 'referent': _TAnnotation
+            }
+            
+            export type Variable$<_TAnnotation> = 
+                | ['parent variable', Variable$parent__variable$<_TAnnotation>]
+            
+            export type Variables$D$<_TAnnotation> = Variable$<_TAnnotation>
+            
+            export type Variables$<_TAnnotation> = _pt.Dictionary<Variables$D$<_TAnnotation>>
+            
+            export type Value__Selection__Tail$reference$reference$<_TAnnotation> = _TAnnotation
+            
+            export type Value__Selection__Tail$reference$tail$O$<_TAnnotation> = Value__Selection__Tail$<_TAnnotation>
+            
+            export type Value__Selection__Tail$reference$tail$<_TAnnotation> = _pt.OptionalValue<Value__Selection__Tail$reference$tail$O$<_TAnnotation>>
+            
+            export type Value__Selection__Tail$reference$<_TAnnotation> = {
+                readonly 'reference': Value__Selection__Tail$reference$reference$<_TAnnotation>
+                readonly 'tail': Value__Selection__Tail$reference$tail$<_TAnnotation>
+            }
+            
+            export type Value__Selection__Tail$component$component$<_TAnnotation> = _TAnnotation
+            
+            export type Value__Selection__Tail$component$tail$O$<_TAnnotation> = Value__Selection__Tail$<_TAnnotation>
+            
+            export type Value__Selection__Tail$component$tail$<_TAnnotation> = _pt.OptionalValue<Value__Selection__Tail$component$tail$O$<_TAnnotation>>
+            
+            export type Value__Selection__Tail$component$<_TAnnotation> = {
+                readonly 'component': Value__Selection__Tail$component$component$<_TAnnotation>
+                readonly 'tail': Value__Selection__Tail$component$tail$<_TAnnotation>
+            }
+            
+            export type Value__Selection__Tail$state__group$state__group$<_TAnnotation> = _TAnnotation
+            
+            export type Value__Selection__Tail$state__group$result__type$<_TAnnotation> = Global__Type__Selection$<_TAnnotation>
+            
+            export type Value__Selection__Tail$state__group$states$D$<_TAnnotation> = Any__Value__Selection$<_TAnnotation>
+            
+            export type Value__Selection__Tail$state__group$states$<_TAnnotation> = _pt.Dictionary<Value__Selection__Tail$state__group$states$D$<_TAnnotation>>
+            
+            export type Value__Selection__Tail$state__group$<_TAnnotation> = {
+                readonly 'result type': Value__Selection__Tail$state__group$result__type$<_TAnnotation>
+                readonly 'state group': Value__Selection__Tail$state__group$state__group$<_TAnnotation>
+                readonly 'states': Value__Selection__Tail$state__group$states$<_TAnnotation>
+            }
+            
+            export type Value__Selection__Tail$group$group$<_TAnnotation> = _TAnnotation
+            
+            export type Value__Selection__Tail$group$property$<_TAnnotation> = {
+                readonly 'key': string
+                readonly 'referent': _TAnnotation
+            }
+            
+            export type Value__Selection__Tail$group$tail$O$<_TAnnotation> = Value__Selection__Tail$<_TAnnotation>
+            
+            export type Value__Selection__Tail$group$tail$<_TAnnotation> = _pt.OptionalValue<Value__Selection__Tail$group$tail$O$<_TAnnotation>>
+            
+            export type Value__Selection__Tail$group$<_TAnnotation> = {
+                readonly 'group': Value__Selection__Tail$group$group$<_TAnnotation>
+                readonly 'property': Value__Selection__Tail$group$property$<_TAnnotation>
+                readonly 'tail': Value__Selection__Tail$group$tail$<_TAnnotation>
+            }
+            
+            export type Value__Selection__Tail$<_TAnnotation> = 
+                | ['component', Value__Selection__Tail$component$<_TAnnotation>]
+                | ['group', Value__Selection__Tail$group$<_TAnnotation>]
+                | ['reference', Value__Selection__Tail$reference$<_TAnnotation>]
+                | ['state group', Value__Selection__Tail$state__group$<_TAnnotation>]
+            
+            export type No__Context__Value__Selection$start$<_TAnnotation> = {
+                readonly 'key': string
+                readonly 'referent': _TAnnotation
+            }
+            
+            export type No__Context__Value__Selection$tail$O$<_TAnnotation> = Value__Selection__Tail$<_TAnnotation>
+            
+            export type No__Context__Value__Selection$tail$<_TAnnotation> = _pt.OptionalValue<No__Context__Value__Selection$tail$O$<_TAnnotation>>
+            
+            export type No__Context__Value__Selection$<_TAnnotation> = {
+                readonly 'start': No__Context__Value__Selection$start$<_TAnnotation>
+                readonly 'tail': No__Context__Value__Selection$tail$<_TAnnotation>
+            }
+            
+            export type Any__Value__Selection$start$O$<_TAnnotation> = {
+                readonly 'key': string
+                readonly 'referent': _TAnnotation
+            }
+            
+            export type Any__Value__Selection$start$<_TAnnotation> = _pt.OptionalValue<Any__Value__Selection$start$O$<_TAnnotation>>
+            
+            export type Any__Value__Selection$tail$O$<_TAnnotation> = Value__Selection__Tail$<_TAnnotation>
+            
+            export type Any__Value__Selection$tail$<_TAnnotation> = _pt.OptionalValue<Any__Value__Selection$tail$O$<_TAnnotation>>
+            
+            export type Any__Value__Selection$<_TAnnotation> = {
+                readonly 'start': Any__Value__Selection$start$<_TAnnotation>
+                readonly 'tail': Any__Value__Selection$tail$<_TAnnotation>
+            }
         }
         
         export namespace T {
@@ -1131,6 +1232,198 @@ export namespace pareto__lang__data {
                 
                 export type $<_TAnnotation> = _IFlat.Root$<_TAnnotation>
             }
+            
+            export namespace Variable {
+                
+                
+                export namespace parent__variable {
+                    
+                    
+                    export type $<_TAnnotation> = _IFlat.Variable$parent__variable$<_TAnnotation>
+                }
+                
+                export type $<_TAnnotation> = _IFlat.Variable$<_TAnnotation>
+            }
+            
+            export namespace Variables {
+                
+                
+                export namespace D {
+                    
+                    
+                    export type $<_TAnnotation> = _IFlat.Variables$D$<_TAnnotation>
+                }
+                
+                export type $<_TAnnotation> = _IFlat.Variables$<_TAnnotation>
+            }
+            
+            export namespace Value__Selection__Tail {
+                
+                
+                export namespace reference {
+                    
+                    
+                    export namespace reference {
+                        
+                        
+                        export type $<_TAnnotation> = _IFlat.Value__Selection__Tail$reference$reference$<_TAnnotation>
+                    }
+                    
+                    export namespace tail {
+                        
+                        
+                        export namespace O {
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Value__Selection__Tail$reference$tail$O$<_TAnnotation>
+                        }
+                        
+                        export type $<_TAnnotation> = _IFlat.Value__Selection__Tail$reference$tail$<_TAnnotation>
+                    }
+                    
+                    export type $<_TAnnotation> = _IFlat.Value__Selection__Tail$reference$<_TAnnotation>
+                }
+                
+                export namespace component {
+                    
+                    
+                    export namespace component {
+                        
+                        
+                        export type $<_TAnnotation> = _IFlat.Value__Selection__Tail$component$component$<_TAnnotation>
+                    }
+                    
+                    export namespace tail {
+                        
+                        
+                        export namespace O {
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Value__Selection__Tail$component$tail$O$<_TAnnotation>
+                        }
+                        
+                        export type $<_TAnnotation> = _IFlat.Value__Selection__Tail$component$tail$<_TAnnotation>
+                    }
+                    
+                    export type $<_TAnnotation> = _IFlat.Value__Selection__Tail$component$<_TAnnotation>
+                }
+                
+                export namespace state__group {
+                    
+                    
+                    export namespace state__group {
+                        
+                        
+                        export type $<_TAnnotation> = _IFlat.Value__Selection__Tail$state__group$state__group$<_TAnnotation>
+                    }
+                    
+                    export namespace result__type {
+                        
+                        
+                        export type $<_TAnnotation> = _IFlat.Value__Selection__Tail$state__group$result__type$<_TAnnotation>
+                    }
+                    
+                    export namespace states {
+                        
+                        
+                        export namespace D {
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Value__Selection__Tail$state__group$states$D$<_TAnnotation>
+                        }
+                        
+                        export type $<_TAnnotation> = _IFlat.Value__Selection__Tail$state__group$states$<_TAnnotation>
+                    }
+                    
+                    export type $<_TAnnotation> = _IFlat.Value__Selection__Tail$state__group$<_TAnnotation>
+                }
+                
+                export namespace group {
+                    
+                    
+                    export namespace group {
+                        
+                        
+                        export type $<_TAnnotation> = _IFlat.Value__Selection__Tail$group$group$<_TAnnotation>
+                    }
+                    
+                    export namespace property {
+                        
+                        
+                        export type $<_TAnnotation> = _IFlat.Value__Selection__Tail$group$property$<_TAnnotation>
+                    }
+                    
+                    export namespace tail {
+                        
+                        
+                        export namespace O {
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Value__Selection__Tail$group$tail$O$<_TAnnotation>
+                        }
+                        
+                        export type $<_TAnnotation> = _IFlat.Value__Selection__Tail$group$tail$<_TAnnotation>
+                    }
+                    
+                    export type $<_TAnnotation> = _IFlat.Value__Selection__Tail$group$<_TAnnotation>
+                }
+                
+                export type $<_TAnnotation> = _IFlat.Value__Selection__Tail$<_TAnnotation>
+            }
+            
+            export namespace No__Context__Value__Selection {
+                
+                
+                export namespace start {
+                    
+                    
+                    export type $<_TAnnotation> = _IFlat.No__Context__Value__Selection$start$<_TAnnotation>
+                }
+                
+                export namespace tail {
+                    
+                    
+                    export namespace O {
+                        
+                        
+                        export type $<_TAnnotation> = _IFlat.No__Context__Value__Selection$tail$O$<_TAnnotation>
+                    }
+                    
+                    export type $<_TAnnotation> = _IFlat.No__Context__Value__Selection$tail$<_TAnnotation>
+                }
+                
+                export type $<_TAnnotation> = _IFlat.No__Context__Value__Selection$<_TAnnotation>
+            }
+            
+            export namespace Any__Value__Selection {
+                
+                
+                export namespace start {
+                    
+                    
+                    export namespace O {
+                        
+                        
+                        export type $<_TAnnotation> = _IFlat.Any__Value__Selection$start$O$<_TAnnotation>
+                    }
+                    
+                    export type $<_TAnnotation> = _IFlat.Any__Value__Selection$start$<_TAnnotation>
+                }
+                
+                export namespace tail {
+                    
+                    
+                    export namespace O {
+                        
+                        
+                        export type $<_TAnnotation> = _IFlat.Any__Value__Selection$tail$O$<_TAnnotation>
+                    }
+                    
+                    export type $<_TAnnotation> = _IFlat.Any__Value__Selection$tail$<_TAnnotation>
+                }
+                
+                export type $<_TAnnotation> = _IFlat.Any__Value__Selection$<_TAnnotation>
+            }
         }
     }
     
@@ -1538,6 +1831,107 @@ export namespace pareto__lang__data {
             }
             
             export type Root$ = Project$
+            
+            export type Variable$parent__variable$ = {
+                readonly 'key': string
+                readonly 'referent': Variable$
+            }
+            
+            export type Variable$ = 
+                | ['parent variable', Variable$parent__variable$]
+            
+            export type Variables$D$ = Variable$
+            
+            export type Variables$ = _pt.Dictionary<Variables$D$>
+            
+            export type Value__Selection__Tail$reference$reference$ = Type$type$resolved__reference$
+            
+            export type Value__Selection__Tail$reference$tail$O$ = Value__Selection__Tail$
+            
+            export type Value__Selection__Tail$reference$tail$ = _pt.OptionalValue<Value__Selection__Tail$reference$tail$O$>
+            
+            export type Value__Selection__Tail$reference$ = {
+                readonly 'reference': Value__Selection__Tail$reference$reference$
+                readonly 'tail': Value__Selection__Tail$reference$tail$
+            }
+            
+            export type Value__Selection__Tail$component$component$ = Type$type$component$
+            
+            export type Value__Selection__Tail$component$tail$O$ = Value__Selection__Tail$
+            
+            export type Value__Selection__Tail$component$tail$ = _pt.OptionalValue<Value__Selection__Tail$component$tail$O$>
+            
+            export type Value__Selection__Tail$component$ = {
+                readonly 'component': Value__Selection__Tail$component$component$
+                readonly 'tail': Value__Selection__Tail$component$tail$
+            }
+            
+            export type Value__Selection__Tail$state__group$state__group$ = Type$type$state__group$
+            
+            export type Value__Selection__Tail$state__group$result__type$ = Global__Type__Selection$
+            
+            export type Value__Selection__Tail$state__group$states$D$ = Any__Value__Selection$
+            
+            export type Value__Selection__Tail$state__group$states$ = _pt.Dictionary<Value__Selection__Tail$state__group$states$D$>
+            
+            export type Value__Selection__Tail$state__group$ = {
+                readonly 'result type': Value__Selection__Tail$state__group$result__type$
+                readonly 'state group': Value__Selection__Tail$state__group$state__group$
+                readonly 'states': Value__Selection__Tail$state__group$states$
+            }
+            
+            export type Value__Selection__Tail$group$group$ = Type$type$group$
+            
+            export type Value__Selection__Tail$group$property$ = {
+                readonly 'key': string
+                readonly 'referent': Type$type$group$properties$D$
+            }
+            
+            export type Value__Selection__Tail$group$tail$O$ = Value__Selection__Tail$
+            
+            export type Value__Selection__Tail$group$tail$ = _pt.OptionalValue<Value__Selection__Tail$group$tail$O$>
+            
+            export type Value__Selection__Tail$group$ = {
+                readonly 'group': Value__Selection__Tail$group$group$
+                readonly 'property': Value__Selection__Tail$group$property$
+                readonly 'tail': Value__Selection__Tail$group$tail$
+            }
+            
+            export type Value__Selection__Tail$ = 
+                | ['component', Value__Selection__Tail$component$]
+                | ['group', Value__Selection__Tail$group$]
+                | ['reference', Value__Selection__Tail$reference$]
+                | ['state group', Value__Selection__Tail$state__group$]
+            
+            export type No__Context__Value__Selection$start$ = {
+                readonly 'key': string
+                readonly 'referent': Variables$D$
+            }
+            
+            export type No__Context__Value__Selection$tail$O$ = Value__Selection__Tail$
+            
+            export type No__Context__Value__Selection$tail$ = _pt.OptionalValue<No__Context__Value__Selection$tail$O$>
+            
+            export type No__Context__Value__Selection$ = {
+                readonly 'start': No__Context__Value__Selection$start$
+                readonly 'tail': No__Context__Value__Selection$tail$
+            }
+            
+            export type Any__Value__Selection$start$O$ = {
+                readonly 'key': string
+                readonly 'referent': Variables$D$
+            }
+            
+            export type Any__Value__Selection$start$ = _pt.OptionalValue<Any__Value__Selection$start$O$>
+            
+            export type Any__Value__Selection$tail$O$ = Value__Selection__Tail$
+            
+            export type Any__Value__Selection$tail$ = _pt.OptionalValue<Any__Value__Selection$tail$O$>
+            
+            export type Any__Value__Selection$ = {
+                readonly 'start': Any__Value__Selection$start$
+                readonly 'tail': Any__Value__Selection$tail$
+            }
         }
         
         export namespace T {
@@ -2257,6 +2651,198 @@ export namespace pareto__lang__data {
                 
                 export type $ = _IFlat.Root$
             }
+            
+            export namespace Variable {
+                
+                
+                export namespace parent__variable {
+                    
+                    
+                    export type $ = _IFlat.Variable$parent__variable$
+                }
+                
+                export type $ = _IFlat.Variable$
+            }
+            
+            export namespace Variables {
+                
+                
+                export namespace D {
+                    
+                    
+                    export type $ = _IFlat.Variables$D$
+                }
+                
+                export type $ = _IFlat.Variables$
+            }
+            
+            export namespace Value__Selection__Tail {
+                
+                
+                export namespace reference {
+                    
+                    
+                    export namespace reference {
+                        
+                        
+                        export type $ = _IFlat.Value__Selection__Tail$reference$reference$
+                    }
+                    
+                    export namespace tail {
+                        
+                        
+                        export namespace O {
+                            
+                            
+                            export type $ = _IFlat.Value__Selection__Tail$reference$tail$O$
+                        }
+                        
+                        export type $ = _IFlat.Value__Selection__Tail$reference$tail$
+                    }
+                    
+                    export type $ = _IFlat.Value__Selection__Tail$reference$
+                }
+                
+                export namespace component {
+                    
+                    
+                    export namespace component {
+                        
+                        
+                        export type $ = _IFlat.Value__Selection__Tail$component$component$
+                    }
+                    
+                    export namespace tail {
+                        
+                        
+                        export namespace O {
+                            
+                            
+                            export type $ = _IFlat.Value__Selection__Tail$component$tail$O$
+                        }
+                        
+                        export type $ = _IFlat.Value__Selection__Tail$component$tail$
+                    }
+                    
+                    export type $ = _IFlat.Value__Selection__Tail$component$
+                }
+                
+                export namespace state__group {
+                    
+                    
+                    export namespace state__group {
+                        
+                        
+                        export type $ = _IFlat.Value__Selection__Tail$state__group$state__group$
+                    }
+                    
+                    export namespace result__type {
+                        
+                        
+                        export type $ = _IFlat.Value__Selection__Tail$state__group$result__type$
+                    }
+                    
+                    export namespace states {
+                        
+                        
+                        export namespace D {
+                            
+                            
+                            export type $ = _IFlat.Value__Selection__Tail$state__group$states$D$
+                        }
+                        
+                        export type $ = _IFlat.Value__Selection__Tail$state__group$states$
+                    }
+                    
+                    export type $ = _IFlat.Value__Selection__Tail$state__group$
+                }
+                
+                export namespace group {
+                    
+                    
+                    export namespace group {
+                        
+                        
+                        export type $ = _IFlat.Value__Selection__Tail$group$group$
+                    }
+                    
+                    export namespace property {
+                        
+                        
+                        export type $ = _IFlat.Value__Selection__Tail$group$property$
+                    }
+                    
+                    export namespace tail {
+                        
+                        
+                        export namespace O {
+                            
+                            
+                            export type $ = _IFlat.Value__Selection__Tail$group$tail$O$
+                        }
+                        
+                        export type $ = _IFlat.Value__Selection__Tail$group$tail$
+                    }
+                    
+                    export type $ = _IFlat.Value__Selection__Tail$group$
+                }
+                
+                export type $ = _IFlat.Value__Selection__Tail$
+            }
+            
+            export namespace No__Context__Value__Selection {
+                
+                
+                export namespace start {
+                    
+                    
+                    export type $ = _IFlat.No__Context__Value__Selection$start$
+                }
+                
+                export namespace tail {
+                    
+                    
+                    export namespace O {
+                        
+                        
+                        export type $ = _IFlat.No__Context__Value__Selection$tail$O$
+                    }
+                    
+                    export type $ = _IFlat.No__Context__Value__Selection$tail$
+                }
+                
+                export type $ = _IFlat.No__Context__Value__Selection$
+            }
+            
+            export namespace Any__Value__Selection {
+                
+                
+                export namespace start {
+                    
+                    
+                    export namespace O {
+                        
+                        
+                        export type $ = _IFlat.Any__Value__Selection$start$O$
+                    }
+                    
+                    export type $ = _IFlat.Any__Value__Selection$start$
+                }
+                
+                export namespace tail {
+                    
+                    
+                    export namespace O {
+                        
+                        
+                        export type $ = _IFlat.Any__Value__Selection$tail$O$
+                    }
+                    
+                    export type $ = _IFlat.Any__Value__Selection$tail$
+                }
+                
+                export type $ = _IFlat.Any__Value__Selection$
+            }
         }
     }
     
@@ -2266,213 +2852,341 @@ export namespace pareto__lang__data {
         
         import _IUnresolved = Unresolved
         
-        export type Atom__Types = <_TAnnotation>(
-            $: _IUnresolved.Flat.Atom__Types$<_TAnnotation>,
-        ) => _IResolved.Flat.Atom__Types$
+        export namespace types {
+            
+            
+            
+            export type Any__Value__Selection = <_TAnnotation>(
+                $: _IUnresolved.Flat.Any__Value__Selection$<_TAnnotation>,
+            ) => _IResolved.Flat.Any__Value__Selection$
+            
+            export type Atom__Types = <_TAnnotation>(
+                $: _IUnresolved.Flat.Atom__Types$<_TAnnotation>,
+            ) => _IResolved.Flat.Atom__Types$
+            
+            export type Atom = <_TAnnotation>(
+                $: _IUnresolved.Flat.Atom$<_TAnnotation>,
+                $p: {
+                    readonly 'atom types': _IResolved.Flat.Atom__Types$
+                }
+            ) => _IResolved.Flat.Atom$
+            
+            export type Dictionary__Selection = <_TAnnotation>(
+                $: _IUnresolved.Flat.Dictionary__Selection$<_TAnnotation>,
+                $p: {
+                    readonly 'cyclic sibling global types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Global__Type__Definition$>>
+                    readonly 'imports': _IResolved.Flat.Imports$
+                    readonly 'sibling global types': _pt.Lookup<_IResolved.Flat.Global__Type__Definition$>
+                }
+            ) => _IResolved.Flat.Dictionary__Selection$
+            
+            export type Global__Type__Declaration = <_TAnnotation>(
+                $: _IUnresolved.Flat.Global__Type__Declaration$<_TAnnotation>,
+                $p: {
+                    readonly 'all siblings': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Global__Type__Declaration$>>
+                }
+            ) => _IResolved.Flat.Global__Type__Declaration$
+            
+            export type Global__Type__Declarations = <_TAnnotation>(
+                $: _IUnresolved.Flat.Global__Type__Declarations$<_TAnnotation>,
+            ) => _IResolved.Flat.Global__Type__Declarations$
+            
+            export type Global__Type__Definition = <_TAnnotation>(
+                $: _IUnresolved.Flat.Global__Type__Definition$<_TAnnotation>,
+                $p: {
+                    readonly 'all siblings': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Global__Type__Definition$>>
+                    readonly 'atom types': _IResolved.Flat.Atom__Types$
+                    readonly 'global type declarations': _IResolved.Flat.Global__Type__Declarations$
+                    readonly 'imports': _IResolved.Flat.Imports$
+                    readonly 'key': string
+                    readonly 'non cyclic siblings': _pt.Lookup<_IResolved.Flat.Global__Type__Definition$>
+                }
+            ) => _IResolved.Flat.Global__Type__Definition$
+            
+            export type Global__Type__Selection = <_TAnnotation>(
+                $: _IUnresolved.Flat.Global__Type__Selection$<_TAnnotation>,
+                $p: {
+                    readonly 'cyclic sibling global types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Global__Type__Definition$>>
+                    readonly 'imports': _IResolved.Flat.Imports$
+                    readonly 'sibling global types': _pt.Lookup<_IResolved.Flat.Global__Type__Definition$>
+                }
+            ) => _IResolved.Flat.Global__Type__Selection$
+            
+            export type Imports = <_TAnnotation>(
+                $: _IUnresolved.Flat.Imports$<_TAnnotation>,
+                $p: {
+                    readonly 'external type libraries': _pt.Lookup<_IResolved.Flat.Type__Library$>
+                }
+            ) => _IResolved.Flat.Imports$
+            
+            export type Model = <_TAnnotation>(
+                $: _IUnresolved.Flat.Model$<_TAnnotation>,
+                $p: {
+                    readonly 'external type libraries': _pt.Lookup<_IResolved.Flat.Type__Library$>
+                }
+            ) => _IResolved.Flat.Model$
+            
+            export type No__Context__Value__Selection = <_TAnnotation>(
+                $: _IUnresolved.Flat.No__Context__Value__Selection$<_TAnnotation>,
+            ) => _IResolved.Flat.No__Context__Value__Selection$
+            
+            export type Project = <_TAnnotation>(
+                $: _IUnresolved.Flat.Project$<_TAnnotation>,
+            ) => _IResolved.Flat.Project$
+            
+            export type Root = <_TAnnotation>(
+                $: _IUnresolved.Flat.Root$<_TAnnotation>,
+            ) => _IResolved.Flat.Root$
+            
+            export type Type__Library = <_TAnnotation>(
+                $: _IUnresolved.Flat.Type__Library$<_TAnnotation>,
+                $p: {
+                    readonly 'external type libraries': _pt.Lookup<_IResolved.Flat.Type__Library$>
+                }
+            ) => _IResolved.Flat.Type__Library$
+            
+            export type Type__Selection__Tail = <_TAnnotation>(
+                $: _IUnresolved.Flat.Type__Selection__Tail$<_TAnnotation>,
+                $p: {
+                    readonly 'context': _IResolved.Flat.Type$
+                }
+            ) => _IResolved.Flat.Type__Selection__Tail$
+            
+            export type Type__Selection = <_TAnnotation>(
+                $: _IUnresolved.Flat.Type__Selection$<_TAnnotation>,
+                $p: {
+                    readonly 'imports': _IResolved.Flat.Imports$
+                    readonly 'sibling global types': _pt.Lookup<_IResolved.Flat.Global__Type__Definition$>
+                }
+            ) => _IResolved.Flat.Type__Selection$
+            
+            export type Type = <_TAnnotation>(
+                $: _IUnresolved.Flat.Type$<_TAnnotation>,
+                $p: {
+                    readonly 'atom types': _IResolved.Flat.Atom__Types$
+                    readonly 'cyclic sibling global types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Global__Type__Definition$>>
+                    readonly 'imports': _IResolved.Flat.Imports$
+                    readonly 'sibling global types': _pt.Lookup<_IResolved.Flat.Global__Type__Definition$>
+                }
+            ) => _IResolved.Flat.Type$
+            
+            export type Value__Selection__Tail = <_TAnnotation>(
+                $: _IUnresolved.Flat.Value__Selection__Tail$<_TAnnotation>,
+            ) => _IResolved.Flat.Value__Selection__Tail$
+            
+            export type Variable = <_TAnnotation>(
+                $: _IUnresolved.Flat.Variable$<_TAnnotation>,
+            ) => _IResolved.Flat.Variable$
+            
+            export type Variables = <_TAnnotation>(
+                $: _IUnresolved.Flat.Variables$<_TAnnotation>,
+            ) => _IResolved.Flat.Variables$
+        }
         
-        export type Atom = <_TAnnotation>(
-            $: _IUnresolved.Flat.Atom$<_TAnnotation>,
-            $p: {
-                readonly 'atom types': _IResolved.Flat.Atom__Types$
-            }
-        ) => _IResolved.Flat.Atom$
-        
-        export type Dictionary__Selection = <_TAnnotation>(
-            $: _IUnresolved.Flat.Dictionary__Selection$<_TAnnotation>,
-            $p: {
-                readonly 'cyclic sibling global types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Global__Type__Definition$>>
-                readonly 'imports': _IResolved.Flat.Imports$
-                readonly 'sibling global types': _pt.Lookup<_IResolved.Flat.Global__Type__Definition$>
-            }
-        ) => _IResolved.Flat.Dictionary__Selection$
-        
-        export type Global__Type__Declaration = <_TAnnotation>(
-            $: _IUnresolved.Flat.Global__Type__Declaration$<_TAnnotation>,
-        ) => _IResolved.Flat.Global__Type__Declaration$
-        
-        export type Global__Type__Declarations = <_TAnnotation>(
-            $: _IUnresolved.Flat.Global__Type__Declarations$<_TAnnotation>,
-        ) => _IResolved.Flat.Global__Type__Declarations$
-        
-        export type Global__Type__Definition = <_TAnnotation>(
-            $: _IUnresolved.Flat.Global__Type__Definition$<_TAnnotation>,
-        ) => _IResolved.Flat.Global__Type__Definition$
-        
-        export type Global__Type__Selection = <_TAnnotation>(
-            $: _IUnresolved.Flat.Global__Type__Selection$<_TAnnotation>,
-            $p: {
-                readonly 'cyclic sibling global types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Global__Type__Definition$>>
-                readonly 'imports': _IResolved.Flat.Imports$
-                readonly 'sibling global types': _pt.Lookup<_IResolved.Flat.Global__Type__Definition$>
-            }
-        ) => _IResolved.Flat.Global__Type__Selection$
-        
-        export type Imports = <_TAnnotation>(
-            $: _IUnresolved.Flat.Imports$<_TAnnotation>,
-        ) => _IResolved.Flat.Imports$
-        
-        export type Model = <_TAnnotation>(
-            $: _IUnresolved.Flat.Model$<_TAnnotation>,
-            $p: {
-                readonly 'external type libraries': _pt.Lookup<_IResolved.Flat.Type__Library$>
-            }
-        ) => _IResolved.Flat.Model$
-        
-        export type Project = <_TAnnotation>(
-            $: _IUnresolved.Flat.Project$<_TAnnotation>,
-        ) => _IResolved.Flat.Project$
-        
-        export type Root = <_TAnnotation>(
-            $: _IUnresolved.Flat.Root$<_TAnnotation>,
-        ) => _IResolved.Flat.Root$
-        
-        export type Type__Library = <_TAnnotation>(
-            $: _IUnresolved.Flat.Type__Library$<_TAnnotation>,
-            $p: {
-                readonly 'external type libraries': _pt.Lookup<_IResolved.Flat.Type__Library$>
-            }
-        ) => _IResolved.Flat.Type__Library$
-        
-        export type Type__Selection__Tail = <_TAnnotation>(
-            $: _IUnresolved.Flat.Type__Selection__Tail$<_TAnnotation>,
-            $p: {
-                readonly 'context': _IResolved.Flat.Type$
-            }
-        ) => _IResolved.Flat.Type__Selection__Tail$
-        
-        export type Type__Selection = <_TAnnotation>(
-            $: _IUnresolved.Flat.Type__Selection$<_TAnnotation>,
-            $p: {
-                readonly 'imports': _IResolved.Flat.Imports$
-                readonly 'sibling global types': _pt.Lookup<_IResolved.Flat.Global__Type__Definition$>
-            }
-        ) => _IResolved.Flat.Type__Selection$
-        
-        export type Type = <_TAnnotation>(
-            $: _IUnresolved.Flat.Type$<_TAnnotation>,
-            $p: {
-                readonly 'atom types': _IResolved.Flat.Atom__Types$
-                readonly 'cyclic sibling global types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Global__Type__Definition$>>
-                readonly 'imports': _IResolved.Flat.Imports$
-                readonly 'sibling global types': _pt.Lookup<_IResolved.Flat.Global__Type__Definition$>
-            }
-        ) => _IResolved.Flat.Type$
+        export type $ = {
+            readonly 'Any Value Selection': types.Any__Value__Selection
+            readonly 'Atom': types.Atom
+            readonly 'Atom Types': types.Atom__Types
+            readonly 'Dictionary Selection': types.Dictionary__Selection
+            readonly 'Global Type Declaration': types.Global__Type__Declaration
+            readonly 'Global Type Declarations': types.Global__Type__Declarations
+            readonly 'Global Type Definition': types.Global__Type__Definition
+            readonly 'Global Type Selection': types.Global__Type__Selection
+            readonly 'Imports': types.Imports
+            readonly 'Model': types.Model
+            readonly 'No Context Value Selection': types.No__Context__Value__Selection
+            readonly 'Project': types.Project
+            readonly 'Root': types.Root
+            readonly 'Type': types.Type
+            readonly 'Type Library': types.Type__Library
+            readonly 'Type Selection': types.Type__Selection
+            readonly 'Type Selection Tail': types.Type__Selection__Tail
+            readonly 'Value Selection Tail': types.Value__Selection__Tail
+            readonly 'Variable': types.Variable
+            readonly 'Variables': types.Variables
+        }
     }
     
     export namespace Serialize {
         
         import _IResolved = Resolved
         
-        export type Atom__Types = (
-            $: _IResolved.Flat.Atom__Types$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
+        export namespace types {
+            
+            
+            export type Atom__Types = (
+                $: _IResolved.Flat.Atom__Types$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Atom = (
+                $: _IResolved.Flat.Atom$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Type = (
+                $: _IResolved.Flat.Type$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Imports = (
+                $: _IResolved.Flat.Imports$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Global__Type__Declaration = (
+                $: _IResolved.Flat.Global__Type__Declaration$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Global__Type__Declarations = (
+                $: _IResolved.Flat.Global__Type__Declarations$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Global__Type__Definition = (
+                $: _IResolved.Flat.Global__Type__Definition$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Type__Selection__Tail = (
+                $: _IResolved.Flat.Type__Selection__Tail$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Type__Selection = (
+                $: _IResolved.Flat.Type__Selection$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Dictionary__Selection = (
+                $: _IResolved.Flat.Dictionary__Selection$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Type__Library = (
+                $: _IResolved.Flat.Type__Library$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Global__Type__Selection = (
+                $: _IResolved.Flat.Global__Type__Selection$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Model = (
+                $: _IResolved.Flat.Model$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Project = (
+                $: _IResolved.Flat.Project$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Root = (
+                $: _IResolved.Flat.Root$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Variable = (
+                $: _IResolved.Flat.Variable$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Variables = (
+                $: _IResolved.Flat.Variables$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Value__Selection__Tail = (
+                $: _IResolved.Flat.Value__Selection__Tail$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type No__Context__Value__Selection = (
+                $: _IResolved.Flat.No__Context__Value__Selection$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Any__Value__Selection = (
+                $: _IResolved.Flat.Any__Value__Selection$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+        }
         
-        export type Atom = (
-            $: _IResolved.Flat.Atom$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Type = (
-            $: _IResolved.Flat.Type$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Imports = (
-            $: _IResolved.Flat.Imports$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Global__Type__Declaration = (
-            $: _IResolved.Flat.Global__Type__Declaration$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Global__Type__Declarations = (
-            $: _IResolved.Flat.Global__Type__Declarations$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Global__Type__Definition = (
-            $: _IResolved.Flat.Global__Type__Definition$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Type__Selection__Tail = (
-            $: _IResolved.Flat.Type__Selection__Tail$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Type__Selection = (
-            $: _IResolved.Flat.Type__Selection$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Dictionary__Selection = (
-            $: _IResolved.Flat.Dictionary__Selection$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Type__Library = (
-            $: _IResolved.Flat.Type__Library$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Global__Type__Selection = (
-            $: _IResolved.Flat.Global__Type__Selection$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Model = (
-            $: _IResolved.Flat.Model$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Project = (
-            $: _IResolved.Flat.Project$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Root = (
-            $: _IResolved.Flat.Root$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
+        export type $ = {
+            readonly 'Any Value Selection': types.Any__Value__Selection
+            readonly 'Atom': types.Atom
+            readonly 'Atom Types': types.Atom__Types
+            readonly 'Dictionary Selection': types.Dictionary__Selection
+            readonly 'Global Type Declaration': types.Global__Type__Declaration
+            readonly 'Global Type Declarations': types.Global__Type__Declarations
+            readonly 'Global Type Definition': types.Global__Type__Definition
+            readonly 'Global Type Selection': types.Global__Type__Selection
+            readonly 'Imports': types.Imports
+            readonly 'Model': types.Model
+            readonly 'No Context Value Selection': types.No__Context__Value__Selection
+            readonly 'Project': types.Project
+            readonly 'Root': types.Root
+            readonly 'Type': types.Type
+            readonly 'Type Library': types.Type__Library
+            readonly 'Type Selection': types.Type__Selection
+            readonly 'Type Selection Tail': types.Type__Selection__Tail
+            readonly 'Value Selection Tail': types.Value__Selection__Tail
+            readonly 'Variable': types.Variable
+            readonly 'Variables': types.Variables
+        }
     }
     
     export namespace Select {
         
         import _IResolved = Resolved
         
+        export namespace types {
+            
+        }
+        
         export type Type__Selection__Tail = (
             $: _IResolved.Flat.Type__Selection__Tail$,
         ) => _IResolved.Flat.Type$
@@ -2480,71 +3194,6 @@ export namespace pareto__lang__data {
         export type Type__Selection = (
             $: _IResolved.Flat.Type__Selection$,
         ) => _IResolved.Flat.Type$
-    }
-    
-    export type _$ = (
-        $: null,
-    ) => {
-        readonly 'Atom': {
-            readonly 'Resolve': Resolve.Atom
-            readonly 'Serialize': Serialize.Atom
-        }
-        readonly 'Atom Types': {
-            readonly 'Resolve': Resolve.Atom__Types
-            readonly 'Serialize': Serialize.Atom__Types
-        }
-        readonly 'Dictionary Selection': {
-            readonly 'Resolve': Resolve.Dictionary__Selection
-            readonly 'Serialize': Serialize.Dictionary__Selection
-        }
-        readonly 'Global Type Declaration': {
-            readonly 'Resolve': Resolve.Global__Type__Declaration
-            readonly 'Serialize': Serialize.Global__Type__Declaration
-        }
-        readonly 'Global Type Declarations': {
-            readonly 'Resolve': Resolve.Global__Type__Declarations
-            readonly 'Serialize': Serialize.Global__Type__Declarations
-        }
-        readonly 'Global Type Definition': {
-            readonly 'Resolve': Resolve.Global__Type__Definition
-            readonly 'Serialize': Serialize.Global__Type__Definition
-        }
-        readonly 'Global Type Selection': {
-            readonly 'Resolve': Resolve.Global__Type__Selection
-            readonly 'Serialize': Serialize.Global__Type__Selection
-        }
-        readonly 'Imports': {
-            readonly 'Resolve': Resolve.Imports
-            readonly 'Serialize': Serialize.Imports
-        }
-        readonly 'Model': {
-            readonly 'Resolve': Resolve.Model
-            readonly 'Serialize': Serialize.Model
-        }
-        readonly 'Project': {
-            readonly 'Resolve': Resolve.Project
-            readonly 'Serialize': Serialize.Project
-        }
-        readonly 'Root': {
-            readonly 'Resolve': Resolve.Root
-            readonly 'Serialize': Serialize.Root
-        }
-        readonly 'Type': {
-            readonly 'Resolve': Resolve.Type
-            readonly 'Serialize': Serialize.Type
-        }
-        readonly 'Type Library': {
-            readonly 'Resolve': Resolve.Type__Library
-            readonly 'Serialize': Serialize.Type__Library
-        }
-        readonly 'Type Selection': {
-            readonly 'Resolve': Resolve.Type__Selection
-            readonly 'Serialize': Serialize.Type__Selection
-        }
-        readonly 'Type Selection Tail': {
-            readonly 'Resolve': Resolve.Type__Selection__Tail
-            readonly 'Serialize': Serialize.Type__Selection__Tail
-        }
     }
 }
 
@@ -3956,175 +4605,218 @@ export namespace proto__typesystem {
         
         import _IUnresolved = Unresolved
         
-        export type Aggregated__Type__Parameters = <_TAnnotation>(
-            $: _IUnresolved.Flat.Aggregated__Type__Parameters$<_TAnnotation>,
-        ) => _IResolved.Flat.Aggregated__Type__Parameters$
+        export namespace types {
+            
+            
+            
+            export type Aggregated__Type__Parameters = <_TAnnotation>(
+                $: _IUnresolved.Flat.Aggregated__Type__Parameters$<_TAnnotation>,
+            ) => _IResolved.Flat.Aggregated__Type__Parameters$
+            
+            export type Function__Declaration = <_TAnnotation>(
+                $: _IUnresolved.Flat.Function__Declaration$<_TAnnotation>,
+                $p: {
+                    readonly 'cyclic sibling types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Type$>>
+                    readonly 'resolved namespaces': _pt.Lookup<_IResolved.Flat.Nested__Namespace$>
+                    readonly 'resolved sibling types': _pt.Lookup<_IResolved.Flat.Type$>
+                    readonly 'type parameters': _IResolved.Flat.Aggregated__Type__Parameters$
+                }
+            ) => _IResolved.Flat.Function__Declaration$
+            
+            export type Import = <_TAnnotation>(
+                $: _IUnresolved.Flat.Import$<_TAnnotation>,
+            ) => _IResolved.Flat.Import$
+            
+            export type Imports = <_TAnnotation>(
+                $: _IUnresolved.Flat.Imports$<_TAnnotation>,
+            ) => _IResolved.Flat.Imports$
+            
+            export type Namespace = <_TAnnotation>(
+                $: _IUnresolved.Flat.Namespace$<_TAnnotation>,
+                $p: {
+                    readonly 'parent type parameters': _pt.OptionalValue<_IResolved.Flat.Aggregated__Type__Parameters$>
+                    readonly 'resolved sibling namespaces': _pt.OptionalValue<_pt.Lookup<_IResolved.Flat.Nested__Namespace$>>
+                }
+            ) => _IResolved.Flat.Namespace$
+            
+            export type Nested__Namespace = <_TAnnotation>(
+                $: _IUnresolved.Flat.Nested__Namespace$<_TAnnotation>,
+                $p: {
+                    readonly 'resolved parent sibling namespaces': _pt.OptionalValue<_pt.Lookup<_IResolved.Flat.Nested__Namespace$>>
+                }
+            ) => _IResolved.Flat.Nested__Namespace$
+            
+            export type Namespace__Selection = <_TAnnotation>(
+                $: _IUnresolved.Flat.Namespace__Selection$<_TAnnotation>,
+                $p: {
+                    readonly 'cyclic sibling types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Type$>>
+                    readonly 'resolved namespaces': _pt.Lookup<_IResolved.Flat.Nested__Namespace$>
+                    readonly 'resolved sibling types': _pt.Lookup<_IResolved.Flat.Type$>
+                    readonly 'type parameters': _IResolved.Flat.Aggregated__Type__Parameters$
+                }
+            ) => _IResolved.Flat.Namespace__Selection$
+            
+            export type Namespace__Selection__Tail = <_TAnnotation>(
+                $: _IUnresolved.Flat.Namespace__Selection__Tail$<_TAnnotation>,
+            ) => _IResolved.Flat.Namespace__Selection__Tail$
+            
+            export type Root = <_TAnnotation>(
+                $: _IUnresolved.Flat.Root$<_TAnnotation>,
+            ) => _IResolved.Flat.Root$
+            
+            export type Type__Arguments = <_TAnnotation>(
+                $: _IUnresolved.Flat.Type__Arguments$<_TAnnotation>,
+            ) => _IResolved.Flat.Type__Arguments$
+            
+            export type Type__Parameters = <_TAnnotation>(
+                $: _IUnresolved.Flat.Type__Parameters$<_TAnnotation>,
+                $p: {
+                    readonly 'parent type parameters': _pt.OptionalValue<_IResolved.Flat.Aggregated__Type__Parameters$>
+                }
+            ) => _IResolved.Flat.Type__Parameters$
+            
+            export type Type = <_TAnnotation>(
+                $: _IUnresolved.Flat.Type$<_TAnnotation>,
+                $p: {
+                    readonly 'cyclic sibling types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Type$>>
+                    readonly 'resolved namespaces': _pt.Lookup<_IResolved.Flat.Nested__Namespace$>
+                    readonly 'resolved sibling types': _pt.Lookup<_IResolved.Flat.Type$>
+                    readonly 'type parameters': _IResolved.Flat.Aggregated__Type__Parameters$
+                }
+            ) => _IResolved.Flat.Type$
+        }
         
-        export type Function__Declaration = <_TAnnotation>(
-            $: _IUnresolved.Flat.Function__Declaration$<_TAnnotation>,
-            $p: {
-                readonly 'cyclic sibling types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Type$>>
-                readonly 'resolved namespaces': _pt.Lookup<_IResolved.Flat.Nested__Namespace$>
-                readonly 'resolved sibling types': _pt.Lookup<_IResolved.Flat.Type$>
-                readonly 'type parameters': _IResolved.Flat.Aggregated__Type__Parameters$
-            }
-        ) => _IResolved.Flat.Function__Declaration$
-        
-        export type Import = <_TAnnotation>(
-            $: _IUnresolved.Flat.Import$<_TAnnotation>,
-        ) => _IResolved.Flat.Import$
-        
-        export type Imports = <_TAnnotation>(
-            $: _IUnresolved.Flat.Imports$<_TAnnotation>,
-        ) => _IResolved.Flat.Imports$
-        
-        export type Namespace = <_TAnnotation>(
-            $: _IUnresolved.Flat.Namespace$<_TAnnotation>,
-            $p: {
-                readonly 'parent type parameters': _pt.OptionalValue<_IResolved.Flat.Aggregated__Type__Parameters$>
-                readonly 'resolved sibling namespaces': _pt.OptionalValue<_pt.Lookup<_IResolved.Flat.Nested__Namespace$>>
-            }
-        ) => _IResolved.Flat.Namespace$
-        
-        export type Nested__Namespace = <_TAnnotation>(
-            $: _IUnresolved.Flat.Nested__Namespace$<_TAnnotation>,
-            $p: {
-                readonly 'resolved parent sibling namespaces': _pt.OptionalValue<_pt.Lookup<_IResolved.Flat.Nested__Namespace$>>
-            }
-        ) => _IResolved.Flat.Nested__Namespace$
-        
-        export type Namespace__Selection = <_TAnnotation>(
-            $: _IUnresolved.Flat.Namespace__Selection$<_TAnnotation>,
-            $p: {
-                readonly 'cyclic sibling types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Type$>>
-                readonly 'resolved namespaces': _pt.Lookup<_IResolved.Flat.Nested__Namespace$>
-                readonly 'resolved sibling types': _pt.Lookup<_IResolved.Flat.Type$>
-                readonly 'type parameters': _IResolved.Flat.Aggregated__Type__Parameters$
-            }
-        ) => _IResolved.Flat.Namespace__Selection$
-        
-        export type Namespace__Selection__Tail = <_TAnnotation>(
-            $: _IUnresolved.Flat.Namespace__Selection__Tail$<_TAnnotation>,
-        ) => _IResolved.Flat.Namespace__Selection__Tail$
-        
-        export type Root = <_TAnnotation>(
-            $: _IUnresolved.Flat.Root$<_TAnnotation>,
-        ) => _IResolved.Flat.Root$
-        
-        export type Type__Arguments = <_TAnnotation>(
-            $: _IUnresolved.Flat.Type__Arguments$<_TAnnotation>,
-        ) => _IResolved.Flat.Type__Arguments$
-        
-        export type Type__Parameters = <_TAnnotation>(
-            $: _IUnresolved.Flat.Type__Parameters$<_TAnnotation>,
-            $p: {
-                readonly 'parent type parameters': _pt.OptionalValue<_IResolved.Flat.Aggregated__Type__Parameters$>
-            }
-        ) => _IResolved.Flat.Type__Parameters$
-        
-        export type Type = <_TAnnotation>(
-            $: _IUnresolved.Flat.Type$<_TAnnotation>,
-            $p: {
-                readonly 'cyclic sibling types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Type$>>
-                readonly 'resolved namespaces': _pt.Lookup<_IResolved.Flat.Nested__Namespace$>
-                readonly 'resolved sibling types': _pt.Lookup<_IResolved.Flat.Type$>
-                readonly 'type parameters': _IResolved.Flat.Aggregated__Type__Parameters$
-            }
-        ) => _IResolved.Flat.Type$
+        export type $ = {
+            readonly 'Aggregated Type Parameters': types.Aggregated__Type__Parameters
+            readonly 'Function Declaration': types.Function__Declaration
+            readonly 'Import': types.Import
+            readonly 'Imports': types.Imports
+            readonly 'Namespace': types.Namespace
+            readonly 'Namespace Selection': types.Namespace__Selection
+            readonly 'Namespace Selection Tail': types.Namespace__Selection__Tail
+            readonly 'Nested Namespace': types.Nested__Namespace
+            readonly 'Root': types.Root
+            readonly 'Type': types.Type
+            readonly 'Type Arguments': types.Type__Arguments
+            readonly 'Type Parameters': types.Type__Parameters
+        }
     }
     
     export namespace Serialize {
         
         import _IResolved = Resolved
         
-        export type Aggregated__Type__Parameters = (
-            $: _IResolved.Flat.Aggregated__Type__Parameters$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
+        export namespace types {
+            
+            
+            export type Aggregated__Type__Parameters = (
+                $: _IResolved.Flat.Aggregated__Type__Parameters$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Type__Parameters = (
+                $: _IResolved.Flat.Type__Parameters$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Function__Declaration = (
+                $: _IResolved.Flat.Function__Declaration$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Imports = (
+                $: _IResolved.Flat.Imports$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Nested__Namespace = (
+                $: _IResolved.Flat.Nested__Namespace$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Import = (
+                $: _IResolved.Flat.Import$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Namespace = (
+                $: _IResolved.Flat.Namespace$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Type = (
+                $: _IResolved.Flat.Type$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Type__Arguments = (
+                $: _IResolved.Flat.Type__Arguments$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Namespace__Selection__Tail = (
+                $: _IResolved.Flat.Namespace__Selection__Tail$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Namespace__Selection = (
+                $: _IResolved.Flat.Namespace__Selection$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Root = (
+                $: _IResolved.Flat.Root$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+        }
         
-        export type Type__Parameters = (
-            $: _IResolved.Flat.Type__Parameters$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Function__Declaration = (
-            $: _IResolved.Flat.Function__Declaration$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Imports = (
-            $: _IResolved.Flat.Imports$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Nested__Namespace = (
-            $: _IResolved.Flat.Nested__Namespace$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Import = (
-            $: _IResolved.Flat.Import$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Namespace = (
-            $: _IResolved.Flat.Namespace$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Type = (
-            $: _IResolved.Flat.Type$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Type__Arguments = (
-            $: _IResolved.Flat.Type__Arguments$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Namespace__Selection__Tail = (
-            $: _IResolved.Flat.Namespace__Selection__Tail$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Namespace__Selection = (
-            $: _IResolved.Flat.Namespace__Selection$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Root = (
-            $: _IResolved.Flat.Root$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
+        export type $ = {
+            readonly 'Aggregated Type Parameters': types.Aggregated__Type__Parameters
+            readonly 'Function Declaration': types.Function__Declaration
+            readonly 'Import': types.Import
+            readonly 'Imports': types.Imports
+            readonly 'Namespace': types.Namespace
+            readonly 'Namespace Selection': types.Namespace__Selection
+            readonly 'Namespace Selection Tail': types.Namespace__Selection__Tail
+            readonly 'Nested Namespace': types.Nested__Namespace
+            readonly 'Root': types.Root
+            readonly 'Type': types.Type
+            readonly 'Type Arguments': types.Type__Arguments
+            readonly 'Type Parameters': types.Type__Parameters
+        }
     }
     
     export namespace Select {
         
         import _IResolved = Resolved
+        
+        export namespace types {
+            
+        }
         
         export type Nested__Namespace = (
             $: _IResolved.Flat.Nested__Namespace$,
@@ -4133,59 +4825,6 @@ export namespace proto__typesystem {
         export type Namespace__Selection = (
             $: _IResolved.Flat.Namespace__Selection$,
         ) => _IResolved.Flat.Nested__Namespace$
-    }
-    
-    export type _$ = (
-        $: null,
-    ) => {
-        readonly 'Aggregated Type Parameters': {
-            readonly 'Resolve': Resolve.Aggregated__Type__Parameters
-            readonly 'Serialize': Serialize.Aggregated__Type__Parameters
-        }
-        readonly 'Function Declaration': {
-            readonly 'Resolve': Resolve.Function__Declaration
-            readonly 'Serialize': Serialize.Function__Declaration
-        }
-        readonly 'Import': {
-            readonly 'Resolve': Resolve.Import
-            readonly 'Serialize': Serialize.Import
-        }
-        readonly 'Imports': {
-            readonly 'Resolve': Resolve.Imports
-            readonly 'Serialize': Serialize.Imports
-        }
-        readonly 'Namespace': {
-            readonly 'Resolve': Resolve.Namespace
-            readonly 'Serialize': Serialize.Namespace
-        }
-        readonly 'Namespace Selection': {
-            readonly 'Resolve': Resolve.Namespace__Selection
-            readonly 'Serialize': Serialize.Namespace__Selection
-        }
-        readonly 'Namespace Selection Tail': {
-            readonly 'Resolve': Resolve.Namespace__Selection__Tail
-            readonly 'Serialize': Serialize.Namespace__Selection__Tail
-        }
-        readonly 'Nested Namespace': {
-            readonly 'Resolve': Resolve.Nested__Namespace
-            readonly 'Serialize': Serialize.Nested__Namespace
-        }
-        readonly 'Root': {
-            readonly 'Resolve': Resolve.Root
-            readonly 'Serialize': Serialize.Root
-        }
-        readonly 'Type': {
-            readonly 'Resolve': Resolve.Type
-            readonly 'Serialize': Serialize.Type
-        }
-        readonly 'Type Arguments': {
-            readonly 'Resolve': Resolve.Type__Arguments
-            readonly 'Serialize': Serialize.Type__Arguments
-        }
-        readonly 'Type Parameters': {
-            readonly 'Resolve': Resolve.Type__Parameters
-            readonly 'Serialize': Serialize.Type__Parameters
-        }
     }
 }
 
@@ -8762,97 +9401,129 @@ export namespace proto__implementation {
         import _IUnresolved = Unresolved
         
         
-        export type Aggregated__Variable = <_TAnnotation>(
-            $: _IUnresolved.Flat.Aggregated__Variable$<_TAnnotation>,
-        ) => _IResolved.Flat.Aggregated__Variable$
+        export namespace types {
+            
+            
+            
+            
+            export type Aggregated__Variable = <_TAnnotation>(
+                $: _IUnresolved.Flat.Aggregated__Variable$<_TAnnotation>,
+            ) => _IResolved.Flat.Aggregated__Variable$
+            
+            export type Aggregated__Variables = <_TAnnotation>(
+                $: _IUnresolved.Flat.Aggregated__Variables$<_TAnnotation>,
+            ) => _IResolved.Flat.Aggregated__Variables$
+            
+            export type Assign = <_TAnnotation>(
+                $: _IUnresolved.Flat.Assign$<_TAnnotation>,
+            ) => _IResolved.Flat.Assign$
+            
+            export type Block = <_TAnnotation>(
+                $: _IUnresolved.Flat.Block$<_TAnnotation>,
+            ) => _IResolved.Flat.Block$
+            
+            export type Boolean__Initialization__Or__Selection = <_TAnnotation>(
+                $: _IUnresolved.Flat.Boolean__Initialization__Or__Selection$<_TAnnotation>,
+            ) => _IResolved.Flat.Boolean__Initialization__Or__Selection$
+            
+            export type Boolean__Initialization = <_TAnnotation>(
+                $: _IUnresolved.Flat.Boolean__Initialization$<_TAnnotation>,
+            ) => _IResolved.Flat.Boolean__Initialization$
+            
+            export type Initialization__Or__Selection = <_TAnnotation>(
+                $: _IUnresolved.Flat.Initialization__Or__Selection$<_TAnnotation>,
+            ) => _IResolved.Flat.Initialization__Or__Selection$
+            
+            export type Initialization = <_TAnnotation>(
+                $: _IUnresolved.Flat.Initialization$<_TAnnotation>,
+            ) => _IResolved.Flat.Initialization$
+            
+            export type Local__Variables = <_TAnnotation>(
+                $: _IUnresolved.Flat.Local__Variables$<_TAnnotation>,
+            ) => _IResolved.Flat.Local__Variables$
+            
+            export type Numerical__Initialization__Or__Selection = <_TAnnotation>(
+                $: _IUnresolved.Flat.Numerical__Initialization__Or__Selection$<_TAnnotation>,
+            ) => _IResolved.Flat.Numerical__Initialization__Or__Selection$
+            
+            export type Numerical__Initialization = <_TAnnotation>(
+                $: _IUnresolved.Flat.Numerical__Initialization$<_TAnnotation>,
+            ) => _IResolved.Flat.Numerical__Initialization$
+            
+            export type Root = <_TAnnotation>(
+                $: _IUnresolved.Flat.Root$<_TAnnotation>,
+            ) => _IResolved.Flat.Root$
+            
+            export type Source__File = <_TAnnotation>(
+                $: _IUnresolved.Flat.Source__File$<_TAnnotation>,
+            ) => _IResolved.Flat.Source__File$
+            
+            export type Source__Selection__Tail = <_TAnnotation>(
+                $: _IUnresolved.Flat.Source__Selection__Tail$<_TAnnotation>,
+            ) => _IResolved.Flat.Source__Selection__Tail$
+            
+            export type Source__Selection = <_TAnnotation>(
+                $: _IUnresolved.Flat.Source__Selection$<_TAnnotation>,
+            ) => _IResolved.Flat.Source__Selection$
+            
+            export type Statements = <_TAnnotation>(
+                $: _IUnresolved.Flat.Statements$<_TAnnotation>,
+            ) => _IResolved.Flat.Statements$
+            
+            export type String__Initialization__Or__Selection = <_TAnnotation>(
+                $: _IUnresolved.Flat.String__Initialization__Or__Selection$<_TAnnotation>,
+            ) => _IResolved.Flat.String__Initialization__Or__Selection$
+            
+            export type String__Initialization = <_TAnnotation>(
+                $: _IUnresolved.Flat.String__Initialization$<_TAnnotation>,
+            ) => _IResolved.Flat.String__Initialization$
+            
+            export type Target__Selection__Tail = <_TAnnotation>(
+                $: _IUnresolved.Flat.Target__Selection__Tail$<_TAnnotation>,
+            ) => _IResolved.Flat.Target__Selection__Tail$
+            
+            export type Target__Selection = <_TAnnotation>(
+                $: _IUnresolved.Flat.Target__Selection$<_TAnnotation>,
+            ) => _IResolved.Flat.Target__Selection$
+            
+            export type Type__Arguments = <_TAnnotation>(
+                $: _IUnresolved.Flat.Type__Arguments$<_TAnnotation>,
+            ) => _IResolved.Flat.Type__Arguments$
+            
+            export type Type__Selection = <_TAnnotation>(
+                $: _IUnresolved.Flat.Type__Selection$<_TAnnotation>,
+            ) => _IResolved.Flat.Type__Selection$
+            
+            export type Variables = <_TAnnotation>(
+                $: _IUnresolved.Flat.Variables$<_TAnnotation>,
+            ) => _IResolved.Flat.Variables$
+        }
         
-        export type Aggregated__Variables = <_TAnnotation>(
-            $: _IUnresolved.Flat.Aggregated__Variables$<_TAnnotation>,
-        ) => _IResolved.Flat.Aggregated__Variables$
-        
-        export type Assign = <_TAnnotation>(
-            $: _IUnresolved.Flat.Assign$<_TAnnotation>,
-        ) => _IResolved.Flat.Assign$
-        
-        export type Block = <_TAnnotation>(
-            $: _IUnresolved.Flat.Block$<_TAnnotation>,
-        ) => _IResolved.Flat.Block$
-        
-        export type Boolean__Initialization__Or__Selection = <_TAnnotation>(
-            $: _IUnresolved.Flat.Boolean__Initialization__Or__Selection$<_TAnnotation>,
-        ) => _IResolved.Flat.Boolean__Initialization__Or__Selection$
-        
-        export type Boolean__Initialization = <_TAnnotation>(
-            $: _IUnresolved.Flat.Boolean__Initialization$<_TAnnotation>,
-        ) => _IResolved.Flat.Boolean__Initialization$
-        
-        export type Initialization__Or__Selection = <_TAnnotation>(
-            $: _IUnresolved.Flat.Initialization__Or__Selection$<_TAnnotation>,
-        ) => _IResolved.Flat.Initialization__Or__Selection$
-        
-        export type Initialization = <_TAnnotation>(
-            $: _IUnresolved.Flat.Initialization$<_TAnnotation>,
-        ) => _IResolved.Flat.Initialization$
-        
-        export type Local__Variables = <_TAnnotation>(
-            $: _IUnresolved.Flat.Local__Variables$<_TAnnotation>,
-        ) => _IResolved.Flat.Local__Variables$
-        
-        export type Numerical__Initialization__Or__Selection = <_TAnnotation>(
-            $: _IUnresolved.Flat.Numerical__Initialization__Or__Selection$<_TAnnotation>,
-        ) => _IResolved.Flat.Numerical__Initialization__Or__Selection$
-        
-        export type Numerical__Initialization = <_TAnnotation>(
-            $: _IUnresolved.Flat.Numerical__Initialization$<_TAnnotation>,
-        ) => _IResolved.Flat.Numerical__Initialization$
-        
-        export type Root = <_TAnnotation>(
-            $: _IUnresolved.Flat.Root$<_TAnnotation>,
-        ) => _IResolved.Flat.Root$
-        
-        export type Source__File = <_TAnnotation>(
-            $: _IUnresolved.Flat.Source__File$<_TAnnotation>,
-        ) => _IResolved.Flat.Source__File$
-        
-        export type Source__Selection__Tail = <_TAnnotation>(
-            $: _IUnresolved.Flat.Source__Selection__Tail$<_TAnnotation>,
-        ) => _IResolved.Flat.Source__Selection__Tail$
-        
-        export type Source__Selection = <_TAnnotation>(
-            $: _IUnresolved.Flat.Source__Selection$<_TAnnotation>,
-        ) => _IResolved.Flat.Source__Selection$
-        
-        export type Statements = <_TAnnotation>(
-            $: _IUnresolved.Flat.Statements$<_TAnnotation>,
-        ) => _IResolved.Flat.Statements$
-        
-        export type String__Initialization__Or__Selection = <_TAnnotation>(
-            $: _IUnresolved.Flat.String__Initialization__Or__Selection$<_TAnnotation>,
-        ) => _IResolved.Flat.String__Initialization__Or__Selection$
-        
-        export type String__Initialization = <_TAnnotation>(
-            $: _IUnresolved.Flat.String__Initialization$<_TAnnotation>,
-        ) => _IResolved.Flat.String__Initialization$
-        
-        export type Target__Selection__Tail = <_TAnnotation>(
-            $: _IUnresolved.Flat.Target__Selection__Tail$<_TAnnotation>,
-        ) => _IResolved.Flat.Target__Selection__Tail$
-        
-        export type Target__Selection = <_TAnnotation>(
-            $: _IUnresolved.Flat.Target__Selection$<_TAnnotation>,
-        ) => _IResolved.Flat.Target__Selection$
-        
-        export type Type__Arguments = <_TAnnotation>(
-            $: _IUnresolved.Flat.Type__Arguments$<_TAnnotation>,
-        ) => _IResolved.Flat.Type__Arguments$
-        
-        export type Type__Selection = <_TAnnotation>(
-            $: _IUnresolved.Flat.Type__Selection$<_TAnnotation>,
-        ) => _IResolved.Flat.Type__Selection$
-        
-        export type Variables = <_TAnnotation>(
-            $: _IUnresolved.Flat.Variables$<_TAnnotation>,
-        ) => _IResolved.Flat.Variables$
+        export type $ = {
+            readonly 'Aggregated Variable': types.Aggregated__Variable
+            readonly 'Aggregated Variables': types.Aggregated__Variables
+            readonly 'Assign': types.Assign
+            readonly 'Block': types.Block
+            readonly 'Boolean Initialization': types.Boolean__Initialization
+            readonly 'Boolean Initialization Or Selection': types.Boolean__Initialization__Or__Selection
+            readonly 'Initialization': types.Initialization
+            readonly 'Initialization Or Selection': types.Initialization__Or__Selection
+            readonly 'Local Variables': types.Local__Variables
+            readonly 'Numerical Initialization': types.Numerical__Initialization
+            readonly 'Numerical Initialization Or Selection': types.Numerical__Initialization__Or__Selection
+            readonly 'Root': types.Root
+            readonly 'Source File': types.Source__File
+            readonly 'Source Selection': types.Source__Selection
+            readonly 'Source Selection Tail': types.Source__Selection__Tail
+            readonly 'Statements': types.Statements
+            readonly 'String Initialization': types.String__Initialization
+            readonly 'String Initialization Or Selection': types.String__Initialization__Or__Selection
+            readonly 'Target Selection': types.Target__Selection
+            readonly 'Target Selection Tail': types.Target__Selection__Tail
+            readonly 'Type Arguments': types.Type__Arguments
+            readonly 'Type Selection': types.Type__Selection
+            readonly 'Variables': types.Variables
+        }
     }
     
     export namespace Serialize {
@@ -8860,401 +9531,234 @@ export namespace proto__implementation {
         import _IResolved = Resolved
         
         
-        export type Type__Selection = (
-            $: _IResolved.Flat.Type__Selection$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
+        export namespace types {
+            
+            
+            
+            export type Type__Selection = (
+                $: _IResolved.Flat.Type__Selection$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Type__Arguments = (
+                $: _IResolved.Flat.Type__Arguments$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Local__Variables = (
+                $: _IResolved.Flat.Local__Variables$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Aggregated__Variable = (
+                $: _IResolved.Flat.Aggregated__Variable$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Aggregated__Variables = (
+                $: _IResolved.Flat.Aggregated__Variables$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Variables = (
+                $: _IResolved.Flat.Variables$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Target__Selection__Tail = (
+                $: _IResolved.Flat.Target__Selection__Tail$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Target__Selection = (
+                $: _IResolved.Flat.Target__Selection$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Source__Selection__Tail = (
+                $: _IResolved.Flat.Source__Selection__Tail$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Source__Selection = (
+                $: _IResolved.Flat.Source__Selection$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Initialization__Or__Selection = (
+                $: _IResolved.Flat.Initialization__Or__Selection$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type String__Initialization__Or__Selection = (
+                $: _IResolved.Flat.String__Initialization__Or__Selection$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Numerical__Initialization__Or__Selection = (
+                $: _IResolved.Flat.Numerical__Initialization__Or__Selection$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Boolean__Initialization__Or__Selection = (
+                $: _IResolved.Flat.Boolean__Initialization__Or__Selection$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Boolean__Initialization = (
+                $: _IResolved.Flat.Boolean__Initialization$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Numerical__Initialization = (
+                $: _IResolved.Flat.Numerical__Initialization$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type String__Initialization = (
+                $: _IResolved.Flat.String__Initialization$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Initialization = (
+                $: _IResolved.Flat.Initialization$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Block = (
+                $: _IResolved.Flat.Block$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Assign = (
+                $: _IResolved.Flat.Assign$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Statements = (
+                $: _IResolved.Flat.Statements$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Source__File = (
+                $: _IResolved.Flat.Source__File$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Root = (
+                $: _IResolved.Flat.Root$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+        }
         
-        export type Type__Arguments = (
-            $: _IResolved.Flat.Type__Arguments$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Local__Variables = (
-            $: _IResolved.Flat.Local__Variables$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Aggregated__Variable = (
-            $: _IResolved.Flat.Aggregated__Variable$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Aggregated__Variables = (
-            $: _IResolved.Flat.Aggregated__Variables$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Variables = (
-            $: _IResolved.Flat.Variables$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Target__Selection__Tail = (
-            $: _IResolved.Flat.Target__Selection__Tail$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Target__Selection = (
-            $: _IResolved.Flat.Target__Selection$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Source__Selection__Tail = (
-            $: _IResolved.Flat.Source__Selection__Tail$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Source__Selection = (
-            $: _IResolved.Flat.Source__Selection$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Initialization__Or__Selection = (
-            $: _IResolved.Flat.Initialization__Or__Selection$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type String__Initialization__Or__Selection = (
-            $: _IResolved.Flat.String__Initialization__Or__Selection$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Numerical__Initialization__Or__Selection = (
-            $: _IResolved.Flat.Numerical__Initialization__Or__Selection$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Boolean__Initialization__Or__Selection = (
-            $: _IResolved.Flat.Boolean__Initialization__Or__Selection$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Boolean__Initialization = (
-            $: _IResolved.Flat.Boolean__Initialization$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Numerical__Initialization = (
-            $: _IResolved.Flat.Numerical__Initialization$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type String__Initialization = (
-            $: _IResolved.Flat.String__Initialization$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Initialization = (
-            $: _IResolved.Flat.Initialization$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Block = (
-            $: _IResolved.Flat.Block$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Assign = (
-            $: _IResolved.Flat.Assign$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Statements = (
-            $: _IResolved.Flat.Statements$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Source__File = (
-            $: _IResolved.Flat.Source__File$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
-        
-        export type Root = (
-            $: _IResolved.Flat.Root$,
-            $p: {
-                readonly 'out': boolean
-            }
-        ) => void
+        export type $ = {
+            readonly 'Aggregated Variable': types.Aggregated__Variable
+            readonly 'Aggregated Variables': types.Aggregated__Variables
+            readonly 'Assign': types.Assign
+            readonly 'Block': types.Block
+            readonly 'Boolean Initialization': types.Boolean__Initialization
+            readonly 'Boolean Initialization Or Selection': types.Boolean__Initialization__Or__Selection
+            readonly 'Initialization': types.Initialization
+            readonly 'Initialization Or Selection': types.Initialization__Or__Selection
+            readonly 'Local Variables': types.Local__Variables
+            readonly 'Numerical Initialization': types.Numerical__Initialization
+            readonly 'Numerical Initialization Or Selection': types.Numerical__Initialization__Or__Selection
+            readonly 'Root': types.Root
+            readonly 'Source File': types.Source__File
+            readonly 'Source Selection': types.Source__Selection
+            readonly 'Source Selection Tail': types.Source__Selection__Tail
+            readonly 'Statements': types.Statements
+            readonly 'String Initialization': types.String__Initialization
+            readonly 'String Initialization Or Selection': types.String__Initialization__Or__Selection
+            readonly 'Target Selection': types.Target__Selection
+            readonly 'Target Selection Tail': types.Target__Selection__Tail
+            readonly 'Type Arguments': types.Type__Arguments
+            readonly 'Type Selection': types.Type__Selection
+            readonly 'Variables': types.Variables
+        }
     }
     
     export namespace Select {
         
         import _IResolved = Resolved
         
-    }
-    
-    export type _$ = (
-        $: null,
-    ) => {
-        readonly 'Aggregated Variable': {
-            readonly 'Resolve': Resolve.Aggregated__Variable
-            readonly 'Serialize': Serialize.Aggregated__Variable
-        }
-        readonly 'Aggregated Variables': {
-            readonly 'Resolve': Resolve.Aggregated__Variables
-            readonly 'Serialize': Serialize.Aggregated__Variables
-        }
-        readonly 'Assign': {
-            readonly 'Resolve': Resolve.Assign
-            readonly 'Serialize': Serialize.Assign
-        }
-        readonly 'Block': {
-            readonly 'Resolve': Resolve.Block
-            readonly 'Serialize': Serialize.Block
-        }
-        readonly 'Boolean Initialization': {
-            readonly 'Resolve': Resolve.Boolean__Initialization
-            readonly 'Serialize': Serialize.Boolean__Initialization
-        }
-        readonly 'Boolean Initialization Or Selection': {
-            readonly 'Resolve': Resolve.Boolean__Initialization__Or__Selection
-            readonly 'Serialize': Serialize.Boolean__Initialization__Or__Selection
-        }
-        readonly 'Initialization': {
-            readonly 'Resolve': Resolve.Initialization
-            readonly 'Serialize': Serialize.Initialization
-        }
-        readonly 'Initialization Or Selection': {
-            readonly 'Resolve': Resolve.Initialization__Or__Selection
-            readonly 'Serialize': Serialize.Initialization__Or__Selection
-        }
-        readonly 'Local Variables': {
-            readonly 'Resolve': Resolve.Local__Variables
-            readonly 'Serialize': Serialize.Local__Variables
-        }
-        readonly 'Numerical Initialization': {
-            readonly 'Resolve': Resolve.Numerical__Initialization
-            readonly 'Serialize': Serialize.Numerical__Initialization
-        }
-        readonly 'Numerical Initialization Or Selection': {
-            readonly 'Resolve': Resolve.Numerical__Initialization__Or__Selection
-            readonly 'Serialize': Serialize.Numerical__Initialization__Or__Selection
-        }
-        readonly 'Root': {
-            readonly 'Resolve': Resolve.Root
-            readonly 'Serialize': Serialize.Root
-        }
-        readonly 'Source File': {
-            readonly 'Resolve': Resolve.Source__File
-            readonly 'Serialize': Serialize.Source__File
-        }
-        readonly 'Source Selection': {
-            readonly 'Resolve': Resolve.Source__Selection
-            readonly 'Serialize': Serialize.Source__Selection
-        }
-        readonly 'Source Selection Tail': {
-            readonly 'Resolve': Resolve.Source__Selection__Tail
-            readonly 'Serialize': Serialize.Source__Selection__Tail
-        }
-        readonly 'Statements': {
-            readonly 'Resolve': Resolve.Statements
-            readonly 'Serialize': Serialize.Statements
-        }
-        readonly 'String Initialization': {
-            readonly 'Resolve': Resolve.String__Initialization
-            readonly 'Serialize': Serialize.String__Initialization
-        }
-        readonly 'String Initialization Or Selection': {
-            readonly 'Resolve': Resolve.String__Initialization__Or__Selection
-            readonly 'Serialize': Serialize.String__Initialization__Or__Selection
-        }
-        readonly 'Target Selection': {
-            readonly 'Resolve': Resolve.Target__Selection
-            readonly 'Serialize': Serialize.Target__Selection
-        }
-        readonly 'Target Selection Tail': {
-            readonly 'Resolve': Resolve.Target__Selection__Tail
-            readonly 'Serialize': Serialize.Target__Selection__Tail
-        }
-        readonly 'Type Arguments': {
-            readonly 'Resolve': Resolve.Type__Arguments
-            readonly 'Serialize': Serialize.Type__Arguments
-        }
-        readonly 'Type Selection': {
-            readonly 'Resolve': Resolve.Type__Selection
-            readonly 'Serialize': Serialize.Type__Selection
-        }
-        readonly 'Variables': {
-            readonly 'Resolve': Resolve.Variables
-            readonly 'Serialize': Serialize.Variables
+        
+        export namespace types {
+            
+            
         }
     }
 }
 
 export type $ = {
     readonly 'pareto lang data': {
-        readonly 'Resolve': (
+        readonly 'createResolveContext': (
             $: null,
-        ) => {
-            readonly 'Atom': pareto__lang__data.Resolve.Atom
-            readonly 'Atom Types': pareto__lang__data.Resolve.Atom__Types
-            readonly 'Dictionary Selection': pareto__lang__data.Resolve.Dictionary__Selection
-            readonly 'Global Type Declaration': pareto__lang__data.Resolve.Global__Type__Declaration
-            readonly 'Global Type Declarations': pareto__lang__data.Resolve.Global__Type__Declarations
-            readonly 'Global Type Definition': pareto__lang__data.Resolve.Global__Type__Definition
-            readonly 'Global Type Selection': pareto__lang__data.Resolve.Global__Type__Selection
-            readonly 'Imports': pareto__lang__data.Resolve.Imports
-            readonly 'Model': pareto__lang__data.Resolve.Model
-            readonly 'Project': pareto__lang__data.Resolve.Project
-            readonly 'Root': pareto__lang__data.Resolve.Root
-            readonly 'Type': pareto__lang__data.Resolve.Type
-            readonly 'Type Library': pareto__lang__data.Resolve.Type__Library
-            readonly 'Type Selection': pareto__lang__data.Resolve.Type__Selection
-            readonly 'Type Selection Tail': pareto__lang__data.Resolve.Type__Selection__Tail
-        }
-        readonly 'Serialize': (
+        ) => pareto__lang__data.Resolve.$
+        readonly 'createSerializeContext': (
             $: null,
-        ) => {
-            readonly 'Atom': pareto__lang__data.Serialize.Atom
-            readonly 'Atom Types': pareto__lang__data.Serialize.Atom__Types
-            readonly 'Dictionary Selection': pareto__lang__data.Serialize.Dictionary__Selection
-            readonly 'Global Type Declaration': pareto__lang__data.Serialize.Global__Type__Declaration
-            readonly 'Global Type Declarations': pareto__lang__data.Serialize.Global__Type__Declarations
-            readonly 'Global Type Definition': pareto__lang__data.Serialize.Global__Type__Definition
-            readonly 'Global Type Selection': pareto__lang__data.Serialize.Global__Type__Selection
-            readonly 'Imports': pareto__lang__data.Serialize.Imports
-            readonly 'Model': pareto__lang__data.Serialize.Model
-            readonly 'Project': pareto__lang__data.Serialize.Project
-            readonly 'Root': pareto__lang__data.Serialize.Root
-            readonly 'Type': pareto__lang__data.Serialize.Type
-            readonly 'Type Library': pareto__lang__data.Serialize.Type__Library
-            readonly 'Type Selection': pareto__lang__data.Serialize.Type__Selection
-            readonly 'Type Selection Tail': pareto__lang__data.Serialize.Type__Selection__Tail
-        }
+        ) => pareto__lang__data.Serialize.$
     }
     readonly 'proto implementation': {
-        readonly 'Resolve': (
+        readonly 'createResolveContext': (
             $: null,
-        ) => {
-            readonly 'Aggregated Variable': proto__implementation.Resolve.Aggregated__Variable
-            readonly 'Aggregated Variables': proto__implementation.Resolve.Aggregated__Variables
-            readonly 'Assign': proto__implementation.Resolve.Assign
-            readonly 'Block': proto__implementation.Resolve.Block
-            readonly 'Boolean Initialization': proto__implementation.Resolve.Boolean__Initialization
-            readonly 'Boolean Initialization Or Selection': proto__implementation.Resolve.Boolean__Initialization__Or__Selection
-            readonly 'Initialization': proto__implementation.Resolve.Initialization
-            readonly 'Initialization Or Selection': proto__implementation.Resolve.Initialization__Or__Selection
-            readonly 'Local Variables': proto__implementation.Resolve.Local__Variables
-            readonly 'Numerical Initialization': proto__implementation.Resolve.Numerical__Initialization
-            readonly 'Numerical Initialization Or Selection': proto__implementation.Resolve.Numerical__Initialization__Or__Selection
-            readonly 'Root': proto__implementation.Resolve.Root
-            readonly 'Source File': proto__implementation.Resolve.Source__File
-            readonly 'Source Selection': proto__implementation.Resolve.Source__Selection
-            readonly 'Source Selection Tail': proto__implementation.Resolve.Source__Selection__Tail
-            readonly 'Statements': proto__implementation.Resolve.Statements
-            readonly 'String Initialization': proto__implementation.Resolve.String__Initialization
-            readonly 'String Initialization Or Selection': proto__implementation.Resolve.String__Initialization__Or__Selection
-            readonly 'Target Selection': proto__implementation.Resolve.Target__Selection
-            readonly 'Target Selection Tail': proto__implementation.Resolve.Target__Selection__Tail
-            readonly 'Type Arguments': proto__implementation.Resolve.Type__Arguments
-            readonly 'Type Selection': proto__implementation.Resolve.Type__Selection
-            readonly 'Variables': proto__implementation.Resolve.Variables
-        }
-        readonly 'Serialize': (
+        ) => proto__implementation.Resolve.$
+        readonly 'createSerializeContext': (
             $: null,
-        ) => {
-            readonly 'Aggregated Variable': proto__implementation.Serialize.Aggregated__Variable
-            readonly 'Aggregated Variables': proto__implementation.Serialize.Aggregated__Variables
-            readonly 'Assign': proto__implementation.Serialize.Assign
-            readonly 'Block': proto__implementation.Serialize.Block
-            readonly 'Boolean Initialization': proto__implementation.Serialize.Boolean__Initialization
-            readonly 'Boolean Initialization Or Selection': proto__implementation.Serialize.Boolean__Initialization__Or__Selection
-            readonly 'Initialization': proto__implementation.Serialize.Initialization
-            readonly 'Initialization Or Selection': proto__implementation.Serialize.Initialization__Or__Selection
-            readonly 'Local Variables': proto__implementation.Serialize.Local__Variables
-            readonly 'Numerical Initialization': proto__implementation.Serialize.Numerical__Initialization
-            readonly 'Numerical Initialization Or Selection': proto__implementation.Serialize.Numerical__Initialization__Or__Selection
-            readonly 'Root': proto__implementation.Serialize.Root
-            readonly 'Source File': proto__implementation.Serialize.Source__File
-            readonly 'Source Selection': proto__implementation.Serialize.Source__Selection
-            readonly 'Source Selection Tail': proto__implementation.Serialize.Source__Selection__Tail
-            readonly 'Statements': proto__implementation.Serialize.Statements
-            readonly 'String Initialization': proto__implementation.Serialize.String__Initialization
-            readonly 'String Initialization Or Selection': proto__implementation.Serialize.String__Initialization__Or__Selection
-            readonly 'Target Selection': proto__implementation.Serialize.Target__Selection
-            readonly 'Target Selection Tail': proto__implementation.Serialize.Target__Selection__Tail
-            readonly 'Type Arguments': proto__implementation.Serialize.Type__Arguments
-            readonly 'Type Selection': proto__implementation.Serialize.Type__Selection
-            readonly 'Variables': proto__implementation.Serialize.Variables
-        }
+        ) => proto__implementation.Serialize.$
     }
     readonly 'proto typesystem': {
-        readonly 'Resolve': (
+        readonly 'createResolveContext': (
             $: null,
-        ) => {
-            readonly 'Aggregated Type Parameters': proto__typesystem.Resolve.Aggregated__Type__Parameters
-            readonly 'Function Declaration': proto__typesystem.Resolve.Function__Declaration
-            readonly 'Import': proto__typesystem.Resolve.Import
-            readonly 'Imports': proto__typesystem.Resolve.Imports
-            readonly 'Namespace': proto__typesystem.Resolve.Namespace
-            readonly 'Namespace Selection': proto__typesystem.Resolve.Namespace__Selection
-            readonly 'Namespace Selection Tail': proto__typesystem.Resolve.Namespace__Selection__Tail
-            readonly 'Nested Namespace': proto__typesystem.Resolve.Nested__Namespace
-            readonly 'Root': proto__typesystem.Resolve.Root
-            readonly 'Type': proto__typesystem.Resolve.Type
-            readonly 'Type Arguments': proto__typesystem.Resolve.Type__Arguments
-            readonly 'Type Parameters': proto__typesystem.Resolve.Type__Parameters
-        }
-        readonly 'Serialize': (
+        ) => proto__typesystem.Resolve.$
+        readonly 'createSerializeContext': (
             $: null,
-        ) => {
-            readonly 'Aggregated Type Parameters': proto__typesystem.Serialize.Aggregated__Type__Parameters
-            readonly 'Function Declaration': proto__typesystem.Serialize.Function__Declaration
-            readonly 'Import': proto__typesystem.Serialize.Import
-            readonly 'Imports': proto__typesystem.Serialize.Imports
-            readonly 'Namespace': proto__typesystem.Serialize.Namespace
-            readonly 'Namespace Selection': proto__typesystem.Serialize.Namespace__Selection
-            readonly 'Namespace Selection Tail': proto__typesystem.Serialize.Namespace__Selection__Tail
-            readonly 'Nested Namespace': proto__typesystem.Serialize.Nested__Namespace
-            readonly 'Root': proto__typesystem.Serialize.Root
-            readonly 'Type': proto__typesystem.Serialize.Type
-            readonly 'Type Arguments': proto__typesystem.Serialize.Type__Arguments
-            readonly 'Type Parameters': proto__typesystem.Serialize.Type__Parameters
-        }
+        ) => proto__typesystem.Serialize.$
     }
 }

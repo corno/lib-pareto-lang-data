@@ -23,16 +23,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createResolveContext = void 0;
+exports.resolve = void 0;
 const pl = __importStar(require("pareto-core-lib"));
-const pd = __importStar(require("pareto-core-dev"));
 const select = __importStar(require("./selectImp"));
 function mapOptional($, a) {
     return pl.optional($, ($) => {
         return [true, a($)];
     }, () => [false]);
 }
-function createResolveContext($d, $se) {
+function resolve($d, $se) {
     function getEntry($, key, annotation) {
         return $.__getEntry(key, ($) => $, () => {
             // let keys = ""
@@ -40,19 +39,19 @@ function createResolveContext($d, $se) {
             //     keys += `${key}, `
             // })
             //pl.panic(`No Such Entry%% ${key} (${keys})`)
-            // $se.onError({
-            //     'annotation': annotation,
-            //     'message': ['no such entry', {
-            //         'key': key
-            //     }]
-            // })
+            $se.onError({
+                'annotation': annotation,
+                'message': ['no such entry', {
+                        'key': key
+                    }]
+            });
             return pl.panic(`No Such EntryXX: ${key}`);
         });
     }
     function getAnnotatedEntry($, key) {
         return {
             'key': key.key,
-            'referent': getEntry($, key.key, key.referent)
+            'referent': getEntry($, key.key, key.annotation)
         };
     }
     ///////////////////////////////////////////////////////////////
@@ -66,13 +65,13 @@ function createResolveContext($d, $se) {
             'type': v_type,
             'dictionary': pl.cc(select.Type__Selection(v_type), ($) => {
                 if ($.type[0] !== 'dictionary') {
-                    // $se.onError({
-                    //     'annotation': x,
-                    //     'message': ['not the right state', {
-                    //         'found': $.type[0],
-                    //         'expected': `dictionary`
-                    //     }]
-                    // })
+                    $se.onError({
+                        'annotation': x.dictionary,
+                        'message': ['not the right state', {
+                                'found': $.type[0],
+                                'expected': `dictionary`
+                            }]
+                    });
                     pl.panic(`not a dictionary`);
                 }
                 return $.type[1];
@@ -111,8 +110,8 @@ function createResolveContext($d, $se) {
             'root': getAnnotatedEntry(tl['global types'].definitions, $.root)
         };
     };
-    const Root = ($) => {
-        return Project($);
+    const Root = ($, $p) => {
+        return Project($, $p);
     };
     const Type = ($, $p) => {
         return {
@@ -124,14 +123,14 @@ function createResolveContext($d, $se) {
                     case 'component': return pl.ss($, ($) => {
                         return ['component', {
                                 'type': Global__Type__Selection($.type, $p),
-                                'arguments': $.arguments.map(($) => {
+                                'arguments': $.arguments.dictionary.map(($) => {
                                     return null;
                                 })
                             }];
                     });
                     case 'constraint': return pl.ss($, ($) => ['constraint', Type__Selection($, $p)]);
                     case 'dictionary': return pl.ss($, ($) => ['dictionary', {
-                            'constraints': $.constraints.map(($) => pl.cc($, ($) => {
+                            'constraints': $.constraints.dictionary.map(($) => pl.cc($, ($) => {
                                 switch ($[0]) {
                                     case 'lookup': return pl.ss($, ($) => {
                                         const v_gts = Global__Type__Selection($, $p);
@@ -161,7 +160,7 @@ function createResolveContext($d, $se) {
                         }]);
                     case 'group': return pl.ss($, ($) => {
                         return ['group', {
-                                'properties': $.properties.map(($) => {
+                                'properties': $.properties.dictionary.map(($) => {
                                     return {
                                         'type': Type($.type, $p)
                                     };
@@ -174,7 +173,7 @@ function createResolveContext($d, $se) {
                         }]);
                     case 'state group': return pl.ss($, ($) => {
                         return ['state group', {
-                                'states': $d.resolveDictionary($.states, {
+                                'states': $d.resolveDictionary($.states.dictionary, {
                                     'map': ($, $l) => {
                                         return {
                                             'type': Type($.value.type, $p),
@@ -371,119 +370,81 @@ function createResolveContext($d, $se) {
             'step type': v_step_type,
         };
     };
-    const Project = ($) => {
+    const Project = ($, $p) => {
         return {
-            'type libraries': $d.resolveDictionary($['type libraries'], {
+            'type libraries': $d.resolveDictionary($['type libraries'].dictionary, {
                 'map': ($, $l) => Type__Library($.value, {
                     'external type libraries': $l['non circular siblings']
                 })
             })
         };
     };
-    const Imports = ($, $p) => {
-        return $.__mapWithKey(($, key) => {
+    const Type__Library = ($, $p) => {
+        const imports = $.imports.dictionary.__mapWithKey(($, key) => {
             return {
                 'library': getAnnotatedEntry($p['external type libraries'], $.library)
             };
         });
-    };
-    const Atom__Types = ($) => {
-        return $.map(($) => null);
-    };
-    const Global__Type__Declaration = ($, $p) => {
-        return {
-            'parameters': $d.resolveDictionary($.parameters, {
-                'map': (($) => {
-                    return {
-                        'optional': $.value.optional,
-                        'type': pl.cc($.value.type, ($) => {
-                            switch ($[0]) {
-                                case 'resolved value': return pl.ss($, ($) => {
-                                    const xxx = getAnnotatedEntry($p['all siblings'], $);
-                                    return ['resolved value', xxx];
-                                });
-                                case 'cyclic sibling lookup': return pl.ss($, ($) => {
-                                    const xxx = getAnnotatedEntry($p['all siblings'], $);
-                                    return ['cyclic sibling lookup', xxx];
-                                });
-                                case 'sibling lookup': return pl.ss($, ($) => {
-                                    const xxx = getAnnotatedEntry($p['all siblings'], $);
-                                    return ['sibling lookup', xxx];
-                                });
-                                default: return pl.au($[0]);
-                            }
-                        })
-                    };
-                })
-            }),
-            'result': mapOptional($.result, ($) => getAnnotatedEntry($p['all siblings'], $)),
-        };
-    };
-    const Global__Type__Declarations = ($) => {
-        return $d.resolveDictionary($, {
-            'map': (($, $l) => {
-                return Global__Type__Declaration($.value, {
-                    'all siblings': $l['all siblings']
-                });
-            })
-        });
-    };
-    const Global__Type__Definition = ($, $p) => {
-        return {
-            'declaration': getEntry($p['global type declarations'], $p.key, $.declaration),
-            'type': Type($.type, {
-                'atom types': $p['atom types'],
-                'imports': $p.imports,
-                'sibling global types': $p['non cyclic siblings'],
-                'cyclic sibling global types': $p['all siblings'],
-            }),
-        };
-    };
-    const Type__Library = ($, $p) => {
-        const imports = Imports($.imports, $p);
-        const v_atom__types = Atom__Types($['atom types']);
-        const v_decl = Global__Type__Declarations($['global types'].declarations);
+        const v_atom__types = $['atom types'].dictionary.map(($) => null);
+        const v_decl = $d.resolveDictionary($['global types'].declarations.dictionary, { 'map': (($, $l) => {
+                return {
+                    'parameters': $d.resolveDictionary($.value.parameters.dictionary, { 'map': (($) => {
+                            return {
+                                'optional': $.value.optional,
+                                'type': pl.cc($.value.type, ($) => {
+                                    switch ($[0]) {
+                                        case 'resolved value': return pl.ss($, ($) => {
+                                            const xxx = getAnnotatedEntry($l['all siblings'], $);
+                                            return ['resolved value', xxx];
+                                        });
+                                        case 'cyclic sibling lookup': return pl.ss($, ($) => {
+                                            const xxx = getAnnotatedEntry($l['all siblings'], $);
+                                            return ['cyclic sibling lookup', xxx];
+                                        });
+                                        case 'sibling lookup': return pl.ss($, ($) => {
+                                            const xxx = getAnnotatedEntry($l['all siblings'], $);
+                                            return ['sibling lookup', xxx];
+                                        });
+                                        default: return pl.au($[0]);
+                                    }
+                                })
+                            };
+                        }) }),
+                    'result': mapOptional($.value.result, ($) => getAnnotatedEntry($l['all siblings'], $)),
+                };
+            }) });
         return {
             'imports': imports,
             'atom types': v_atom__types,
             'global types': {
                 'declarations': v_decl,
-                'definitions': $d.resolveDictionary($['global types'].definitions, {
+                'definitions': $d.resolveDictionary($['global types'].definitions.dictionary, {
                     'map': (($, $l) => {
-                        return Global__Type__Definition($.value, {
-                            'atom types': v_atom__types,
-                            'all siblings': $l['all siblings'],
-                            'global type declarations': v_decl,
-                            'imports': imports,
-                            'key': $.key,
-                            'non cyclic siblings': $l['non circular siblings']
-                        });
+                        return {
+                            'declaration': getEntry(v_decl, $.key, $.value.declaration),
+                            'type': Type($.value.type, {
+                                'atom types': v_atom__types,
+                                'imports': imports,
+                                'sibling global types': $l['non circular siblings'],
+                                'cyclic sibling global types': $l['all siblings'],
+                            }),
+                        };
                     })
                 })
             }
         };
     };
     return {
-        'Any Value Selection': pd.implementMe("xxx"),
         'Atom': Atom,
-        'Atom Types': Atom__Types,
-        'Dictionary Selection': Dictionary__Selection,
-        'Global Type Selection': Global__Type__Selection,
-        'Imports': Imports,
-        'Global Type Declaration': Global__Type__Declaration,
-        'Global Type Declarations': Global__Type__Declarations,
-        'Global Type Definition': Global__Type__Definition,
+        'Dictionary__Selection': Dictionary__Selection,
+        'Global__Type__Selection': Global__Type__Selection,
         'Model': Model,
-        'No Context Value Selection': pd.implementMe("XXX"),
         'Project': Project,
         'Root': Root,
         'Type': Type,
-        'Type Library': Type__Library,
-        'Type Selection': Type__Selection,
-        'Type Selection Tail': Type__Selection__Tail,
-        'Value Selection Tail': pd.implementMe("XXXX"),
-        'Variable': pd.implementMe("DSFSDF"),
-        'Variables': pd.implementMe("SDFSDFSDF"),
+        'Type__Library': Type__Library,
+        'Type__Selection': Type__Selection,
+        'Type__Selection__Tail': Type__Selection__Tail
     };
 }
-exports.createResolveContext = createResolveContext;
+exports.resolve = resolve;

@@ -264,7 +264,7 @@ export const $$: A.map = ($d,) => {
                         'content': ['initialization', ['group literal', {
                             'definition': pd.getLocationInfo(0),
                             'properties': rawDict({
-                                "Resolve": {
+                                "createResolveContext": {
                                     'annotation': pd.getLocationInfo(0),
                                     'content': ['initialization', ['value function', {
                                         'definition': pd.getLocationInfo(0),
@@ -278,7 +278,10 @@ export const $$: A.map = ($d,) => {
                                                             'namespacex': ref(tlKey),
                                                             'selection': ['child namespace', {
                                                                 'namespacex': ref("Resolve"),
-                                                                'selection': ['current namespaceXXXXX', ref(key)]
+                                                                'selection': ['child namespace', {
+                                                                    'namespacex': ref("types"),
+                                                                    'selection': ['current namespaceXXXXX', ref(key)]
+                                                                }]
                                                             }]
                                                         }],
                                                         'initialization': ['value function', {
@@ -314,7 +317,7 @@ export const $$: A.map = ($d,) => {
                                         }]]
                                     }]]
                                 },
-                                "Serialize": {
+                                "createSerializeContext": {
                                     'annotation': pd.getLocationInfo(0),
                                     'content': ['initialization', ['value function', {
                                         'definition': pd.getLocationInfo(0),
