@@ -107,49 +107,49 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = typeLibr
                 "type": prop(stateGroup({
                     "array": state(group({
                         "type": prop(component(typeRef("Type", true), {
-                            "atom types": null,
-                            "imports": null,
-                            "sibling global types": null,
-                            "cyclic sibling global types": null,
+                            "atom types": [false],
+                            "imports": [false],
+                            "sibling global types": [false],
+                            "cyclic sibling global types": [false],
                         })),
                     })),
                     "atom": state(group({
                         "atom": prop(component(typeRef("Atom"), {
-                            "atom types": null,
+                            "atom types": [false],
                         })),
                     })),
                     "component": state(group({
                         "type": prop(component(typeRef("Global Type Selection", true), {
-                            "imports": null,
-                            "sibling global types": null,
-                            "cyclic sibling global types": null,
+                            "imports": [false],
+                            "sibling global types": [false],
+                            "cyclic sibling global types": [false],
                         })),
                         "arguments": prop(dictionary(optional(component(typeRef("No Context Value Selection", true), {})))),
                     })),
                     "constraint": state(component(typeRef("Type Selection", true), {
-                        "imports": null,
-                        "sibling global types": null,
+                        "imports": [false],
+                        "sibling global types": [false],
                     })),
                     "cyclic reference": state(group({
                         "atom": prop(component(typeRef("Atom"), {
-                            "atom types": null
+                            "atom types": [false]
                         })),
                         "sibling": component(typeRef("Global Type Selection", true), {
-                            "imports": null,
-                            "sibling global types": null,
-                            "cyclic sibling global types": null,
+                            "imports": [false],
+                            "sibling global types": [false],
+                            "cyclic sibling global types": [false],
                         }),
                     })),
                     "dictionary": state(group({
                         "key": prop(component(typeRef("Atom"), {
-                            "atom types": null
+                            "atom types": [false]
                         })),
                         "constraints": prop(dictionary(stateGroup({
                             "dictionary": state(group({
                                 "dictionary": prop(component(typeRef("Dictionary Selection", true), {
-                                    "imports": null,
-                                    "sibling global types": null,
-                                    "cyclic sibling global types": null,
+                                    "imports": [false],
+                                    "sibling global types": [false],
+                                    "cyclic sibling global types": [false],
                                 })),
                                 "dense": prop(stateGroup({
                                     "no": state(group({})),
@@ -157,25 +157,25 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = typeLibr
                                 }))
                             })),
                             "lookup": state(component(typeRef("Global Type Selection", true), {
-                                "imports": null,
-                                "sibling global types": null,
-                                "cyclic sibling global types": null,
+                                "imports": [false],
+                                "sibling global types": [false],
+                                "cyclic sibling global types": [false],
                             })),
                         }))),
                         "type": prop(component(typeRef("Type", true), {
-                            "atom types": null,
-                            "imports": null,
-                            "sibling global types": null,
-                            "cyclic sibling global types": null,
+                            "atom types": [false],
+                            "imports": [false],
+                            "sibling global types": [false],
+                            "cyclic sibling global types": [false],
                         })),
                     })),
                     "group": state(group({
                         "properties": prop(dictionary(group({
                             "type": prop(component(typeRef("Type", true), {
-                                "atom types": null,
-                                "imports": null,
-                                "sibling global types": null,
-                                "cyclic sibling global types": null,
+                                "atom types": [false],
+                                "imports": [false],
+                                "sibling global types": [false],
+                                "cyclic sibling global types": [false],
                             })),
                         }))),
                     })),
@@ -183,36 +183,36 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = typeLibr
                     })),
                     "optional": state(group({
                         "type": prop(component(typeRef("Type", true), {
-                            "atom types": null,
-                            "imports": null,
-                            "sibling global types": null,
-                            "cyclic sibling global types": null,
+                            "atom types": [false],
+                            "imports": [false],
+                            "sibling global types": [false],
+                            "cyclic sibling global types": [false],
                         })),
                     })),
                     "resolved reference": state(group({
                         "atom": prop(component(typeRef("Atom"), {
-                            "atom types": null
+                            "atom types": [false]
                         })),
                         "value": prop(stateGroup({
                             "dictionary": state(component(typeRef("Dictionary Selection", true), {
-                                "imports": null,
-                                "sibling global types": null,
-                                "cyclic sibling global types": null,
+                                "imports": [false],
+                                "sibling global types": [false],
+                                "cyclic sibling global types": [false],
                             })),
                             "lookup": state(component(typeRef("Global Type Selection", true), {
-                                "imports": null,
-                                "sibling global types": null,
-                                "cyclic sibling global types": null,
+                                "imports": [false],
+                                "sibling global types": [false],
+                                "cyclic sibling global types": [false],
                             })),
                         }))
                     })),
                     "state group": state(group({
                         "states": prop(dictionary(group({
                             "type": prop(component(typeRef("Type", true), {
-                                "atom types": null,
-                                "imports": null,
-                                "sibling global types": null,
-                                "cyclic sibling global types": null,
+                                "atom types": [false],
+                                "imports": [false],
+                                "sibling global types": [false],
+                                "cyclic sibling global types": [false],
                             })),
                         }))),
                     })),
@@ -239,7 +239,7 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = typeLibr
             "result": prop(optional(cyclicReference(typeRef("Global Type Declaration", true)))),
         })),
         "Global Type Declarations": globalTypeDefinition(dictionary(component(typeRef("Global Type Declaration"), {
-            "all siblings": null,
+            "all siblings": [false],
         }))),
         "Global Type Definition": globalTypeDefinition(
             group({
@@ -248,10 +248,10 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = typeLibr
 
                 })),
                 "type": prop(component(typeRef("Type"), {
-                    "atom types": null,
-                    "imports": null,
-                    "sibling global types": null,
-                    "cyclic sibling global types": null,
+                    "atom types": [false],
+                    "imports": [false],
+                    "sibling global types": [false],
+                    "cyclic sibling global types": [false],
                 })),
                 "result": prop(optional(component(typeRef("Value Selection Tail", true), {}))),
             })
@@ -294,8 +294,8 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = typeLibr
         "Dictionary Selection": globalTypeDefinition(
             group({
                 "type": prop(component(typeRef("Type Selection"), {
-                    "imports": null,
-                    "sibling global types": null,
+                    "imports": [false],
+                    "sibling global types": [false],
                 })),
                 "dictionary": constraint(typeSelection("Type", t_grp("type", t_sg("dictionary")))),
             })
@@ -303,18 +303,18 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = typeLibr
         "Type Library": globalTypeDefinition(
             group({
                 "imports": prop(component(typeRef("Imports"), {
-                    "external type libraries": null,
+                    "external type libraries": [false],
                 })),
                 "atom types": prop(component(typeRef("Atom Types"), {})),
                 "global types": prop(group({
                     "declarations": prop(component(typeRef("Global Type Declarations"), {})),
                     "definitions": prop(dictionary(component(typeRef("Global Type Definition"), {
-                        "global type declarations": null,
-                        "key": null,
-                        "all siblings": null,
-                        "non cyclic siblings": null,
-                        "atom types": null,
-                        "imports": null,
+                        "global type declarations": [false],
+                        "key": [false],
+                        "all siblings": [false],
+                        "non cyclic siblings": [false],
+                        "atom types": [false],
+                        "imports": [false],
 
                     }))),
                 })),
@@ -337,14 +337,14 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = typeLibr
         "Model": globalTypeDefinition(
             group({
                 "type library": prop(component(typeRef("Type Library"), {
-                    "external type libraries": null,
+                    "external type libraries": [false],
                 })),
                 "root": prop(dictionaryReference(typeSelection("Type Library", t_grp("global types", t_grp("definitions"))))),
             })
         ),
         "Project": globalTypeDefinition(group({
             "type libraries": prop(dictionary(component(typeRef("Type Library"), {
-                "external type libraries": null,
+                "external type libraries": [false],
             }))),
         })),
         "Root": globalTypeDefinition(
@@ -379,9 +379,9 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = typeLibr
                 "state group": state(group({
                     "state group": prop(constraint(typeSelection("Type", t_grp("type", t_sg("state group"))))),
                     "result type": prop(component(typeRef("Global Type Selection", true), {
-                        "imports": null,
-                        "sibling global types": null,
-                        "cyclic sibling global types": null,
+                        "imports": [false],
+                        "sibling global types": [false],
+                        "cyclic sibling global types": [false],
                     })),
                     "states": prop(constrainedDictionary(
                         {
