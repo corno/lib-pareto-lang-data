@@ -5,114 +5,141 @@ import * as g_out from "../../resolved"
 
 export namespace types {
 
-    export type Atom<Annotation> =  (
+    export type Atom<Annotation> = (
         $: g_in.T.Atom<Annotation>,
         $p: {
             'atom types': g_out.T.Atom__Types,
         }
     ) => g_out.T.Atom
-    
-    export type Dictionary__Selection<Annotation> =  (
+
+    export type Dictionary__Selection<Annotation> = (
         $: g_in.T.Dictionary__Selection<Annotation>,
         $p: {
-            'imports': g_out.T.Imports,
-            'sibling global types': pt.Lookup<g_out.T.Global__Type__Definition>
-            'cyclic sibling global types': pt.Lookup<() => g_out.T.Global__Type__Definition>,
+            'type sources': TypeSources
         },
     ) => g_out.T.Dictionary__Selection
-    
-    export type Global__Type__Selection<Annotation> =  (
+
+    export type Global__Type__Selection<Annotation> = (
         $: g_in.T.Global__Type__Selection<Annotation>,
         $p: {
-            'imports': g_out.T.Imports,
-            'sibling global types': pt.Lookup<g_out.T.Global__Type__Definition>
-            'cyclic sibling global types': pt.Lookup<() => g_out.T.Global__Type__Definition>,
+            'type sources': TypeSources,
         },
     ) => g_out.T.Global__Type__Selection
-    
-    export type Atom__Types<Annotation> =  (
+
+    export type Atom__Types<Annotation> = (
         $: g_in.T.Atom__Types<Annotation>,
         // $p: {
         //     //'external type libraries': pt.Lookup<g_out.T.Type__Library>,
         // }
     ) => g_out.T.Atom__Types
-    
-    export type Model<Annotation> =  (
+
+    export type Model<Annotation> = (
         $: g_in.T.Model<Annotation>,
         $p: {
             'external type libraries': pt.Lookup<g_out.T.Type__Library>,
         }
     ) => g_out.T.Model
-    
-    export type Root<Annotation> =  (
+
+    export type Root<Annotation> = (
         $: g_in.T.Root<Annotation>,
     ) => g_out.T.Root
-    
-    export type Type<Annotation> =  (
+
+    export type TypeSources = {
+        'imports': g_out.T.Imports,
+        'sibling global types': pt.Lookup<g_out.T.Global__Type__Definition>,
+        'cyclic sibling global types': pt.Lookup<() => g_out.T.Global__Type__Definition>,
+    }
+
+    export type Type<Annotation> = (
         $: g_in.T.Type<Annotation>,
         $p: {
             'atom types': g_out.T.Atom__Types,
-            'imports': g_out.T.Imports,
-            'sibling global types': pt.Lookup<g_out.T.Global__Type__Definition>,
-            'cyclic sibling global types': pt.Lookup<() => g_out.T.Global__Type__Definition>,
+            'type sources': TypeSources
+            'variables': g_out.T.Variables
         }
     ) => g_out.T.Type
-    
-    export type Type__Selection<Annotation> =  (
+
+    export type Type__Selection<Annotation> = (
         $: g_in.T.Type__Selection<Annotation>,
         $p: {
             'imports': g_out.T.Imports,
             'sibling global types': pt.Lookup<g_out.T.Global__Type__Definition>
         },
     ) => g_out.T.Type__Selection
-    
-    export type Type__Selection__Tail<Annotation> =  (
+
+    export type Type__Selection__Tail<Annotation> = (
         $: g_in.T.Type__Selection__Tail<Annotation>,
         $p: {
             'context': g_out.T.Type,
         },
     ) => g_out.T.Type__Selection__Tail
-    
-    export type Imports<Annotation> =  (
+
+    export type No__Context__Value__Selection<Annotation> = (
+        $: g_in.T.No__Context__Value__Selection<Annotation>,
+        $p: {
+            'variables': g_out.T.Variables,
+        },
+    ) => g_out.T.No__Context__Value__Selection
+
+    export type Imports<Annotation> = (
         $: g_in.T.Imports<Annotation>,
         $p: {
             'external type libraries': pt.Lookup<g_out.T.Type__Library>,
         }
     ) => g_out.T.Imports
-    
-    export type Type__Library<Annotation> =  (
+
+    export type Type__Library<Annotation> = (
         $: g_in.T.Type__Library<Annotation>,
         $p: {
             'external type libraries': pt.Lookup<g_out.T.Type__Library>,
         }
     ) => g_out.T.Type__Library
-    
-    export type Project<Annotation> =  (
+
+    export type Project<Annotation> = (
         $: g_in.T.Project<Annotation>,
     ) => g_out.T.Project
-    
-    export type Global__Type__Declaration<Annotation> =  (
+
+    export type Global__Type__Declaration<Annotation> = (
         $: g_in.T.Global__Type__Declaration<Annotation>,
         $p: {
-            'all siblings': pt.Lookup<() =>g_out.T.Global__Type__Declaration>
+            'all siblings': pt.Lookup<() => g_out.T.Global__Type__Declaration>
         }
     ) => g_out.T.Global__Type__Declaration
-    
-    export type Global__Type__Declarations<Annotation> =  (
+
+    export type Global__Type__Declarations<Annotation> = (
         $: g_in.T.Global__Type__Declarations<Annotation>,
     ) => g_out.T.Global__Type__Declarations
-    
-    export type Global__Type__Definition<Annotation> =  (
+
+    export type Global__Type__Definition<Annotation> = (
         $: g_in.T.Global__Type__Definition<Annotation>,
         $p: {
             'key': string,
             'global type declarations': g_out.T.Global__Type__Declarations
             'atom types': g_out.T.Atom__Types
-            'imports': g_out.T.Imports
-            'all siblings': pt.Lookup<() =>g_out.T.Global__Type__Definition>
-            'non cyclic siblings': pt.Lookup<g_out.T.Global__Type__Definition>
+            'type sources': TypeSources
         }
     ) => g_out.T.Global__Type__Definition
+
+    export type Value__Selection__Tail<Annotation> = (
+        $: g_in.T.Value__Selection__Tail<Annotation>,
+        $p: {
+            'context': g_out.T.Type,
+        }
+    ) => g_out.T.Value__Selection__Tail
+
+    export type Variable<Annotation> = (
+        $: g_in.T.Variable<Annotation>,
+        $p: {
+            'parent variables': pt.OptionalValue<g_out.T.Variables>
+        }
+    ) => g_out.T.Variable
+
+    export type Variables<Annotation> = (
+        $: g_in.T.Variables<Annotation>,
+        $p: {
+            'parent variables': pt.OptionalValue<g_out.T.Variables>
+        }
+    ) => g_out.T.Variables
 }
 
 
@@ -132,4 +159,7 @@ export type $<Annotation> = {
     'Type Library': types.Type__Library<Annotation>
     'Type Selection': types.Type__Selection<Annotation>
     'Type Selection Tail': types.Type__Selection__Tail<Annotation>
+    'Value Selection Tail': types.Value__Selection__Tail<Annotation>
+    'Variables': types.Variables<Annotation>
+    'Variable': types.Variable<Annotation>
 }

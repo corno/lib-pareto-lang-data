@@ -1559,7 +1559,11 @@ export declare namespace pareto__lang__data {
     namespace Resolve {
         import _IResolved = Resolved;
         import _IUnresolved = Unresolved;
-        namespace types {
+        namespace selectors {
+            type Type__Selection__Tail = ($: _IResolved.Flat.Type__Selection__Tail$) => _IResolved.Flat.Type$;
+            type Type__Selection = ($: _IResolved.Flat.Type__Selection$) => _IResolved.Flat.Type$;
+        }
+        namespace resolvers {
             type Any__Value__Selection = <_TAnnotation>($: _IUnresolved.Flat.Any__Value__Selection$<_TAnnotation>) => _IResolved.Flat.Any__Value__Selection$;
             type Atom__Types = <_TAnnotation>($: _IUnresolved.Flat.Atom__Types$<_TAnnotation>) => _IResolved.Flat.Atom__Types$;
             type Atom = <_TAnnotation>($: _IUnresolved.Flat.Atom$<_TAnnotation>, $p: {
@@ -1617,26 +1621,26 @@ export declare namespace pareto__lang__data {
             type Variables = <_TAnnotation>($: _IUnresolved.Flat.Variables$<_TAnnotation>) => _IResolved.Flat.Variables$;
         }
         type $ = {
-            readonly 'Any Value Selection': types.Any__Value__Selection;
-            readonly 'Atom': types.Atom;
-            readonly 'Atom Types': types.Atom__Types;
-            readonly 'Dictionary Selection': types.Dictionary__Selection;
-            readonly 'Global Type Declaration': types.Global__Type__Declaration;
-            readonly 'Global Type Declarations': types.Global__Type__Declarations;
-            readonly 'Global Type Definition': types.Global__Type__Definition;
-            readonly 'Global Type Selection': types.Global__Type__Selection;
-            readonly 'Imports': types.Imports;
-            readonly 'Model': types.Model;
-            readonly 'No Context Value Selection': types.No__Context__Value__Selection;
-            readonly 'Project': types.Project;
-            readonly 'Root': types.Root;
-            readonly 'Type': types.Type;
-            readonly 'Type Library': types.Type__Library;
-            readonly 'Type Selection': types.Type__Selection;
-            readonly 'Type Selection Tail': types.Type__Selection__Tail;
-            readonly 'Value Selection Tail': types.Value__Selection__Tail;
-            readonly 'Variable': types.Variable;
-            readonly 'Variables': types.Variables;
+            readonly 'Any Value Selection': resolvers.Any__Value__Selection;
+            readonly 'Atom': resolvers.Atom;
+            readonly 'Atom Types': resolvers.Atom__Types;
+            readonly 'Dictionary Selection': resolvers.Dictionary__Selection;
+            readonly 'Global Type Declaration': resolvers.Global__Type__Declaration;
+            readonly 'Global Type Declarations': resolvers.Global__Type__Declarations;
+            readonly 'Global Type Definition': resolvers.Global__Type__Definition;
+            readonly 'Global Type Selection': resolvers.Global__Type__Selection;
+            readonly 'Imports': resolvers.Imports;
+            readonly 'Model': resolvers.Model;
+            readonly 'No Context Value Selection': resolvers.No__Context__Value__Selection;
+            readonly 'Project': resolvers.Project;
+            readonly 'Root': resolvers.Root;
+            readonly 'Type': resolvers.Type;
+            readonly 'Type Library': resolvers.Type__Library;
+            readonly 'Type Selection': resolvers.Type__Selection;
+            readonly 'Type Selection Tail': resolvers.Type__Selection__Tail;
+            readonly 'Value Selection Tail': resolvers.Value__Selection__Tail;
+            readonly 'Variable': resolvers.Variable;
+            readonly 'Variables': resolvers.Variables;
         };
     }
     namespace Serialize {
@@ -1725,13 +1729,6 @@ export declare namespace pareto__lang__data {
             readonly 'Variable': types.Variable;
             readonly 'Variables': types.Variables;
         };
-    }
-    namespace Select {
-        import _IResolved = Resolved;
-        namespace types {
-        }
-        type Type__Selection__Tail = ($: _IResolved.Flat.Type__Selection__Tail$) => _IResolved.Flat.Type$;
-        type Type__Selection = ($: _IResolved.Flat.Type__Selection$) => _IResolved.Flat.Type$;
     }
 }
 export declare namespace proto__typesystem {
@@ -2484,7 +2481,11 @@ export declare namespace proto__typesystem {
     namespace Resolve {
         import _IResolved = Resolved;
         import _IUnresolved = Unresolved;
-        namespace types {
+        namespace selectors {
+            type Nested__Namespace = ($: _IResolved.Flat.Nested__Namespace$) => _IResolved.Flat.Namespace$;
+            type Namespace__Selection = ($: _IResolved.Flat.Namespace__Selection$) => _IResolved.Flat.Nested__Namespace$;
+        }
+        namespace resolvers {
             type Aggregated__Type__Parameters = <_TAnnotation>($: _IUnresolved.Flat.Aggregated__Type__Parameters$<_TAnnotation>) => _IResolved.Flat.Aggregated__Type__Parameters$;
             type Function__Declaration = <_TAnnotation>($: _IUnresolved.Flat.Function__Declaration$<_TAnnotation>, $p: {
                 readonly 'cyclic sibling types': _pt.Lookup<_pt.ComputedValue<_IResolved.Flat.Type$>>;
@@ -2521,18 +2522,18 @@ export declare namespace proto__typesystem {
             }) => _IResolved.Flat.Type$;
         }
         type $ = {
-            readonly 'Aggregated Type Parameters': types.Aggregated__Type__Parameters;
-            readonly 'Function Declaration': types.Function__Declaration;
-            readonly 'Import': types.Import;
-            readonly 'Imports': types.Imports;
-            readonly 'Namespace': types.Namespace;
-            readonly 'Namespace Selection': types.Namespace__Selection;
-            readonly 'Namespace Selection Tail': types.Namespace__Selection__Tail;
-            readonly 'Nested Namespace': types.Nested__Namespace;
-            readonly 'Root': types.Root;
-            readonly 'Type': types.Type;
-            readonly 'Type Arguments': types.Type__Arguments;
-            readonly 'Type Parameters': types.Type__Parameters;
+            readonly 'Aggregated Type Parameters': resolvers.Aggregated__Type__Parameters;
+            readonly 'Function Declaration': resolvers.Function__Declaration;
+            readonly 'Import': resolvers.Import;
+            readonly 'Imports': resolvers.Imports;
+            readonly 'Namespace': resolvers.Namespace;
+            readonly 'Namespace Selection': resolvers.Namespace__Selection;
+            readonly 'Namespace Selection Tail': resolvers.Namespace__Selection__Tail;
+            readonly 'Nested Namespace': resolvers.Nested__Namespace;
+            readonly 'Root': resolvers.Root;
+            readonly 'Type': resolvers.Type;
+            readonly 'Type Arguments': resolvers.Type__Arguments;
+            readonly 'Type Parameters': resolvers.Type__Parameters;
         };
     }
     namespace Serialize {
@@ -2589,13 +2590,6 @@ export declare namespace proto__typesystem {
             readonly 'Type Arguments': types.Type__Arguments;
             readonly 'Type Parameters': types.Type__Parameters;
         };
-    }
-    namespace Select {
-        import _IResolved = Resolved;
-        namespace types {
-        }
-        type Nested__Namespace = ($: _IResolved.Flat.Nested__Namespace$) => _IResolved.Flat.Namespace$;
-        type Namespace__Selection = ($: _IResolved.Flat.Namespace__Selection$) => _IResolved.Flat.Nested__Namespace$;
     }
 }
 export declare namespace proto__implementation {
@@ -4795,7 +4789,9 @@ export declare namespace proto__implementation {
     namespace Resolve {
         import _IResolved = Resolved;
         import _IUnresolved = Unresolved;
-        namespace types {
+        namespace selectors {
+        }
+        namespace resolvers {
             type Aggregated__Variable = <_TAnnotation>($: _IUnresolved.Flat.Aggregated__Variable$<_TAnnotation>) => _IResolved.Flat.Aggregated__Variable$;
             type Aggregated__Variables = <_TAnnotation>($: _IUnresolved.Flat.Aggregated__Variables$<_TAnnotation>) => _IResolved.Flat.Aggregated__Variables$;
             type Assign = <_TAnnotation>($: _IUnresolved.Flat.Assign$<_TAnnotation>) => _IResolved.Flat.Assign$;
@@ -4821,29 +4817,29 @@ export declare namespace proto__implementation {
             type Variables = <_TAnnotation>($: _IUnresolved.Flat.Variables$<_TAnnotation>) => _IResolved.Flat.Variables$;
         }
         type $ = {
-            readonly 'Aggregated Variable': types.Aggregated__Variable;
-            readonly 'Aggregated Variables': types.Aggregated__Variables;
-            readonly 'Assign': types.Assign;
-            readonly 'Block': types.Block;
-            readonly 'Boolean Initialization': types.Boolean__Initialization;
-            readonly 'Boolean Initialization Or Selection': types.Boolean__Initialization__Or__Selection;
-            readonly 'Initialization': types.Initialization;
-            readonly 'Initialization Or Selection': types.Initialization__Or__Selection;
-            readonly 'Local Variables': types.Local__Variables;
-            readonly 'Numerical Initialization': types.Numerical__Initialization;
-            readonly 'Numerical Initialization Or Selection': types.Numerical__Initialization__Or__Selection;
-            readonly 'Root': types.Root;
-            readonly 'Source File': types.Source__File;
-            readonly 'Source Selection': types.Source__Selection;
-            readonly 'Source Selection Tail': types.Source__Selection__Tail;
-            readonly 'Statements': types.Statements;
-            readonly 'String Initialization': types.String__Initialization;
-            readonly 'String Initialization Or Selection': types.String__Initialization__Or__Selection;
-            readonly 'Target Selection': types.Target__Selection;
-            readonly 'Target Selection Tail': types.Target__Selection__Tail;
-            readonly 'Type Arguments': types.Type__Arguments;
-            readonly 'Type Selection': types.Type__Selection;
-            readonly 'Variables': types.Variables;
+            readonly 'Aggregated Variable': resolvers.Aggregated__Variable;
+            readonly 'Aggregated Variables': resolvers.Aggregated__Variables;
+            readonly 'Assign': resolvers.Assign;
+            readonly 'Block': resolvers.Block;
+            readonly 'Boolean Initialization': resolvers.Boolean__Initialization;
+            readonly 'Boolean Initialization Or Selection': resolvers.Boolean__Initialization__Or__Selection;
+            readonly 'Initialization': resolvers.Initialization;
+            readonly 'Initialization Or Selection': resolvers.Initialization__Or__Selection;
+            readonly 'Local Variables': resolvers.Local__Variables;
+            readonly 'Numerical Initialization': resolvers.Numerical__Initialization;
+            readonly 'Numerical Initialization Or Selection': resolvers.Numerical__Initialization__Or__Selection;
+            readonly 'Root': resolvers.Root;
+            readonly 'Source File': resolvers.Source__File;
+            readonly 'Source Selection': resolvers.Source__Selection;
+            readonly 'Source Selection Tail': resolvers.Source__Selection__Tail;
+            readonly 'Statements': resolvers.Statements;
+            readonly 'String Initialization': resolvers.String__Initialization;
+            readonly 'String Initialization Or Selection': resolvers.String__Initialization__Or__Selection;
+            readonly 'Target Selection': resolvers.Target__Selection;
+            readonly 'Target Selection Tail': resolvers.Target__Selection__Tail;
+            readonly 'Type Arguments': resolvers.Type__Arguments;
+            readonly 'Type Selection': resolvers.Type__Selection;
+            readonly 'Variables': resolvers.Variables;
         };
     }
     namespace Serialize {
@@ -4944,10 +4940,6 @@ export declare namespace proto__implementation {
             readonly 'Type Selection': types.Type__Selection;
             readonly 'Variables': types.Variables;
         };
-    }
-    namespace Select {
-        namespace types {
-        }
     }
 }
 export type $ = {

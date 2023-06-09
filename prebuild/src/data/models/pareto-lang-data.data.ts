@@ -124,7 +124,7 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = typeLibr
                             "sibling global types": null,
                             "cyclic sibling global types": null,
                         })),
-                        "arguments": prop(dictionary(group({}))),
+                        "arguments": prop(dictionary(optional(component(typeRef("No Context Value Selection", true), {})))),
                     })),
                     "constraint": state(component(typeRef("Type Selection", true), {
                         "imports": null,
@@ -244,12 +244,16 @@ export const $: g_pareto_lang_data.T.Type__Library<pd.SourceLocation> = typeLibr
         "Global Type Definition": globalTypeDefinition(
             group({
                 "declaration": prop(constraint(typeSelection("Global Type Declarations", t_dict()))),
+                "variables": prop(component(typeRef("Variables"), {
+
+                })),
                 "type": prop(component(typeRef("Type"), {
                     "atom types": null,
                     "imports": null,
                     "sibling global types": null,
                     "cyclic sibling global types": null,
                 })),
+                "result": prop(optional(component(typeRef("Value Selection Tail", true), {}))),
             })
         ),
         "Type Selection Tail": globalTypeDefinition(

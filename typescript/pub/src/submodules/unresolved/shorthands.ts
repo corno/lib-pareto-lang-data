@@ -254,10 +254,13 @@ export function globalTypeDeclaration(
 
 export function globalTypeDefinition(
     type: g_this.T.Type<pd.SourceLocation>,
+    result?: g_this.T.Value__Selection__Tail<pd.SourceLocation>
 ): g_this.T.Global__Type__Definition<pd.SourceLocation> {
     return {
         'declaration': pd.getLocationInfo(1),
+        'variables': rawDict({}),
         'type': type,
+        'result': result === undefined ? [false] : [true, result]
     }
 }
 
@@ -403,7 +406,7 @@ export function typeSelection(
 
 export function component(
     type: g_this.T.Global__Type__Selection<pd.SourceLocation>,
-    args: RawDictionary<null>
+    args: RawDictionary<pt.OptionalValue<g_this.T.No__Context__Value__Selection<pd.SourceLocation>>>
 ): g_this.T.Type<pd.SourceLocation> {
     return {
         'type': ['component', {

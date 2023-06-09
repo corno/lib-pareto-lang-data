@@ -1,5 +1,6 @@
 import * as pl from 'pareto-core-lib'
 import * as pt from 'pareto-core-types'
+import * as pd from 'pareto-core-dev'
 
 import * as Resolve from "./Resolve"
 
@@ -77,7 +78,10 @@ export function createResolveContext<Annotation>(
     const Dictionary__Selection: Resolve.types.Dictionary__Selection<Annotation> = ($, $p) => {
         const x = $
 
-        const v_type = Type__Selection($.type, $p)
+        const v_type = Type__Selection($.type, {
+            'imports': $p['type sources'].imports,
+            'sibling global types': $p['type sources']['sibling global types']
+        })
         return {
             'type': v_type,
             'dictionary': pl.cc(select.Type__Selection(v_type), ($) => {
@@ -101,13 +105,13 @@ export function createResolveContext<Annotation>(
     const Global__Type__Selection: Resolve.types.Global__Type__Selection<Annotation> = ($, $p) => {
         switch ($[0]) {
             case 'cyclic sibling': return pl.ss($, ($) => {
-                const v_type = getAnnotatedEntry($p['cyclic sibling global types'], $.type)
+                const v_type = getAnnotatedEntry($p['type sources']['cyclic sibling global types'], $.type)
                 return ['cyclic sibling', {
                     'type': v_type,
                 }]
             })
             case 'import': return pl.ss($, ($) => {
-                const v_library = getAnnotatedEntry($p.imports, $.library)
+                const v_library = getAnnotatedEntry($p['type sources'].imports, $.library)
                 const v_type = getAnnotatedEntry(v_library.referent.library.referent['global types'].definitions, $.type)
                 return ['import', {
                     'library': v_library,
@@ -115,7 +119,7 @@ export function createResolveContext<Annotation>(
                 }]
             })
             case 'resolved sibling': return pl.ss($, ($) => {
-                const v_type = getAnnotatedEntry($p['sibling global types'], $.type)
+                const v_type = getAnnotatedEntry($p['type sources']['sibling global types'], $.type)
                 return ['resolved sibling', {
                     'type': v_type,
                 }]
@@ -144,13 +148,23 @@ export function createResolveContext<Annotation>(
                     }])
                     case 'component': return pl.ss($, ($) => {
                         return ['component', {
-                            'type': Global__Type__Selection($.type, $p),
+                            'type': Global__Type__Selection($.type, {
+                                'type sources': $p['type sources'],
+                            }),
                             'arguments': $.arguments.dictionary.map(($) => {
-                                return null
+                                return mapOptional(
+                                    $,
+                                    ($) => No__Context__Value__Selection($, {
+                                        'variables': $p.variables
+                                    })
+                                )
                             })
                         }]
                     })
-                    case 'constraint': return pl.ss($, ($) => ['constraint', Type__Selection($, $p)])
+                    case 'constraint': return pl.ss($, ($) => ['constraint', Type__Selection($, {
+                        'imports': $p['type sources'].imports,
+                        'sibling global types': $p['type sources']['sibling global types'],
+                    })])
                     case 'dictionary': return pl.ss($, ($): g_out.T.Type._ltype => ['dictionary', {
                         'constraints': $.constraints.dictionary.map<g_out.T.Type._ltype.dictionary.constraints.D>(($) => pl.cc($, ($) => {
                             switch ($[0]) {
@@ -161,9 +175,7 @@ export function createResolveContext<Annotation>(
                                 case 'dictionary': return pl.ss($, ($): g_out.T.Type._ltype.dictionary.constraints.D => {
                                     return ['dictionary', {
                                         'dictionary': Dictionary__Selection($.dictionary, {
-                                            'cyclic sibling global types': $p['cyclic sibling global types'],
-                                            'imports': $p.imports,
-                                            'sibling global types': $p['sibling global types']
+                                            'type sources': $p['type sources'],
                                         }),
                                         'dense': pl.cc($.dense, ($) => {
                                             switch ($[0]) {
@@ -221,9 +233,7 @@ export function createResolveContext<Annotation>(
                                     })
                                     case 'dictionary': return pl.ss($, ($) => {
                                         return ['dictionary', Dictionary__Selection($, {
-                                            'cyclic sibling global types': $p['cyclic sibling global types'],
-                                            'imports': $p.imports,
-                                            'sibling global types': $p['sibling global types']
+                                            'type sources': $p['type sources'],
                                         })]
                                     })
                                     default: return pl.au($[0])
@@ -268,6 +278,20 @@ export function createResolveContext<Annotation>(
             'tail': v_tail,
         }
     }
+
+    const No__Context__Value__Selection: Resolve.types.No__Context__Value__Selection<Annotation> = ($, $p) => {
+        const v_start = getAnnotatedEntry($p.variables, $.start)
+        return {
+            'start': v_start,
+            'tail': mapOptional(
+                $.tail,
+                ($) => Value__Selection__Tail($, {
+                    'context': select.Variable(v_start.referent)
+                })
+            )
+        }
+    }
+
     const Type__Selection__Tail: Resolve.types.Type__Selection__Tail<Annotation> = ($, $p) => {
         const v_step_type = pl.cc($['step type'], ($): g_out.T.Type__Selection__Tail.step__type => {
             switch ($[0]) {
@@ -461,22 +485,16 @@ export function createResolveContext<Annotation>(
                         'type': pl.cc($.value.type, ($) => {
                             switch ($[0]) {
                                 case 'resolved value': return pl.ss($, ($) => {
-                                    const xxx = getAnnotatedEntry($p['all siblings'], $)
-
-                                    return ['resolved value', xxx]
+                                    return ['resolved value', getAnnotatedEntry($p['all siblings'], $)]
                                 })
                                 case 'key': return pl.ss($, ($) => {
                                     return ['key', null]
                                 })
                                 case 'cyclic sibling lookup': return pl.ss($, ($) => {
-                                    const xxx = getAnnotatedEntry($p['all siblings'], $)
-
-                                    return ['cyclic sibling lookup', xxx]
+                                    return ['cyclic sibling lookup', getAnnotatedEntry($p['all siblings'], $)]
                                 })
                                 case 'sibling lookup': return pl.ss($, ($) => {
-                                    const xxx = getAnnotatedEntry($p['all siblings'], $)
-
-                                    return ['sibling lookup', xxx]
+                                    return ['sibling lookup', getAnnotatedEntry($p['all siblings'], $)]
                                 })
                                 default: return pl.au($[0])
                             }
@@ -502,14 +520,26 @@ export function createResolveContext<Annotation>(
     }
 
     const Global__Type__Definition: Resolve.types.Global__Type__Definition<Annotation> = ($, $p) => {
+        const v_declaration = getEntry($p['global type declarations'], $p.key, $.declaration)
+        const v_variables = Variables($.variables, {
+            'parent variables': [false]
+        })
+        const v_type = Type($.type, {
+            'atom types': $p['atom types'],
+            'type sources': $p['type sources'],
+            'variables': v_variables,
+        })
+
         return {
-            'declaration': getEntry($p['global type declarations'], $p.key, $.declaration),
-            'type': Type($.type, {
-                'atom types': $p['atom types'],
-                'imports': $p.imports,
-                'sibling global types': $p['non cyclic siblings'],
-                'cyclic sibling global types': $p['all siblings'],
-            }),
+            'declaration': v_declaration,
+            'variables': v_variables,
+            'type': v_type,
+            'result': mapOptional(
+                $.result,
+                ($) => Value__Selection__Tail($, {
+                    'context': pd.implementMe("SDFSDFSD")
+                })
+            )
         }
     }
 
@@ -526,17 +556,112 @@ export function createResolveContext<Annotation>(
                     'map': (($, $l) => {
                         return Global__Type__Definition($.value, {
                             'atom types': v_atom__types,
-                            'all siblings': $l['all siblings'],
                             'global type declarations': v_decl,
-                            'imports': imports,
                             'key': $.key,
-                            'non cyclic siblings': $l['non circular siblings']
+                            'type sources': {
+                                'cyclic sibling global types': $l['all siblings'],
+                                'imports': imports,
+                                'sibling global types': $l['non circular siblings']
+                            }
                         })
                     })
                 })
             }
         }
     }
+
+    const Value__Selection__Tail: Resolve.types.Value__Selection__Tail<Annotation> = ($, $p) => {
+        return pl.cc($, ($) => {
+            switch ($[0]) {
+                case 'component': return pl.ss($, ($) => {
+                    const v_component = pl.cc($p.context.type, ($) => {
+                        if ($[0] !== 'component') {
+                            // $se.onError({
+                            //     'annotation': x.annotation,
+                            //     'message': ['not the right state', {
+                            //         'found': $[0],
+                            //         'expected': `group`
+                            //     }]
+                            // })
+                            pl.panic(`not a component`)
+                        }
+                        return $[1]
+                    })
+                    return ['component', {
+                        'component': v_component,
+                        'tail': mapOptional(
+                            $.tail,
+                            ($) => Value__Selection__Tail($, {
+                                'context': pd.implementMe("SDDSFSFDF")
+                            })
+                        ),
+                    }]
+                })
+                case 'group': return pl.ss($, ($) => {
+                    const v_group = pl.cc($p.context.type, ($) => {
+                        if ($[0] !== 'group') {
+                            // $se.onError({
+                            //     'annotation': x.annotation,
+                            //     'message': ['not the right state', {
+                            //         'found': $[0],
+                            //         'expected': `group`
+                            //     }]
+                            // })
+                            pl.panic(`not a group`)
+                        }
+                        return $[1]
+                    })
+                    const v_property = getAnnotatedEntry(v_group.properties, $.property)
+                    return ['group', {
+                        'group': v_group,
+                        'property': v_property,
+                        'tail': mapOptional(
+                            $.tail,
+                            ($) => Value__Selection__Tail($, {
+                                'context': v_property.referent.type
+                            })
+                        ),
+                    }]
+                })
+                case 'reference': return pl.ss($, ($) => ['reference', {
+                    'reference': pd.implementMe("SDFSDFSD"),
+                    'tail': pd.implementMe("SDFSDFSD"),
+                }])
+                case 'state group': return pl.ss($, ($) => ['state group', {
+                    'state group': pd.implementMe("SDFSDFSD"),
+                    'result type': pd.implementMe("SDFSDFSD"),
+                    'states': $.states.dictionary.map(($) => {
+                        return {
+                            'constraints': pd.implementMe("SDFSDFSD"),
+                            'content': pd.implementMe("SDFSDFSD"),
+                        }
+                    }),
+                }])
+                default: return pl.au($[0])
+            }
+        })
+    }
+
+    const Variable: Resolve.types.Variable<Annotation> = ($, $p) => {
+        switch ($[0]) {
+            case 'parent variable': return pl.ss($, ($) => {
+                const x = $
+                return ['parent variable', pl.optional(
+                    $p['parent variables'],
+                    ($) => getAnnotatedEntry($, x),
+                    () => pl.panic("$$$$$")
+                )]
+            })
+            default: return pl.au($[0])
+        }
+    }
+
+    const Variables: Resolve.types.Variables<Annotation> = ($, $p) => {
+        return $.dictionary.map(($) => Variable($, {
+            'parent variables': $p['parent variables'],
+        }))
+    }
+
     return {
         'Atom': Atom,
         'Atom Types': Atom__Types,
@@ -552,6 +677,9 @@ export function createResolveContext<Annotation>(
         'Type': Type,
         'Type Library': Type__Library,
         'Type Selection': Type__Selection,
-        'Type Selection Tail': Type__Selection__Tail
+        'Type Selection Tail': Type__Selection__Tail,
+        'Value Selection Tail': Value__Selection__Tail,
+        'Variable': Variable,
+        'Variables': Variables,
     }
 }

@@ -285,7 +285,29 @@ export namespace N {
                         export namespace T {}
                     }
                     
+                    export namespace result {
+                        
+                        export namespace N {
+                            
+                            export namespace O {
+                                
+                                export namespace N {}
+                                
+                                export namespace T {}
+                            }
+                        }
+                        
+                        export namespace T {}
+                    }
+                    
                     export namespace _$ltype {
+                        
+                        export namespace N {}
+                        
+                        export namespace T {}
+                    }
+                    
+                    export namespace variables {
                         
                         export namespace N {}
                         
@@ -607,7 +629,7 @@ export namespace N {
                                                                 
                                                                 export namespace N {
                                                                     
-                                                                    export namespace G {
+                                                                    export namespace O {
                                                                         
                                                                         export namespace N {}
                                                                         
@@ -1893,12 +1915,23 @@ export namespace T {
         
         export type declaration = [ false ] | [ true, T.Global__Type__Declarations.D]
         
+        export namespace result {
+            
+            export type O = T.Value__Selection__Tail
+        }
+        
+        export type result = [ false ] | [ true, T.Value__Selection__Tail]
+        
         export type _ltype = T.Type
+        
+        export type variables = T.Variables
     }
     
     export type Global__Type__Definition = {
         readonly 'declaration': [ false ] | [ true, T.Global__Type__Declarations.D]
+        readonly 'result': [ false ] | [ true, T.Value__Selection__Tail]
         readonly 'type': T.Type
+        readonly 'variables': T.Variables
     }
     
     export namespace Global__Type__Selection {
@@ -2179,18 +2212,21 @@ export namespace T {
                 
                 export namespace arguments {
                     
-                    export namespace D {}
+                    export namespace D {
+                        
+                        export type O = T.No__Context__Value__Selection
+                    }
                     
-                    export type D = null
+                    export type D = [ false ] | [ true, T.No__Context__Value__Selection]
                 }
                 
-                export type arguments = pt.Dictionary<null>
+                export type arguments = pt.Dictionary<[ false ] | [ true, T.No__Context__Value__Selection]>
                 
                 export type _ltype = T.Global__Type__Selection
             }
             
             export type component = {
-                readonly 'arguments': pt.Dictionary<null>
+                readonly 'arguments': pt.Dictionary<[ false ] | [ true, T.No__Context__Value__Selection]>
                 readonly 'type': T.Global__Type__Selection
             }
             
@@ -2378,7 +2414,7 @@ export namespace T {
                 readonly 'atom': T.Atom
             }]
             | ['component', {
-                readonly 'arguments': pt.Dictionary<null>
+                readonly 'arguments': pt.Dictionary<[ false ] | [ true, T.No__Context__Value__Selection]>
                 readonly 'type': T.Global__Type__Selection
             }]
             | ['constraint', T.Type__Selection]
@@ -2430,7 +2466,7 @@ export namespace T {
                 readonly 'atom': T.Atom
             }]
             | ['component', {
-                readonly 'arguments': pt.Dictionary<null>
+                readonly 'arguments': pt.Dictionary<[ false ] | [ true, T.No__Context__Value__Selection]>
                 readonly 'type': T.Global__Type__Selection
             }]
             | ['constraint', T.Type__Selection]

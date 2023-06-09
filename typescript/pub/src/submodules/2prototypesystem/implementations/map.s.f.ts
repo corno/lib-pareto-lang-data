@@ -354,14 +354,14 @@ export const $$: A.map = ($d,) => {
                 'atom mappings': g_this.T.Atom__Mapping
             },
         ): g_out.T.Type<pd.SourceLocation> => {
-            return pl.cc($p['atom mappings'].__unsafeGetEntry($.type.key), ($) => {
+            return ['atom', pl.cc($p['atom mappings'].__unsafeGetEntry($.type.key), ($): g_out.T.Type.atom<pd.SourceLocation> => {
                 switch ($[0]) {
                     case 'boolean': return pl.ss($, ($) => ['boolean', null])
                     case 'number': return pl.ss($, ($) => ['number', null])
                     case 'string': return pl.ss($, ($) => ['string', null])
                     default: return pl.au($[0])
                 }
-            })
+            })]
         }
 
         const TypeLibrary2Namespace = (
@@ -448,7 +448,7 @@ export const $$: A.map = ($d,) => {
                                                 'type': ['type reference', ['sibling', ref(key + propkey + "$")]]
                                             }
                                         }))])
-                                        case 'nothing': return pl.ss($, ($) => ['null', null])
+                                        case 'nothing': return pl.ss($, ($) => ['atom', ['null', null]])
                                         case 'optional': return pl.ss($, ($): g_out.T.Type<pd.SourceLocation> => ['optional', ['type reference', ['sibling', ref(key + "O$")]]])
                                         case 'resolved reference': return pl.ss($, ($): g_out.T.Type<pd.SourceLocation> => ['group', rawDict({
                                             "key": {
@@ -578,7 +578,7 @@ export const $$: A.map = ($d,) => {
                                         'types': dict($d.filter($['global types'].declarations.__mapWithKey(($, key): pt.OptionalValue<g_out.T.Type<pd.SourceLocation>> => {
                                             return mapOptional(
                                                 $.result,
-                                                ($) => ['value function', {
+                                                ($) => ['selection function', {
                                                     'declaration': {
                                                         'context': ['type reference', ['external', {
                                                             'namespace path': {
@@ -631,7 +631,7 @@ export const $$: A.map = ($d,) => {
                                         'namespaces': rawDict({
                                         }),
                                         'types': dict($['global types'].declarations.__mapWithKey(($, key): g_out.T.Type<pd.SourceLocation> => {
-                                            return ['value function', {
+                                            return ['initialization function', {
                                                 'declaration': {
 
                                                     'context': ['type reference', ['external', {
@@ -683,7 +683,7 @@ export const $$: A.map = ($d,) => {
                                                                     },
                                                                     'type': ref($.key + "$")
                                                                 }]]]])
-                                                                case 'key': return pl.ss($, ($) => ['string', null])
+                                                                case 'key': return pl.ss($, ($) => ['atom', ['string', null]])
 
                                                                 case 'sibling lookup': return pl.ss($, ($) => ['lookup', ['type reference', ['external', {
                                                                     'namespace path': {
@@ -787,7 +787,6 @@ export const $$: A.map = ($d,) => {
                                         'types': dict($['global types'].definitions.__mapWithKey(($, key): g_out.T.Type<pd.SourceLocation> => {
                                             return ['procedure', {
                                                 'declaration': {
-            
                                                     'context': ['type reference', ['external', {
                                                         'namespace path': {
                                                             'start': ['import', {
@@ -803,7 +802,7 @@ export const $$: A.map = ($d,) => {
                                                         'type': ref(key + "$")
                                                     }]],
                                                     'parameters': rawDict({
-                                                        "out": ['boolean', null]
+                                                        "out": ['atom', ['boolean', null]]
                                                     }),
                                                     'type parameters': {
                                                         'local': rawDict({}),
@@ -841,7 +840,7 @@ export const $$: A.map = ($d,) => {
                     // "_": ['value function', {
                     //     'declaration': {
 
-                    //         'context': ['null', null],
+                    //         'context': ['atom', ['null', null]],
                     //         'parameters': rawDict({}),
                     //         'type parameters': {
                     //             'local': rawDict({}),
@@ -925,12 +924,12 @@ export const $$: A.map = ($d,) => {
                         const tlName = key
                         return {
                             'mutable': [false],
-                            'type': ['group', rawDict({
+                            'type': ['group', rawDict<g_out.T.Type.group.dictionary.D<pd.SourceLocation>>({
                                 "createResolveContext": {
                                     'mutable': [false],
-                                    'type': ['value function', {
+                                    'type': ['initialization function', {
                                         'declaration': {
-                                            'context': ['null', null],
+                                            'context': ['atom', ['null', null]],
                                             'parameters': rawDict({
                                             }),
                                             'type parameters': {
@@ -958,9 +957,9 @@ export const $$: A.map = ($d,) => {
                                 },
                                 "createSerializeContext": {
                                     'mutable': [false],
-                                    'type': ['value function', {
+                                    'type': ['initialization function', {
                                         'declaration': {
-                                            'context': ['null', null],
+                                            'context': ['atom', ['null', null]],
                                             'parameters': rawDict({
                                             }),
                                             'type parameters': {

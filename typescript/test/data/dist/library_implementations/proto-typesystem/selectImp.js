@@ -25,15 +25,23 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Namespace__Selection = exports.selectLocalNSFromNS2 = void 0;
 const pl = __importStar(require("pareto-core-lib"));
+const pd = __importStar(require("pareto-core-dev"));
 const selectLocalNSFromNS2 = ($) => {
-    switch ($[0]) {
-        case 'local': return pl.ss($, ($) => $);
-        case 'parent sibling': return pl.ss($, ($) => (0, exports.selectLocalNSFromNS2)($.namespace.referent));
-        default: return pl.au($[0]);
-    }
+    return $.namespace;
 };
 exports.selectLocalNSFromNS2 = selectLocalNSFromNS2;
 const Namespace__Selection = ($) => {
-    return pl.optional($.tail, ($) => (0, exports.Namespace__Selection)($), () => $.namespace.referent);
+    return pl.cc($.start, ($) => {
+        switch ($[0]) {
+            case 'import': return pl.ss($, ($) => pd.implementMe("SDFSDF"));
+            case 'local': return pl.ss($, ($) => pd.implementMe(`case`));
+            default: return pl.au($[0]);
+        }
+    });
+    // return pl.optional(
+    //     $.tail,
+    //     ($) => Namespace__Selection($),
+    //     () => $.namespace.referent
+    // )
 };
 exports.Namespace__Selection = Namespace__Selection;

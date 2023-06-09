@@ -73,11 +73,11 @@ export function createResolveContext (
     ///////////////////////////////////////////////////////////////
 
 
-    const Atom: Resolve.types.Atom  = ($, $p) => ({
+    const Atom: Resolve.resolvers.Atom  = ($, $p) => ({
         'type': getAnnotatedEntry($p['atom types'], $.type)
     })
 
-    const Dictionary__Selection: Resolve.types.Dictionary__Selection  = ($, $p) => {
+    const Dictionary__Selection: Resolve.resolvers.Dictionary__Selection  = ($, $p) => {
         const x = $
 
         const v_type = Type__Selection($.type, $p)
@@ -101,7 +101,7 @@ export function createResolveContext (
         }
     }
 
-    const Global__Type__Selection: Resolve.types.Global__Type__Selection  = ($, $p) => {
+    const Global__Type__Selection: Resolve.resolvers.Global__Type__Selection  = ($, $p) => {
         switch ($[0]) {
             case 'cyclic sibling': return pl.ss($, ($) => {
                 const v_type = getAnnotatedEntry($p['cyclic sibling global types'], $.type)
@@ -127,7 +127,7 @@ export function createResolveContext (
         }
     }
 
-    const Model: Resolve.types.Model  = ($, $p) => {
+    const Model: Resolve.resolvers.Model  = ($, $p) => {
         const tl = Type__Library($['type library'], $p)
         return {
             'type library': tl,
@@ -135,10 +135,10 @@ export function createResolveContext (
         }
     }
 
-    const Root: Resolve.types.Root  = ($) => {
+    const Root: Resolve.resolvers.Root  = ($) => {
         return Project($)
     }
-    const Type: Resolve.types.Type  = ($, $p) => {
+    const Type: Resolve.resolvers.Type  = ($, $p) => {
         return {
             'type': pl.cc($.type, ($) => {
                 switch ($[0]) {
@@ -244,7 +244,7 @@ export function createResolveContext (
             })
         }
     }
-    const Type__Selection: Resolve.types.Type__Selection  = ($, $p) => {
+    const Type__Selection: Resolve.resolvers.Type__Selection  = ($, $p) => {
 
         const v_import = mapOptional(
             $.import,
@@ -271,7 +271,7 @@ export function createResolveContext (
             'tail': v_tail,
         }
     }
-    const Type__Selection__Tail: Resolve.types.Type__Selection__Tail  = ($, $p) => {
+    const Type__Selection__Tail: Resolve.resolvers.Type__Selection__Tail  = ($, $p) => {
         const v_step_type = pl.cc($['step type'], ($): g_out.T.TType__Selection__Tail.step__type.$ => {
             switch ($[0]) {
                 case 'array': return pl.ss($, ($): g_out.T.TType__Selection__Tail.step__type.$ => {
@@ -431,7 +431,7 @@ export function createResolveContext (
         }
     }
 
-    const Project: Resolve.types.Project  = ($) => {
+    const Project: Resolve.resolvers.Project  = ($) => {
         return {
             'type libraries': $d.resolveDictionary(
                 $['type libraries'],
@@ -443,7 +443,7 @@ export function createResolveContext (
         }
     }
 
-    const Imports: Resolve.types.Imports  = ($, $p) => {
+    const Imports: Resolve.resolvers.Imports  = ($, $p) => {
         return $.__mapWithKey(($, key) => {
             return {
                 'library': getAnnotatedEntry($p['external type libraries'], $.library)
@@ -451,11 +451,11 @@ export function createResolveContext (
         })
     }
 
-    const Atom__Types: Resolve.types.Atom__Types  = ($) => {
+    const Atom__Types: Resolve.resolvers.Atom__Types  = ($) => {
         return $.map(($) => null)
     }
 
-    const Global__Type__Declaration: Resolve.types.Global__Type__Declaration  = ($, $p) => {
+    const Global__Type__Declaration: Resolve.resolvers.Global__Type__Declaration  = ($, $p) => {
         return {
             'parameters': $d.resolveDictionary($.parameters, {
                 'map': (($): g_out.T.Global__Type__Declaration.parameters.D.$ => {
@@ -491,7 +491,7 @@ export function createResolveContext (
         }
     }
 
-    const Global__Type__Declarations: Resolve.types.Global__Type__Declarations  = ($) => {
+    const Global__Type__Declarations: Resolve.resolvers.Global__Type__Declarations  = ($) => {
         return $d.resolveDictionary($, {
             'map': (($, $l) => {
                 return Global__Type__Declaration($.value, {
@@ -501,7 +501,7 @@ export function createResolveContext (
         })
     }
 
-    const Global__Type__Definition: Resolve.types.Global__Type__Definition  = ($, $p) => {
+    const Global__Type__Definition: Resolve.resolvers.Global__Type__Definition  = ($, $p) => {
         return {
             'declaration': getEntry($p['global type declarations'], $p.key, $.declaration),
             'type': Type($.type, {
@@ -513,7 +513,7 @@ export function createResolveContext (
         }
     }
 
-    const Type__Library: Resolve.types.Type__Library  = ($, $p) => {
+    const Type__Library: Resolve.resolvers.Type__Library  = ($, $p) => {
         const imports = Imports($.imports, $p)
         const v_atom__types = Atom__Types($['atom types'])
         const v_decl = Global__Type__Declarations($['global types'].declarations)

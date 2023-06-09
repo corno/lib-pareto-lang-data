@@ -183,10 +183,26 @@ export const $: g_glossary.T.Glossary<null> = {
                             'type arguments': d({}),
                         }]],
                     },
+                    "result": {
+                        'type': <g_glossary.T.Type<null>>['optional', <g_glossary.T.Type<null>>['reference', ['type', {
+                            'context': ['local', null],
+                            'typeXX': "Value Selection Tail",
+                            'tailXX': a([]),
+                            'type arguments': d({}),
+                        }]]],
+                    },
                     "type": {
                         'type': <g_glossary.T.Type<null>>['reference', ['type', {
                             'context': ['local', null],
                             'typeXX': "Type",
+                            'tailXX': a([]),
+                            'type arguments': d({}),
+                        }]],
+                    },
+                    "variables": {
+                        'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                            'context': ['local', null],
+                            'typeXX': "Variables",
                             'tailXX': a([]),
                             'type arguments': d({}),
                         }]],
@@ -401,7 +417,12 @@ export const $: g_glossary.T.Glossary<null> = {
                             })],
                             "component": <g_glossary.T.Type<null>>['group', d({
                                 "arguments": {
-                                    'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['group', d({})]],
+                                    'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['optional', <g_glossary.T.Type<null>>['reference', ['type', {
+                                        'context': ['local', null],
+                                        'typeXX': "No Context Value Selection",
+                                        'tailXX': a([]),
+                                        'type arguments': d({}),
+                                    }]]]],
                                 },
                                 "type": {
                                     'type': <g_glossary.T.Type<null>>['reference', ['type', {
@@ -1128,7 +1149,20 @@ export const $: g_glossary.T.Glossary<null> = {
                                 'types': d({}),
                                 'namespaces': d({}),
                             },
+                            "result": {
+                                'types': d({}),
+                                'namespaces': d({
+                                    "O": {
+                                        'types': d({}),
+                                        'namespaces': d({}),
+                                    },
+                                }),
+                            },
                             "type": {
+                                'types': d({}),
+                                'namespaces': d({}),
+                            },
+                            "variables": {
                                 'types': d({}),
                                 'namespaces': d({}),
                             },
@@ -1327,7 +1361,7 @@ export const $: g_glossary.T.Glossary<null> = {
                                                                     "D": {
                                                                         'types': d({}),
                                                                         'namespaces': d({
-                                                                            "G": {
+                                                                            "O": {
                                                                                 'types': d({}),
                                                                                 'namespaces': d({}),
                                                                             },
