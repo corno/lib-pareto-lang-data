@@ -131,6 +131,7 @@ export namespace types {
         $: g_in.T.Variable<Annotation>,
         $p: {
             'parent variables': pt.OptionalValue<g_out.T.Variables>
+            'parameters': g_out.T.Parameters
         }
     ) => g_out.T.Variable
 

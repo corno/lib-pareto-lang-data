@@ -10,18 +10,19 @@ export const Type__Selection: Select.Type__Selection = ($) => {
         ($) => Type__Selection__Tail($),
         () => $['global type'].referent.type
     )
-}
+// }
 
-export const Variable: Select.Variable = ($) => {
-        switch ($[0]) {
-            case 'parent variable': return pl.ss($, ($) => Variable($.referent))
-            // case '': return pl.ss($, ($) => pd.implementMe(`case`))
-            // case '': return pl.ss($, ($) => pd.implementMe(`case`))
-            default: return pl.au($[0])
-        }
-}
+// export const Variable: Select.Variable = ($) => {
+//     switch ($[0]) {
+//         case 'parent variable': return pl.ss($, ($) => Variable($.referent))
+//         case 'parameter': return pl.ss($, ($) => $['resolved value'].referent())
+//         // case '': return pl.ss($, ($) => pd.implementMe(`case`))
+//         // case '': return pl.ss($, ($) => pd.implementMe(`case`))
+//         default: return pl.au($[0])
+//     }
+// }
 
-export const Global__Type__Selection__Tail: Select.Global_Type__Selection = ($) => {
+export const Global__Type__Selection: Select.Global_Type__Selection = ($) => {
     return pl.cc($, ($) => {
         switch ($[0]) {
             case 'cyclic sibling': return pl.ss($, ($) => pl.panic("CYCLIC SIBLING SHOULD NOT BE SUPPORTED"))

@@ -644,6 +644,7 @@ export function createResolveContext<Annotation>(
 
     const Variable: Resolve.types.Variable<Annotation> = ($, $p) => {
         switch ($[0]) {
+
             case 'parent variable': return pl.ss($, ($) => {
                 const x = $
                 return ['parent variable', pl.optional(
@@ -651,6 +652,9 @@ export function createResolveContext<Annotation>(
                     ($) => getAnnotatedEntry($, x),
                     () => pl.panic("$$$$$")
                 )]
+            })
+            case 'parameter': return pl.ss($, ($) => {
+                return ['parameter', getAnnotatedEntry($p.parameters, $.parameter)]
             })
             default: return pl.au($[0])
         }

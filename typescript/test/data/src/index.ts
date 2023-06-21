@@ -53,9 +53,7 @@ export const $: _.$ = {
                                     'sibling global types': _pd.implementMe("ARGS"),
                                 }
                             ))
-                            const _larguments: _.pareto__lang__data.Resolved.Flat.Type$type$component$arguments$ = _pl.cc($['arguments'], ($) => $.map(($) => _pl.cc($, ($) => {
-                                return null
-                            })))
+                            const _larguments: _.pareto__lang__data.Resolved.Flat.Type$type$component$arguments$ = _pl.cc($['arguments'], ($) => $.map(($) => _pd.implementMe("OPTIONAL")))
                             return {
                                 'arguments': _larguments,
                                 'type': _ltype,
@@ -256,6 +254,9 @@ export const $: _.$ = {
                             case 'resolved value': return _pl.ss($, ($) => ['resolved value', _pd.implementMe("CyCLIC REFERENCE")])
                             case 'sibling lookup': return _pl.ss($, ($) => ['sibling lookup', _pd.implementMe("CyCLIC REFERENCE")])
                             case 'cyclic sibling lookup': return _pl.ss($, ($) => ['cyclic sibling lookup', _pd.implementMe("CyCLIC REFERENCE")])
+                            case 'key': return _pl.ss($, ($) => ['key', _pl.cc($, ($) => {
+                                return null
+                            })])
                             default: return _pl.au($[0])
                         }
                     }))
@@ -277,8 +278,20 @@ export const $: _.$ = {
                     'all siblings': _pd.implementMe("ARGS"),
                 }
             ))
+            const r_$Variable: _.pareto__lang__data.Resolve.resolvers.Variable = ($) => _pl.cc($, ($): _.pareto__lang__data.Resolved.Flat.Variable$ => {
+                switch ($[0]) {
+                    case 'parent variable': return _pl.ss($, ($) => ['parent variable', _pd.implementMe("RESOLVED REFERENCE")])
+                    default: return _pl.au($[0])
+                }
+            })
+            const r_$Variables: _.pareto__lang__data.Resolve.resolvers.Variables = ($) => $.map(($) => r_$Variable(
+                $,
+            ))
             const r_$Global__Type__Definition: _.pareto__lang__data.Resolve.resolvers.Global__Type__Definition = ($) => _pl.cc($, ($) => {
                 const declaration: _.pareto__lang__data.Resolved.Flat.Global__Type__Definition$declaration$ = _pl.cc($['declaration'], ($) => _pd.implementMe("CONSTRAINT"))
+                const variables: _.pareto__lang__data.Resolved.Flat.Global__Type__Definition$variables$ = _pl.cc($['variables'], ($) => r_$Variables(
+                    $,
+                ))
                 const _ltype: _.pareto__lang__data.Resolved.Flat.Global__Type__Definition$type$ = _pl.cc($['type'], ($) => r_$Type(
                     $,
                     {
@@ -288,9 +301,12 @@ export const $: _.$ = {
                         'sibling global types': _pd.implementMe("ARGS"),
                     }
                 ))
+                const result: _.pareto__lang__data.Resolved.Flat.Global__Type__Definition$result$ = _pl.cc($['result'], ($) => _pd.implementMe("OPTIONAL"))
                 return {
                     'declaration': declaration,
+                    'result': result,
                     'type': _ltype,
+                    'variables': variables,
                 }
             })
             const r_$Type__Selection__Tail: _.pareto__lang__data.Resolve.resolvers.Type__Selection__Tail = ($) => _pl.cc($, ($) => {
@@ -459,15 +475,6 @@ export const $: _.$ = {
             const r_$Root: _.pareto__lang__data.Resolve.resolvers.Root = ($) => r_$Project(
                 $,
             )
-            const r_$Variable: _.pareto__lang__data.Resolve.resolvers.Variable = ($) => _pl.cc($, ($): _.pareto__lang__data.Resolved.Flat.Variable$ => {
-                switch ($[0]) {
-                    case 'parent variable': return _pl.ss($, ($) => ['parent variable', _pd.implementMe("RESOLVED REFERENCE")])
-                    default: return _pl.au($[0])
-                }
-            })
-            const r_$Variables: _.pareto__lang__data.Resolve.resolvers.Variables = ($) => $.map(($) => r_$Variable(
-                $,
-            ))
             const r_$Value__Selection__Tail: _.pareto__lang__data.Resolve.resolvers.Value__Selection__Tail = ($) => _pl.cc($, ($): _.pareto__lang__data.Resolved.Flat.Value__Selection__Tail$ => {
                 switch ($[0]) {
                     case 'reference': return _pl.ss($, ($) => ['reference', _pl.cc($, ($) => {
@@ -663,6 +670,35 @@ export const $: _.$ = {
                     'variable': variable,
                 }
             })
+            const r_$Function__Call: _.proto__implementation.Resolve.resolvers.Function__Call = ($) => _pl.cc($, ($) => {
+                const type__arguments: _.proto__implementation.Resolved.Flat.Function__Call$type__arguments$ = _pl.cc($['type arguments'], ($) => r_$Type__Arguments(
+                    $,
+                ))
+                const context: _.proto__implementation.Resolved.Flat.Function__Call$context$ = _pl.cc($['context'], ($) => r_$Source__Selection(
+                    $,
+                ))
+                const _larguments: _.proto__implementation.Resolved.Flat.Function__Call$arguments$ = _pl.cc($['arguments'], ($) => $.map(($) => _pl.cc($, ($): _.proto__implementation.Resolved.Flat.Function__Call$arguments$D$ => {
+                    switch ($[0]) {
+                        case 'initialization': return _pl.ss($, ($) => ['initialization', r_$Initialization(
+                            $,
+                        )])
+                        case 'selection': return _pl.ss($, ($) => ['selection', _pl.cc($, ($) => {
+                            const selection: _.proto__implementation.Resolved.Flat.Function__Call$arguments$D$selection$selection$ = _pl.cc($['selection'], ($) => r_$Source__Selection(
+                                $,
+                            ))
+                            return {
+                                'selection': selection,
+                            }
+                        })])
+                        default: return _pl.au($[0])
+                    }
+                })))
+                return {
+                    'arguments': _larguments,
+                    'context': context,
+                    'type arguments': type__arguments,
+                }
+            })
             const r_$Source__Selection__Tail: _.proto__implementation.Resolve.resolvers.Source__Selection__Tail = ($) => _pd.implementMe("OPTIONAL")
             const r_$Source__Selection: _.proto__implementation.Resolve.resolvers.Source__Selection = ($) => _pl.cc($, ($) => {
                 const start: _.proto__implementation.Resolved.Flat.Source__Selection$start$ = _pl.cc($['start'], ($) => _pl.cc($, ($): _.proto__implementation.Resolved.Flat.Source__Selection$start$ => {
@@ -680,22 +716,6 @@ export const $: _.$ = {
                 return {
                     'start': start,
                     'tail': tail,
-                }
-            })
-            const r_$Initialization__Or__Selection: _.proto__implementation.Resolve.resolvers.Initialization__Or__Selection = ($) => _pl.cc($, ($): _.proto__implementation.Resolved.Flat.Initialization__Or__Selection$ => {
-                switch ($[0]) {
-                    case 'initialization': return _pl.ss($, ($) => ['initialization', r_$Initialization(
-                        $,
-                    )])
-                    case 'selection': return _pl.ss($, ($) => ['selection', _pl.cc($, ($) => {
-                        const selection: _.proto__implementation.Resolved.Flat.Initialization__Or__Selection$selection$selection$ = _pl.cc($['selection'], ($) => r_$Source__Selection(
-                            $,
-                        ))
-                        return {
-                            'selection': selection,
-                        }
-                    })])
-                    default: return _pl.au($[0])
                 }
             })
             const r_$String__Initialization__Or__Selection: _.proto__implementation.Resolve.resolvers.String__Initialization__Or__Selection = ($) => _pl.cc($, ($): _.proto__implementation.Resolved.Flat.String__Initialization__Or__Selection$ => {
@@ -910,161 +930,34 @@ export const $: _.$ = {
                     default: return _pl.au($[0])
                 }
             })
-            const r_$Initialization: _.proto__implementation.Resolve.resolvers.Initialization = ($) => _pl.cc($, ($): _.proto__implementation.Resolved.Flat.Initialization$ => {
+            const r_$Generic__Initialization: _.proto__implementation.Resolve.resolvers.Generic__Initialization = ($) => _pl.cc($, ($): _.proto__implementation.Resolved.Flat.Generic__Initialization$ => {
                 switch ($[0]) {
-                    case 'array literal': return _pl.ss($, ($) => ['array literal', _pl.cc($, ($) => {
-                        const definition: _.proto__implementation.Resolved.Flat.Initialization$array__literal$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
-                        const initialization: _.proto__implementation.Resolved.Flat.Initialization$array__literal$initialization$ = _pl.cc($['initialization'], ($) => $.map(($) => r_$Initialization__Or__Selection(
-                            $,
-                        )))
-                        return {
-                            'definition': definition,
-                            'initialization': initialization,
-                        }
-                    })])
-                    case 'array map': return _pl.ss($, ($) => ['array map', _pl.cc($, ($) => {
-                        const definition: _.proto__implementation.Resolved.Flat.Initialization$array__map$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
-                        const source: _.proto__implementation.Resolved.Flat.Initialization$array__map$source$ = _pl.cc($['source'], ($) => r_$Source__Selection(
-                            $,
-                        ))
-                        const initialization: _.proto__implementation.Resolved.Flat.Initialization$array__map$initialization$ = _pl.cc($['initialization'], ($) => r_$Initialization__Or__Selection(
-                            $,
-                        ))
-                        return {
-                            'definition': definition,
-                            'initialization': initialization,
-                            'source': source,
-                        }
-                    })])
-                    case 'boolean': return _pl.ss($, ($) => ['boolean', _pl.cc($, ($) => {
-                        const definition: _.proto__implementation.Resolved.Flat.Initialization$boolean$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
-                        const initialization: _.proto__implementation.Resolved.Flat.Initialization$boolean$initialization$ = _pl.cc($['initialization'], ($) => r_$Boolean__Initialization(
-                            $,
-                        ))
-                        return {
-                            'definition': definition,
-                            'initialization': initialization,
-                        }
-                    })])
                     case 'change context': return _pl.ss($, ($) => ['change context', _pl.cc($, ($) => {
-                        const source: _.proto__implementation.Resolved.Flat.Initialization$change__context$source$ = _pl.cc($['source'], ($) => r_$Source__Selection(
+                        const source: _.proto__implementation.Resolved.Flat.Generic__Initialization$change__context$source$ = _pl.cc($['source'], ($) => r_$Source__Selection(
                             $,
                         ))
-                        const initialization: _.proto__implementation.Resolved.Flat.Initialization$change__context$initialization$ = _pl.cc($['initialization'], ($) => r_$Initialization__Or__Selection(
+                        const initialization: _.proto__implementation.Resolved.Flat.Generic__Initialization$change__context$initialization$ = _pl.cc($['initialization'], ($) => r_$Initialization(
                             $,
                         ))
                         return {
                             'initialization': initialization,
                             'source': source,
-                        }
-                    })])
-                    case 'dictionary literal': return _pl.ss($, ($) => ['dictionary literal', _pl.cc($, ($) => {
-                        const definition: _.proto__implementation.Resolved.Flat.Initialization$dictionary__literal$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
-                        const initialization: _.proto__implementation.Resolved.Flat.Initialization$dictionary__literal$initialization$ = _pl.cc($['initialization'], ($) => $.map(($) => r_$Initialization__Or__Selection(
-                            $,
-                        )))
-                        return {
-                            'definition': definition,
-                            'initialization': initialization,
-                        }
-                    })])
-                    case 'dictionary map': return _pl.ss($, ($) => ['dictionary map', _pl.cc($, ($) => {
-                        const definition: _.proto__implementation.Resolved.Flat.Initialization$dictionary__map$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
-                        const source: _.proto__implementation.Resolved.Flat.Initialization$dictionary__map$source$ = _pl.cc($['source'], ($) => r_$Source__Selection(
-                            $,
-                        ))
-                        const initialization: _.proto__implementation.Resolved.Flat.Initialization$dictionary__map$initialization$ = _pl.cc($['initialization'], ($) => r_$Initialization__Or__Selection(
-                            $,
-                        ))
-                        return {
-                            'definition': definition,
-                            'initialization': initialization,
-                            'source': source,
-                        }
-                    })])
-                    case 'group literal': return _pl.ss($, ($) => ['group literal', _pl.cc($, ($) => {
-                        const definition: _.proto__implementation.Resolved.Flat.Initialization$group__literal$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
-                        const properties: _.proto__implementation.Resolved.Flat.Initialization$group__literal$properties$ = _pl.cc($['properties'], ($) => $.map(($) => r_$Initialization__Or__Selection(
-                            $,
-                        )))
-                        return {
-                            'definition': definition,
-                            'properties': properties,
                         }
                     })])
                     case 'implement me': return _pl.ss($, ($) => ['implement me', $])
-                    case 'null': return _pl.ss($, ($) => ['null', _pl.cc($, ($) => {
-                        const definition: _.proto__implementation.Resolved.Flat.Initialization$null$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
-                        return {
-                            'definition': definition,
-                        }
-                    })])
-                    case 'numerical': return _pl.ss($, ($) => ['numerical', _pl.cc($, ($) => {
-                        const definition: _.proto__implementation.Resolved.Flat.Initialization$numerical$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
-                        const initialization: _.proto__implementation.Resolved.Flat.Initialization$numerical$initialization$ = _pl.cc($['initialization'], ($) => r_$Numerical__Initialization(
-                            $,
-                        ))
-                        return {
-                            'definition': definition,
-                            'initialization': initialization,
-                        }
-                    })])
-                    case 'optional': return _pl.ss($, ($) => ['optional', _pl.cc($, ($) => {
-                        const definition: _.proto__implementation.Resolved.Flat.Initialization$optional$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
-                        return {
-                            'definition': definition,
-                        }
-                    })])
-                    case 'procedure': return _pl.ss($, ($) => ['procedure', _pl.cc($, ($) => {
-                        const definition: _.proto__implementation.Resolved.Flat.Initialization$procedure$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
-                        const temp__has__parameters: _.proto__implementation.Resolved.Flat.Initialization$procedure$temp__has__parameters$ = _pl.cc($['temp has parameters'], ($) => _pd.implementMe("OPTIONAL"))
-                        const variables: _.proto__implementation.Resolved.Flat.Initialization$procedure$variables$ = _pl.cc($['variables'], ($) => r_$Aggregated__Variables(
-                            $,
-                        ))
-                        const block: _.proto__implementation.Resolved.Flat.Initialization$procedure$block$ = _pl.cc($['block'], ($) => r_$Block(
-                            $,
-                        ))
-                        return {
-                            'block': block,
-                            'definition': definition,
-                            'temp has parameters': temp__has__parameters,
-                            'variables': variables,
-                        }
-                    })])
-                    case 'tagged union literal': return _pl.ss($, ($) => ['tagged union literal', _pl.cc($, ($) => {
-                        const definition: _.proto__implementation.Resolved.Flat.Initialization$tagged__union__literal$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
-                        const state: _.proto__implementation.Resolved.Flat.Initialization$tagged__union__literal$state$ = _pl.cc($['state'], ($) => _pd.implementMe("RESOLVED REFERENCE"))
-                        const initialization: _.proto__implementation.Resolved.Flat.Initialization$tagged__union__literal$initialization$ = _pl.cc($['initialization'], ($) => r_$Initialization__Or__Selection(
-                            $,
-                        ))
-                        return {
-                            'definition': definition,
-                            'initialization': initialization,
-                            'state': state,
-                        }
-                    })])
-                    case 'string': return _pl.ss($, ($) => ['string', _pl.cc($, ($) => {
-                        const definition: _.proto__implementation.Resolved.Flat.Initialization$string$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
-                        const initialization: _.proto__implementation.Resolved.Flat.Initialization$string$initialization$ = _pl.cc($['initialization'], ($) => r_$String__Initialization(
-                            $,
-                        ))
-                        return {
-                            'definition': definition,
-                            'initialization': initialization,
-                        }
-                    })])
+                    case 'panic': return _pl.ss($, ($) => ['panic', $])
                     case 'switch': return _pl.ss($, ($) => ['switch', _pl.cc($, ($) => {
-                        const definition: _.proto__implementation.Resolved.Flat.Initialization$switch$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
-                        const temp__type: _.proto__implementation.Resolved.Flat.Initialization$switch$temp__type$ = _pl.cc($['temp type'], ($) => r_$Type__Selection(
+                        const definition: _.proto__implementation.Resolved.Flat.Generic__Initialization$switch$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
+                        const temp__type: _.proto__implementation.Resolved.Flat.Generic__Initialization$switch$temp__type$ = _pl.cc($['temp type'], ($) => r_$Type__Selection(
                             $,
                         ))
-                        const source: _.proto__implementation.Resolved.Flat.Initialization$switch$source$ = _pl.cc($['source'], ($) => r_$Source__Selection(
+                        const source: _.proto__implementation.Resolved.Flat.Generic__Initialization$switch$source$ = _pl.cc($['source'], ($) => r_$Source__Selection(
                             $,
                         ))
-                        const cases: _.proto__implementation.Resolved.Flat.Initialization$switch$cases$ = _pl.cc($['cases'], ($) => $.map(($) => r_$Initialization__Or__Selection(
+                        const cases: _.proto__implementation.Resolved.Flat.Generic__Initialization$switch$cases$ = _pl.cc($['cases'], ($) => $.map(($) => r_$Initialization(
                             $,
                         )))
-                        const _ldefault: _.proto__implementation.Resolved.Flat.Initialization$switch$default$ = _pl.cc($['default'], ($) => _pd.implementMe("OPTIONAL"))
+                        const _ldefault: _.proto__implementation.Resolved.Flat.Generic__Initialization$switch$default$ = _pl.cc($['default'], ($) => _pd.implementMe("OPTIONAL"))
                         return {
                             'cases': cases,
                             'default': _ldefault,
@@ -1073,32 +966,251 @@ export const $: _.$ = {
                             'temp type': temp__type,
                         }
                     })])
-                    case 'value function': return _pl.ss($, ($) => ['value function', _pl.cc($, ($) => {
-                        const definition: _.proto__implementation.Resolved.Flat.Initialization$value__function$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
-                        const temp__has__parameters: _.proto__implementation.Resolved.Flat.Initialization$value__function$temp__has__parameters$ = _pl.cc($['temp has parameters'], ($) => _pd.implementMe("OPTIONAL"))
-                        const variables: _.proto__implementation.Resolved.Flat.Initialization$value__function$variables$ = _pl.cc($['variables'], ($) => r_$Aggregated__Variables(
+                    case 'variables': return _pl.ss($, ($) => ['variables', _pl.cc($, ($) => {
+                        const variables: _.proto__implementation.Resolved.Flat.Generic__Initialization$variables$variables$ = _pl.cc($['variables'], ($) => r_$Variables(
                             $,
                         ))
-                        const initialization: _.proto__implementation.Resolved.Flat.Initialization$value__function$initialization$ = _pl.cc($['initialization'], ($) => r_$Initialization__Or__Selection(
+                        const initialization: _.proto__implementation.Resolved.Flat.Generic__Initialization$variables$initialization$ = _pl.cc($['initialization'], ($) => r_$Initialization(
                             $,
                         ))
                         return {
-                            'definition': definition,
                             'initialization': initialization,
-                            'temp has parameters': temp__has__parameters,
                             'variables': variables,
                         }
                     })])
-                    case 'variables': return _pl.ss($, ($) => ['variables', _pl.cc($, ($) => {
-                        const variables: _.proto__implementation.Resolved.Flat.Initialization$variables$variables$ = _pl.cc($['variables'], ($) => r_$Variables(
+                    default: return _pl.au($[0])
+                }
+            })
+            const r_$Initialization: _.proto__implementation.Resolve.resolvers.Initialization = ($) => _pl.cc($, ($): _.proto__implementation.Resolved.Flat.Initialization$ => {
+                switch ($[0]) {
+                    case 'generic': return _pl.ss($, ($) => ['generic', r_$Generic__Initialization(
+                        $,
+                    )])
+                    case 'call': return _pl.ss($, ($) => ['call', _pl.cc($, ($) => {
+                        const _lfunction: _.proto__implementation.Resolved.Flat.Initialization$call$function$ = _pl.cc($['function'], ($) => r_$Source__Selection(
                             $,
                         ))
-                        const initialization: _.proto__implementation.Resolved.Flat.Initialization$variables$initialization$ = _pl.cc($['initialization'], ($) => r_$Initialization__Or__Selection(
+                        const definition: _.proto__implementation.Resolved.Flat.Initialization$call$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
+                        const call: _.proto__implementation.Resolved.Flat.Initialization$call$call$ = _pl.cc($['call'], ($) => r_$Function__Call(
                             $,
                         ))
                         return {
-                            'initialization': initialization,
-                            'variables': variables,
+                            'call': call,
+                            'definition': definition,
+                            'function': _lfunction,
+                        }
+                    })])
+                    case 'type': return _pl.ss($, ($) => ['type', _pl.cc($, ($): _.proto__implementation.Resolved.Flat.Initialization$type$ => {
+                        switch ($[0]) {
+                            case 'array': return _pl.ss($, ($) => ['array', _pl.cc($, ($) => {
+                                const definition: _.proto__implementation.Resolved.Flat.Initialization$type$array$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
+                                const _ltype: _.proto__implementation.Resolved.Flat.Initialization$type$array$type$ = _pl.cc($['type'], ($) => _pl.cc($, ($): _.proto__implementation.Resolved.Flat.Initialization$type$array$type$ => {
+                                    switch ($[0]) {
+                                        case 'literal': return _pl.ss($, ($) => ['literal', _pl.cc($, ($) => {
+                                            const initialization: _.proto__implementation.Resolved.Flat.Initialization$type$array$type$literal$initialization$ = _pl.cc($['initialization'], ($) => $.map(($) => r_$Initialization(
+                                                $,
+                                            )))
+                                            return {
+                                                'initialization': initialization,
+                                            }
+                                        })])
+                                        case 'map': return _pl.ss($, ($) => ['map', _pl.cc($, ($) => {
+                                            const source: _.proto__implementation.Resolved.Flat.Initialization$type$array$type$map$source$ = _pl.cc($['source'], ($) => r_$Source__Selection(
+                                                $,
+                                            ))
+                                            const initialization: _.proto__implementation.Resolved.Flat.Initialization$type$array$type$map$initialization$ = _pl.cc($['initialization'], ($) => r_$Initialization(
+                                                $,
+                                            ))
+                                            return {
+                                                'initialization': initialization,
+                                                'source': source,
+                                            }
+                                        })])
+                                        default: return _pl.au($[0])
+                                    }
+                                }))
+                                return {
+                                    'definition': definition,
+                                    'type': _ltype,
+                                }
+                            })])
+                            case 'atom': return _pl.ss($, ($) => ['atom', _pl.cc($, ($) => {
+                                const definition: _.proto__implementation.Resolved.Flat.Initialization$type$atom$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
+                                const _ltype: _.proto__implementation.Resolved.Flat.Initialization$type$atom$type$ = _pl.cc($['type'], ($) => _pl.cc($, ($): _.proto__implementation.Resolved.Flat.Initialization$type$atom$type$ => {
+                                    switch ($[0]) {
+                                        case 'boolean': return _pl.ss($, ($) => ['boolean', _pl.cc($, ($) => {
+                                            const definition: _.proto__implementation.Resolved.Flat.Initialization$type$atom$type$boolean$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
+                                            const initialization: _.proto__implementation.Resolved.Flat.Initialization$type$atom$type$boolean$initialization$ = _pl.cc($['initialization'], ($) => r_$Boolean__Initialization(
+                                                $,
+                                            ))
+                                            return {
+                                                'definition': definition,
+                                                'initialization': initialization,
+                                            }
+                                        })])
+                                        case 'copy': return _pl.ss($, ($) => ['copy', _pl.cc($, ($) => {
+                                            const source: _.proto__implementation.Resolved.Flat.Initialization$type$atom$type$copy$source$ = _pl.cc($['source'], ($) => r_$Source__Selection(
+                                                $,
+                                            ))
+                                            return {
+                                                'source': source,
+                                            }
+                                        })])
+                                        case 'null': return _pl.ss($, ($) => ['null', _pl.cc($, ($) => {
+                                            const definition: _.proto__implementation.Resolved.Flat.Initialization$type$atom$type$null$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
+                                            return {
+                                                'definition': definition,
+                                            }
+                                        })])
+                                        case 'numerical': return _pl.ss($, ($) => ['numerical', _pl.cc($, ($) => {
+                                            const definition: _.proto__implementation.Resolved.Flat.Initialization$type$atom$type$numerical$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
+                                            const initialization: _.proto__implementation.Resolved.Flat.Initialization$type$atom$type$numerical$initialization$ = _pl.cc($['initialization'], ($) => r_$Numerical__Initialization(
+                                                $,
+                                            ))
+                                            return {
+                                                'definition': definition,
+                                                'initialization': initialization,
+                                            }
+                                        })])
+                                        case 'string': return _pl.ss($, ($) => ['string', _pl.cc($, ($) => {
+                                            const definition: _.proto__implementation.Resolved.Flat.Initialization$type$atom$type$string$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
+                                            const initialization: _.proto__implementation.Resolved.Flat.Initialization$type$atom$type$string$initialization$ = _pl.cc($['initialization'], ($) => r_$String__Initialization(
+                                                $,
+                                            ))
+                                            return {
+                                                'definition': definition,
+                                                'initialization': initialization,
+                                            }
+                                        })])
+                                        default: return _pl.au($[0])
+                                    }
+                                }))
+                                return {
+                                    'definition': definition,
+                                    'type': _ltype,
+                                }
+                            })])
+                            case 'computed': return _pl.ss($, ($) => ['computed', _pl.cc($, ($) => {
+                                const definition: _.proto__implementation.Resolved.Flat.Initialization$type$computed$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
+                                return {
+                                    'definition': definition,
+                                }
+                            })])
+                            case 'dictionary': return _pl.ss($, ($) => ['dictionary', _pl.cc($, ($) => {
+                                const definition: _.proto__implementation.Resolved.Flat.Initialization$type$dictionary$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
+                                const _ltype: _.proto__implementation.Resolved.Flat.Initialization$type$dictionary$type$ = _pl.cc($['type'], ($) => _pl.cc($, ($): _.proto__implementation.Resolved.Flat.Initialization$type$dictionary$type$ => {
+                                    switch ($[0]) {
+                                        case 'literal': return _pl.ss($, ($) => ['literal', _pl.cc($, ($) => {
+                                            const initialization: _.proto__implementation.Resolved.Flat.Initialization$type$dictionary$type$literal$initialization$ = _pl.cc($['initialization'], ($) => $.map(($) => r_$Initialization(
+                                                $,
+                                            )))
+                                            return {
+                                                'initialization': initialization,
+                                            }
+                                        })])
+                                        case 'map': return _pl.ss($, ($) => ['map', _pl.cc($, ($) => {
+                                            const source: _.proto__implementation.Resolved.Flat.Initialization$type$dictionary$type$map$source$ = _pl.cc($['source'], ($) => r_$Source__Selection(
+                                                $,
+                                            ))
+                                            const initialization: _.proto__implementation.Resolved.Flat.Initialization$type$dictionary$type$map$initialization$ = _pl.cc($['initialization'], ($) => r_$Initialization(
+                                                $,
+                                            ))
+                                            return {
+                                                'initialization': initialization,
+                                                'source': source,
+                                            }
+                                        })])
+                                        default: return _pl.au($[0])
+                                    }
+                                }))
+                                return {
+                                    'definition': definition,
+                                    'type': _ltype,
+                                }
+                            })])
+                            case 'group': return _pl.ss($, ($) => ['group', _pl.cc($, ($) => {
+                                const definition: _.proto__implementation.Resolved.Flat.Initialization$type$group$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
+                                const properties: _.proto__implementation.Resolved.Flat.Initialization$type$group$properties$ = _pl.cc($['properties'], ($) => $.map(($) => r_$Initialization(
+                                    $,
+                                )))
+                                return {
+                                    'definition': definition,
+                                    'properties': properties,
+                                }
+                            })])
+                            case 'initialization function': return _pl.ss($, ($) => ['initialization function', _pl.cc($, ($) => {
+                                const definition: _.proto__implementation.Resolved.Flat.Initialization$type$initialization__function$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
+                                const temp__has__parameters: _.proto__implementation.Resolved.Flat.Initialization$type$initialization__function$temp__has__parameters$ = _pl.cc($['temp has parameters'], ($) => _pd.implementMe("OPTIONAL"))
+                                const variables: _.proto__implementation.Resolved.Flat.Initialization$type$initialization__function$variables$ = _pl.cc($['variables'], ($) => r_$Aggregated__Variables(
+                                    $,
+                                ))
+                                const initialization: _.proto__implementation.Resolved.Flat.Initialization$type$initialization__function$initialization$ = _pl.cc($['initialization'], ($) => r_$Initialization(
+                                    $,
+                                ))
+                                return {
+                                    'definition': definition,
+                                    'initialization': initialization,
+                                    'temp has parameters': temp__has__parameters,
+                                    'variables': variables,
+                                }
+                            })])
+                            case 'lookup': return _pl.ss($, ($) => ['lookup', _pl.cc($, ($) => {
+                                const definition: _.proto__implementation.Resolved.Flat.Initialization$type$lookup$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
+                                return {
+                                    'definition': definition,
+                                }
+                            })])
+                            case 'optional': return _pl.ss($, ($) => ['optional', _pl.cc($, ($) => {
+                                const definition: _.proto__implementation.Resolved.Flat.Initialization$type$optional$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
+                                return {
+                                    'definition': definition,
+                                }
+                            })])
+                            case 'procedure': return _pl.ss($, ($) => ['procedure', _pl.cc($, ($) => {
+                                const definition: _.proto__implementation.Resolved.Flat.Initialization$type$procedure$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
+                                const temp__has__parameters: _.proto__implementation.Resolved.Flat.Initialization$type$procedure$temp__has__parameters$ = _pl.cc($['temp has parameters'], ($) => _pd.implementMe("OPTIONAL"))
+                                const variables: _.proto__implementation.Resolved.Flat.Initialization$type$procedure$variables$ = _pl.cc($['variables'], ($) => r_$Aggregated__Variables(
+                                    $,
+                                ))
+                                const block: _.proto__implementation.Resolved.Flat.Initialization$type$procedure$block$ = _pl.cc($['block'], ($) => r_$Block(
+                                    $,
+                                ))
+                                return {
+                                    'block': block,
+                                    'definition': definition,
+                                    'temp has parameters': temp__has__parameters,
+                                    'variables': variables,
+                                }
+                            })])
+                            case 'selection function': return _pl.ss($, ($) => ['selection function', _pl.cc($, ($) => {
+                                const definition: _.proto__implementation.Resolved.Flat.Initialization$type$selection__function$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
+                                const temp__has__parameters: _.proto__implementation.Resolved.Flat.Initialization$type$selection__function$temp__has__parameters$ = _pl.cc($['temp has parameters'], ($) => _pd.implementMe("OPTIONAL"))
+                                const variables: _.proto__implementation.Resolved.Flat.Initialization$type$selection__function$variables$ = _pl.cc($['variables'], ($) => r_$Aggregated__Variables(
+                                    $,
+                                ))
+                                const initialization: _.proto__implementation.Resolved.Flat.Initialization$type$selection__function$initialization$ = _pl.cc($['initialization'], ($) => r_$Initialization(
+                                    $,
+                                ))
+                                return {
+                                    'definition': definition,
+                                    'initialization': initialization,
+                                    'temp has parameters': temp__has__parameters,
+                                    'variables': variables,
+                                }
+                            })])
+                            case 'tagged union': return _pl.ss($, ($) => ['tagged union', _pl.cc($, ($) => {
+                                const definition: _.proto__implementation.Resolved.Flat.Initialization$type$tagged__union$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
+                                const state: _.proto__implementation.Resolved.Flat.Initialization$type$tagged__union$state$ = _pl.cc($['state'], ($) => _pd.implementMe("RESOLVED REFERENCE"))
+                                const initialization: _.proto__implementation.Resolved.Flat.Initialization$type$tagged__union$initialization$ = _pl.cc($['initialization'], ($) => r_$Initialization(
+                                    $,
+                                ))
+                                return {
+                                    'definition': definition,
+                                    'initialization': initialization,
+                                    'state': state,
+                                }
+                            })])
+                            default: return _pl.au($[0])
                         }
                     })])
                     default: return _pl.au($[0])
@@ -1120,7 +1232,7 @@ export const $: _.$ = {
                 const target: _.proto__implementation.Resolved.Flat.Assign$target$ = _pl.cc($['target'], ($) => r_$Target__Selection(
                     $,
                 ))
-                const initialization: _.proto__implementation.Resolved.Flat.Assign$initialization$ = _pl.cc($['initialization'], ($) => r_$Initialization__Or__Selection(
+                const initialization: _.proto__implementation.Resolved.Flat.Assign$initialization$ = _pl.cc($['initialization'], ($) => r_$Initialization(
                     $,
                 ))
                 return {
@@ -1137,17 +1249,13 @@ export const $: _.$ = {
                         const _lfunction: _.proto__implementation.Resolved.Flat.Statements$A$call$function$ = _pl.cc($['function'], ($) => r_$Source__Selection(
                             $,
                         ))
-                        const context__definition: _.proto__implementation.Resolved.Flat.Statements$A$call$context__definition$ = _pl.cc($['context definition'], ($) => _pd.implementMe("CONSTRAINT"))
-                        const context: _.proto__implementation.Resolved.Flat.Statements$A$call$context$ = _pl.cc($['context'], ($) => r_$Source__Selection(
+                        const definition: _.proto__implementation.Resolved.Flat.Statements$A$call$definition$ = _pl.cc($['definition'], ($) => _pd.implementMe("CONSTRAINT"))
+                        const call: _.proto__implementation.Resolved.Flat.Statements$A$call$call$ = _pl.cc($['call'], ($) => r_$Function__Call(
                             $,
                         ))
-                        const _larguments: _.proto__implementation.Resolved.Flat.Statements$A$call$arguments$ = _pl.cc($['arguments'], ($) => $.map(($) => r_$Initialization__Or__Selection(
-                            $,
-                        )))
                         return {
-                            'arguments': _larguments,
-                            'context': context,
-                            'context definition': context__definition,
+                            'call': call,
+                            'definition': definition,
                             'function': _lfunction,
                         }
                     })])
@@ -1267,8 +1375,9 @@ export const $: _.$ = {
                 'Block': r_$Block,
                 'Boolean Initialization': r_$Boolean__Initialization,
                 'Boolean Initialization Or Selection': r_$Boolean__Initialization__Or__Selection,
+                'Function Call': r_$Function__Call,
+                'Generic Initialization': r_$Generic__Initialization,
                 'Initialization': r_$Initialization,
-                'Initialization Or Selection': r_$Initialization__Or__Selection,
                 'Local Variables': r_$Local__Variables,
                 'Numerical Initialization': r_$Numerical__Initialization,
                 'Numerical Initialization Or Selection': r_$Numerical__Initialization__Or__Selection,
@@ -1293,8 +1402,9 @@ export const $: _.$ = {
             'Block': ($) => {},
             'Boolean Initialization': ($) => {},
             'Boolean Initialization Or Selection': ($) => {},
+            'Function Call': ($) => {},
+            'Generic Initialization': ($) => {},
             'Initialization': ($) => {},
-            'Initialization Or Selection': ($) => {},
             'Local Variables': ($) => {},
             'Numerical Initialization': ($) => {},
             'Numerical Initialization Or Selection': ($) => {},
@@ -1416,28 +1526,21 @@ export const $: _.$ = {
             })
             const r_$Type: _.proto__typesystem.Resolve.resolvers.Type = ($) => _pl.cc($, ($): _.proto__typesystem.Resolved.Flat.Type$ => {
                 switch ($[0]) {
-                    case 'address function': return _pl.ss($, ($) => ['address function', _pl.cc($, ($) => {
-                        const declaration: _.proto__typesystem.Resolved.Flat.Type$address__function$declaration$ = _pl.cc($['declaration'], ($) => r_$Function__Declaration(
-                            $,
-                            {
-                                'cyclic sibling types': _pd.implementMe("ARGS"),
-                                'resolved namespaces': _pd.implementMe("ARGS"),
-                                'resolved sibling types': _pd.implementMe("ARGS"),
-                                'type parameters': _pd.implementMe("ARGS"),
-                            }
-                        ))
-                        const return__type: _.proto__typesystem.Resolved.Flat.Type$address__function$return__type$ = _pl.cc($['return type'], ($) => r_$Type(
-                            $,
-                            {
-                                'cyclic sibling types': _pd.implementMe("ARGS"),
-                                'resolved namespaces': _pd.implementMe("ARGS"),
-                                'resolved sibling types': _pd.implementMe("ARGS"),
-                                'type parameters': _pd.implementMe("ARGS"),
-                            }
-                        ))
-                        return {
-                            'declaration': declaration,
-                            'return type': return__type,
+                    case 'atom': return _pl.ss($, ($) => ['atom', _pl.cc($, ($): _.proto__typesystem.Resolved.Flat.Type$atom$ => {
+                        switch ($[0]) {
+                            case 'boolean': return _pl.ss($, ($) => ['boolean', _pl.cc($, ($) => {
+                                return null
+                            })])
+                            case 'null': return _pl.ss($, ($) => ['null', _pl.cc($, ($) => {
+                                return null
+                            })])
+                            case 'number': return _pl.ss($, ($) => ['number', _pl.cc($, ($) => {
+                                return null
+                            })])
+                            case 'string': return _pl.ss($, ($) => ['string', _pl.cc($, ($) => {
+                                return null
+                            })])
+                            default: return _pl.au($[0])
                         }
                     })])
                     case 'array': return _pl.ss($, ($) => ['array', r_$Type(
@@ -1449,9 +1552,6 @@ export const $: _.$ = {
                             'type parameters': _pd.implementMe("ARGS"),
                         }
                     )])
-                    case 'boolean': return _pl.ss($, ($) => ['boolean', _pl.cc($, ($) => {
-                        return null
-                    })])
                     case 'computed': return _pl.ss($, ($) => ['computed', r_$Type(
                         $,
                         {
@@ -1486,6 +1586,30 @@ export const $: _.$ = {
                             'type': _ltype,
                         }
                     }))])
+                    case 'initialization function': return _pl.ss($, ($) => ['initialization function', _pl.cc($, ($) => {
+                        const declaration: _.proto__typesystem.Resolved.Flat.Type$initialization__function$declaration$ = _pl.cc($['declaration'], ($) => r_$Function__Declaration(
+                            $,
+                            {
+                                'cyclic sibling types': _pd.implementMe("ARGS"),
+                                'resolved namespaces': _pd.implementMe("ARGS"),
+                                'resolved sibling types': _pd.implementMe("ARGS"),
+                                'type parameters': _pd.implementMe("ARGS"),
+                            }
+                        ))
+                        const return__type: _.proto__typesystem.Resolved.Flat.Type$initialization__function$return__type$ = _pl.cc($['return type'], ($) => r_$Type(
+                            $,
+                            {
+                                'cyclic sibling types': _pd.implementMe("ARGS"),
+                                'resolved namespaces': _pd.implementMe("ARGS"),
+                                'resolved sibling types': _pd.implementMe("ARGS"),
+                                'type parameters': _pd.implementMe("ARGS"),
+                            }
+                        ))
+                        return {
+                            'declaration': declaration,
+                            'return type': return__type,
+                        }
+                    })])
                     case 'lookup': return _pl.ss($, ($) => ['lookup', r_$Type(
                         $,
                         {
@@ -1495,12 +1619,6 @@ export const $: _.$ = {
                             'type parameters': _pd.implementMe("ARGS"),
                         }
                     )])
-                    case 'null': return _pl.ss($, ($) => ['null', _pl.cc($, ($) => {
-                        return null
-                    })])
-                    case 'number': return _pl.ss($, ($) => ['number', _pl.cc($, ($) => {
-                        return null
-                    })])
                     case 'optional': return _pl.ss($, ($) => ['optional', r_$Type(
                         $,
                         {
@@ -1524,8 +1642,29 @@ export const $: _.$ = {
                             'declaration': declaration,
                         }
                     })])
-                    case 'string': return _pl.ss($, ($) => ['string', _pl.cc($, ($) => {
-                        return null
+                    case 'selection function': return _pl.ss($, ($) => ['selection function', _pl.cc($, ($) => {
+                        const declaration: _.proto__typesystem.Resolved.Flat.Type$selection__function$declaration$ = _pl.cc($['declaration'], ($) => r_$Function__Declaration(
+                            $,
+                            {
+                                'cyclic sibling types': _pd.implementMe("ARGS"),
+                                'resolved namespaces': _pd.implementMe("ARGS"),
+                                'resolved sibling types': _pd.implementMe("ARGS"),
+                                'type parameters': _pd.implementMe("ARGS"),
+                            }
+                        ))
+                        const return__type: _.proto__typesystem.Resolved.Flat.Type$selection__function$return__type$ = _pl.cc($['return type'], ($) => r_$Type(
+                            $,
+                            {
+                                'cyclic sibling types': _pd.implementMe("ARGS"),
+                                'resolved namespaces': _pd.implementMe("ARGS"),
+                                'resolved sibling types': _pd.implementMe("ARGS"),
+                                'type parameters': _pd.implementMe("ARGS"),
+                            }
+                        ))
+                        return {
+                            'declaration': declaration,
+                            'return type': return__type,
+                        }
                     })])
                     case 'tagged union': return _pl.ss($, ($) => ['tagged union', $.map(($) => r_$Type(
                         $,
@@ -1558,30 +1697,6 @@ export const $: _.$ = {
                             case 'sibling': return _pl.ss($, ($) => ['sibling', _pd.implementMe("RESOLVED REFERENCE")])
                             case 'cyclic sibling': return _pl.ss($, ($) => ['cyclic sibling', _pd.implementMe("CyCLIC REFERENCE")])
                             default: return _pl.au($[0])
-                        }
-                    })])
-                    case 'value function': return _pl.ss($, ($) => ['value function', _pl.cc($, ($) => {
-                        const declaration: _.proto__typesystem.Resolved.Flat.Type$value__function$declaration$ = _pl.cc($['declaration'], ($) => r_$Function__Declaration(
-                            $,
-                            {
-                                'cyclic sibling types': _pd.implementMe("ARGS"),
-                                'resolved namespaces': _pd.implementMe("ARGS"),
-                                'resolved sibling types': _pd.implementMe("ARGS"),
-                                'type parameters': _pd.implementMe("ARGS"),
-                            }
-                        ))
-                        const return__type: _.proto__typesystem.Resolved.Flat.Type$value__function$return__type$ = _pl.cc($['return type'], ($) => r_$Type(
-                            $,
-                            {
-                                'cyclic sibling types': _pd.implementMe("ARGS"),
-                                'resolved namespaces': _pd.implementMe("ARGS"),
-                                'resolved sibling types': _pd.implementMe("ARGS"),
-                                'type parameters': _pd.implementMe("ARGS"),
-                            }
-                        ))
-                        return {
-                            'declaration': declaration,
-                            'return type': return__type,
                         }
                     })])
                     default: return _pl.au($[0])

@@ -39,7 +39,9 @@ export namespace pareto__lang__data {
             
             export type Type$type$component$type$<_TAnnotation> = Global__Type__Selection$<_TAnnotation>
             
-            export type Type$type$component$arguments$D$<_TAnnotation> = null
+            export type Type$type$component$arguments$D$O$<_TAnnotation> = No__Context__Value__Selection$<_TAnnotation>
+            
+            export type Type$type$component$arguments$D$<_TAnnotation> = _pt.OptionalValue<Type$type$component$arguments$D$O$<_TAnnotation>>
             
             export type Type$type$component$arguments$<_TAnnotation> = _pt.Dictionary<Type$type$component$arguments$D$<_TAnnotation>>
             
@@ -182,8 +184,11 @@ export namespace pareto__lang__data {
                 readonly 'referent': _TAnnotation
             }
             
+            export type Global__Type__Declaration$parameters$D$type$key$<_TAnnotation> = null
+            
             export type Global__Type__Declaration$parameters$D$type$<_TAnnotation> = 
                 | ['cyclic sibling lookup', Global__Type__Declaration$parameters$D$type$cyclic__sibling__lookup$<_TAnnotation>]
+                | ['key', Global__Type__Declaration$parameters$D$type$key$<_TAnnotation>]
                 | ['resolved value', Global__Type__Declaration$parameters$D$type$resolved__value$<_TAnnotation>]
                 | ['sibling lookup', Global__Type__Declaration$parameters$D$type$sibling__lookup$<_TAnnotation>]
             
@@ -214,13 +219,33 @@ export namespace pareto__lang__data {
             
             export type Global__Type__Declarations$<_TAnnotation> = _pt.Dictionary<Global__Type__Declarations$D$<_TAnnotation>>
             
+            export type Variable$parent__variable$<_TAnnotation> = {
+                readonly 'key': string
+                readonly 'referent': _TAnnotation
+            }
+            
+            export type Variable$<_TAnnotation> = 
+                | ['parent variable', Variable$parent__variable$<_TAnnotation>]
+            
+            export type Variables$D$<_TAnnotation> = Variable$<_TAnnotation>
+            
+            export type Variables$<_TAnnotation> = _pt.Dictionary<Variables$D$<_TAnnotation>>
+            
             export type Global__Type__Definition$declaration$<_TAnnotation> = _TAnnotation
+            
+            export type Global__Type__Definition$variables$<_TAnnotation> = Variables$<_TAnnotation>
             
             export type Global__Type__Definition$type$<_TAnnotation> = Type$<_TAnnotation>
             
+            export type Global__Type__Definition$result$O$<_TAnnotation> = Value__Selection__Tail$<_TAnnotation>
+            
+            export type Global__Type__Definition$result$<_TAnnotation> = _pt.OptionalValue<Global__Type__Definition$result$O$<_TAnnotation>>
+            
             export type Global__Type__Definition$<_TAnnotation> = {
                 readonly 'declaration': Global__Type__Definition$declaration$<_TAnnotation>
+                readonly 'result': Global__Type__Definition$result$<_TAnnotation>
                 readonly 'type': Global__Type__Definition$type$<_TAnnotation>
+                readonly 'variables': Global__Type__Definition$variables$<_TAnnotation>
             }
             
             export type Type__Selection__Tail$step__type$dictionary$dictionary$<_TAnnotation> = _TAnnotation
@@ -413,18 +438,6 @@ export namespace pareto__lang__data {
             
             export type Root$<_TAnnotation> = Project$<_TAnnotation>
             
-            export type Variable$parent__variable$<_TAnnotation> = {
-                readonly 'key': string
-                readonly 'referent': _TAnnotation
-            }
-            
-            export type Variable$<_TAnnotation> = 
-                | ['parent variable', Variable$parent__variable$<_TAnnotation>]
-            
-            export type Variables$D$<_TAnnotation> = Variable$<_TAnnotation>
-            
-            export type Variables$<_TAnnotation> = _pt.Dictionary<Variables$D$<_TAnnotation>>
-            
             export type Value__Selection__Tail$reference$reference$<_TAnnotation> = _TAnnotation
             
             export type Value__Selection__Tail$reference$tail$O$<_TAnnotation> = Value__Selection__Tail$<_TAnnotation>
@@ -587,6 +600,12 @@ export namespace pareto__lang__data {
                             
                             export namespace D {
                                 
+                                
+                                export namespace O {
+                                    
+                                    
+                                    export type $<_TAnnotation> = _IFlat.Type$type$component$arguments$D$O$<_TAnnotation>
+                                }
                                 
                                 export type $<_TAnnotation> = _IFlat.Type$type$component$arguments$D$<_TAnnotation>
                             }
@@ -837,6 +856,12 @@ export namespace pareto__lang__data {
                                 export type $<_TAnnotation> = _IFlat.Global__Type__Declaration$parameters$D$type$cyclic__sibling__lookup$<_TAnnotation>
                             }
                             
+                            export namespace key {
+                                
+                                
+                                export type $<_TAnnotation> = _IFlat.Global__Type__Declaration$parameters$D$type$key$<_TAnnotation>
+                            }
+                            
                             export type $<_TAnnotation> = _IFlat.Global__Type__Declaration$parameters$D$type$<_TAnnotation>
                         }
                         
@@ -885,6 +910,30 @@ export namespace pareto__lang__data {
                 export type $<_TAnnotation> = _IFlat.Global__Type__Declarations$<_TAnnotation>
             }
             
+            export namespace Variable {
+                
+                
+                export namespace parent__variable {
+                    
+                    
+                    export type $<_TAnnotation> = _IFlat.Variable$parent__variable$<_TAnnotation>
+                }
+                
+                export type $<_TAnnotation> = _IFlat.Variable$<_TAnnotation>
+            }
+            
+            export namespace Variables {
+                
+                
+                export namespace D {
+                    
+                    
+                    export type $<_TAnnotation> = _IFlat.Variables$D$<_TAnnotation>
+                }
+                
+                export type $<_TAnnotation> = _IFlat.Variables$<_TAnnotation>
+            }
+            
             export namespace Global__Type__Definition {
                 
                 
@@ -894,10 +943,28 @@ export namespace pareto__lang__data {
                     export type $<_TAnnotation> = _IFlat.Global__Type__Definition$declaration$<_TAnnotation>
                 }
                 
+                export namespace variables {
+                    
+                    
+                    export type $<_TAnnotation> = _IFlat.Global__Type__Definition$variables$<_TAnnotation>
+                }
+                
                 export namespace _ltype {
                     
                     
                     export type $<_TAnnotation> = _IFlat.Global__Type__Definition$type$<_TAnnotation>
+                }
+                
+                export namespace result {
+                    
+                    
+                    export namespace O {
+                        
+                        
+                        export type $<_TAnnotation> = _IFlat.Global__Type__Definition$result$O$<_TAnnotation>
+                    }
+                    
+                    export type $<_TAnnotation> = _IFlat.Global__Type__Definition$result$<_TAnnotation>
                 }
                 
                 export type $<_TAnnotation> = _IFlat.Global__Type__Definition$<_TAnnotation>
@@ -1233,30 +1300,6 @@ export namespace pareto__lang__data {
                 export type $<_TAnnotation> = _IFlat.Root$<_TAnnotation>
             }
             
-            export namespace Variable {
-                
-                
-                export namespace parent__variable {
-                    
-                    
-                    export type $<_TAnnotation> = _IFlat.Variable$parent__variable$<_TAnnotation>
-                }
-                
-                export type $<_TAnnotation> = _IFlat.Variable$<_TAnnotation>
-            }
-            
-            export namespace Variables {
-                
-                
-                export namespace D {
-                    
-                    
-                    export type $<_TAnnotation> = _IFlat.Variables$D$<_TAnnotation>
-                }
-                
-                export type $<_TAnnotation> = _IFlat.Variables$<_TAnnotation>
-            }
-            
             export namespace Value__Selection__Tail {
                 
                 
@@ -1458,7 +1501,9 @@ export namespace pareto__lang__data {
             
             export type Type$type$component$type$ = Global__Type__Selection$
             
-            export type Type$type$component$arguments$D$ = null
+            export type Type$type$component$arguments$D$O$ = No__Context__Value__Selection$
+            
+            export type Type$type$component$arguments$D$ = _pt.OptionalValue<Type$type$component$arguments$D$O$>
             
             export type Type$type$component$arguments$ = _pt.Dictionary<Type$type$component$arguments$D$>
             
@@ -1601,8 +1646,11 @@ export namespace pareto__lang__data {
                 readonly 'referent': _pt.ComputedValue<Global__Type__Declaration$>
             }
             
+            export type Global__Type__Declaration$parameters$D$type$key$ = null
+            
             export type Global__Type__Declaration$parameters$D$type$ = 
                 | ['cyclic sibling lookup', Global__Type__Declaration$parameters$D$type$cyclic__sibling__lookup$]
+                | ['key', Global__Type__Declaration$parameters$D$type$key$]
                 | ['resolved value', Global__Type__Declaration$parameters$D$type$resolved__value$]
                 | ['sibling lookup', Global__Type__Declaration$parameters$D$type$sibling__lookup$]
             
@@ -1633,13 +1681,33 @@ export namespace pareto__lang__data {
             
             export type Global__Type__Declarations$ = _pt.Dictionary<Global__Type__Declarations$D$>
             
+            export type Variable$parent__variable$ = {
+                readonly 'key': string
+                readonly 'referent': Variable$
+            }
+            
+            export type Variable$ = 
+                | ['parent variable', Variable$parent__variable$]
+            
+            export type Variables$D$ = Variable$
+            
+            export type Variables$ = _pt.Dictionary<Variables$D$>
+            
             export type Global__Type__Definition$declaration$ = Global__Type__Declarations$D$
+            
+            export type Global__Type__Definition$variables$ = Variables$
             
             export type Global__Type__Definition$type$ = Type$
             
+            export type Global__Type__Definition$result$O$ = Value__Selection__Tail$
+            
+            export type Global__Type__Definition$result$ = _pt.OptionalValue<Global__Type__Definition$result$O$>
+            
             export type Global__Type__Definition$ = {
                 readonly 'declaration': Global__Type__Definition$declaration$
+                readonly 'result': Global__Type__Definition$result$
                 readonly 'type': Global__Type__Definition$type$
+                readonly 'variables': Global__Type__Definition$variables$
             }
             
             export type Type__Selection__Tail$step__type$dictionary$dictionary$ = Type$type$dictionary$
@@ -1832,18 +1900,6 @@ export namespace pareto__lang__data {
             
             export type Root$ = Project$
             
-            export type Variable$parent__variable$ = {
-                readonly 'key': string
-                readonly 'referent': Variable$
-            }
-            
-            export type Variable$ = 
-                | ['parent variable', Variable$parent__variable$]
-            
-            export type Variables$D$ = Variable$
-            
-            export type Variables$ = _pt.Dictionary<Variables$D$>
-            
             export type Value__Selection__Tail$reference$reference$ = Type$type$resolved__reference$
             
             export type Value__Selection__Tail$reference$tail$O$ = Value__Selection__Tail$
@@ -2006,6 +2062,12 @@ export namespace pareto__lang__data {
                             
                             export namespace D {
                                 
+                                
+                                export namespace O {
+                                    
+                                    
+                                    export type $ = _IFlat.Type$type$component$arguments$D$O$
+                                }
                                 
                                 export type $ = _IFlat.Type$type$component$arguments$D$
                             }
@@ -2256,6 +2318,12 @@ export namespace pareto__lang__data {
                                 export type $ = _IFlat.Global__Type__Declaration$parameters$D$type$cyclic__sibling__lookup$
                             }
                             
+                            export namespace key {
+                                
+                                
+                                export type $ = _IFlat.Global__Type__Declaration$parameters$D$type$key$
+                            }
+                            
                             export type $ = _IFlat.Global__Type__Declaration$parameters$D$type$
                         }
                         
@@ -2304,6 +2372,30 @@ export namespace pareto__lang__data {
                 export type $ = _IFlat.Global__Type__Declarations$
             }
             
+            export namespace Variable {
+                
+                
+                export namespace parent__variable {
+                    
+                    
+                    export type $ = _IFlat.Variable$parent__variable$
+                }
+                
+                export type $ = _IFlat.Variable$
+            }
+            
+            export namespace Variables {
+                
+                
+                export namespace D {
+                    
+                    
+                    export type $ = _IFlat.Variables$D$
+                }
+                
+                export type $ = _IFlat.Variables$
+            }
+            
             export namespace Global__Type__Definition {
                 
                 
@@ -2313,10 +2405,28 @@ export namespace pareto__lang__data {
                     export type $ = _IFlat.Global__Type__Definition$declaration$
                 }
                 
+                export namespace variables {
+                    
+                    
+                    export type $ = _IFlat.Global__Type__Definition$variables$
+                }
+                
                 export namespace _ltype {
                     
                     
                     export type $ = _IFlat.Global__Type__Definition$type$
+                }
+                
+                export namespace result {
+                    
+                    
+                    export namespace O {
+                        
+                        
+                        export type $ = _IFlat.Global__Type__Definition$result$O$
+                    }
+                    
+                    export type $ = _IFlat.Global__Type__Definition$result$
                 }
                 
                 export type $ = _IFlat.Global__Type__Definition$
@@ -2652,30 +2762,6 @@ export namespace pareto__lang__data {
                 export type $ = _IFlat.Root$
             }
             
-            export namespace Variable {
-                
-                
-                export namespace parent__variable {
-                    
-                    
-                    export type $ = _IFlat.Variable$parent__variable$
-                }
-                
-                export type $ = _IFlat.Variable$
-            }
-            
-            export namespace Variables {
-                
-                
-                export namespace D {
-                    
-                    
-                    export type $ = _IFlat.Variables$D$
-                }
-                
-                export type $ = _IFlat.Variables$
-            }
-            
             export namespace Value__Selection__Tail {
                 
                 
@@ -2911,7 +2997,7 @@ export namespace pareto__lang__data {
                     readonly 'atom types': _IResolved.Flat.Atom__Types$
                     readonly 'global type declarations': _IResolved.Flat.Global__Type__Declarations$
                     readonly 'imports': _IResolved.Flat.Imports$
-                    readonly 'key': string
+                    readonly 'key': _IResolved.Flat.Atom$
                     readonly 'non cyclic siblings': _pt.Lookup<_IResolved.Flat.Global__Type__Definition$>
                 }
             ) => _IResolved.Flat.Global__Type__Definition$
@@ -3069,6 +3155,20 @@ export namespace pareto__lang__data {
                 }
             ) => void
             
+            export type Variable = (
+                $: _IResolved.Flat.Variable$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Variables = (
+                $: _IResolved.Flat.Variables$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
             export type Global__Type__Definition = (
                 $: _IResolved.Flat.Global__Type__Definition$,
                 $p: {
@@ -3127,20 +3227,6 @@ export namespace pareto__lang__data {
             
             export type Root = (
                 $: _IResolved.Flat.Root$,
-                $p: {
-                    readonly 'out': boolean
-                }
-            ) => void
-            
-            export type Variable = (
-                $: _IResolved.Flat.Variable$,
-                $p: {
-                    readonly 'out': boolean
-                }
-            ) => void
-            
-            export type Variables = (
-                $: _IResolved.Flat.Variables$,
                 $p: {
                     readonly 'out': boolean
                 }
@@ -3271,18 +3357,21 @@ export namespace proto__typesystem {
                 readonly 'types': Namespace$types$<_TAnnotation>
             }
             
-            export type Type$address__function$declaration$<_TAnnotation> = Function__Declaration$<_TAnnotation>
+            export type Type$atom$boolean$<_TAnnotation> = null
             
-            export type Type$address__function$return__type$<_TAnnotation> = Type$<_TAnnotation>
+            export type Type$atom$null$<_TAnnotation> = null
             
-            export type Type$address__function$<_TAnnotation> = {
-                readonly 'declaration': Type$address__function$declaration$<_TAnnotation>
-                readonly 'return type': Type$address__function$return__type$<_TAnnotation>
-            }
+            export type Type$atom$number$<_TAnnotation> = null
+            
+            export type Type$atom$string$<_TAnnotation> = null
+            
+            export type Type$atom$<_TAnnotation> = 
+                | ['boolean', Type$atom$boolean$<_TAnnotation>]
+                | ['null', Type$atom$null$<_TAnnotation>]
+                | ['number', Type$atom$number$<_TAnnotation>]
+                | ['string', Type$atom$string$<_TAnnotation>]
             
             export type Type$array$<_TAnnotation> = Type$<_TAnnotation>
-            
-            export type Type$boolean$<_TAnnotation> = null
             
             export type Type$computed$<_TAnnotation> = Type$<_TAnnotation>
             
@@ -3301,11 +3390,16 @@ export namespace proto__typesystem {
             
             export type Type$group$<_TAnnotation> = _pt.Dictionary<Type$group$D$<_TAnnotation>>
             
+            export type Type$initialization__function$declaration$<_TAnnotation> = Function__Declaration$<_TAnnotation>
+            
+            export type Type$initialization__function$return__type$<_TAnnotation> = Type$<_TAnnotation>
+            
+            export type Type$initialization__function$<_TAnnotation> = {
+                readonly 'declaration': Type$initialization__function$declaration$<_TAnnotation>
+                readonly 'return type': Type$initialization__function$return__type$<_TAnnotation>
+            }
+            
             export type Type$lookup$<_TAnnotation> = Type$<_TAnnotation>
-            
-            export type Type$null$<_TAnnotation> = null
-            
-            export type Type$number$<_TAnnotation> = null
             
             export type Type$optional$<_TAnnotation> = Type$<_TAnnotation>
             
@@ -3315,7 +3409,14 @@ export namespace proto__typesystem {
                 readonly 'declaration': Type$procedure$declaration$<_TAnnotation>
             }
             
-            export type Type$string$<_TAnnotation> = null
+            export type Type$selection__function$declaration$<_TAnnotation> = Function__Declaration$<_TAnnotation>
+            
+            export type Type$selection__function$return__type$<_TAnnotation> = Type$<_TAnnotation>
+            
+            export type Type$selection__function$<_TAnnotation> = {
+                readonly 'declaration': Type$selection__function$declaration$<_TAnnotation>
+                readonly 'return type': Type$selection__function$return__type$<_TAnnotation>
+            }
             
             export type Type$tagged__union$D$<_TAnnotation> = Type$<_TAnnotation>
             
@@ -3353,32 +3454,20 @@ export namespace proto__typesystem {
                 | ['external', Type$type__reference$external$<_TAnnotation>]
                 | ['sibling', Type$type__reference$sibling$<_TAnnotation>]
             
-            export type Type$value__function$declaration$<_TAnnotation> = Function__Declaration$<_TAnnotation>
-            
-            export type Type$value__function$return__type$<_TAnnotation> = Type$<_TAnnotation>
-            
-            export type Type$value__function$<_TAnnotation> = {
-                readonly 'declaration': Type$value__function$declaration$<_TAnnotation>
-                readonly 'return type': Type$value__function$return__type$<_TAnnotation>
-            }
-            
             export type Type$<_TAnnotation> = 
-                | ['address function', Type$address__function$<_TAnnotation>]
                 | ['array', Type$array$<_TAnnotation>]
-                | ['boolean', Type$boolean$<_TAnnotation>]
+                | ['atom', Type$atom$<_TAnnotation>]
                 | ['computed', Type$computed$<_TAnnotation>]
                 | ['dictionary', Type$dictionary$<_TAnnotation>]
                 | ['group', Type$group$<_TAnnotation>]
+                | ['initialization function', Type$initialization__function$<_TAnnotation>]
                 | ['lookup', Type$lookup$<_TAnnotation>]
-                | ['null', Type$null$<_TAnnotation>]
-                | ['number', Type$number$<_TAnnotation>]
                 | ['optional', Type$optional$<_TAnnotation>]
                 | ['procedure', Type$procedure$<_TAnnotation>]
-                | ['string', Type$string$<_TAnnotation>]
+                | ['selection function', Type$selection__function$<_TAnnotation>]
                 | ['tagged union', Type$tagged__union$<_TAnnotation>]
                 | ['type parameter', Type$type__parameter$<_TAnnotation>]
                 | ['type reference', Type$type__reference$<_TAnnotation>]
-                | ['value function', Type$value__function$<_TAnnotation>]
             
             export type Type__Arguments$D$type$<_TAnnotation> = Type$<_TAnnotation>
             
@@ -3596,34 +3685,40 @@ export namespace proto__typesystem {
             export namespace TType {
                 
                 
-                export namespace address__function {
+                export namespace atom {
                     
                     
-                    export namespace declaration {
+                    export namespace _lboolean {
                         
                         
-                        export type $<_TAnnotation> = _IFlat.Type$address__function$declaration$<_TAnnotation>
+                        export type $<_TAnnotation> = _IFlat.Type$atom$boolean$<_TAnnotation>
                     }
                     
-                    export namespace return__type {
+                    export namespace _lnull {
                         
                         
-                        export type $<_TAnnotation> = _IFlat.Type$address__function$return__type$<_TAnnotation>
+                        export type $<_TAnnotation> = _IFlat.Type$atom$null$<_TAnnotation>
                     }
                     
-                    export type $<_TAnnotation> = _IFlat.Type$address__function$<_TAnnotation>
+                    export namespace _lnumber {
+                        
+                        
+                        export type $<_TAnnotation> = _IFlat.Type$atom$number$<_TAnnotation>
+                    }
+                    
+                    export namespace _lstring {
+                        
+                        
+                        export type $<_TAnnotation> = _IFlat.Type$atom$string$<_TAnnotation>
+                    }
+                    
+                    export type $<_TAnnotation> = _IFlat.Type$atom$<_TAnnotation>
                 }
                 
                 export namespace array {
                     
                     
                     export type $<_TAnnotation> = _IFlat.Type$array$<_TAnnotation>
-                }
-                
-                export namespace _lboolean {
-                    
-                    
-                    export type $<_TAnnotation> = _IFlat.Type$boolean$<_TAnnotation>
                 }
                 
                 export namespace computed {
@@ -3668,22 +3763,28 @@ export namespace proto__typesystem {
                     export type $<_TAnnotation> = _IFlat.Type$group$<_TAnnotation>
                 }
                 
+                export namespace initialization__function {
+                    
+                    
+                    export namespace declaration {
+                        
+                        
+                        export type $<_TAnnotation> = _IFlat.Type$initialization__function$declaration$<_TAnnotation>
+                    }
+                    
+                    export namespace return__type {
+                        
+                        
+                        export type $<_TAnnotation> = _IFlat.Type$initialization__function$return__type$<_TAnnotation>
+                    }
+                    
+                    export type $<_TAnnotation> = _IFlat.Type$initialization__function$<_TAnnotation>
+                }
+                
                 export namespace lookup {
                     
                     
                     export type $<_TAnnotation> = _IFlat.Type$lookup$<_TAnnotation>
-                }
-                
-                export namespace _lnull {
-                    
-                    
-                    export type $<_TAnnotation> = _IFlat.Type$null$<_TAnnotation>
-                }
-                
-                export namespace _lnumber {
-                    
-                    
-                    export type $<_TAnnotation> = _IFlat.Type$number$<_TAnnotation>
                 }
                 
                 export namespace optional {
@@ -3704,10 +3805,22 @@ export namespace proto__typesystem {
                     export type $<_TAnnotation> = _IFlat.Type$procedure$<_TAnnotation>
                 }
                 
-                export namespace _lstring {
+                export namespace selection__function {
                     
                     
-                    export type $<_TAnnotation> = _IFlat.Type$string$<_TAnnotation>
+                    export namespace declaration {
+                        
+                        
+                        export type $<_TAnnotation> = _IFlat.Type$selection__function$declaration$<_TAnnotation>
+                    }
+                    
+                    export namespace return__type {
+                        
+                        
+                        export type $<_TAnnotation> = _IFlat.Type$selection__function$return__type$<_TAnnotation>
+                    }
+                    
+                    export type $<_TAnnotation> = _IFlat.Type$selection__function$<_TAnnotation>
                 }
                 
                 export namespace tagged__union {
@@ -3762,24 +3875,6 @@ export namespace proto__typesystem {
                     }
                     
                     export type $<_TAnnotation> = _IFlat.Type$type__reference$<_TAnnotation>
-                }
-                
-                export namespace value__function {
-                    
-                    
-                    export namespace declaration {
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Type$value__function$declaration$<_TAnnotation>
-                    }
-                    
-                    export namespace return__type {
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Type$value__function$return__type$<_TAnnotation>
-                    }
-                    
-                    export type $<_TAnnotation> = _IFlat.Type$value__function$<_TAnnotation>
                 }
                 
                 export type $<_TAnnotation> = _IFlat.Type$<_TAnnotation>
@@ -3971,18 +4066,21 @@ export namespace proto__typesystem {
                 readonly 'types': Namespace$types$
             }
             
-            export type Type$address__function$declaration$ = Function__Declaration$
+            export type Type$atom$boolean$ = null
             
-            export type Type$address__function$return__type$ = Type$
+            export type Type$atom$null$ = null
             
-            export type Type$address__function$ = {
-                readonly 'declaration': Type$address__function$declaration$
-                readonly 'return type': Type$address__function$return__type$
-            }
+            export type Type$atom$number$ = null
+            
+            export type Type$atom$string$ = null
+            
+            export type Type$atom$ = 
+                | ['boolean', Type$atom$boolean$]
+                | ['null', Type$atom$null$]
+                | ['number', Type$atom$number$]
+                | ['string', Type$atom$string$]
             
             export type Type$array$ = Type$
-            
-            export type Type$boolean$ = null
             
             export type Type$computed$ = Type$
             
@@ -4001,11 +4099,16 @@ export namespace proto__typesystem {
             
             export type Type$group$ = _pt.Dictionary<Type$group$D$>
             
+            export type Type$initialization__function$declaration$ = Function__Declaration$
+            
+            export type Type$initialization__function$return__type$ = Type$
+            
+            export type Type$initialization__function$ = {
+                readonly 'declaration': Type$initialization__function$declaration$
+                readonly 'return type': Type$initialization__function$return__type$
+            }
+            
             export type Type$lookup$ = Type$
-            
-            export type Type$null$ = null
-            
-            export type Type$number$ = null
             
             export type Type$optional$ = Type$
             
@@ -4015,7 +4118,14 @@ export namespace proto__typesystem {
                 readonly 'declaration': Type$procedure$declaration$
             }
             
-            export type Type$string$ = null
+            export type Type$selection__function$declaration$ = Function__Declaration$
+            
+            export type Type$selection__function$return__type$ = Type$
+            
+            export type Type$selection__function$ = {
+                readonly 'declaration': Type$selection__function$declaration$
+                readonly 'return type': Type$selection__function$return__type$
+            }
             
             export type Type$tagged__union$D$ = Type$
             
@@ -4053,32 +4163,20 @@ export namespace proto__typesystem {
                 | ['external', Type$type__reference$external$]
                 | ['sibling', Type$type__reference$sibling$]
             
-            export type Type$value__function$declaration$ = Function__Declaration$
-            
-            export type Type$value__function$return__type$ = Type$
-            
-            export type Type$value__function$ = {
-                readonly 'declaration': Type$value__function$declaration$
-                readonly 'return type': Type$value__function$return__type$
-            }
-            
             export type Type$ = 
-                | ['address function', Type$address__function$]
                 | ['array', Type$array$]
-                | ['boolean', Type$boolean$]
+                | ['atom', Type$atom$]
                 | ['computed', Type$computed$]
                 | ['dictionary', Type$dictionary$]
                 | ['group', Type$group$]
+                | ['initialization function', Type$initialization__function$]
                 | ['lookup', Type$lookup$]
-                | ['null', Type$null$]
-                | ['number', Type$number$]
                 | ['optional', Type$optional$]
                 | ['procedure', Type$procedure$]
-                | ['string', Type$string$]
+                | ['selection function', Type$selection__function$]
                 | ['tagged union', Type$tagged__union$]
                 | ['type parameter', Type$type__parameter$]
                 | ['type reference', Type$type__reference$]
-                | ['value function', Type$value__function$]
             
             export type Type__Arguments$D$type$ = Type$
             
@@ -4296,34 +4394,40 @@ export namespace proto__typesystem {
             export namespace TType {
                 
                 
-                export namespace address__function {
+                export namespace atom {
                     
                     
-                    export namespace declaration {
+                    export namespace _lboolean {
                         
                         
-                        export type $ = _IFlat.Type$address__function$declaration$
+                        export type $ = _IFlat.Type$atom$boolean$
                     }
                     
-                    export namespace return__type {
+                    export namespace _lnull {
                         
                         
-                        export type $ = _IFlat.Type$address__function$return__type$
+                        export type $ = _IFlat.Type$atom$null$
                     }
                     
-                    export type $ = _IFlat.Type$address__function$
+                    export namespace _lnumber {
+                        
+                        
+                        export type $ = _IFlat.Type$atom$number$
+                    }
+                    
+                    export namespace _lstring {
+                        
+                        
+                        export type $ = _IFlat.Type$atom$string$
+                    }
+                    
+                    export type $ = _IFlat.Type$atom$
                 }
                 
                 export namespace array {
                     
                     
                     export type $ = _IFlat.Type$array$
-                }
-                
-                export namespace _lboolean {
-                    
-                    
-                    export type $ = _IFlat.Type$boolean$
                 }
                 
                 export namespace computed {
@@ -4368,22 +4472,28 @@ export namespace proto__typesystem {
                     export type $ = _IFlat.Type$group$
                 }
                 
+                export namespace initialization__function {
+                    
+                    
+                    export namespace declaration {
+                        
+                        
+                        export type $ = _IFlat.Type$initialization__function$declaration$
+                    }
+                    
+                    export namespace return__type {
+                        
+                        
+                        export type $ = _IFlat.Type$initialization__function$return__type$
+                    }
+                    
+                    export type $ = _IFlat.Type$initialization__function$
+                }
+                
                 export namespace lookup {
                     
                     
                     export type $ = _IFlat.Type$lookup$
-                }
-                
-                export namespace _lnull {
-                    
-                    
-                    export type $ = _IFlat.Type$null$
-                }
-                
-                export namespace _lnumber {
-                    
-                    
-                    export type $ = _IFlat.Type$number$
                 }
                 
                 export namespace optional {
@@ -4404,10 +4514,22 @@ export namespace proto__typesystem {
                     export type $ = _IFlat.Type$procedure$
                 }
                 
-                export namespace _lstring {
+                export namespace selection__function {
                     
                     
-                    export type $ = _IFlat.Type$string$
+                    export namespace declaration {
+                        
+                        
+                        export type $ = _IFlat.Type$selection__function$declaration$
+                    }
+                    
+                    export namespace return__type {
+                        
+                        
+                        export type $ = _IFlat.Type$selection__function$return__type$
+                    }
+                    
+                    export type $ = _IFlat.Type$selection__function$
                 }
                 
                 export namespace tagged__union {
@@ -4462,24 +4584,6 @@ export namespace proto__typesystem {
                     }
                     
                     export type $ = _IFlat.Type$type__reference$
-                }
-                
-                export namespace value__function {
-                    
-                    
-                    export namespace declaration {
-                        
-                        
-                        export type $ = _IFlat.Type$value__function$declaration$
-                    }
-                    
-                    export namespace return__type {
-                        
-                        
-                        export type $ = _IFlat.Type$value__function$return__type$
-                    }
-                    
-                    export type $ = _IFlat.Type$value__function$
                 }
                 
                 export type $ = _IFlat.Type$
@@ -4938,21 +5042,37 @@ export namespace proto__implementation {
                 readonly 'variable': Target__Selection$variable$<_TAnnotation>
             }
             
-            export type Source__Selection__Tail$O$step$call$address__function$<_TAnnotation> = _TAnnotation
+            export type Function__Call$type__arguments$<_TAnnotation> = Type__Arguments$<_TAnnotation>
             
-            export type Source__Selection__Tail$O$step$call$type__arguments$<_TAnnotation> = Type__Arguments$<_TAnnotation>
+            export type Function__Call$context$<_TAnnotation> = Source__Selection$<_TAnnotation>
             
-            export type Source__Selection__Tail$O$step$call$context$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>
+            export type Function__Call$arguments$D$initialization$<_TAnnotation> = Initialization$<_TAnnotation>
             
-            export type Source__Selection__Tail$O$step$call$arguments$D$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>
+            export type Function__Call$arguments$D$selection$selection$<_TAnnotation> = Source__Selection$<_TAnnotation>
             
-            export type Source__Selection__Tail$O$step$call$arguments$<_TAnnotation> = _pt.Dictionary<Source__Selection__Tail$O$step$call$arguments$D$<_TAnnotation>>
+            export type Function__Call$arguments$D$selection$<_TAnnotation> = {
+                readonly 'selection': Function__Call$arguments$D$selection$selection$<_TAnnotation>
+            }
+            
+            export type Function__Call$arguments$D$<_TAnnotation> = 
+                | ['initialization', Function__Call$arguments$D$initialization$<_TAnnotation>]
+                | ['selection', Function__Call$arguments$D$selection$<_TAnnotation>]
+            
+            export type Function__Call$arguments$<_TAnnotation> = _pt.Dictionary<Function__Call$arguments$D$<_TAnnotation>>
+            
+            export type Function__Call$<_TAnnotation> = {
+                readonly 'arguments': Function__Call$arguments$<_TAnnotation>
+                readonly 'context': Function__Call$context$<_TAnnotation>
+                readonly 'type arguments': Function__Call$type__arguments$<_TAnnotation>
+            }
+            
+            export type Source__Selection__Tail$O$step$call$selection__function$<_TAnnotation> = _TAnnotation
+            
+            export type Source__Selection__Tail$O$step$call$call$<_TAnnotation> = Function__Call$<_TAnnotation>
             
             export type Source__Selection__Tail$O$step$call$<_TAnnotation> = {
-                readonly 'address function': Source__Selection__Tail$O$step$call$address__function$<_TAnnotation>
-                readonly 'arguments': Source__Selection__Tail$O$step$call$arguments$<_TAnnotation>
-                readonly 'context': Source__Selection__Tail$O$step$call$context$<_TAnnotation>
-                readonly 'type arguments': Source__Selection__Tail$O$step$call$type__arguments$<_TAnnotation>
+                readonly 'call': Source__Selection__Tail$O$step$call$call$<_TAnnotation>
+                readonly 'selection function': Source__Selection__Tail$O$step$call$selection__function$<_TAnnotation>
             }
             
             export type Source__Selection__Tail$O$step$property$group$<_TAnnotation> = _TAnnotation
@@ -4997,18 +5117,6 @@ export namespace proto__implementation {
                 readonly 'start': Source__Selection$start$<_TAnnotation>
                 readonly 'tail': Source__Selection$tail$<_TAnnotation>
             }
-            
-            export type Initialization__Or__Selection$initialization$<_TAnnotation> = Initialization$<_TAnnotation>
-            
-            export type Initialization__Or__Selection$selection$selection$<_TAnnotation> = Source__Selection$<_TAnnotation>
-            
-            export type Initialization__Or__Selection$selection$<_TAnnotation> = {
-                readonly 'selection': Initialization__Or__Selection$selection$selection$<_TAnnotation>
-            }
-            
-            export type Initialization__Or__Selection$<_TAnnotation> = 
-                | ['initialization', Initialization__Or__Selection$initialization$<_TAnnotation>]
-                | ['selection', Initialization__Or__Selection$selection$<_TAnnotation>]
             
             export type String__Initialization__Or__Selection$initialization$<_TAnnotation> = String__Initialization$<_TAnnotation>
             
@@ -5188,211 +5296,292 @@ export namespace proto__implementation {
             export type String__Initialization$<_TAnnotation> = 
                 | ['string literal', String__Initialization$string__literal$<_TAnnotation>]
             
-            export type Initialization$array__literal$definition$<_TAnnotation> = _TAnnotation
+            export type Generic__Initialization$change__context$source$<_TAnnotation> = Source__Selection$<_TAnnotation>
             
-            export type Initialization$array__literal$initialization$A$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>
+            export type Generic__Initialization$change__context$initialization$<_TAnnotation> = Initialization$<_TAnnotation>
             
-            export type Initialization$array__literal$initialization$<_TAnnotation> = _pt.Array<Initialization$array__literal$initialization$A$<_TAnnotation>>
-            
-            export type Initialization$array__literal$<_TAnnotation> = {
-                readonly 'definition': Initialization$array__literal$definition$<_TAnnotation>
-                readonly 'initialization': Initialization$array__literal$initialization$<_TAnnotation>
+            export type Generic__Initialization$change__context$<_TAnnotation> = {
+                readonly 'initialization': Generic__Initialization$change__context$initialization$<_TAnnotation>
+                readonly 'source': Generic__Initialization$change__context$source$<_TAnnotation>
             }
             
-            export type Initialization$array__map$definition$<_TAnnotation> = _TAnnotation
+            export type Generic__Initialization$implement__me$<_TAnnotation> = string
             
-            export type Initialization$array__map$source$<_TAnnotation> = Source__Selection$<_TAnnotation>
+            export type Generic__Initialization$panic$<_TAnnotation> = string
             
-            export type Initialization$array__map$initialization$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>
+            export type Generic__Initialization$switch$definition$<_TAnnotation> = _TAnnotation
             
-            export type Initialization$array__map$<_TAnnotation> = {
-                readonly 'definition': Initialization$array__map$definition$<_TAnnotation>
-                readonly 'initialization': Initialization$array__map$initialization$<_TAnnotation>
-                readonly 'source': Initialization$array__map$source$<_TAnnotation>
+            export type Generic__Initialization$switch$temp__type$<_TAnnotation> = Type__Selection$<_TAnnotation>
+            
+            export type Generic__Initialization$switch$source$<_TAnnotation> = Source__Selection$<_TAnnotation>
+            
+            export type Generic__Initialization$switch$cases$D$<_TAnnotation> = Initialization$<_TAnnotation>
+            
+            export type Generic__Initialization$switch$cases$<_TAnnotation> = _pt.Dictionary<Generic__Initialization$switch$cases$D$<_TAnnotation>>
+            
+            export type Generic__Initialization$switch$default$O$<_TAnnotation> = Initialization$<_TAnnotation>
+            
+            export type Generic__Initialization$switch$default$<_TAnnotation> = _pt.OptionalValue<Generic__Initialization$switch$default$O$<_TAnnotation>>
+            
+            export type Generic__Initialization$switch$<_TAnnotation> = {
+                readonly 'cases': Generic__Initialization$switch$cases$<_TAnnotation>
+                readonly 'default': Generic__Initialization$switch$default$<_TAnnotation>
+                readonly 'definition': Generic__Initialization$switch$definition$<_TAnnotation>
+                readonly 'source': Generic__Initialization$switch$source$<_TAnnotation>
+                readonly 'temp type': Generic__Initialization$switch$temp__type$<_TAnnotation>
             }
             
-            export type Initialization$boolean$definition$<_TAnnotation> = _TAnnotation
+            export type Generic__Initialization$variables$variables$<_TAnnotation> = Variables$<_TAnnotation>
             
-            export type Initialization$boolean$initialization$<_TAnnotation> = Boolean__Initialization$<_TAnnotation>
+            export type Generic__Initialization$variables$initialization$<_TAnnotation> = Initialization$<_TAnnotation>
             
-            export type Initialization$boolean$<_TAnnotation> = {
-                readonly 'definition': Initialization$boolean$definition$<_TAnnotation>
-                readonly 'initialization': Initialization$boolean$initialization$<_TAnnotation>
+            export type Generic__Initialization$variables$<_TAnnotation> = {
+                readonly 'initialization': Generic__Initialization$variables$initialization$<_TAnnotation>
+                readonly 'variables': Generic__Initialization$variables$variables$<_TAnnotation>
             }
             
-            export type Initialization$change__context$source$<_TAnnotation> = Source__Selection$<_TAnnotation>
+            export type Generic__Initialization$<_TAnnotation> = 
+                | ['change context', Generic__Initialization$change__context$<_TAnnotation>]
+                | ['implement me', Generic__Initialization$implement__me$<_TAnnotation>]
+                | ['panic', Generic__Initialization$panic$<_TAnnotation>]
+                | ['switch', Generic__Initialization$switch$<_TAnnotation>]
+                | ['variables', Generic__Initialization$variables$<_TAnnotation>]
             
-            export type Initialization$change__context$initialization$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>
+            export type Initialization$generic$<_TAnnotation> = Generic__Initialization$<_TAnnotation>
             
-            export type Initialization$change__context$<_TAnnotation> = {
-                readonly 'initialization': Initialization$change__context$initialization$<_TAnnotation>
-                readonly 'source': Initialization$change__context$source$<_TAnnotation>
+            export type Initialization$call$function$<_TAnnotation> = Source__Selection$<_TAnnotation>
+            
+            export type Initialization$call$definition$<_TAnnotation> = _TAnnotation
+            
+            export type Initialization$call$call$<_TAnnotation> = Function__Call$<_TAnnotation>
+            
+            export type Initialization$call$<_TAnnotation> = {
+                readonly 'call': Initialization$call$call$<_TAnnotation>
+                readonly 'definition': Initialization$call$definition$<_TAnnotation>
+                readonly 'function': Initialization$call$function$<_TAnnotation>
             }
             
-            export type Initialization$dictionary__literal$definition$<_TAnnotation> = _TAnnotation
+            export type Initialization$type$array$definition$<_TAnnotation> = _TAnnotation
             
-            export type Initialization$dictionary__literal$initialization$D$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>
+            export type Initialization$type$array$type$literal$initialization$A$<_TAnnotation> = Initialization$<_TAnnotation>
             
-            export type Initialization$dictionary__literal$initialization$<_TAnnotation> = _pt.Dictionary<Initialization$dictionary__literal$initialization$D$<_TAnnotation>>
+            export type Initialization$type$array$type$literal$initialization$<_TAnnotation> = _pt.Array<Initialization$type$array$type$literal$initialization$A$<_TAnnotation>>
             
-            export type Initialization$dictionary__literal$<_TAnnotation> = {
-                readonly 'definition': Initialization$dictionary__literal$definition$<_TAnnotation>
-                readonly 'initialization': Initialization$dictionary__literal$initialization$<_TAnnotation>
+            export type Initialization$type$array$type$literal$<_TAnnotation> = {
+                readonly 'initialization': Initialization$type$array$type$literal$initialization$<_TAnnotation>
             }
             
-            export type Initialization$dictionary__map$definition$<_TAnnotation> = _TAnnotation
+            export type Initialization$type$array$type$map$source$<_TAnnotation> = Source__Selection$<_TAnnotation>
             
-            export type Initialization$dictionary__map$source$<_TAnnotation> = Source__Selection$<_TAnnotation>
+            export type Initialization$type$array$type$map$initialization$<_TAnnotation> = Initialization$<_TAnnotation>
             
-            export type Initialization$dictionary__map$initialization$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>
-            
-            export type Initialization$dictionary__map$<_TAnnotation> = {
-                readonly 'definition': Initialization$dictionary__map$definition$<_TAnnotation>
-                readonly 'initialization': Initialization$dictionary__map$initialization$<_TAnnotation>
-                readonly 'source': Initialization$dictionary__map$source$<_TAnnotation>
+            export type Initialization$type$array$type$map$<_TAnnotation> = {
+                readonly 'initialization': Initialization$type$array$type$map$initialization$<_TAnnotation>
+                readonly 'source': Initialization$type$array$type$map$source$<_TAnnotation>
             }
             
-            export type Initialization$group__literal$definition$<_TAnnotation> = _TAnnotation
+            export type Initialization$type$array$type$<_TAnnotation> = 
+                | ['literal', Initialization$type$array$type$literal$<_TAnnotation>]
+                | ['map', Initialization$type$array$type$map$<_TAnnotation>]
             
-            export type Initialization$group__literal$properties$D$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>
-            
-            export type Initialization$group__literal$properties$<_TAnnotation> = _pt.Dictionary<Initialization$group__literal$properties$D$<_TAnnotation>>
-            
-            export type Initialization$group__literal$<_TAnnotation> = {
-                readonly 'definition': Initialization$group__literal$definition$<_TAnnotation>
-                readonly 'properties': Initialization$group__literal$properties$<_TAnnotation>
+            export type Initialization$type$array$<_TAnnotation> = {
+                readonly 'definition': Initialization$type$array$definition$<_TAnnotation>
+                readonly 'type': Initialization$type$array$type$<_TAnnotation>
             }
             
-            export type Initialization$implement__me$<_TAnnotation> = string
+            export type Initialization$type$atom$definition$<_TAnnotation> = _TAnnotation
             
-            export type Initialization$null$definition$<_TAnnotation> = _TAnnotation
+            export type Initialization$type$atom$type$boolean$definition$<_TAnnotation> = _TAnnotation
             
-            export type Initialization$null$<_TAnnotation> = {
-                readonly 'definition': Initialization$null$definition$<_TAnnotation>
+            export type Initialization$type$atom$type$boolean$initialization$<_TAnnotation> = Boolean__Initialization$<_TAnnotation>
+            
+            export type Initialization$type$atom$type$boolean$<_TAnnotation> = {
+                readonly 'definition': Initialization$type$atom$type$boolean$definition$<_TAnnotation>
+                readonly 'initialization': Initialization$type$atom$type$boolean$initialization$<_TAnnotation>
             }
             
-            export type Initialization$numerical$definition$<_TAnnotation> = _TAnnotation
+            export type Initialization$type$atom$type$copy$source$<_TAnnotation> = Source__Selection$<_TAnnotation>
             
-            export type Initialization$numerical$initialization$<_TAnnotation> = Numerical__Initialization$<_TAnnotation>
-            
-            export type Initialization$numerical$<_TAnnotation> = {
-                readonly 'definition': Initialization$numerical$definition$<_TAnnotation>
-                readonly 'initialization': Initialization$numerical$initialization$<_TAnnotation>
+            export type Initialization$type$atom$type$copy$<_TAnnotation> = {
+                readonly 'source': Initialization$type$atom$type$copy$source$<_TAnnotation>
             }
             
-            export type Initialization$optional$definition$<_TAnnotation> = _TAnnotation
+            export type Initialization$type$atom$type$null$definition$<_TAnnotation> = _TAnnotation
             
-            export type Initialization$optional$<_TAnnotation> = {
-                readonly 'definition': Initialization$optional$definition$<_TAnnotation>
+            export type Initialization$type$atom$type$null$<_TAnnotation> = {
+                readonly 'definition': Initialization$type$atom$type$null$definition$<_TAnnotation>
             }
             
-            export type Initialization$procedure$definition$<_TAnnotation> = _TAnnotation
+            export type Initialization$type$atom$type$numerical$definition$<_TAnnotation> = _TAnnotation
             
-            export type Initialization$procedure$temp__has__parameters$O$<_TAnnotation> = null
+            export type Initialization$type$atom$type$numerical$initialization$<_TAnnotation> = Numerical__Initialization$<_TAnnotation>
             
-            export type Initialization$procedure$temp__has__parameters$<_TAnnotation> = _pt.OptionalValue<Initialization$procedure$temp__has__parameters$O$<_TAnnotation>>
-            
-            export type Initialization$procedure$variables$<_TAnnotation> = Aggregated__Variables$<_TAnnotation>
-            
-            export type Initialization$procedure$block$<_TAnnotation> = Block$<_TAnnotation>
-            
-            export type Initialization$procedure$<_TAnnotation> = {
-                readonly 'block': Initialization$procedure$block$<_TAnnotation>
-                readonly 'definition': Initialization$procedure$definition$<_TAnnotation>
-                readonly 'temp has parameters': Initialization$procedure$temp__has__parameters$<_TAnnotation>
-                readonly 'variables': Initialization$procedure$variables$<_TAnnotation>
+            export type Initialization$type$atom$type$numerical$<_TAnnotation> = {
+                readonly 'definition': Initialization$type$atom$type$numerical$definition$<_TAnnotation>
+                readonly 'initialization': Initialization$type$atom$type$numerical$initialization$<_TAnnotation>
             }
             
-            export type Initialization$tagged__union__literal$definition$<_TAnnotation> = _TAnnotation
+            export type Initialization$type$atom$type$string$definition$<_TAnnotation> = _TAnnotation
             
-            export type Initialization$tagged__union__literal$state$<_TAnnotation> = {
+            export type Initialization$type$atom$type$string$initialization$<_TAnnotation> = String__Initialization$<_TAnnotation>
+            
+            export type Initialization$type$atom$type$string$<_TAnnotation> = {
+                readonly 'definition': Initialization$type$atom$type$string$definition$<_TAnnotation>
+                readonly 'initialization': Initialization$type$atom$type$string$initialization$<_TAnnotation>
+            }
+            
+            export type Initialization$type$atom$type$<_TAnnotation> = 
+                | ['boolean', Initialization$type$atom$type$boolean$<_TAnnotation>]
+                | ['copy', Initialization$type$atom$type$copy$<_TAnnotation>]
+                | ['null', Initialization$type$atom$type$null$<_TAnnotation>]
+                | ['numerical', Initialization$type$atom$type$numerical$<_TAnnotation>]
+                | ['string', Initialization$type$atom$type$string$<_TAnnotation>]
+            
+            export type Initialization$type$atom$<_TAnnotation> = {
+                readonly 'definition': Initialization$type$atom$definition$<_TAnnotation>
+                readonly 'type': Initialization$type$atom$type$<_TAnnotation>
+            }
+            
+            export type Initialization$type$computed$definition$<_TAnnotation> = _TAnnotation
+            
+            export type Initialization$type$computed$<_TAnnotation> = {
+                readonly 'definition': Initialization$type$computed$definition$<_TAnnotation>
+            }
+            
+            export type Initialization$type$dictionary$definition$<_TAnnotation> = _TAnnotation
+            
+            export type Initialization$type$dictionary$type$literal$initialization$D$<_TAnnotation> = Initialization$<_TAnnotation>
+            
+            export type Initialization$type$dictionary$type$literal$initialization$<_TAnnotation> = _pt.Dictionary<Initialization$type$dictionary$type$literal$initialization$D$<_TAnnotation>>
+            
+            export type Initialization$type$dictionary$type$literal$<_TAnnotation> = {
+                readonly 'initialization': Initialization$type$dictionary$type$literal$initialization$<_TAnnotation>
+            }
+            
+            export type Initialization$type$dictionary$type$map$source$<_TAnnotation> = Source__Selection$<_TAnnotation>
+            
+            export type Initialization$type$dictionary$type$map$initialization$<_TAnnotation> = Initialization$<_TAnnotation>
+            
+            export type Initialization$type$dictionary$type$map$<_TAnnotation> = {
+                readonly 'initialization': Initialization$type$dictionary$type$map$initialization$<_TAnnotation>
+                readonly 'source': Initialization$type$dictionary$type$map$source$<_TAnnotation>
+            }
+            
+            export type Initialization$type$dictionary$type$<_TAnnotation> = 
+                | ['literal', Initialization$type$dictionary$type$literal$<_TAnnotation>]
+                | ['map', Initialization$type$dictionary$type$map$<_TAnnotation>]
+            
+            export type Initialization$type$dictionary$<_TAnnotation> = {
+                readonly 'definition': Initialization$type$dictionary$definition$<_TAnnotation>
+                readonly 'type': Initialization$type$dictionary$type$<_TAnnotation>
+            }
+            
+            export type Initialization$type$group$definition$<_TAnnotation> = _TAnnotation
+            
+            export type Initialization$type$group$properties$D$<_TAnnotation> = Initialization$<_TAnnotation>
+            
+            export type Initialization$type$group$properties$<_TAnnotation> = _pt.Dictionary<Initialization$type$group$properties$D$<_TAnnotation>>
+            
+            export type Initialization$type$group$<_TAnnotation> = {
+                readonly 'definition': Initialization$type$group$definition$<_TAnnotation>
+                readonly 'properties': Initialization$type$group$properties$<_TAnnotation>
+            }
+            
+            export type Initialization$type$initialization__function$definition$<_TAnnotation> = _TAnnotation
+            
+            export type Initialization$type$initialization__function$temp__has__parameters$O$<_TAnnotation> = null
+            
+            export type Initialization$type$initialization__function$temp__has__parameters$<_TAnnotation> = _pt.OptionalValue<Initialization$type$initialization__function$temp__has__parameters$O$<_TAnnotation>>
+            
+            export type Initialization$type$initialization__function$variables$<_TAnnotation> = Aggregated__Variables$<_TAnnotation>
+            
+            export type Initialization$type$initialization__function$initialization$<_TAnnotation> = Initialization$<_TAnnotation>
+            
+            export type Initialization$type$initialization__function$<_TAnnotation> = {
+                readonly 'definition': Initialization$type$initialization__function$definition$<_TAnnotation>
+                readonly 'initialization': Initialization$type$initialization__function$initialization$<_TAnnotation>
+                readonly 'temp has parameters': Initialization$type$initialization__function$temp__has__parameters$<_TAnnotation>
+                readonly 'variables': Initialization$type$initialization__function$variables$<_TAnnotation>
+            }
+            
+            export type Initialization$type$lookup$definition$<_TAnnotation> = _TAnnotation
+            
+            export type Initialization$type$lookup$<_TAnnotation> = {
+                readonly 'definition': Initialization$type$lookup$definition$<_TAnnotation>
+            }
+            
+            export type Initialization$type$optional$definition$<_TAnnotation> = _TAnnotation
+            
+            export type Initialization$type$optional$<_TAnnotation> = {
+                readonly 'definition': Initialization$type$optional$definition$<_TAnnotation>
+            }
+            
+            export type Initialization$type$procedure$definition$<_TAnnotation> = _TAnnotation
+            
+            export type Initialization$type$procedure$temp__has__parameters$O$<_TAnnotation> = null
+            
+            export type Initialization$type$procedure$temp__has__parameters$<_TAnnotation> = _pt.OptionalValue<Initialization$type$procedure$temp__has__parameters$O$<_TAnnotation>>
+            
+            export type Initialization$type$procedure$variables$<_TAnnotation> = Aggregated__Variables$<_TAnnotation>
+            
+            export type Initialization$type$procedure$block$<_TAnnotation> = Block$<_TAnnotation>
+            
+            export type Initialization$type$procedure$<_TAnnotation> = {
+                readonly 'block': Initialization$type$procedure$block$<_TAnnotation>
+                readonly 'definition': Initialization$type$procedure$definition$<_TAnnotation>
+                readonly 'temp has parameters': Initialization$type$procedure$temp__has__parameters$<_TAnnotation>
+                readonly 'variables': Initialization$type$procedure$variables$<_TAnnotation>
+            }
+            
+            export type Initialization$type$selection__function$definition$<_TAnnotation> = _TAnnotation
+            
+            export type Initialization$type$selection__function$temp__has__parameters$O$<_TAnnotation> = null
+            
+            export type Initialization$type$selection__function$temp__has__parameters$<_TAnnotation> = _pt.OptionalValue<Initialization$type$selection__function$temp__has__parameters$O$<_TAnnotation>>
+            
+            export type Initialization$type$selection__function$variables$<_TAnnotation> = Aggregated__Variables$<_TAnnotation>
+            
+            export type Initialization$type$selection__function$initialization$<_TAnnotation> = Initialization$<_TAnnotation>
+            
+            export type Initialization$type$selection__function$<_TAnnotation> = {
+                readonly 'definition': Initialization$type$selection__function$definition$<_TAnnotation>
+                readonly 'initialization': Initialization$type$selection__function$initialization$<_TAnnotation>
+                readonly 'temp has parameters': Initialization$type$selection__function$temp__has__parameters$<_TAnnotation>
+                readonly 'variables': Initialization$type$selection__function$variables$<_TAnnotation>
+            }
+            
+            export type Initialization$type$tagged__union$definition$<_TAnnotation> = _TAnnotation
+            
+            export type Initialization$type$tagged__union$state$<_TAnnotation> = {
                 readonly 'key': string
                 readonly 'referent': _TAnnotation
             }
             
-            export type Initialization$tagged__union__literal$initialization$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>
+            export type Initialization$type$tagged__union$initialization$<_TAnnotation> = Initialization$<_TAnnotation>
             
-            export type Initialization$tagged__union__literal$<_TAnnotation> = {
-                readonly 'definition': Initialization$tagged__union__literal$definition$<_TAnnotation>
-                readonly 'initialization': Initialization$tagged__union__literal$initialization$<_TAnnotation>
-                readonly 'state': Initialization$tagged__union__literal$state$<_TAnnotation>
+            export type Initialization$type$tagged__union$<_TAnnotation> = {
+                readonly 'definition': Initialization$type$tagged__union$definition$<_TAnnotation>
+                readonly 'initialization': Initialization$type$tagged__union$initialization$<_TAnnotation>
+                readonly 'state': Initialization$type$tagged__union$state$<_TAnnotation>
             }
             
-            export type Initialization$string$definition$<_TAnnotation> = _TAnnotation
-            
-            export type Initialization$string$initialization$<_TAnnotation> = String__Initialization$<_TAnnotation>
-            
-            export type Initialization$string$<_TAnnotation> = {
-                readonly 'definition': Initialization$string$definition$<_TAnnotation>
-                readonly 'initialization': Initialization$string$initialization$<_TAnnotation>
-            }
-            
-            export type Initialization$switch$definition$<_TAnnotation> = _TAnnotation
-            
-            export type Initialization$switch$temp__type$<_TAnnotation> = Type__Selection$<_TAnnotation>
-            
-            export type Initialization$switch$source$<_TAnnotation> = Source__Selection$<_TAnnotation>
-            
-            export type Initialization$switch$cases$D$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>
-            
-            export type Initialization$switch$cases$<_TAnnotation> = _pt.Dictionary<Initialization$switch$cases$D$<_TAnnotation>>
-            
-            export type Initialization$switch$default$O$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>
-            
-            export type Initialization$switch$default$<_TAnnotation> = _pt.OptionalValue<Initialization$switch$default$O$<_TAnnotation>>
-            
-            export type Initialization$switch$<_TAnnotation> = {
-                readonly 'cases': Initialization$switch$cases$<_TAnnotation>
-                readonly 'default': Initialization$switch$default$<_TAnnotation>
-                readonly 'definition': Initialization$switch$definition$<_TAnnotation>
-                readonly 'source': Initialization$switch$source$<_TAnnotation>
-                readonly 'temp type': Initialization$switch$temp__type$<_TAnnotation>
-            }
-            
-            export type Initialization$value__function$definition$<_TAnnotation> = _TAnnotation
-            
-            export type Initialization$value__function$temp__has__parameters$O$<_TAnnotation> = null
-            
-            export type Initialization$value__function$temp__has__parameters$<_TAnnotation> = _pt.OptionalValue<Initialization$value__function$temp__has__parameters$O$<_TAnnotation>>
-            
-            export type Initialization$value__function$variables$<_TAnnotation> = Aggregated__Variables$<_TAnnotation>
-            
-            export type Initialization$value__function$initialization$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>
-            
-            export type Initialization$value__function$<_TAnnotation> = {
-                readonly 'definition': Initialization$value__function$definition$<_TAnnotation>
-                readonly 'initialization': Initialization$value__function$initialization$<_TAnnotation>
-                readonly 'temp has parameters': Initialization$value__function$temp__has__parameters$<_TAnnotation>
-                readonly 'variables': Initialization$value__function$variables$<_TAnnotation>
-            }
-            
-            export type Initialization$variables$variables$<_TAnnotation> = Variables$<_TAnnotation>
-            
-            export type Initialization$variables$initialization$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>
-            
-            export type Initialization$variables$<_TAnnotation> = {
-                readonly 'initialization': Initialization$variables$initialization$<_TAnnotation>
-                readonly 'variables': Initialization$variables$variables$<_TAnnotation>
-            }
+            export type Initialization$type$<_TAnnotation> = 
+                | ['array', Initialization$type$array$<_TAnnotation>]
+                | ['atom', Initialization$type$atom$<_TAnnotation>]
+                | ['computed', Initialization$type$computed$<_TAnnotation>]
+                | ['dictionary', Initialization$type$dictionary$<_TAnnotation>]
+                | ['group', Initialization$type$group$<_TAnnotation>]
+                | ['initialization function', Initialization$type$initialization__function$<_TAnnotation>]
+                | ['lookup', Initialization$type$lookup$<_TAnnotation>]
+                | ['optional', Initialization$type$optional$<_TAnnotation>]
+                | ['procedure', Initialization$type$procedure$<_TAnnotation>]
+                | ['selection function', Initialization$type$selection__function$<_TAnnotation>]
+                | ['tagged union', Initialization$type$tagged__union$<_TAnnotation>]
             
             export type Initialization$<_TAnnotation> = 
-                | ['array literal', Initialization$array__literal$<_TAnnotation>]
-                | ['array map', Initialization$array__map$<_TAnnotation>]
-                | ['boolean', Initialization$boolean$<_TAnnotation>]
-                | ['change context', Initialization$change__context$<_TAnnotation>]
-                | ['dictionary literal', Initialization$dictionary__literal$<_TAnnotation>]
-                | ['dictionary map', Initialization$dictionary__map$<_TAnnotation>]
-                | ['group literal', Initialization$group__literal$<_TAnnotation>]
-                | ['implement me', Initialization$implement__me$<_TAnnotation>]
-                | ['null', Initialization$null$<_TAnnotation>]
-                | ['numerical', Initialization$numerical$<_TAnnotation>]
-                | ['optional', Initialization$optional$<_TAnnotation>]
-                | ['procedure', Initialization$procedure$<_TAnnotation>]
-                | ['string', Initialization$string$<_TAnnotation>]
-                | ['switch', Initialization$switch$<_TAnnotation>]
-                | ['tagged union literal', Initialization$tagged__union__literal$<_TAnnotation>]
-                | ['value function', Initialization$value__function$<_TAnnotation>]
-                | ['variables', Initialization$variables$<_TAnnotation>]
+                | ['call', Initialization$call$<_TAnnotation>]
+                | ['generic', Initialization$generic$<_TAnnotation>]
+                | ['type', Initialization$type$<_TAnnotation>]
             
             export type Block$variables$<_TAnnotation> = Variables$<_TAnnotation>
             
@@ -5405,7 +5594,7 @@ export namespace proto__implementation {
             
             export type Assign$target$<_TAnnotation> = Target__Selection$<_TAnnotation>
             
-            export type Assign$initialization$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>
+            export type Assign$initialization$<_TAnnotation> = Initialization$<_TAnnotation>
             
             export type Assign$<_TAnnotation> = {
                 readonly 'initialization': Assign$initialization$<_TAnnotation>
@@ -5416,18 +5605,13 @@ export namespace proto__implementation {
             
             export type Statements$A$call$function$<_TAnnotation> = Source__Selection$<_TAnnotation>
             
-            export type Statements$A$call$context__definition$<_TAnnotation> = _TAnnotation
+            export type Statements$A$call$definition$<_TAnnotation> = _TAnnotation
             
-            export type Statements$A$call$context$<_TAnnotation> = Source__Selection$<_TAnnotation>
-            
-            export type Statements$A$call$arguments$D$<_TAnnotation> = Initialization__Or__Selection$<_TAnnotation>
-            
-            export type Statements$A$call$arguments$<_TAnnotation> = _pt.Dictionary<Statements$A$call$arguments$D$<_TAnnotation>>
+            export type Statements$A$call$call$<_TAnnotation> = Function__Call$<_TAnnotation>
             
             export type Statements$A$call$<_TAnnotation> = {
-                readonly 'arguments': Statements$A$call$arguments$<_TAnnotation>
-                readonly 'context': Statements$A$call$context$<_TAnnotation>
-                readonly 'context definition': Statements$A$call$context__definition$<_TAnnotation>
+                readonly 'call': Statements$A$call$call$<_TAnnotation>
+                readonly 'definition': Statements$A$call$definition$<_TAnnotation>
                 readonly 'function': Statements$A$call$function$<_TAnnotation>
             }
             
@@ -5766,6 +5950,62 @@ export namespace proto__implementation {
                 export type $<_TAnnotation> = _IFlat.Target__Selection$<_TAnnotation>
             }
             
+            export namespace Function__Call {
+                
+                
+                
+                export namespace type__arguments {
+                    
+                    
+                    
+                    export type $<_TAnnotation> = _IFlat.Function__Call$type__arguments$<_TAnnotation>
+                }
+                
+                export namespace context {
+                    
+                    
+                    
+                    export type $<_TAnnotation> = _IFlat.Function__Call$context$<_TAnnotation>
+                }
+                
+                export namespace _larguments {
+                    
+                    
+                    
+                    export namespace D {
+                        
+                        
+                        
+                        export namespace initialization {
+                            
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Function__Call$arguments$D$initialization$<_TAnnotation>
+                        }
+                        
+                        export namespace selection {
+                            
+                            
+                            
+                            export namespace selection {
+                                
+                                
+                                
+                                export type $<_TAnnotation> = _IFlat.Function__Call$arguments$D$selection$selection$<_TAnnotation>
+                            }
+                            
+                            export type $<_TAnnotation> = _IFlat.Function__Call$arguments$D$selection$<_TAnnotation>
+                        }
+                        
+                        export type $<_TAnnotation> = _IFlat.Function__Call$arguments$D$<_TAnnotation>
+                    }
+                    
+                    export type $<_TAnnotation> = _IFlat.Function__Call$arguments$<_TAnnotation>
+                }
+                
+                export type $<_TAnnotation> = _IFlat.Function__Call$<_TAnnotation>
+            }
+            
             export namespace Source__Selection__Tail {
                 
                 
@@ -5782,39 +6022,18 @@ export namespace proto__implementation {
                             
                             
                             
-                            export namespace address__function {
+                            export namespace selection__function {
                                 
                                 
                                 
-                                export type $<_TAnnotation> = _IFlat.Source__Selection__Tail$O$step$call$address__function$<_TAnnotation>
+                                export type $<_TAnnotation> = _IFlat.Source__Selection__Tail$O$step$call$selection__function$<_TAnnotation>
                             }
                             
-                            export namespace type__arguments {
+                            export namespace call {
                                 
                                 
                                 
-                                export type $<_TAnnotation> = _IFlat.Source__Selection__Tail$O$step$call$type__arguments$<_TAnnotation>
-                            }
-                            
-                            export namespace context {
-                                
-                                
-                                
-                                export type $<_TAnnotation> = _IFlat.Source__Selection__Tail$O$step$call$context$<_TAnnotation>
-                            }
-                            
-                            export namespace _larguments {
-                                
-                                
-                                
-                                export namespace D {
-                                    
-                                    
-                                    
-                                    export type $<_TAnnotation> = _IFlat.Source__Selection__Tail$O$step$call$arguments$D$<_TAnnotation>
-                                }
-                                
-                                export type $<_TAnnotation> = _IFlat.Source__Selection__Tail$O$step$call$arguments$<_TAnnotation>
+                                export type $<_TAnnotation> = _IFlat.Source__Selection__Tail$O$step$call$call$<_TAnnotation>
                             }
                             
                             export type $<_TAnnotation> = _IFlat.Source__Selection__Tail$O$step$call$<_TAnnotation>
@@ -5890,34 +6109,6 @@ export namespace proto__implementation {
                 }
                 
                 export type $<_TAnnotation> = _IFlat.Source__Selection$<_TAnnotation>
-            }
-            
-            export namespace Initialization__Or__Selection {
-                
-                
-                
-                export namespace initialization {
-                    
-                    
-                    
-                    export type $<_TAnnotation> = _IFlat.Initialization__Or__Selection$initialization$<_TAnnotation>
-                }
-                
-                export namespace selection {
-                    
-                    
-                    
-                    export namespace selection {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization__Or__Selection$selection$selection$<_TAnnotation>
-                    }
-                    
-                    export type $<_TAnnotation> = _IFlat.Initialization__Or__Selection$selection$<_TAnnotation>
-                }
-                
-                export type $<_TAnnotation> = _IFlat.Initialization__Or__Selection$<_TAnnotation>
             }
             
             export namespace String__Initialization__Or__Selection {
@@ -6319,86 +6510,9 @@ export namespace proto__implementation {
                 export type $<_TAnnotation> = _IFlat.String__Initialization$<_TAnnotation>
             }
             
-            export namespace Initialization {
+            export namespace Generic__Initialization {
                 
                 
-                
-                export namespace array__literal {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$array__literal$definition$<_TAnnotation>
-                    }
-                    
-                    export namespace initialization {
-                        
-                        
-                        
-                        export namespace A {
-                            
-                            
-                            
-                            export type $<_TAnnotation> = _IFlat.Initialization$array__literal$initialization$A$<_TAnnotation>
-                        }
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$array__literal$initialization$<_TAnnotation>
-                    }
-                    
-                    export type $<_TAnnotation> = _IFlat.Initialization$array__literal$<_TAnnotation>
-                }
-                
-                export namespace array__map {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$array__map$definition$<_TAnnotation>
-                    }
-                    
-                    export namespace source {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$array__map$source$<_TAnnotation>
-                    }
-                    
-                    export namespace initialization {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$array__map$initialization$<_TAnnotation>
-                    }
-                    
-                    export type $<_TAnnotation> = _IFlat.Initialization$array__map$<_TAnnotation>
-                }
-                
-                export namespace _lboolean {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$boolean$definition$<_TAnnotation>
-                    }
-                    
-                    export namespace initialization {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$boolean$initialization$<_TAnnotation>
-                    }
-                    
-                    export type $<_TAnnotation> = _IFlat.Initialization$boolean$<_TAnnotation>
-                }
                 
                 export namespace change__context {
                     
@@ -6408,248 +6522,31 @@ export namespace proto__implementation {
                         
                         
                         
-                        export type $<_TAnnotation> = _IFlat.Initialization$change__context$source$<_TAnnotation>
+                        export type $<_TAnnotation> = _IFlat.Generic__Initialization$change__context$source$<_TAnnotation>
                     }
                     
                     export namespace initialization {
                         
                         
                         
-                        export type $<_TAnnotation> = _IFlat.Initialization$change__context$initialization$<_TAnnotation>
+                        export type $<_TAnnotation> = _IFlat.Generic__Initialization$change__context$initialization$<_TAnnotation>
                     }
                     
-                    export type $<_TAnnotation> = _IFlat.Initialization$change__context$<_TAnnotation>
-                }
-                
-                export namespace dictionary__literal {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$dictionary__literal$definition$<_TAnnotation>
-                    }
-                    
-                    export namespace initialization {
-                        
-                        
-                        
-                        export namespace D {
-                            
-                            
-                            
-                            export type $<_TAnnotation> = _IFlat.Initialization$dictionary__literal$initialization$D$<_TAnnotation>
-                        }
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$dictionary__literal$initialization$<_TAnnotation>
-                    }
-                    
-                    export type $<_TAnnotation> = _IFlat.Initialization$dictionary__literal$<_TAnnotation>
-                }
-                
-                export namespace dictionary__map {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$dictionary__map$definition$<_TAnnotation>
-                    }
-                    
-                    export namespace source {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$dictionary__map$source$<_TAnnotation>
-                    }
-                    
-                    export namespace initialization {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$dictionary__map$initialization$<_TAnnotation>
-                    }
-                    
-                    export type $<_TAnnotation> = _IFlat.Initialization$dictionary__map$<_TAnnotation>
-                }
-                
-                export namespace group__literal {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$group__literal$definition$<_TAnnotation>
-                    }
-                    
-                    export namespace properties {
-                        
-                        
-                        
-                        export namespace D {
-                            
-                            
-                            
-                            export type $<_TAnnotation> = _IFlat.Initialization$group__literal$properties$D$<_TAnnotation>
-                        }
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$group__literal$properties$<_TAnnotation>
-                    }
-                    
-                    export type $<_TAnnotation> = _IFlat.Initialization$group__literal$<_TAnnotation>
+                    export type $<_TAnnotation> = _IFlat.Generic__Initialization$change__context$<_TAnnotation>
                 }
                 
                 export namespace implement__me {
                     
                     
                     
-                    export type $<_TAnnotation> = _IFlat.Initialization$implement__me$<_TAnnotation>
+                    export type $<_TAnnotation> = _IFlat.Generic__Initialization$implement__me$<_TAnnotation>
                 }
                 
-                export namespace _lnull {
+                export namespace panic {
                     
                     
                     
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$null$definition$<_TAnnotation>
-                    }
-                    
-                    export type $<_TAnnotation> = _IFlat.Initialization$null$<_TAnnotation>
-                }
-                
-                export namespace numerical {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$numerical$definition$<_TAnnotation>
-                    }
-                    
-                    export namespace initialization {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$numerical$initialization$<_TAnnotation>
-                    }
-                    
-                    export type $<_TAnnotation> = _IFlat.Initialization$numerical$<_TAnnotation>
-                }
-                
-                export namespace optional {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$optional$definition$<_TAnnotation>
-                    }
-                    
-                    export type $<_TAnnotation> = _IFlat.Initialization$optional$<_TAnnotation>
-                }
-                
-                export namespace procedure {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$procedure$definition$<_TAnnotation>
-                    }
-                    
-                    export namespace temp__has__parameters {
-                        
-                        
-                        
-                        export namespace O {
-                            
-                            
-                            
-                            export type $<_TAnnotation> = _IFlat.Initialization$procedure$temp__has__parameters$O$<_TAnnotation>
-                        }
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$procedure$temp__has__parameters$<_TAnnotation>
-                    }
-                    
-                    export namespace variables {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$procedure$variables$<_TAnnotation>
-                    }
-                    
-                    export namespace block {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$procedure$block$<_TAnnotation>
-                    }
-                    
-                    export type $<_TAnnotation> = _IFlat.Initialization$procedure$<_TAnnotation>
-                }
-                
-                export namespace tagged__union__literal {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$tagged__union__literal$definition$<_TAnnotation>
-                    }
-                    
-                    export namespace state {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$tagged__union__literal$state$<_TAnnotation>
-                    }
-                    
-                    export namespace initialization {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$tagged__union__literal$initialization$<_TAnnotation>
-                    }
-                    
-                    export type $<_TAnnotation> = _IFlat.Initialization$tagged__union__literal$<_TAnnotation>
-                }
-                
-                export namespace _lstring {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$string$definition$<_TAnnotation>
-                    }
-                    
-                    export namespace initialization {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$string$initialization$<_TAnnotation>
-                    }
-                    
-                    export type $<_TAnnotation> = _IFlat.Initialization$string$<_TAnnotation>
+                    export type $<_TAnnotation> = _IFlat.Generic__Initialization$panic$<_TAnnotation>
                 }
                 
                 export namespace _lswitch {
@@ -6660,21 +6557,21 @@ export namespace proto__implementation {
                         
                         
                         
-                        export type $<_TAnnotation> = _IFlat.Initialization$switch$definition$<_TAnnotation>
+                        export type $<_TAnnotation> = _IFlat.Generic__Initialization$switch$definition$<_TAnnotation>
                     }
                     
                     export namespace temp__type {
                         
                         
                         
-                        export type $<_TAnnotation> = _IFlat.Initialization$switch$temp__type$<_TAnnotation>
+                        export type $<_TAnnotation> = _IFlat.Generic__Initialization$switch$temp__type$<_TAnnotation>
                     }
                     
                     export namespace source {
                         
                         
                         
-                        export type $<_TAnnotation> = _IFlat.Initialization$switch$source$<_TAnnotation>
+                        export type $<_TAnnotation> = _IFlat.Generic__Initialization$switch$source$<_TAnnotation>
                     }
                     
                     export namespace cases {
@@ -6685,10 +6582,10 @@ export namespace proto__implementation {
                             
                             
                             
-                            export type $<_TAnnotation> = _IFlat.Initialization$switch$cases$D$<_TAnnotation>
+                            export type $<_TAnnotation> = _IFlat.Generic__Initialization$switch$cases$D$<_TAnnotation>
                         }
                         
-                        export type $<_TAnnotation> = _IFlat.Initialization$switch$cases$<_TAnnotation>
+                        export type $<_TAnnotation> = _IFlat.Generic__Initialization$switch$cases$<_TAnnotation>
                     }
                     
                     export namespace _ldefault {
@@ -6699,55 +6596,13 @@ export namespace proto__implementation {
                             
                             
                             
-                            export type $<_TAnnotation> = _IFlat.Initialization$switch$default$O$<_TAnnotation>
+                            export type $<_TAnnotation> = _IFlat.Generic__Initialization$switch$default$O$<_TAnnotation>
                         }
                         
-                        export type $<_TAnnotation> = _IFlat.Initialization$switch$default$<_TAnnotation>
+                        export type $<_TAnnotation> = _IFlat.Generic__Initialization$switch$default$<_TAnnotation>
                     }
                     
-                    export type $<_TAnnotation> = _IFlat.Initialization$switch$<_TAnnotation>
-                }
-                
-                export namespace value__function {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$value__function$definition$<_TAnnotation>
-                    }
-                    
-                    export namespace temp__has__parameters {
-                        
-                        
-                        
-                        export namespace O {
-                            
-                            
-                            
-                            export type $<_TAnnotation> = _IFlat.Initialization$value__function$temp__has__parameters$O$<_TAnnotation>
-                        }
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$value__function$temp__has__parameters$<_TAnnotation>
-                    }
-                    
-                    export namespace variables {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$value__function$variables$<_TAnnotation>
-                    }
-                    
-                    export namespace initialization {
-                        
-                        
-                        
-                        export type $<_TAnnotation> = _IFlat.Initialization$value__function$initialization$<_TAnnotation>
-                    }
-                    
-                    export type $<_TAnnotation> = _IFlat.Initialization$value__function$<_TAnnotation>
+                    export type $<_TAnnotation> = _IFlat.Generic__Initialization$switch$<_TAnnotation>
                 }
                 
                 export namespace variables {
@@ -6758,17 +6613,528 @@ export namespace proto__implementation {
                         
                         
                         
-                        export type $<_TAnnotation> = _IFlat.Initialization$variables$variables$<_TAnnotation>
+                        export type $<_TAnnotation> = _IFlat.Generic__Initialization$variables$variables$<_TAnnotation>
                     }
                     
                     export namespace initialization {
                         
                         
                         
-                        export type $<_TAnnotation> = _IFlat.Initialization$variables$initialization$<_TAnnotation>
+                        export type $<_TAnnotation> = _IFlat.Generic__Initialization$variables$initialization$<_TAnnotation>
                     }
                     
-                    export type $<_TAnnotation> = _IFlat.Initialization$variables$<_TAnnotation>
+                    export type $<_TAnnotation> = _IFlat.Generic__Initialization$variables$<_TAnnotation>
+                }
+                
+                export type $<_TAnnotation> = _IFlat.Generic__Initialization$<_TAnnotation>
+            }
+            
+            export namespace Initialization {
+                
+                
+                
+                export namespace generic {
+                    
+                    
+                    
+                    export type $<_TAnnotation> = _IFlat.Initialization$generic$<_TAnnotation>
+                }
+                
+                export namespace call {
+                    
+                    
+                    
+                    export namespace _lfunction {
+                        
+                        
+                        
+                        export type $<_TAnnotation> = _IFlat.Initialization$call$function$<_TAnnotation>
+                    }
+                    
+                    export namespace definition {
+                        
+                        
+                        
+                        export type $<_TAnnotation> = _IFlat.Initialization$call$definition$<_TAnnotation>
+                    }
+                    
+                    export namespace call {
+                        
+                        
+                        
+                        export type $<_TAnnotation> = _IFlat.Initialization$call$call$<_TAnnotation>
+                    }
+                    
+                    export type $<_TAnnotation> = _IFlat.Initialization$call$<_TAnnotation>
+                }
+                
+                export namespace _ltype {
+                    
+                    
+                    
+                    export namespace array {
+                        
+                        
+                        
+                        export namespace definition {
+                            
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$array$definition$<_TAnnotation>
+                        }
+                        
+                        export namespace _ltype {
+                            
+                            
+                            
+                            export namespace literal {
+                                
+                                
+                                
+                                export namespace initialization {
+                                    
+                                    
+                                    
+                                    export namespace A {
+                                        
+                                        
+                                        
+                                        export type $<_TAnnotation> = _IFlat.Initialization$type$array$type$literal$initialization$A$<_TAnnotation>
+                                    }
+                                    
+                                    export type $<_TAnnotation> = _IFlat.Initialization$type$array$type$literal$initialization$<_TAnnotation>
+                                }
+                                
+                                export type $<_TAnnotation> = _IFlat.Initialization$type$array$type$literal$<_TAnnotation>
+                            }
+                            
+                            export namespace map {
+                                
+                                
+                                
+                                export namespace source {
+                                    
+                                    
+                                    
+                                    export type $<_TAnnotation> = _IFlat.Initialization$type$array$type$map$source$<_TAnnotation>
+                                }
+                                
+                                export namespace initialization {
+                                    
+                                    
+                                    
+                                    export type $<_TAnnotation> = _IFlat.Initialization$type$array$type$map$initialization$<_TAnnotation>
+                                }
+                                
+                                export type $<_TAnnotation> = _IFlat.Initialization$type$array$type$map$<_TAnnotation>
+                            }
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$array$type$<_TAnnotation>
+                        }
+                        
+                        export type $<_TAnnotation> = _IFlat.Initialization$type$array$<_TAnnotation>
+                    }
+                    
+                    export namespace atom {
+                        
+                        
+                        
+                        export namespace definition {
+                            
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$atom$definition$<_TAnnotation>
+                        }
+                        
+                        export namespace _ltype {
+                            
+                            
+                            
+                            export namespace _lboolean {
+                                
+                                
+                                
+                                export namespace definition {
+                                    
+                                    
+                                    
+                                    export type $<_TAnnotation> = _IFlat.Initialization$type$atom$type$boolean$definition$<_TAnnotation>
+                                }
+                                
+                                export namespace initialization {
+                                    
+                                    
+                                    
+                                    export type $<_TAnnotation> = _IFlat.Initialization$type$atom$type$boolean$initialization$<_TAnnotation>
+                                }
+                                
+                                export type $<_TAnnotation> = _IFlat.Initialization$type$atom$type$boolean$<_TAnnotation>
+                            }
+                            
+                            export namespace copy {
+                                
+                                
+                                
+                                export namespace source {
+                                    
+                                    
+                                    
+                                    export type $<_TAnnotation> = _IFlat.Initialization$type$atom$type$copy$source$<_TAnnotation>
+                                }
+                                
+                                export type $<_TAnnotation> = _IFlat.Initialization$type$atom$type$copy$<_TAnnotation>
+                            }
+                            
+                            export namespace _lnull {
+                                
+                                
+                                
+                                export namespace definition {
+                                    
+                                    
+                                    
+                                    export type $<_TAnnotation> = _IFlat.Initialization$type$atom$type$null$definition$<_TAnnotation>
+                                }
+                                
+                                export type $<_TAnnotation> = _IFlat.Initialization$type$atom$type$null$<_TAnnotation>
+                            }
+                            
+                            export namespace numerical {
+                                
+                                
+                                
+                                export namespace definition {
+                                    
+                                    
+                                    
+                                    export type $<_TAnnotation> = _IFlat.Initialization$type$atom$type$numerical$definition$<_TAnnotation>
+                                }
+                                
+                                export namespace initialization {
+                                    
+                                    
+                                    
+                                    export type $<_TAnnotation> = _IFlat.Initialization$type$atom$type$numerical$initialization$<_TAnnotation>
+                                }
+                                
+                                export type $<_TAnnotation> = _IFlat.Initialization$type$atom$type$numerical$<_TAnnotation>
+                            }
+                            
+                            export namespace _lstring {
+                                
+                                
+                                
+                                export namespace definition {
+                                    
+                                    
+                                    
+                                    export type $<_TAnnotation> = _IFlat.Initialization$type$atom$type$string$definition$<_TAnnotation>
+                                }
+                                
+                                export namespace initialization {
+                                    
+                                    
+                                    
+                                    export type $<_TAnnotation> = _IFlat.Initialization$type$atom$type$string$initialization$<_TAnnotation>
+                                }
+                                
+                                export type $<_TAnnotation> = _IFlat.Initialization$type$atom$type$string$<_TAnnotation>
+                            }
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$atom$type$<_TAnnotation>
+                        }
+                        
+                        export type $<_TAnnotation> = _IFlat.Initialization$type$atom$<_TAnnotation>
+                    }
+                    
+                    export namespace computed {
+                        
+                        
+                        
+                        export namespace definition {
+                            
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$computed$definition$<_TAnnotation>
+                        }
+                        
+                        export type $<_TAnnotation> = _IFlat.Initialization$type$computed$<_TAnnotation>
+                    }
+                    
+                    export namespace dictionary {
+                        
+                        
+                        
+                        export namespace definition {
+                            
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$dictionary$definition$<_TAnnotation>
+                        }
+                        
+                        export namespace _ltype {
+                            
+                            
+                            
+                            export namespace literal {
+                                
+                                
+                                
+                                export namespace initialization {
+                                    
+                                    
+                                    
+                                    export namespace D {
+                                        
+                                        
+                                        
+                                        export type $<_TAnnotation> = _IFlat.Initialization$type$dictionary$type$literal$initialization$D$<_TAnnotation>
+                                    }
+                                    
+                                    export type $<_TAnnotation> = _IFlat.Initialization$type$dictionary$type$literal$initialization$<_TAnnotation>
+                                }
+                                
+                                export type $<_TAnnotation> = _IFlat.Initialization$type$dictionary$type$literal$<_TAnnotation>
+                            }
+                            
+                            export namespace map {
+                                
+                                
+                                
+                                export namespace source {
+                                    
+                                    
+                                    
+                                    export type $<_TAnnotation> = _IFlat.Initialization$type$dictionary$type$map$source$<_TAnnotation>
+                                }
+                                
+                                export namespace initialization {
+                                    
+                                    
+                                    
+                                    export type $<_TAnnotation> = _IFlat.Initialization$type$dictionary$type$map$initialization$<_TAnnotation>
+                                }
+                                
+                                export type $<_TAnnotation> = _IFlat.Initialization$type$dictionary$type$map$<_TAnnotation>
+                            }
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$dictionary$type$<_TAnnotation>
+                        }
+                        
+                        export type $<_TAnnotation> = _IFlat.Initialization$type$dictionary$<_TAnnotation>
+                    }
+                    
+                    export namespace group {
+                        
+                        
+                        
+                        export namespace definition {
+                            
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$group$definition$<_TAnnotation>
+                        }
+                        
+                        export namespace properties {
+                            
+                            
+                            
+                            export namespace D {
+                                
+                                
+                                
+                                export type $<_TAnnotation> = _IFlat.Initialization$type$group$properties$D$<_TAnnotation>
+                            }
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$group$properties$<_TAnnotation>
+                        }
+                        
+                        export type $<_TAnnotation> = _IFlat.Initialization$type$group$<_TAnnotation>
+                    }
+                    
+                    export namespace initialization__function {
+                        
+                        
+                        
+                        export namespace definition {
+                            
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$initialization__function$definition$<_TAnnotation>
+                        }
+                        
+                        export namespace temp__has__parameters {
+                            
+                            
+                            
+                            export namespace O {
+                                
+                                
+                                
+                                export type $<_TAnnotation> = _IFlat.Initialization$type$initialization__function$temp__has__parameters$O$<_TAnnotation>
+                            }
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$initialization__function$temp__has__parameters$<_TAnnotation>
+                        }
+                        
+                        export namespace variables {
+                            
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$initialization__function$variables$<_TAnnotation>
+                        }
+                        
+                        export namespace initialization {
+                            
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$initialization__function$initialization$<_TAnnotation>
+                        }
+                        
+                        export type $<_TAnnotation> = _IFlat.Initialization$type$initialization__function$<_TAnnotation>
+                    }
+                    
+                    export namespace lookup {
+                        
+                        
+                        
+                        export namespace definition {
+                            
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$lookup$definition$<_TAnnotation>
+                        }
+                        
+                        export type $<_TAnnotation> = _IFlat.Initialization$type$lookup$<_TAnnotation>
+                    }
+                    
+                    export namespace optional {
+                        
+                        
+                        
+                        export namespace definition {
+                            
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$optional$definition$<_TAnnotation>
+                        }
+                        
+                        export type $<_TAnnotation> = _IFlat.Initialization$type$optional$<_TAnnotation>
+                    }
+                    
+                    export namespace procedure {
+                        
+                        
+                        
+                        export namespace definition {
+                            
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$procedure$definition$<_TAnnotation>
+                        }
+                        
+                        export namespace temp__has__parameters {
+                            
+                            
+                            
+                            export namespace O {
+                                
+                                
+                                
+                                export type $<_TAnnotation> = _IFlat.Initialization$type$procedure$temp__has__parameters$O$<_TAnnotation>
+                            }
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$procedure$temp__has__parameters$<_TAnnotation>
+                        }
+                        
+                        export namespace variables {
+                            
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$procedure$variables$<_TAnnotation>
+                        }
+                        
+                        export namespace block {
+                            
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$procedure$block$<_TAnnotation>
+                        }
+                        
+                        export type $<_TAnnotation> = _IFlat.Initialization$type$procedure$<_TAnnotation>
+                    }
+                    
+                    export namespace selection__function {
+                        
+                        
+                        
+                        export namespace definition {
+                            
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$selection__function$definition$<_TAnnotation>
+                        }
+                        
+                        export namespace temp__has__parameters {
+                            
+                            
+                            
+                            export namespace O {
+                                
+                                
+                                
+                                export type $<_TAnnotation> = _IFlat.Initialization$type$selection__function$temp__has__parameters$O$<_TAnnotation>
+                            }
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$selection__function$temp__has__parameters$<_TAnnotation>
+                        }
+                        
+                        export namespace variables {
+                            
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$selection__function$variables$<_TAnnotation>
+                        }
+                        
+                        export namespace initialization {
+                            
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$selection__function$initialization$<_TAnnotation>
+                        }
+                        
+                        export type $<_TAnnotation> = _IFlat.Initialization$type$selection__function$<_TAnnotation>
+                    }
+                    
+                    export namespace tagged__union {
+                        
+                        
+                        
+                        export namespace definition {
+                            
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$tagged__union$definition$<_TAnnotation>
+                        }
+                        
+                        export namespace state {
+                            
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$tagged__union$state$<_TAnnotation>
+                        }
+                        
+                        export namespace initialization {
+                            
+                            
+                            
+                            export type $<_TAnnotation> = _IFlat.Initialization$type$tagged__union$initialization$<_TAnnotation>
+                        }
+                        
+                        export type $<_TAnnotation> = _IFlat.Initialization$type$tagged__union$<_TAnnotation>
+                    }
+                    
+                    export type $<_TAnnotation> = _IFlat.Initialization$type$<_TAnnotation>
                 }
                 
                 export type $<_TAnnotation> = _IFlat.Initialization$<_TAnnotation>
@@ -6842,32 +7208,18 @@ export namespace proto__implementation {
                             export type $<_TAnnotation> = _IFlat.Statements$A$call$function$<_TAnnotation>
                         }
                         
-                        export namespace context__definition {
+                        export namespace definition {
                             
                             
                             
-                            export type $<_TAnnotation> = _IFlat.Statements$A$call$context__definition$<_TAnnotation>
+                            export type $<_TAnnotation> = _IFlat.Statements$A$call$definition$<_TAnnotation>
                         }
                         
-                        export namespace context {
+                        export namespace call {
                             
                             
                             
-                            export type $<_TAnnotation> = _IFlat.Statements$A$call$context$<_TAnnotation>
-                        }
-                        
-                        export namespace _larguments {
-                            
-                            
-                            
-                            export namespace D {
-                                
-                                
-                                
-                                export type $<_TAnnotation> = _IFlat.Statements$A$call$arguments$D$<_TAnnotation>
-                            }
-                            
-                            export type $<_TAnnotation> = _IFlat.Statements$A$call$arguments$<_TAnnotation>
+                            export type $<_TAnnotation> = _IFlat.Statements$A$call$call$<_TAnnotation>
                         }
                         
                         export type $<_TAnnotation> = _IFlat.Statements$A$call$<_TAnnotation>
@@ -7219,21 +7571,37 @@ export namespace proto__implementation {
                 readonly 'variable': Target__Selection$variable$
             }
             
-            export type Source__Selection__Tail$O$step$call$address__function$ = _Itypesystem.Resolved.Flat.Type$address__function$
+            export type Function__Call$type__arguments$ = Type__Arguments$
             
-            export type Source__Selection__Tail$O$step$call$type__arguments$ = Type__Arguments$
+            export type Function__Call$context$ = Source__Selection$
             
-            export type Source__Selection__Tail$O$step$call$context$ = Initialization__Or__Selection$
+            export type Function__Call$arguments$D$initialization$ = Initialization$
             
-            export type Source__Selection__Tail$O$step$call$arguments$D$ = Initialization__Or__Selection$
+            export type Function__Call$arguments$D$selection$selection$ = Source__Selection$
             
-            export type Source__Selection__Tail$O$step$call$arguments$ = _pt.Dictionary<Source__Selection__Tail$O$step$call$arguments$D$>
+            export type Function__Call$arguments$D$selection$ = {
+                readonly 'selection': Function__Call$arguments$D$selection$selection$
+            }
+            
+            export type Function__Call$arguments$D$ = 
+                | ['initialization', Function__Call$arguments$D$initialization$]
+                | ['selection', Function__Call$arguments$D$selection$]
+            
+            export type Function__Call$arguments$ = _pt.Dictionary<Function__Call$arguments$D$>
+            
+            export type Function__Call$ = {
+                readonly 'arguments': Function__Call$arguments$
+                readonly 'context': Function__Call$context$
+                readonly 'type arguments': Function__Call$type__arguments$
+            }
+            
+            export type Source__Selection__Tail$O$step$call$selection__function$ = _Itypesystem.Resolved.Flat.Type$selection__function$
+            
+            export type Source__Selection__Tail$O$step$call$call$ = Function__Call$
             
             export type Source__Selection__Tail$O$step$call$ = {
-                readonly 'address function': Source__Selection__Tail$O$step$call$address__function$
-                readonly 'arguments': Source__Selection__Tail$O$step$call$arguments$
-                readonly 'context': Source__Selection__Tail$O$step$call$context$
-                readonly 'type arguments': Source__Selection__Tail$O$step$call$type__arguments$
+                readonly 'call': Source__Selection__Tail$O$step$call$call$
+                readonly 'selection function': Source__Selection__Tail$O$step$call$selection__function$
             }
             
             export type Source__Selection__Tail$O$step$property$group$ = _Itypesystem.Resolved.Flat.Type$group$
@@ -7279,23 +7647,11 @@ export namespace proto__implementation {
                 readonly 'tail': Source__Selection$tail$
             }
             
-            export type Initialization__Or__Selection$initialization$ = Initialization$
-            
-            export type Initialization__Or__Selection$selection$selection$ = Source__Selection$
-            
-            export type Initialization__Or__Selection$selection$ = {
-                readonly 'selection': Initialization__Or__Selection$selection$selection$
-            }
-            
-            export type Initialization__Or__Selection$ = 
-                | ['initialization', Initialization__Or__Selection$initialization$]
-                | ['selection', Initialization__Or__Selection$selection$]
-            
             export type String__Initialization__Or__Selection$initialization$ = String__Initialization$
             
             export type String__Initialization__Or__Selection$selection$selection$ = Source__Selection$
             
-            export type String__Initialization__Or__Selection$selection$string$ = _Itypesystem.Resolved.Flat.Type$string$
+            export type String__Initialization__Or__Selection$selection$string$ = _Itypesystem.Resolved.Flat.Type$atom$string$
             
             export type String__Initialization__Or__Selection$selection$ = {
                 readonly 'selection': String__Initialization__Or__Selection$selection$selection$
@@ -7310,7 +7666,7 @@ export namespace proto__implementation {
             
             export type Numerical__Initialization__Or__Selection$selection$selection$ = Source__Selection$
             
-            export type Numerical__Initialization__Or__Selection$selection$number$ = _Itypesystem.Resolved.Flat.Type$number$
+            export type Numerical__Initialization__Or__Selection$selection$number$ = _Itypesystem.Resolved.Flat.Type$atom$number$
             
             export type Numerical__Initialization__Or__Selection$selection$ = {
                 readonly 'number': Numerical__Initialization__Or__Selection$selection$number$
@@ -7325,7 +7681,7 @@ export namespace proto__implementation {
             
             export type Boolean__Initialization__Or__Selection$selection$selection$ = Source__Selection$
             
-            export type Boolean__Initialization__Or__Selection$selection$boolean$ = _Itypesystem.Resolved.Flat.Type$boolean$
+            export type Boolean__Initialization__Or__Selection$selection$boolean$ = _Itypesystem.Resolved.Flat.Type$atom$boolean$
             
             export type Boolean__Initialization__Or__Selection$selection$ = {
                 readonly 'boolean': Boolean__Initialization__Or__Selection$selection$boolean$
@@ -7469,211 +7825,292 @@ export namespace proto__implementation {
             export type String__Initialization$ = 
                 | ['string literal', String__Initialization$string__literal$]
             
-            export type Initialization$array__literal$definition$ = _Itypesystem.Resolved.Flat.Type$array$
+            export type Generic__Initialization$change__context$source$ = Source__Selection$
             
-            export type Initialization$array__literal$initialization$A$ = Initialization__Or__Selection$
+            export type Generic__Initialization$change__context$initialization$ = Initialization$
             
-            export type Initialization$array__literal$initialization$ = _pt.Array<Initialization$array__literal$initialization$A$>
-            
-            export type Initialization$array__literal$ = {
-                readonly 'definition': Initialization$array__literal$definition$
-                readonly 'initialization': Initialization$array__literal$initialization$
+            export type Generic__Initialization$change__context$ = {
+                readonly 'initialization': Generic__Initialization$change__context$initialization$
+                readonly 'source': Generic__Initialization$change__context$source$
             }
             
-            export type Initialization$array__map$definition$ = _Itypesystem.Resolved.Flat.Type$array$
+            export type Generic__Initialization$implement__me$ = string
             
-            export type Initialization$array__map$source$ = Source__Selection$
+            export type Generic__Initialization$panic$ = string
             
-            export type Initialization$array__map$initialization$ = Initialization__Or__Selection$
+            export type Generic__Initialization$switch$definition$ = _Itypesystem.Resolved.Flat.Type$tagged__union$
             
-            export type Initialization$array__map$ = {
-                readonly 'definition': Initialization$array__map$definition$
-                readonly 'initialization': Initialization$array__map$initialization$
-                readonly 'source': Initialization$array__map$source$
+            export type Generic__Initialization$switch$temp__type$ = Type__Selection$
+            
+            export type Generic__Initialization$switch$source$ = Source__Selection$
+            
+            export type Generic__Initialization$switch$cases$D$ = Initialization$
+            
+            export type Generic__Initialization$switch$cases$ = _pt.Dictionary<Generic__Initialization$switch$cases$D$>
+            
+            export type Generic__Initialization$switch$default$O$ = Initialization$
+            
+            export type Generic__Initialization$switch$default$ = _pt.OptionalValue<Generic__Initialization$switch$default$O$>
+            
+            export type Generic__Initialization$switch$ = {
+                readonly 'cases': Generic__Initialization$switch$cases$
+                readonly 'default': Generic__Initialization$switch$default$
+                readonly 'definition': Generic__Initialization$switch$definition$
+                readonly 'source': Generic__Initialization$switch$source$
+                readonly 'temp type': Generic__Initialization$switch$temp__type$
             }
             
-            export type Initialization$boolean$definition$ = _Itypesystem.Resolved.Flat.Type$boolean$
+            export type Generic__Initialization$variables$variables$ = Variables$
             
-            export type Initialization$boolean$initialization$ = Boolean__Initialization$
+            export type Generic__Initialization$variables$initialization$ = Initialization$
             
-            export type Initialization$boolean$ = {
-                readonly 'definition': Initialization$boolean$definition$
-                readonly 'initialization': Initialization$boolean$initialization$
+            export type Generic__Initialization$variables$ = {
+                readonly 'initialization': Generic__Initialization$variables$initialization$
+                readonly 'variables': Generic__Initialization$variables$variables$
             }
             
-            export type Initialization$change__context$source$ = Source__Selection$
+            export type Generic__Initialization$ = 
+                | ['change context', Generic__Initialization$change__context$]
+                | ['implement me', Generic__Initialization$implement__me$]
+                | ['panic', Generic__Initialization$panic$]
+                | ['switch', Generic__Initialization$switch$]
+                | ['variables', Generic__Initialization$variables$]
             
-            export type Initialization$change__context$initialization$ = Initialization__Or__Selection$
+            export type Initialization$generic$ = Generic__Initialization$
             
-            export type Initialization$change__context$ = {
-                readonly 'initialization': Initialization$change__context$initialization$
-                readonly 'source': Initialization$change__context$source$
+            export type Initialization$call$function$ = Source__Selection$
+            
+            export type Initialization$call$definition$ = _Itypesystem.Resolved.Flat.Type$initialization__function$
+            
+            export type Initialization$call$call$ = Function__Call$
+            
+            export type Initialization$call$ = {
+                readonly 'call': Initialization$call$call$
+                readonly 'definition': Initialization$call$definition$
+                readonly 'function': Initialization$call$function$
             }
             
-            export type Initialization$dictionary__literal$definition$ = _Itypesystem.Resolved.Flat.Type$dictionary$
+            export type Initialization$type$array$definition$ = _Itypesystem.Resolved.Flat.Type$array$
             
-            export type Initialization$dictionary__literal$initialization$D$ = Initialization__Or__Selection$
+            export type Initialization$type$array$type$literal$initialization$A$ = Initialization$
             
-            export type Initialization$dictionary__literal$initialization$ = _pt.Dictionary<Initialization$dictionary__literal$initialization$D$>
+            export type Initialization$type$array$type$literal$initialization$ = _pt.Array<Initialization$type$array$type$literal$initialization$A$>
             
-            export type Initialization$dictionary__literal$ = {
-                readonly 'definition': Initialization$dictionary__literal$definition$
-                readonly 'initialization': Initialization$dictionary__literal$initialization$
+            export type Initialization$type$array$type$literal$ = {
+                readonly 'initialization': Initialization$type$array$type$literal$initialization$
             }
             
-            export type Initialization$dictionary__map$definition$ = _Itypesystem.Resolved.Flat.Type$dictionary$
+            export type Initialization$type$array$type$map$source$ = Source__Selection$
             
-            export type Initialization$dictionary__map$source$ = Source__Selection$
+            export type Initialization$type$array$type$map$initialization$ = Initialization$
             
-            export type Initialization$dictionary__map$initialization$ = Initialization__Or__Selection$
-            
-            export type Initialization$dictionary__map$ = {
-                readonly 'definition': Initialization$dictionary__map$definition$
-                readonly 'initialization': Initialization$dictionary__map$initialization$
-                readonly 'source': Initialization$dictionary__map$source$
+            export type Initialization$type$array$type$map$ = {
+                readonly 'initialization': Initialization$type$array$type$map$initialization$
+                readonly 'source': Initialization$type$array$type$map$source$
             }
             
-            export type Initialization$group__literal$definition$ = _Itypesystem.Resolved.Flat.Type$group$
+            export type Initialization$type$array$type$ = 
+                | ['literal', Initialization$type$array$type$literal$]
+                | ['map', Initialization$type$array$type$map$]
             
-            export type Initialization$group__literal$properties$D$ = Initialization__Or__Selection$
-            
-            export type Initialization$group__literal$properties$ = _pt.Dictionary<Initialization$group__literal$properties$D$>
-            
-            export type Initialization$group__literal$ = {
-                readonly 'definition': Initialization$group__literal$definition$
-                readonly 'properties': Initialization$group__literal$properties$
+            export type Initialization$type$array$ = {
+                readonly 'definition': Initialization$type$array$definition$
+                readonly 'type': Initialization$type$array$type$
             }
             
-            export type Initialization$implement__me$ = string
+            export type Initialization$type$atom$definition$ = _Itypesystem.Resolved.Flat.Type$atom$
             
-            export type Initialization$null$definition$ = _Itypesystem.Resolved.Flat.Type$null$
+            export type Initialization$type$atom$type$boolean$definition$ = _Itypesystem.Resolved.Flat.Type$atom$boolean$
             
-            export type Initialization$null$ = {
-                readonly 'definition': Initialization$null$definition$
+            export type Initialization$type$atom$type$boolean$initialization$ = Boolean__Initialization$
+            
+            export type Initialization$type$atom$type$boolean$ = {
+                readonly 'definition': Initialization$type$atom$type$boolean$definition$
+                readonly 'initialization': Initialization$type$atom$type$boolean$initialization$
             }
             
-            export type Initialization$numerical$definition$ = _Itypesystem.Resolved.Flat.Type$number$
+            export type Initialization$type$atom$type$copy$source$ = Source__Selection$
             
-            export type Initialization$numerical$initialization$ = Numerical__Initialization$
-            
-            export type Initialization$numerical$ = {
-                readonly 'definition': Initialization$numerical$definition$
-                readonly 'initialization': Initialization$numerical$initialization$
+            export type Initialization$type$atom$type$copy$ = {
+                readonly 'source': Initialization$type$atom$type$copy$source$
             }
             
-            export type Initialization$optional$definition$ = _Itypesystem.Resolved.Flat.Type$optional$
+            export type Initialization$type$atom$type$null$definition$ = _Itypesystem.Resolved.Flat.Type$atom$null$
             
-            export type Initialization$optional$ = {
-                readonly 'definition': Initialization$optional$definition$
+            export type Initialization$type$atom$type$null$ = {
+                readonly 'definition': Initialization$type$atom$type$null$definition$
             }
             
-            export type Initialization$procedure$definition$ = _Itypesystem.Resolved.Flat.Type$procedure$
+            export type Initialization$type$atom$type$numerical$definition$ = _Itypesystem.Resolved.Flat.Type$atom$number$
             
-            export type Initialization$procedure$temp__has__parameters$O$ = null
+            export type Initialization$type$atom$type$numerical$initialization$ = Numerical__Initialization$
             
-            export type Initialization$procedure$temp__has__parameters$ = _pt.OptionalValue<Initialization$procedure$temp__has__parameters$O$>
-            
-            export type Initialization$procedure$variables$ = Aggregated__Variables$
-            
-            export type Initialization$procedure$block$ = Block$
-            
-            export type Initialization$procedure$ = {
-                readonly 'block': Initialization$procedure$block$
-                readonly 'definition': Initialization$procedure$definition$
-                readonly 'temp has parameters': Initialization$procedure$temp__has__parameters$
-                readonly 'variables': Initialization$procedure$variables$
+            export type Initialization$type$atom$type$numerical$ = {
+                readonly 'definition': Initialization$type$atom$type$numerical$definition$
+                readonly 'initialization': Initialization$type$atom$type$numerical$initialization$
             }
             
-            export type Initialization$tagged__union__literal$definition$ = _Itypesystem.Resolved.Flat.Type$tagged__union$
+            export type Initialization$type$atom$type$string$definition$ = _Itypesystem.Resolved.Flat.Type$atom$string$
             
-            export type Initialization$tagged__union__literal$state$ = {
+            export type Initialization$type$atom$type$string$initialization$ = String__Initialization$
+            
+            export type Initialization$type$atom$type$string$ = {
+                readonly 'definition': Initialization$type$atom$type$string$definition$
+                readonly 'initialization': Initialization$type$atom$type$string$initialization$
+            }
+            
+            export type Initialization$type$atom$type$ = 
+                | ['boolean', Initialization$type$atom$type$boolean$]
+                | ['copy', Initialization$type$atom$type$copy$]
+                | ['null', Initialization$type$atom$type$null$]
+                | ['numerical', Initialization$type$atom$type$numerical$]
+                | ['string', Initialization$type$atom$type$string$]
+            
+            export type Initialization$type$atom$ = {
+                readonly 'definition': Initialization$type$atom$definition$
+                readonly 'type': Initialization$type$atom$type$
+            }
+            
+            export type Initialization$type$computed$definition$ = _Itypesystem.Resolved.Flat.Type$computed$
+            
+            export type Initialization$type$computed$ = {
+                readonly 'definition': Initialization$type$computed$definition$
+            }
+            
+            export type Initialization$type$dictionary$definition$ = _Itypesystem.Resolved.Flat.Type$dictionary$
+            
+            export type Initialization$type$dictionary$type$literal$initialization$D$ = Initialization$
+            
+            export type Initialization$type$dictionary$type$literal$initialization$ = _pt.Dictionary<Initialization$type$dictionary$type$literal$initialization$D$>
+            
+            export type Initialization$type$dictionary$type$literal$ = {
+                readonly 'initialization': Initialization$type$dictionary$type$literal$initialization$
+            }
+            
+            export type Initialization$type$dictionary$type$map$source$ = Source__Selection$
+            
+            export type Initialization$type$dictionary$type$map$initialization$ = Initialization$
+            
+            export type Initialization$type$dictionary$type$map$ = {
+                readonly 'initialization': Initialization$type$dictionary$type$map$initialization$
+                readonly 'source': Initialization$type$dictionary$type$map$source$
+            }
+            
+            export type Initialization$type$dictionary$type$ = 
+                | ['literal', Initialization$type$dictionary$type$literal$]
+                | ['map', Initialization$type$dictionary$type$map$]
+            
+            export type Initialization$type$dictionary$ = {
+                readonly 'definition': Initialization$type$dictionary$definition$
+                readonly 'type': Initialization$type$dictionary$type$
+            }
+            
+            export type Initialization$type$group$definition$ = _Itypesystem.Resolved.Flat.Type$group$
+            
+            export type Initialization$type$group$properties$D$ = Initialization$
+            
+            export type Initialization$type$group$properties$ = _pt.Dictionary<Initialization$type$group$properties$D$>
+            
+            export type Initialization$type$group$ = {
+                readonly 'definition': Initialization$type$group$definition$
+                readonly 'properties': Initialization$type$group$properties$
+            }
+            
+            export type Initialization$type$initialization__function$definition$ = _Itypesystem.Resolved.Flat.Type$initialization__function$
+            
+            export type Initialization$type$initialization__function$temp__has__parameters$O$ = null
+            
+            export type Initialization$type$initialization__function$temp__has__parameters$ = _pt.OptionalValue<Initialization$type$initialization__function$temp__has__parameters$O$>
+            
+            export type Initialization$type$initialization__function$variables$ = Aggregated__Variables$
+            
+            export type Initialization$type$initialization__function$initialization$ = Initialization$
+            
+            export type Initialization$type$initialization__function$ = {
+                readonly 'definition': Initialization$type$initialization__function$definition$
+                readonly 'initialization': Initialization$type$initialization__function$initialization$
+                readonly 'temp has parameters': Initialization$type$initialization__function$temp__has__parameters$
+                readonly 'variables': Initialization$type$initialization__function$variables$
+            }
+            
+            export type Initialization$type$lookup$definition$ = _Itypesystem.Resolved.Flat.Type$lookup$
+            
+            export type Initialization$type$lookup$ = {
+                readonly 'definition': Initialization$type$lookup$definition$
+            }
+            
+            export type Initialization$type$optional$definition$ = _Itypesystem.Resolved.Flat.Type$optional$
+            
+            export type Initialization$type$optional$ = {
+                readonly 'definition': Initialization$type$optional$definition$
+            }
+            
+            export type Initialization$type$procedure$definition$ = _Itypesystem.Resolved.Flat.Type$procedure$
+            
+            export type Initialization$type$procedure$temp__has__parameters$O$ = null
+            
+            export type Initialization$type$procedure$temp__has__parameters$ = _pt.OptionalValue<Initialization$type$procedure$temp__has__parameters$O$>
+            
+            export type Initialization$type$procedure$variables$ = Aggregated__Variables$
+            
+            export type Initialization$type$procedure$block$ = Block$
+            
+            export type Initialization$type$procedure$ = {
+                readonly 'block': Initialization$type$procedure$block$
+                readonly 'definition': Initialization$type$procedure$definition$
+                readonly 'temp has parameters': Initialization$type$procedure$temp__has__parameters$
+                readonly 'variables': Initialization$type$procedure$variables$
+            }
+            
+            export type Initialization$type$selection__function$definition$ = _Itypesystem.Resolved.Flat.Type$selection__function$
+            
+            export type Initialization$type$selection__function$temp__has__parameters$O$ = null
+            
+            export type Initialization$type$selection__function$temp__has__parameters$ = _pt.OptionalValue<Initialization$type$selection__function$temp__has__parameters$O$>
+            
+            export type Initialization$type$selection__function$variables$ = Aggregated__Variables$
+            
+            export type Initialization$type$selection__function$initialization$ = Initialization$
+            
+            export type Initialization$type$selection__function$ = {
+                readonly 'definition': Initialization$type$selection__function$definition$
+                readonly 'initialization': Initialization$type$selection__function$initialization$
+                readonly 'temp has parameters': Initialization$type$selection__function$temp__has__parameters$
+                readonly 'variables': Initialization$type$selection__function$variables$
+            }
+            
+            export type Initialization$type$tagged__union$definition$ = _Itypesystem.Resolved.Flat.Type$tagged__union$
+            
+            export type Initialization$type$tagged__union$state$ = {
                 readonly 'key': string
                 readonly 'referent': _Itypesystem.Resolved.Flat.Type$tagged__union$D$
             }
             
-            export type Initialization$tagged__union__literal$initialization$ = Initialization__Or__Selection$
+            export type Initialization$type$tagged__union$initialization$ = Initialization$
             
-            export type Initialization$tagged__union__literal$ = {
-                readonly 'definition': Initialization$tagged__union__literal$definition$
-                readonly 'initialization': Initialization$tagged__union__literal$initialization$
-                readonly 'state': Initialization$tagged__union__literal$state$
+            export type Initialization$type$tagged__union$ = {
+                readonly 'definition': Initialization$type$tagged__union$definition$
+                readonly 'initialization': Initialization$type$tagged__union$initialization$
+                readonly 'state': Initialization$type$tagged__union$state$
             }
             
-            export type Initialization$string$definition$ = _Itypesystem.Resolved.Flat.Type$string$
-            
-            export type Initialization$string$initialization$ = String__Initialization$
-            
-            export type Initialization$string$ = {
-                readonly 'definition': Initialization$string$definition$
-                readonly 'initialization': Initialization$string$initialization$
-            }
-            
-            export type Initialization$switch$definition$ = _Itypesystem.Resolved.Flat.Type$tagged__union$
-            
-            export type Initialization$switch$temp__type$ = Type__Selection$
-            
-            export type Initialization$switch$source$ = Source__Selection$
-            
-            export type Initialization$switch$cases$D$ = Initialization__Or__Selection$
-            
-            export type Initialization$switch$cases$ = _pt.Dictionary<Initialization$switch$cases$D$>
-            
-            export type Initialization$switch$default$O$ = Initialization__Or__Selection$
-            
-            export type Initialization$switch$default$ = _pt.OptionalValue<Initialization$switch$default$O$>
-            
-            export type Initialization$switch$ = {
-                readonly 'cases': Initialization$switch$cases$
-                readonly 'default': Initialization$switch$default$
-                readonly 'definition': Initialization$switch$definition$
-                readonly 'source': Initialization$switch$source$
-                readonly 'temp type': Initialization$switch$temp__type$
-            }
-            
-            export type Initialization$value__function$definition$ = _Itypesystem.Resolved.Flat.Type$procedure$
-            
-            export type Initialization$value__function$temp__has__parameters$O$ = null
-            
-            export type Initialization$value__function$temp__has__parameters$ = _pt.OptionalValue<Initialization$value__function$temp__has__parameters$O$>
-            
-            export type Initialization$value__function$variables$ = Aggregated__Variables$
-            
-            export type Initialization$value__function$initialization$ = Initialization__Or__Selection$
-            
-            export type Initialization$value__function$ = {
-                readonly 'definition': Initialization$value__function$definition$
-                readonly 'initialization': Initialization$value__function$initialization$
-                readonly 'temp has parameters': Initialization$value__function$temp__has__parameters$
-                readonly 'variables': Initialization$value__function$variables$
-            }
-            
-            export type Initialization$variables$variables$ = Variables$
-            
-            export type Initialization$variables$initialization$ = Initialization__Or__Selection$
-            
-            export type Initialization$variables$ = {
-                readonly 'initialization': Initialization$variables$initialization$
-                readonly 'variables': Initialization$variables$variables$
-            }
+            export type Initialization$type$ = 
+                | ['array', Initialization$type$array$]
+                | ['atom', Initialization$type$atom$]
+                | ['computed', Initialization$type$computed$]
+                | ['dictionary', Initialization$type$dictionary$]
+                | ['group', Initialization$type$group$]
+                | ['initialization function', Initialization$type$initialization__function$]
+                | ['lookup', Initialization$type$lookup$]
+                | ['optional', Initialization$type$optional$]
+                | ['procedure', Initialization$type$procedure$]
+                | ['selection function', Initialization$type$selection__function$]
+                | ['tagged union', Initialization$type$tagged__union$]
             
             export type Initialization$ = 
-                | ['array literal', Initialization$array__literal$]
-                | ['array map', Initialization$array__map$]
-                | ['boolean', Initialization$boolean$]
-                | ['change context', Initialization$change__context$]
-                | ['dictionary literal', Initialization$dictionary__literal$]
-                | ['dictionary map', Initialization$dictionary__map$]
-                | ['group literal', Initialization$group__literal$]
-                | ['implement me', Initialization$implement__me$]
-                | ['null', Initialization$null$]
-                | ['numerical', Initialization$numerical$]
-                | ['optional', Initialization$optional$]
-                | ['procedure', Initialization$procedure$]
-                | ['string', Initialization$string$]
-                | ['switch', Initialization$switch$]
-                | ['tagged union literal', Initialization$tagged__union__literal$]
-                | ['value function', Initialization$value__function$]
-                | ['variables', Initialization$variables$]
+                | ['call', Initialization$call$]
+                | ['generic', Initialization$generic$]
+                | ['type', Initialization$type$]
             
             export type Block$variables$ = Variables$
             
@@ -7686,7 +8123,7 @@ export namespace proto__implementation {
             
             export type Assign$target$ = Target__Selection$
             
-            export type Assign$initialization$ = Initialization__Or__Selection$
+            export type Assign$initialization$ = Initialization$
             
             export type Assign$ = {
                 readonly 'initialization': Assign$initialization$
@@ -7697,18 +8134,13 @@ export namespace proto__implementation {
             
             export type Statements$A$call$function$ = Source__Selection$
             
-            export type Statements$A$call$context__definition$ = _Itypesystem.Resolved.Flat.Type$procedure$
+            export type Statements$A$call$definition$ = _Itypesystem.Resolved.Flat.Type$procedure$
             
-            export type Statements$A$call$context$ = Source__Selection$
-            
-            export type Statements$A$call$arguments$D$ = Initialization__Or__Selection$
-            
-            export type Statements$A$call$arguments$ = _pt.Dictionary<Statements$A$call$arguments$D$>
+            export type Statements$A$call$call$ = Function__Call$
             
             export type Statements$A$call$ = {
-                readonly 'arguments': Statements$A$call$arguments$
-                readonly 'context': Statements$A$call$context$
-                readonly 'context definition': Statements$A$call$context__definition$
+                readonly 'call': Statements$A$call$call$
+                readonly 'definition': Statements$A$call$definition$
                 readonly 'function': Statements$A$call$function$
             }
             
@@ -7758,7 +8190,7 @@ export namespace proto__implementation {
             
             export type Statements$A$with$action$assign$ = Assign$
             
-            export type Statements$A$with$action$minus__assign$number$ = _Itypesystem.Resolved.Flat.Type$number$
+            export type Statements$A$with$action$minus__assign$number$ = _Itypesystem.Resolved.Flat.Type$atom$number$
             
             export type Statements$A$with$action$minus__assign$right__hand__side$ = Numerical__Initialization__Or__Selection$
             
@@ -7767,7 +8199,7 @@ export namespace proto__implementation {
                 readonly 'right hand side': Statements$A$with$action$minus__assign$right__hand__side$
             }
             
-            export type Statements$A$with$action$plus__assign$number$ = _Itypesystem.Resolved.Flat.Type$number$
+            export type Statements$A$with$action$plus__assign$number$ = _Itypesystem.Resolved.Flat.Type$atom$number$
             
             export type Statements$A$with$action$plus__assign$right__hand__side$ = Numerical__Initialization__Or__Selection$
             
@@ -8047,6 +8479,62 @@ export namespace proto__implementation {
                 export type $ = _IFlat.Target__Selection$
             }
             
+            export namespace Function__Call {
+                
+                
+                
+                export namespace type__arguments {
+                    
+                    
+                    
+                    export type $ = _IFlat.Function__Call$type__arguments$
+                }
+                
+                export namespace context {
+                    
+                    
+                    
+                    export type $ = _IFlat.Function__Call$context$
+                }
+                
+                export namespace _larguments {
+                    
+                    
+                    
+                    export namespace D {
+                        
+                        
+                        
+                        export namespace initialization {
+                            
+                            
+                            
+                            export type $ = _IFlat.Function__Call$arguments$D$initialization$
+                        }
+                        
+                        export namespace selection {
+                            
+                            
+                            
+                            export namespace selection {
+                                
+                                
+                                
+                                export type $ = _IFlat.Function__Call$arguments$D$selection$selection$
+                            }
+                            
+                            export type $ = _IFlat.Function__Call$arguments$D$selection$
+                        }
+                        
+                        export type $ = _IFlat.Function__Call$arguments$D$
+                    }
+                    
+                    export type $ = _IFlat.Function__Call$arguments$
+                }
+                
+                export type $ = _IFlat.Function__Call$
+            }
+            
             export namespace Source__Selection__Tail {
                 
                 
@@ -8063,39 +8551,18 @@ export namespace proto__implementation {
                             
                             
                             
-                            export namespace address__function {
+                            export namespace selection__function {
                                 
                                 
                                 
-                                export type $ = _IFlat.Source__Selection__Tail$O$step$call$address__function$
+                                export type $ = _IFlat.Source__Selection__Tail$O$step$call$selection__function$
                             }
                             
-                            export namespace type__arguments {
+                            export namespace call {
                                 
                                 
                                 
-                                export type $ = _IFlat.Source__Selection__Tail$O$step$call$type__arguments$
-                            }
-                            
-                            export namespace context {
-                                
-                                
-                                
-                                export type $ = _IFlat.Source__Selection__Tail$O$step$call$context$
-                            }
-                            
-                            export namespace _larguments {
-                                
-                                
-                                
-                                export namespace D {
-                                    
-                                    
-                                    
-                                    export type $ = _IFlat.Source__Selection__Tail$O$step$call$arguments$D$
-                                }
-                                
-                                export type $ = _IFlat.Source__Selection__Tail$O$step$call$arguments$
+                                export type $ = _IFlat.Source__Selection__Tail$O$step$call$call$
                             }
                             
                             export type $ = _IFlat.Source__Selection__Tail$O$step$call$
@@ -8171,34 +8638,6 @@ export namespace proto__implementation {
                 }
                 
                 export type $ = _IFlat.Source__Selection$
-            }
-            
-            export namespace Initialization__Or__Selection {
-                
-                
-                
-                export namespace initialization {
-                    
-                    
-                    
-                    export type $ = _IFlat.Initialization__Or__Selection$initialization$
-                }
-                
-                export namespace selection {
-                    
-                    
-                    
-                    export namespace selection {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization__Or__Selection$selection$selection$
-                    }
-                    
-                    export type $ = _IFlat.Initialization__Or__Selection$selection$
-                }
-                
-                export type $ = _IFlat.Initialization__Or__Selection$
             }
             
             export namespace String__Initialization__Or__Selection {
@@ -8600,86 +9039,9 @@ export namespace proto__implementation {
                 export type $ = _IFlat.String__Initialization$
             }
             
-            export namespace Initialization {
+            export namespace Generic__Initialization {
                 
                 
-                
-                export namespace array__literal {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$array__literal$definition$
-                    }
-                    
-                    export namespace initialization {
-                        
-                        
-                        
-                        export namespace A {
-                            
-                            
-                            
-                            export type $ = _IFlat.Initialization$array__literal$initialization$A$
-                        }
-                        
-                        export type $ = _IFlat.Initialization$array__literal$initialization$
-                    }
-                    
-                    export type $ = _IFlat.Initialization$array__literal$
-                }
-                
-                export namespace array__map {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$array__map$definition$
-                    }
-                    
-                    export namespace source {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$array__map$source$
-                    }
-                    
-                    export namespace initialization {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$array__map$initialization$
-                    }
-                    
-                    export type $ = _IFlat.Initialization$array__map$
-                }
-                
-                export namespace _lboolean {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$boolean$definition$
-                    }
-                    
-                    export namespace initialization {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$boolean$initialization$
-                    }
-                    
-                    export type $ = _IFlat.Initialization$boolean$
-                }
                 
                 export namespace change__context {
                     
@@ -8689,248 +9051,31 @@ export namespace proto__implementation {
                         
                         
                         
-                        export type $ = _IFlat.Initialization$change__context$source$
+                        export type $ = _IFlat.Generic__Initialization$change__context$source$
                     }
                     
                     export namespace initialization {
                         
                         
                         
-                        export type $ = _IFlat.Initialization$change__context$initialization$
+                        export type $ = _IFlat.Generic__Initialization$change__context$initialization$
                     }
                     
-                    export type $ = _IFlat.Initialization$change__context$
-                }
-                
-                export namespace dictionary__literal {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$dictionary__literal$definition$
-                    }
-                    
-                    export namespace initialization {
-                        
-                        
-                        
-                        export namespace D {
-                            
-                            
-                            
-                            export type $ = _IFlat.Initialization$dictionary__literal$initialization$D$
-                        }
-                        
-                        export type $ = _IFlat.Initialization$dictionary__literal$initialization$
-                    }
-                    
-                    export type $ = _IFlat.Initialization$dictionary__literal$
-                }
-                
-                export namespace dictionary__map {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$dictionary__map$definition$
-                    }
-                    
-                    export namespace source {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$dictionary__map$source$
-                    }
-                    
-                    export namespace initialization {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$dictionary__map$initialization$
-                    }
-                    
-                    export type $ = _IFlat.Initialization$dictionary__map$
-                }
-                
-                export namespace group__literal {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$group__literal$definition$
-                    }
-                    
-                    export namespace properties {
-                        
-                        
-                        
-                        export namespace D {
-                            
-                            
-                            
-                            export type $ = _IFlat.Initialization$group__literal$properties$D$
-                        }
-                        
-                        export type $ = _IFlat.Initialization$group__literal$properties$
-                    }
-                    
-                    export type $ = _IFlat.Initialization$group__literal$
+                    export type $ = _IFlat.Generic__Initialization$change__context$
                 }
                 
                 export namespace implement__me {
                     
                     
                     
-                    export type $ = _IFlat.Initialization$implement__me$
+                    export type $ = _IFlat.Generic__Initialization$implement__me$
                 }
                 
-                export namespace _lnull {
+                export namespace panic {
                     
                     
                     
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$null$definition$
-                    }
-                    
-                    export type $ = _IFlat.Initialization$null$
-                }
-                
-                export namespace numerical {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$numerical$definition$
-                    }
-                    
-                    export namespace initialization {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$numerical$initialization$
-                    }
-                    
-                    export type $ = _IFlat.Initialization$numerical$
-                }
-                
-                export namespace optional {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$optional$definition$
-                    }
-                    
-                    export type $ = _IFlat.Initialization$optional$
-                }
-                
-                export namespace procedure {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$procedure$definition$
-                    }
-                    
-                    export namespace temp__has__parameters {
-                        
-                        
-                        
-                        export namespace O {
-                            
-                            
-                            
-                            export type $ = _IFlat.Initialization$procedure$temp__has__parameters$O$
-                        }
-                        
-                        export type $ = _IFlat.Initialization$procedure$temp__has__parameters$
-                    }
-                    
-                    export namespace variables {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$procedure$variables$
-                    }
-                    
-                    export namespace block {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$procedure$block$
-                    }
-                    
-                    export type $ = _IFlat.Initialization$procedure$
-                }
-                
-                export namespace tagged__union__literal {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$tagged__union__literal$definition$
-                    }
-                    
-                    export namespace state {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$tagged__union__literal$state$
-                    }
-                    
-                    export namespace initialization {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$tagged__union__literal$initialization$
-                    }
-                    
-                    export type $ = _IFlat.Initialization$tagged__union__literal$
-                }
-                
-                export namespace _lstring {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$string$definition$
-                    }
-                    
-                    export namespace initialization {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$string$initialization$
-                    }
-                    
-                    export type $ = _IFlat.Initialization$string$
+                    export type $ = _IFlat.Generic__Initialization$panic$
                 }
                 
                 export namespace _lswitch {
@@ -8941,21 +9086,21 @@ export namespace proto__implementation {
                         
                         
                         
-                        export type $ = _IFlat.Initialization$switch$definition$
+                        export type $ = _IFlat.Generic__Initialization$switch$definition$
                     }
                     
                     export namespace temp__type {
                         
                         
                         
-                        export type $ = _IFlat.Initialization$switch$temp__type$
+                        export type $ = _IFlat.Generic__Initialization$switch$temp__type$
                     }
                     
                     export namespace source {
                         
                         
                         
-                        export type $ = _IFlat.Initialization$switch$source$
+                        export type $ = _IFlat.Generic__Initialization$switch$source$
                     }
                     
                     export namespace cases {
@@ -8966,10 +9111,10 @@ export namespace proto__implementation {
                             
                             
                             
-                            export type $ = _IFlat.Initialization$switch$cases$D$
+                            export type $ = _IFlat.Generic__Initialization$switch$cases$D$
                         }
                         
-                        export type $ = _IFlat.Initialization$switch$cases$
+                        export type $ = _IFlat.Generic__Initialization$switch$cases$
                     }
                     
                     export namespace _ldefault {
@@ -8980,55 +9125,13 @@ export namespace proto__implementation {
                             
                             
                             
-                            export type $ = _IFlat.Initialization$switch$default$O$
+                            export type $ = _IFlat.Generic__Initialization$switch$default$O$
                         }
                         
-                        export type $ = _IFlat.Initialization$switch$default$
+                        export type $ = _IFlat.Generic__Initialization$switch$default$
                     }
                     
-                    export type $ = _IFlat.Initialization$switch$
-                }
-                
-                export namespace value__function {
-                    
-                    
-                    
-                    export namespace definition {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$value__function$definition$
-                    }
-                    
-                    export namespace temp__has__parameters {
-                        
-                        
-                        
-                        export namespace O {
-                            
-                            
-                            
-                            export type $ = _IFlat.Initialization$value__function$temp__has__parameters$O$
-                        }
-                        
-                        export type $ = _IFlat.Initialization$value__function$temp__has__parameters$
-                    }
-                    
-                    export namespace variables {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$value__function$variables$
-                    }
-                    
-                    export namespace initialization {
-                        
-                        
-                        
-                        export type $ = _IFlat.Initialization$value__function$initialization$
-                    }
-                    
-                    export type $ = _IFlat.Initialization$value__function$
+                    export type $ = _IFlat.Generic__Initialization$switch$
                 }
                 
                 export namespace variables {
@@ -9039,17 +9142,528 @@ export namespace proto__implementation {
                         
                         
                         
-                        export type $ = _IFlat.Initialization$variables$variables$
+                        export type $ = _IFlat.Generic__Initialization$variables$variables$
                     }
                     
                     export namespace initialization {
                         
                         
                         
-                        export type $ = _IFlat.Initialization$variables$initialization$
+                        export type $ = _IFlat.Generic__Initialization$variables$initialization$
                     }
                     
-                    export type $ = _IFlat.Initialization$variables$
+                    export type $ = _IFlat.Generic__Initialization$variables$
+                }
+                
+                export type $ = _IFlat.Generic__Initialization$
+            }
+            
+            export namespace Initialization {
+                
+                
+                
+                export namespace generic {
+                    
+                    
+                    
+                    export type $ = _IFlat.Initialization$generic$
+                }
+                
+                export namespace call {
+                    
+                    
+                    
+                    export namespace _lfunction {
+                        
+                        
+                        
+                        export type $ = _IFlat.Initialization$call$function$
+                    }
+                    
+                    export namespace definition {
+                        
+                        
+                        
+                        export type $ = _IFlat.Initialization$call$definition$
+                    }
+                    
+                    export namespace call {
+                        
+                        
+                        
+                        export type $ = _IFlat.Initialization$call$call$
+                    }
+                    
+                    export type $ = _IFlat.Initialization$call$
+                }
+                
+                export namespace _ltype {
+                    
+                    
+                    
+                    export namespace array {
+                        
+                        
+                        
+                        export namespace definition {
+                            
+                            
+                            
+                            export type $ = _IFlat.Initialization$type$array$definition$
+                        }
+                        
+                        export namespace _ltype {
+                            
+                            
+                            
+                            export namespace literal {
+                                
+                                
+                                
+                                export namespace initialization {
+                                    
+                                    
+                                    
+                                    export namespace A {
+                                        
+                                        
+                                        
+                                        export type $ = _IFlat.Initialization$type$array$type$literal$initialization$A$
+                                    }
+                                    
+                                    export type $ = _IFlat.Initialization$type$array$type$literal$initialization$
+                                }
+                                
+                                export type $ = _IFlat.Initialization$type$array$type$literal$
+                            }
+                            
+                            export namespace map {
+                                
+                                
+                                
+                                export namespace source {
+                                    
+                                    
+                                    
+                                    export type $ = _IFlat.Initialization$type$array$type$map$source$
+                                }
+                                
+                                export namespace initialization {
+                                    
+                                    
+                                    
+                                    export type $ = _IFlat.Initialization$type$array$type$map$initialization$
+                                }
+                                
+                                export type $ = _IFlat.Initialization$type$array$type$map$
+                            }
+                            
+                            export type $ = _IFlat.Initialization$type$array$type$
+                        }
+                        
+                        export type $ = _IFlat.Initialization$type$array$
+                    }
+                    
+                    export namespace atom {
+                        
+                        
+                        
+                        export namespace definition {
+                            
+                            
+                            
+                            export type $ = _IFlat.Initialization$type$atom$definition$
+                        }
+                        
+                        export namespace _ltype {
+                            
+                            
+                            
+                            export namespace _lboolean {
+                                
+                                
+                                
+                                export namespace definition {
+                                    
+                                    
+                                    
+                                    export type $ = _IFlat.Initialization$type$atom$type$boolean$definition$
+                                }
+                                
+                                export namespace initialization {
+                                    
+                                    
+                                    
+                                    export type $ = _IFlat.Initialization$type$atom$type$boolean$initialization$
+                                }
+                                
+                                export type $ = _IFlat.Initialization$type$atom$type$boolean$
+                            }
+                            
+                            export namespace copy {
+                                
+                                
+                                
+                                export namespace source {
+                                    
+                                    
+                                    
+                                    export type $ = _IFlat.Initialization$type$atom$type$copy$source$
+                                }
+                                
+                                export type $ = _IFlat.Initialization$type$atom$type$copy$
+                            }
+                            
+                            export namespace _lnull {
+                                
+                                
+                                
+                                export namespace definition {
+                                    
+                                    
+                                    
+                                    export type $ = _IFlat.Initialization$type$atom$type$null$definition$
+                                }
+                                
+                                export type $ = _IFlat.Initialization$type$atom$type$null$
+                            }
+                            
+                            export namespace numerical {
+                                
+                                
+                                
+                                export namespace definition {
+                                    
+                                    
+                                    
+                                    export type $ = _IFlat.Initialization$type$atom$type$numerical$definition$
+                                }
+                                
+                                export namespace initialization {
+                                    
+                                    
+                                    
+                                    export type $ = _IFlat.Initialization$type$atom$type$numerical$initialization$
+                                }
+                                
+                                export type $ = _IFlat.Initialization$type$atom$type$numerical$
+                            }
+                            
+                            export namespace _lstring {
+                                
+                                
+                                
+                                export namespace definition {
+                                    
+                                    
+                                    
+                                    export type $ = _IFlat.Initialization$type$atom$type$string$definition$
+                                }
+                                
+                                export namespace initialization {
+                                    
+                                    
+                                    
+                                    export type $ = _IFlat.Initialization$type$atom$type$string$initialization$
+                                }
+                                
+                                export type $ = _IFlat.Initialization$type$atom$type$string$
+                            }
+                            
+                            export type $ = _IFlat.Initialization$type$atom$type$
+                        }
+                        
+                        export type $ = _IFlat.Initialization$type$atom$
+                    }
+                    
+                    export namespace computed {
+                        
+                        
+                        
+                        export namespace definition {
+                            
+                            
+                            
+                            export type $ = _IFlat.Initialization$type$computed$definition$
+                        }
+                        
+                        export type $ = _IFlat.Initialization$type$computed$
+                    }
+                    
+                    export namespace dictionary {
+                        
+                        
+                        
+                        export namespace definition {
+                            
+                            
+                            
+                            export type $ = _IFlat.Initialization$type$dictionary$definition$
+                        }
+                        
+                        export namespace _ltype {
+                            
+                            
+                            
+                            export namespace literal {
+                                
+                                
+                                
+                                export namespace initialization {
+                                    
+                                    
+                                    
+                                    export namespace D {
+                                        
+                                        
+                                        
+                                        export type $ = _IFlat.Initialization$type$dictionary$type$literal$initialization$D$
+                                    }
+                                    
+                                    export type $ = _IFlat.Initialization$type$dictionary$type$literal$initialization$
+                                }
+                                
+                                export type $ = _IFlat.Initialization$type$dictionary$type$literal$
+                            }
+                            
+                            export namespace map {
+                                
+                                
+                                
+                                export namespace source {
+                                    
+                                    
+                                    
+                                    export type $ = _IFlat.Initialization$type$dictionary$type$map$source$
+                                }
+                                
+                                export namespace initialization {
+                                    
+                                    
+                                    
+                                    export type $ = _IFlat.Initialization$type$dictionary$type$map$initialization$
+                                }
+                                
+                                export type $ = _IFlat.Initialization$type$dictionary$type$map$
+                            }
+                            
+                            export type $ = _IFlat.Initialization$type$dictionary$type$
+                        }
+                        
+                        export type $ = _IFlat.Initialization$type$dictionary$
+                    }
+                    
+                    export namespace group {
+                        
+                        
+                        
+                        export namespace definition {
+                            
+                            
+                            
+                            export type $ = _IFlat.Initialization$type$group$definition$
+                        }
+                        
+                        export namespace properties {
+                            
+                            
+                            
+                            export namespace D {
+                                
+                                
+                                
+                                export type $ = _IFlat.Initialization$type$group$properties$D$
+                            }
+                            
+                            export type $ = _IFlat.Initialization$type$group$properties$
+                        }
+                        
+                        export type $ = _IFlat.Initialization$type$group$
+                    }
+                    
+                    export namespace initialization__function {
+                        
+                        
+                        
+                        export namespace definition {
+                            
+                            
+                            
+                            export type $ = _IFlat.Initialization$type$initialization__function$definition$
+                        }
+                        
+                        export namespace temp__has__parameters {
+                            
+                            
+                            
+                            export namespace O {
+                                
+                                
+                                
+                                export type $ = _IFlat.Initialization$type$initialization__function$temp__has__parameters$O$
+                            }
+                            
+                            export type $ = _IFlat.Initialization$type$initialization__function$temp__has__parameters$
+                        }
+                        
+                        export namespace variables {
+                            
+                            
+                            
+                            export type $ = _IFlat.Initialization$type$initialization__function$variables$
+                        }
+                        
+                        export namespace initialization {
+                            
+                            
+                            
+                            export type $ = _IFlat.Initialization$type$initialization__function$initialization$
+                        }
+                        
+                        export type $ = _IFlat.Initialization$type$initialization__function$
+                    }
+                    
+                    export namespace lookup {
+                        
+                        
+                        
+                        export namespace definition {
+                            
+                            
+                            
+                            export type $ = _IFlat.Initialization$type$lookup$definition$
+                        }
+                        
+                        export type $ = _IFlat.Initialization$type$lookup$
+                    }
+                    
+                    export namespace optional {
+                        
+                        
+                        
+                        export namespace definition {
+                            
+                            
+                            
+                            export type $ = _IFlat.Initialization$type$optional$definition$
+                        }
+                        
+                        export type $ = _IFlat.Initialization$type$optional$
+                    }
+                    
+                    export namespace procedure {
+                        
+                        
+                        
+                        export namespace definition {
+                            
+                            
+                            
+                            export type $ = _IFlat.Initialization$type$procedure$definition$
+                        }
+                        
+                        export namespace temp__has__parameters {
+                            
+                            
+                            
+                            export namespace O {
+                                
+                                
+                                
+                                export type $ = _IFlat.Initialization$type$procedure$temp__has__parameters$O$
+                            }
+                            
+                            export type $ = _IFlat.Initialization$type$procedure$temp__has__parameters$
+                        }
+                        
+                        export namespace variables {
+                            
+                            
+                            
+                            export type $ = _IFlat.Initialization$type$procedure$variables$
+                        }
+                        
+                        export namespace block {
+                            
+                            
+                            
+                            export type $ = _IFlat.Initialization$type$procedure$block$
+                        }
+                        
+                        export type $ = _IFlat.Initialization$type$procedure$
+                    }
+                    
+                    export namespace selection__function {
+                        
+                        
+                        
+                        export namespace definition {
+                            
+                            
+                            
+                            export type $ = _IFlat.Initialization$type$selection__function$definition$
+                        }
+                        
+                        export namespace temp__has__parameters {
+                            
+                            
+                            
+                            export namespace O {
+                                
+                                
+                                
+                                export type $ = _IFlat.Initialization$type$selection__function$temp__has__parameters$O$
+                            }
+                            
+                            export type $ = _IFlat.Initialization$type$selection__function$temp__has__parameters$
+                        }
+                        
+                        export namespace variables {
+                            
+                            
+                            
+                            export type $ = _IFlat.Initialization$type$selection__function$variables$
+                        }
+                        
+                        export namespace initialization {
+                            
+                            
+                            
+                            export type $ = _IFlat.Initialization$type$selection__function$initialization$
+                        }
+                        
+                        export type $ = _IFlat.Initialization$type$selection__function$
+                    }
+                    
+                    export namespace tagged__union {
+                        
+                        
+                        
+                        export namespace definition {
+                            
+                            
+                            
+                            export type $ = _IFlat.Initialization$type$tagged__union$definition$
+                        }
+                        
+                        export namespace state {
+                            
+                            
+                            
+                            export type $ = _IFlat.Initialization$type$tagged__union$state$
+                        }
+                        
+                        export namespace initialization {
+                            
+                            
+                            
+                            export type $ = _IFlat.Initialization$type$tagged__union$initialization$
+                        }
+                        
+                        export type $ = _IFlat.Initialization$type$tagged__union$
+                    }
+                    
+                    export type $ = _IFlat.Initialization$type$
                 }
                 
                 export type $ = _IFlat.Initialization$
@@ -9123,32 +9737,18 @@ export namespace proto__implementation {
                             export type $ = _IFlat.Statements$A$call$function$
                         }
                         
-                        export namespace context__definition {
+                        export namespace definition {
                             
                             
                             
-                            export type $ = _IFlat.Statements$A$call$context__definition$
+                            export type $ = _IFlat.Statements$A$call$definition$
                         }
                         
-                        export namespace context {
+                        export namespace call {
                             
                             
                             
-                            export type $ = _IFlat.Statements$A$call$context$
-                        }
-                        
-                        export namespace _larguments {
-                            
-                            
-                            
-                            export namespace D {
-                                
-                                
-                                
-                                export type $ = _IFlat.Statements$A$call$arguments$D$
-                            }
-                            
-                            export type $ = _IFlat.Statements$A$call$arguments$
+                            export type $ = _IFlat.Statements$A$call$call$
                         }
                         
                         export type $ = _IFlat.Statements$A$call$
@@ -9428,9 +10028,13 @@ export namespace proto__implementation {
                 $: _IUnresolved.Flat.Boolean__Initialization$<_TAnnotation>,
             ) => _IResolved.Flat.Boolean__Initialization$
             
-            export type Initialization__Or__Selection = <_TAnnotation>(
-                $: _IUnresolved.Flat.Initialization__Or__Selection$<_TAnnotation>,
-            ) => _IResolved.Flat.Initialization__Or__Selection$
+            export type Function__Call = <_TAnnotation>(
+                $: _IUnresolved.Flat.Function__Call$<_TAnnotation>,
+            ) => _IResolved.Flat.Function__Call$
+            
+            export type Generic__Initialization = <_TAnnotation>(
+                $: _IUnresolved.Flat.Generic__Initialization$<_TAnnotation>,
+            ) => _IResolved.Flat.Generic__Initialization$
             
             export type Initialization = <_TAnnotation>(
                 $: _IUnresolved.Flat.Initialization$<_TAnnotation>,
@@ -9504,8 +10108,9 @@ export namespace proto__implementation {
             readonly 'Block': resolvers.Block
             readonly 'Boolean Initialization': resolvers.Boolean__Initialization
             readonly 'Boolean Initialization Or Selection': resolvers.Boolean__Initialization__Or__Selection
+            readonly 'Function Call': resolvers.Function__Call
+            readonly 'Generic Initialization': resolvers.Generic__Initialization
             readonly 'Initialization': resolvers.Initialization
-            readonly 'Initialization Or Selection': resolvers.Initialization__Or__Selection
             readonly 'Local Variables': resolvers.Local__Variables
             readonly 'Numerical Initialization': resolvers.Numerical__Initialization
             readonly 'Numerical Initialization Or Selection': resolvers.Numerical__Initialization__Or__Selection
@@ -9589,6 +10194,13 @@ export namespace proto__implementation {
                 }
             ) => void
             
+            export type Function__Call = (
+                $: _IResolved.Flat.Function__Call$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
             export type Source__Selection__Tail = (
                 $: _IResolved.Flat.Source__Selection__Tail$,
                 $p: {
@@ -9598,13 +10210,6 @@ export namespace proto__implementation {
             
             export type Source__Selection = (
                 $: _IResolved.Flat.Source__Selection$,
-                $p: {
-                    readonly 'out': boolean
-                }
-            ) => void
-            
-            export type Initialization__Or__Selection = (
-                $: _IResolved.Flat.Initialization__Or__Selection$,
                 $p: {
                     readonly 'out': boolean
                 }
@@ -9647,6 +10252,13 @@ export namespace proto__implementation {
             
             export type String__Initialization = (
                 $: _IResolved.Flat.String__Initialization$,
+                $p: {
+                    readonly 'out': boolean
+                }
+            ) => void
+            
+            export type Generic__Initialization = (
+                $: _IResolved.Flat.Generic__Initialization$,
                 $p: {
                     readonly 'out': boolean
                 }
@@ -9702,8 +10314,9 @@ export namespace proto__implementation {
             readonly 'Block': types.Block
             readonly 'Boolean Initialization': types.Boolean__Initialization
             readonly 'Boolean Initialization Or Selection': types.Boolean__Initialization__Or__Selection
+            readonly 'Function Call': types.Function__Call
+            readonly 'Generic Initialization': types.Generic__Initialization
             readonly 'Initialization': types.Initialization
-            readonly 'Initialization Or Selection': types.Initialization__Or__Selection
             readonly 'Local Variables': types.Local__Variables
             readonly 'Numerical Initialization': types.Numerical__Initialization
             readonly 'Numerical Initialization Or Selection': types.Numerical__Initialization__Or__Selection

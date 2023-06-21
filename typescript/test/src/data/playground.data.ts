@@ -61,7 +61,7 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                     "Global Type Declarations": globalTypeDeclaration({}),
                     "Global Type Definition": globalTypeDeclaration({
                         "global type declarations": pResolvedValue("Global Type Declarations"),
-                        "key": pKey(),
+                        "key": pResolvedValue("Atom"),
                         "all siblings": pCyclicLookup("Global Type Definition"),
                         "non cyclic siblings": pLookup("Global Type Definition"),
                         "atom types": pResolvedValue("Atom Types"),
@@ -132,7 +132,7 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                                         "sibling global types": [false],
                                         "cyclic sibling global types": [false],
                                     })),
-                                    "arguments": prop(dictionary(group({}))),
+                                    "arguments": prop(dictionary(optional(component(typeRef("No Context Value Selection", true), {})))),
                                 })),
                                 "constraint": state(component(typeRef("Type Selection", true), {
                                     "imports": [false],
@@ -240,6 +240,7 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                                 "resolved value": state(cyclicReference(typeRef("Global Type Declaration", true))),
                                 "sibling lookup": state(cyclicReference(typeRef("Global Type Declaration", true))),
                                 "cyclic sibling lookup": state(cyclicReference(typeRef("Global Type Declaration", true))),
+                                "key": state(group({})),
                             })),
                             "optional": prop(optional(group({}))),
                         }))),
@@ -251,12 +252,16 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                     "Global Type Definition": globalTypeDefinition(
                         group({
                             "declaration": prop(constraint(typeSelection("Global Type Declarations", t_dict()))),
+                            "variables": prop(component(typeRef("Variables"), {
+            
+                            })),
                             "type": prop(component(typeRef("Type"), {
                                 "atom types": [false],
                                 "imports": [false],
                                 "sibling global types": [false],
                                 "cyclic sibling global types": [false],
                             })),
+                            "result": prop(optional(component(typeRef("Value Selection Tail", true), {}))),
                         })
                     ),
                     "Type Selection Tail": globalTypeDefinition(
@@ -524,19 +529,11 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                     ),
                     "Type": globalTypeDefinition(
                         stateGroup({
-                            "address function": state(group({
-                                "declaration": prop(component(typeRef("Function Declaration"), {
-                                    "resolved namespaces": [false],
-                                    "resolved sibling types": [false],
-                                    "cyclic sibling types": [false],
-                                    "type parameters": [false],
-                                })),
-                                "return type": prop(component(typeRef("Type", true), {
-                                    "resolved namespaces": [false],
-                                    "resolved sibling types": [false],
-                                    "cyclic sibling types": [false],
-                                    "type parameters": [false],
-                                })),
+                            "atom": state(stateGroup({
+                                "boolean": state(group({})),
+                                "null": state(group({})),
+                                "number": state(group({})),
+                                "string": state(group({})),
                             })),
                             "array": state(component(typeRef("Type", true), {
                                 "resolved namespaces": [false],
@@ -544,7 +541,6 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                                 "cyclic sibling types": [false],
                                 "type parameters": [false],
                             })),
-                            "boolean": state(group({})),
                             "computed": state(component(typeRef("Type", true), {
                                 "resolved namespaces": [false],
                                 "resolved sibling types": [false],
@@ -566,14 +562,26 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                                 })),
                                 "mutable": prop(optional(group({}))),
                             }))),
+                            "initialization function": state(group({
+                                "declaration": prop(component(typeRef("Function Declaration"), {
+                                    "resolved namespaces": [false],
+                                    "resolved sibling types": [false],
+                                    "cyclic sibling types": [false],
+                                    "type parameters": [false],
+                                })),
+                                "return type": prop(component(typeRef("Type", true), {
+                                    "resolved namespaces": [false],
+                                    "resolved sibling types": [false],
+                                    "cyclic sibling types": [false],
+                                    "type parameters": [false],
+                                })),
+                            })),
                             "lookup": state(component(typeRef("Type", true), {
                                 "resolved namespaces": [false],
                                 "resolved sibling types": [false],
                                 "cyclic sibling types": [false],
                                 "type parameters": [false],
                             })),
-                            "null": state(group({})),
-                            "number": state(group({})),
                             "optional": state(component(typeRef("Type", true), {
                                 "resolved namespaces": [false],
                                 "resolved sibling types": [false],
@@ -588,7 +596,20 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                                     "type parameters": [false],
                                 })),
                             })),
-                            "string": state(group({})),
+                            "selection function": state(group({
+                                "declaration": prop(component(typeRef("Function Declaration"), {
+                                    "resolved namespaces": [false],
+                                    "resolved sibling types": [false],
+                                    "cyclic sibling types": [false],
+                                    "type parameters": [false],
+                                })),
+                                "return type": prop(component(typeRef("Type", true), {
+                                    "resolved namespaces": [false],
+                                    "resolved sibling types": [false],
+                                    "cyclic sibling types": [false],
+                                    "type parameters": [false],
+                                })),
+                            })),
                             "tagged union": state(dictionary(component(typeRef("Type", true), {
                                 "resolved namespaces": [false],
                                 "resolved sibling types": [false],
@@ -605,24 +626,10 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                                         "type parameters": [false],
                                     })),
                                     "type": prop(dictionaryReference(typeSelection("Namespace", t_grp("types")))),
-
+            
                                 })),
                                 "sibling": state(lookupReference(typeRef("Type", true))),
                                 "cyclic sibling": state(cyclicReference(typeRef("Type", true))),
-                            })),
-                            "value function": state(group({
-                                "declaration": prop(component(typeRef("Function Declaration"), {
-                                    "resolved namespaces": [false],
-                                    "resolved sibling types": [false],
-                                    "cyclic sibling types": [false],
-                                    "type parameters": [false],
-                                })),
-                                "return type": prop(component(typeRef("Type", true), {
-                                    "resolved namespaces": [false],
-                                    "resolved sibling types": [false],
-                                    "cyclic sibling types": [false],
-                                    "type parameters": [false],
-                                })),
                             })),
                         })
                     ),
@@ -690,7 +697,8 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                     "Block": globalTypeDeclaration({}),
                     "Boolean Initialization Or Selection": globalTypeDeclaration({}),
                     "Boolean Initialization": globalTypeDeclaration({}),
-                    "Initialization Or Selection": globalTypeDeclaration({}),
+                    "Function Call": globalTypeDeclaration({}),
+                    "Generic Initialization": globalTypeDeclaration({}),
                     "Initialization": globalTypeDeclaration({}),
                     "Local Variables": globalTypeDeclaration({}),
                     "Numerical Initialization Or Selection": globalTypeDeclaration({}),
@@ -783,24 +791,34 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                             "tail": prop(component(typeRef("Target Selection Tail"), {})),
                         })
                     ),
+                    "Function Call": globalTypeDefinition(
+                        group({
+                            // "function": prop(component(typeRef("Source Selection", {
+                            //     "namespace": aResolvedValue(valSel("namespace")),
+                            //     "variable stack": aResolvedValue(valSel("variable stack"))
+                            // })), /*constraint tagged union: type === address function*/
+                            "type arguments": prop(component(typeRef("Type Arguments"), {})),
+                            "context": prop(component(typeRef("Source Selection", true), {})),
+                            "arguments": prop(constrainedDictionary(
+                                {
+                                    "parameter": dictionaryConstraint(externalTypeSelection("typesystem", "Function Declaration", t_grp("parameters")), true)
+                                },
+                                stateGroup({
+                                    "initialization": state(component(typeRef("Initialization", true), {})),
+                                    "selection": state(group({
+                                        "selection": prop(component(typeRef("Source Selection", true), {})),
+                                    })),
+                                })
+                            ))
+                        })
+                    ),
                     "Source Selection Tail": globalTypeDefinition(
                         optional(
                             group({
                                 "step": prop(stateGroup({
                                     "call": state(group({
-                                        "address function": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("address function")))),
-                                        // "function": prop(component(typeRef("Source Selection", {
-                                        //     "namespace": aResolvedValue(valSel("namespace")),
-                                        //     "variable stack": aResolvedValue(valSel("variable stack"))
-                                        // })), /*constraint tagged union: type === address function*/
-                                        "type arguments": prop(component(typeRef("Type Arguments"), {})),
-                                        "context": prop(component(typeRef("Initialization Or Selection", true), {})),
-                                        "arguments": prop(constrainedDictionary(
-                                            {
-                                                "parameter": dictionaryConstraint(externalTypeSelection("typesystem", "Function Declaration", t_grp("parameters")), true)
-                                            },
-                                            component(typeRef("Initialization Or Selection", true), {})
-                                        ))
+                                        "selection function": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("selection function")))),
+                                        "call": prop(component(typeRef("Function Call"), {})),
                                     })),
                                     "property": state(
                                         group({
@@ -822,23 +840,15 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                             "tail": prop(component(typeRef("Source Selection Tail"), {})),
                         }),
                     ),
-
+            
                     ///////////////////////////////////////////////////////////////////////////////
                     //Expressions
-                    "Initialization Or Selection": globalTypeDefinition(
-                        stateGroup({
-                            "initialization": state(component(typeRef("Initialization", true), {})),
-                            "selection": state(group({
-                                "selection": prop(component(typeRef("Source Selection"), {})),
-                            })),
-                        })
-                    ),
                     "String Initialization Or Selection": globalTypeDefinition(
                         stateGroup({
                             "initialization": state(component(typeRef("String Initialization", true), {})),
                             "selection": state(group({
                                 "selection": prop(component(typeRef("Source Selection"), {})),
-                                "string": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("string")))),
+                                "string": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("atom", t_sg("string"))))),
                             })),
                         })
                     ),
@@ -847,9 +857,9 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                             "initialization": state(component(typeRef("Numerical Initialization", true), {})),
                             "selection": state(group({
                                 "selection": prop(component(typeRef("Source Selection"), {})),
-                                "number": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("number")))),
+                                "number": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("atom", t_sg("number"))))),
                             })),
-
+            
                         })
                     ),
                     "Boolean Initialization Or Selection": globalTypeDefinition(
@@ -857,7 +867,7 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                             "initialization": state(component(typeRef("Boolean Initialization", true), {})),
                             "selection": state(group({
                                 "selection": prop(component(typeRef("Source Selection"), {})),
-                                "boolean": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("boolean"))))
+                                "boolean": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("atom", t_sg("boolean")))))
                             })),
                         })
                     ),
@@ -924,142 +934,40 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                             "string literal": state(atom("string literal")),
                         })
                     ),
-                    "Initialization": globalTypeDefinition(
+                    "Generic Initialization": globalTypeDefinition(
                         stateGroup({
-                            "array literal": state(group({
-                                "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("array")))),
-                                "initialization": prop(array(component(typeRef("Initialization Or Selection"), {}))),
-                            })),
-                            "array map": state(group({
-                                "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("array")))),
-                                "source": prop(component(typeRef("Source Selection"), {})),
-                                "initialization": prop(component(typeRef("Initialization Or Selection"), {})),
-                            })),
-                            "boolean": state(group({
-                                "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("boolean")))),
-                                "initialization": prop(component(typeRef("Boolean Initialization"), {})),
-                            })),
                             "change context": state(group({
                                 "source": prop(component(typeRef("Source Selection"), {})),
-                                "initialization": prop(component(typeRef("Initialization Or Selection"), {})),
-                            })),
-                            "dictionary literal": state(group({
-                                "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("dictionary")))),
-                                "initialization": prop(dictionary(component(typeRef("Initialization Or Selection"), {}))),
-                            })),
-                            "dictionary map": state(group({
-                                "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("dictionary")))),
-                                "source": prop(component(typeRef("Source Selection"), {})),
-                                "initialization": prop(component(typeRef("Initialization Or Selection"), {})),
-                            })),
-                            "group literal": state(group({
-                                "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("group")))),
-                                "properties": prop(constrainedDictionary(
-                                    {
-                                        "definition": dictionaryConstraint(externalTypeSelection("typesystem", "Type", t_sg("group")), true)
-                                    },
-                                    component(typeRef("Initialization Or Selection"), {}),
-                                )),
+                                "initialization": prop(component(typeRef("Initialization", true), {})),
                             })),
                             "implement me": state(atom("string literal")),
-                            // //function (inline function)
-                            // "address function": constrainedstate({
-                            //     "out": optionConstraint(valSel("type"), "function", externalTypeSelection("typesystem", "Type"))
-                            // }, group({
-                            //     "parameters": prop(dictionary(group({}))), //no type info needed
-                            //     //"signature": prop(component(typeRef("FunctionSignature", {})),
-                            //     "variables": prop(component(typeRef("Variables", {
-                            //         "namespace": aResolvedValue(valSel("namespace")),
-                            //         //"parameters": [true, aResolvedValue(valSel("parameters"))],
-                            //         "variable stack": aResolvedValue(valSel("variable stack")),
-                            //     })),
-                            //     "statements": prop(component(typeRef("Statements", {
-                            //         "function": aResolvedValue(valSel("out")),
-                            //         "namespace": aResolvedValue(valSel("namespace")),
-                            //         "variable stack": aResolvedValue(valSel("variables"))
-                            //     })),
-                            //     "return selection": prop(component(typeRef("Source Selection", {
-                            //         // "function": aResolvedValue(valSel("out")),
-                            //         // "namespace": aResolvedValue(valSel("namespace")),
-                            //         // "variable stack": aResolvedValue(valSel("variables"))
-                            //     })),
-                            // })),
-                            // "value function": constrainedstate({
-                            //     "out": optionConstraint(valSel("type"), "function", externalTypeSelection("typesystem", "Type"))
-                            // }, group({
-                            //     "parameters": prop(dictionary(group({}))), //no type info needed
-                            //     //"signature": prop(component(typeRef("FunctionSignature", {})),
-                            //     "variables": prop(component(typeRef("Variables", {
-                            //         "namespace": aResolvedValue(valSel("namespace")),
-                            //         //"parameters": [true, aResolvedValue(valSel("parameters"))],
-                            //         "variable stack": aResolvedValue(valSel("variable stack")),
-                            //     })),
-                            //     "statements": prop(component(typeRef("Statements", {
-                            //         "function": aResolvedValue(valSel("out")),
-                            //         "namespace": aResolvedValue(valSel("namespace")),
-                            //         "variable stack": aResolvedValue(valSel("variables"))
-                            //     })),
-                            //     "return expression": prop(component(typeRef("Initialization", {
-                            //         // "function": aResolvedValue(valSel("out")),
-                            //         // "namespace": aResolvedValue(valSel("namespace")),
-                            //         // "variable stack": aResolvedValue(valSel("variables"))
-                            //     })),
-                            // })),
-                            // // "procedure": constrainedstate({
-                            // //     "out": optionConstraint(valSel("type"), "function", externalTypeSelection("typesystem", "Type"))
-                            // // }, group({
-                            // //     "parameters": prop(dictionary(group({}))), //no type info needed
-                            // //     //"signature": prop(component(typeRef("FunctionSignature", {})),
-                            // //     "variables": prop(component(typeRef("Variables", {
-                            // //         "namespace": aResolvedValue(valSel("namespace")),
-                            // //         //"parameters": [true, aResolvedValue(valSel("parameters"))],
-                            // //         "variable stack": aResolvedValue(valSel("variable stack")),
-                            // //     })),
-                            // //     "statements": prop(component(typeRef("Statements", {
-                            // //         "function": aResolvedValue(valSel("out")),
-                            // //         "namespace": aResolvedValue(valSel("namespace")),
-                            // //         "variable stack": aResolvedValue(valSel("variables"))
-                            // //     })),
-                            // // })),
-                            "null": state(group({
-                                "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("null")))),
-                            })),
-                            "numerical": state(group({
-                                "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("number")))),
-                                "initialization": prop(component(typeRef("Numerical Initialization"), {})),
-                            })),
-                            "optional": state(group({
-                                "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("optional")))),
-                                //"initialization": prop(component(typeRef("Boolean Initialization"), {})),
-                            })),
-                            "procedure": state(group({
-                                "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("procedure")))),
-                                "temp has parameters": prop(optional(group({}))),
-                                "variables": prop(component(typeRef("Aggregated Variables"), {})),
-                                "block": prop(component(typeRef("Block", true), {}))
-                            })),
-                            "tagged union literal": state(group({
-                                "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("tagged union")))),
-                                "state": prop(dictionaryReference(externalTypeSelection("typesystem", "Type", t_sg("tagged union")))),
-                                "initialization": prop(component(typeRef("Initialization Or Selection"), {})),
-                            })),
-                            "string": state(group({
-                                "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("string")))),
-                                "initialization": prop(component(typeRef("String Initialization"), {})),
-                            })),
+                            "panic": state(atom("string literal")),
                             "switch": state(group({
                                 "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("tagged union")))),
                                 "temp type": prop(component(typeRef("Type Selection"), {})),
                                 "source": prop(component(typeRef("Source Selection"), {})),
                                 "cases": prop(constrainedDictionary(
                                     {
-
+            
                                     },
-                                    component(typeRef("Initialization Or Selection"), {})
+                                    component(typeRef("Initialization", true), {})
                                 )),
-                                "default": prop(optional(component(typeRef("Initialization Or Selection"), {})))
+                                "default": prop(optional(component(typeRef("Initialization", true), {})))
                             })),
-                            // //any
+                            "variables": state(group({
+                                "variables": prop(component(typeRef("Variables"), {})),
+                                "initialization": prop(component(typeRef("Initialization", true), {})),
+                            }))
+                        }),
+                    ),
+                    "Initialization": globalTypeDefinition(
+                        stateGroup({
+                            "generic": state(component(typeRef("Generic Initialization"), {})),
+                            "call": state(group({
+                                "function": prop(component(typeRef("Source Selection"), {})),
+                                "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("initialization function")))),
+                                "call": prop(component(typeRef("Function Call"), {})),
+                            })),
                             // "conditional": state(group({
                             //     "test": prop(component(typeRef("Boolean Initialization Or Selection", {
                             //         "namespace": aResolvedValue(valSel("namespace")),
@@ -1076,41 +984,104 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                             //         "namespace": aResolvedValue(valSel("namespace")),
                             //     })),
                             // })),
-                            // //"identifier": state(atom("identifier")),
-                            // // "new": state(group({
-                            // //     "class": prop(atom("identifier")),
-                            // //     "parameters": prop(dictionary(component(typeRef("Initialization", {}))),
-                            // // })),
-                            // // "noSubstitutionTemplateLiteral": empty("NoSubstitutionTemplateLiteral"),
-                            // //"parenthesized": state(component(typeRef("Initialization", {})),
-                            // "symbol": state(component(typeRef("Source Selection", { //something that is stored
-                            //     "namespace": aResolvedValue(valSel("namespace")),
-                            //     "variable stack": aResolvedValue(valSel("variable stack"))
-                            // })),
-                            // // "template": composite("TemplateExpression", group({
-                            // //     "head": member(empty("TemplateHead", { "text": atom() })),
-                            // //     "spans": member(array(composite("TemplateSpan", group({
-                            // //         "Initialization": member(component(typeRef("Initialization"), {}),
-                            // //         "type": member(choice({
-                            // //             "middle": empty("TemplateMiddle", { "text": atom() }),
-                            // //             "tail": empty("TemplateTail", { "text": atom() }),
-                            // //         })),
-                            // //     })))),
-                            // // })),
-                            "value function": state(group({
-                                "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("procedure")))),
-                                "temp has parameters": prop(optional(group({}))),
-                                "variables": prop(component(typeRef("Aggregated Variables"), {})),
-                                "initialization": prop(component(typeRef("Initialization Or Selection"), {}))
+                            "type": state(stateGroup({
+                                "array": state(group({
+                                    "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("array")))),
+                                    "type": prop(stateGroup({
+                                        "literal": state(group({
+                                            "initialization": prop(array(component(typeRef("Initialization", true), {}))),
+                                        })),
+                                        "map": state(group({
+                                            "source": prop(component(typeRef("Source Selection"), {})),
+                                            "initialization": prop(component(typeRef("Initialization", true), {})),
+                                        })),
+                                    }))
+                                })),
+                                "atom": state(group({
+                                    "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("atom")))),
+                                    "type": prop(stateGroup({
+                                        "boolean": state(group({
+                                            "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("atom", t_sg("boolean"))))),
+                                            "initialization": prop(component(typeRef("Boolean Initialization"), {})),
+                                        })),
+                                        "copy": state(group({
+                                            "source": prop(component(typeRef("Source Selection", true), {})),
+                                        })),
+                                        "null": state(group({
+                                            "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("atom", t_sg("null"))))),
+                                        })),
+                                        "numerical": state(group({
+                                            "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("atom", t_sg("number"))))),
+                                            "initialization": prop(component(typeRef("Numerical Initialization"), {})),
+                                        })),
+                                        "string": state(group({
+                                            "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("atom", t_sg("string"))))),
+                                            "initialization": prop(component(typeRef("String Initialization"), {})),
+                                        })),
+            
+                                    })),
+                                })),
+                                "computed": state(group({
+                                    "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("computed")))),
+                                    //FIXME
+                                })),
+                                "dictionary": state(group({
+                                    "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("dictionary")))),
+                                    "type": prop(stateGroup({
+                                        "literal": state(group({
+                                            "initialization": prop(dictionary(component(typeRef("Initialization", true), {}))),
+                                        })),
+                                        "map": state(group({
+                                            "source": prop(component(typeRef("Source Selection"), {})),
+                                            "initialization": prop(component(typeRef("Initialization", true), {})),
+                                        })),
+                                    }))
+                                })),
+                                "group": state(group({
+                                    "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("group")))),
+                                    "properties": prop(constrainedDictionary(
+                                        {
+                                            "definition": dictionaryConstraint(externalTypeSelection("typesystem", "Type", t_sg("group")), true)
+                                        },
+                                        component(typeRef("Initialization", true), {}),
+                                    )),
+                                })),
+                                "initialization function": state(group({
+                                    "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("initialization function")))),
+                                    "temp has parameters": prop(optional(group({}))),
+                                    "variables": prop(component(typeRef("Aggregated Variables"), {})),
+                                    "initialization": prop(component(typeRef("Initialization", true), {}))
+                                })),
+                                "lookup": state(group({
+                                    "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("lookup")))),
+                                    //FIXME
+                                })),
+                                "optional": state(group({
+                                    "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("optional")))),
+                                    //"initialization": prop(component(typeRef("Boolean Initialization"), {})),
+                                })),
+                                "procedure": state(group({
+                                    "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("procedure")))),
+                                    "temp has parameters": prop(optional(group({}))),
+                                    "variables": prop(component(typeRef("Aggregated Variables"), {})),
+                                    "block": prop(component(typeRef("Block", true), {}))
+                                })),
+                                "selection function": state(group({
+                                    "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("selection function")))),
+                                    "temp has parameters": prop(optional(group({}))),
+                                    "variables": prop(component(typeRef("Aggregated Variables"), {})),
+                                    "initialization": prop(component(typeRef("Initialization", true), {}))
+                                })),
+                                "tagged union": state(group({
+                                    "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("tagged union")))),
+                                    "state": prop(dictionaryReference(externalTypeSelection("typesystem", "Type", t_sg("tagged union")))),
+                                    "initialization": prop(component(typeRef("Initialization", true), {})),
+                                })),
                             })),
-                            "variables": state(group({
-                                "variables": prop(component(typeRef("Variables"), {})),
-                                "initialization": prop(component(typeRef("Initialization Or Selection"), {})),
-                            }))
                         })
                     ),
-
-
+            
+            
                     //Statements
                     "Block": globalTypeDefinition(
                         group({
@@ -1121,7 +1092,7 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                     "Assign": globalTypeDefinition(
                         group({
                             "target": prop(component(typeRef("Target Selection"), {})),
-                            "initialization": prop(component(typeRef("Initialization Or Selection"), {})),
+                            "initialization": prop(component(typeRef("Initialization"), {})),
                         }),
                     ),
                     "Statements": globalTypeDefinition(
@@ -1129,20 +1100,14 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                             "block": state(component(typeRef("Block"), {})),
                             "call": state(group({
                                 "function": prop(component(typeRef("Source Selection"), {})),
-                                "context definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("procedure")))),
-                                "context": prop(component(typeRef("Source Selection"), {})),
-                                "arguments": prop(constrainedDictionary(
-                                    {
-                                        "parameter": dictionaryConstraint(externalTypeSelection("typesystem", "Function Declaration", t_grp("parameters")), true)
-                                    },
-                                    component(typeRef("Initialization Or Selection"), {})
-                                ))
+                                "definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("procedure")))),
+                                "call": prop(component(typeRef("Function Call"), {})),
                             })),
                             "change context": state(group({
                                 "source": prop(component(typeRef("Source Selection"), {})),
                                 "block": prop(component(typeRef("Block"), {}))
                             })),
-
+            
                             "if": state(group({
                                 "condition": prop(component(typeRef("Boolean Initialization Or Selection"), {})),
                                 "then": prop(component(typeRef("Block"), {})),
@@ -1153,7 +1118,7 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                                 "context definition": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("tagged union")))),
                                 "cases": prop(constrainedDictionary(
                                     {
-
+            
                                     },
                                     component(typeRef("Block"), {})
                                 )),
@@ -1180,15 +1145,15 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                                     //         })),
                                     "assign": state(component(typeRef("Assign"), {})),
                                     "minus assign": state(group({/*must be number*/
-                                        "number": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("number")))),
+                                        "number": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("atom", t_sg("number"))))),
                                         "right hand side": prop(component(typeRef("Numerical Initialization Or Selection"), {})),
                                     })),
                                     "plus assign": state(group({/*must be number*/
-                                        "number": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("number")))),
+                                        "number": prop(constraint(externalTypeSelection("typesystem", "Type", t_sg("atom", t_sg("number"))))),
                                         "right hand side": prop(component(typeRef("Numerical Initialization Or Selection"), {})),
                                     })),
-
-
+            
+            
                                 }))
                             })),
                             // "for": state(group({
@@ -1231,7 +1196,7 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                             })),
                         }))
                     ),
-
+            
                     // // "Symbols": globalTypeDefinition({
                     // //     "namespace": pExternalResolvedValue("typesystem", "Namespace", false),
                     // // }, dictionary(stateGroup({
@@ -1260,7 +1225,7 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                     // //         optionalResult(externalGlobalTypeSelection("typesystem", "Type"), tailSel(s_group("tail", s_component())), valSel("namespace"))),
                     // //     globalTypeResult(externalGlobalTypeSelection("typesystem", "Type"), tailSel(s_optional()))
                     // // ),
-
+            
                     "Source File": globalTypeDefinition(
                         group({
                             "type": prop(component(typeRef("Type Selection"), {})),
@@ -1271,7 +1236,8 @@ export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
                         component(typeRef("Source File"), {})
                     )
                 }
-            ),
+            )
+            
         })
     }
 }

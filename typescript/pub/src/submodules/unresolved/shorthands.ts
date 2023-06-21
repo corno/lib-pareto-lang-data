@@ -214,28 +214,28 @@ export function constraint(type: g_this.T.Type__Selection<pd.SourceLocation>): g
     }
 }
 
-export function pResolvedValue(type: string, optional?: boolean): g_this.T.Global__Type__Declaration.parameters.dictionary.D<pd.SourceLocation> {
+export function pResolvedValue(type: string, optional?: boolean): g_this.T.Parameters.dictionary.D<pd.SourceLocation> {
     return {
         'optional': optional ? [true, null] : [false],
         'type': ['resolved value', ref(type)]
     }
 }
 
-export function pLookup(type: string, optional?: boolean): g_this.T.Global__Type__Declaration.parameters.dictionary.D<pd.SourceLocation> {
+export function pLookup(type: string, optional?: boolean): g_this.T.Parameters.dictionary.D<pd.SourceLocation> {
     return {
         'optional': optional ? [true, null] : [false],
         'type': ['sibling lookup', ref(type)]
     }
 }
 
-export function pKey(optional?: boolean): g_this.T.Global__Type__Declaration.parameters.dictionary.D<pd.SourceLocation> {
+export function pKey(optional?: boolean): g_this.T.Parameters.dictionary.D<pd.SourceLocation> {
     return {
         'optional': optional ? [true, null] : [false],
         'type': ['key', null]
     }
 }
 
-export function pCyclicLookup(type: string, optional?: boolean): g_this.T.Global__Type__Declaration.parameters.dictionary.D<pd.SourceLocation> {
+export function pCyclicLookup(type: string, optional?: boolean): g_this.T.Parameters.dictionary.D<pd.SourceLocation> {
     return {
         'optional': optional ? [true, null] : [false],
         'type': ['cyclic sibling lookup', ref(type)]
@@ -243,7 +243,7 @@ export function pCyclicLookup(type: string, optional?: boolean): g_this.T.Global
 }
 
 export function globalTypeDeclaration(
-    parameters: RawDictionary<g_this.T.Global__Type__Declaration.parameters.dictionary.D<pd.SourceLocation>>,
+    parameters: RawDictionary<g_this.T.Parameters.dictionary.D<pd.SourceLocation>>,
     result?: string
 ): g_this.T.Global__Type__Declarations.dictionary.D<pd.SourceLocation> {
     return {
@@ -440,4 +440,84 @@ export function imported(library: string, type: string): g_this.T.Global__Type__
         'library': ref(library),
         'type': ref(type),
     }]
+}
+
+
+
+export function v_comp(
+    tail?: g_this.T.Value__Selection__Tail<pd.SourceLocation>,
+): g_this.T.Value__Selection__Tail<pd.SourceLocation> {
+    return ['component', {
+        'component': pd.getLocationInfo(1),
+        'tail': tail === undefined ? [false] : [true, tail]
+    }]
+
+}
+
+export function v_grp(
+    prop: string,
+    tail?: g_this.T.Value__Selection__Tail<pd.SourceLocation>,
+): g_this.T.Value__Selection__Tail<pd.SourceLocation> {
+    return ['group', {
+        'group': pd.getLocationInfo(1),
+        'property': ref(prop),
+        'tail': tail === undefined ? [false] : [true, tail]
+    }]
+
+}
+
+export function v_sg(
+    type: g_this.T.Global__Type__Selection<pd.SourceLocation>,
+    states: RawDictionary<g_this.T.Value__Selection__Tail.state__group.states.dictionary.D<pd.SourceLocation>>,
+): g_this.T.Value__Selection__Tail<pd.SourceLocation> {
+    return ['state group', {
+        'state group': pd.getLocationInfo(1),
+        'result type': type,
+        'states': rawDict(states)
+    }]
+}
+
+export function v_ref(
+    tail?: g_this.T.Value__Selection__Tail<pd.SourceLocation>,
+): g_this.T.Value__Selection__Tail<pd.SourceLocation> {
+    return ['reference', {
+        'reference': pd.getLocationInfo(1),
+        'tail': tail === undefined ? [false] : [true, tail]
+    }]
+}
+
+
+export function anyValueSelection(
+    variable: string,
+    tail?: g_this.T.Value__Selection__Tail<pd.SourceLocation>,
+): g_this.T.No__Context__Value__Selection<pd.SourceLocation> {
+    return {
+        'start': {
+            'annotation': pd.getLocationInfo(1),
+            'key': variable,
+        },
+        'tail': tail === undefined ? [false] : [true, tail]
+    }
+}
+
+export function fromVariableSelection(
+    variable: string,
+    tail?: g_this.T.Value__Selection__Tail<pd.SourceLocation>,
+): g_this.T.Any__Value__Selection<pd.SourceLocation> {
+    return {
+        'start': [true, {
+            'annotation': pd.getLocationInfo(1),
+            'key': variable,
+        }],
+        'tail': tail === undefined ? [false] : [true, tail]
+    }
+}
+
+export function fromContextSelection(
+    tail?: g_this.T.Value__Selection__Tail<pd.SourceLocation>,
+): g_this.T.Any__Value__Selection<pd.SourceLocation> {
+    return {
+        'start': [false],
+        'tail': tail === undefined ? [false] : [true, tail]
+    }
 }
