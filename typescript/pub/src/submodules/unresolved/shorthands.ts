@@ -70,7 +70,7 @@ export function typeLibrary(
     }
 }
 
-export function arrayResolver(type: g_this.T.TypeResolver<pd.SourceLocation>): g_this.T.TypeResolver<pd.SourceLocation> {
+export function array(type: g_this.T.TypeResolver<pd.SourceLocation>): g_this.T.TypeResolver<pd.SourceLocation> {
     return {
         'type': ['array', {
             'type': type,
@@ -79,7 +79,7 @@ export function arrayResolver(type: g_this.T.TypeResolver<pd.SourceLocation>): g
     }
 }
 
-export function optionalResolver(type: g_this.T.TypeResolver<pd.SourceLocation>): g_this.T.TypeResolver<pd.SourceLocation> {
+export function optional(type: g_this.T.TypeResolver<pd.SourceLocation>): g_this.T.TypeResolver<pd.SourceLocation> {
     return {
         'type': ['optional', {
             'type': type,
@@ -87,202 +87,20 @@ export function optionalResolver(type: g_this.T.TypeResolver<pd.SourceLocation>)
     }
 }
 
-export function nothingResolver(): g_this.T.TypeResolver<pd.SourceLocation> {
+export function nothing(): g_this.T.TypeResolver<pd.SourceLocation> {
     return {
         'type': ['nothing', null]
     }
 }
 
 //doesn't do anything
-export function propResolver(type: g_this.T.TypeResolver<pd.SourceLocation>): g_this.T.TypeResolver<pd.SourceLocation> {
-    return type
-}
-
-export function dictionaryReferenceResolver(
-    type: g_this.T.Type__Selection<pd.SourceLocation>,
-): g_this.T.TypeResolver<pd.SourceLocation> {
-    return {
-        'type': ['resolved reference', {
-            'atom': {
-                'type': {
-                    'annotation': pd.getLocationInfo(1),
-                    'key': "identifier",
-                }
-            },
-            'value': ['dictionary', {
-                'type': type,
-                'dictionary': pd.getLocationInfo(1),
-            }],
-        }]
-    }
-}
-
-export function lookupReferenceResolver(
-    type: g_this.T.Global__Type__Selection<pd.SourceLocation>,
-): g_this.T.TypeResolver<pd.SourceLocation> {
-    return {
-        'type': ['resolved reference', {
-            'atom': {
-                'type': {
-                    'annotation': pd.getLocationInfo(1),
-                    'key': "identifier",
-                }
-            },
-            'value': ['lookup', type],
-        }]
-    }
-}
-
-export function cyclicReferenceResolver(
-    gloRef: g_this.T.Global__Type__Selection<pd.SourceLocation>,
-): g_this.T.TypeResolver<pd.SourceLocation> {
-    return {
-        'type': ['cyclic reference', {
-            'atom': {
-                'type': {
-                    'annotation': pd.getLocationInfo(1),
-                    'key': "identifier",
-                }
-            },
-            'sibling': gloRef,
-        }]
-    }
-}
-
-
-export function constrainedDictionaryResolver(
-    constraints: RawDictionary<g_this.T.Type._ltype.dictionary.constraints.dictionary.D<pd.SourceLocation>>,
-    type: g_this.T.TypeResolver<pd.SourceLocation>
-): g_this.T.TypeResolver<pd.SourceLocation> {
-    return {
-        'type': ['dictionary', {
-            'key': {
-                'type': {
-                    'annotation': pd.getLocationInfo(1),
-                    'key': "identifier",
-                },
-            },
-            'constraints': rawDict(constraints),
-            'type': type,
-            //'autofill': pd.a([]),
-        }]
-    }
-}
-
-export function dictionaryResolver(type: g_this.T.TypeResolver<pd.SourceLocation>/*, autofill?: g_this.T.Type._ltype.dictionary.autofill.A<pd.SourceLocation>[]*/): g_this.T.TypeResolver<pd.SourceLocation> {
-    return {
-        'type': ['dictionary', {
-            // 'annotation': li,
-            'key': {
-                'type': ref("identifier")
-            },
-            'constraints': rawDict<g_this.T.Type._ltype.dictionary.constraints.dictionary.D<pd.SourceLocation>>({}),
-            'type': type,
-            //'autofill': pd.a(autofill === undefined ? [] : autofill),
-        }]
-    }
-}
-
-export function constraintResolver(type: g_this.T.Type__Selection<pd.SourceLocation>): g_this.T.TypeResolver<pd.SourceLocation> {
-    return {
-        'type': ['constraint', type]
-    }
-}
-
-export function componentResolver(
-    type: g_this.T.Global__Type__Selection<pd.SourceLocation>,
-    //args: RawDictionary<pt.OptionalValue<g_this.T.No__Context__Value__Selection<pd.SourceLocation>>>
-    args: RawDictionary<null>,
-): g_this.T.TypeResolver<pd.SourceLocation> {
-    return {
-        'type': ['component', {
-            'type': type,
-            'arguments': rawDict(args)
-        }]
-    }
-}
-
-export function stateResolver(
-    type: g_this.T.TypeResolver<pd.SourceLocation>,
-): g_this.T.TypeResolver._ltype.state__group.states.dictionary.D<pd.SourceLocation> {
-    return {
-        'type': type,
-    }
-}
-
-export function stateGroupResolver(
-    states: RawDictionary<g_this.T.TypeResolver._ltype.state__group.states.dictionary.D<pd.SourceLocation>>,
-): g_this.T.TypeResolver<pd.SourceLocation> {
-    let firstKey: null | string = null
-    pd.d(states).__mapWithKey(($, key) => {
-        if (firstKey === null) {
-            firstKey = key
-        }
-    })
-    if (firstKey === null) {
-        firstKey = "--NO OPTIONS--"
-    }
-
-    return {
-        'type': ['state group', {
-            'states': rawDict(states),
-        }]
-    }
-}
-
-
-export function groupResolver(rawProperties: RawDictionary<g_this.T.TypeResolver<pd.SourceLocation>>): g_this.T.TypeResolver<pd.SourceLocation> {
-
-    return {
-        'type': ['group', {
-            'properties': {
-                'annotation': pd.getLocationInfo(1),
-                'dictionary': pd.d(rawProperties).__mapWithKey(($, key) => {
-                    return {
-                        'type': $,
-                    }
-                })
-            }
-        }]
-    }
-}
-
-
-
-
-
-
-export function array(type: g_this.T.Type<pd.SourceLocation>): g_this.T.Type<pd.SourceLocation> {
-    return {
-        'type': ['array', {
-            'type': type,
-            //'constraint': [false]
-        }]
-    }
-}
-
-export function optional(type: g_this.T.Type<pd.SourceLocation>): g_this.T.Type<pd.SourceLocation> {
-    return {
-        'type': ['optional', {
-            'type': type,
-        }]
-    }
-}
-
-export function nothing(): g_this.T.Type<pd.SourceLocation> {
-    return {
-        'type': ['nothing', null]
-    }
-}
-
-//doesn't do anything
-export function prop(type: g_this.T.Type<pd.SourceLocation>): g_this.T.Type<pd.SourceLocation> {
+export function prop(type: g_this.T.TypeResolver<pd.SourceLocation>): g_this.T.TypeResolver<pd.SourceLocation> {
     return type
 }
 
 export function dictionaryReference(
     type: g_this.T.Type__Selection<pd.SourceLocation>,
-): g_this.T.Type<pd.SourceLocation> {
+): g_this.T.TypeResolver<pd.SourceLocation> {
     return {
         'type': ['resolved reference', {
             'atom': {
@@ -301,7 +119,7 @@ export function dictionaryReference(
 
 export function lookupReference(
     type: g_this.T.Global__Type__Selection<pd.SourceLocation>,
-): g_this.T.Type<pd.SourceLocation> {
+): g_this.T.TypeResolver<pd.SourceLocation> {
     return {
         'type': ['resolved reference', {
             'atom': {
@@ -317,7 +135,7 @@ export function lookupReference(
 
 export function cyclicReference(
     gloRef: g_this.T.Global__Type__Selection<pd.SourceLocation>,
-): g_this.T.Type<pd.SourceLocation> {
+): g_this.T.TypeResolver<pd.SourceLocation> {
     return {
         'type': ['cyclic reference', {
             'atom': {
@@ -330,6 +148,188 @@ export function cyclicReference(
         }]
     }
 }
+
+
+export function constrainedDictionary(
+    constraints: RawDictionary<g_this.T.Type._ltype.dictionary.constraints.dictionary.D<pd.SourceLocation>>,
+    type: g_this.T.TypeResolver<pd.SourceLocation>
+): g_this.T.TypeResolver<pd.SourceLocation> {
+    return {
+        'type': ['dictionary', {
+            'key': {
+                'type': {
+                    'annotation': pd.getLocationInfo(1),
+                    'key': "identifier",
+                },
+            },
+            'constraints': rawDict(constraints),
+            'type': type,
+            //'autofill': pd.a([]),
+        }]
+    }
+}
+
+export function dictionary(type: g_this.T.TypeResolver<pd.SourceLocation>/*, autofill?: g_this.T.Type._ltype.dictionary.autofill.A<pd.SourceLocation>[]*/): g_this.T.TypeResolver<pd.SourceLocation> {
+    return {
+        'type': ['dictionary', {
+            // 'annotation': li,
+            'key': {
+                'type': ref("identifier")
+            },
+            'constraints': rawDict<g_this.T.Type._ltype.dictionary.constraints.dictionary.D<pd.SourceLocation>>({}),
+            'type': type,
+            //'autofill': pd.a(autofill === undefined ? [] : autofill),
+        }]
+    }
+}
+
+export function constraint(type: g_this.T.Type__Selection<pd.SourceLocation>): g_this.T.TypeResolver<pd.SourceLocation> {
+    return {
+        'type': ['constraint', type]
+    }
+}
+
+// export function component(
+//     type: g_this.T.Global__Type__Selection<pd.SourceLocation>,
+//     //args: RawDictionary<pt.OptionalValue<g_this.T.No__Context__Value__Selection<pd.SourceLocation>>>
+//     args: RawDictionary<null>,
+// ): g_this.T.TypeResolver<pd.SourceLocation> {
+//     return {
+//         'type': ['component', {
+//             'type': type,
+//             'arguments': rawDict(args)
+//         }]
+//     }
+// }
+
+// export function state(
+//     type: g_this.T.TypeResolver<pd.SourceLocation>,
+// ): g_this.T.TypeResolver._ltype.state__group.states.dictionary.D<pd.SourceLocation> {
+//     return {
+//         'type': type,
+//     }
+// }
+
+// export function stateGroup(
+//     states: RawDictionary<g_this.T.TypeResolver._ltype.state__group.states.dictionary.D<pd.SourceLocation>>,
+// ): g_this.T.TypeResolver<pd.SourceLocation> {
+//     let firstKey: null | string = null
+//     pd.d(states).__mapWithKey(($, key) => {
+//         if (firstKey === null) {
+//             firstKey = key
+//         }
+//     })
+//     if (firstKey === null) {
+//         firstKey = "--NO OPTIONS--"
+//     }
+
+//     return {
+//         'type': ['state group', {
+//             'states': rawDict(states),
+//         }]
+//     }
+// }
+
+
+// export function group(rawProperties: RawDictionary<g_this.T.TypeResolver<pd.SourceLocation>>): g_this.T.TypeResolver<pd.SourceLocation> {
+
+//     return {
+//         'type': ['group', {
+//             'properties': {
+//                 'annotation': pd.getLocationInfo(1),
+//                 'dictionary': pd.d(rawProperties).__mapWithKey(($, key) => {
+//                     return {
+//                         'type': $,
+//                     }
+//                 })
+//             }
+//         }]
+//     }
+// }
+
+
+
+
+
+
+// export function array(type: g_this.T.Type<pd.SourceLocation>): g_this.T.Type<pd.SourceLocation> {
+//     return {
+//         'type': ['array', {
+//             'type': type,
+//             //'constraint': [false]
+//         }]
+//     }
+// }
+
+// export function optional(type: g_this.T.Type<pd.SourceLocation>): g_this.T.Type<pd.SourceLocation> {
+//     return {
+//         'type': ['optional', {
+//             'type': type,
+//         }]
+//     }
+// }
+
+// export function nothing(): g_this.T.Type<pd.SourceLocation> {
+//     return {
+//         'type': ['nothing', null]
+//     }
+// }
+
+//doesn't do anything
+// export function prop(type: g_this.T.Type<pd.SourceLocation>): g_this.T.Type<pd.SourceLocation> {
+//     return type
+// }
+
+// export function dictionaryReference(
+//     type: g_this.T.Type__Selection<pd.SourceLocation>,
+// ): g_this.T.Type<pd.SourceLocation> {
+//     return {
+//         'type': ['resolved reference', {
+//             'atom': {
+//                 'type': {
+//                     'annotation': pd.getLocationInfo(1),
+//                     'key': "identifier",
+//                 }
+//             },
+//             'value': ['dictionary', {
+//                 'type': type,
+//                 'dictionary': pd.getLocationInfo(1),
+//             }],
+//         }]
+//     }
+// }
+
+// export function lookupReference(
+//     type: g_this.T.Global__Type__Selection<pd.SourceLocation>,
+// ): g_this.T.Type<pd.SourceLocation> {
+//     return {
+//         'type': ['resolved reference', {
+//             'atom': {
+//                 'type': {
+//                     'annotation': pd.getLocationInfo(1),
+//                     'key': "identifier",
+//                 }
+//             },
+//             'value': ['lookup', type],
+//         }]
+//     }
+// }
+
+// export function cyclicReference(
+//     gloRef: g_this.T.Global__Type__Selection<pd.SourceLocation>,
+// ): g_this.T.Type<pd.SourceLocation> {
+//     return {
+//         'type': ['cyclic reference', {
+//             'atom': {
+//                 'type': {
+//                     'annotation': pd.getLocationInfo(1),
+//                     'key': "identifier",
+//                 }
+//             },
+//             'sibling': gloRef,
+//         }]
+//     }
+// }
 
 
 
@@ -358,44 +358,44 @@ export function dictionaryConstraint(
 }
 
 
-export function constrainedDictionary(
-    constraints: RawDictionary<g_this.T.Type._ltype.dictionary.constraints.dictionary.D<pd.SourceLocation>>,
-    type: g_this.T.Type<pd.SourceLocation>
-): g_this.T.Type<pd.SourceLocation> {
-    return {
-        'type': ['dictionary', {
-            'key': {
-                'type': {
-                    'annotation': pd.getLocationInfo(1),
-                    'key': "identifier",
-                },
-            },
-            'constraints': rawDict(constraints),
-            'type': type,
-            //'autofill': pd.a([]),
-        }]
-    }
-}
+// export function constrainedDictionary(
+//     constraints: RawDictionary<g_this.T.Type._ltype.dictionary.constraints.dictionary.D<pd.SourceLocation>>,
+//     type: g_this.T.Type<pd.SourceLocation>
+// ): g_this.T.Type<pd.SourceLocation> {
+//     return {
+//         'type': ['dictionary', {
+//             'key': {
+//                 'type': {
+//                     'annotation': pd.getLocationInfo(1),
+//                     'key': "identifier",
+//                 },
+//             },
+//             'constraints': rawDict(constraints),
+//             'type': type,
+//             //'autofill': pd.a([]),
+//         }]
+//     }
+// }
 
-export function dictionary(type: g_this.T.Type<pd.SourceLocation>/*, autofill?: g_this.T.Type._ltype.dictionary.autofill.A<pd.SourceLocation>[]*/): g_this.T.Type<pd.SourceLocation> {
-    return {
-        'type': ['dictionary', {
-            // 'annotation': li,
-            'key': {
-                'type': ref("identifier")
-            },
-            'constraints': rawDict<g_this.T.Type._ltype.dictionary.constraints.dictionary.D<pd.SourceLocation>>({}),
-            'type': type,
-            //'autofill': pd.a(autofill === undefined ? [] : autofill),
-        }]
-    }
-}
+// export function dictionary(type: g_this.T.Type<pd.SourceLocation>/*, autofill?: g_this.T.Type._ltype.dictionary.autofill.A<pd.SourceLocation>[]*/): g_this.T.Type<pd.SourceLocation> {
+//     return {
+//         'type': ['dictionary', {
+//             // 'annotation': li,
+//             'key': {
+//                 'type': ref("identifier")
+//             },
+//             'constraints': rawDict<g_this.T.Type._ltype.dictionary.constraints.dictionary.D<pd.SourceLocation>>({}),
+//             'type': type,
+//             //'autofill': pd.a(autofill === undefined ? [] : autofill),
+//         }]
+//     }
+// }
 
-export function constraint(type: g_this.T.Type__Selection<pd.SourceLocation>): g_this.T.Type<pd.SourceLocation> {
-    return {
-        'type': ['constraint', type]
-    }
-}
+// export function constraint(type: g_this.T.Type__Selection<pd.SourceLocation>): g_this.T.Type<pd.SourceLocation> {
+//     return {
+//         'type': ['constraint', type]
+//     }
+// }
 
 export function pResolvedValue(type: string, optional?: boolean): g_this.T.Parameters.dictionary.D<pd.SourceLocation> {
     return {
