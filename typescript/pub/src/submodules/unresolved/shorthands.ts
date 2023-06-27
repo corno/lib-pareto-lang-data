@@ -556,7 +556,7 @@ export function typeSelection(
 // }
 
 
-function globalType(
+export function globalType(
 
     parameters: RawDictionary<g_this.T.Parameters.dictionary.D<pd.SourceLocation>>,
     type: g_this.T.TypeResolver<pd.SourceLocation>,
