@@ -40,19 +40,14 @@ import {
     globalTypeResolverDeclaration,
     globalTypeDefinition,
     group,
-    groupResolver,
     state,
-    stateResolver,
     optional,
     prop,
-    propResolver,
     t_grp,
     t_sg,
     stateGroup,
-    stateGroupResolver,
     typeSelection,
     component,
-    componentResolver,
     typeRef,
     dictionaryReference,
     lookupConstraint,
@@ -65,13 +60,6 @@ import {
     pLookup,
     pCyclicLookup,
     dictionaryConstraint,
-    dictionaryResolver,
-    dictionaryReferenceResolver,
-    lookupReferenceResolver,
-    cyclicReferenceResolver,
-    optionalResolver,
-    constraintResolver,
-    constrainedDictionaryResolver,
 } from "lib-pareto-lang-data/dist/submodules/unresolved/shorthands"
 
 export const $: g_pareto_lang_data.T.Merged__Type__Library<pd.SourceLocation> = typeLibrary(
@@ -483,14 +471,14 @@ export const $: g_pareto_lang_data.T.Merged__Type__Library<pd.SourceLocation> = 
     {
         "Atom Types": globalType(
             {},
-            dictionaryResolver(groupResolver({}))
+            dictionary(group({}))
         ),
         "Atom": globalType(
             {
                 "atom types": pResolvedValue("Atom Types")
             },
-            groupResolver({
-                "type": propResolver(dictionaryReferenceResolver(typeSelection("Atom Types"))),
+            group({
+                "type": prop(dictionaryReference(typeSelection("Atom Types"))),
             })
         ),
         "Property": globalType(
@@ -500,8 +488,8 @@ export const $: g_pareto_lang_data.T.Merged__Type__Library<pd.SourceLocation> = 
                 "sibling global types": pLookup("Global Type Definition"),
                 "cyclic sibling global types": pCyclicLookup("Global Type Definition"),
             },
-            groupResolver({
-                "type": propResolver(componentResolver(typeRef("Type", true), {
+            group({
+                "type": prop(component(typeRef("Type", true), {
                     "atom types": null,
                     "imports": null,
                     "sibling global types": null,
@@ -516,8 +504,8 @@ export const $: g_pareto_lang_data.T.Merged__Type__Library<pd.SourceLocation> = 
                 "sibling global types": pLookup("Global Type Definition"),
                 "cyclic sibling global types": pCyclicLookup("Global Type Definition"),
             },
-            groupResolver({
-                "type": propResolver(componentResolver(typeRef("TypeResolver", true), {
+            group({
+                "type": prop(component(typeRef("TypeResolver", true), {
                     "atom types": null,
                     "imports": null,
                     "sibling global types": null,
@@ -532,104 +520,104 @@ export const $: g_pareto_lang_data.T.Merged__Type__Library<pd.SourceLocation> = 
                 "sibling global types": pLookup("Global Type Definition"),
                 "cyclic sibling global types": pCyclicLookup("Global Type Definition"),
             },
-            groupResolver({
-                "type": propResolver(stateGroupResolver({
-                    "array": stateResolver(groupResolver({
-                        "type": propResolver(componentResolver(typeRef("Type", true), {
+            group({
+                "type": prop(stateGroup({
+                    "array": state(group({
+                        "type": prop(component(typeRef("Type", true), {
                             "atom types": null,
                             "imports": null,
                             "sibling global types": null,
                             "cyclic sibling global types": null,
                         })),
                     })),
-                    "atom": stateResolver(groupResolver({
-                        "atom": propResolver(componentResolver(typeRef("Atom"), {
+                    "atom": state(group({
+                        "atom": prop(component(typeRef("Atom"), {
                             "atom types": null,
                         })),
                     })),
-                    "component": stateResolver(groupResolver({
-                        "type": propResolver(componentResolver(typeRef("Global Type Selection", true), {
+                    "component": state(group({
+                        "type": prop(component(typeRef("Global Type Selection", true), {
                             "imports": null,
                             "sibling global types": null,
                             "cyclic sibling global types": null,
                         })),
                     })),
-                    "constraint": stateResolver(componentResolver(typeRef("Type Selection", true), {
+                    "constraint": state(component(typeRef("Type Selection", true), {
                         "imports": null,
                         "sibling global types": null,
                     })),
-                    "cyclic reference": stateResolver(groupResolver({
-                        "atom": propResolver(componentResolver(typeRef("Atom"), {
+                    "cyclic reference": state(group({
+                        "atom": prop(component(typeRef("Atom"), {
                             "atom types": null
                         })),
-                        "sibling": componentResolver(typeRef("Global Type Selection", true), {
+                        "sibling": component(typeRef("Global Type Selection", true), {
                             "imports": null,
                             "sibling global types": null,
                             "cyclic sibling global types": null,
                         }),
                     })),
-                    "dictionary": stateResolver(groupResolver({
-                        "key": propResolver(componentResolver(typeRef("Atom"), {
+                    "dictionary": state(group({
+                        "key": prop(component(typeRef("Atom"), {
                             "atom types": null
                         })),
-                        "constraints": propResolver(dictionaryResolver(stateGroupResolver({
-                            "dictionary": stateResolver(groupResolver({
-                                "dictionary": propResolver(componentResolver(typeRef("Dictionary Selection", true), {
+                        "constraints": prop(dictionary(stateGroup({
+                            "dictionary": state(group({
+                                "dictionary": prop(component(typeRef("Dictionary Selection", true), {
                                     "imports": null,
                                     "sibling global types": null,
                                     "cyclic sibling global types": null,
                                 })),
-                                "dense": propResolver(stateGroupResolver({
-                                    "no": stateResolver(groupResolver({})),
-                                    "yes": stateResolver(groupResolver({})),
+                                "dense": prop(stateGroup({
+                                    "no": state(group({})),
+                                    "yes": state(group({})),
                                 }))
                             })),
-                            "lookup": stateResolver(componentResolver(typeRef("Global Type Selection", true), {
+                            "lookup": state(component(typeRef("Global Type Selection", true), {
                                 "imports": null,
                                 "sibling global types": null,
                                 "cyclic sibling global types": null,
                             })),
                         }))),
-                        "type": propResolver(componentResolver(typeRef("Type", true), {
+                        "type": prop(component(typeRef("Type", true), {
                             "atom types": null,
                             "imports": null,
                             "sibling global types": null,
                             "cyclic sibling global types": null,
                         })),
                     })),
-                    "group": stateResolver(groupResolver({
-                        "properties": propResolver(dictionaryResolver(componentResolver(typeRef("Property"), {}))),
+                    "group": state(group({
+                        "properties": prop(dictionary(component(typeRef("Property"), {}))),
                     })),
-                    "nothing": stateResolver(groupResolver({
+                    "nothing": state(group({
                     })),
-                    "optional": stateResolver(groupResolver({
-                        "type": propResolver(componentResolver(typeRef("Type", true), {
+                    "optional": state(group({
+                        "type": prop(component(typeRef("Type", true), {
                             "atom types": null,
                             "imports": null,
                             "sibling global types": null,
                             "cyclic sibling global types": null,
                         })),
                     })),
-                    "resolved reference": stateResolver(groupResolver({
-                        "atom": propResolver(componentResolver(typeRef("Atom"), {
+                    "resolved reference": state(group({
+                        "atom": prop(component(typeRef("Atom"), {
                             "atom types": null
                         })),
-                        "value": propResolver(stateGroupResolver({
-                            "dictionary": stateResolver(componentResolver(typeRef("Dictionary Selection", true), {
+                        "value": prop(stateGroup({
+                            "dictionary": state(component(typeRef("Dictionary Selection", true), {
                                 "imports": null,
                                 "sibling global types": null,
                                 "cyclic sibling global types": null,
                             })),
-                            "lookup": stateResolver(componentResolver(typeRef("Global Type Selection", true), {
+                            "lookup": state(component(typeRef("Global Type Selection", true), {
                                 "imports": null,
                                 "sibling global types": null,
                                 "cyclic sibling global types": null,
                             })),
                         }))
                     })),
-                    "state group": stateResolver(groupResolver({
-                        "states": propResolver(dictionaryResolver(groupResolver({
-                            "type": propResolver(componentResolver(typeRef("Type", true), {
+                    "state group": state(group({
+                        "states": prop(dictionary(group({
+                            "type": prop(component(typeRef("Type", true), {
                                 "atom types": null,
                                 "imports": null,
                                 "sibling global types": null,
@@ -647,105 +635,105 @@ export const $: g_pareto_lang_data.T.Merged__Type__Library<pd.SourceLocation> = 
                 "sibling global types": pLookup("Global Type Definition"),
                 "cyclic sibling global types": pCyclicLookup("Global Type Definition"),
             },
-            groupResolver({
-                "type": propResolver(stateGroupResolver({
-                    "array": stateResolver(groupResolver({
-                        "type": propResolver(componentResolver(typeRef("TypeResolver", true), {
+            group({
+                "type": prop(stateGroup({
+                    "array": state(group({
+                        "type": prop(component(typeRef("TypeResolver", true), {
                             "atom types": null,
                             "imports": null,
                             "sibling global types": null,
                             "cyclic sibling global types": null,
                         })),
                     })),
-                    "atom": stateResolver(groupResolver({
-                        "atom": propResolver(componentResolver(typeRef("Atom"), {
+                    "atom": state(group({
+                        "atom": prop(component(typeRef("Atom"), {
                             "atom types": null,
                         })),
                     })),
-                    "component": stateResolver(groupResolver({
-                        "type": propResolver(componentResolver(typeRef("Global Type Selection", true), {
+                    "component": state(group({
+                        "type": prop(component(typeRef("Global Type Selection", true), {
                             "imports": null,
                             "sibling global types": null,
                             "cyclic sibling global types": null,
                         })),
-                        "arguments": propResolver(dictionaryResolver(groupResolver({}))),
+                        "arguments": prop(dictionary(group({}))),
                     })),
-                    "constraint": stateResolver(componentResolver(typeRef("Type Selection", true), {
+                    "constraint": state(component(typeRef("Type Selection", true), {
                         "imports": null,
                         "sibling global types": null,
                     })),
-                    "cyclic reference": stateResolver(groupResolver({
-                        "atom": propResolver(componentResolver(typeRef("Atom"), {
+                    "cyclic reference": state(group({
+                        "atom": prop(component(typeRef("Atom"), {
                             "atom types": null
                         })),
-                        "sibling": componentResolver(typeRef("Global Type Selection", true), {
+                        "sibling": component(typeRef("Global Type Selection", true), {
                             "imports": null,
                             "sibling global types": null,
                             "cyclic sibling global types": null,
                         }),
                     })),
-                    "dictionary": stateResolver(groupResolver({
-                        "key": propResolver(componentResolver(typeRef("Atom"), {
+                    "dictionary": state(group({
+                        "key": prop(component(typeRef("Atom"), {
                             "atom types": null
                         })),
-                        "constraints": propResolver(dictionaryResolver(stateGroupResolver({
-                            "dictionary": stateResolver(groupResolver({
-                                "dictionary": propResolver(componentResolver(typeRef("Dictionary Selection", true), {
+                        "constraints": prop(dictionary(stateGroup({
+                            "dictionary": state(group({
+                                "dictionary": prop(component(typeRef("Dictionary Selection", true), {
                                     "imports": null,
                                     "sibling global types": null,
                                     "cyclic sibling global types": null,
                                 })),
-                                "dense": propResolver(stateGroupResolver({
-                                    "no": stateResolver(groupResolver({})),
-                                    "yes": stateResolver(groupResolver({})),
+                                "dense": prop(stateGroup({
+                                    "no": state(group({})),
+                                    "yes": state(group({})),
                                 }))
                             })),
-                            "lookup": stateResolver(componentResolver(typeRef("Global Type Selection", true), {
+                            "lookup": state(component(typeRef("Global Type Selection", true), {
                                 "imports": null,
                                 "sibling global types": null,
                                 "cyclic sibling global types": null,
                             })),
                         }))),
-                        "type": propResolver(componentResolver(typeRef("TypeResolver", true), {
+                        "type": prop(component(typeRef("TypeResolver", true), {
                             "atom types": null,
                             "imports": null,
                             "sibling global types": null,
                             "cyclic sibling global types": null,
                         })),
                     })),
-                    "group": stateResolver(groupResolver({
-                        "properties": propResolver(dictionaryResolver(componentResolver(typeRef("PropertyResolver"), {}))),
+                    "group": state(group({
+                        "properties": prop(dictionary(component(typeRef("PropertyResolver"), {}))),
                     })),
-                    "nothing": stateResolver(groupResolver({
+                    "nothing": state(group({
                     })),
-                    "optional": stateResolver(groupResolver({
-                        "type": propResolver(componentResolver(typeRef("TypeResolver", true), {
+                    "optional": state(group({
+                        "type": prop(component(typeRef("TypeResolver", true), {
                             "atom types": null,
                             "imports": null,
                             "sibling global types": null,
                             "cyclic sibling global types": null,
                         })),
                     })),
-                    "resolved reference": stateResolver(groupResolver({
-                        "atom": propResolver(componentResolver(typeRef("Atom"), {
+                    "resolved reference": state(group({
+                        "atom": prop(component(typeRef("Atom"), {
                             "atom types": null
                         })),
-                        "value": propResolver(stateGroupResolver({
-                            "dictionary": stateResolver(componentResolver(typeRef("Dictionary Selection", true), {
+                        "value": prop(stateGroup({
+                            "dictionary": state(component(typeRef("Dictionary Selection", true), {
                                 "imports": null,
                                 "sibling global types": null,
                                 "cyclic sibling global types": null,
                             })),
-                            "lookup": stateResolver(componentResolver(typeRef("Global Type Selection", true), {
+                            "lookup": state(component(typeRef("Global Type Selection", true), {
                                 "imports": null,
                                 "sibling global types": null,
                                 "cyclic sibling global types": null,
                             })),
                         }))
                     })),
-                    "state group": stateResolver(groupResolver({
-                        "states": propResolver(dictionaryResolver(groupResolver({
-                            "type": propResolver(componentResolver(typeRef("TypeResolver", true), {
+                    "state group": state(group({
+                        "states": prop(dictionary(group({
+                            "type": prop(component(typeRef("TypeResolver", true), {
                                 "atom types": null,
                                 "imports": null,
                                 "sibling global types": null,
@@ -760,37 +748,37 @@ export const $: g_pareto_lang_data.T.Merged__Type__Library<pd.SourceLocation> = 
             {
                 "external type libraries": pLookup("Type Library"),
             },
-            dictionaryResolver(
-                groupResolver({
-                    "library": propResolver(lookupReferenceResolver(typeRef("Type Library", true)))
+            dictionary(
+                group({
+                    "library": prop(lookupReference(typeRef("Type Library", true)))
                 })
             )
         ),
         "Parameters": globalType(
             {},
-            dictionaryResolver(groupResolver({
-                "type": propResolver(stateGroupResolver({
-                    "resolved value": stateResolver(cyclicReferenceResolver(typeRef("Global Type Resolver Declaration", true))),
-                    "sibling lookup": stateResolver(cyclicReferenceResolver(typeRef("Global Type Resolver Declaration", true))),
-                    "cyclic sibling lookup": stateResolver(cyclicReferenceResolver(typeRef("Global Type Resolver Declaration", true))),
-                    "key": stateResolver(groupResolver({})),
+            dictionary(group({
+                "type": prop(stateGroup({
+                    "resolved value": state(cyclicReference(typeRef("Global Type Resolver Declaration", true))),
+                    "sibling lookup": state(cyclicReference(typeRef("Global Type Resolver Declaration", true))),
+                    "cyclic sibling lookup": state(cyclicReference(typeRef("Global Type Resolver Declaration", true))),
+                    "key": state(group({})),
                 })),
-                "optional": propResolver(optionalResolver(groupResolver({}))),
+                "optional": prop(optional(group({}))),
             }))
         ),
         "Global Type Resolver Declaration": globalType(
             {
                 "all siblings": pCyclicLookup("Global Type Resolver Declaration", false)
             },
-            groupResolver({
-                //"definition": propResolver(constraint(typeSelection("Global Type Definition", t_dict()))),
-                "parameters": propResolver(componentResolver(typeRef("Parameters"), {})),
-                "result": propResolver(optionalResolver(cyclicReferenceResolver(typeRef("Global Type Resolver Declaration", true)))),
+            group({
+                //"definition": prop(constraint(typeSelection("Global Type Definition", t_dict()))),
+                "parameters": prop(component(typeRef("Parameters"), {})),
+                "result": prop(optional(cyclicReference(typeRef("Global Type Resolver Declaration", true)))),
             })
         ),
         "Global Type Resolver Declarations": globalType(
             {},
-            dictionaryResolver(componentResolver(typeRef("Global Type Resolver Declaration"), {
+            dictionary(component(typeRef("Global Type Resolver Declaration"), {
                 "all siblings": null,
             }))
         ),
@@ -802,17 +790,17 @@ export const $: g_pareto_lang_data.T.Merged__Type__Library<pd.SourceLocation> = 
                 "atom types": pResolvedValue("Atom Types"),
                 "imports": pResolvedValue("Imports"),
             },
-            groupResolver({
-                "variables": propResolver(componentResolver(typeRef("Variables"), {
+            group({
+                "variables": prop(component(typeRef("Variables"), {
 
                 })),
-                "type": propResolver(componentResolver(typeRef("TypeResolver"), {
+                "type": prop(component(typeRef("TypeResolver"), {
                     "atom types": null,
                     "imports": null,
                     "sibling global types": null,
                     "cyclic sibling global types": null,
                 })),
-                "result": propResolver(optionalResolver(componentResolver(typeRef("Value Selection Tail", true), {}))),
+                "result": prop(optional(component(typeRef("Value Selection Tail", true), {}))),
             })
         ),
         "Global Type Definition": globalType(
@@ -823,8 +811,8 @@ export const $: g_pareto_lang_data.T.Merged__Type__Library<pd.SourceLocation> = 
                 "atom types": pResolvedValue("Atom Types"),
                 "imports": pResolvedValue("Imports"),
             },
-            groupResolver({
-                "type": propResolver(componentResolver(typeRef("Type"), {
+            group({
+                "type": prop(component(typeRef("Type"), {
                     "atom types": null,
                     "imports": null,
                     "sibling global types": null,
@@ -836,29 +824,29 @@ export const $: g_pareto_lang_data.T.Merged__Type__Library<pd.SourceLocation> = 
             {
                 "context": pResolvedValue("Type"),
             },
-            groupResolver({
-                "step type": propResolver(stateGroupResolver({
-                    "dictionary": stateResolver(groupResolver({
-                        "dictionary": propResolver(constraintResolver(typeSelection("Type", t_grp("type", t_sg("dictionary"))))),
-                        "tail": propResolver(optionalResolver(componentResolver(typeRef("Type Selection Tail", true), {})))
+            group({
+                "step type": prop(stateGroup({
+                    "dictionary": state(group({
+                        "dictionary": prop(constraint(typeSelection("Type", t_grp("type", t_sg("dictionary"))))),
+                        "tail": prop(optional(component(typeRef("Type Selection Tail", true), {})))
                     })),
-                    "optional": stateResolver(groupResolver({
-                        "optional": propResolver(constraintResolver(typeSelection("Type", t_grp("type", t_sg("optional"))))),
-                        "tail": propResolver(optionalResolver(componentResolver(typeRef("Type Selection Tail", true), {})))
+                    "optional": state(group({
+                        "optional": prop(constraint(typeSelection("Type", t_grp("type", t_sg("optional"))))),
+                        "tail": prop(optional(component(typeRef("Type Selection Tail", true), {})))
                     })),
-                    "array": stateResolver(groupResolver({
-                        "array": propResolver(constraintResolver(typeSelection("Type", t_grp("type", t_sg("array"))))),
-                        "tail": propResolver(optionalResolver(componentResolver(typeRef("Type Selection Tail", true), {})))
+                    "array": state(group({
+                        "array": prop(constraint(typeSelection("Type", t_grp("type", t_sg("array"))))),
+                        "tail": prop(optional(component(typeRef("Type Selection Tail", true), {})))
                     })),
-                    "group": stateResolver(groupResolver({
-                        "group": propResolver(constraintResolver(typeSelection("Type", t_grp("type", t_sg("group"))))),
-                        "property": propResolver(dictionaryReferenceResolver(typeSelection("Type", t_grp("type", t_sg("group", t_grp("properties")))))),
-                        "tail": propResolver(optionalResolver(componentResolver(typeRef("Type Selection Tail", true), {})))
+                    "group": state(group({
+                        "group": prop(constraint(typeSelection("Type", t_grp("type", t_sg("group"))))),
+                        "property": prop(dictionaryReference(typeSelection("Type", t_grp("type", t_sg("group", t_grp("properties")))))),
+                        "tail": prop(optional(component(typeRef("Type Selection Tail", true), {})))
                     })),
-                    "state group": stateResolver(groupResolver({
-                        "state group": propResolver(constraintResolver(typeSelection("Type", t_grp("type", t_sg("state group"))))),
-                        "state": propResolver(dictionaryReferenceResolver(typeSelection("Type", t_grp("type", t_sg("state group", t_grp("states")))))),
-                        "tail": propResolver(optionalResolver(componentResolver(typeRef("Type Selection Tail", true), {})))
+                    "state group": state(group({
+                        "state group": prop(constraint(typeSelection("Type", t_grp("type", t_sg("state group"))))),
+                        "state": prop(dictionaryReference(typeSelection("Type", t_grp("type", t_sg("state group", t_grp("states")))))),
+                        "tail": prop(optional(component(typeRef("Type Selection Tail", true), {})))
                     })),
                 })),
             })
@@ -868,10 +856,10 @@ export const $: g_pareto_lang_data.T.Merged__Type__Library<pd.SourceLocation> = 
                 "imports": pResolvedValue("Imports"),
                 "sibling global types": pLookup("Global Type Definition"),
             },
-            groupResolver({
-                "import": propResolver(optionalResolver(dictionaryReferenceResolver(typeSelection("Imports")))),
-                "global type": propResolver(lookupReferenceResolver(typeRef("Global Type Definition"))),
-                "tail": propResolver(optionalResolver(componentResolver(typeRef("Type Selection Tail", true), {}))),
+            group({
+                "import": prop(optional(dictionaryReference(typeSelection("Imports")))),
+                "global type": prop(lookupReference(typeRef("Global Type Definition"))),
+                "tail": prop(optional(component(typeRef("Type Selection Tail", true), {}))),
             }),
         ),
         "Dictionary Selection": globalType(
@@ -880,34 +868,34 @@ export const $: g_pareto_lang_data.T.Merged__Type__Library<pd.SourceLocation> = 
                 "sibling global types": pLookup("Global Type Definition"),
                 "cyclic sibling global types": pCyclicLookup("Global Type Definition"),
             },
-            groupResolver({
-                "type": propResolver(componentResolver(typeRef("Type Selection"), {
+            group({
+                "type": prop(component(typeRef("Type Selection"), {
                     "imports": null,
                     "sibling global types": null,
                 })),
-                "dictionary": constraintResolver(typeSelection("Type", t_grp("type", t_sg("dictionary")))),
+                "dictionary": constraint(typeSelection("Type", t_grp("type", t_sg("dictionary")))),
             })
         ),
         "Type Library": globalType(
             {
                 "external type libraries": pLookup("Type Library"),
             },
-            groupResolver({
-                "imports": propResolver(componentResolver(typeRef("Imports"), {
+            group({
+                "imports": prop(component(typeRef("Imports"), {
                     "external type libraries": null,
                 })),
-                "atom types": propResolver(componentResolver(typeRef("Atom Types"), {})),
-                "global types": propResolver(groupResolver({
-                    "definitions": propResolver(dictionaryResolver(componentResolver(typeRef("Global Type Definition"), {
+                "atom types": prop(component(typeRef("Atom Types"), {})),
+                "global types": prop(group({
+                    "definitions": prop(dictionary(component(typeRef("Global Type Definition"), {
                         "key": null,
                         "all siblings": null,
                         "non cyclic siblings": null,
                         "atom types": null,
                         "imports": null,
                     }))),
-                    //"selectors": propResolver(componentResolver(typeRef("Global Type Resolver Declarations"), {})),
-                    "declarations": propResolver(componentResolver(typeRef("Global Type Resolver Declarations"), {})),
-                    "implementations": propResolver(dictionaryResolver(componentResolver(typeRef("Global Type Resolver Implementation"), {
+                    //"selectors": prop(component(typeRef("Global Type Resolver Declarations"), {})),
+                    "declarations": prop(component(typeRef("Global Type Resolver Declarations"), {})),
+                    "implementations": prop(dictionary(component(typeRef("Global Type Resolver Implementation"), {
                         "key": null,
                         "all siblings": null,
                         "non cyclic siblings": null,
@@ -919,15 +907,15 @@ export const $: g_pareto_lang_data.T.Merged__Type__Library<pd.SourceLocation> = 
         ),
         "Merged Type Library": globalType(
             {},
-            groupResolver({
-                "imports": propResolver(componentResolver(typeRef("Imports"), {
+            group({
+                "imports": prop(component(typeRef("Imports"), {
                     "external type libraries": null,
                 })),
-                "atom types": propResolver(componentResolver(typeRef("Atom Types"), {})),
-                "global types": propResolver(dictionaryResolver(groupResolver({
-                    //"selectors": propResolver(componentResolver(typeRef("Global Type Resolver Declarations"), {})),
-                    "declaration": propResolver(componentResolver(typeRef("Global Type Resolver Declaration"), {})),
-                    "definition": propResolver(componentResolver(typeRef("Global Type Resolver Implementation"), {
+                "atom types": prop(component(typeRef("Atom Types"), {})),
+                "global types": prop(dictionary(group({
+                    //"selectors": prop(component(typeRef("Global Type Resolver Declarations"), {})),
+                    "declaration": prop(component(typeRef("Global Type Resolver Declaration"), {})),
+                    "definition": prop(component(typeRef("Global Type Resolver Implementation"), {
                         "key": null,
                         "all siblings": null,
                         "non cyclic siblings": null,
@@ -943,16 +931,16 @@ export const $: g_pareto_lang_data.T.Merged__Type__Library<pd.SourceLocation> = 
                 "sibling global types": pLookup("Global Type Definition"),
                 "cyclic sibling global types": pCyclicLookup("Global Type Definition"),
             },
-            stateGroupResolver({
-                "resolved sibling": stateResolver(groupResolver({
-                    "type": propResolver(lookupReferenceResolver(typeRef("Global Type Definition"))),
+            stateGroup({
+                "resolved sibling": state(group({
+                    "type": prop(lookupReference(typeRef("Global Type Definition"))),
                 })),
-                "import": stateResolver(groupResolver({
-                    "library": propResolver(dictionaryReferenceResolver(typeSelection("Imports"))),
-                    "type": propResolver(dictionaryReferenceResolver(typeSelection("Type Library", t_grp("global types", t_grp("definitions"))))),
+                "import": state(group({
+                    "library": prop(dictionaryReference(typeSelection("Imports"))),
+                    "type": prop(dictionaryReference(typeSelection("Type Library", t_grp("global types", t_grp("definitions"))))),
                 })),
-                "cyclic sibling": stateResolver(groupResolver({
-                    "type": propResolver(cyclicReferenceResolver(typeRef("Global Type Definition"))),
+                "cyclic sibling": state(group({
+                    "type": prop(cyclicReference(typeRef("Global Type Definition"))),
                 })),
             }),
         ),
@@ -960,99 +948,99 @@ export const $: g_pareto_lang_data.T.Merged__Type__Library<pd.SourceLocation> = 
             {
                 "external type libraries": pLookup("Type Library")
             },
-            groupResolver({
-                "type library": propResolver(componentResolver(typeRef("Type Library"), {
+            group({
+                "type library": prop(component(typeRef("Type Library"), {
                     "external type libraries": null,
                 })),
-                "root": propResolver(dictionaryReferenceResolver(typeSelection("Type Library", t_grp("global types", t_grp("definitions"))))),
+                "root": prop(dictionaryReference(typeSelection("Type Library", t_grp("global types", t_grp("definitions"))))),
             })
         ),
         "Project": globalType(
             {},
-            groupResolver({
-                "type libraries": propResolver(dictionaryResolver(componentResolver(typeRef("Type Library"), {
+            group({
+                "type libraries": prop(dictionary(component(typeRef("Type Library"), {
                     "external type libraries": null,
                 }))),
             })
         ),
         "Merged Project": globalType(
             {},
-            groupResolver({
-                "type libraries": propResolver(dictionaryResolver(componentResolver(typeRef("Merged Type Library"), {
+            group({
+                "type libraries": prop(dictionary(component(typeRef("Merged Type Library"), {
                     "external type libraries": null,
                 }))),
             })
         ),
         "Root": globalType(
             {},
-            componentResolver(typeRef("Project"), {})
+            component(typeRef("Project"), {})
         ),
         "Variable": globalType(
             {},
-            stateGroupResolver({
-                // "sibling property": stateResolver(lookupReferenceResolver(typeRef("Property"))),
-                // "state constraint": stateResolver(dictionaryReferenceResolver(typeSelection("State Constraints"))),
-                // "dictionary constraint": stateResolver(dictionaryReferenceResolver(typeSelection("Dictionary Constraints"))),
-                "parameter": stateResolver(groupResolver({
-                    "parameter": propResolver(dictionaryReferenceResolver(typeSelection("Parameters"))),
-                    "resolved value": propResolver(constraintResolver(typeSelection("Parameters", t_dict(t_grp("type", t_sg("resolved value"))))))
+            stateGroup({
+                // "sibling property": state(lookupReference(typeRef("Property"))),
+                // "state constraint": state(dictionaryReference(typeSelection("State Constraints"))),
+                // "dictionary constraint": state(dictionaryReference(typeSelection("Dictionary Constraints"))),
+                "parameter": state(group({
+                    "parameter": prop(dictionaryReference(typeSelection("Parameters"))),
+                    "resolved value": prop(constraint(typeSelection("Parameters", t_dict(t_grp("type", t_sg("resolved value"))))))
                 })),
-                "parent variable": stateResolver(lookupReferenceResolver(typeRef("Variable", true))),
+                "parent variable": state(lookupReference(typeRef("Variable", true))),
             })
         ),
         "Variables": globalType(
             {},
-            dictionaryResolver(componentResolver(typeRef("Variable"), {}))
+            dictionary(component(typeRef("Variable"), {}))
         ),
         "Value Selection Tail": globalType(
             {},
-            stateGroupResolver({
-                "reference": stateResolver(groupResolver({
-                    "reference": propResolver(constraintResolver(typeSelection("Type", t_grp("type", t_sg("resolved reference"))))),
-                    "tail": propResolver(optionalResolver(componentResolver(typeRef("Value Selection Tail", true), {})))
+            stateGroup({
+                "reference": state(group({
+                    "reference": prop(constraint(typeSelection("Type", t_grp("type", t_sg("resolved reference"))))),
+                    "tail": prop(optional(component(typeRef("Value Selection Tail", true), {})))
                 })),
-                "component": stateResolver(groupResolver({
-                    "component": propResolver(constraintResolver(typeSelection("Type", t_grp("type", t_sg("component"))))),
-                    "tail": propResolver(optionalResolver(componentResolver(typeRef("Value Selection Tail", true), {})))
+                "component": state(group({
+                    "component": prop(constraint(typeSelection("Type", t_grp("type", t_sg("component"))))),
+                    "tail": prop(optional(component(typeRef("Value Selection Tail", true), {})))
 
                 })),
-                "state group": stateResolver(groupResolver({
-                    "state group": propResolver(constraintResolver(typeSelection("Type", t_grp("type", t_sg("state group"))))),
-                    "result type": propResolver(componentResolver(typeRef("Global Type Selection", true), {
+                "state group": state(group({
+                    "state group": prop(constraint(typeSelection("Type", t_grp("type", t_sg("state group"))))),
+                    "result type": prop(component(typeRef("Global Type Selection", true), {
                         "imports": null,
                         "sibling global types": null,
                         "cyclic sibling global types": null,
                     })),
-                    "states": propResolver(constrainedDictionaryResolver(
+                    "states": prop(constrainedDictionary(
                         {
                             "state": dictionaryConstraint(typeSelection("Type", t_grp("type", t_sg("state group", t_grp("states")))), true)
                         },
-                        componentResolver(typeRef("Any Value Selection", true), {})
+                        component(typeRef("Any Value Selection", true), {})
                     ))
                 })),
-                // "optional": stateResolver(groupResolver({
-                //     "optional": propResolver(constraintResolver(typeSelection("Type", t_grp("type", t_sg("optional"))))),
-                //     "set": propResolver(componentResolver(typeRef("Any Value Selection", true))),
-                //     "not set": propResolver(componentResolver(typeRef("No Context Value Selection", true))),//validate result is equal to 'set' result
+                // "optional": state(group({
+                //     "optional": prop(constraint(typeSelection("Type", t_grp("type", t_sg("optional"))))),
+                //     "set": prop(component(typeRef("Any Value Selection", true))),
+                //     "not set": prop(component(typeRef("No Context Value Selection", true))),//validate result is equal to 'set' result
                 // })),
-                "group": stateResolver(groupResolver({
-                    "group": propResolver(constraintResolver(typeSelection("Type", t_grp("type", t_sg("group"))))),
-                    "property": propResolver(dictionaryReferenceResolver(typeSelection("Type", t_grp("type", t_sg("group", t_grp("properties")))))),
-                    "tail": propResolver(optionalResolver(componentResolver(typeRef("Value Selection Tail", true), {})))
+                "group": state(group({
+                    "group": prop(constraint(typeSelection("Type", t_grp("type", t_sg("group"))))),
+                    "property": prop(dictionaryReference(typeSelection("Type", t_grp("type", t_sg("group", t_grp("properties")))))),
+                    "tail": prop(optional(component(typeRef("Value Selection Tail", true), {})))
                 })),
             }),
         ),
         // "No Context Value Selection": globalType(
-        //     groupResolver({
-        //         "start": propResolver(dictionaryReferenceResolver(typeSelection("Variables"))),
-        //         "tail": propResolver(optionalResolver(componentResolver(typeRef("Value Selection Tail"), {})))
+        //     group({
+        //         "start": prop(dictionaryReference(typeSelection("Variables"))),
+        //         "tail": prop(optional(component(typeRef("Value Selection Tail"), {})))
         //     }),
         // ),
         "Any Value Selection": globalType(
             {},
-            groupResolver({
-                "start": propResolver(optionalResolver(dictionaryReferenceResolver(typeSelection("Variables")))),
-                "tail": propResolver(optionalResolver(componentResolver(typeRef("Value Selection Tail"), {})))
+            group({
+                "start": prop(optional(dictionaryReference(typeSelection("Variables")))),
+                "tail": prop(optional(component(typeRef("Value Selection Tail"), {})))
             }),
         ),
     },
