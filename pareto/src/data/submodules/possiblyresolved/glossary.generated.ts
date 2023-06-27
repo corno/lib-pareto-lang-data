@@ -320,6 +320,38 @@ export const $: g_glossary.T.Glossary<null> = {
                     },
                 })]
             },
+            "Model": {
+                'parameters': d({}),
+                'type': <g_glossary.T.Type<null>>['group', d({
+                    "root": {
+                        'type': <g_glossary.T.Type<null>>['group', d({
+                            "key": {
+                                'type': <g_glossary.T.Type<null>>['string', null],
+                            },
+                            "referent": {
+                                'type': <g_glossary.T.Type<null>>['optional', <g_glossary.T.Type<null>>['reference', ['type', {
+                                    'context': ['local', null],
+                                    'typeXX': "Type Library",
+                                    'tailXX': a([
+                                        "global types",
+                                        "definitions",
+                                        "D",
+                                    ]),
+                                    'type arguments': d({}),
+                                }]]],
+                            },
+                        })],
+                    },
+                    "type library": {
+                        'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                            'context': ['local', null],
+                            'typeXX': "Type Library",
+                            'tailXX': a([]),
+                            'type arguments': d({}),
+                        }]],
+                    },
+                })]
+            },
             "Parameters": {
                 'parameters': d({}),
                 'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['group', d({
@@ -1480,6 +1512,24 @@ export const $: g_glossary.T.Glossary<null> = {
                                 }),
                             },
                             "imports": {
+                                'types': d({}),
+                                'namespaces': d({}),
+                            },
+                        }),
+                    },
+                }),
+            },
+            "Model": {
+                'types': d({}),
+                'namespaces': d({
+                    "G": {
+                        'types': d({}),
+                        'namespaces': d({
+                            "root": {
+                                'types': d({}),
+                                'namespaces': d({}),
+                            },
+                            "type library": {
                                 'types': d({}),
                                 'namespaces': d({}),
                             },

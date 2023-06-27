@@ -2,7 +2,6 @@ import * as pl from 'pareto-core-lib'
 import * as pd from 'pareto-core-dev'
 import * as pm from 'pareto-core-map'
 
-import * as g_this from "../glossary"
 import * as g_2glossary from "../../2glossary"
 
 import { A } from "../api.generated"

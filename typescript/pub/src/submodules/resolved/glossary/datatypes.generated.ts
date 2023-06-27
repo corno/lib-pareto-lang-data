@@ -468,6 +468,36 @@ export namespace N {
         export namespace T {}
     }
     
+    export namespace Model {
+        
+        export namespace N {
+            
+            export namespace G {
+                
+                export namespace N {
+                    
+                    export namespace root {
+                        
+                        export namespace N {}
+                        
+                        export namespace T {}
+                    }
+                    
+                    export namespace type_$_$library {
+                        
+                        export namespace N {}
+                        
+                        export namespace T {}
+                    }
+                }
+                
+                export namespace T {}
+            }
+        }
+        
+        export namespace T {}
+    }
+    
     export namespace Parameters {
         
         export namespace N {
@@ -2522,6 +2552,31 @@ export namespace T {
             readonly 'definition': T.Global__Type__Resolver__Implementation
         }>
         readonly 'imports': T.Imports
+    }
+    
+    export namespace Model {
+        
+        export namespace root {
+            
+            export type key = string
+            
+            export type referent = T.Type__Library.global__types.definitions.D
+        }
+        
+        export type root = {
+            readonly 'key': string
+            readonly 'referent': T.Type__Library.global__types.definitions.D
+        }
+        
+        export type type__library = T.Type__Library
+    }
+    
+    export type Model = {
+        readonly 'root': {
+            readonly 'key': string
+            readonly 'referent': T.Type__Library.global__types.definitions.D
+        }
+        readonly 'type library': T.Type__Library
     }
     
     export namespace Parameters {

@@ -468,6 +468,36 @@ export namespace N {
         export namespace T {}
     }
     
+    export namespace Model {
+        
+        export namespace N {
+            
+            export namespace G {
+                
+                export namespace N {
+                    
+                    export namespace root {
+                        
+                        export namespace N {}
+                        
+                        export namespace T {}
+                    }
+                    
+                    export namespace type_$_$library {
+                        
+                        export namespace N {}
+                        
+                        export namespace T {}
+                    }
+                }
+                
+                export namespace T {}
+            }
+        }
+        
+        export namespace T {}
+    }
+    
     export namespace Parameters {
         
         export namespace N {
@@ -2576,6 +2606,31 @@ export namespace T {
             }>
         }
         readonly 'imports': T.Imports<GAnnotation>
+    }
+    
+    export namespace Model {
+        
+        export namespace root {
+            
+            export type annotation<GAnnotation> = GAnnotation
+            
+            export type key<GAnnotation> = string
+        }
+        
+        export type root<GAnnotation> = {
+            readonly 'annotation': GAnnotation
+            readonly 'key': string
+        }
+        
+        export type type__library<GAnnotation> = T.Type__Library<GAnnotation>
+    }
+    
+    export type Model<GAnnotation> = {
+        readonly 'root': {
+            readonly 'annotation': GAnnotation
+            readonly 'key': string
+        }
+        readonly 'type library': T.Type__Library<GAnnotation>
     }
     
     export namespace Parameters {

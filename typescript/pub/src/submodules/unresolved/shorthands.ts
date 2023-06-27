@@ -460,7 +460,6 @@ export function globalTypeResolverImplementation(
 }
 
 export function group(rawProperties: RawDictionary<g_this.T.Type<pd.SourceLocation>>): g_this.T.Type<pd.SourceLocation> {
-
     return {
         'type': ['group', {
             'properties': {

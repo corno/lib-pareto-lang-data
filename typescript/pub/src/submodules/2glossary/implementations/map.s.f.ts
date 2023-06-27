@@ -8,6 +8,7 @@ import * as g_out from "lib-pareto-typescript-project/dist/submodules/glossary"
 import * as g_in from "../../resolved"
 
 import { A } from "../api.generated"
+import { split } from '../../../split'
 
 export const $$: A.map = ($d) => {
     type Map_Type__Library_2_Glossary = (
