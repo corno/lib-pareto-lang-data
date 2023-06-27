@@ -189,63 +189,63 @@ export function constraint(type: g_this.T.Type__Selection<pd.SourceLocation>): g
     }
 }
 
-// export function component(
-//     type: g_this.T.Global__Type__Selection<pd.SourceLocation>,
-//     //args: RawDictionary<pt.OptionalValue<g_this.T.No__Context__Value__Selection<pd.SourceLocation>>>
-//     args: RawDictionary<null>,
-// ): g_this.T.TypeResolver<pd.SourceLocation> {
-//     return {
-//         'type': ['component', {
-//             'type': type,
-//             'arguments': rawDict(args)
-//         }]
-//     }
-// }
+export function component(
+    type: g_this.T.Global__Type__Selection<pd.SourceLocation>,
+    //args: RawDictionary<pt.OptionalValue<g_this.T.No__Context__Value__Selection<pd.SourceLocation>>>
+    args: RawDictionary<null>,
+): g_this.T.TypeResolver<pd.SourceLocation> {
+    return {
+        'type': ['component', {
+            'type': type,
+            'arguments': rawDict(args)
+        }]
+    }
+}
 
-// export function state(
-//     type: g_this.T.TypeResolver<pd.SourceLocation>,
-// ): g_this.T.TypeResolver._ltype.state__group.states.dictionary.D<pd.SourceLocation> {
-//     return {
-//         'type': type,
-//     }
-// }
+export function state(
+    type: g_this.T.TypeResolver<pd.SourceLocation>,
+): g_this.T.TypeResolver._ltype.state__group.states.dictionary.D<pd.SourceLocation> {
+    return {
+        'type': type,
+    }
+}
 
-// export function stateGroup(
-//     states: RawDictionary<g_this.T.TypeResolver._ltype.state__group.states.dictionary.D<pd.SourceLocation>>,
-// ): g_this.T.TypeResolver<pd.SourceLocation> {
-//     let firstKey: null | string = null
-//     pd.d(states).__mapWithKey(($, key) => {
-//         if (firstKey === null) {
-//             firstKey = key
-//         }
-//     })
-//     if (firstKey === null) {
-//         firstKey = "--NO OPTIONS--"
-//     }
+export function stateGroup(
+    states: RawDictionary<g_this.T.TypeResolver._ltype.state__group.states.dictionary.D<pd.SourceLocation>>,
+): g_this.T.TypeResolver<pd.SourceLocation> {
+    let firstKey: null | string = null
+    pd.d(states).__mapWithKey(($, key) => {
+        if (firstKey === null) {
+            firstKey = key
+        }
+    })
+    if (firstKey === null) {
+        firstKey = "--NO OPTIONS--"
+    }
 
-//     return {
-//         'type': ['state group', {
-//             'states': rawDict(states),
-//         }]
-//     }
-// }
+    return {
+        'type': ['state group', {
+            'states': rawDict(states),
+        }]
+    }
+}
 
 
-// export function group(rawProperties: RawDictionary<g_this.T.TypeResolver<pd.SourceLocation>>): g_this.T.TypeResolver<pd.SourceLocation> {
+export function group(rawProperties: RawDictionary<g_this.T.TypeResolver<pd.SourceLocation>>): g_this.T.TypeResolver<pd.SourceLocation> {
 
-//     return {
-//         'type': ['group', {
-//             'properties': {
-//                 'annotation': pd.getLocationInfo(1),
-//                 'dictionary': pd.d(rawProperties).__mapWithKey(($, key) => {
-//                     return {
-//                         'type': $,
-//                     }
-//                 })
-//             }
-//         }]
-//     }
-// }
+    return {
+        'type': ['group', {
+            'properties': {
+                'annotation': pd.getLocationInfo(1),
+                'dictionary': pd.d(rawProperties).__mapWithKey(($, key) => {
+                    return {
+                        'type': $,
+                    }
+                })
+            }
+        }]
+    }
+}
 
 
 
@@ -459,49 +459,6 @@ export function globalTypeResolverImplementation(
     }
 }
 
-export function group(rawProperties: RawDictionary<g_this.T.Type<pd.SourceLocation>>): g_this.T.Type<pd.SourceLocation> {
-    return {
-        'type': ['group', {
-            'properties': {
-                'annotation': pd.getLocationInfo(1),
-                'dictionary': pd.d(rawProperties).__mapWithKey(($, key) => {
-                    return {
-                        'type': $,
-                    }
-                })
-            }
-        }]
-    }
-}
-
-export function state(
-    type: g_this.T.Type<pd.SourceLocation>,
-): g_this.T.Type._ltype.state__group.states.dictionary.D<pd.SourceLocation> {
-    return {
-        'type': type,
-    }
-}
-
-export function stateGroup(
-    states: RawDictionary<g_this.T.Type._ltype.state__group.states.dictionary.D<pd.SourceLocation>>,
-): g_this.T.Type<pd.SourceLocation> {
-    let firstKey: null | string = null
-    pd.d(states).__mapWithKey(($, key) => {
-        if (firstKey === null) {
-            firstKey = key
-        }
-    })
-    if (firstKey === null) {
-        firstKey = "--NO OPTIONS--"
-    }
-
-    return {
-        'type': ['state group', {
-            'states': rawDict(states),
-        }]
-    }
-}
-
 export function atom(type: string): g_this.T.Type<pd.SourceLocation> {
     return {
         'type': ['atom', {
@@ -621,19 +578,6 @@ function globalType(
             'result': [false],
             'type': type,
         },
-    }
-}
-
-export function component(
-    type: g_this.T.Global__Type__Selection<pd.SourceLocation>,
-    //args: RawDictionary<pt.OptionalValue<g_this.T.No__Context__Value__Selection<pd.SourceLocation>>>
-    //args: RawDictionary<null>,
-): g_this.T.Type<pd.SourceLocation> {
-    return {
-        'type': ['component', {
-            'type': type,
-            //'arguments': rawDict(args)
-        }]
     }
 }
 
