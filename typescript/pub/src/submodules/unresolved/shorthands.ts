@@ -459,7 +459,7 @@ export function globalTypeResolverImplementation(
     }
 }
 
-export function atom(type: string): g_this.T.Type<pd.SourceLocation> {
+export function atom(type: string): g_this.T.TypeResolver<pd.SourceLocation> {
     return {
         'type': ['atom', {
             'atom': {
