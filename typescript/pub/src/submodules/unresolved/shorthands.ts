@@ -598,6 +598,32 @@ export function typeSelection(
 //     }]
 // }
 
+
+function globalType(
+
+    parameters: RawDictionary<g_this.T.Parameters.dictionary.D<pd.SourceLocation>>,
+    type: g_this.T.TypeResolver<pd.SourceLocation>,
+    result?: boolean,
+): g_this.T.Merged__Type__Library.global__types.dictionary.D<pd.SourceLocation> {
+    return {
+        'declaration': {
+            'parameters': {
+                'annotation': pd.getLocationInfo(0),
+                'dictionary': pd.d(parameters),
+            },
+            'result': [false]
+        },
+        'definition': {
+            'variables': {
+                'annotation': pd.getLocationInfo(0),
+                'dictionary': pd.d({}),
+            },
+            'result': [false],
+            'type': type,
+        },
+    }
+}
+
 export function component(
     type: g_this.T.Global__Type__Selection<pd.SourceLocation>,
     //args: RawDictionary<pt.OptionalValue<g_this.T.No__Context__Value__Selection<pd.SourceLocation>>>
