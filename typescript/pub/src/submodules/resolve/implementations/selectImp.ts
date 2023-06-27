@@ -10,7 +10,7 @@ export const Type__Selection: Select.Type__Selection = ($) => {
         ($) => Type__Selection__Tail($),
         () => $['global type'].referent.type
     )
-// }
+}
 
 // export const Variable: Select.Variable = ($) => {
 //     switch ($[0]) {

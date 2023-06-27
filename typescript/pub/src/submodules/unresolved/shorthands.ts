@@ -61,18 +61,151 @@ export function imprt(
 export function typeLibrary(
     imports: RawDictionary<g_this.T.Imports.dictionary.D<pd.SourceLocation>>,
     atomTypes: RawDictionary<g_this.T.Atom__Types.dictionary.D<pd.SourceLocation>>,
-    globalTypesDeclarations: RawDictionary<g_this.T.Global__Type__Declarations.dictionary.D<pd.SourceLocation>>,
     globalTypesDefinitions: RawDictionary<g_this.T.Global__Type__Definition<pd.SourceLocation>>,
+    globalTypesDeclarations: RawDictionary<g_this.T.Global__Type__Resolver__Declarations.dictionary.D<pd.SourceLocation>>,
+    resolverImplementations: RawDictionary<g_this.T.Global__Type__Resolver__Implementation<pd.SourceLocation>>,
 ): g_this.T.Type__Library<pd.SourceLocation> {
     return {
         'imports': rawDict(imports),
         'atom types': rawDict(atomTypes),
         'global types': {
-            'declarations': rawDict(globalTypesDeclarations),
             'definitions': rawDict(globalTypesDefinitions),
+            'declarations': rawDict(globalTypesDeclarations),
+            'implementations': rawDict(resolverImplementations),
         },
     }
 }
+
+
+
+
+
+
+
+
+
+export function arrayResolver(type: g_this.T.TypeResolver<pd.SourceLocation>): g_this.T.TypeResolver<pd.SourceLocation> {
+    return {
+        'type': ['array', {
+            'type': type,
+            //'constraint': [false]
+        }]
+    }
+}
+
+export function optionalResolver(type: g_this.T.TypeResolver<pd.SourceLocation>): g_this.T.TypeResolver<pd.SourceLocation> {
+    return {
+        'type': ['optional', {
+            'type': type,
+        }]
+    }
+}
+
+export function nothingResolver(): g_this.T.TypeResolver<pd.SourceLocation> {
+    return {
+        'type': ['nothing', null]
+    }
+}
+
+//doesn't do anything
+export function propResolver(type: g_this.T.TypeResolver<pd.SourceLocation>): g_this.T.TypeResolver<pd.SourceLocation> {
+    return type
+}
+
+export function dictionaryReferenceResolver(
+    type: g_this.T.Type__Selection<pd.SourceLocation>,
+): g_this.T.TypeResolver<pd.SourceLocation> {
+    return {
+        'type': ['resolved reference', {
+            'atom': {
+                'type': {
+                    'annotation': pd.getLocationInfo(1),
+                    'key': "identifier",
+                }
+            },
+            'value': ['dictionary', {
+                'type': type,
+                'dictionary': pd.getLocationInfo(1),
+            }],
+        }]
+    }
+}
+
+export function lookupReferenceResolver(
+    type: g_this.T.Global__Type__Selection<pd.SourceLocation>,
+): g_this.T.TypeResolver<pd.SourceLocation> {
+    return {
+        'type': ['resolved reference', {
+            'atom': {
+                'type': {
+                    'annotation': pd.getLocationInfo(1),
+                    'key': "identifier",
+                }
+            },
+            'value': ['lookup', type],
+        }]
+    }
+}
+
+export function cyclicReferenceResolver(
+    gloRef: g_this.T.Global__Type__Selection<pd.SourceLocation>,
+): g_this.T.TypeResolver<pd.SourceLocation> {
+    return {
+        'type': ['cyclic reference', {
+            'atom': {
+                'type': {
+                    'annotation': pd.getLocationInfo(1),
+                    'key': "identifier",
+                }
+            },
+            'sibling': gloRef,
+        }]
+    }
+}
+
+
+export function constrainedDictionaryResolver(
+    constraints: RawDictionary<g_this.T.Type._ltype.dictionary.constraints.dictionary.D<pd.SourceLocation>>,
+    type: g_this.T.TypeResolver<pd.SourceLocation>
+): g_this.T.TypeResolver<pd.SourceLocation> {
+    return {
+        'type': ['dictionary', {
+            'key': {
+                'type': {
+                    'annotation': pd.getLocationInfo(1),
+                    'key': "identifier",
+                },
+            },
+            'constraints': rawDict(constraints),
+            'type': type,
+            //'autofill': pd.a([]),
+        }]
+    }
+}
+
+export function dictionaryResolver(type: g_this.T.TypeResolver<pd.SourceLocation>/*, autofill?: g_this.T.Type._ltype.dictionary.autofill.A<pd.SourceLocation>[]*/): g_this.T.TypeResolver<pd.SourceLocation> {
+    return {
+        'type': ['dictionary', {
+            // 'annotation': li,
+            'key': {
+                'type': ref("identifier")
+            },
+            'constraints': rawDict<g_this.T.Type._ltype.dictionary.constraints.dictionary.D<pd.SourceLocation>>({}),
+            'type': type,
+            //'autofill': pd.a(autofill === undefined ? [] : autofill),
+        }]
+    }
+}
+
+export function constraintResolver(type: g_this.T.Type__Selection<pd.SourceLocation>): g_this.T.TypeResolver<pd.SourceLocation> {
+    return {
+        'type': ['constraint', type]
+    }
+}
+
+
+
+
 
 export function array(type: g_this.T.Type<pd.SourceLocation>): g_this.T.Type<pd.SourceLocation> {
     return {
@@ -152,6 +285,11 @@ export function cyclicReference(
         }]
     }
 }
+
+
+
+
+
 
 export function lookupConstraint(
     gloSel: g_this.T.Global__Type__Selection<pd.SourceLocation>
@@ -242,10 +380,10 @@ export function pCyclicLookup(type: string, optional?: boolean): g_this.T.Parame
     }
 }
 
-export function globalTypeDeclaration(
+export function globalTypeResolverDeclaration(
     parameters: RawDictionary<g_this.T.Parameters.dictionary.D<pd.SourceLocation>>,
     result?: string
-): g_this.T.Global__Type__Declarations.dictionary.D<pd.SourceLocation> {
+): g_this.T.Global__Type__Resolver__Declarations.dictionary.D<pd.SourceLocation> {
     return {
         'parameters': rawDict(parameters),
         'result': result === undefined ? [false] : [true, ref(result)]
@@ -254,10 +392,22 @@ export function globalTypeDeclaration(
 
 export function globalTypeDefinition(
     type: g_this.T.Type<pd.SourceLocation>,
-    result?: g_this.T.Value__Selection__Tail<pd.SourceLocation>
+    //result?: g_this.T.Value__Selection__Tail<pd.SourceLocation>
 ): g_this.T.Global__Type__Definition<pd.SourceLocation> {
     return {
-        'declaration': pd.getLocationInfo(1),
+        //'declaration': pd.getLocationInfo(1),
+        //'variables': rawDict({}),
+        'type': type,
+        //'result': result === undefined ? [false] : [true, result]
+    }
+}
+
+export function globalTypeResolverImplementation(
+    type: g_this.T.TypeResolver<pd.SourceLocation>,
+    result?: g_this.T.Value__Selection__Tail<pd.SourceLocation>
+): g_this.T.Global__Type__Resolver__Implementation<pd.SourceLocation> {
+    return {
+        //'declaration': pd.getLocationInfo(1),
         'variables': rawDict({}),
         'type': type,
         'result': result === undefined ? [false] : [true, result]
@@ -406,12 +556,13 @@ export function typeSelection(
 
 export function component(
     type: g_this.T.Global__Type__Selection<pd.SourceLocation>,
-    args: RawDictionary<pt.OptionalValue<g_this.T.No__Context__Value__Selection<pd.SourceLocation>>>
+    //args: RawDictionary<pt.OptionalValue<g_this.T.No__Context__Value__Selection<pd.SourceLocation>>>
+    //args: RawDictionary<null>,
 ): g_this.T.Type<pd.SourceLocation> {
     return {
         'type': ['component', {
             'type': type,
-            'arguments': rawDict(args)
+            //'arguments': rawDict(args)
         }]
     }
 }
@@ -487,18 +638,18 @@ export function v_ref(
 }
 
 
-export function anyValueSelection(
-    variable: string,
-    tail?: g_this.T.Value__Selection__Tail<pd.SourceLocation>,
-): g_this.T.No__Context__Value__Selection<pd.SourceLocation> {
-    return {
-        'start': {
-            'annotation': pd.getLocationInfo(1),
-            'key': variable,
-        },
-        'tail': tail === undefined ? [false] : [true, tail]
-    }
-}
+// export function anyValueSelection(
+//     variable: string,
+//     tail?: g_this.T.Value__Selection__Tail<pd.SourceLocation>,
+// ): g_this.T.No__Context__Value__Selection<pd.SourceLocation> {
+//     return {
+//         'start': {
+//             'annotation': pd.getLocationInfo(1),
+//             'key': variable,
+//         },
+//         'tail': tail === undefined ? [false] : [true, tail]
+//     }
+// }
 
 export function fromVariableSelection(
     variable: string,

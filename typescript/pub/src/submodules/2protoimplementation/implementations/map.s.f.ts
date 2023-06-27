@@ -79,7 +79,7 @@ export const $$: A.map = ($d,) => {
 
 
     const type2resolveInitialization = (
-        $: g_in.T.Type,
+        $: g_in.T.TypeResolver,
         $p: {
             'type library name': string,
             'type path': string,
@@ -355,7 +355,7 @@ export const $$: A.map = ($d,) => {
                                             'variables': {
                                                 'local': dict($d.mergeDictionaries({
                                                     'dictionaries': pd.d({
-                                                        "s": $d.filter<g_out.T.Local__Variables.dictionary.D<pd.SourceLocation>>($['global types'].definitions.__mapWithKey(($, key) => {
+                                                        "s": $d.filter<g_out.T.Local__Variables.dictionary.D<pd.SourceLocation>>($['global types'].implementations.__mapWithKey(($, key) => {
                                                             return mapOptional(
                                                                 $.result,
                                                                 ($) => {
@@ -380,7 +380,7 @@ export const $$: A.map = ($d,) => {
                                                                 },
                                                             )
                                                         })),
-                                                        "r": $['global types'].definitions.__mapWithKey(($, key) => {
+                                                        "r": $['global types'].implementations.__mapWithKey(($, key) => {
                                                             return {
                                                                 'type': ['child namespace', {
                                                                     'namespacex': ref(tlKey),

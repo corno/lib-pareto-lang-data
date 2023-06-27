@@ -50,12 +50,21 @@ export namespace types {
         'cyclic sibling global types': pt.Lookup<() => g_out.T.Global__Type__Definition>,
     }
 
+    export type TypeResolver<Annotation> = (
+        $: g_in.T.TypeResolver<Annotation>,
+        $p: {
+            'atom types': g_out.T.Atom__Types,
+            'type sources': TypeSources
+            'variables': g_out.T.Variables
+        }
+    ) => g_out.T.TypeResolver
+
     export type Type<Annotation> = (
         $: g_in.T.Type<Annotation>,
         $p: {
             'atom types': g_out.T.Atom__Types,
             'type sources': TypeSources
-            'variables': g_out.T.Variables
+            //'variables': g_out.T.Variables
         }
     ) => g_out.T.Type
 
@@ -74,12 +83,12 @@ export namespace types {
         },
     ) => g_out.T.Type__Selection__Tail
 
-    export type No__Context__Value__Selection<Annotation> = (
-        $: g_in.T.No__Context__Value__Selection<Annotation>,
-        $p: {
-            'variables': g_out.T.Variables,
-        },
-    ) => g_out.T.No__Context__Value__Selection
+    // export type No__Context__Value__Selection<Annotation> = (
+    //     $: g_in.T.No__Context__Value__Selection<Annotation>,
+    //     $p: {
+    //         'variables': g_out.T.Variables,
+    //     },
+    // ) => g_out.T.No__Context__Value__Selection
 
     export type Imports<Annotation> = (
         $: g_in.T.Imports<Annotation>,
@@ -100,21 +109,31 @@ export namespace types {
     ) => g_out.T.Project
 
     export type Global__Type__Declaration<Annotation> = (
-        $: g_in.T.Global__Type__Declaration<Annotation>,
+        $: g_in.T.Global__Type__Resolver__Declaration<Annotation>,
         $p: {
-            'all siblings': pt.Lookup<() => g_out.T.Global__Type__Declaration>
+            'all siblings': pt.Lookup<() => g_out.T.Global__Type__Resolver__Declaration>
         }
-    ) => g_out.T.Global__Type__Declaration
+    ) => g_out.T.Global__Type__Resolver__Declaration
 
-    export type Global__Type__Declarations<Annotation> = (
-        $: g_in.T.Global__Type__Declarations<Annotation>,
-    ) => g_out.T.Global__Type__Declarations
+    export type Global__Type__Resolver__Declarations<Annotation> = (
+        $: g_in.T.Global__Type__Resolver__Declarations<Annotation>,
+    ) => g_out.T.Global__Type__Resolver__Declarations
+
+    export type Global__Type__Resolver__Implementation<Annotation> = (
+        $: g_in.T.Global__Type__Resolver__Implementation<Annotation>,
+        $p: {
+            'key': string,
+            'global type declarations': g_out.T.Global__Type__Resolver__Declarations
+            'atom types': g_out.T.Atom__Types
+            'type sources': TypeSources
+        }
+    ) => g_out.T.Global__Type__Resolver__Implementation
 
     export type Global__Type__Definition<Annotation> = (
         $: g_in.T.Global__Type__Definition<Annotation>,
         $p: {
             'key': string,
-            'global type declarations': g_out.T.Global__Type__Declarations
+            'global type declarations': g_out.T.Global__Type__Resolver__Declarations
             'atom types': g_out.T.Atom__Types
             'type sources': TypeSources
         }
@@ -131,7 +150,7 @@ export namespace types {
         $: g_in.T.Variable<Annotation>,
         $p: {
             'parent variables': pt.OptionalValue<g_out.T.Variables>
-            'parameters': g_out.T.Parameters
+            'parameters': pt.OptionalValue<g_out.T.Parameters>
         }
     ) => g_out.T.Variable
 
@@ -139,6 +158,7 @@ export namespace types {
         $: g_in.T.Variables<Annotation>,
         $p: {
             'parent variables': pt.OptionalValue<g_out.T.Variables>
+            'parameters': pt.OptionalValue<g_out.T.Parameters>
         }
     ) => g_out.T.Variables
 }
@@ -149,7 +169,8 @@ export type $<Annotation> = {
     'Atom': types.Atom<Annotation>
     'Dictionary Selection': types.Dictionary__Selection<Annotation>
     'Global Type Declaration': types.Global__Type__Declaration<Annotation>
-    'Global Type Declarations': types.Global__Type__Declarations<Annotation>
+    'Global Type Resolver Declarations': types.Global__Type__Resolver__Declarations<Annotation>
+    //'Global Type Resolver Implementaion': types.Global__Type__Declarations<Annotation>
     'Global Type Definition': types.Global__Type__Definition<Annotation>
     'Global Type Selection': types.Global__Type__Selection<Annotation>
     'Imports': types.Imports<Annotation>
