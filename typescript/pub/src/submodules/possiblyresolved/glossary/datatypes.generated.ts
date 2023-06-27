@@ -369,7 +369,7 @@ export namespace N {
         export namespace T {}
     }
     
-    export namespace Model {
+    export namespace Merged_$_$Project {
         
         export namespace N {
             
@@ -377,14 +377,83 @@ export namespace N {
                 
                 export namespace N {
                     
-                    export namespace root {
+                    export namespace type_$_$libraries {
+                        
+                        export namespace N {
+                            
+                            export namespace D {
+                                
+                                export namespace N {}
+                                
+                                export namespace T {}
+                            }
+                        }
+                        
+                        export namespace T {}
+                    }
+                }
+                
+                export namespace T {}
+            }
+        }
+        
+        export namespace T {}
+    }
+    
+    export namespace Merged_$_$Type_$_$Library {
+        
+        export namespace N {
+            
+            export namespace G {
+                
+                export namespace N {
+                    
+                    export namespace atom_$_$types {
                         
                         export namespace N {}
                         
                         export namespace T {}
                     }
                     
-                    export namespace type_$_$library {
+                    export namespace global_$_$types {
+                        
+                        export namespace N {
+                            
+                            export namespace D {
+                                
+                                export namespace N {
+                                    
+                                    export namespace G {
+                                        
+                                        export namespace N {
+                                            
+                                            export namespace declaration {
+                                                
+                                                export namespace N {}
+                                                
+                                                export namespace T {}
+                                            }
+                                            
+                                            export namespace definition {
+                                                
+                                                export namespace N {}
+                                                
+                                                export namespace T {}
+                                            }
+                                        }
+                                        
+                                        export namespace T {}
+                                    }
+                                }
+                                
+                                export namespace T {}
+                            }
+                        }
+                        
+                        export namespace T {}
+                    }
+                    
+                    export namespace imports {
                         
                         export namespace N {}
                         
@@ -2450,34 +2519,54 @@ export namespace T {
         }
     }>
     
-    export namespace Model {
+    export namespace Merged__Project {
         
-        export namespace root {
+        export namespace type__libraries {
             
-            export type key = string
-            
-            export namespace referent {
-                
-                export type O = T.Type__Library.global__types.definitions.D
-            }
-            
-            export type referent = [ false ] | [ true, T.Type__Library.global__types.definitions.D]
+            export type D = T.Merged__Type__Library
         }
         
-        export type root = {
-            readonly 'key': string
-            readonly 'referent': [ false ] | [ true, T.Type__Library.global__types.definitions.D]
-        }
-        
-        export type type__library = T.Type__Library
+        export type type__libraries = pt.Dictionary<T.Merged__Type__Library>
     }
     
-    export type Model = {
-        readonly 'root': {
-            readonly 'key': string
-            readonly 'referent': [ false ] | [ true, T.Type__Library.global__types.definitions.D]
+    export type Merged__Project = {
+        readonly 'type libraries': pt.Dictionary<T.Merged__Type__Library>
+    }
+    
+    export namespace Merged__Type__Library {
+        
+        export type atom__types = T.Atom__Types
+        
+        export namespace global__types {
+            
+            export namespace D {
+                
+                export type declaration = T.Global__Type__Resolver__Declaration
+                
+                export type definition = T.Global__Type__Resolver__Implementation
+            }
+            
+            export type D = {
+                readonly 'declaration': T.Global__Type__Resolver__Declaration
+                readonly 'definition': T.Global__Type__Resolver__Implementation
+            }
         }
-        readonly 'type library': T.Type__Library
+        
+        export type global__types = pt.Dictionary<{
+            readonly 'declaration': T.Global__Type__Resolver__Declaration
+            readonly 'definition': T.Global__Type__Resolver__Implementation
+        }>
+        
+        export type imports = T.Imports
+    }
+    
+    export type Merged__Type__Library = {
+        readonly 'atom types': T.Atom__Types
+        readonly 'global types': pt.Dictionary<{
+            readonly 'declaration': T.Global__Type__Resolver__Declaration
+            readonly 'definition': T.Global__Type__Resolver__Implementation
+        }>
+        readonly 'imports': T.Imports
     }
     
     export namespace Parameters {

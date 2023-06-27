@@ -128,13 +128,13 @@ export function createResolveContext<Annotation>(
         }
     }
 
-    const Model: Resolve.types.Model<Annotation> = ($, $p) => {
-        const tl = Type__Library($['type library'], $p)
-        return {
-            'type library': tl,
-            'root': getAnnotatedEntry(tl['global types'].definitions, $.root)
-        }
-    }
+    // const Model: Resolve.types.Model<Annotation> = ($, $p) => {
+    //     const tl = Type__Library($['type library'], $p)
+    //     return {
+    //         'type library': tl,
+    //         'root': getAnnotatedEntry(tl['global types'].definitions, $.root)
+    //     }
+    // }
 
     const Root: Resolve.types.Root<Annotation> = ($) => {
         return Project($)
@@ -833,7 +833,7 @@ export function createResolveContext<Annotation>(
         'Global Type Declaration': Global__Type__Declaration,
         'Global Type Resolver Declarations': Global__Type__Resolver__Declarations,
         'Global Type Definition': Global__Type__Definition,
-        'Model': Model,
+        //'Model': Model,
         'Project': Project,
         'Root': Root,
         'Type': Type,

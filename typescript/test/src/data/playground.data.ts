@@ -3,29 +3,42 @@ import * as pd from 'pareto-core-data'
 import * as g_pareto_lang_data from "../../../pub/dist/submodules/unresolved"
 
 import {
-    array, constrainedDictionary,
+    array, 
+    constrainedDictionary,
+    constrainedDictionaryResolver,
     dictionary,
+    dictionaryResolver,
     globalTypeResolverDeclaration,
     globalTypeResolverImplementation,
     globalTypeDefinition,
     group,
+    groupResolver,
     state,
+    stateResolver,
     optional,
+    optionalResolver,
     prop,
+    propResolver,
     t_dict,
     t_grp,
     t_sg,
     stateGroup,
+    stateGroupResolver,
     typeSelection,
     component,
+    componentResolver,
     typeRef,
     dictionaryReference,
+    dictionaryReferenceResolver,
     lookupReference,
+    lookupReferenceResolver,
     lookupConstraint,
     cyclicReference,
+    cyclicReferenceResolver,
     dictionaryConstraint,
     typeLibrary,
     constraint,
+    constraintResolver,
     externalTypeSelection,
     imprt,
     atom,
@@ -35,11 +48,18 @@ import {
     pKey,
 } from "../../../pub/dist/submodules/unresolved/shorthands"
 
-export const $: g_pareto_lang_data.T.Project<pd.SourceLocation> = {
+export const $: g_pareto_lang_data.T.Merged__Project<pd.SourceLocation> = {
     'type libraries': {
         'annotation': pd.getLocationInfo(0),
         'dictionary': pd.d({
-            "pareto lang data": typeLibrary({}, {}, {}, {}, {}),
+            "pareto lang data": typeLibrary(
+                {},
+                {
+                    "text": null,
+                    "identifier": null,
+                },
+                {},
+            ),
             // "pareto lang data": typeLibrary(
             //     {},
             //     {

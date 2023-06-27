@@ -61,28 +61,14 @@ export function imprt(
 export function typeLibrary(
     imports: RawDictionary<g_this.T.Imports.dictionary.D<pd.SourceLocation>>,
     atomTypes: RawDictionary<g_this.T.Atom__Types.dictionary.D<pd.SourceLocation>>,
-    globalTypesDefinitions: RawDictionary<g_this.T.Global__Type__Definition<pd.SourceLocation>>,
-    globalTypesDeclarations: RawDictionary<g_this.T.Global__Type__Resolver__Declarations.dictionary.D<pd.SourceLocation>>,
-    resolverImplementations: RawDictionary<g_this.T.Global__Type__Resolver__Implementation<pd.SourceLocation>>,
-): g_this.T.Type__Library<pd.SourceLocation> {
+    globalTypes: RawDictionary<g_this.T.Merged__Type__Library.global__types.dictionary.D<pd.SourceLocation>>,
+): g_this.T.Merged__Type__Library<pd.SourceLocation> {
     return {
         'imports': rawDict(imports),
         'atom types': rawDict(atomTypes),
-        'global types': {
-            'definitions': rawDict(globalTypesDefinitions),
-            'declarations': rawDict(globalTypesDeclarations),
-            'implementations': rawDict(resolverImplementations),
-        },
+        'global types': rawDict(globalTypes),
     }
 }
-
-
-
-
-
-
-
-
 
 export function arrayResolver(type: g_this.T.TypeResolver<pd.SourceLocation>): g_this.T.TypeResolver<pd.SourceLocation> {
     return {

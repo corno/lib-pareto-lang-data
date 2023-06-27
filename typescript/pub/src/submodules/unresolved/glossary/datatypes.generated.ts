@@ -369,7 +369,7 @@ export namespace N {
         export namespace T {}
     }
     
-    export namespace Model {
+    export namespace Merged_$_$Project {
         
         export namespace N {
             
@@ -377,14 +377,83 @@ export namespace N {
                 
                 export namespace N {
                     
-                    export namespace root {
+                    export namespace type_$_$libraries {
+                        
+                        export namespace N {
+                            
+                            export namespace D {
+                                
+                                export namespace N {}
+                                
+                                export namespace T {}
+                            }
+                        }
+                        
+                        export namespace T {}
+                    }
+                }
+                
+                export namespace T {}
+            }
+        }
+        
+        export namespace T {}
+    }
+    
+    export namespace Merged_$_$Type_$_$Library {
+        
+        export namespace N {
+            
+            export namespace G {
+                
+                export namespace N {
+                    
+                    export namespace atom_$_$types {
                         
                         export namespace N {}
                         
                         export namespace T {}
                     }
                     
-                    export namespace type_$_$library {
+                    export namespace global_$_$types {
+                        
+                        export namespace N {
+                            
+                            export namespace D {
+                                
+                                export namespace N {
+                                    
+                                    export namespace G {
+                                        
+                                        export namespace N {
+                                            
+                                            export namespace declaration {
+                                                
+                                                export namespace N {}
+                                                
+                                                export namespace T {}
+                                            }
+                                            
+                                            export namespace definition {
+                                                
+                                                export namespace N {}
+                                                
+                                                export namespace T {}
+                                            }
+                                        }
+                                        
+                                        export namespace T {}
+                                    }
+                                }
+                                
+                                export namespace T {}
+                            }
+                        }
+                        
+                        export namespace T {}
+                    }
+                    
+                    export namespace imports {
                         
                         export namespace N {}
                         
@@ -2430,29 +2499,83 @@ export namespace T {
         }>
     }
     
-    export namespace Model {
+    export namespace Merged__Project {
         
-        export namespace root {
+        export namespace type__libraries {
             
             export type annotation<GAnnotation> = GAnnotation
             
-            export type key<GAnnotation> = string
+            export namespace dictionary {
+                
+                export type D<GAnnotation> = T.Merged__Type__Library<GAnnotation>
+            }
+            
+            export type dictionary<GAnnotation> = pt.Dictionary<T.Merged__Type__Library<GAnnotation>>
         }
         
-        export type root<GAnnotation> = {
+        export type type__libraries<GAnnotation> = {
             readonly 'annotation': GAnnotation
-            readonly 'key': string
+            readonly 'dictionary': pt.Dictionary<T.Merged__Type__Library<GAnnotation>>
         }
-        
-        export type type__library<GAnnotation> = T.Type__Library<GAnnotation>
     }
     
-    export type Model<GAnnotation> = {
-        readonly 'root': {
+    export type Merged__Project<GAnnotation> = {
+        readonly 'type libraries': {
             readonly 'annotation': GAnnotation
-            readonly 'key': string
+            readonly 'dictionary': pt.Dictionary<T.Merged__Type__Library<GAnnotation>>
         }
-        readonly 'type library': T.Type__Library<GAnnotation>
+    }
+    
+    export namespace Merged__Type__Library {
+        
+        export type atom__types<GAnnotation> = T.Atom__Types<GAnnotation>
+        
+        export namespace global__types {
+            
+            export type annotation<GAnnotation> = GAnnotation
+            
+            export namespace dictionary {
+                
+                export namespace D {
+                    
+                    export type declaration<GAnnotation> = T.Global__Type__Resolver__Declaration<GAnnotation>
+                    
+                    export type definition<GAnnotation> = T.Global__Type__Resolver__Implementation<GAnnotation>
+                }
+                
+                export type D<GAnnotation> = {
+                    readonly 'declaration': T.Global__Type__Resolver__Declaration<GAnnotation>
+                    readonly 'definition': T.Global__Type__Resolver__Implementation<GAnnotation>
+                }
+            }
+            
+            export type dictionary<GAnnotation> = pt.Dictionary<{
+                readonly 'declaration': T.Global__Type__Resolver__Declaration<GAnnotation>
+                readonly 'definition': T.Global__Type__Resolver__Implementation<GAnnotation>
+            }>
+        }
+        
+        export type global__types<GAnnotation> = {
+            readonly 'annotation': GAnnotation
+            readonly 'dictionary': pt.Dictionary<{
+                readonly 'declaration': T.Global__Type__Resolver__Declaration<GAnnotation>
+                readonly 'definition': T.Global__Type__Resolver__Implementation<GAnnotation>
+            }>
+        }
+        
+        export type imports<GAnnotation> = T.Imports<GAnnotation>
+    }
+    
+    export type Merged__Type__Library<GAnnotation> = {
+        readonly 'atom types': T.Atom__Types<GAnnotation>
+        readonly 'global types': {
+            readonly 'annotation': GAnnotation
+            readonly 'dictionary': pt.Dictionary<{
+                readonly 'declaration': T.Global__Type__Resolver__Declaration<GAnnotation>
+                readonly 'definition': T.Global__Type__Resolver__Implementation<GAnnotation>
+            }>
+        }
+        readonly 'imports': T.Imports<GAnnotation>
     }
     
     export namespace Parameters {

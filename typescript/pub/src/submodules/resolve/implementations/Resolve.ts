@@ -33,12 +33,12 @@ export namespace types {
         // }
     ) => g_out.T.Atom__Types
 
-    export type Model<Annotation> = (
-        $: g_in.T.Model<Annotation>,
-        $p: {
-            'external type libraries': pt.Lookup<g_out.T.Type__Library>,
-        }
-    ) => g_out.T.Model
+    // export type Model<Annotation> = (
+    //     $: g_in.T.Model<Annotation>,
+    //     $p: {
+    //         'external type libraries': pt.Lookup<g_out.T.Type__Library>,
+    //     }
+    // ) => g_out.T.Model
 
     export type Root<Annotation> = (
         $: g_in.T.Root<Annotation>,
@@ -174,7 +174,7 @@ export type $<Annotation> = {
     'Global Type Definition': types.Global__Type__Definition<Annotation>
     'Global Type Selection': types.Global__Type__Selection<Annotation>
     'Imports': types.Imports<Annotation>
-    'Model': types.Model<Annotation>
+    //'Model': types.Model<Annotation>
     'Project': types.Project<Annotation>
     'Root': types.Root<Annotation>
     'Type': types.Type<Annotation>

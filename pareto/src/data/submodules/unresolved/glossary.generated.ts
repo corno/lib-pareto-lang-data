@@ -231,23 +231,68 @@ export const $: g_glossary.T.Glossary<null> = {
                     },
                 })]
             },
-            "Model": {
+            "Merged Project": {
                 'parameters': d({}),
                 'type': <g_glossary.T.Type<null>>['group', d({
-                    "root": {
+                    "type libraries": {
                         'type': <g_glossary.T.Type<null>>['group', d({
                             "annotation": {
                                 'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
                             },
-                            "key": {
-                                'type': <g_glossary.T.Type<null>>['string', null],
+                            "dictionary": {
+                                'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['reference', ['type', {
+                                    'context': ['local', null],
+                                    'typeXX': "Merged Type Library",
+                                    'tailXX': a([]),
+                                    'type arguments': d({}),
+                                }]]],
                             },
                         })],
                     },
-                    "type library": {
+                })]
+            },
+            "Merged Type Library": {
+                'parameters': d({}),
+                'type': <g_glossary.T.Type<null>>['group', d({
+                    "atom types": {
                         'type': <g_glossary.T.Type<null>>['reference', ['type', {
                             'context': ['local', null],
-                            'typeXX': "Type Library",
+                            'typeXX': "Atom Types",
+                            'tailXX': a([]),
+                            'type arguments': d({}),
+                        }]],
+                    },
+                    "global types": {
+                        'type': <g_glossary.T.Type<null>>['group', d({
+                            "annotation": {
+                                'type': <g_glossary.T.Type<null>>['reference', ['glossary parameterXX', "Annotation"]],
+                            },
+                            "dictionary": {
+                                'type': <g_glossary.T.Type<null>>['dictionary', <g_glossary.T.Type<null>>['group', d({
+                                    "declaration": {
+                                        'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                            'context': ['local', null],
+                                            'typeXX': "Global Type Resolver Declaration",
+                                            'tailXX': a([]),
+                                            'type arguments': d({}),
+                                        }]],
+                                    },
+                                    "definition": {
+                                        'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                                            'context': ['local', null],
+                                            'typeXX': "Global Type Resolver Implementation",
+                                            'tailXX': a([]),
+                                            'type arguments': d({}),
+                                        }]],
+                                    },
+                                })]],
+                            },
+                        })],
+                    },
+                    "imports": {
+                        'type': <g_glossary.T.Type<null>>['reference', ['type', {
+                            'context': ['local', null],
+                            'typeXX': "Imports",
                             'tailXX': a([]),
                             'type arguments': d({}),
                         }]],
@@ -1288,17 +1333,59 @@ export const $: g_glossary.T.Glossary<null> = {
                     },
                 }),
             },
-            "Model": {
+            "Merged Project": {
                 'types': d({}),
                 'namespaces': d({
                     "G": {
                         'types': d({}),
                         'namespaces': d({
-                            "root": {
+                            "type libraries": {
+                                'types': d({}),
+                                'namespaces': d({
+                                    "D": {
+                                        'types': d({}),
+                                        'namespaces': d({}),
+                                    },
+                                }),
+                            },
+                        }),
+                    },
+                }),
+            },
+            "Merged Type Library": {
+                'types': d({}),
+                'namespaces': d({
+                    "G": {
+                        'types': d({}),
+                        'namespaces': d({
+                            "atom types": {
                                 'types': d({}),
                                 'namespaces': d({}),
                             },
-                            "type library": {
+                            "global types": {
+                                'types': d({}),
+                                'namespaces': d({
+                                    "D": {
+                                        'types': d({}),
+                                        'namespaces': d({
+                                            "G": {
+                                                'types': d({}),
+                                                'namespaces': d({
+                                                    "declaration": {
+                                                        'types': d({}),
+                                                        'namespaces': d({}),
+                                                    },
+                                                    "definition": {
+                                                        'types': d({}),
+                                                        'namespaces': d({}),
+                                                    },
+                                                }),
+                                            },
+                                        }),
+                                    },
+                                }),
+                            },
+                            "imports": {
                                 'types': d({}),
                                 'namespaces': d({}),
                             },
