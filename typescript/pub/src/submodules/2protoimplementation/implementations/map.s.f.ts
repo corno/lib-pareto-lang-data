@@ -2,6 +2,16 @@ import * as pl from 'pareto-core-lib'
 import * as pv from 'pareto-core-dev'
 import * as pd from 'pareto-core-data'
 import * as pt from 'pareto-core-types'
+import * as tmp from 'pareto-core-internals'
+
+function optional<T, R>(
+    $: pt.RawOptionalValue<T>,
+    set: ($: T) => R,
+    notSet: () => R,
+): R {
+    return tmp.wrapRawOptionalValue($).map(set, notSet)
+}
+
 
 import * as g_this from "../glossary"
 import * as g_in from "../../resolved"
@@ -64,7 +74,7 @@ function mapOptional<T, RT>(
     $: pt.OptionalValue<T>,
     a: ($: T) => RT,
 ): pt.OptionalValue<RT> {
-    return pl.optional(
+    return optional(
         $,
         ($): pt.OptionalValue<RT> => {
             return [true, a($)]

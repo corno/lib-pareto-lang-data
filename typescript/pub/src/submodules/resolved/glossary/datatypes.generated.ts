@@ -1560,7 +1560,7 @@ export namespace N {
                                                 
                                                 export namespace N {
                                                     
-                                                    export namespace arguments {
+                                                    export namespace _$larguments {
                                                         
                                                         export namespace N {
                                                             
@@ -3335,14 +3335,14 @@ export namespace T {
             
             export namespace component {
                 
-                export namespace arguments {
+                export namespace _larguments {
                     
                     export namespace D {}
                     
                     export type D = null
                 }
                 
-                export type arguments = pt.Dictionary<null>
+                export type _larguments = pt.Dictionary<null>
                 
                 export type _ltype = T.Global__Type__Selection
             }

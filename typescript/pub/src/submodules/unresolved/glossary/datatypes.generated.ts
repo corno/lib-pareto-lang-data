@@ -1560,7 +1560,7 @@ export namespace N {
                                                 
                                                 export namespace N {
                                                     
-                                                    export namespace arguments {
+                                                    export namespace _$larguments {
                                                         
                                                         export namespace N {
                                                             
@@ -3512,7 +3512,7 @@ export namespace T {
             
             export namespace component {
                 
-                export namespace arguments {
+                export namespace _larguments {
                     
                     export type annotation<GAnnotation> = GAnnotation
                     
@@ -3526,7 +3526,7 @@ export namespace T {
                     export type dictionary<GAnnotation> = pt.Dictionary<null>
                 }
                 
-                export type arguments<GAnnotation> = {
+                export type _larguments<GAnnotation> = {
                     readonly 'annotation': GAnnotation
                     readonly 'dictionary': pt.Dictionary<null>
                 }
